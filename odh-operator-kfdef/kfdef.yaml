@@ -27,14 +27,6 @@ spec:
           name: manifests
           path: jupyterhub/notebook-images
       name: notebook-images
-    - kustomizeConfig:
-        parameters:
-          - name: SUPERSET_ADMIN_PASSWORD
-            value: admin
-        repoRef:
-          name: manifests
-          path: superset
-        name: superset
   repos:
     - name: manifests
       uri: 'https://github.com/opendatahub-io/odh-manifests/tarball/v0.8.0'
