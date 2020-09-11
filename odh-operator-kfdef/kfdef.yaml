@@ -8,6 +8,15 @@ metadata:
 spec:
   applications:
     - kustomizeConfig:
+        parameters:
+          # Note: The admin username is admin
+          - name: SUPERSET_ADMIN_PASSWORD
+            value: admin
+        repoRef:
+          name: manifests
+          path: superset
+      name: superset
+    - kustomizeConfig:
         repoRef:
           name: manifests
           path: odh-common
