@@ -27,6 +27,11 @@ spec:
           name: manifests
           path: jupyterhub/notebook-images
       name: notebook-images
+    - kustomizeConfig:
+        repoRef:
+          name: manifests
+          path: airflow/operator
+        name: airflow-operator
   repos:
     - name: manifests
       uri: 'https://github.com/opendatahub-io/odh-manifests/tarball/v0.8.0'
