@@ -1,1 +1,3 @@
-# my-odh-install
+# ODH
+
+This repo contains manifests to install opendatahub.io
