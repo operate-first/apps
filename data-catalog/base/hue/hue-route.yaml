@@ -1,0 +1,14 @@
+apiVersion: v1
+kind: Route
+metadata:
+  name: hue
+spec:
+  port:
+    targetPort: 8000-tcp
+  tls:
+    termination: edge
+  to:
+    kind: Service
+    name: hue
+    weight: 100
+  wildcardPolicy: None

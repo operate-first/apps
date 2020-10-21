@@ -1,0 +1,27 @@
+apiVersion: batch/v1
+kind: Job
+metadata:
+  name: hue-db-init
+spec:
+  parallelism: 1
+  completions: 1
+  template:
+    metadata:
+      name: hue-db-init
+    spec:
+      containers:
+        - name: db-init
+          image: hue
+          command: ["build/env/bin/hue", "migrate"]
+          imagePullPolicy: Always
+          volumeMounts:
+            - name: "hue-ini"
+              mountPath: /hue/desktop/conf/
+      volumes:
+        - name: "hue-ini"
+          secret:
+            name: hue-ini
+            items:
+              - key: hue.ini
+                path: hue.ini
+      restartPolicy: OnFailure
