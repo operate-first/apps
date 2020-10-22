@@ -8,14 +8,6 @@ spec:
       labels:
         name: thriftserver
     spec:
-      initContainers:
-        - name: custom-authenticator-builder
-          image: "thriftserver-custom-authenticator:latest"
-          volumeMounts:
-            - name: custom-authenticator
-              mountPath: /datahub/hive/
-            - name: custom-authenticator-build
-              mountPath: /custom-authenticator/
       containers:
         - name: thriftserver
           image: spark-cluster-image
@@ -46,8 +38,6 @@ spec:
               mountPath: /etc/spark-properties
             - name: thriftserver-data
               mountPath: /spark-warehouse
-            - name: custom-authenticator-build
-              mountPath: /opt/spark/jars
             - name: thriftserver-hdfs-hive
               mountPath: /opt/spark/conf
           resources:
@@ -69,12 +59,6 @@ spec:
             timeoutSeconds: 5
       restartPolicy: Always
       volumes:
-        - name: custom-authenticator
-          secret:
-            secretName: thriftserver-custom-authenticator
-            items:
-              - key: DataHubAuthenticator.java
-                path: DataHubAuthenticator.java
         - name: thriftserver-hdfs-hive
           secret:
             secretName: thriftserver-hdfs-hive
@@ -90,18 +74,8 @@ spec:
         - name: thriftserver-data
           persistentVolumeClaim:
             claimName: thriftserver
-        - name: custom-authenticator-build
-          emptyDir: {}
   replicas: 1
   strategy:
     type: Recreate
   triggers:
     - type: ConfigChange
-    - type: ImageChange
-      imageChangeParams:
-        automatic: true
-        from:
-          kind: ImageStreamTag
-          name: "thriftserver-custom-authenticator:latest"
-        containerNames:
-          - custom-authenticator-builder

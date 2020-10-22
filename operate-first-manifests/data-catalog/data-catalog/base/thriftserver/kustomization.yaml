@@ -7,9 +7,6 @@ resources:
   - postgres-pvc.yaml
   - postgres-secret.yaml
   - postgres-service.yaml
-  - thriftserver-custom-authenticator-bc.yaml
-  - thriftserver-custom-authenticator-is.yaml
-  - thriftserver-custom-authenticator-secret.yaml
   - thriftserver-dc.yaml
   - thriftserver-hdfs-hive-secret.yaml
   - thriftserver-pvc.yaml
