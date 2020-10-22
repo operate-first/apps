@@ -4,6 +4,9 @@ metadata:
   name: hue
 spec:
   template:
+    metadata:
+      labels:
+        name: hue
     spec:
       containers:
         - name: hue
