@@ -20,7 +20,7 @@ spec:
       volumes:
         - name: "hue-ini"
           secret:
-            name: hue-ini
+            secretName: hue-ini
             items:
               - key: hue.ini
                 path: hue.ini

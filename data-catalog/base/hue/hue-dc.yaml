@@ -50,13 +50,13 @@ spec:
       volumes:
         - name: "hue-ini"
           secret:
-            name: hue-ini
+            secretName: hue-ini
             items:
               - key: hue.ini
                 path: hue.ini
         - name: "hive-site-xml"
           secret:
-            name: hue-hive-site-xml
+            secretName: hue-hive-site-xml
             items:
               - key: hive-site.xml
                 path: hive-site.xml
