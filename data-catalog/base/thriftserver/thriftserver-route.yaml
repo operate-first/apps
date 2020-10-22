@@ -1,0 +1,12 @@
+apiVersion: v1
+kind: Route
+metadata:
+  name: thriftserver
+spec:
+  port:
+    targetPort: 4040-tcp
+  to:
+    kind: Service
+    name: thriftserver
+    weight: 100
+  wildcardPolicy: None
