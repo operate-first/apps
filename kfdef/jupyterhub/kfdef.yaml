@@ -2,20 +2,10 @@ apiVersion: kfdef.apps.kubeflow.org/v1
 kind: KfDef
 metadata:
   annotations:
-    kfctl.kubeflow.io/force-delete: 'false'
+    kfctl.kubeflow.io/force-delete: "false"
   name: opendatahub
-  namespace: odh-deployment
 spec:
   applications:
-    - kustomizeConfig:
-        parameters:
-          # Note: The admin username is admin
-          - name: SUPERSET_ADMIN_PASSWORD
-            value: admin
-        repoRef:
-          name: manifests
-          path: superset
-      name: superset
     - kustomizeConfig:
         repoRef:
           name: manifests
@@ -38,5 +28,5 @@ spec:
       name: notebook-images
   repos:
     - name: manifests
-      uri: 'https://github.com/opendatahub-io/odh-manifests/tarball/v0.8.0'
+      uri: "https://github.com/opendatahub-io/odh-manifests/tarball/v0.8.0"
   version: v0.8.0
