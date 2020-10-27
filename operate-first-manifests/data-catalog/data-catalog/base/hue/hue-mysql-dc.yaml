@@ -21,9 +21,9 @@ spec:
   selector:
     name: hue-mysql
   template:
-      metadata:
-        labels:
-          name: hue-mysql
+    metadata:
+      labels:
+        name: hue-mysql
     spec:
       containers:
         - name: mysqld-exporter

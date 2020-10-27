@@ -11,21 +11,7 @@ resources:
   - hue-mysql-service.yaml
   - hue-mysqld-exporter-secret.yaml
   - hue-route.yaml
-  - hue-secret.yaml
   - hue-service.yaml
 
 commonLabels:
   app: hue
-
-configurations:
-  - image-transformer-configuration.yaml
-
-images:
-  - name: hue
-    newName: shgriffi/hue
-    newTag: test
-  - name: mysql
-    newName: openshift/mysql
-    newTag: "5.7"
-  - name: mysqld-exporter
-    newName: prom/mysqld-exporter

@@ -11,22 +11,8 @@ resources:
   - thriftserver-hdfs-hive-secret.yaml
   - thriftserver-pvc.yaml
   - thriftserver-route.yaml
-  - thriftserver-secret.yaml
   - thriftserver-server-conf-secret.yaml
   - thriftserver-service.yaml
 
 commonLabels:
   app: thriftserver
-
-configurations:
-  - image-transformer-configuration.yaml
-
-images:
-  - name: spark-cluster-image
-    newName: quay.io/opendatahub/spark-cluster-image
-    newTag: spark24
-  - name: postgresql
-    newName: openshift/postgresql
-    newTag: "9.6"
-  - name: postgres-exporter
-    newName: docker.io/wrouesnel/postgres_exporter

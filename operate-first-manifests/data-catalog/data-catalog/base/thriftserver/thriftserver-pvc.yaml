@@ -3,7 +3,7 @@ apiVersion: v1
 metadata:
   name: thriftserver
   annotations:
-    volume.beta.kubernetes.io/storage-class: ""
+    volume.beta.kubernetes.io/storage-class: "$(storage_class)"
 spec:
   accessModes:
     - ReadWriteOnce

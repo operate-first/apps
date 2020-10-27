@@ -1,3 +1,0 @@
-images:
-  - path: spec/triggers[]/imageChangeParams/from/name
-    kind: DeploymentConfig

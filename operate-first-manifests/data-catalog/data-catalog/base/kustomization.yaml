@@ -1,6 +1,82 @@
 apiVersion: kustomize.config.k8s.io/v1beta1
 kind: Kustomization
 
+namespace: ABC
+
 resources:
   - ./hue
   - ./thriftserver
+
+commonLabels:
+  opendatahub.io/component: "true"
+  component.opendatahub.io/name: datacatalog
+
+configMapGenerator:
+  - name: datacatalog-config
+    envs:
+      - params.env
+secretGenerator:
+  - name: datacatalog-secret
+    envs:
+      - secrets.env
+
+generatorOptions:
+  disableNameSuffixHash: true
+
+vars:
+  - name: namespace
+    objref:
+      kind: Service
+      apiVersion: v1
+      name: hue
+    fieldref:
+      fieldpath: metadata.namespace
+  - name: storage_class
+    objref:
+      kind: ConfigMap
+      apiVersion: v1
+      name: datacatalog-config
+    fieldref:
+      fieldpath: data.storage_class
+  - name: mysql_user
+    objref:
+      kind: Secret
+      apiVersion: v1
+      name: hue-mysql-secret
+    fieldref:
+      fieldpath: stringData.database-user
+  - name: mysql_password
+    objref:
+      kind: Secret
+      apiVersion: v1
+      name: hue-mysql-secret
+    fieldref:
+      fieldpath: stringData.database-password
+  - name: mysql_db
+    objref:
+      kind: Secret
+      apiVersion: v1
+      name: hue-mysql-secret
+    fieldref:
+      fieldpath: stringData.database-name
+
+configurations:
+  - configurations.yaml
+
+images:
+  - name: hue
+    newName: shgriffi/hue
+    newTag: test
+  - name: mysql
+    newName: openshift/mysql
+    newTag: "5.7"
+  - name: mysqld-exporter
+    newName: prom/mysqld-exporter
+  - name: spark-cluster-image
+    newName: quay.io/opendatahub/spark-cluster-image
+    newTag: spark24
+  - name: postgresql
+    newName: openshift/postgresql
+    newTag: "9.6"
+  - name: postgres-exporter
+    newName: docker.io/wrouesnel/postgres_exporter
