@@ -1,0 +1,24 @@
+apiVersion: kfdef.apps.kubeflow.org/v1
+kind: KfDef
+metadata:
+  annotations:
+    kfctl.kubeflow.io/force-delete: "false"
+  name: opendatahub
+spec:
+  applications:
+    - kustomizeConfig:
+        repoRef:
+          name: manifests
+          path: odh-common
+      name: odh-common
+    - kustomizeConfig:
+        repoRef:
+          name: of-manifests
+          path: kfdef/datacatalog/manifests
+      name: datacatalog
+  repos:
+    - name: of-manifests
+      uri: "https://github.com/operate-first/odh/tarball/master"
+    - name: manifests
+      uri: "https://github.com/opendatahub-io/odh-manifests/tarball/v0.8.0"
+  version: v0.8.0
