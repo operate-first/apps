@@ -1,5 +1,8 @@
+---
 varReference:
   - path: stringData/hue.ini
+    kind: Secret
+  - path: stringData/thrift-server.conf
     kind: Secret
   - path: metadata/annotations/volume.beta.kubernetes.io/storage-class
     kind: PersistentVolumeClaim

@@ -1,3 +1,4 @@
+---
 apiVersion: kustomize.config.k8s.io/v1beta1
 kind: Kustomization
 
@@ -15,10 +16,6 @@ configMapGenerator:
   - name: datacatalog-config
     envs:
       - params.env
-secretGenerator:
-  - name: datacatalog-secret
-    envs:
-      - secrets.env
 
 generatorOptions:
   disableNameSuffixHash: true
@@ -38,27 +35,41 @@ vars:
       name: datacatalog-config
     fieldref:
       fieldpath: data.storage_class
-  - name: mysql_user
+  - name: spark_url
     objref:
-      kind: Secret
+      kind: ConfigMap
       apiVersion: v1
-      name: hue-mysql-secret
+      name: datacatalog-config
     fieldref:
-      fieldpath: stringData.database-user
-  - name: mysql_password
+      fieldpath: data.spark_url
+  - name: spark_max_cores
     objref:
-      kind: Secret
+      kind: ConfigMap
       apiVersion: v1
-      name: hue-mysql-secret
+      name: datacatalog-config
     fieldref:
-      fieldpath: stringData.database-password
-  - name: mysql_db
+      fieldpath: data.spark_max_cores
+  - name: spark_executor_memory
     objref:
-      kind: Secret
+      kind: ConfigMap
       apiVersion: v1
-      name: hue-mysql-secret
+      name: datacatalog-config
     fieldref:
-      fieldpath: stringData.database-name
+      fieldpath: data.spark_executor_memory
+  - name: spark_driver_memory
+    objref:
+      kind: ConfigMap
+      apiVersion: v1
+      name: datacatalog-config
+    fieldref:
+      fieldpath: data.spark_driver_memory
+  - name: s3_endpoint
+    objref:
+      kind: ConfigMap
+      apiVersion: v1
+      name: datacatalog-config
+    fieldref:
+      fieldpath: data.s3_endpoint
 
 configurations:
   - configurations.yaml

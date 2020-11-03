@@ -1,9 +1,10 @@
+---
 kind: PersistentVolumeClaim
 apiVersion: v1
 metadata:
   name: postgres
   annotations:
-    volume.beta.kubernetes.io/storage-class: ""
+    volume.beta.kubernetes.io/storage-class: "$(storage_class)"
 spec:
   accessModes:
     - ReadWriteOnce

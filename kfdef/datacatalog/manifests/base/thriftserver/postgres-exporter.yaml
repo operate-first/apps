@@ -1,3 +1,4 @@
+---
 apiVersion: v1
 kind: Secret
 metadata:
@@ -7,4 +8,5 @@ metadata:
     template: dh-data-catalog
     app: thriftserver
 stringData:
-  DATA_SOURCE_NAME: "postgresql://datacatalog:datacatalog@localhost:5432/datacatalog?sslmode=disable"
+  DATA_SOURCE_NAME: |
+    postgresql://datacatalog:datacatalog@localhost:5432/datacatalog?sslmode=disable
