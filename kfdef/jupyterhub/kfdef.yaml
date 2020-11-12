@@ -26,9 +26,13 @@ spec:
       name: prometheus-operator
     # ODH Jupyterhub Components
     - kustomizeConfig:
+        overlays:
+          - storage-class
         parameters:
           - name: s3_endpoint_url
             value: s3.odh.com
+          - name: storage_class
+            value: ocs-storagecluster-cephfs
         repoRef:
           name: manifests
           path: jupyterhub/jupyterhub
