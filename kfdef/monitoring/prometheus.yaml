@@ -1,0 +1,16 @@
+---
+apiVersion: monitoring.coreos.com/v1
+kind: Prometheus
+metadata:
+  name: odh-monitoring
+  labels:
+    app: prometheus
+    prometheus: k8s
+spec:
+  serviceMonitorSelector: {}
+  securityContext: {}
+  ruleSelector: {}
+  replicas: 2
+  remoteRead:
+    - url: "http://prometheus-operated.opf-jupyterhub.svc.cluster.local:9090\
+            /api/v1/read"
