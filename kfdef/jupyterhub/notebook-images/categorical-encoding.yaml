@@ -1,22 +1,26 @@
+---
 apiVersion: image.openshift.io/v1
 kind: ImageStream
 metadata:
   labels:
     opendatahub.io/notebook-image: "true"
   annotations:
-    opendatahub.io/notebook-image-url: "https://github.com/aicoe-aiops/categorical-encoding"
-    opendatahub.io/notebook-image-name: "Categorical Encoding Notebook Image"
-    opendatahub.io/notebook-image-desc: "Jupyter notebook image with categorical encoding examples"
+    opendatahub.io/notebook-image-url:
+      "https://github.com/aicoe-aiops/categorical-encoding"
+    opendatahub.io/notebook-image-name:
+      "Categorical Encoding Notebook Image"
+    opendatahub.io/notebook-image-desc:
+      "Jupyter notebook image with categorical encoding examples"
   name: categorical-encoding
 spec:
   lookupPolicy:
     local: true
   tags:
-  - annotations:
-      openshift.io/imported-from: quay.io/aicoe/categorical-encoding
-    from:
-      kind: DockerImage
-      name: quay.io/aicoe/categorical-encoding:latest
-    importPolicy:
-      scheduled: true
-    name: "latest"
+    - annotations:
+        openshift.io/imported-from: quay.io/aicoe/categorical-encoding
+      from:
+        kind: DockerImage
+        name: quay.io/aicoe/categorical-encoding:latest
+      importPolicy:
+        scheduled: true
+      name: "latest"
