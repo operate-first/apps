@@ -1,0 +1,26 @@
+---
+apiVersion: image.openshift.io/v1
+kind: ImageStream
+metadata:
+  labels:
+    opendatahub.io/notebook-image: "true"
+  annotations:
+    opendatahub.io/notebook-image-url:
+      "https://github.com/aicoe-aiops/ocp-ci-analysis"
+    opendatahub.io/notebook-image-name:
+      "Openshift CI Analysis Notebook Image"
+    opendatahub.io/notebook-image-desc:
+      "Jupyter notebook image for the OpenShift CI Analysis project"
+  name: ocp-ci-analysis
+spec:
+  lookupPolicy:
+    local: true
+  tags:
+    - annotations:
+        openshift.io/imported-from: quay.io/aicoe/ocp-ci-analysis
+      from:
+        kind: DockerImage
+        name: quay.io/aicoe/ocp-ci-analysis:latest
+      importPolicy:
+        scheduled: true
+      name: "latest"

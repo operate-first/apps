@@ -4,3 +4,4 @@ kind: Kustomization
 namespace: opf-jupyterhub
 resources:
   - categorical-encoding.yaml
+  - ocp-ci-analysis.yaml
