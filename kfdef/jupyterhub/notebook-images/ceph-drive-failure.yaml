@@ -1,0 +1,26 @@
+---
+apiVersion: image.openshift.io/v1
+kind: ImageStream
+metadata:
+  labels:
+    opendatahub.io/notebook-image: "true"
+  annotations:
+    opendatahub.io/notebook-image-url:
+      "https://github.com/aicoe-aiops/ceph_drive_failure"
+    opendatahub.io/notebook-image-name:
+      "Ceph Hard Drive Failure Prediction Notebook Image"
+    opendatahub.io/notebook-image-desc:
+      "Jupyter notebook image for hard drive failure prediction models"
+  name: ceph-drive-failure
+spec:
+  lookupPolicy:
+    local: true
+  tags:
+    - annotations:
+        openshift.io/imported-from: quay.io/aicoe/ceph-drive-failure
+      from:
+        kind: DockerImage
+        name: quay.io/aicoe/ceph-drive-failure:latest
+      importPolicy:
+        scheduled: true
+      name: "latest"

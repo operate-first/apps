@@ -5,3 +5,4 @@ namespace: opf-jupyterhub
 resources:
   - categorical-encoding.yaml
   - ocp-ci-analysis.yaml
+  - ceph-drive-failure.yaml
