@@ -6,3 +6,4 @@ resources:
   - kfdef.yaml
   - prometheus.yaml
   - prometheus-route.yaml
+  - grafana.yaml

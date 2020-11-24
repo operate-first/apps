@@ -7,18 +7,21 @@ metadata:
   name: opendatahub
 spec:
   applications:
-    # ODH Common Components
     - kustomizeConfig:
         repoRef:
           name: manifests
           path: odh-common
       name: odh-common
-    # ODH Prometheus Operator Components
     - kustomizeConfig:
         repoRef:
           name: manifests
           path: prometheus/cluster
       name: prometheus-cluster
+    - kustomizeConfig:
+        repoRef:
+          name: manifests
+          path: grafana/cluster
+      name: grafana-cluster
   repos:
     - name: manifests
       uri: "https://github.com/opendatahub-io/odh-manifests/tarball/v0.9.0"
