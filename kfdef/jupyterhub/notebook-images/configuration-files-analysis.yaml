@@ -1,0 +1,26 @@
+---
+apiVersion: image.openshift.io/v1
+kind: ImageStream
+metadata:
+  labels:
+    opendatahub.io/notebook-image: "true"
+  annotations:
+    opendatahub.io/notebook-image-url:
+      "https://github.com/aicoe-aiops/configuration-files-analysis"
+    opendatahub.io/notebook-image-name:
+      "Configuration File Analysis Notebook Image"
+    opendatahub.io/notebook-image-desc:
+      "Jupyter notebook image for the Configuration File Analysis project"
+  name: configuration-files-analysis
+spec:
+  lookupPolicy:
+    local: true
+  tags:
+    - annotations:
+        openshift.io/imported-from: quay.io/aicoe/configuration-files-analysis
+      from:
+        kind: DockerImage
+        name: quay.io/aicoe/configuration-files-analysis:latest
+      importPolicy:
+        scheduled: true
+      name: "latest"
