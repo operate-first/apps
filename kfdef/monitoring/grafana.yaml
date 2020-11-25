@@ -4,10 +4,10 @@ metadata:
     name: grafana
 spec:
     baseImage: quay.io/app-sre/grafana:7.1.1
-    security:
-        admin_user: "root"
-        admin_password: "secret"
     config:
+        security:
+            admin_user: "root"
+            admin_password: "secret"
         users:
             allow_sign_up: false
             auto_assign_org: true
@@ -40,7 +40,7 @@ spec:
         - -cookie-secret=SECRET
         - -skip-auth-regex=^/metrics,/api/datasources,/api/dashboards
         - '-openshift-sar={"resource": "namespaces", "verb": "get", "resourceName":
-            "dh-psi-monitoring", "namespace": "dh-psi-monitoring"}'
+            "opf-monitoring", "namespace": "opf-monitoring"}'
         image: registry.redhat.io/openshift4/ose-oauth-proxy:v4.4
         name: oauth-proxy
         ports:
@@ -50,9 +50,6 @@ spec:
         volumeMounts:
         -   mountPath: /etc/tls/private
             name: secret-grafana-tls
-            readOnly: false
-        -   mountPath: /etc/proxy/secrets
-            name: secret-grafana-proxy
             readOnly: false
     ingress:
         enabled: true
