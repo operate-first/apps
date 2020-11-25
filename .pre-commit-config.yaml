@@ -23,4 +23,4 @@ repos:
       - id: yamllint
         files: \.(yaml|yml)$
         types: [file, yaml]
-        entry: yamllint --strict
+        entry: yamllint --strict -c yamllint-config.yaml
