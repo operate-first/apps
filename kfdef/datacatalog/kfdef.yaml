@@ -1,0 +1,63 @@
+---
+apiVersion: kfdef.apps.kubeflow.org/v1
+kind: KfDef
+metadata:
+  annotations:
+    kfctl.kubeflow.io/force-delete: "false"
+  name: opendatahub
+spec:
+  applications:
+    - kustomizeConfig:
+        repoRef:
+          name: manifests
+          path: radanalyticsio/spark/cluster
+      name: radanalyticsio-spark-cluster
+    - kustomizeConfig:
+        repoRef:
+          name: manifests
+          path: odh-common
+      name: odh-common
+    - kustomizeConfig:
+        repoRef:
+          name: ceph
+          path: ceph/object-storage/scc
+      name: ceph-nano-scc
+    - kustomizeConfig:
+        repoRef:
+          name: ceph
+          path: ceph/object-storage/nano
+      name: ceph-nano
+    - kustomizeConfig:
+        parameters:
+          - name: s3_endpoint_url
+            value: ceph-nano-0
+          - name: s3_is_secure
+            value: "false"
+          - name: s3_credentials_secret
+            value: ceph-nano-credentials
+        repoRef:
+          name: hue
+          path: hue/hue
+      name: hue
+    - kustomizeConfig:
+        overlays:
+          - create-spark-cluster
+        parameters:
+          - name: s3_endpoint_url
+            value: ceph-nano-0
+          - name: s3_credentials_secret
+            value: ceph-nano-credentials
+        repoRef:
+          name: thrift
+          path: thriftserver/thriftserver
+      name: thriftserver
+  repos:
+    - name: manifests
+      uri: "https://github.com/opendatahub-io/odh-manifests/tarball/v0.9.0"
+    - name: hue
+      uri: "https://github.com/tumido/odh-manifests/tarball/datacatalog-hue"
+    - name: thrift
+      uri: "https://github.com/tumido/odh-manifests/tarball/datacatalog-thriftserver"  # yamllint disable-line rule:line-length
+    - name: ceph
+      uri: "https://github.com/tumido/odh-manifests/tarball/ceph-credentials"
+  version: v0.9-branch-openshift
