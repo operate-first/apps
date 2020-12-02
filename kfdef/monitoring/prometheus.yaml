@@ -2,6 +2,8 @@
 apiVersion: monitoring.coreos.com/v1
 kind: Prometheus
 metadata:
+  annotations:
+    argocd.argoproj.io/sync-wave: "1"
   name: odh-monitoring
   labels:
     app: prometheus
