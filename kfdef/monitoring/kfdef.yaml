@@ -3,6 +3,7 @@ apiVersion: kfdef.apps.kubeflow.org/v1
 kind: KfDef
 metadata:
   annotations:
+    argocd.argoproj.io/sync-wave: "0"
     kfctl.kubeflow.io/force-delete: "false"
   name: opendatahub
 spec:
