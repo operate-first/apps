@@ -29,6 +29,4 @@ spec:
   repos:
     - name: manifests
       uri: "https://github.com/opendatahub-io/odh-manifests/tarball/v0.9.0"
-    - name: of-overrides
-      uri: https://github.com/operate-first/odh/tarball/master
   version: v0.9.0

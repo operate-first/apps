@@ -21,6 +21,11 @@ spec:
     - kustomizeConfig:
         repoRef:
           name: manifests
+          path: prometheus/operator
+      name: prometheus-operator
+    - kustomizeConfig:
+        repoRef:
+          name: manifests
           path: grafana/cluster
       name: grafana-cluster
   repos:
