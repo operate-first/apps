@@ -7,3 +7,4 @@ resources:
   - ocp-ci-analysis.yaml
   - ceph-drive-failure.yaml
   - configuration-files-analysis.yaml
+  - cloud-price-analysis.yaml
