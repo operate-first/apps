@@ -4,3 +4,4 @@ kind: Kustomization
 
 resources:
   - ../../../base/kafka
+  - topics
