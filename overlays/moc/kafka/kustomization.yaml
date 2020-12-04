@@ -4,6 +4,7 @@ kind: Kustomization
 
 resources:
   - ../../../base/kafka
+  - topics
 
 patchesJson6902:
   - patch: |
