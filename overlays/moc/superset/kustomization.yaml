@@ -16,7 +16,7 @@ patchesJson6902:
               path: overlays/moc/superset/overrides
           name: superset
       - op: add
-        path: /spec/repositories
+        path: /spec/repos/-
         value:
           name: opf
           uri: https://github.com/operate-first/odh/tarball/master
