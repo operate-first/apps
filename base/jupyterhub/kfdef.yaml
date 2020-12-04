@@ -7,32 +7,16 @@ metadata:
   name: opendatahub
 spec:
   applications:
-    # ODH Common Components
     - kustomizeConfig:
         repoRef:
           name: manifests
           path: odh-common
       name: odh-common
-    # ODH Monitoring Components
     - kustomizeConfig:
-        repoRef:
-          name: manifests
-          path: prometheus/cluster
-      name: prometheus-cluster
-    - kustomizeConfig:
-        repoRef:
-          name: manifests
-          path: prometheus/operator
-      name: prometheus-operator
-    # ODH Jupyterhub Components
-    - kustomizeConfig:
-        overlays:
-          - storage-class
+        overlays: []
         parameters:
           - name: s3_endpoint_url
             value: s3.odh.com
-          - name: storage_class
-            value: ocs-storagecluster-cephfs
         repoRef:
           name: manifests
           path: jupyterhub/jupyterhub

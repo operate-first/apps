@@ -28,6 +28,7 @@ spec:
           path: ceph/object-storage/nano
       name: ceph-nano
     - kustomizeConfig:
+        overlays: []
         parameters:
           - name: s3_endpoint_url
             value: ceph-nano-0

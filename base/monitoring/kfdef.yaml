@@ -3,6 +3,7 @@ apiVersion: kfdef.apps.kubeflow.org/v1
 kind: KfDef
 metadata:
   annotations:
+    argocd.argoproj.io/sync-wave: "0"
     kfctl.kubeflow.io/force-delete: "false"
   name: opendatahub
 spec:
@@ -13,22 +14,21 @@ spec:
           path: odh-common
       name: odh-common
     - kustomizeConfig:
-        parameters:
-          # Note: The admin username is admin
-          - name: SUPERSET_ADMIN_PASSWORD
-            value: admin
         repoRef:
           name: manifests
-          path: superset
-      name: superset
+          path: prometheus/cluster
+      name: prometheus-cluster
     - kustomizeConfig:
         repoRef:
-          name: of-overrides
-          path: kfdef/superset/overrides
-      name: superset
+          name: manifests
+          path: prometheus/operator
+      name: prometheus-operator
+    - kustomizeConfig:
+        repoRef:
+          name: manifests
+          path: grafana/cluster
+      name: grafana-cluster
   repos:
     - name: manifests
       uri: "https://github.com/opendatahub-io/odh-manifests/tarball/v0.9.0"
-    - name: of-overrides
-      uri: https://github.com/operate-first/odh/tarball/master
   version: v0.9.0
