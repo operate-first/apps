@@ -13,6 +13,16 @@ spec:
           path: odh-common
       name: odh-common
     - kustomizeConfig:
+        repoRef:
+          name: manifests
+          path: prometheus/cluster
+      name: prometheus-cluster
+    - kustomizeConfig:
+        repoRef:
+          name: manifests
+          path: prometheus/operator
+      name: prometheus-operator
+    - kustomizeConfig:
         overlays: []
         parameters:
           - name: s3_endpoint_url
