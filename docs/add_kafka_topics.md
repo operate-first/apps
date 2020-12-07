@@ -10,7 +10,7 @@ Replace `my-topic` with a preferred name.
 apiVersion: kafka.strimzi.io/v1beta1
 kind: KafkaTopic
 metadata:
-  name: orders
+  name: my-topic
   labels:
     strimzi.io/cluster: odh-message-bus
 spec:
