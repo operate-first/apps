@@ -1,0 +1,34 @@
+---
+apiVersion: integreatly.org/v1alpha1
+kind: Grafana
+metadata:
+    annotations:
+        argocd.argoproj.io/sync-wave: "1"
+    name: grafana
+spec:
+    baseImage: quay.io/app-sre/grafana:7.1.1
+    config:
+        security:
+            admin_user: "root"
+            admin_password: "secret"
+        users:
+            viewers_can_edit: true
+            allow_sign_up: false
+            auto_assign_org: true
+            auto_assign_org_role: Viewer
+        auth:
+            disable_login_form: true
+        auth.anonymous:
+            enabled: true
+            org_role: Viewer
+        log:
+            level: warn
+            mode: console
+    dashboardLabelSelector:
+    -   matchExpressions:
+        -   key: app
+            operator: In
+            values:
+            - grafana
+    ingress:
+        enabled: true
