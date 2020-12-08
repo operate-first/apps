@@ -1,0 +1,15 @@
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: github-receiver-service
+spec:
+  ports:
+    - port: 9393
+      protocol: TCP
+      targetPort: receiver
+  selector:
+    # Pods with labels matching this key/value pair will be publically
+    # accessible through the service IP and port.
+    run: github-receiver
+  type: ClusterIP

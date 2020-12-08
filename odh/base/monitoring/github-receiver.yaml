@@ -1,0 +1,37 @@
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: github-receiver
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      run: github-receiver
+  template:
+    metadata:
+      labels:
+        run: github-receiver
+      annotations:
+        prometheus.io/scrape: 'true'
+        prometheus.io/port: '9990'
+    spec:
+      containers:
+        - name: github-receiver
+          image: quay.io/operate-first/alertmanager-github-receiver:v0.10
+          env:
+            - name: GITHUB_AUTH_TOKEN
+              valueFrom:
+                secretKeyRef:
+                  name: github-secrets
+                  key: auth-token
+          args: ["--authtoken=$(GITHUB_AUTH_TOKEN)",
+                 "--org=operate-first",
+                 "--repo=SRE",
+                 "--label=in progress",
+                 "--enable-inmemory=false"]
+          ports:
+            - containerPort: 9393
+              name: receiver
+            - containerPort: 9990
+              name: metrics
