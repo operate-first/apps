@@ -9,6 +9,12 @@ metadata:
     app: prometheus
     prometheus: k8s
 spec:
+  alerting:
+    alertmanagers:
+      - name: alertmanager-operated
+        namespace: opf-monitoring
+        port: web
+  serviceAccountName: prometheus-k8s
   serviceMonitorSelector: {}
   securityContext: {}
   ruleSelector: {}
