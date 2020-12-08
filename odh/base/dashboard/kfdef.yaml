@@ -18,11 +18,11 @@ spec:
           - cluster-role
         repoRef:
           name: opf
-          path: base/dashboard/overrides
+          path: odh/base/dashboard/overrides
       name: odh-dashboard
   repos:
     - name: manifests
       uri: "https://github.com/opendatahub-io/odh-manifests/tarball/v0.9.0"
     - name: opf
-      uri: "https://github.com/operate-first/odh/tarball/master"
+      uri: "https://github.com/operate-first/apps/tarball/master"
   version: v0.9.0

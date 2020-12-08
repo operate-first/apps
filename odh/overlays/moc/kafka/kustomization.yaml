@@ -3,7 +3,8 @@ apiVersion: kustomize.config.k8s.io/v1beta1
 kind: Kustomization
 
 resources:
-  - ../../../base/superset
+  - ../../../base/kafka
+  - topics
 
 patchesJson6902:
   - patch: |
@@ -13,13 +14,13 @@ patchesJson6902:
           kustomizeConfig:
             repoRef:
               name: opf
-              path: overlays/moc/superset/overrides
+              path: odh/overlays/moc/kafka/overrides
           name: superset
       - op: add
         path: /spec/repos/-
         value:
           name: opf
-          uri: https://github.com/operate-first/odh/tarball/master
+          uri: https://github.com/operate-first/apps/tarball/master
     target:
       group: kfdef.apps.kubeflow.org
       kind: KfDef
