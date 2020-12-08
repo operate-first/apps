@@ -1,0 +1,24 @@
+---
+apiVersion: kfdef.apps.kubeflow.org/v1
+kind: KfDef
+metadata:
+  annotations:
+    argocd.argoproj.io/sync-wave: "0"
+    kfctl.kubeflow.io/force-delete: "false"
+  name: opendatahub
+spec:
+  applications:
+    - kustomizeConfig:
+        repoRef:
+          name: manifests
+          path: odh-common
+      name: odh-common
+    - kustomizeConfig:
+        repoRef:
+          name: manifests
+          path: grafana/cluster
+      name: grafana-cluster
+  repos:
+    - name: manifests
+      uri: 'https://github.com/opendatahub-io/odh-manifests/tarball/v0.9.0'
+  version: v0.9.0
