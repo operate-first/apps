@@ -1,0 +1,11 @@
+---
+# THIS IS A SAMPLE SECRET, DO NOT USE
+apiVersion: v1
+kind: Secret
+metadata:
+  name: dex-clients
+type: Opaque
+stringData:
+  ARGO_SECRET: "SecretForArgo"
+  GRAFANA_SECRET: "SecretForGrafana"
+  HUE_SECRET: "SecretForHue"

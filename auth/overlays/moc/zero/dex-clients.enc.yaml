@@ -1,0 +1,36 @@
+apiVersion: v1
+kind: Secret
+metadata:
+    name: dex-clients
+    annotations:
+        kustomize.config.k8s.io/behavior: replace
+type: Opaque
+stringData:
+    ARGO_SECRET: ENC[AES256_GCM,data:oNSLnl72c0y9revmrBqjSkymGWbfUCdITWINMTEcWaKRD/Hf,iv:fpDAzWcFI+pC2PaN+8g7wHWqgyGSl3IVOHgBHgy9uwk=,tag:996zpBxk5AZoQY4OdA7iPg==,type:str]
+    GRAFANA_SECRET: ENC[AES256_GCM,data:G+5Ott0i7bUB7U1ms+338DmBrqwGGAN+kk46UuauO+OUdwPp,iv:BYGg10hI6w3FO3TQHLScuFyO/OgFoiN6BpwYIP/s9Hc=,tag:+9ZuOeb2VbuVKdVMEI6X5g==,type:str]
+    HUE_SECRET: ENC[AES256_GCM,data:oDeJpTbjuUPV0P59sMXvrsfjIQaev+PMRSo6NeEd2JCawbuu,iv:D29/WlwnJJWDo91j3DqiHTvkYpeYzFijFxTJwLN87Mo=,tag:gAsHSZ33JuDSR8BqmKpbgg==,type:str]
+sops:
+    kms: []
+    gcp_kms: []
+    azure_kv: []
+    hc_vault: []
+    lastmodified: '2021-03-12T17:52:06Z'
+    mac: ENC[AES256_GCM,data:OJJuY6YIhUYMZrvoKOw9eqV5wl6Vzwt8CCTgmq5gBHr8tlTjnAtuGSbsGTjm2X/w4G6KvcLIipRbBQds0iBEF6wjVw+8BFEWllD+6/VIF52t6uBFfzsI/LuxqSPtWHXq881WTGEeq396pKUXuNfVFzmJ9Ya/R+F1fieN60pftnc=,iv:DgKlI08/Q3WdpBC05ux/bxOl1eTh0TCimUbinAaT3NY=,tag:N49C2d2SxDrsdDqWhGAvEg==,type:str]
+    pgp:
+    -   created_at: '2021-01-05T16:58:03Z'
+        enc: |
+            -----BEGIN PGP MESSAGE-----
+
+            hQEMA/irrHa183bxAQgAiuB2BVmm7oo89XwhHxh03cgDd6HxxHEJAfHtznR53k2n
+            d8KkKbFEl/cwAWuGsN1YXwbtVzslIKR3+nzeY/PCok6hKov74U5N0WFPx0XifjdB
+            34xHkPFi4QmHOkI+kQDgS/bpkjqPbZ5jVCLWkuDSNGleqQVvGYvtqjfGTSOAfym3
+            FodxFZKGJtICNbWlh7Mae+WhbtdhCUkUHp3QENyjmRtAAbqf434FIx4xG1zTGv8j
+            7v9GZVCPeT5BiWghY/TOSJKSfoerW1eApguliPbFOagChfXnE9ND912jbhGCnaYj
+            Vzg8tkgbIO/EmnTyiLZ/JEployCMN1bW87JhQqiyztJcAXO4g3km2eeFlXOArIav
+            900MMiqKug1nL4W2/JfZAAecSAg3jJ4skiOrvnKTutNkVAVdP0ue5klaasxbJcVF
+            1UpW9f82MRX4jnumjtrH8TKPE68uQ71Vm3h2QVQ=
+            =Ai4T
+            -----END PGP MESSAGE-----
+        fp: EFDB9AFBD18936D9AB6B2EECBD2C73FF891FBC7E
+    encrypted_regex: ^(data|stringData|tls)$
+    version: 3.6.1
