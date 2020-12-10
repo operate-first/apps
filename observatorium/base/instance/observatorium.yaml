@@ -1,0 +1,81 @@
+---
+apiVersion: core.observatorium.io/v1alpha1
+kind: Observatorium
+metadata:
+  labels:
+    app.kubernetes.io/name: observatorium-cr
+  name: opf-observatorium
+spec:
+  # Only Loki Components are scaled up
+  loki:
+    image: quay.io/app-sre/loki:1.6.1
+    replicas:
+      distributor: 1
+      ingester: 1
+      querier: 1
+      query_frontend: 1
+      table_manager: 1
+    version: 1.6.1
+    volumeClaimTemplate:
+      spec:
+        accessModes:
+        - ReadWriteOnce
+        resources:
+          requests:
+            storage: 250Mi
+  objectStorageConfig:
+    objectStorageConfig:
+    loki:
+      # FIXME: Most of the following values are not used, yet they are required to be defined
+      # See: https://github.com/observatorium/operator/issues/31
+      accessKeyIdKey: ""
+      bucketsKey: ""
+      endpointKey: endpoint
+      regionKey: ""
+      secretAccessKeyKey: ""
+      secretName: loki-objectstorage
+    thanos:
+      key: thanos.yaml
+      name: thanos-objectstorage
+  # All other Thanos and Observatorium components are scaled down
+  api:
+    rbac:
+      roleBindings: []
+      roles: []
+    tenants: []
+    replicas: 0
+  compact:
+    replicas: 0
+    retentionResolution1h: 1s
+    retentionResolution5m: 1s
+    retentionResolutionRaw: 14d
+    volumeClaimTemplate:
+      spec:
+        accessModes:
+        - ReadWriteOnce
+  hashrings:
+  - hashring: default
+  receivers:
+    replicas: 0
+    volumeClaimTemplate:
+      spec:
+        accessModes:
+        - ReadWriteOnce
+  rule:
+    replicas: 0
+    volumeClaimTemplate:
+      spec:
+        accessModes:
+        - ReadWriteOnce
+  store:
+    cache:
+      replicas: 0
+    shards: 0
+    volumeClaimTemplate:
+      spec:
+        accessModes:
+        - ReadWriteOnce
+  query:
+    replicas: 0
+  queryFrontend:
+    replicas: 0

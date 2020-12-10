@@ -1,0 +1,22 @@
+---
+apiVersion: kustomize.config.k8s.io/v1beta1
+kind: Kustomization
+# If changing the namespace, also update the namespace in patch below.
+namespace: observatorium-operator
+resources:
+- https://raw.githubusercontent.com/observatorium/operator/03be03063a5cfebb0bf4fbbc8faca3f252bf5006/manifests/crds/core.observatorium.io_observatoria.yaml
+- https://raw.githubusercontent.com/observatorium/operator/03be03063a5cfebb0bf4fbbc8faca3f252bf5006/manifests/cluster_role.yaml
+- https://raw.githubusercontent.com/observatorium/operator/03be03063a5cfebb0bf4fbbc8faca3f252bf5006/manifests/cluster_role_binding.yaml
+- https://raw.githubusercontent.com/observatorium/operator/03be03063a5cfebb0bf4fbbc8faca3f252bf5006/manifests/service_account.yaml
+- https://raw.githubusercontent.com/observatorium/operator/03be03063a5cfebb0bf4fbbc8faca3f252bf5006/manifests/operator.yaml
+
+patchesStrategicMerge:
+- |-
+  apiVersion: rbac.authorization.k8s.io/v1
+  kind: ClusterRoleBinding
+  metadata:
+    name: observatorium-operator
+  subjects:
+  - kind: ServiceAccount
+    name: observatorium-operator
+    namespace: observatorium-operator                  # <-- Update this namespace
