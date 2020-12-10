@@ -1,0 +1,12 @@
+---
+apiVersion: kustomize.config.k8s.io/v1beta1
+kind: Kustomization
+namespace: opf-observatorium
+commonLabels:
+  app.kubernetes.io/instance: opf-observatorium
+  app.kubernetes.io/part-of: observatorium
+resources:
+  - observatorium.yaml
+  - kfdef.yaml
+  - grafana.yaml
+  - ./grafana-data-sources
