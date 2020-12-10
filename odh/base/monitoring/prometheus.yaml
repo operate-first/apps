@@ -13,6 +13,9 @@ spec:
   securityContext: {}
   ruleSelector: {}
   replicas: 2
+  retention: 7d
   remoteRead:
     - url: "http://prometheus-operated.opf-jupyterhub.svc.cluster.local:9090\
+            /api/v1/read"
+    - url: "http://prometheus-operated.opf-observatorium.svc.cluster.local:9090\
             /api/v1/read"

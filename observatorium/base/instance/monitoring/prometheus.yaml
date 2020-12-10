@@ -10,6 +10,6 @@ spec:
   serviceAccountName: prometheus-k8s
   securityContext: {}
   serviceMonitorSelector:
-      matchLabels:
-        observatorium-component: monitoring
+    matchLabels:
+      observatorium-component: monitoring
   ruleSelector: {}
