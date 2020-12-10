@@ -10,3 +10,4 @@ resources:
   - kfdef.yaml
   - grafana.yaml
   - ./grafana-data-sources
+  - ./monitoring

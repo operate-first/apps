@@ -1,0 +1,19 @@
+---
+apiVersion: monitoring.coreos.com/v1
+kind: ServiceMonitor
+metadata:
+  name: loki-metrics
+spec:
+  jobLabel: observatorium-loki
+  endpoints:
+    - port: metrics
+  selector:
+    matchLabels:
+      app.kubernetes.io/component: query-frontend
+      app.kubernetes.io/name: loki
+  targetLabels:
+    - app.kubernetes.io/component
+    - app.kubernetes.io/instance
+    - app.kubernetes.io/name
+    - app.kubernetes.io/part-of
+    - app.kubernetes.io/version
