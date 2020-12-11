@@ -4,6 +4,3 @@ kind: Kustomization
 namespace: opf-monitoring
 resources:
   - kfdef.yaml
-  - prometheus.yaml
-  - prometheus-route.yaml
-  - grafana.yaml

@@ -25,10 +25,27 @@ spec:
       name: prometheus-operator
     - kustomizeConfig:
         repoRef:
+          name: opf
+          path: odh/base/monitoring/overrides/prometheus-operator
+      name: prometheus-operator
+    - kustomizeConfig:
+        repoRef:
           name: manifests
           path: grafana/cluster
       name: grafana-cluster
+    - kustomizeConfig:
+        repoRef:
+          name: manifests
+          path: grafana/grafana
+      name: grafana-operator
+    - kustomizeConfig:
+        repoRef:
+          name: opf
+          path: odh/base/monitoring/overrides/grafana-operator
+      name: grafana-operator
   repos:
     - name: manifests
       uri: "https://github.com/opendatahub-io/odh-manifests/tarball/v0.9.0"
+    - name: opf
+      uri: "https://github.com/operate-first/apps/tarball/master"
   version: v0.9.0
