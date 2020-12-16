@@ -4,4 +4,25 @@ kind: Kustomization
 
 resources:
   - ../../../base/kafka
-  - topics
+patchesJson6902:
+  - patch: |
+      - op: add
+        path: /spec/applications/-
+        value:
+          kustomizeConfig:
+            overlays:
+              - topics
+            repoRef:
+              name: opf
+              path: odh/overlays/quicklab/kafka/overrides/kafka
+          name: kafka-cluster
+      - op: add
+        path: /spec/repos/-
+        value:
+          name: opf
+          uri: https://github.com/operate-first/apps/tarball/master
+    target:
+      group: kfdef.apps.kubeflow.org
+      kind: KfDef
+      name: opendatahub
+      version: v1

@@ -7,9 +7,12 @@ This repo contains manifests to install Open Data Hub.
 We use a combination of [Kustomize Overlays](https://kubernetes.io/docs/tasks/manage-kubernetes-objects/kustomization/#bases-and-overlays)
 and [ODH overrides](https://developers.redhat.com/blog/2020/07/23/open-data-hub-and-kubeflow-installation-customization/) to structure our ODH manifests.
 
-Each folder within 'Bases' and 'Overlays/$ENV' within each folder corresponds to a set of components that will be deployed
-in the same namespace. Often times there will be one component per namespace, but this is not always the case. In each
-directory you will find:
+> Note: We require most, if not all, extensions to ODH should be added via overriding.
+> When extending ODH with custom resources that are themselves introduced by ODH, then overriding is mandatory.
+
+Each folder within 'Bases' and 'Overlays/$ENV' corresponds to a set of components that will be deployed
+within the same namespace. Often times there will be one component per namespace, but this is not always the case.
+In each directory you will find:
 
 - `kfdef.yaml` - Prescription to what ODH components should be deployed here.
 - `kustomization.yaml` - For deploying into ArgoCD via `kustomize`.
