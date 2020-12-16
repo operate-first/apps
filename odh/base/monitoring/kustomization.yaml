@@ -4,4 +4,3 @@ kind: Kustomization
 namespace: opf-monitoring
 resources:
   - kfdef.yaml
-  - dashboards
