@@ -4,3 +4,4 @@ kind: Kustomization
 
 resources:
   - ../../base/instance
+  - ./grafana-data-sources
