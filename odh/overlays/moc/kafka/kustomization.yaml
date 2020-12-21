@@ -4,7 +4,6 @@ kind: Kustomization
 
 resources:
   - ../../../base/kafka
-  - topics
 
 patchesJson6902:
   - patch: |
@@ -12,9 +11,11 @@ patchesJson6902:
         path: /spec/applications/-
         value:
           kustomizeConfig:
+            overlays:
+              - topics
             repoRef:
               name: opf
-              path: odh/overlays/moc/kafka/overrides
+              path: odh/overlays/moc/kafka/overrides/kafka
           name: kafka-cluster
       - op: add
         path: /spec/repos/-
