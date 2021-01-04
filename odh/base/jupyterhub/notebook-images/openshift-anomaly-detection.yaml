@@ -1,0 +1,26 @@
+---
+apiVersion: image.openshift.io/v1
+kind: ImageStream
+metadata:
+  labels:
+    opendatahub.io/notebook-image: "true"
+  annotations:
+    opendatahub.io/notebook-image-url:
+      "https://github.com/aicoe-aiops/openshift-anomaly-detection"
+    opendatahub.io/notebook-image-name:
+      "OpenShift Anomaly Detection Notebook Image"
+    opendatahub.io/notebook-image-desc:
+      "Image with jupyter notebooks for anomaly detection and diagnosis discovery in OCP clusters"
+  name: openshift-anomaly-detection
+spec:
+  lookupPolicy:
+    local: true
+  tags:
+    - annotations:
+        openshift.io/imported-from: quay.io/aicoe/openshift-anomaly-detection
+      from:
+        kind: DockerImage
+        name: quay.io/aicoe/openshift-anomaly-detection:latest
+      importPolicy:
+        scheduled: true
+      name: "latest"
