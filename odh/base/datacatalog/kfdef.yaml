@@ -19,12 +19,12 @@ spec:
       name: odh-common
     - kustomizeConfig:
         repoRef:
-          name: ceph
+          name: manifests
           path: ceph/object-storage/scc
       name: ceph-nano-scc
     - kustomizeConfig:
         repoRef:
-          name: ceph
+          name: manifests-master
           path: ceph/object-storage/nano
       name: ceph-nano
     - kustomizeConfig:
@@ -37,7 +37,7 @@ spec:
           - name: s3_credentials_secret
             value: ceph-nano-credentials
         repoRef:
-          name: hue
+          name: manifests-master
           path: hue/hue
       name: hue
     - kustomizeConfig:
@@ -49,16 +49,12 @@ spec:
           - name: s3_credentials_secret
             value: ceph-nano-credentials
         repoRef:
-          name: thrift
+          name: manifests-master
           path: thriftserver/thriftserver
       name: thriftserver
   repos:
     - name: manifests
       uri: "https://github.com/opendatahub-io/odh-manifests/tarball/v0.9.0"
-    - name: hue
-      uri: "https://github.com/tumido/odh-manifests/tarball/datacatalog-hue"
-    - name: thrift
-      uri: "https://github.com/tumido/odh-manifests/tarball/datacatalog-thriftserver"  # yamllint disable-line rule:line-length
-    - name: ceph
-      uri: "https://github.com/tumido/odh-manifests/tarball/ceph-credentials"
+    - name: manifests-master
+      uri: "https://github.com/opendatahub-io/odh-manifests/tarball/master"
   version: v0.9-branch-openshift
