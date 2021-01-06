@@ -8,3 +8,4 @@ resources:
   - ceph-drive-failure.yaml
   - configuration-files-analysis.yaml
   - cloud-price-analysis.yaml
+  - openshift-anomaly-detection.yaml
