@@ -6,7 +6,6 @@ metadata:
 spec:
   ports:
     - port: 9393
-      protocol: TCP
       targetPort: receiver
   selector:
     # Pods with labels matching this key/value pair will be publically
