@@ -4,3 +4,4 @@ kind: Kustomization
 namespace: opf-jupyterhub
 resources:
   - kfdef.yaml
+  - ./notebook-images
