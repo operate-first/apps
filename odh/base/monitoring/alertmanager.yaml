@@ -1,0 +1,9 @@
+---
+apiVersion: monitoring.coreos.com/v1
+kind: Alertmanager
+metadata:
+  name: odh-monitoring
+  namespace: opf-monitoring
+spec:
+  replicas: 1
+  securityContext: {}
