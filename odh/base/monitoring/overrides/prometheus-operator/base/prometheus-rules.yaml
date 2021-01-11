@@ -1,0 +1,24 @@
+---
+apiVersion: monitoring.coreos.com/v1
+kind: PrometheusRule
+metadata:
+  labels:
+    prometheus: odh-monitoring
+    role: alert-rules
+  name: prometheus-alerting-rules
+spec:
+  groups:
+    - name: Operate First Availability
+      rules:
+        - alert: Prometheus Service Down
+          expr: up{service="prometheus-operated"} == 0
+          for: 5m
+          annotations:
+            summary: "Prometheus service is no longer available"
+            severity: "HIGH"
+        - alert: Prometheus Alertmanager Down
+          expr: up{service="alert-manager"} == 0
+          for: 5m
+          annotations:
+            summary: "Prometheus Alertmanager is no longer available"
+            severity: "HIGH"

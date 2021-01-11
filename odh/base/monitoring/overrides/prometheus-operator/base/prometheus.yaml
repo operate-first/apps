@@ -17,7 +17,10 @@ spec:
   serviceAccountName: prometheus-k8s
   serviceMonitorSelector: {}
   securityContext: {}
-  ruleSelector: {}
+  ruleSelector:
+    matchLabels:
+      prometheus: odh-monitoring
+      role: alert-rules
   replicas: 2
   remoteRead:
     - url: "http://prometheus-operated.opf-jupyterhub.svc.cluster.local:9090\
