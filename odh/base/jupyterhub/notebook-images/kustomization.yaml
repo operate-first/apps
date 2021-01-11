@@ -9,3 +9,4 @@ resources:
   - configuration-files-analysis.yaml
   - cloud-price-analysis.yaml
   - openshift-anomaly-detection.yaml
+  - time-series.yaml
