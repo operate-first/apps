@@ -1,0 +1,26 @@
+---
+apiVersion: image.openshift.io/v1
+kind: ImageStream
+metadata:
+  labels:
+    opendatahub.io/notebook-image: "true"
+  annotations:
+    opendatahub.io/notebook-image-url:
+      "https://github.com/aicoe-aiops/time-series"
+    opendatahub.io/notebook-image-name:
+      "Time Series Notebook Image"
+    opendatahub.io/notebook-image-desc:
+      "Image with jupyter notebooks for time series experiments"
+  name: time-series
+spec:
+  lookupPolicy:
+    local: true
+  tags:
+    - annotations:
+        openshift.io/imported-from: quay.io/aicoe/time-series
+      from:
+        kind: DockerImage
+        name: quay.io/aicoe/time-series:latest
+      importPolicy:
+        scheduled: true
+      name: "latest"
