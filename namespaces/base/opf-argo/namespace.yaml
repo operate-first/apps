@@ -1,0 +1,8 @@
+apiVersion: v1
+kind: Namespace
+metadata:
+  annotations:
+    openshift.io/display-name: "Operate First: Argo"
+    openshift.io/requester: operate-first
+  name: opf-argo
+spec: {}
