@@ -4,7 +4,6 @@ metadata:
   annotations:
     openshift.io/display-name: "Open AIOps"
     openshift.io/requester: open-aiops
-  labels:
-    issue: https://github.com/open-infrastructure-labs/moc-cnv-sandbox/issues/8
+    operate-first.cloud/issue: https://github.com/open-infrastructure-labs/moc-cnv-sandbox/issues/8
   name: open-aiops
 spec: {}
