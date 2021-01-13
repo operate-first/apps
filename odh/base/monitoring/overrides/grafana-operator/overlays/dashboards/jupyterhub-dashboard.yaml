@@ -7,4 +7,3 @@ metadata:
 spec:
   name: jupyterhub-dashboard.json
   url: https://raw.githubusercontent.com/operate-first/SRE/master/dashboards/Jupyterhub-dashboard.json
-  json:
