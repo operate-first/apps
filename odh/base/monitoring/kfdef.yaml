@@ -24,6 +24,8 @@ spec:
           path: prometheus/operator
       name: prometheus-operator
     - kustomizeConfig:
+        overlays:
+          - alerts
         repoRef:
           name: opf
           path: odh/base/monitoring/overrides/prometheus-operator
