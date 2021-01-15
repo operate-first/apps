@@ -1,0 +1,10 @@
+apiVersion: integreatly.org/v1alpha1
+kind: GrafanaDashboard
+metadata:
+  name: thoth-sli-slo
+  labels:
+    app: grafana
+    component: thoth-station
+spec:
+  name: thoth-sli-slo
+  url: https://raw.githubusercontent.com/thoth-station/thoth-application/master/grafana-dashboard/overlays/cnv-prod/thoth-sli-slo.json

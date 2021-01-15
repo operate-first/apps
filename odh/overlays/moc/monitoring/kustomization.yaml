@@ -7,3 +7,5 @@ components:
 resources:
   - ../../../base/monitoring
   - ./servicemonitors
+  - dashboards
+  - datasource
