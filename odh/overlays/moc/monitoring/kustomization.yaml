@@ -6,3 +6,4 @@ components:
   - ../../../components/rbac
 resources:
   - ../../../base/monitoring
+  - ./servicemonitors
