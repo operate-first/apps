@@ -6,12 +6,13 @@ metadata:
     app: grafana-datasources
     component: thoth-station
 spec:
+  name: thoth-station-grafana-ds.yaml
   datasources:
     - name: thoth-station
       type: prometheus
       url: http://prometheus-portal-thoth-infra-prod.apps.cnv.massopen.cloud/
       version: 1
-      editable: true
+      editable: false
       jsonData:
         tlsSkipVerify: true
         timeInterval: "5s"
