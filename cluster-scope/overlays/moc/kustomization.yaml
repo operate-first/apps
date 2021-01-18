@@ -1,0 +1,39 @@
+---
+apiVersion: kustomize.config.k8s.io/v1beta1
+kind: Kustomization
+
+resources:
+  - ../../base/groups/approved-users
+  - ../../base/groups/argocd-admins
+  - ../../base/groups/cluster-admins
+  - ../../base/groups/data-science
+  - ../../base/groups/mesh-for-data
+  - ../../base/groups/open-aiops
+  - ../../base/groups/operate-first
+  - ../../base/groups/rekor
+  - ../../base/groups/thoth
+  - ../../base/namespaces/mesh-for-data
+  - ../../base/namespaces/observatorium-operator
+  - ../../base/namespaces/odh-operator
+  - ../../base/namespaces/open-aiops
+  - ../../base/namespaces/opf-argo
+  - ../../base/namespaces/opf-ci-pipelines
+  - ../../base/namespaces/opf-ci-prow
+  - ../../base/namespaces/opf-dashboard
+  - ../../base/namespaces/opf-datacatalog
+  - ../../base/namespaces/opf-jupyterhub
+  - ../../base/namespaces/opf-kafka
+  - ../../base/namespaces/opf-monitoring
+  - ../../base/namespaces/opf-observatorium
+  - ../../base/namespaces/opf-superset
+  - ../../base/namespaces/thoth-amun-api-prod
+  - ../../base/namespaces/thoth-amun-inspection-prod
+  - ../../base/namespaces/thoth-backend-prod
+  - ../../base/namespaces/thoth-bots-prod
+  - ../../base/namespaces/thoth-frontend-prod
+  - ../../base/namespaces/thoth-graph-prod
+  - ../../base/namespaces/thoth-infra-prod
+  - ../../base/namespaces/thoth-middletier-prod
+
+generators:
+  - secret-generator.yaml
