@@ -1,0 +1,3 @@
+- op: add
+  path: /spec/customFolderName
+  value: Thoth-Station
