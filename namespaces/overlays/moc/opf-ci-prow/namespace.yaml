@@ -1,9 +1,0 @@
-apiVersion: v1
-kind: Namespace
-metadata:
-  annotations:
-    openshift.io/display-name: "opf-ci-prow"
-    openshift.io/discription: "Project for execution of continous integration prow jobs."
-    openshift.io/requester: aicoe-thoth-devops
-  name: opf-ci-prow
-spec: {}

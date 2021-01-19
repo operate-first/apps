@@ -1,0 +1,42 @@
+apiVersion: user.openshift.io/v1
+kind: Group
+metadata:
+    name: argocd-admins
+    annotations:
+        kustomize.config.k8s.io/behavior: replace
+users:
+- ENC[AES256_GCM,data:l0LJpSJNIVv1TepqyFh79unGgw==,iv:uIT3fE86S3pbIDf+r6clRrymuU3DzJLZnA5tUJ/U0YM=,tag:isYMoeTTfdTWCPeOxTKpjQ==,type:str]
+- ENC[AES256_GCM,data:HWRIo5wMc9CjakCkie6j+lovMw==,iv:EJV8Nw6feLZlFWEle7g6S8/lRcAfoCjG9JI3QbR/c1k=,tag:oXK4VQnADFjYJIBwRV2Bog==,type:str]
+- ENC[AES256_GCM,data:5ye8upcViSZ3Q6KUiJBa2VU=,iv:vBmddr+WIEh2OGxpypAAsW5OeNTKPQKv05rHqDQAYQo=,tag:lNKpPY8UpwiqinmuPHVi4g==,type:str]
+- ENC[AES256_GCM,data:KP1EYLaVsi8lq39h7Q2J,iv:dgGda6bwkH5jtJh9tA7IhKhdP4U/qSvvQp2MYVSlA94=,tag:x9OAIq6OwGH24v0Di/0sPw==,type:str]
+- ENC[AES256_GCM,data:DXAb7h40q/JeODR/hsJhl44Y,iv:AamSo3p2IfuKx17EsBcnzJuZfts1/A4SKSHSCmztEQU=,tag:5TPC3ivGBjKNSKxMH582qA==,type:str]
+sops:
+    kms: []
+    gcp_kms: []
+    azure_kv: []
+    hc_vault: []
+    lastmodified: '2021-01-18T16:18:26Z'
+    mac: ENC[AES256_GCM,data:7RIPUOt7UCatseozIsCtlAUdgX6likYZeZyLt2WdNBzXA5T0qe/gJGHf3xws3DhByAYA1fHgXl+dlHsZHHAr2hHvDIdZ1yt6nYGK9BmDIteC530KLjfkvjzrdPoGaFf01IJlVFot/5IpINgQGIkQdTcJ54KzBGLOLKj3VW5Vats=,iv:x+MOg1hm7CCJj+l4fOloe0iqbPJndHsRisiwuKfawPw=,tag:Y7Jk3q7w3eDpDqNDIhvKxQ==,type:str]
+    pgp:
+    -   created_at: '2021-01-12T17:24:03Z'
+        enc: |
+            -----BEGIN PGP MESSAGE-----
+
+            hQIMA9aKBcudqifiARAAi/GO8MN537ZdryTUgpW5StR42wQfZGqFy89scZweqHST
+            evz+6HfSRsGBeaezjZk+vNU+rMtm36+IRbiyhRlOlHP3e3sQI0RxycOkgDjIS4DS
+            2ACg/fJ82jRG62rFVegCBf6f8+BlxFUAQ4QMF07vjats3DaMCcNzNNNuA2HxmcLr
+            EaBXIk5sTw3sas5hPDwqMxmw4snzvG7P3OYxYihe4XYKMrAnAoEq9yB0ISfqWErV
+            jfJ/7gtIVIGwkmvzqXwA4PRUkodzkl7gR+lrCMrAL/5gq4rhqaVk5zW4/uLWKVKf
+            PopAUHJUk37pV/tb8LkmJCAEeKDh8pBtJXBgEMwXoLaOLDzbKtA4KLOTm0SRb8Um
+            L6pKyvZrskS6LJs87eortHMI4u8EINr/w1fJ18Z5CjFlVtETjYcs/DOGqEqC9SuP
+            tgFsiIJgAdaOxu5nplEz4IZyFsQHI4IMEBf/fyn23r/btjiQ2AWgwKhEVyNkxLKz
+            fTHQc7NWRFfqDmrHk3zAOpR7bx4aU2f9R9atR6xX0sa7RVT9dcffPQQlrTmpHl0n
+            9woTQem4lMsB2+Y5iCOAaW2lKiB/wAq5lhK8m13oIxzx1OblaYuz5xyrTo1IuJ8Q
+            Z2PhiL1iroKjlUDsTWbk3fUukl+URQAxIwpOqu84gVHR9A/sFFz0rAh0C01++qDS
+            XgGE8wm8pua1KS19Xq4tZEZpEV3JQSBoLEepLrp/6zmmfpufIjhjV7Wns8orSPWF
+            mTMxDEbRir9u+jcI1TWTEivaa8HbUVf+rmKDqPr2HvGx58uXDa7jmmSD/lfXFFo=
+            =QCW3
+            -----END PGP MESSAGE-----
+        fp: 0508677DD04952D06A943D5B4DC4116D360E3276
+    encrypted_regex: ^users$
+    version: 3.6.1

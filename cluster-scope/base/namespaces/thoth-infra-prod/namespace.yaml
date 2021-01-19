@@ -1,0 +1,9 @@
+---
+apiVersion: v1
+kind: Namespace
+metadata:
+  annotations:
+    openshift.io/display-name: "thoth-infra-prod"
+    openshift.io/requester: aicoe-thoth-devops
+  name: thoth-infra-prod
+spec: {}

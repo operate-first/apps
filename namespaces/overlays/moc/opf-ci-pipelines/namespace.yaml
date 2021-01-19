@@ -1,9 +1,0 @@
-apiVersion: v1
-kind: Namespace
-metadata:
-  annotations:
-    openshift.io/display-name: "opf-ci-pipelines"
-    openshift.io/discription: "Project for execution of continous integration aicoe-ci openshift pipelines."
-    openshift.io/requester: aicoe-thoth-devops
-  name: opf-ci-pipelines
-spec: {}

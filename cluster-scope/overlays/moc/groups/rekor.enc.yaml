@@ -1,0 +1,40 @@
+apiVersion: user.openshift.io/v1
+kind: Group
+metadata:
+    name: rekor
+    annotations:
+        kustomize.config.k8s.io/behavior: replace
+users:
+- ENC[AES256_GCM,data:Uud1Qoo3SQbl9h4hhIUNM12Tng==,iv:ukBozXMKkDUZ7C2tbv2e0Ri5TgGcpUScgKt2GVlC4e4=,tag:50js035abTDgzZDzWmKy9g==,type:str]
+- ENC[AES256_GCM,data:jcb8Rzo8DYG/nsH+orIO+Q==,iv:mdlIW+B1yBIftIstJhWPwOQBvR3/LKzpFthpfSZUpU0=,tag:Mvgfh9ksQjY5xDout1+gCg==,type:str]
+- ENC[AES256_GCM,data:saAv8dgusCVT+2BjFgovaUA=,iv:2Jz/Z4zniygVQGAP4uHEoAA0xriE9Ruyxl5jr0BIQjE=,tag:PkcjochKaHBbMBKcmgH1Bg==,type:str]
+sops:
+    kms: []
+    gcp_kms: []
+    azure_kv: []
+    hc_vault: []
+    lastmodified: '2021-01-18T16:18:57Z'
+    mac: ENC[AES256_GCM,data:mF2b5K+Lm64Mh+w4RzeUWwfQU0DoiezkQh7IWvM0U+vEV8Zvhia8dLXVrBRmml4lpO7Jw5ILeRdahYztKuIFmRNte2+AWY2AIm/PmintDLloCLkyB+HMBjgAC6AKxggDN+CAahV8uPOhYatXW+UXcDRV3zHKx/j5smyzQ+aymIE=,iv:aQK3bpKFEd6XgBNmLVWMYd8o769mexC5s9HoxbOxZNw=,tag:JqZWC3/qkzhQmAToSqqkBg==,type:str]
+    pgp:
+    -   created_at: '2021-01-12T17:24:03Z'
+        enc: |
+            -----BEGIN PGP MESSAGE-----
+
+            hQIMA9aKBcudqifiARAAi/GO8MN537ZdryTUgpW5StR42wQfZGqFy89scZweqHST
+            evz+6HfSRsGBeaezjZk+vNU+rMtm36+IRbiyhRlOlHP3e3sQI0RxycOkgDjIS4DS
+            2ACg/fJ82jRG62rFVegCBf6f8+BlxFUAQ4QMF07vjats3DaMCcNzNNNuA2HxmcLr
+            EaBXIk5sTw3sas5hPDwqMxmw4snzvG7P3OYxYihe4XYKMrAnAoEq9yB0ISfqWErV
+            jfJ/7gtIVIGwkmvzqXwA4PRUkodzkl7gR+lrCMrAL/5gq4rhqaVk5zW4/uLWKVKf
+            PopAUHJUk37pV/tb8LkmJCAEeKDh8pBtJXBgEMwXoLaOLDzbKtA4KLOTm0SRb8Um
+            L6pKyvZrskS6LJs87eortHMI4u8EINr/w1fJ18Z5CjFlVtETjYcs/DOGqEqC9SuP
+            tgFsiIJgAdaOxu5nplEz4IZyFsQHI4IMEBf/fyn23r/btjiQ2AWgwKhEVyNkxLKz
+            fTHQc7NWRFfqDmrHk3zAOpR7bx4aU2f9R9atR6xX0sa7RVT9dcffPQQlrTmpHl0n
+            9woTQem4lMsB2+Y5iCOAaW2lKiB/wAq5lhK8m13oIxzx1OblaYuz5xyrTo1IuJ8Q
+            Z2PhiL1iroKjlUDsTWbk3fUukl+URQAxIwpOqu84gVHR9A/sFFz0rAh0C01++qDS
+            XgGE8wm8pua1KS19Xq4tZEZpEV3JQSBoLEepLrp/6zmmfpufIjhjV7Wns8orSPWF
+            mTMxDEbRir9u+jcI1TWTEivaa8HbUVf+rmKDqPr2HvGx58uXDa7jmmSD/lfXFFo=
+            =QCW3
+            -----END PGP MESSAGE-----
+        fp: 0508677DD04952D06A943D5B4DC4116D360E3276
+    encrypted_regex: ^users$
+    version: 3.6.1

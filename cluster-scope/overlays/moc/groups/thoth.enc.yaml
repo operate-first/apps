@@ -1,0 +1,39 @@
+apiVersion: user.openshift.io/v1
+kind: Group
+metadata:
+    name: thoth
+    annotations:
+        kustomize.config.k8s.io/behavior: replace
+users:
+- ENC[AES256_GCM,data:iht/m/84hoppHUK3lzAsrZE=,iv:9hlEXJXzwfM3DTTaa5aJBLeX4VXsBr+lrnE5wlaDkDU=,tag:ElvKUVUfjT0//okQXODoaQ==,type:str]
+- ENC[AES256_GCM,data:Ls+fuG5HFyXxAZ8fNECQX0k=,iv:q7kpyVNDS7dPVMNc9HBVTdidQmLo+RDOor4gvl/iR9w=,tag:7DcURkZuz5FHbGaIqP55Hg==,type:str]
+sops:
+    kms: []
+    gcp_kms: []
+    azure_kv: []
+    hc_vault: []
+    lastmodified: '2021-01-19T16:22:33Z'
+    mac: ENC[AES256_GCM,data:YohGSVB5frVog34TDqf77X04s+mgZ7ba4gVJuZlvUMDUEu/DNhjlVuTId2O2/LnaOWneycznbsJbuGfZpRlQ152X6QZXCzSv4F4qZqzD1/GoWr+RkgoMQV9HMOsQzvqs6fY6yPe0gFI2hzvW5ojphEycMDPiOPFfGWJuGXxRlVM=,iv:OHVg7ggZobZ7EGYSwbilSWVYO8VonneUu3ntBUVxKY4=,tag:nOxF694L9ssNfD7OQArsOg==,type:str]
+    pgp:
+    -   created_at: '2021-01-12T17:24:03Z'
+        enc: |
+            -----BEGIN PGP MESSAGE-----
+
+            hQIMA9aKBcudqifiARAAi/GO8MN537ZdryTUgpW5StR42wQfZGqFy89scZweqHST
+            evz+6HfSRsGBeaezjZk+vNU+rMtm36+IRbiyhRlOlHP3e3sQI0RxycOkgDjIS4DS
+            2ACg/fJ82jRG62rFVegCBf6f8+BlxFUAQ4QMF07vjats3DaMCcNzNNNuA2HxmcLr
+            EaBXIk5sTw3sas5hPDwqMxmw4snzvG7P3OYxYihe4XYKMrAnAoEq9yB0ISfqWErV
+            jfJ/7gtIVIGwkmvzqXwA4PRUkodzkl7gR+lrCMrAL/5gq4rhqaVk5zW4/uLWKVKf
+            PopAUHJUk37pV/tb8LkmJCAEeKDh8pBtJXBgEMwXoLaOLDzbKtA4KLOTm0SRb8Um
+            L6pKyvZrskS6LJs87eortHMI4u8EINr/w1fJ18Z5CjFlVtETjYcs/DOGqEqC9SuP
+            tgFsiIJgAdaOxu5nplEz4IZyFsQHI4IMEBf/fyn23r/btjiQ2AWgwKhEVyNkxLKz
+            fTHQc7NWRFfqDmrHk3zAOpR7bx4aU2f9R9atR6xX0sa7RVT9dcffPQQlrTmpHl0n
+            9woTQem4lMsB2+Y5iCOAaW2lKiB/wAq5lhK8m13oIxzx1OblaYuz5xyrTo1IuJ8Q
+            Z2PhiL1iroKjlUDsTWbk3fUukl+URQAxIwpOqu84gVHR9A/sFFz0rAh0C01++qDS
+            XgGE8wm8pua1KS19Xq4tZEZpEV3JQSBoLEepLrp/6zmmfpufIjhjV7Wns8orSPWF
+            mTMxDEbRir9u+jcI1TWTEivaa8HbUVf+rmKDqPr2HvGx58uXDa7jmmSD/lfXFFo=
+            =QCW3
+            -----END PGP MESSAGE-----
+        fp: 0508677DD04952D06A943D5B4DC4116D360E3276
+    encrypted_regex: ^users$
+    version: 3.6.1
