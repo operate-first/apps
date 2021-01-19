@@ -1,0 +1,8 @@
+apiVersion: v1
+kind: Namespace
+metadata:
+  annotations:
+    openshift.io/display-name: "thoth-amun-inspection-prod"
+    openshift.io/requester: aicoe-thoth-devops
+  name: thoth-amun-inspection-prod
+spec: {}

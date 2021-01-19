@@ -1,0 +1,9 @@
+---
+apiVersion: kustomize.config.k8s.io/v1beta1
+kind: Kustomization
+namespace: thoth-amun-api-prod
+resources:
+  - namespace.yaml
+  - rbac.yaml
+generators:
+  - secret-generator.yaml
