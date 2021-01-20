@@ -22,6 +22,3 @@ spec:
       prometheus: odh-monitoring
       role: alert-rules
   replicas: 2
-  remoteRead:
-    - url: "http://prometheus-operated.opf-jupyterhub.svc.cluster.local:9090\
-            /api/v1/read"
