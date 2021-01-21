@@ -5,3 +5,4 @@ commonLabels:
   prometheus: odh-monitoring
 resources:
   - observatorium-servicemonitor.yaml
+  - argocd-servicemonitor.yaml
