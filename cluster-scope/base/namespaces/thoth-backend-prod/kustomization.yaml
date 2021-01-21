@@ -9,3 +9,4 @@ resources:
 
 components:
   - ../../../components/project-admin-rolebindings/thoth
+  - ../../../components/monitoring-rbac
