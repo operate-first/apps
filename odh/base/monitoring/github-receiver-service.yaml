@@ -7,8 +7,10 @@ spec:
   ports:
     - port: 9393
       targetPort: receiver
+      name: receiver
     - port: 9990
       targetPort: metrics
+      name: metrics
   selector:
     # Pods with labels matching this key/value pair will be publically
     # accessible through the service IP and port.
