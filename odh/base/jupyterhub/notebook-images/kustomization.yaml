@@ -10,3 +10,4 @@ resources:
   - cloud-price-analysis.yaml
   - openshift-anomaly-detection.yaml
   - time-series.yaml
+  - mailing-list-analysis-toolkit.yaml
