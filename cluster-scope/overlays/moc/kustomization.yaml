@@ -3,6 +3,7 @@ apiVersion: kustomize.config.k8s.io/v1beta1
 kind: Kustomization
 
 resources:
+  - ../../base/clusterroles/prow.k8s.io
   - ../../base/crds/prow.k8s.io
   - ../../base/groups/approved-users
   - ../../base/groups/argocd-admins
