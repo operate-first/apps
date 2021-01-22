@@ -26,12 +26,12 @@ spec:
                   name: github-secrets
                   key: auth-token
           args:
-            - --auth-token=$(GITHUB_AUTH_TOKEN)
+            - --authtoken=$(GITHUB_AUTH_TOKEN)
             - --org=operate-first
             - --repo=SRE
-            - --label="in progress"
-            - --enable-inmemory="false"
-            - --enable-auto-close="true"
+            - --label=in progress
+            - --enable-inmemory=false
+            - --enable-auto-close=true
           ports:
             - containerPort: 9393
               name: receiver
