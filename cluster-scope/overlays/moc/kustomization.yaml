@@ -13,6 +13,7 @@ resources:
   - ../../base/groups/operate-first
   - ../../base/groups/rekor
   - ../../base/groups/thoth
+  - ../../base/namespaces/argocd
   - ../../base/namespaces/mesh-for-data
   - ../../base/namespaces/observatorium-operator
   - ../../base/namespaces/odh-operator
