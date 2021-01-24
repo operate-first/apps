@@ -4,6 +4,7 @@ kind: Kustomization
 
 resources:
   - ../../base/clusterroles/prow.k8s.io
+  - ../../base/clusterloggings
   - ../../base/crds/prow.k8s.io
   - ../../base/groups/approved-users
   - ../../base/groups/argocd-admins
@@ -19,6 +20,8 @@ resources:
   - ../../base/namespaces/observatorium-operator
   - ../../base/namespaces/odh-operator
   - ../../base/namespaces/open-aiops
+  - ../../base/namespaces/openshift-logging
+  - ../../base/namespaces/openshift-operators-redhat
   - ../../base/namespaces/opf-argo
   - ../../base/namespaces/opf-ci-pipelines
   - ../../base/namespaces/opf-ci-prow
@@ -38,6 +41,10 @@ resources:
   - ../../base/namespaces/thoth-graph-prod
   - ../../base/namespaces/thoth-infra-prod
   - ../../base/namespaces/thoth-middletier-prod
+  - ../../base/operatorgroups/elastic-operator
+  - ../../base/operatorgroups/cluster-logging-operator
+  - ../../base/subscriptions/elastic-operator
+  - ../../base/subscriptions/cluster-logging-operator
 
 generators:
   - secret-generator.yaml
