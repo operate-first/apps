@@ -11,7 +11,7 @@ spec:
     - name: Operate First Availability
       rules:
         - alert: Prometheus Service Down
-          expr: count(up{service="prometheus-operated", pod=~"prometheus-odh-monitoring.*"} == 0) > 1
+          expr: absent(up{service="prometheus-operated", pod=~"prometheus-odh-monitoring.*"} > 0)
           for: 5m
           annotations:
             summary: "Prometheus service is no longer available"
