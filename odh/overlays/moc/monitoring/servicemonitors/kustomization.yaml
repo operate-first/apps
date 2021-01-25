@@ -6,3 +6,4 @@ commonLabels:
 resources:
   - observatorium-servicemonitor.yaml
   - argocd-servicemonitor.yaml
+  - thoth-station-servicemonitor.yaml
