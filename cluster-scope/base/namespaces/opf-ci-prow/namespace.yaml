@@ -4,7 +4,17 @@ kind: Namespace
 metadata:
   annotations:
     openshift.io/display-name: "opf-ci-prow"
-    openshift.io/discription: "Project for execution of continous integration prow jobs."
+    openshift.io/discription: "Project for Prow and the gang."
     openshift.io/requester: aicoe-thoth-devops
   name: opf-ci-prow
+spec: {}
+---
+apiVersion: v1
+kind: Namespace
+metadata:
+  annotations:
+    openshift.io/display-name: "opf-ci-test-pods"
+    openshift.io/discription: "Project for execution of continous integration prow jobs."
+    openshift.io/requester: aicoe-thoth-devops
+  name: opf-ci-test-pods
 spec: {}

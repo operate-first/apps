@@ -48,6 +48,7 @@ resources:
   - ../../base/namespaces/opf-argo
   - ../../base/namespaces/opf-ci-pipelines
   - ../../base/namespaces/opf-ci-prow
+  - ../../base/namespaces/opf-ci-test-pods
   - ../../base/namespaces/opf-dashboard
   - ../../base/namespaces/opf-datacatalog
   - ../../base/namespaces/opf-jupyterhub
