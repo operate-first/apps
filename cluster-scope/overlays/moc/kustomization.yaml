@@ -33,6 +33,7 @@ resources:
   - ../../base/namespaces/thoth-amun-inspection-prod
   - ../../base/namespaces/thoth-backend-prod
   - ../../base/namespaces/thoth-bots-prod
+  - ../../base/namespaces/thoth-deployment-examples
   - ../../base/namespaces/thoth-frontend-prod
   - ../../base/namespaces/thoth-graph-prod
   - ../../base/namespaces/thoth-infra-prod
