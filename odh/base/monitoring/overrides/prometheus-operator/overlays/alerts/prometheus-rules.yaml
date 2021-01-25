@@ -11,14 +11,74 @@ spec:
     - name: Operate First Availability
       rules:
         - alert: Prometheus Service Down
-          expr: up{service="prometheus-operated"} == 0
+          expr: absent(up{service="prometheus-operated", pod=~"prometheus-odh-monitoring.*"} > 0)
           for: 5m
           annotations:
             summary: "Prometheus service is no longer available"
             severity: "HIGH"
         - alert: Prometheus Alertmanager Down
-          expr: up{service="alert-manager"} == 0
+          expr: absent(up{service="alert-manager"} == 1)
           for: 5m
           annotations:
             summary: "Prometheus Alertmanager is no longer available"
+            severity: "HIGH"
+        - alert: Grafana Service Down
+          expr: absent(up{service="grafana-service"} == 1)
+          for: 5m
+          annotations:
+            summary: "Grafana service is no longer available"
+            severity: "HIGH"
+        - alert: Grafana Operator
+          expr: absent(up{service="grafana-operator-metrics"} == 1)
+          for: 5m
+          annotations:
+            summary: "Grafana operator metrics not available"
+            severity: "LOW"
+        - alert: JupyterHub Service Down
+          expr: absent(up{service="jupyterhub"} == 1)
+          for: 5m
+          annotations:
+            summary: "JupyterHub service is no longer available"
+            severity: "HIGH"
+        - alert: ArgoCD Repo Server Down
+          expr: absent(up{service="argocd-repo-server"} == 1)
+          for: 5m
+          annotations:
+            summary: "ArgoCD repo server is no longer available"
+            severity: "HIGH"
+        - alert: ArgoCD Server Down
+          expr: absent(up{service="argocd-server-metrics"} == 1)
+          for: 5m
+          annotations:
+            summary: "ArgoCD server is no longer available"
+            severity: "HIGH"
+        - alert: ArgoCD Application Controller Down
+          expr: absent(up{service="argocd-metrics"} == 1)
+          for: 5m
+          annotations:
+            summary: "ArgoCD application controller is no longer available"
+            severity: "HIGH"
+        - alert: Observatorium Loki Ingester Down
+          expr: absent(up{service="opf-observatorium-loki-ingester-http"} == 1)
+          for: 5m
+          annotations:
+            summary: "Loki ingester is no longer available"
+            severity: "HIGH"
+        - alert: Observatorium Loki Distributor Down
+          expr: absent(up{service="opf-observatorium-loki-distributor-http"} == 1)
+          for: 5m
+          annotations:
+            summary: "Loki distributor is no longer available"
+            severity: "HIGH"
+        - alert: Observatorium Loki Querier Down
+          expr: absent(up{service="opf-observatorium-loki-querier-http"} == 1)
+          for: 5m
+          annotations:
+            summary: "Loki querier is no longer available"
+            severity: "HIGH"
+        - alert: Observatorium Loki Query Frontend Down
+          expr: absent(up{service="opf-observatorium-loki-query-frontend-http"} == 1)
+          for: 5m
+          annotations:
+            summary: "Loki query frontend is no longer available"
             severity: "HIGH"
