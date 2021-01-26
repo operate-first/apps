@@ -1,18 +1,15 @@
 # See the OWNERS docs at https://go.k8s.io/owners
 
 approvers:
-  - anishasthana
-  - hemajv
+  - 4n4nd
   - HumairAK
   - tumido
-  - martinpovolny
-  - 4n4nd
-  - durandom
 
 reviewers:
+  - 4n4nd
   - anishasthana
+  - harshad16
   - hemajv
   - HumairAK
   - tumido
   - martinpovolny
-  - 4n4nd
