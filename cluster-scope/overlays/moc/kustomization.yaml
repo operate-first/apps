@@ -15,6 +15,8 @@ resources:
   - ../../base/groups/rekor
   - ../../base/groups/thoth
   - ../../base/namespaces/argocd
+  - ../../base/namespaces/m4d-blueprints
+  - ../../base/namespaces/m4d-system
   - ../../base/namespaces/mesh-for-data
   - ../../base/namespaces/observatorium-operator
   - ../../base/namespaces/odh-operator
