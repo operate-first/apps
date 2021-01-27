@@ -70,7 +70,7 @@ create_project_admin_rolebinding() {
 
 create_group() {
 	mkdir -p $APP_NAME/base/groups/$OWNER
-	cat <<-EOF >> $APP_NAME/base/groups/$OWNER/group.yaml
+	cat <<-EOF > $APP_NAME/base/groups/$OWNER/group.yaml
 	---
 	apiVersion: user.openshift.io/v1
 	kind: Group
@@ -98,12 +98,12 @@ fi
 echo "Creating namespace '$NAMESPACE' in the base..."
 create_namespace
 
-if [ ! -d $APP_NAME/components/rbac/$OWNER ]; then
+if [ ! -d $APP_NAME/components/project-admin-rolebindings/$OWNER ]; then
 	echo "RBAC for '$OWNER' group does not exist yet. Creating..."
 	create_project_admin_rolebinding
 fi
 
-if ! grep -q "name: $OWNER" "$APP_NAME/base/groups/groups.yaml"; then
+if ! grep -r -q "name: $OWNER" "$APP_NAME/base/groups/"; then
 	echo "Group for '$OWNER' does not exist yet. Creating..."
 	create_group
 fi
