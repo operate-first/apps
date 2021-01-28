@@ -6,3 +6,6 @@ namespace: openshift-monitoring
 
 components:
   - ../../../components/monitoring-rbac
+  - ../../../components/project-admin-rolebindings/operate-first
+  - ../../../components/project-view-rolebindings/open-aiops
+  - ../../../components/project-view-rolebindings/thoth
