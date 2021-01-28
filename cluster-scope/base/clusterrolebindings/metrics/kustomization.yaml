@@ -4,3 +4,4 @@ kind: Kustomization
 
 resources:
   - metrics-clusterrolebinding.yaml
+  - cluster-metrics-federation-clusterrolebinding.yaml
