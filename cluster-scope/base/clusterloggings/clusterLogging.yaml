@@ -15,12 +15,14 @@ spec:
       audit:
         maxAge: 7d
     elasticsearch:
-      nodeCount: 3
+      nodeCount: 1
       storage:
-        # TODO: If need to set specific storageClassName
-        # storageClassName: "<storage-class-name>"
+        # TODO: manually set the storageClassName
+        # Upstream Issue:
+        # https://github.com/openshift/cluster-logging-operator/issues/869
+        storageClassName: "ocs-storagecluster-cephfs"
         size: 200G
-      redundancyPolicy: "SingleRedundancy"
+      redundancyPolicy: "ZeroRedundancy"
   visualization:
     type: "kibana"
     kibana:
