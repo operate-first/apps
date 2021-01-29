@@ -43,6 +43,7 @@ spec:
     - kustomizeConfig:
         overlays:
           - dashboards
+          - datasources
         repoRef:
           name: opf
           path: odh/base/monitoring/overrides/grafana-operator

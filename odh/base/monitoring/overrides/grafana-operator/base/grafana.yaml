@@ -1,3 +1,4 @@
+---
 apiVersion: integreatly.org/v1alpha1
 kind: Grafana
 metadata:
@@ -15,9 +16,11 @@ spec:
         users:
             allow_sign_up: false
             auto_assign_org: true
-            auto_assign_org_role: Admin
+            auto_assign_org_role: Viewer
+            viewers_can_edit: true
         auth.anonymous:
-            enabled: false
+            enabled: true
+            org_role: Viewer
         log:
             level: warn
             mode: console
