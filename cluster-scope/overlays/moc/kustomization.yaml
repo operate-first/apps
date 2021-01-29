@@ -5,6 +5,7 @@ kind: Kustomization
 resources:
   - ../../base/clusterroles/prow.k8s.io
   - ../../base/clusterroles/metrics
+  - ../../base/clusterrolebindings/cluster-metrics-federation
   - ../../base/clusterrolebindings/metrics
   - ../../base/crds/prow.k8s.io
   - ../../base/groups/approved-users
