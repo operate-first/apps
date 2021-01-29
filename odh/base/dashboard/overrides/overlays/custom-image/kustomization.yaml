@@ -8,3 +8,6 @@ images:
   - name: quay.io/opendatahub/odh-dashboard:v0.9
     newName: quay.io/operate-first/odh-dashboard
     newTag: latest
+
+patchesStrategicMerge:
+  - deployment.yaml
