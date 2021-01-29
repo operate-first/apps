@@ -32,6 +32,7 @@ spec:
             - --label=in progress
             - --enable-inmemory=false
             - --enable-auto-close=true
+            - --label-on-resolved=resolved
           ports:
             - containerPort: 9393
               name: receiver
