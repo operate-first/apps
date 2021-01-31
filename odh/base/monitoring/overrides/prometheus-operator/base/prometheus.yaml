@@ -22,10 +22,10 @@ spec:
       prometheus: odh-monitoring
       role: alert-rules
   replicas: 2
-  retention: 14d
+  retention: 7d
   storage:
     volumeClaimTemplate:
       spec:
         resources:
           requests:
-            storage: 10Gi
+            storage: 50Gi
