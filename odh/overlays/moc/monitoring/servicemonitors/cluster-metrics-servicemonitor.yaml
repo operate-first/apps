@@ -9,7 +9,7 @@ spec:
   endpoints:
     - bearerTokenSecret:
         key: token
-        name: prometheus-k8s-token-g9n8s
+        name: opf.prometheus-k8s
       honorLabels: true
       params:
         'match[]':
