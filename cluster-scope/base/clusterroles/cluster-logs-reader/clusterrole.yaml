@@ -1,0 +1,15 @@
+---
+apiVersion: authorization.openshift.io/v1
+kind: ClusterRole
+metadata:
+  name: cluster-logs-reader
+rules:
+  - apiGroups:
+      - ""
+    resources:
+      - pods/log
+      - pods
+    verbs:
+      - get
+      - list
+      - watch
