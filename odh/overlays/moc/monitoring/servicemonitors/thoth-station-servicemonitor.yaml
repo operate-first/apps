@@ -20,4 +20,5 @@ spec:
       - thoth-graph-prod
       - thoth-amun-inspection-prod
       - thoth-amun-api-prod
+      - thoth-deployment-examples
   selector: {}
