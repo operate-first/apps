@@ -33,6 +33,7 @@ resources:
   - ../../base/namespaces/observatorium-operator
   - ../../base/namespaces/odh-operator
   - ../../base/namespaces/open-aiops
+  - ../../base/namespaces/openshift-cnv
   - ../../base/namespaces/openshift-logging
   - ../../base/namespaces/openshift-metering
   - ../../base/namespaces/openshift-monitoring
@@ -61,11 +62,13 @@ resources:
   - ../../base/namespaces/thoth-middletier-prod
   - ../../base/operatorgroups/local-storage
   - ../../base/operatorgroups/openshift-logging
+  - ../../base/operatorgroups/openshift-cnv
   - ../../base/operatorgroups/openshift-metering
   - ../../base/operatorgroups/openshift-operators-redhat
   - ../../base/operatorgroups/openshift-storage
-  - ../../base/subscriptions/elastic-operator
   - ../../base/subscriptions/cluster-logging-operator
+  - ../../base/subscriptions/elastic-operator
+  - ../../base/subscriptions/kubevirt-hyperconverged
   - ../../base/subscriptions/metering-ocp
   - ../../base/subscriptions/ocs-operator
   - ../../base/subscriptions/opendatahub-operator
