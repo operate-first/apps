@@ -20,6 +20,11 @@ resources:
   - ../../base/groups/rekor
   - ../../base/groups/thoth
   - ../../base/namespaces/argocd
+  - ../../base/namespaces/cert-manager
+  - ../../base/namespaces/istio-system
+  - ../../base/namespaces/knative-serving
+  - ../../base/namespaces/kube-system
+  - ../../base/namespaces/kubeflow
   - ../../base/namespaces/m4d-blueprints
   - ../../base/namespaces/m4d-system
   - ../../base/namespaces/mesh-for-data
@@ -39,6 +44,7 @@ resources:
   - ../../base/namespaces/openshift-monitoring
   - ../../base/namespaces/opf-observatorium
   - ../../base/namespaces/opf-superset
+  - ../../base/namespaces/tekton-pipelines
   - ../../base/namespaces/thoth-amun-api-prod
   - ../../base/namespaces/thoth-amun-inspection-prod
   - ../../base/namespaces/thoth-backend-prod
