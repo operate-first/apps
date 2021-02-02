@@ -53,8 +53,8 @@ resources:
   - ../../base/namespaces/thoth-graph-prod
   - ../../base/namespaces/thoth-infra-prod
   - ../../base/namespaces/thoth-middletier-prod
-  - ../../base/operatorgroups/elastic-operator
-  - ../../base/operatorgroups/cluster-logging-operator
+  - ../../base/operatorgroups/openshift-logging
+  - ../../base/operatorgroups/openshift-operators-redhat
   - ../../base/subscriptions/elastic-operator
   - ../../base/subscriptions/cluster-logging-operator
 
