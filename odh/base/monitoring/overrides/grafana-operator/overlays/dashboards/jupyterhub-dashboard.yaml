@@ -1,9 +1,0 @@
-apiVersion: integreatly.org/v1alpha1
-kind: GrafanaDashboard
-metadata:
-  name: jupyterhub
-  labels:
-    app: grafana
-spec:
-  name: jupyterhub-dashboard.json
-  url: https://raw.githubusercontent.com/operate-first/SRE/master/dashboards/Jupyterhub-dashboard.json

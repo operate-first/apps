@@ -1,0 +1,9 @@
+apiVersion: integreatly.org/v1alpha1
+kind: GrafanaDashboard
+metadata:
+  name: jupyterhub-sli-slo
+  labels:
+    app: grafana
+spec:
+  name: jupyterhub-sli-slo
+  url: https://raw.githubusercontent.com/operate-first/SRE/master/dashboards/jupyterhub-sli-slo.json
