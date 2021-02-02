@@ -34,6 +34,7 @@ resources:
   - ../../base/namespaces/odh-operator
   - ../../base/namespaces/open-aiops
   - ../../base/namespaces/openshift-logging
+  - ../../base/namespaces/openshift-metering
   - ../../base/namespaces/openshift-operators-redhat
   - ../../base/namespaces/opf-argo
   - ../../base/namespaces/opf-ci-pipelines
@@ -58,9 +59,11 @@ resources:
   - ../../base/namespaces/thoth-middletier-prod
   - ../../base/operatorgroups/local-storage
   - ../../base/operatorgroups/openshift-logging
+  - ../../base/operatorgroups/openshift-metering
   - ../../base/operatorgroups/openshift-operators-redhat
   - ../../base/subscriptions/elastic-operator
   - ../../base/subscriptions/cluster-logging-operator
-  - ../../base/operatorgroups/local-storage-operator
+  - ../../base/subscriptions/metering-ocp
+
 generators:
   - secret-generator.yaml
