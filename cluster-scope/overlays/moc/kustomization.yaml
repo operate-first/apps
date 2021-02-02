@@ -7,9 +7,11 @@ resources:
   - ../../base/clusterroles/prow-aggregate-to-edit
   - ../../base/clusterroles/prow-aggregate-to-view
   - ../../base/clusterroles/metrics
+  - ../../base/clusterroles/observatorium-operator
   - ../../base/clusterrolebindings/cluster-metrics-federation
   - ../../base/clusterrolebindings/metrics
   - ../../base/crds/prow.k8s.io
+  - ../../base/crds/observatorium.io
   - ../../base/groups/argocd-admins
   - ../../base/groups/cluster-admins
   - ../../base/groups/data-science
