@@ -26,6 +26,7 @@ resources:
   - ../../base/namespaces/knative-serving
   - ../../base/namespaces/kube-system
   - ../../base/namespaces/kubeflow
+  - ../../base/namespaces/local-storage
   - ../../base/namespaces/m4d-blueprints
   - ../../base/namespaces/m4d-system
   - ../../base/namespaces/mesh-for-data
@@ -55,10 +56,11 @@ resources:
   - ../../base/namespaces/thoth-graph-prod
   - ../../base/namespaces/thoth-infra-prod
   - ../../base/namespaces/thoth-middletier-prod
+  - ../../base/operatorgroups/local-storage
   - ../../base/operatorgroups/openshift-logging
   - ../../base/operatorgroups/openshift-operators-redhat
   - ../../base/subscriptions/elastic-operator
   - ../../base/subscriptions/cluster-logging-operator
-
+  - ../../base/operatorgroups/local-storage-operator
 generators:
   - secret-generator.yaml
