@@ -5,6 +5,7 @@ resources:
   - thoth-kafka-argo-metrics.yaml
   - thoth-knowledge-graph-content-metrics.yaml
   - thoth-postgresql-metrics.yaml
+  - thoth-service-metrics.yaml
   - thoth-sli-slo.yaml
   - thoth-user-api-metrics.yaml
   - thoth-workflow-controllers-metrics.yaml
