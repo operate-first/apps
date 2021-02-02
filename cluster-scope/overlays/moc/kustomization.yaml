@@ -10,7 +10,6 @@ resources:
   - ../../base/clusterrolebindings/cluster-metrics-federation
   - ../../base/clusterrolebindings/metrics
   - ../../base/crds/prow.k8s.io
-  - ../../base/groups/approved-users
   - ../../base/groups/argocd-admins
   - ../../base/groups/cluster-admins
   - ../../base/groups/data-science
