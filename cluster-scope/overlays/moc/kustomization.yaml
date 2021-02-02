@@ -38,6 +38,7 @@ resources:
   - ../../base/namespaces/openshift-monitoring
   - ../../base/namespaces/openshift-operators
   - ../../base/namespaces/openshift-operators-redhat
+  - ../../base/namespaces/openshift-storage
   - ../../base/namespaces/opf-argo
   - ../../base/namespaces/opf-ci-pipelines
   - ../../base/namespaces/opf-ci-prow
@@ -62,9 +63,11 @@ resources:
   - ../../base/operatorgroups/openshift-logging
   - ../../base/operatorgroups/openshift-metering
   - ../../base/operatorgroups/openshift-operators-redhat
+  - ../../base/operatorgroups/openshift-storage
   - ../../base/subscriptions/elastic-operator
   - ../../base/subscriptions/cluster-logging-operator
   - ../../base/subscriptions/metering-ocp
+  - ../../base/subscriptions/ocs-operator
   - ../../base/subscriptions/opendatahub-operator
   - ../../base/subscriptions/openshift-pipelines-operator-rh
 
