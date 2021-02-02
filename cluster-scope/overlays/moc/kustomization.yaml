@@ -35,6 +35,8 @@ resources:
   - ../../base/namespaces/open-aiops
   - ../../base/namespaces/openshift-logging
   - ../../base/namespaces/openshift-metering
+  - ../../base/namespaces/openshift-monitoring
+  - ../../base/namespaces/openshift-operators
   - ../../base/namespaces/openshift-operators-redhat
   - ../../base/namespaces/opf-argo
   - ../../base/namespaces/opf-ci-pipelines
@@ -44,7 +46,6 @@ resources:
   - ../../base/namespaces/opf-jupyterhub
   - ../../base/namespaces/opf-kafka
   - ../../base/namespaces/opf-monitoring
-  - ../../base/namespaces/openshift-monitoring
   - ../../base/namespaces/opf-observatorium
   - ../../base/namespaces/opf-superset
   - ../../base/namespaces/tekton-pipelines
@@ -64,6 +65,8 @@ resources:
   - ../../base/subscriptions/elastic-operator
   - ../../base/subscriptions/cluster-logging-operator
   - ../../base/subscriptions/metering-ocp
+  - ../../base/subscriptions/opendatahub-operator
+  - ../../base/subscriptions/openshift-pipelines-operator-rh
 
 generators:
   - secret-generator.yaml
