@@ -1,0 +1,16 @@
+---
+apiVersion: local.storage.openshift.io/v1
+kind: LocalVolume
+metadata:
+  name: localblock
+spec:
+  logLevel: Normal
+  managementState: Managed
+  nodeSelector:
+    nodeSelectorTerms:
+      - matchExpressions:
+          - key: cluster.ocs.openshift.io/openshift-storage
+            operator: In
+            values:
+              - ""
+  storageClassDevices: []
