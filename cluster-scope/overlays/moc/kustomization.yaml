@@ -20,6 +20,8 @@ resources:
   - ../../base/groups/thoth
   - ../../base/namespaces/argocd
   - ../../base/namespaces/cert-manager
+  - ../../base/namespaces/ds-black-flake
+  - ../../base/namespaces/ds-example-project
   - ../../base/namespaces/istio-system
   - ../../base/namespaces/knative-serving
   - ../../base/namespaces/kube-system
