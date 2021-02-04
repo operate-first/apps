@@ -1,0 +1,10 @@
+---
+apiVersion: v1
+kind: Namespace
+metadata:
+  annotations:
+    openshift.io/display-name: "Data Science: Example project"
+    openshift.io/requester: data-science
+    operate-first.cloud/issue: "https://github.com/operate-first/support/issues/76"
+  name: ds-example-project
+spec: {}
