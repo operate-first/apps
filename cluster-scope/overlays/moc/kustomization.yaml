@@ -6,8 +6,10 @@ resources:
   - ../../base/clusterroles/prow-aggregate-to-admin
   - ../../base/clusterroles/prow-aggregate-to-edit
   - ../../base/clusterroles/prow-aggregate-to-view
+  - ../../base/clusterroles/cluster-logs-reader
   - ../../base/clusterroles/metrics
   - ../../base/clusterroles/observatorium-operator
+  - ../../base/clusterrolebindings/cluster-logs-readers
   - ../../base/clusterrolebindings/cluster-metrics-federation
   - ../../base/clusterrolebindings/metrics
   - ../../base/crds/prow.k8s.io
