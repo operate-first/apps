@@ -6,5 +6,4 @@ metadata:
   name: jupyterhub-usage
 spec:
   customFolderName: Operate-First
-  name: jupyterhub-usage
   url: https://raw.githubusercontent.com/operate-first/SRE/master/dashboards/jupyterhub-usage.json
