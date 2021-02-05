@@ -7,9 +7,11 @@ resources:
   - ../../base/clusterroles/prow-aggregate-to-edit
   - ../../base/clusterroles/prow-aggregate-to-view
   - ../../base/clusterroles/metrics
+  - ../../base/clusterroles/observatorium-operator
   - ../../base/clusterrolebindings/cluster-metrics-federation
   - ../../base/clusterrolebindings/metrics
   - ../../base/crds/prow.k8s.io
+  - ../../base/crds/observatorium.io
   - ../../base/groups/argocd-admins
   - ../../base/groups/cluster-admins
   - ../../base/groups/data-science
@@ -26,14 +28,20 @@ resources:
   - ../../base/namespaces/knative-serving
   - ../../base/namespaces/kube-system
   - ../../base/namespaces/kubeflow
+  - ../../base/namespaces/local-storage
   - ../../base/namespaces/m4d-blueprints
   - ../../base/namespaces/m4d-system
   - ../../base/namespaces/mesh-for-data
   - ../../base/namespaces/observatorium-operator
   - ../../base/namespaces/odh-operator
   - ../../base/namespaces/open-aiops
+  - ../../base/namespaces/openshift-cnv
   - ../../base/namespaces/openshift-logging
+  - ../../base/namespaces/openshift-metering
+  - ../../base/namespaces/openshift-monitoring
+  - ../../base/namespaces/openshift-operators
   - ../../base/namespaces/openshift-operators-redhat
+  - ../../base/namespaces/openshift-storage
   - ../../base/namespaces/opf-argo
   - ../../base/namespaces/opf-ci-pipelines
   - ../../base/namespaces/opf-ci-prow
@@ -42,7 +50,6 @@ resources:
   - ../../base/namespaces/opf-jupyterhub
   - ../../base/namespaces/opf-kafka
   - ../../base/namespaces/opf-monitoring
-  - ../../base/namespaces/openshift-monitoring
   - ../../base/namespaces/opf-observatorium
   - ../../base/namespaces/opf-superset
   - ../../base/namespaces/tekton-pipelines
@@ -55,10 +62,19 @@ resources:
   - ../../base/namespaces/thoth-graph-prod
   - ../../base/namespaces/thoth-infra-prod
   - ../../base/namespaces/thoth-middletier-prod
-  - ../../base/operatorgroups/elastic-operator
-  - ../../base/operatorgroups/cluster-logging-operator
-  - ../../base/subscriptions/elastic-operator
+  - ../../base/operatorgroups/local-storage
+  - ../../base/operatorgroups/openshift-logging
+  - ../../base/operatorgroups/openshift-cnv
+  - ../../base/operatorgroups/openshift-metering
+  - ../../base/operatorgroups/openshift-operators-redhat
+  - ../../base/operatorgroups/openshift-storage
   - ../../base/subscriptions/cluster-logging-operator
+  - ../../base/subscriptions/elastic-operator
+  - ../../base/subscriptions/kubevirt-hyperconverged
+  - ../../base/subscriptions/metering-ocp
+  - ../../base/subscriptions/ocs-operator
+  - ../../base/subscriptions/opendatahub-operator
+  - ../../base/subscriptions/openshift-pipelines-operator-rh
 
 generators:
   - secret-generator.yaml
