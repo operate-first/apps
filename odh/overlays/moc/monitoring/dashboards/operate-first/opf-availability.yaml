@@ -6,5 +6,4 @@ metadata:
   name: opf-availability
 spec:
   customFolderName: Operate-First
-  name: opf-availability
   url: https://github.com/operate-first/SRE/blob/master/dashboards/opf-availability.json

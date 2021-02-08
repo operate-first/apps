@@ -18,9 +18,9 @@ spec:
 ```
 
 In this template, all you need to do is update:
+
 1. `metadata.name` - the dashboard name
-2. `spec.name` - the dashboard JSON file name
-3. `spec.url` - the URL pointing to the location of your dashboard JSON file
+2. `spec.url` - the URL pointing to the location of your dashboard JSON file
 
 Pick a suitable `metadata.name`, ensure that its unique in the [`odh/base/monitoring/overrides/grafana-operator/overlays/dashboards`](https://github.com/operate-first/apps/tree/master/odh/base/monitoring/overrides/grafana-operator/overlays/dashboards) folder.
 

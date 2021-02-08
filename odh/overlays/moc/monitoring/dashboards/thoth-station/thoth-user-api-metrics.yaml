@@ -6,5 +6,4 @@ metadata:
     app: grafana
     component: thoth-station
 spec:
-  name: thoth-user-api-metrics
   url: https://raw.githubusercontent.com/thoth-station/thoth-application/master/grafana-dashboard/overlays/cnv-prod/thoth-user-api-metrics.json

@@ -6,5 +6,4 @@ metadata:
     app: grafana
     component: thoth-station
 spec:
-  name: thoth-kafka-argo-metrics
   url: https://raw.githubusercontent.com/thoth-station/thoth-application/master/grafana-dashboard/overlays/cnv-prod/thoth-kafka-argo-metrics.json
