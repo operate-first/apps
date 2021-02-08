@@ -22,6 +22,7 @@ resources:
   - ../../base/groups/operate-first
   - ../../base/groups/rekor
   - ../../base/groups/thoth
+  - ../../base/groups/workshops
   - ../../base/namespaces/argocd
   - ../../base/namespaces/cert-manager
   - ../../base/namespaces/ds-black-flake
@@ -64,6 +65,7 @@ resources:
   - ../../base/namespaces/thoth-graph-prod
   - ../../base/namespaces/thoth-infra-prod
   - ../../base/namespaces/thoth-middletier-prod
+  - ../../base/namespaces/ws-ml-prague
   - ../../base/operatorgroups/local-storage
   - ../../base/operatorgroups/openshift-logging
   - ../../base/operatorgroups/openshift-cnv
