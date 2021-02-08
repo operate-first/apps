@@ -43,7 +43,7 @@ spec:
     - kustomizeConfig:
         repoRef:
           name: manifests
-          path: stacks/openshift
+          path: stacks/openshift_without_registration_flow
       name: kubeflow-apps
     - kustomizeConfig:
         repoRef:
@@ -67,5 +67,5 @@ spec:
       name: knative
   repos:
     - name: manifests
-      uri: 'https://github.com/kubeflow/manifests/archive/master.tar.gz'
+      uri: "https://github.com/tumido/manifests/archive/ocp-stack-dashboard-params.tar.gz"
   version: master
