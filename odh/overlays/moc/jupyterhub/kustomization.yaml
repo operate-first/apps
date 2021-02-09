@@ -5,6 +5,10 @@ namespace: opf-jupyterhub
 
 resources:
   - ../../../base/jupyterhub
+
+generators:
+  - pvcs/secret-generator.yaml
+
 patchesJson6902:
   - patch: |
       - op: add
