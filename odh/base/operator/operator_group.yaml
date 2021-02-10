@@ -1,7 +1,0 @@
----
-apiVersion: operators.coreos.com/v1
-kind: OperatorGroup
-metadata:
-  name: odh-testing-operator-group
-  namespace: odh-operator
-spec: {}
