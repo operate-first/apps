@@ -13,15 +13,15 @@ spec:
           path: odh-common
       name: odh-common
     - kustomizeConfig:
-        overlays: []
-        parameters:
-          - name: s3_endpoint_url
-            value: s3.odh.com
         repoRef:
           name: manifests
           path: jupyterhub/jupyterhub
       name: jupyterhub
     - kustomizeConfig:
+        overlays: []
+        parameters:
+          - name: s3_endpoint_url
+            value: s3.odh.com
         repoRef:
           name: opf-manifests
           path: odh/base/jupyterhub/overrides/jupyterhub
