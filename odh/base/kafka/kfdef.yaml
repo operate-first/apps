@@ -24,5 +24,5 @@ spec:
     name: kafka-cluster
   repos:
   - name: manifests
-    uri: https://github.com/opendatahub-io/odh-manifests/tarball/master
-  version: v0.9.0
+    uri: https://github.com/opendatahub-io/odh-manifests/tarball/v1.0.0
+  version: v1.0.0
