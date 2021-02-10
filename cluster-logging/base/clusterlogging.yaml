@@ -15,6 +15,10 @@ spec:
       audit:
         maxAge: 7d
     elasticsearch:
+      resources:
+        requests:
+          cpu: 6
+          memory: 16Gi
       nodeCount: 2
       storage:
         # TODO: manually set the storageClassName
