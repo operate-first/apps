@@ -24,7 +24,7 @@ spec:
       name: ceph-nano-scc
     - kustomizeConfig:
         repoRef:
-          name: manifests-master
+          name: manifests
           path: ceph/object-storage/nano
       name: ceph-nano
     - kustomizeConfig:
@@ -37,7 +37,7 @@ spec:
           - name: s3_credentials_secret
             value: ceph-nano-credentials
         repoRef:
-          name: manifests-master
+          name: manifests
           path: hue/hue
       name: hue
     - kustomizeConfig:
@@ -49,12 +49,10 @@ spec:
           - name: s3_credentials_secret
             value: ceph-nano-credentials
         repoRef:
-          name: manifests-master
+          name: manifests
           path: thriftserver/thriftserver
       name: thriftserver
   repos:
     - name: manifests
-      uri: "https://github.com/opendatahub-io/odh-manifests/tarball/v0.9.0"
-    - name: manifests-master
-      uri: "https://github.com/opendatahub-io/odh-manifests/tarball/master"
-  version: v0.9-branch-openshift
+      uri: "https://github.com/opendatahub-io/odh-manifests/tarball/v1.0.0"
+  version: v1.0.0
