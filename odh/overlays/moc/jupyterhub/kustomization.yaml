@@ -12,10 +12,10 @@ generators:
 patchesJson6902:
   - patch: |
       - op: add
-        path: /spec/applications/1/kustomizeConfig/overlays/-
+        path: /spec/applications/2/kustomizeConfig/overlays/-
         value: storage-class
       - op: add
-        path: /spec/applications/1/kustomizeConfig/parameters/-
+        path: /spec/applications/2/kustomizeConfig/parameters/-
         value:
           name: storage_class
           value: ocs-storagecluster-cephfs
