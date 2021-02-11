@@ -19,7 +19,7 @@ spec:
         requests:
           cpu: 6
           memory: 16Gi
-      nodeCount: 2
+      nodeCount: 3
       storage:
         # TODO: manually set the storageClassName
         # Upstream Issue:
