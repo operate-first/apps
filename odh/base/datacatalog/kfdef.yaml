@@ -18,24 +18,7 @@ spec:
           path: odh-common
       name: odh-common
     - kustomizeConfig:
-        repoRef:
-          name: manifests
-          path: ceph/object-storage/scc
-      name: ceph-nano-scc
-    - kustomizeConfig:
-        repoRef:
-          name: manifests
-          path: ceph/object-storage/nano
-      name: ceph-nano
-    - kustomizeConfig:
-        overlays: []
-        parameters:
-          - name: s3_endpoint_url
-            value: ceph-nano-0
-          - name: s3_is_secure
-            value: "false"
-          - name: s3_credentials_secret
-            value: ceph-nano-credentials
+        parameters: []
         repoRef:
           name: manifests
           path: hue/hue
@@ -43,11 +26,7 @@ spec:
     - kustomizeConfig:
         overlays:
           - create-spark-cluster
-        parameters:
-          - name: s3_endpoint_url
-            value: ceph-nano-0
-          - name: s3_credentials_secret
-            value: ceph-nano-credentials
+        parameters: []
         repoRef:
           name: manifests
           path: thriftserver/thriftserver

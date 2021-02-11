@@ -5,24 +5,10 @@ namespace: opf-datacatalog
 
 resources:
   - ../../../base/datacatalog
+  - bucket.yaml
+
 patchesJson6902:
-  - patch: |
-      - op: add
-        path: /spec/applications/4/kustomizeConfig/overlays/-
-        value: storage-class
-      - op: add
-        path: /spec/applications/4/kustomizeConfig/parameters/-
-        value:
-          name: storage_class
-          value: ocs-storagecluster-cephfs
-      - op: add
-        path: /spec/applications/5/kustomizeConfig/overlays/-
-        value: storage-class
-      - op: add
-        path: /spec/applications/5/kustomizeConfig/parameters/-
-        value:
-          name: storage_class
-          value: ocs-storagecluster-cephfs
+  - path: kfdef_patch.yaml
     target:
       group: kfdef.apps.kubeflow.org
       kind: KfDef
