@@ -22,6 +22,11 @@ spec:
           path: jupyterhub/jupyterhub
       name: jupyterhub
     - kustomizeConfig:
+        repoRef:
+          name: opf-manifests
+          path: odh/base/jupyterhub/overrides/jupyterhub
+      name: jupyterhub
+    - kustomizeConfig:
         overlays:
           - additional
         repoRef:
@@ -31,4 +36,6 @@ spec:
   repos:
     - name: manifests
       uri: "https://github.com/opendatahub-io/odh-manifests/tarball/v1.0.0"
+    - name: opf-manifests
+      uri: "https://github.com/operate-first/apps/tarball/master"
   version: v1.0.0
