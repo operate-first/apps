@@ -5,6 +5,8 @@
       value: rook-ceph-rgw-ocs-storagecluster-cephobjectstore.openshift-storage.svc.cluster.local
     - name: s3_credentials_secret
       value: opf-datacatalog-bucket
+    - name: storage_class
+      value: ocs-storagecluster-cephfs
 
 - op: add
   path: /spec/applications/3/kustomizeConfig/parameters
@@ -13,3 +15,13 @@
       value: rook-ceph-rgw-ocs-storagecluster-cephobjectstore.openshift-storage.svc.cluster.local
     - name: s3_credentials_secret
       value: opf-datacatalog-bucket
+    - name: storage_class
+      value: ocs-storagecluster-cephfs
+
+- op: add
+  path: /spec/applications/2/kustomizeConfig/overlays
+  value: [storage-class]
+
+- op: add
+  path: /spec/applications/3/kustomizeConfig/overlays/-
+  value: storage-class
