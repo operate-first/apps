@@ -7,3 +7,6 @@ namespace: openshift-logging
 resources:
   - ../../base
   - configmaps
+
+generators:
+  - routes/secret-generator.yaml
