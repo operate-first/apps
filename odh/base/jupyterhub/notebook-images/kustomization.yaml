@@ -4,10 +4,11 @@ kind: Kustomization
 namespace: opf-jupyterhub
 resources:
   - categorical-encoding.yaml
-  - ocp-ci-analysis.yaml
   - ceph-drive-failure.yaml
-  - configuration-files-analysis.yaml
   - cloud-price-analysis.yaml
+  - configuration-files-analysis.yaml
+  - mailing-list-analysis-toolkit.yaml
+  - ml-prague-workshop.yaml
+  - ocp-ci-analysis.yaml
   - openshift-anomaly-detection.yaml
   - time-series.yaml
-  - mailing-list-analysis-toolkit.yaml
