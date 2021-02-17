@@ -17,7 +17,7 @@ chmod +x $KUSTOMIZE_PLUGIN_HOME/viaduct.ai/v1/ksops/ksops
 k=$(find . -name kustomization.yaml)
 
 for d in $k; do
-    if [[ $(dirname $d) == ./qeb-hwt-github-app* ]]; then
+    if [[ $(dirname $d) == *overrides* ]]; then
         echo skipping $(dirname $d)
         continue
     fi
