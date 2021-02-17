@@ -7,7 +7,6 @@ resources:
   - ../../base/groups/cluster-admins
   - ../../base/groups/operate-first
   - ../../base/namespaces/observatorium-operator
-  - ../../base/namespaces/odh-operator
   - ../../base/namespaces/opf-argo
   - ../../base/namespaces/opf-dashboard
   - ../../base/namespaces/opf-datacatalog
