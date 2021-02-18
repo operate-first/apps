@@ -19,8 +19,8 @@ spec:
       scheme: https
       tlsConfig:
         insecureSkipVerify: true
-      scrapeTimeout: 50s
-      interval: 60s
+      scrapeTimeout: 130s
+      interval: 150s
   namespaceSelector:
     matchNames:
       - openshift-monitoring
