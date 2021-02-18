@@ -25,6 +25,7 @@ resources:
   - ../../base/groups/rekor
   - ../../base/groups/thoth
   - ../../base/groups/workshops
+  - ../../base/imageregistryconfigs/cluster
   - ../../base/namespaces/argocd
   - ../../base/namespaces/cert-manager
   - ../../base/namespaces/ds-black-flake
@@ -69,6 +70,7 @@ resources:
   - ../../base/namespaces/thoth-infra-prod
   - ../../base/namespaces/thoth-middletier-prod
   - ../../base/namespaces/ws-ml-prague
+  - ../../base/oauths/cluster
   - ../../base/operatorgroups/local-storage
   - ../../base/operatorgroups/openshift-logging
   - ../../base/operatorgroups/openshift-cnv
@@ -85,3 +87,6 @@ resources:
 
 generators:
   - secret-generator.yaml
+
+patchesStrategicMerge:
+  - oauths/cluster_patch.yaml
