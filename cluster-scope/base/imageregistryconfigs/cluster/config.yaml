@@ -4,6 +4,8 @@ kind: Config
 metadata:
   name: cluster
 spec:
+  logging: 2
+  replicas: 3
   managementState: Managed
   storage:
     pvc:
