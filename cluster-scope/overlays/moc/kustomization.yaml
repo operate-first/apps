@@ -26,6 +26,7 @@ resources:
   - ../../base/groups/thoth
   - ../../base/groups/workshops
   - ../../base/imageregistryconfigs/cluster
+  - ../../base/ingresscontrollers/default
   - ../../base/namespaces/argocd
   - ../../base/namespaces/cert-manager
   - ../../base/namespaces/ds-black-flake
