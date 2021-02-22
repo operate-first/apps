@@ -1,0 +1,23 @@
+---
+apiVersion: config.openshift.io/v1
+kind: OAuth
+metadata:
+  name: cluster
+spec:
+  identityProviders:
+    - mappingMethod: claim
+      name: moc-sso
+      openID:
+        claims:
+          email:
+            - email
+          name:
+            - name
+          preferredUsername:
+            - preferred_username
+        clientID: moc-openshift-cnv
+        clientSecret:
+          name: moc-sso-client-secret
+        extraScopes: []
+        issuer: https://sso.massopen.cloud/auth/realms/moc
+      type: OpenID
