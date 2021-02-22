@@ -4,9 +4,6 @@ kind: Kustomization
 
 namespace: tekton-pipelines
 
-resources:
-  - namespace.yaml
-
 components:
   - ../../../components/project-admin-rolebindings/operate-first
   - ../../../components/monitoring-rbac
