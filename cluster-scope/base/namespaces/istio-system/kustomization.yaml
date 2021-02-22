@@ -4,9 +4,6 @@ kind: Kustomization
 
 namespace: istio-system
 
-resources:
-  - namespace.yaml
-
 components:
   - ../../../components/project-admin-rolebindings/operate-first
   - ../../../components/monitoring-rbac
