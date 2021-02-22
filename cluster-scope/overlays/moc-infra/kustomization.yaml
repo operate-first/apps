@@ -9,3 +9,6 @@ resources:
 
 generators:
   - secret-generator.yaml
+
+patchesStrategicMerge:
+  - oauths/cluster_patch.yaml
