@@ -20,7 +20,7 @@ spec:
         openshift.io/imported-from: quay.io/thoth-station/s2i-lab-elyra
       from:
         kind: DockerImage
-        name: quay.io/thoth-station/s2i-lab-elyra:jupyterlab-elyra2.x
+        name: quay.io/thoth-station/s2i-lab-elyra:ml-prague-workshop
       importPolicy:
         scheduled: true
       name: "latest"
