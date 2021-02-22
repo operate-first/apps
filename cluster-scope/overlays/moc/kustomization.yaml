@@ -90,3 +90,4 @@ generators:
 
 patchesStrategicMerge:
   - oauths/cluster_patch.yaml
+  - imageregistryconfigs/image-registry-storage_patch.yaml
