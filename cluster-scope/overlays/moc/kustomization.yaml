@@ -3,6 +3,7 @@ apiVersion: kustomize.config.k8s.io/v1beta1
 kind: Kustomization
 
 resources:
+  - ../moc-base
   - ../../base/clusterroles/prow-aggregate-to-admin
   - ../../base/clusterroles/prow-aggregate-to-edit
   - ../../base/clusterroles/prow-aggregate-to-view
@@ -17,15 +18,7 @@ resources:
   - ../../base/clusterrolebindings/scc-privileged-opf-ci-pipelines-aicoe-ci
   - ../../base/crds/prow.k8s.io
   - ../../base/crds/observatorium.io
-  - ../../base/groups/argocd-admins
   - ../../base/groups/cluster-admins
-  - ../../base/groups/data-science
-  - ../../base/groups/mesh-for-data
-  - ../../base/groups/open-aiops
-  - ../../base/groups/operate-first
-  - ../../base/groups/rekor
-  - ../../base/groups/thoth
-  - ../../base/groups/workshops
   - ../../base/imageregistryconfigs/cluster
   - ../../base/ingresscontrollers/default
   - ../../base/namespaces/argocd
