@@ -8,6 +8,7 @@ resources:
   - ./servicemonitors
   - dashboards
   - datasource
+  - rules/alerting
   - secrets
 generators:
   - secrets/secret-generator.yaml
