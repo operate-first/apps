@@ -50,6 +50,7 @@ resources:
   - ../../base/namespaces/opf-dashboard
   - ../../base/namespaces/opf-datacatalog
   - ../../base/namespaces/opf-jupyterhub
+  - ../../base/namespaces/opf-jupyterhub-stage
   - ../../base/namespaces/opf-kafka
   - ../../base/namespaces/opf-monitoring
   - ../../base/namespaces/opf-observatorium
