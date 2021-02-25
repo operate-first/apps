@@ -7,7 +7,6 @@ metadata:
   name: jupyterhub-cfg
 data:
   jupyterhub_config.py: |
-    c.OpenShiftOAuthenticator.validate_cert = False;
     c.JupyterHub.authenticate_prometheus = False;
   jupyterhub_admins: "admin"
   gpu_mode: ""
