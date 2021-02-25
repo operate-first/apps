@@ -15,6 +15,9 @@ resources:
   - ../../base/namespaces/opf-monitoring
   - ../../base/namespaces/opf-observatorium
   - ../../base/namespaces/opf-superset
+  - ../../base/namespaces/openshift-storage
+  - ../../base/operatorgroups/openshift-storage
+  - ../../base/subscriptions/ocs-operator
 
 patchesJson6902:
   - path: group-user_patch.yaml
