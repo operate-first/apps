@@ -4,10 +4,13 @@ kind: Kustomization
 
 resources:
   - ../moc-base
+  - ../../base/namespaces/acm
   - ../../base/clusterrolebindings/argocd-manager
   - ../../base/clusterrolebindings/cluster-admins-rb
   - ../../base/groups/cluster-admins
   - ../../base/oauths/cluster
+  - ../../base/operatorgroups/acm
+  - ../../base/subscriptions/advanced-cluster-management
 
 generators:
   - secret-generator.yaml
