@@ -23,5 +23,5 @@ spec:
       name: superset
   repos:
     - name: manifests
-      uri: "https://github.com/opendatahub-io/odh-manifests/tarball/v1.0.0"
-  version: v1.0.0
+      uri: "https://github.com/opendatahub-io/odh-manifests/tarball/v1.0.2"
+  version: v1.0.2
