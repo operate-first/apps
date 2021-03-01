@@ -4,7 +4,7 @@ kind: Subscription
 metadata:
   name: openshift-pipelines-operator-rh
 spec:
-  channel: ocp-4.5
+  channel: DEFINED_IN_OVERLAY
   installPlanApproval: Automatic
   name: openshift-pipelines-operator-rh
   source: redhat-operators

@@ -4,7 +4,7 @@ kind: Subscription
 metadata:
   name: cluster-logging
 spec:
-  channel: "4.5"
+  channel: DEFINED_IN_OVERLAY
   installPlanApproval: Automatic
   name: cluster-logging
   source: redhat-operators

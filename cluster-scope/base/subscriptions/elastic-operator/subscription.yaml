@@ -4,7 +4,7 @@ kind: Subscription
 metadata:
   name: elasticsearch-operator
 spec:
-  channel: "4.5"
+  channel: DEFINED_IN_OVERLAY
   installPlanApproval: Automatic
   name: elasticsearch-operator
   source: redhat-operators

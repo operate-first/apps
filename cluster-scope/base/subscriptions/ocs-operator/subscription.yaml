@@ -4,9 +4,8 @@ kind: Subscription
 metadata:
   name: ocs-operator
 spec:
-  channel: stable-4.5
+  channel: DEFINED_IN_OVERLAY
   installPlanApproval: Automatic
   name: ocs-operator
   source: redhat-operators
   sourceNamespace: openshift-marketplace
-  startingCSV: ocs-operator.v4.5.2

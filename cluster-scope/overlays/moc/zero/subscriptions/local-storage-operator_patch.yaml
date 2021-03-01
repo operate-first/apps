@@ -1,0 +1,11 @@
+---
+apiVersion: operators.coreos.com/v1alpha1
+kind: Subscription
+metadata:
+  name: local-storage-operator
+  namespace: local-storage
+spec:
+  # As of 2021-03-01 the docs for Local Storage doesn't specify channel.
+  # https://docs.openshift.com/container-platform/4.7/storage/persistent_storage/persistent-storage-local.html
+  # Guessing channel.
+  channel: "4.7"

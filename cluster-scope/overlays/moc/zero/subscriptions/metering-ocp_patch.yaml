@@ -1,0 +1,9 @@
+---
+apiVersion: operators.coreos.com/v1alpha1
+kind: Subscription
+metadata:
+  name: metering-operator
+  namespace: openshift-metering
+spec:
+  # https://docs.openshift.com/container-platform/4.7/metering/metering-installing-metering.html#metering-install-cli_installing-metering
+  channel: "4.7"
