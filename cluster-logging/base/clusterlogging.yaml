@@ -19,7 +19,8 @@ spec:
         requests:
           cpu: 6
           memory: 16Gi
-      nodeCount: 3
+      # it's better to keep nodeCount to a odd number for leader election issues
+      nodeCount: 5
       storage:
         # TODO: manually set the storageClassName
         # Upstream Issue:
