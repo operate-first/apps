@@ -17,7 +17,7 @@ spec:
     elasticsearch:
       resources:
         requests:
-          cpu: 6
+          cpu: 4
           memory: 16Gi
       # it's better to keep nodeCount to a odd number for leader election issues
       nodeCount: 5
