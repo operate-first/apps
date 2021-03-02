@@ -1,0 +1,9 @@
+---
+apiVersion: v1
+kind: Namespace
+metadata:
+  annotations:
+    openshift.io/display-name: "OpenDataHub: RAY"
+    openshift.io/requester: ray
+  name: ray-odh-integration
+spec: {}
