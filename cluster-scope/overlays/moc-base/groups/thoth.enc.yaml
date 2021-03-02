@@ -5,35 +5,36 @@ metadata:
     annotations:
         kustomize.config.k8s.io/behavior: replace
 users:
-- ENC[AES256_GCM,data:SCqugOLUhI3da5jEE/wi/YY=,iv:HdppMFIO7QTL8JgnoiU5vzDa5T1PTbOaPDjpmh3hx8E=,tag:vtUEE9uNve5Zk/Wt4rM4Mw==,type:str]
-- ENC[AES256_GCM,data:ttVsvHAbcOPF6m2IIZPVZt0=,iv:qmB1gCAHSigA0K1YszvG114gBvIpBM5SrT40fU4Xy9Q=,tag:uvIzv3n0lQjGykdP1J+vjw==,type:str]
-- ENC[AES256_GCM,data:BnMVhWIBIcA5vxER7N1fZje40Q==,iv:G37OuianJwEW9GTK06leZ3Qbm2CAzsUVopOA3aAOlV8=,tag:Lj/TPF1QB8gN2nQJcwQNYQ==,type:str]
+- ENC[AES256_GCM,data:yNp5X0LS2cl3SeZ4yyl1tQU=,iv:DvLlKXazeZ9EWoz19N5HMvXNYIfOYIV37hq6xru20mc=,tag:ts9wznR4eQqnBvMoT5c5fQ==,type:str]
+- ENC[AES256_GCM,data:YD5vcS2ybJJqN//ZqGt4eiU=,iv:3RlRW/uhGg2Kv2uAGJ8cfVEbBUTDq5L9G2jskfLprS8=,tag:oofk32mihodMA7qvfyLY0A==,type:str]
+- ENC[AES256_GCM,data:z2wEFaRc2CgCR6B7NLj36f8WXg==,iv:uceavpvadr+99DBJ44N9EJDO1YaeK2bgOPju5ws0VD8=,tag:yfqjaTit+QPs5V87ZpoS6g==,type:str]
+- ENC[AES256_GCM,data:Iv3noBuxMdNn1wmp5zQpSww56g==,iv:vvOq+QMrBWSHDGZvq8oolzFr/j+eeQhyIKi7tDIt0Xs=,tag:g6wmQIoyMG+p7qO5F0aNsw==,type:str]
 sops:
     kms: []
     gcp_kms: []
     azure_kv: []
-    lastmodified: '2021-01-25T18:26:52Z'
-    mac: ENC[AES256_GCM,data:fvpIv/vpg7gmJ701DhoBR8EcR84gKPnRibtDLpl3siXCAGqmVGWrRoOFqMat5O/Joey1B/F/bLdWg4Kli416z9KFGQVZ/PqHM5OpGeTh6g33qceMKQOTm2os+TzqBBEon+F5vyTFEcH+YpTzlQAlCvyGW9af7gEMEC5u9gOakBg=,iv:6ZMQZH30dICdlxHw0MDSfm7d3CiNrHK7PNApP8qNE2E=,tag:CYNLSMbtz1iChlBt9CgQrw==,type:str]
+    lastmodified: '2021-03-02T07:30:36Z'
+    mac: ENC[AES256_GCM,data:EqxCPqH23ty35kiZHBNhv9jpKkETr6RtFjV/t07bjOTcMfoQ747MTTP54OJWcdsRq0PE2/VGLBIJef3RWKlYfF7aBCzvHQ0MPri7s3HqPG17v5BA+YSOUIQBP/jzrZa59hVlAlE3i/aacoxyH57OmvFbG/4harSipDxKGGCSiUA=,iv:J2/Ma88tABRoM6YQAmxli2JaY0+sTWgYvrVfShVL9T4=,tag:7D658EZAs1HwrbijkypmnA==,type:str]
     pgp:
-    -   created_at: '2021-01-25T18:26:51Z'
+    -   created_at: '2021-03-02T07:30:35Z'
         enc: |
             -----BEGIN PGP MESSAGE-----
 
-            hQIMA9aKBcudqifiARAAsqqJmcm2Acs01rkEzKyB93gHXCrPGkgTp8iAahhwpH0H
-            j4n/W0mp3wa9adf9m3/EtGMQYFpbvYStQQLlHBdtqhgtaJRFbpugB44wdnGXaekh
-            /ESBy/IZLQ+B/I41CumKDklyX/IEpk1zLxrOGA8rJXqT/DbL+GZIpouyAM6s05Pj
-            N6iYtYEZTtCsAW4JlVMmLa6nivXvx0n7ijeTfcepd8+Dw+pObua28Ea4FF4W11id
-            PpINOLiN5goYPqTIzJTNryqTIab4lrLy6l0cX6H26OUqO+/AhvCe2P5uGVqWLtoV
-            g+rUz89jtyXBvk1b/tQnzBaLobYY4O2b+1WoMHUPCwrvQ4+owBCDw2yLx2aq1ltt
-            P7F8oeRYJY3ojwZTWgv+4YYQ3tZTCRE4Bd+hztWgfxUhaoc5MKJuBmF7t6mTMhPR
-            j+8lmYBsEV8YnD/k/BwH8R3RkbKPCgigW9kmkgIkIHubB0ikY/3Tp15bj8z/UeQV
-            CaJZr/a1V139HzwYtrguT5ni14FK9lXFPVYdVdLSzV1zxOxFNn8TMlmm1HPZx9RI
-            uX4esyKk+1o6cXT/F+7L+TwzLGy1/M4HssDOZm6tTMHHK5pEAhmhD+5XmSJ1+E1r
-            heIl7O5pc9kQy6ozizZu1jdQTGViwRRuMKPaRKuNHcKoXdIg4zjp9rh4VbTaQ1vS
-            XgHhPzAhCZmdbUnGLGKX6+o7q/VOWBlc3oMxXxonAsVwTSGTdZ0/Jmtl147TAp2V
-            /SIifEBA0LERA4yaYW1W6ZSXlHMyFzM9Oubid4YludvFwcmE+Zh0578T1EUhi8o=
-            =eF1i
+            hQIMA9aKBcudqifiAQ/+IDP8c8Nuz4P7rpXwr2TeRGWhuM6galvwfGrPdPhF++yN
+            xgRYPBRWt+WBBPHBUkepNWeQxIqKD4dI09nd2DeTikA4Tzcxq5QIVFBWKadIrXIV
+            A0KIoCP3nu6M1YBvqD3V/Q18srPGKMEBnBzBJoEZBkeTBOKa6Mzun/9W9m8gDJh5
+            QBsRzFwgGXHlxWwbut/La6xNwhf2180oeRwzN1NuTHbMppSsIqEMkxUs7slqbBY1
+            X7a+C149LvpjyJlMDarE8T+/2HT5fhBZqPRxUpUXxTOzEOSJymtz1ROf/92viT6H
+            GeofSLLTu9Gg8gD391kFswC2uPJwH+iU/T8nQkaiZ8oPWgzKmv0mU0J7o6xNhmvZ
+            0UV49/iZ+MRrdnSGMVNX9OU8SOLSsR5eR+HI1TdoN5R61WUiNjuGbXsZ9I4ATXAG
+            qIgUyljgjJSpL+d1KlgMBwxrAfQIuCHkemhzfMdtEJQWocUi/IC/xnvRo/gKhf4d
+            hxg9aNPUwC2J5z6capOBODVsyNsJJAi2CrgZb+yln2zcZJVlup0aebIqBAIJjvpx
+            vxNSxywcpUN5Rp8p3RxRQNphl9C5ufDLdZZHi7C+K3dljrVHWiAqaZT+wU7ugJk1
+            jlf9Xn0fdSCE5L/ZFP8+GovKOb9ulBiuc/xra7qgAS9Fglaggkk8ZleWJMwA5uPS
+            XgHJ4j0Khh0HPKttaMT2eCMpliFN206ymcDwAm0Yd0i47rAEDt2eTvw/Hg2dsIDR
+            1JmjntakzzYYJByrIdqajtclvgvUizJ/eQfZBJhlLFqew+0SfRdzGRNxS9xHl4Q=
+            =iCen
             -----END PGP MESSAGE-----
         fp: 0508677DD04952D06A943D5B4DC4116D360E3276
-    encrypted_regex: ^users$
+    encrypted_regex: ^(users|data|stringData)$
     version: 3.5.0
