@@ -55,6 +55,7 @@ resources:
   - ../../base/namespaces/opf-monitoring
   - ../../base/namespaces/opf-observatorium
   - ../../base/namespaces/opf-superset
+  - ../../base/namespaces/ray-odh-integration
   - ../../base/namespaces/tekton-pipelines
   - ../../base/namespaces/thoth-amun-api-prod
   - ../../base/namespaces/thoth-amun-inspection-prod
