@@ -12,3 +12,5 @@ subjects:
     name: operate-first
   - kind: Group
     name: open-aiops
+  - kind: Group
+    name: data-science
