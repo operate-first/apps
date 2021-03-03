@@ -1,0 +1,16 @@
+kind: ImageStream
+apiVersion: image.openshift.io/v1
+metadata:
+  name: ray-ml-notebook
+  labels:
+    opendatahub.io/notebook-image: 'true'
+spec:
+  lookupPolicy:
+    local: true
+  tags:
+    # This ray integration is being provided on an experimental basis
+    - name: experimental
+      from:
+        kind: DockerImage
+        # can rebuild with newer nightly SHAs periodically
+        name: 'quay.io/erikerlandson/ray-ml-notebook:py-3.6-ray-43570553'
