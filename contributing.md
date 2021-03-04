@@ -25,10 +25,11 @@ Please create an issue in this repo if it directly concerns contents within this
 
 When creating a PR please use the following checklist:
 
-- Ensure there is an issue attached to the pull-request.
+- Ensure there is an issue attached to the pull-request. We consider this is good practice, but recognize that it's not always necessary.
 - Ensure that your commit history is clean and minimal. Avoid commits like "Fix a typo" or "Forgot to add x". You can use [fixup or squashing](https://fle.github.io/git-tip-keep-your-branch-clean-with-fixup-and-autosquash.html) to clean up your commits. Aim to have one commit per PR. If you really want to have multiple commits for a change, you should at least squash down so each commit corresponds to a singular change or addition.
 - If updating a kustomization build, ensure that the `kustomize build` on that path still works.
 - Ensure that all confidential information has been encrypted via [sops](https://github.com/mozilla/sops) and [ksops](https://github.com/viaduct-ai/kustomize-sops), before making the PR.
+- If the PR is a work-in-progress, then please create a `Draft` PR. You can also just add the "WIP" prefix to your PR title. Doing either will prevent our CI bot from merging this PR until it is ready. If using the WIP prefix in title, when the PR is ready for merge, simply remove the WIP prefix. For example a WIP title could be "WIP: Added new namespace to zero cluster."
 
 ### Tools / Resources
 
