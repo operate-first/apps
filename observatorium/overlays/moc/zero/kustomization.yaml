@@ -4,5 +4,5 @@ kind: Kustomization
 namespace: opf-observatorium
 
 resources:
-  - ../../base/instance
+  - ../../../base/instance
   - ./grafana-data-sources
