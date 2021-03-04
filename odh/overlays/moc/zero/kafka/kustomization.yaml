@@ -4,7 +4,7 @@ kind: Kustomization
 namespace: opf-kafka
 
 resources:
-  - ../../../base/kafka
+  - ../../../../base/kafka
 patchesJson6902:
   - patch: |
       - op: add

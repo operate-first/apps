@@ -1,21 +1,20 @@
 ---
 apiVersion: kustomize.config.k8s.io/v1beta1
 kind: Kustomization
+namespace: opf-superset
 
 resources:
-  - ../../../base/kafka
+  - ../../../../base/superset
 patchesJson6902:
   - patch: |
       - op: add
         path: /spec/applications/-
         value:
           kustomizeConfig:
-            overlays:
-              - topics
             repoRef:
               name: opf
-              path: odh/overlays/quicklab/kafka/overrides/kafka
-          name: kafka-cluster
+              path: odh/overlays/moc/superset/overrides
+          name: superset
       - op: add
         path: /spec/repos/-
         value:

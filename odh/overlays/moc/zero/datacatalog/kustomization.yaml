@@ -4,7 +4,7 @@ kind: Kustomization
 namespace: opf-datacatalog
 
 resources:
-  - ../../../base/datacatalog
+  - ../../../../base/datacatalog
   - bucket.yaml
 
 patchesJson6902:

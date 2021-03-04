@@ -4,7 +4,7 @@ kind: Kustomization
 namespace: opf-jupyterhub
 
 resources:
-  - ../../../base/jupyterhub
+  - ../../../../base/jupyterhub
 
 generators:
   - pvcs/secret-generator.yaml

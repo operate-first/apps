@@ -4,7 +4,7 @@ kind: Kustomization
 namespace: opf-monitoring
 
 resources:
-  - ../../../base/monitoring
+  - ../../../../base/monitoring
   - ./servicemonitors
   - dashboards
   - datasource
