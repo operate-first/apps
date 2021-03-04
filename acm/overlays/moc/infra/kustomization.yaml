@@ -5,7 +5,7 @@ kind: Kustomization
 namespace: acm
 
 resources:
-  - ../../base
+  - ../../../base
 
 generators:
   - secret-generator.yaml
