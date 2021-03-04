@@ -1,4 +1,18 @@
 presubmits:
+  - name: kustomize-build
+    decorate: true
+    max_concurrency: 1
+    run_if_changed: ".*yaml"
+    skip_report: false
+    context: aicoe-ci/prow/kustomize-build
+    spec:
+      containers:
+        - image: quay.io/operate-first/opf-toolbox:v0.3.2
+          command:
+            - "test-kustomize-build"
+          resources:
+            requests:
+              memory: "256Mi"
   - name: pre-commit
     decorate: true
     skip_report: false
