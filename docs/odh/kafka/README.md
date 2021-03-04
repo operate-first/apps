@@ -1,6 +1,6 @@
 ## Kafka Access
 
-Here is the broker URL For Kafka: https://odh-message-bus-kafka-bootstrap-opf-kafka.apps.cnv.massopen.cloud
+Here is the broker URL For Kafka: https://odh-message-bus-kafka-bootstrap-opf-kafka.apps.zero.massopen.cloud
 
 ## SSL Certs
 
