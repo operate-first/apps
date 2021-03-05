@@ -5,7 +5,7 @@ metadata:
   name: kubevirt-hyperconverged
 spec:
   channel: "stable"
-  installPlanApproval: Automatic
+  installPlanApproval: Manual
   name: kubevirt-hyperconverged
   source: redhat-operators
   sourceNamespace: openshift-marketplace
