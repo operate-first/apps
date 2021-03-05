@@ -25,6 +25,7 @@ resources:
   - ../../../base/namespaces/cert-manager
   - ../../../base/namespaces/ds-black-flake
   - ../../../base/namespaces/ds-example-project
+  - ../../../base/namespaces/ds-ml-workflows-ws
   - ../../../base/namespaces/istio-system
   - ../../../base/namespaces/knative-serving
   - ../../../base/namespaces/kube-system

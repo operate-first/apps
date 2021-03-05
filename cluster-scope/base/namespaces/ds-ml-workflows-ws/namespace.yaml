@@ -1,0 +1,10 @@
+---
+apiVersion: v1
+kind: Namespace
+metadata:
+  annotations:
+    openshift.io/display-name: "Data Science: Machine Learning Workflows Workshop"
+    openshift.io/requester: data-science
+    operate-first.cloud/issue: "https://github.com/operate-first/support/issues/107"
+  name: ds-ml-workflows-ws
+spec: {}
