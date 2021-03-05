@@ -12,6 +12,11 @@ resources:
   - ../../../base/operatorgroups/acm
   - ../../../base/subscriptions/advanced-cluster-management
 
+  # install cnv for nmstate support in 4.6
+  - ../../../base/namespaces/openshift-cnv
+  - ../../../base/operatorgroups/openshift-cnv
+  - ../../../base/subscriptions/kubevirt-hyperconverged
+
 generators:
   - secret-generator.yaml
 
