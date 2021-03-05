@@ -1,6 +1,10 @@
----
-apiVersion: hco.kubevirt.io/v1alpha1
+apiVersion: hco.kubevirt.io/v1beta1
 kind: HyperConverged
 metadata:
+  labels:
+    app: kubevirt-hyperconverged
   name: kubevirt-hyperconverged
-spec: {}
+  namespace: openshift-cnv
+spec:
+  bareMetalPlatform: true
+  version: v2.5.4
