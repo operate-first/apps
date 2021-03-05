@@ -4,7 +4,7 @@ kind: Deployment
 metadata:
   name: github-receiver
 spec:
-  replicas: 0
+  replicas: 1
   selector:
     matchLabels:
       run: github-receiver
