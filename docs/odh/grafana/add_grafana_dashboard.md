@@ -28,7 +28,7 @@ Save this file under `odh/base/monitoring/overrides/grafana-operator/overlays/da
 
 Then add it to `odh/base/monitoring/overrides/grafana-operator/overlays/dashboards/kustomization.yaml` by running the following:
 
-````bash
+```bash
 $ cd odh/base/monitoring/overrides/grafana-operator/overlays/dashboards/
 $ kustomize edit add resource grafana-dashboard-example.yaml
-````
+```
