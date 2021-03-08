@@ -17,6 +17,9 @@ resources:
   - ../../../base/operatorgroups/openshift-cnv
   - ../../../base/subscriptions/kubevirt-hyperconverged
 
+  - crc-provisioning-vlan.yaml
+  - zero-provisioning-vlan.yaml
+
 generators:
   - secret-generator.yaml
 
