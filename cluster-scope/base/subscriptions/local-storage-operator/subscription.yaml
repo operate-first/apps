@@ -4,7 +4,7 @@ kind: Subscription
 metadata:
   name: local-storage-operator
 spec:
-  channel: "4.5"
+  channel: DEFINED_IN_OVERLAY
   installPlanApproval: Automatic
   name: local-storage-operator
   source: redhat-operators

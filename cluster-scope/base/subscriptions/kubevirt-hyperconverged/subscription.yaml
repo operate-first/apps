@@ -4,9 +4,8 @@ kind: Subscription
 metadata:
   name: kubevirt-hyperconverged
 spec:
-  channel: "stable"
+  channel: DEFINED_IN_OVERLAY
   installPlanApproval: Manual
   name: kubevirt-hyperconverged
   source: redhat-operators
   sourceNamespace: openshift-marketplace
-  startingCSV: "kubevirt-hyperconverged-operator.v2.5.4"
