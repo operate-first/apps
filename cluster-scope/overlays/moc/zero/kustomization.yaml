@@ -18,6 +18,7 @@ resources:
   - ../../../base/clusterrolebindings/scc-privileged-opf-ci-pipelines-aicoe-ci
   - ../../../base/crds/prow.k8s.io
   - ../../../base/crds/observatorium.io
+  - ../../../base/crds/cluster.ray.io
   - ../../../base/groups/cluster-admins
   - ../../../base/imageregistryconfigs/cluster
   - ../../../base/ingresscontrollers/default
