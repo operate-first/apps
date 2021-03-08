@@ -1,0 +1,9 @@
+---
+apiVersion: v1
+kind: Namespace
+metadata:
+  annotations:
+    openshift.io/display-name: "tufts cloud computing group 6"
+    openshift.io/requester: tufts-dcc-6
+  name: tufts-dcc-6
+spec: {}
