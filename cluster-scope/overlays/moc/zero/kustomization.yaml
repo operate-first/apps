@@ -75,6 +75,7 @@ resources:
   - ../../../base/operatorgroups/openshift-metering
   - ../../../base/operatorgroups/openshift-operators-redhat
   - ../../../base/operatorgroups/openshift-storage
+  - ../../../base/storageclasses/ocs-storagecluster-cephfs
   - ../../../base/subscriptions/cluster-logging-operator
   - ../../../base/subscriptions/elastic-operator
   - ../../../base/subscriptions/kubevirt-hyperconverged
