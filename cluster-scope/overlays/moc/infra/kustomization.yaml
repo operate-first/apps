@@ -11,6 +11,7 @@ resources:
   - ../../../base/oauths/cluster
   - ../../../base/operatorgroups/acm
   - ../../../base/subscriptions/advanced-cluster-management
+  - ../../../base/ingresscontrollers/default
 
   # install cnv for nmstate support in 4.6
   - ../../../base/namespaces/openshift-cnv
