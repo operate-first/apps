@@ -33,7 +33,7 @@ spec:
       endpointKey: endpoint
       regionKey: ""
       secretAccessKeyKey: ""
-      secretName: loki-objectstorage
+      secretName: loki-objectstorage-secret
     thanos:
       key: thanos.yaml
       name: thanos-objectstorage
