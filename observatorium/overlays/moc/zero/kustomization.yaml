@@ -7,3 +7,6 @@ resources:
   - ../../../base/instance
   - ./grafana-data-sources
   - ./objectbucketclaims
+
+generators:
+  - secrets/secret-generator.yaml
