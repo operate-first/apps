@@ -15,6 +15,7 @@ resources:
   - ../../../base/clusterrolebindings/cluster-logs-readers
   - ../../../base/clusterrolebindings/cluster-metrics-federation
   - ../../../base/clusterrolebindings/metrics
+  - ../../../base/clusterrolebindings/observatorium-operator
   - ../../../base/clusterrolebindings/scc-privileged-opf-ci-pipelines-aicoe-ci
   - ../../../base/crds/prow.k8s.io
   - ../../../base/crds/observatorium.io
