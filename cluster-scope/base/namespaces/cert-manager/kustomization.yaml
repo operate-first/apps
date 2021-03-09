@@ -4,5 +4,8 @@ kind: Kustomization
 
 namespace: cert-manager
 
+resources:
+  - namespace.yaml
+
 components:
   - ../../../components/project-admin-rolebindings/operate-first
