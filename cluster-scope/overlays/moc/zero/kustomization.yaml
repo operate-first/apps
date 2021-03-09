@@ -21,7 +21,6 @@ resources:
   - ../../../base/groups/cluster-admins
   - ../../../base/imageregistryconfigs/cluster
   - ../../../base/ingresscontrollers/default
-  - ../../../base/namespaces/acm
   - ../../../base/namespaces/argocd
   - ../../../base/namespaces/cert-manager
   - ../../../base/namespaces/ds-black-flake
@@ -70,7 +69,6 @@ resources:
   - ../../../base/namespaces/thoth-middletier-prod
   - ../../../base/namespaces/ws-ml-prague
   - ../../../base/oauths/cluster
-  - ../../../base/operatorgroups/acm
   - ../../../base/operatorgroups/local-storage
   - ../../../base/operatorgroups/openshift-logging
   - ../../../base/operatorgroups/openshift-cnv
@@ -78,7 +76,6 @@ resources:
   - ../../../base/operatorgroups/openshift-operators-redhat
   - ../../../base/operatorgroups/openshift-storage
   - ../../../base/storageclasses/ocs-storagecluster-cephfs
-  - ../../../base/subscriptions/advanced-cluster-management
   - ../../../base/subscriptions/cluster-logging-operator
   - ../../../base/subscriptions/elastic-operator
   - ../../../base/subscriptions/kubevirt-hyperconverged
