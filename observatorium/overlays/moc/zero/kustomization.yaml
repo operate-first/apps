@@ -6,3 +6,4 @@ namespace: opf-observatorium
 resources:
   - ../../../base/instance
   - ./grafana-data-sources
+  - ./objectbucketclaims
