@@ -5,3 +5,4 @@ namespace: opf-jupyterhub
 resources:
   - kfdef.yaml
   - ./notebook-images
+  - ./ray-odh-integration

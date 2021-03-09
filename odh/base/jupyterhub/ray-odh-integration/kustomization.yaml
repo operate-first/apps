@@ -1,0 +1,10 @@
+---
+kind: Kustomization
+apiVersion: kustomize.config.k8s.io/v1beta1
+namespace: opf-jupyterhub
+resources:
+  - ray-operator-serviceaccount.yaml
+  - ray-operator-role.yaml
+  - ray-operator-rolebinding.yaml
+  - ray-operator-imagestream.yaml
+  - ray-operator-deployment.yaml
