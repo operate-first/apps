@@ -15,7 +15,7 @@ patchesJson6902:
               - topics
             repoRef:
               name: opf
-              path: odh/overlays/moc/kafka/overrides/kafka
+              path: odh/overlays/moc/zero/kafka/overrides/kafka
           name: kafka-cluster
       - op: add
         path: /spec/repos/-
