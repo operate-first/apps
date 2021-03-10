@@ -58,6 +58,12 @@ spec:
           annotations:
             summary: "ArgoCD application controller is no longer available"
             severity: "HIGH"
+        - alert: ArgoCD Dex Server Down
+          expr: absent(up{service="argocd-dex-server"} == 1)
+          for: 5m
+          annotations:
+            summary: "ArgoCD Dex Server is no longer available"
+            severity: "HIGH"
         - alert: Observatorium Loki Ingester Down
           expr: absent(up{service="opf-observatorium-loki-ingester-http"} == 1)
           for: 5m
