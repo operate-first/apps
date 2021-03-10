@@ -5,7 +5,7 @@ metadata:
   name: local-storage-operator
 spec:
   channel: DEFINED_IN_OVERLAY
-  installPlanApproval: Automatic
+  installPlanApproval: Manual
   name: local-storage-operator
   source: redhat-operators
   sourceNamespace: openshift-marketplace
