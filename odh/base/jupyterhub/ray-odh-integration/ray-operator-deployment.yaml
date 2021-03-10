@@ -1,0 +1,37 @@
+---
+kind: Deployment
+apiVersion: apps/v1
+metadata:
+  name: ray-operator
+spec:
+  # Do not change: currently only 1 replica is supported
+  replicas: 1
+  selector:
+    matchLabels:
+      app: ray-operator
+  template:
+    metadata:
+      labels:
+        app: ray-operator
+    spec:
+      restartPolicy: Always
+      serviceAccountName: ray-operator
+      containers:
+        - name: ray-operator
+          imagePullPolicy: Always
+          image: 'ray-operator:experimental'
+          command: ['/bin/bash', '-c', '--', 'cd /opt/ray && pipenv run ray-operator']
+          env:
+            - name: RAY_CONFIG_DIR
+              value: '/tmp/ray_cluster_configs'
+            - name: RAY_OPERATOR_POD_NAMESPACE
+              valueFrom:
+                fieldRef:
+                  fieldPath: metadata.namespace
+          resources:
+            requests:
+              cpu: 1
+              memory: 1Gi
+            limits:
+              cpu: 1
+              memory: 2Gi
