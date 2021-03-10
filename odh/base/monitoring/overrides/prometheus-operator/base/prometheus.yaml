@@ -21,6 +21,9 @@ spec:
     matchLabels:
       prometheus: odh-monitoring
       role: alert-rules
+  additionalScrapeConfigs:
+    name: additional-scrape-configs
+    key: prometheus-additional.yaml
   replicas: 2
   retention: 7d
   storage:
