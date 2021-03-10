@@ -4,6 +4,6 @@ kind: Namespace
 metadata:
   annotations:
     openshift.io/display-name: "Project for execution of continous integration prow jobs."
-    openshift.io/requester: thoth
+    openshift.io/requester: aicoe-thoth-devops
   name: opf-ci-test-pods
 spec: {}
