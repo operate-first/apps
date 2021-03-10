@@ -85,6 +85,7 @@ resources:
   - ../../../base/subscriptions/ocs-operator
   - ../../../base/subscriptions/opendatahub-operator
   - ../../../base/subscriptions/openshift-pipelines-operator-rh
+  - ../../../base/subscriptions/web-terminal
 
 generators:
   - secret-generator.yaml
@@ -99,3 +100,4 @@ patchesStrategicMerge:
   - subscriptions/metering-ocp_patch.yaml
   - subscriptions/ocs-operator_patch.yaml
   - subscriptions/openshift-pipelines-operator-rh_patch.yaml
+  - subscriptions/web-terminal.yaml
