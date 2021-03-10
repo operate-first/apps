@@ -80,7 +80,7 @@ spec:
                       type: object
                       description: User-specified custom resources for use by Ray.
                       # TODO (dmitri): Validate that values are numeric [patternProperties not supported by OpenAPI v3.0]
-                      x-kubernetes-preserve-unknown-fields: true 
+                      x-kubernetes-preserve-unknown-fields: true
                     setupCommands:
                       description: Commands to run before starting the Ray runtime.
                       type: array
@@ -4275,7 +4275,7 @@ spec:
                           - containers
                           type: object
 
-                            
+
               headPodType:
                 description: Specifies the head node type.
                 type: string
@@ -4285,7 +4285,7 @@ spec:
                 items:
                   type: string
                   description: shell command
-              workerStartRayCommands: 
+              workerStartRayCommands:
                 description: Commands to start Ray on worker nodes.
                 type: array
                 items:
