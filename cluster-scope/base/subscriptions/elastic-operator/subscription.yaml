@@ -5,7 +5,7 @@ metadata:
   name: elasticsearch-operator
 spec:
   channel: DEFINED_IN_OVERLAY
-  installPlanApproval: Automatic
+  installPlanApproval: Manual
   name: elasticsearch-operator
   source: redhat-operators
   sourceNamespace: openshift-marketplace

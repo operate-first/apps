@@ -5,7 +5,7 @@ metadata:
   name: opendatahub-operator
 spec:
   channel: beta
-  installPlanApproval: Automatic
+  installPlanApproval: Manual
   name: opendatahub-operator
   source: community-operators
   sourceNamespace: openshift-marketplace

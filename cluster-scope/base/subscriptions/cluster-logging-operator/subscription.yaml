@@ -5,7 +5,7 @@ metadata:
   name: cluster-logging
 spec:
   channel: DEFINED_IN_OVERLAY
-  installPlanApproval: Automatic
+  installPlanApproval: Manual
   name: cluster-logging
   source: redhat-operators
   sourceNamespace: openshift-marketplace
