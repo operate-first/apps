@@ -2,7 +2,7 @@
 
 Contribution guidelines for operate-first/apps repo.
 
-### Creating issues
+## Creating issues
 
 If you would like to create an issue for any of the following:
 
@@ -21,7 +21,40 @@ Please create an issue in this repo if it directly concerns contents within this
 - Improving workflows within this repo
 - Adding documentation
 
-### Creating Pull Requests
+## Creating Pull Requests
+
+### General guide of code contributions
+
+1. Create a personal fork of the project on Github.
+2. Clone the fork on your local machine. Your remote repo on Github is called `origin`.
+
+   ```sh
+   git clone git@github.com:USERNAME/REPOSITORY_NAME.git
+   ```
+
+3. Add the original repository as a remote called `upstream`.
+
+   ```sh
+   git remote add upstream git@github.com:operate-first/REPOSITORY_NAME.git
+   ```
+
+4. If you created your fork a while ago be sure to pull upstream changes into your local repository.
+
+   ```sh
+   git checkout master # or main
+   git fetch upstream
+   git rebase upstream/master  # or upstream/main
+   git push origin master
+   ```
+
+5. Create a new branch to work on. Create this branch from the default, up to date branch like `master` or `main`.
+6. Install `pre-commit` git hook.
+7. Implement/fix your feature, comment your code.
+8. Add or change the documentation as needed.
+9. Run local test (if available) and linter (`pre-commit run -a`)
+10. Push your branch to your fork on Github, the remote origin.
+
+### Checklist
 
 When creating a PR please use the following checklist:
 
@@ -31,7 +64,7 @@ When creating a PR please use the following checklist:
 - Ensure that all confidential information has been encrypted via [sops](https://github.com/mozilla/sops) and [ksops](https://github.com/viaduct-ai/kustomize-sops), before making the PR.
 - If the PR is a work-in-progress, then please create a `Draft` PR. You can also just add the "WIP" prefix to your PR title. Doing either will prevent our CI bot from merging this PR until it is ready. If using the WIP prefix in title, when the PR is ready for merge, simply remove the WIP prefix. For example a WIP title could be "WIP: Added new namespace to zero cluster."
 
-### Tools / Resources
+## Tools / Resources
 
 To generate/edit manifests you will need the following tools:
 
@@ -41,7 +74,7 @@ To generate/edit manifests you will need the following tools:
 
 While you can install them manually, we recommend using our [toolbox](https://github.com/operate-first/toolbox) container to get started.
 
-### Tests
+## Tests
 
 To run linting tests please install [pre-commit](https://pre-commit.com/) and run `pre-commit run --all-files` at the repository root before contributing a PR.
 
