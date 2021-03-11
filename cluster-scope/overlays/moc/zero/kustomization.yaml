@@ -10,6 +10,7 @@ resources:
   - ../../../base/clusterroles/cluster-logs-reader
   - ../../../base/clusterroles/metrics
   - ../../../base/clusterroles/observatorium-operator
+  - ../../../base/clusterroles/ray-aggregate-to-admin
   - ../../../base/clusterrolebindings/argocd-manager
   - ../../../base/clusterrolebindings/cluster-admins-rb
   - ../../../base/clusterrolebindings/cluster-logs-readers
