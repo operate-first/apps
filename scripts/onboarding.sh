@@ -55,7 +55,6 @@ create_project_admin_rolebinding() {
 	- apiGroup: rbac.authorization.k8s.io
 	  kind: Group
 	  name: $OWNER
-
 	EOF
 	cat <<-EOF > $APP_NAME/components/project-admin-rolebindings/$OWNER/kustomization.yaml
 	---
