@@ -5,6 +5,7 @@ kind: Kustomization
 resources:
   - ../common
   - ../../../base/namespaces/acm
+  - ../../../base/namespaces/opf-alertreceiver
   - ../../../base/clusterrolebindings/argocd-manager
   - ../../../base/clusterrolebindings/cluster-admins-rb
   - ../../../base/groups/cluster-admins
