@@ -36,7 +36,7 @@ spec:
       secretName: loki-objectstorage-secret
     thanos:
       key: thanos.yaml
-      name: thanos-objectstorage
+      name: thanos-objectstorage-secret
   # All other Thanos and Observatorium components are scaled down
   api:
     rbac:
@@ -45,37 +45,72 @@ spec:
     tenants: []
     replicas: 0
   compact:
-    replicas: 0
-    retentionResolution1h: 1s
-    retentionResolution5m: 1s
-    retentionResolutionRaw: 14d
+    enableDownsampling: true
+    image: quay.io/thanos/thanos:v0.16.0
+    replicas: 1
+    retentionResolution1h: 0d    # forever
+    retentionResolution5m: 30d
+    retentionResolutionRaw: 7d
+    version: v0.16.0
     volumeClaimTemplate:
       spec:
         accessModes:
-        - ReadWriteOnce
+          - ReadWriteOnce
+        resources:
+          requests:
+            # https://github.com/thanos-io/thanos/blob/main/docs/components/compact.md#disk
+            storage: 100Gi  # recommended value
   hashrings:
   - hashring: default
   receivers:
-    replicas: 0
+    image: quay.io/thanos/thanos:v0.16.0
+    replicas: 1
+    version: v0.16.0
     volumeClaimTemplate:
       spec:
         accessModes:
         - ReadWriteOnce
+        resources:
+          requests:
+            storage: 10Gi
+  # thanosReceiveController auto populates the hashrings
+  thanosReceiveController:
+    image: quay.io/observatorium/thanos-receive-controller:master-2020-02-06-b66e0c8
+    version: master-2020-02-06-b66e0c8
   rule:
-    replicas: 0
+    image: quay.io/thanos/thanos:v0.16.0
+    replicas: 1
+    version: v0.16.0
     volumeClaimTemplate:
       spec:
         accessModes:
         - ReadWriteOnce
+        resources:
+          requests:
+            storage: 10Gi
   store:
     cache:
-      replicas: 0
-    shards: 0
+      exporterImage: prom/memcached-exporter:v0.6.0
+      exporterVersion: v0.6.0
+      image: docker.io/memcached:1.6.3-alpine
+      memoryLimitMb: 1024
+      replicas: 1
+      version: 1.6.3-alpine
+    image: quay.io/thanos/thanos:v0.16.0
+    shards: 1
+    version: v0.16.0
     volumeClaimTemplate:
       spec:
         accessModes:
         - ReadWriteOnce
+        resources:
+          requests:
+            storage: 10Gi
   query:
-    replicas: 0
+    image: quay.io/thanos/thanos:v0.16.0
+    replicas: 1
+    version: v0.16.0
   queryFrontend:
-    replicas: 0
+    image: quay.io/thanos/thanos:v0.16.0
+    replicas: 1
+    version: v0.16.0
