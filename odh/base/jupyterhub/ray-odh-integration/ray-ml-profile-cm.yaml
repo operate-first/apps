@@ -1,0 +1,32 @@
+kind: ConfigMap
+apiVersion: v1
+metadata:
+  name: ray-ml-profile
+  labels:
+    jupyterhub: singleuser-profiles
+data:
+  jupyterhub-singleuser-profiles.yaml: |
+    profiles:
+      - name: Ray ML Notebook
+        images:
+          - 'ray-ml-notebook:experimental'
+        env:
+          # this is a workaround that may not be neccesary in the future
+          - name: RAY_CLIENT_MODE
+            value: '1'
+        services:
+          ray-cluster:
+            resources:
+              - name: ray-cluster-template
+                path: rayClusterResourceTemplate
+            configuration:
+              ray_image: 'ray-ml-node:experimental'
+              # number of workers currently disabled due to json/jinja bug in JH launcher
+              #max_workers: 5
+              memory_request: '1024Mi'
+              memory_limit: '1024Mi'
+              cpu_request: '1'
+              cpu_limit: '1'
+            return:
+              # This path applies to the last item in 'resources' list above
+              RAY_CLUSTER: 'metadata.labels[odh-ray-cluster-service]'

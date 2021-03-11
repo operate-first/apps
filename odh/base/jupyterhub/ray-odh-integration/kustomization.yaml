@@ -8,3 +8,7 @@ resources:
   - ray-operator-rolebinding.yaml
   - ray-operator-imagestream.yaml
   - ray-operator-deployment.yaml
+  - ray-cluster-template-cm.yaml
+  - ray-jh-rolebinding.yaml
+  - ray-ml-node-imagestream.yaml
+  - ray-ml-profile-cm.yaml

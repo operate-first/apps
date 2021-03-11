@@ -1,0 +1,16 @@
+apiVersion: rbac.authorization.k8s.io/v1
+kind: RoleBinding
+metadata:
+  # By default, the ODH JupyterHub Launcher does not have authorization
+  # to create objects of type Deployment in your project namespace.
+  # Adding this rolebinding in your project will allow the launcher to
+  # create the ray cluster Deployment objects defined in the singleuser profile.
+  name: ray-jupyterhub
+subjects:
+  - kind: ServiceAccount
+    name: jupyterhub-hub
+roleRef:
+  kind: Role
+  # we bind the launcher to same role used by the ray operator
+  name: ray-operator
+  apiGroup: rbac.authorization.k8s.io
