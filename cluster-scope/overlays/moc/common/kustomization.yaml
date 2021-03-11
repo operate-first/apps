@@ -11,6 +11,7 @@ resources:
   - ../../../base/groups/ray
   - ../../../base/groups/rekor
   - ../../../base/groups/thoth
+  - ../../../base/groups/tufts-dcc-6
   - ../../../base/groups/workshops
 
 generators:

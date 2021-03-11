@@ -70,6 +70,7 @@ resources:
   - ../../../base/namespaces/thoth-graph-prod
   - ../../../base/namespaces/thoth-infra-prod
   - ../../../base/namespaces/thoth-middletier-prod
+  - ../../../base/namespaces/tufts-dcc-6
   - ../../../base/namespaces/ws-ml-prague
   - ../../../base/oauths/cluster
   - ../../../base/operatorgroups/local-storage
