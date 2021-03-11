@@ -1,0 +1,11 @@
+---
+apiVersion: route.openshift.io/v1
+kind: Route
+metadata:
+  name: thanos-query-frontend
+spec:
+  to:
+    kind: Service
+    name: opf-observatorium-thanos-query-frontend
+  port:
+    targetPort: http

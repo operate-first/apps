@@ -8,5 +8,6 @@ commonLabels:
 resources:
   - observatorium.yaml
   - loki-routes.yaml
+  - thanos-routes.yaml
   - kfdef.yaml
   - grafana.yaml
