@@ -24,6 +24,8 @@ spec:
   additionalScrapeConfigs:
     name: additional-scrape-configs
     key: prometheus-additional.yaml
+  remoteWrite:
+    - url: "http://opf-observatorium-thanos-receive.opf-observatorium.svc.cluster.local:19291/api/v1/receive"
   replicas: 2
   retention: 7d
   storage:
