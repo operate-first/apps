@@ -1,7 +1,7 @@
 apiVersion: kafka.strimzi.io/v1beta1
 kind: KafkaTopic
 metadata:
-  name: cnv-prod.thoth.kebechet-trigger
+  name: zero-prod.thoth.kebechet-trigger
   labels:
     strimzi.io/cluster: odh-message-bus
 spec:
