@@ -1,0 +1,55 @@
+---
+kind: ConfigMap
+apiVersion: v1
+metadata:
+  name: dex
+data:
+  config.yaml: |
+    issuer: http://dex-server-opf-auth.apps.zero.massopen.cloud/api/dex
+
+    storage:
+      type: memory
+
+    web:
+      http: "0.0.0.0:5556"
+
+    grpc:
+      addr: "0.0.0.0:5557"
+
+    telemetry:
+      http: "0.0.0.0:5558"
+
+    oauth2:
+      skipApprovalScreen: true
+
+    staticClients:
+      - id: argo
+        name: Argo
+        redirectURIs:
+          - http://argo-server-opf-argo.apps.zero.massopen.cloud/oauth2/callback
+        secretEnv: ARGO_SECRET
+
+      - id: grafana
+        name: Grafana
+        redirectURIs:
+          - https://grafana-route-opf-monitoring.apps.zero.massopen.cloud/login/generic_oauth
+        secretEnv: GRAFANA_SECRET
+
+      - id: hue
+        name: Hue
+        redirectURIs:
+          - https://hue-opf-datacatalog.apps.zero.massopen.cloud/oidc/callback
+          - https://hue-opf-datacatalog.apps.zero.massopen.cloud/hue/oidc_failed
+        secretEnv: HUE_SECRET
+
+    connectors:
+      - type: openshift
+        id: openshift
+        name: OpenShift
+        config:
+          issuer: https://kubernetes.default.svc
+          clientID: system:serviceaccount:opf-auth:dex
+          clientSecret: $OPENSHIFT_CLIENT_SECRET
+          redirectURI: http://dex-server-opf-auth.apps.zero.massopen.cloud/api/dex/callback
+          groups:
+            - system:authenticated
