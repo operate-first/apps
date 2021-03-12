@@ -1,7 +1,7 @@
 apiVersion: kafka.strimzi.io/v1beta1
 kind: KafkaTopic
 metadata:
-  name: cnv-prod.thoth.advise-reporter.advise-justification
+  name: zero-prod.thoth.advise-reporter.advise-justification
   labels:
     strimzi.io/cluster: odh-message-bus
 spec:

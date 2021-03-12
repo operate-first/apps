@@ -1,7 +1,7 @@
 apiVersion: kafka.strimzi.io/v1beta1
 kind: KafkaTopic
 metadata:
-  name: cnv-prod.thoth.solver.solved-package
+  name: zero-prod.thoth.solver.solved-package
   labels:
     strimzi.io/cluster: odh-message-bus
 spec:
