@@ -2,7 +2,7 @@
   path: /spec/applications/2/kustomizeConfig/parameters
   value:
     - name: s3_endpoint_url
-      value: rook-ceph-rgw-ocs-storagecluster-cephobjectstore.openshift-storage.svc.cluster.local
+      value: s3.openshift-storage.svc:443
     - name: s3_credentials_secret
       value: opf-datacatalog-bucket
     - name: storage_class
@@ -12,7 +12,7 @@
   path: /spec/applications/3/kustomizeConfig/parameters
   value:
     - name: s3_endpoint_url
-      value: rook-ceph-rgw-ocs-storagecluster-cephobjectstore.openshift-storage.svc.cluster.local
+      value: s3.openshift-storage.svc:443
     - name: s3_credentials_secret
       value: opf-datacatalog-bucket
     - name: storage_class
