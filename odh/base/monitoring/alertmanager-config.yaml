@@ -16,4 +16,4 @@ stringData:
     receivers:
     - name: 'github-receiver-issues'
       webhook_configs:
-        - url: 'http://github-receiver-service.opf-monitoring.svc.cluster.local:9393/v1/receiver'
+        - url: 'http://github-receiver-service.opf-alertreceiver.svc.cluster.local:9393/v1/receiver'
