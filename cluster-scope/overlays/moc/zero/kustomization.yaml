@@ -46,6 +46,7 @@ resources:
   - ../../../base/namespaces/openshift-operators
   - ../../../base/namespaces/openshift-operators-redhat
   - ../../../base/namespaces/openshift-storage
+  - ../../../base/namespaces/opf-alertreceiver
   - ../../../base/namespaces/opf-argo
   - ../../../base/namespaces/opf-auth
   - ../../../base/namespaces/opf-ci-pipelines
