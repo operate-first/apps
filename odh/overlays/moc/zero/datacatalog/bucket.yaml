@@ -4,8 +4,8 @@ kind: ObjectBucketClaim
 metadata:
   name: opf-datacatalog-bucket
 spec:
-  generateBucketName: opf-datacatalog-
-  storageClassName: ocs-storagecluster-ceph-rgw
+  bucketName: opf-datacatalog
+  storageClassName: openshift-storage.noobaa.io
   additionalConfig:
     maxObjects: "100000"
     maxSize: 10G
