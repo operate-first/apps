@@ -11,5 +11,3 @@ resources:
   - rules/alerting
   - scrape-configs
   - secrets
-generators:
-  - secrets/secret-generator.yaml

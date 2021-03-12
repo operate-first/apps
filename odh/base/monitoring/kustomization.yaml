@@ -4,8 +4,6 @@ kind: Kustomization
 namespace: opf-monitoring
 resources:
   - kfdef.yaml
-  - github-receiver.yaml
-  - github-receiver-service.yaml
   - alertmanager.yaml
   - alertmanager-service.yaml
   - alertmanager-route.yaml
