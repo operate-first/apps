@@ -5,9 +5,10 @@ metadata:
   name: odhservicemonitor
 spec:
   endpoints:
-    - port: web             # odh-operator, Argo, Prometheus
+    - port: web             # Prometheus
+    - port: metrics         # Argo
     - port: grafana         # grafana
-    - port: http-metrics    # grafana-operator
+    - port: http-metrics    # grafana-operator, Open Data Hub operator
     - port: 8080-tcp        # Jupyterhub
       path: "/metrics"
   selector: {}
