@@ -16,3 +16,4 @@ spec:
       - opf-jupyterhub
       - opf-argo
       - opf-monitoring
+      - openshift-operators
