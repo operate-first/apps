@@ -14,6 +14,7 @@ spec:
       - name: alertmanager-operated
         namespace: opf-monitoring
         port: web
+  externalUrl: "http://prometheus-portal-opf-monitoring.apps.zero.massopen.cloud/"
   podMonitorSelector: {}
   serviceAccountName: prometheus-k8s
   serviceMonitorSelector: {}
