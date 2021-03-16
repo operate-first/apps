@@ -8,3 +8,4 @@ spec:
   # https://www.openshift.com/blog/whats-new-in-openshift-virtualization-in-ocp-4.7
   # As of 2021-03-01 there's no docs available for OpenShift Virtualization on Openshift 4.7. Guessing the proper channel from blogpost above.
   channel: "stable"
+  startingCSV: kubevirt-hyperconverged-operator.v2.6.0
