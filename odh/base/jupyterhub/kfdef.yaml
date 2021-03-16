@@ -35,7 +35,7 @@ spec:
       name: notebook-images
   repos:
     - name: manifests
-      uri: "https://github.com/opendatahub-io/odh-manifests/tarball/v1.0.2"
+      uri: "https://github.com/opendatahub-io/odh-manifests/tarball/v1.0.4"
     - name: opf-manifests
       uri: "https://github.com/operate-first/apps/tarball/master"
-  version: v1.0.2
+  version: v1.0.4
