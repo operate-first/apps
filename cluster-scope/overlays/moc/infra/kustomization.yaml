@@ -22,6 +22,8 @@ resources:
   - crc-provisioning-vlan.yaml
   - zero-provisioning-vlan.yaml
 
+  - alertmanager-main-secret.yaml
+
 generators:
   - secret-generator.yaml
 
