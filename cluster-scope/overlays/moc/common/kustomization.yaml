@@ -13,6 +13,7 @@ resources:
   - ../../../base/groups/thoth
   - ../../../base/groups/tufts-dcc-6
   - ../../../base/groups/workshops
+  - alertmanager-main-secret.yaml
 
 generators:
   - secret-generator.yaml
