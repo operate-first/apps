@@ -25,6 +25,7 @@ resources:
   - ../../../base/imageregistryconfigs/cluster
   - ../../../base/ingresscontrollers/default
   - ../../../base/namespaces/argocd
+  - ../../../base/namespaces/as-pushgateway
   - ../../../base/namespaces/cert-manager
   - ../../../base/namespaces/ds-black-flake
   - ../../../base/namespaces/ds-example-project
