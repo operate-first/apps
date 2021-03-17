@@ -4,12 +4,13 @@ kind: Kustomization
 
 resources:
   - ../common
-  - ../../../base/clusterroles/prow-aggregate-to-admin
-  - ../../../base/clusterroles/prow-aggregate-to-edit
-  - ../../../base/clusterroles/prow-aggregate-to-view
   - ../../../base/clusterroles/cluster-logs-reader
   - ../../../base/clusterroles/metrics
   - ../../../base/clusterroles/observatorium-operator
+  - ../../../base/clusterroles/opendatahub-operator
+  - ../../../base/clusterroles/prow-aggregate-to-admin
+  - ../../../base/clusterroles/prow-aggregate-to-edit
+  - ../../../base/clusterroles/prow-aggregate-to-view
   - ../../../base/clusterroles/ray-aggregate-to-admin
   - ../../../base/clusterrolebindings/argocd-manager
   - ../../../base/clusterrolebindings/cluster-admins-rb
@@ -17,10 +18,12 @@ resources:
   - ../../../base/clusterrolebindings/cluster-metrics-federation
   - ../../../base/clusterrolebindings/metrics
   - ../../../base/clusterrolebindings/observatorium-operator
+  - ../../../base/clusterrolebindings/opendatahub-operator
   - ../../../base/clusterrolebindings/scc-privileged-opf-ci-pipelines-aicoe-ci
+  - ../../../base/crds/cluster.ray.io
+  - ../../../base/crds/kfdef.apps.kubeflow.org
   - ../../../base/crds/prow.k8s.io
   - ../../../base/crds/observatorium.io
-  - ../../../base/crds/cluster.ray.io
   - ../../../base/groups/cluster-admins
   - ../../../base/imageregistryconfigs/cluster
   - ../../../base/ingresscontrollers/default
@@ -88,7 +91,6 @@ resources:
   - ../../../base/subscriptions/local-storage-operator
   - ../../../base/subscriptions/metering-ocp
   - ../../../base/subscriptions/ocs-operator
-  - ../../../base/subscriptions/opendatahub-operator
   - ../../../base/subscriptions/openshift-pipelines-operator-rh
   - ../../../base/subscriptions/web-terminal
 
