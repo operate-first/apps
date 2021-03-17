@@ -29,7 +29,7 @@ spec:
             - --label=SET_IN_OVERLAY
             - --authtoken=$(GITHUB_AUTH_TOKEN)
             - --org=operate-first
-            - --repo=SRE
+            - --repo=alerts
             - --enable-inmemory=false
             - --enable-auto-close=true
             - --label-on-resolved=resolved
