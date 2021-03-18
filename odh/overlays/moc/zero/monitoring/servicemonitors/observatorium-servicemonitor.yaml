@@ -7,7 +7,8 @@ metadata:
     monitor-component: observatorium
 spec:
   endpoints:
-    - port: metrics
+    - port: metrics   # Loki
+    - port: http      # Thanos
   namespaceSelector:
     matchNames:
       - opf-observatorium
