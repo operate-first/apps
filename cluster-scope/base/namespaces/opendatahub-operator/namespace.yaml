@@ -1,0 +1,9 @@
+---
+apiVersion: v1
+kind: Namespace
+metadata:
+  annotations:
+    openshift.io/display-name: "Operate First: Opendatahub operator"
+    openshift.io/requester: operate-first
+  name: opendatahub-operator
+spec: {}
