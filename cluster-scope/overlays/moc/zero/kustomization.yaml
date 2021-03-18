@@ -5,6 +5,7 @@ kind: Kustomization
 resources:
   - ../common
   - ../../../base/clusterroles/cluster-logs-reader
+  - ../../../base/clusterroles/metallb
   - ../../../base/clusterroles/metrics
   - ../../../base/clusterroles/observatorium-operator
   - ../../../base/clusterroles/opendatahub-operator
@@ -16,6 +17,7 @@ resources:
   - ../../../base/clusterrolebindings/cluster-admins-rb
   - ../../../base/clusterrolebindings/cluster-logs-readers
   - ../../../base/clusterrolebindings/cluster-metrics-federation
+  - ../../../base/clusterrolebindings/metallb
   - ../../../base/clusterrolebindings/metrics
   - ../../../base/clusterrolebindings/observatorium-operator
   - ../../../base/clusterrolebindings/opendatahub-operator
