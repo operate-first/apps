@@ -43,6 +43,7 @@ resources:
   - ../../../base/namespaces/mesh-for-data
   - ../../../base/namespaces/observatorium-operator
   - ../../../base/namespaces/open-aiops
+  - ../../../base/namespaces/opendatahub-operator
   - ../../../base/namespaces/openshift-cnv
   - ../../../base/namespaces/openshift-logging
   - ../../../base/namespaces/openshift-metering
