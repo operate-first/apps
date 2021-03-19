@@ -50,6 +50,7 @@ resources:
   - ../../../base/namespaces/openshift-monitoring
   - ../../../base/namespaces/openshift-operators
   - ../../../base/namespaces/openshift-operators-redhat
+  - ../../../base/namespaces/openshift-serverless
   - ../../../base/namespaces/openshift-storage
   - ../../../base/namespaces/opf-alertreceiver
   - ../../../base/namespaces/opf-argo
@@ -84,6 +85,7 @@ resources:
   - ../../../base/operatorgroups/openshift-cnv
   - ../../../base/operatorgroups/openshift-metering
   - ../../../base/operatorgroups/openshift-operators-redhat
+  - ../../../base/operatorgroups/openshift-serverless
   - ../../../base/operatorgroups/openshift-storage
   - ../../../base/storageclasses/ocs-storagecluster-cephfs
   - ../../../base/subscriptions/cluster-logging-operator
@@ -93,6 +95,7 @@ resources:
   - ../../../base/subscriptions/metering-ocp
   - ../../../base/subscriptions/ocs-operator
   - ../../../base/subscriptions/openshift-pipelines-operator-rh
+  - ../../../base/subscriptions/serverless-operator
   - ../../../base/subscriptions/web-terminal
 
 generators:
@@ -108,4 +111,5 @@ patchesStrategicMerge:
   - subscriptions/metering-ocp_patch.yaml
   - subscriptions/ocs-operator_patch.yaml
   - subscriptions/openshift-pipelines-operator-rh_patch.yaml
+  - subscriptions/serverless-operator_patch.yaml
   - subscriptions/web-terminal.yaml
