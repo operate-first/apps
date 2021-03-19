@@ -49,7 +49,7 @@ spec:
       name: grafana-operator
   repos:
     - name: manifests
-      uri: "https://github.com/opendatahub-io/odh-manifests/tarball/v1.0.4"
+      uri: "https://github.com/opendatahub-io/odh-manifests/tarball/v1.0.5"
     - name: opf
       uri: "https://github.com/operate-first/apps/tarball/master"
-  version: v1.0.4
+  version: v1.0.5
