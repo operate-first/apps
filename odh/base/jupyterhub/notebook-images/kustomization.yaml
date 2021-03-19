@@ -11,5 +11,6 @@ resources:
   - ml-prague-workshop.yaml
   - ocp-ci-analysis.yaml
   - openshift-anomaly-detection.yaml
+  - pet-image-detection.yaml
   - ray-ml-notebook.yaml
   - time-series.yaml
