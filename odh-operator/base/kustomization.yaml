@@ -10,6 +10,5 @@ resources:
   - serviceaccount.yaml
 
 images:
-- name: aipipeline/kubeflow-operator
-  newName: quay.io/opendatahub/opendatahub-operator
+- name: quay.io/opendatahub/opendatahub-operator
   newTag: v1.0.5
