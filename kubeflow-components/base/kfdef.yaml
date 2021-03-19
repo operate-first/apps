@@ -60,11 +60,6 @@ spec:
           name: manifests
           path: stacks/openshift/application/kfp-tekton
       name: kfp-tekton
-    - kustomizeConfig:
-        repoRef:
-          name: manifests
-          path: knative/installs/generic
-      name: knative
   repos:
     - name: manifests
       uri: "https://github.com/tumido/manifests/archive/ocp-stack-dashboard-params.tar.gz"
