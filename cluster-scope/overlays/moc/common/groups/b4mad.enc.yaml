@@ -1,0 +1,36 @@
+apiVersion: user.openshift.io/v1
+kind: Group
+metadata:
+    name: b4mad
+users:
+- ENC[AES256_GCM,data:whFHoW4oFlJY1a81cm4tz0Q=,iv:lG660FbTzyGYnNWPnji8dMB4E4B98ehFawdZzeTCFc8=,tag:R3fOEJ/xAFS4bCGSOFrWUQ==,type:str]
+- ENC[AES256_GCM,data:c41623yCgf1QIHqtIgoBpw==,iv:looqCe4pNtykiFWxc7UzZSmd5IoPqVXjRc4oFOd8id8=,tag:OuC655z5wBXSPuhobPBX3A==,type:str]
+sops:
+    kms: []
+    gcp_kms: []
+    azure_kv: []
+    lastmodified: '2021-03-20T18:29:45Z'
+    mac: ENC[AES256_GCM,data:HB/iYgujxpoPe3lDkqpRxIuPQ7JrE7iiqmwtWbn3q0bsGQ0V+01vk0eQJ/oCpju7OOIh2bt9P4OH8OHHvp3HGAW9/MRi9MqtmN8PIZx1b5o1uYo9HmSQed92m+FFjZ7bwDpJQnPkkAXDOKrn9hz7RFpo50icvREdXXog4WuYkSI=,iv:apUwmv6mD7zNw8V+CKNLg/5iGX+WXWStfLhgt6h1hZo=,tag:BsgGjmzliKc3OIHvZr2Aqg==,type:str]
+    pgp:
+    -   created_at: '2021-03-20T18:29:45Z'
+        enc: |
+            -----BEGIN PGP MESSAGE-----
+
+            hQIMA9aKBcudqifiARAAwb2HEyyOPpUDBHedPagqHgZgkSFz+K8oSdJWk2zYFEpM
+            gLopP6yjM2S21VLmCH6oM6zlqup07jhSKXTxybR8V03pxYJfL44/aZwfAbC+XVyX
+            9VGTUHgwLvB5lfX5jQgp2WW8iGuIhR5YPFxyZ3pBdXkCfMzU2SOchbyXkYK3pTrY
+            XVC+C06Nbm9hqO2og/TPoW77x0Hd40vaanpIzaJcVYZJgDfdXLa8vNHH4Qbbu5Z1
+            JeU0t1mvtXzYsnMnfHwwoXxiNMKm5n75/7XatrdUofyvz5DyMb3vzZ+ZcMIwpGbJ
+            Hs2qLTv5GcPNm1tNpqGFUurxDYreEkYvWLpkfvmwUOZReDFShiiHShi6YbQm6Iza
+            T1UkTdTIjBoyb6r9rlQn1jMWt6fhWKmuhGPqkDYcceuO/4PjqscH0iigK7cUc9ox
+            Ii2xbl+f1RoRbHkyT+aLZQhxX5+vxB49j4SPFgew7TQsCsmq1TpYYuJHn9ZzLqbu
+            mYLFPso/UzB1vC++cdXFZ4emAmBLsLGmCPTEdw6wztKejPOhEHcND+JWWd1IUV6W
+            qP0qQfJltPYq+J68yYSqpwDJzygCcoR3h6JKRX0DJT7P5e3ImKgnPty6zFPiPyjB
+            si/CeGqBwMsjp1hJseICO+vMsKMhcYYQMC6P546b4J2YKIQ9H4qjTPICS62HTbnS
+            XgH5AMuB2ZQMEP2arS8SgJHd2N47M6fS21vs5yFU/trEJuuoi1i4ihD7NlBKviC4
+            YdBOV1JaYkTgnmMVG28pxDDaD4VKEgyJtW/0oMx6nQUzCq5UumgO4C9e9s4elKE=
+            =pAFx
+            -----END PGP MESSAGE-----
+        fp: 0508677DD04952D06A943D5B4DC4116D360E3276
+    encrypted_regex: ^(users|data|stringData)$
+    version: 3.5.0
