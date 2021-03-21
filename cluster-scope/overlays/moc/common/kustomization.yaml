@@ -5,6 +5,7 @@ kind: Kustomization
 resources:
   - ../../../base/groups/ai-services
   - ../../../base/groups/argocd-admins
+  - ../../../base/groups/b4mad
   - ../../../base/groups/data-science
   - ../../../base/groups/mesh-for-data
   - ../../../base/groups/open-aiops
