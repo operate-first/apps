@@ -1,0 +1,10 @@
+apiVersion: config.openshift.io/v1
+kind: ClusterVersion
+metadata:
+  name: version
+spec:
+  channel: stable-4.6
+  upstream: https://api.openshift.com/api/upgrades_info/v1/graph
+  desiredUpdate:
+    image: quay.io/openshift-release-dev/ocp-release@sha256:6ae80e777c206b7314732aff542be105db892bf0e114a6757cb9e34662b8f891
+    version: 4.16.21
