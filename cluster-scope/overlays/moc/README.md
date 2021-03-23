@@ -1,13 +1,17 @@
 # MOC environment
 
-## Available clusters
+## Managed clusters
 
-- **Zero** - Experimental cluster
-  - [OpenShift Console](https://console-openshift-console.apps.zero.massopen.cloud/)
-- **Infra** - Cluster for management via ACM and ArgoCD
+The following clusters are managed by the overlays in this directory
+
+- [Infra](infra) - Cluster for management via ACM and ArgoCD
   - [Openshift Console](https://console-openshift-console.apps.moc-infra.massopen.cloud/)
   - [ArgoCD](https://argocd-server-argocd.apps.moc-infra.massopen.cloud/)
   - [Advanced Cluster Management for Kubernetes - Multicloud Console](https://multicloud-console.apps.moc-infra.massopen.cloud/)
+- [Zero](zero) - Experimental cluster
+  - [OpenShift Console](https://console-openshift-console.apps.zero.massopen.cloud/)
+- [Curator](curator) - Cluster for the Curator project
+  - [Openshift Console](https://console-openshift-console.apps.curator.massopen.cloud/)
 
 ## Secret management
 
