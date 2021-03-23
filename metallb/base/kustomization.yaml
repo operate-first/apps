@@ -1,0 +1,11 @@
+apiVersion: kustomize.config.k8s.io/v1beta1
+kind: Kustomization
+
+namespace: metallb-system
+
+resources:
+  - daemonset.yaml
+  - deployment.yaml
+  - rolebinding.yaml
+  - role.yaml
+  - serviceaccount.yaml

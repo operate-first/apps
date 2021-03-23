@@ -5,6 +5,8 @@ kind: Kustomization
 resources:
   - ../common
   - ../../../base/clusterroles/cluster-logs-reader
+  - ../../../base/clusterroles/metallb-system-controller
+  - ../../../base/clusterroles/metallb-system-speaker
   - ../../../base/clusterroles/metrics
   - ../../../base/clusterroles/observatorium-operator
   - ../../../base/clusterroles/opendatahub-operator
@@ -16,6 +18,9 @@ resources:
   - ../../../base/clusterrolebindings/cluster-admins-rb
   - ../../../base/clusterrolebindings/cluster-logs-readers
   - ../../../base/clusterrolebindings/cluster-metrics-federation
+  - ../../../base/clusterrolebindings/metallb-allow-privileged
+  - ../../../base/clusterrolebindings/metallb-system-controller
+  - ../../../base/clusterrolebindings/metallb-system-speaker
   - ../../../base/clusterrolebindings/metrics
   - ../../../base/clusterrolebindings/observatorium-operator
   - ../../../base/clusterrolebindings/opendatahub-operator
@@ -41,6 +46,7 @@ resources:
   - ../../../base/namespaces/local-storage
   - ../../../base/namespaces/m4d-blueprints
   - ../../../base/namespaces/m4d-system
+  - ../../../base/namespaces/metallb-system
   - ../../../base/namespaces/mesh-for-data
   - ../../../base/namespaces/observatorium-operator
   - ../../../base/namespaces/open-aiops
@@ -89,6 +95,8 @@ resources:
   - ../../../base/operatorgroups/openshift-operators-redhat
   - ../../../base/operatorgroups/openshift-serverless
   - ../../../base/operatorgroups/openshift-storage
+  - ../../../base/podsecuritypolicy/metallb-system-controller
+  - ../../../base/podsecuritypolicy/metallb-system-speaker
   - ../../../base/storageclasses/ocs-storagecluster-cephfs
   - ../../../base/subscriptions/cluster-logging-operator
   - ../../../base/subscriptions/elastic-operator
