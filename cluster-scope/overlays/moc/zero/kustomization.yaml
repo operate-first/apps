@@ -107,6 +107,7 @@ resources:
   - ../../../base/subscriptions/openshift-pipelines-operator-rh
   - ../../../base/subscriptions/serverless-operator
   - ../../../base/subscriptions/web-terminal
+  - clusterversion.yaml
 
 generators:
   - secret-generator.yaml

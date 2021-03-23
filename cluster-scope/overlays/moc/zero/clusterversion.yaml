@@ -1,0 +1,10 @@
+apiVersion: config.openshift.io/v1
+kind: ClusterVersion
+metadata:
+  name: version
+spec:
+  channel: stable-4.7
+  desiredUpdate:
+    image: >-
+      quay.io/openshift-release-dev/ocp-release@sha256:83fca12e93240b503f88ec192be5ff0d6dfe750f81e8b5ef71af991337d7c584
+    version: 4.7.2
