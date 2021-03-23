@@ -10,3 +10,4 @@ resources:
 components:
   - ../../../components/project-admin-rolebindings/operate-first
   - ../../../components/monitoring-rbac
+  - ../../../components/odh-dashboard
