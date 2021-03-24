@@ -10,7 +10,7 @@ spec:
   datasources:
     - name: thoth-station
       type: prometheus
-      url: http://prometheus-portal-thoth-infra-prod.apps.cnv.massopen.cloud/
+      url: http://prometheus-portal-thoth-infra-prod.apps.zero.massopen.cloud/
       version: 1
       editable: false
       jsonData:
