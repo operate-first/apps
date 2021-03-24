@@ -8,6 +8,6 @@ metadata:
 data:
   jupyterhub_config.py: |
     c.JupyterHub.authenticate_prometheus = False;
-  jupyterhub_admins: "admin"
+  jupyterhub_admins: "asanmukh@redhat.com"
   gpu_mode: ""
   singleuser_pvc_size: 2Gi
