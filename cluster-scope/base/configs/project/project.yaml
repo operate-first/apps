@@ -1,0 +1,9 @@
+apiVersion: config.openshift.io/v1
+kind: Project
+metadata:
+  name: cluster
+spec:
+  projectRequestMessage: |
+    To request a project, please create an issue at:
+
+    https://github.com/operate-first/support/issues/new?assignees=&labels=onboarding&template=onboarding_to_cluster.md&title=
