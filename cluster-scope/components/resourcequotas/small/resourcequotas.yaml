@@ -1,0 +1,11 @@
+kind: ResourceQuota
+apiVersion: v1
+metadata:
+  name: small
+spec:
+  hard:
+    requests.cpu: '1'
+    requests.memory: 4Gi
+    limits.cpu: '1'
+    limits.memory: 4Gi
+    requests.storage: 20Gi
