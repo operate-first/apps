@@ -12,3 +12,4 @@ components:
   - ../../../components/project-admin-rolebindings/ray
   - ../../../components/project-logs-reader
   - ../../../components/monitoring-rbac
+  - ../../../components/odh-dashboard
