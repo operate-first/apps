@@ -1,0 +1,4 @@
+admin.enabled=true
+kustomize.buildOptions=--enable_alpha_plugins
+url=https://argocd-server-argocd.apps.moc-infra.massopen.cloud
+users.anonymous.enabled=true

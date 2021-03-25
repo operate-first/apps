@@ -1,0 +1,31 @@
+apiVersion: argoproj.io/v1alpha1
+kind: AppProject
+metadata:
+  name: workshops
+  labels:
+    project-template: global
+spec:
+  destinations:
+    - namespace: "ws-*"
+      server: 'https://api.zero.massopen.cloud:6443'
+    - namespace: "ws-*"
+      server: 'https://api.cluster-9566.9566.example.opentlc.com:6443'
+    - namespace: "workshop-*"
+      server: 'https://api.cluster-9566.9566.example.opentlc.com:6443'
+  sourceRepos:
+    - "*"
+  roles:
+    - name: project-admin
+      description: Read/Write access to this project only
+      policies:
+        - p, proj:workshops:project-admin, applications, get, workshops/*, allow
+        - p, proj:workshops:project-admin, applications, create, workshops/*, allow
+        - p, proj:workshops:project-admin, applications, update, workshops/*, allow
+        - p, proj:workshops:project-admin, applications, delete, workshops/*, allow
+        - p, proj:workshops:project-admin, applications, sync, workshops/*, allow
+        - p, proj:workshops:project-admin, applications, override, workshops/*, allow
+        - p, proj:workshops:project-admin, applications, action/*, workshops/*, allow
+      groups:
+        - data-science
+        - operate-first
+        - workshops
