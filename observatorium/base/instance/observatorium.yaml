@@ -64,7 +64,7 @@ spec:
   - hashring: default
   receivers:
     image: quay.io/thanos/thanos:v0.16.0
-    replicas: 1
+    replicas: 3
     version: v0.16.0
     volumeClaimTemplate:
       spec:
@@ -108,7 +108,7 @@ spec:
             storage: 10Gi
   query:
     image: quay.io/thanos/thanos:v0.16.0
-    replicas: 1
+    replicas: 2
     version: v0.16.0
   queryFrontend:
     image: quay.io/thanos/thanos:v0.15.0
