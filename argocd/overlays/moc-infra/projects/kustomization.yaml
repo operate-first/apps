@@ -1,0 +1,13 @@
+apiVersion: kustomize.config.k8s.io/v1beta1
+kind: Kustomization
+resources:
+  - b4mad.yaml
+  - cluster-management.yaml
+  - operate-first.yaml
+  - data-science.yaml
+  - thoth.yaml
+  - rekor.yaml
+  - lab-cicd.yaml
+  - mesh-for-data.yaml
+  - global_project.yaml
+  - workshops.yaml

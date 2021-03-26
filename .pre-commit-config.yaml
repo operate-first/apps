@@ -1,5 +1,6 @@
 ---
-exclude: scripts/onboarding.sh
+exclude: scripts/onboarding.sh|argocd/overlays/dev/configs|argocd/overlays/moc-infra/configs
+
 repos:
   - repo: git://github.com/Lucas-C/pre-commit-hooks
     rev: v1.1.9

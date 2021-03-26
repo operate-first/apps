@@ -1,0 +1,7 @@
+- labelSelector:
+    matchExpressions:
+      - key: project-template
+        operator: In
+        values:
+          - global
+  projectName: global-project

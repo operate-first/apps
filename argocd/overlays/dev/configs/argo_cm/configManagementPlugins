@@ -1,0 +1,4 @@
+- name: helmSecrets
+  generate:
+    command: ["/bin/sh", "-c"]
+    args: ["helm secrets template $VALUES_FILES . | sed '/^removed/d'"]

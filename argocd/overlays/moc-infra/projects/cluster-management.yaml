@@ -1,0 +1,10 @@
+apiVersion: argoproj.io/v1alpha1
+kind: AppProject
+metadata:
+  name: cluster-management
+spec:
+  destinations:
+  - namespace: '*'
+    server: '*'
+  sourceRepos:
+  - '*'

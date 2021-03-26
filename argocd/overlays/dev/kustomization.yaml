@@ -1,0 +1,29 @@
+apiVersion: kustomize.config.k8s.io/v1beta1
+kind: Kustomization
+namespace: aicoe-argocd-dev
+resources:
+- ../../base
+- rbac/argocd-manager-role.yaml
+- rbac/argocd-manager-role-binding.yaml
+- applications
+- projects
+configMapGenerator:
+- name: argocd-cm
+  behavior: replace
+  files:
+  - configs/argo_cm/dex.config
+  - configs/argo_cm/kustomize.buildOptions
+  - configs/argo_cm/url
+  - configs/argo_cm/configManagementPlugins
+- name: argocd-rbac-cm
+  behavior: replace
+  files:
+  - configs/argo_rbac_cm/policy.csv
+generatorOptions:
+  disableNameSuffixHash: true
+generators:
+- secrets/gpg/secret-generator.yaml
+- secrets/auth/secret-generator.yaml
+- secrets/clusters/secret-generator.yaml
+patchesStrategicMerge:
+- serviceaccounts/argocd-dex-server.yaml

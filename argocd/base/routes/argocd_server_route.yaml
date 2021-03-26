@@ -1,0 +1,85 @@
+---
+apiVersion: route.openshift.io/v1
+kind: Route
+metadata:
+  name: argocd-server
+  labels:
+    app.kubernetes.io/component: server
+    app.kubernetes.io/name: argocd-server
+    app.kubernetes.io/part-of: argocd
+spec:
+  port:
+    targetPort: http
+  tls:
+    insecureEdgeTerminationPolicy: Redirect
+    termination: edge
+  to:
+    name: argocd-server
+    kind: Service
+---
+apiVersion: route.openshift.io/v1
+kind: Route
+metadata:
+  name: argocd-server-metrics
+  labels:
+    app.kubernetes.io/component: server
+    app.kubernetes.io/name: argocd-server-metrics
+    app.kubernetes.io/part-of: argocd
+spec:
+  path: /metrics
+  port:
+    targetPort: metrics
+  to:
+    name: argocd-server-metrics
+    kind: Service
+
+---
+apiVersion: route.openshift.io/v1
+kind: Route
+metadata:
+  name: argocd-metrics
+  labels:
+    app.kubernetes.io/component: metrics
+    app.kubernetes.io/name: argocd-metrics
+    app.kubernetes.io/part-of: argocd
+spec:
+  path: /metrics
+  port:
+    targetPort: metrics
+  to:
+    name: argocd-metrics
+    kind: Service
+
+---
+kind: Route
+apiVersion: route.openshift.io/v1
+metadata:
+  name: argocd-dex-server-metrics
+  labels:
+    app.kubernetes.io/component: dex-server
+    app.kubernetes.io/name: argocd-dex-server
+    app.kubernetes.io/part-of: argocd
+spec:
+  path: /metrics
+  to:
+    kind: Service
+    name: argocd-dex-server
+  port:
+    targetPort: metrics
+
+---
+kind: Route
+apiVersion: route.openshift.io/v1
+metadata:
+  name: argocd-repo-server-metrics
+  labels:
+    app.kubernetes.io/component: repo-server
+    app.kubernetes.io/name: argocd-repo-server
+    app.kubernetes.io/part-of: argocd
+spec:
+  path: /metrics
+  to:
+    kind: Service
+    name: argocd-repo-server
+  port:
+    targetPort: metrics

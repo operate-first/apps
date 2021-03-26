@@ -6,8 +6,16 @@ resources:
   - ../common
   - ../../../base/namespaces/acm
   - ../../../base/namespaces/opf-alertreceiver
+  - ../../../base/clusterrolebindings/argocd-application-controller
   - ../../../base/clusterrolebindings/argocd-manager
+  - ../../../base/clusterrolebindings/argocd-server
   - ../../../base/clusterrolebindings/cluster-admins-rb
+  - ../../../base/clusterroles/argocd-application-controller
+  - ../../../base/clusterroles/argocd-events-create-aggregate-to-admin
+  - ../../../base/clusterroles/argocd-proj-apps-aggregate-to-admin
+  - ../../../base/clusterroles/argocd-server
+  - ../../../base/crds/applications.argoproj.io
+  - ../../../base/crds/appprojects.argoproj.io
   - ../../../base/groups/cluster-admins
   - ../../../base/oauths/cluster
   - ../../../base/operatorgroups/acm
