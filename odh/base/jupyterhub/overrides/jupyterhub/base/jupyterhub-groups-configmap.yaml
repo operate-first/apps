@@ -7,4 +7,4 @@ metadata:
   name: jupyterhub-default-groups-config
 data:
   admin_groups: "operate-first"
-  allowed_groups: ""
+  allowed_groups: "system:authenticated"
