@@ -10,6 +10,7 @@ resources:
   - ../../../base/groups/b4mad
   - ../../../base/groups/cnv-testing
   - ../../../base/groups/data-science
+  - ../../../base/groups/fde
   - ../../../base/groups/mesh-for-data
   - ../../../base/groups/open-aiops
   - ../../../base/groups/operate-first

@@ -38,6 +38,7 @@ resources:
   - ../../../base/namespaces/ds-black-flake
   - ../../../base/namespaces/ds-example-project
   - ../../../base/namespaces/ds-ml-workflows-ws
+  - ../../../base/namespaces/fde-audio-decoder-demo
   - ../../../base/namespaces/kubeflow
   - ../../../base/namespaces/local-storage
   - ../../../base/namespaces/m4d-blueprints
