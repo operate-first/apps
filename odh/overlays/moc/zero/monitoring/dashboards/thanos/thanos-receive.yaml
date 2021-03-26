@@ -1,0 +1,8 @@
+---
+apiVersion: integreatly.org/v1alpha1
+kind: GrafanaDashboard
+metadata:
+  name: thanos-receive
+spec:
+  customFolderName: Thanos
+  url: https://raw.githubusercontent.com/thanos-io/thanos/5139e339eca62787e3a8dc38af5d4a9bf3ea39c4/examples/dashboards/receive.json
