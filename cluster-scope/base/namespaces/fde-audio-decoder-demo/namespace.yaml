@@ -1,0 +1,9 @@
+---
+apiVersion: v1
+kind: Namespace
+metadata:
+  annotations:
+    openshift.io/display-name: "FDE: Audio Decoder"
+    openshift.io/requester: fde
+  name: fde-audio-decoder-demo
+spec: {}
