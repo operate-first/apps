@@ -6,7 +6,10 @@ resources:
   - ../../../base/clusterrolebindings/cluster-admins-rb
   - ../../../base/groups/cluster-admins
   - ../../../base/ingresscontrollers/default
+  - ../../../base/namespaces/openshift-storage
   - ../../../base/oauths/cluster
+  - ../../../base/operatorgroups/openshift-storage
+  - ../../../base/subscriptions/ocs-operator
   - ../../../base/subscriptions/web-terminal
 
 generators:
@@ -15,3 +18,4 @@ generators:
 patchesStrategicMerge:
   - oauths/cluster_patch.yaml
   - subscriptions/web-terminal.yaml
+  - subscriptions/ocs-operator_patch.yaml
