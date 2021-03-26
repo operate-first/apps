@@ -1,0 +1,9 @@
+---
+apiVersion: v1
+kind: Namespace
+metadata:
+  annotations:
+    openshift.io/display-name: "dkenigsb cnv testing"
+    openshift.io/requester: cnv-testing
+  name: cnv-testing
+spec: {}
