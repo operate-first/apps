@@ -13,6 +13,7 @@ presubmits:
           resources:
             requests:
               memory: "256Mi"
+              cpu: "200m"
   - name: pre-commit
     decorate: true
     skip_report: false
@@ -28,4 +29,4 @@ presubmits:
           resources:
             requests:
               memory: "2Gi"
-              cpu: "2"
+              cpu: "200m"
