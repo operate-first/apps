@@ -4,12 +4,23 @@ kind: Role
 metadata:
   name: project-logs-reader
 rules:
-  - apiGroups:
+  - verbs:
+      - get
+    apiGroups:
       - ""
+      - project.openshift.io
     resources:
-      - pods/log
-      - pods
-    verbs:
+      - projects
+  - verbs:
       - get
       - list
       - watch
+    apiGroups:
+      - ""
+    resources:
+      - events
+      - namespaces
+      - namespaces/status
+      - pods
+      - pods/log
+      - pods/status
