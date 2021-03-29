@@ -40,6 +40,14 @@ resources:
   - ../../../base/namespaces/ds-ml-workflows-ws
   - ../../../base/namespaces/fde-audio-decoder-demo
   - ../../../base/namespaces/kubeflow
+  - ../../../base/namespaces/lab-cicd-1-jump-app-cicd
+  - ../../../base/namespaces/lab-cicd-1-jump-app-dev
+  - ../../../base/namespaces/lab-cicd-2-jump-app-cicd
+  - ../../../base/namespaces/lab-cicd-2-jump-app-dev
+  - ../../../base/namespaces/lab-cicd-3-jump-app-cicd
+  - ../../../base/namespaces/lab-cicd-3-jump-app-dev
+  - ../../../base/namespaces/lab-cicd-4-jump-app-cicd
+  - ../../../base/namespaces/lab-cicd-4-jump-app-dev
   - ../../../base/namespaces/local-storage
   - ../../../base/namespaces/m4d-blueprints
   - ../../../base/namespaces/m4d-system
