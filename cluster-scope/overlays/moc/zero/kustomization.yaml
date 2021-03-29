@@ -53,6 +53,7 @@ resources:
   - ../../../base/namespaces/m4d-system
   - ../../../base/namespaces/metallb-system
   - ../../../base/namespaces/mesh-for-data
+  - ../../../base/namespaces/moc-reporting
   - ../../../base/namespaces/observatorium-operator
   - ../../../base/namespaces/open-aiops
   - ../../../base/namespaces/opendatahub-operator
