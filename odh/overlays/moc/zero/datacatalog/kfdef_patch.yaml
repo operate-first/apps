@@ -2,7 +2,9 @@
   path: /spec/applications/2/kustomizeConfig/parameters
   value:
     - name: s3_endpoint_url
-      value: s3.openshift-storage.svc:443
+      value: s3.openshift-storage.svc
+    - name: s3_is_secure
+      value: "false"
     - name: s3_credentials_secret
       value: opf-datacatalog-bucket
     - name: storage_class
@@ -12,7 +14,7 @@
   path: /spec/applications/3/kustomizeConfig/parameters
   value:
     - name: s3_endpoint_url
-      value: s3.openshift-storage.svc:443
+      value: s3.openshift-storage.svc
     - name: s3_credentials_secret
       value: opf-datacatalog-bucket
     - name: storage_class
