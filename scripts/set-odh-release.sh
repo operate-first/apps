@@ -20,4 +20,7 @@ for kfdef in $k; do
     yq e "(.spec.repos.[] | select(.name == \"manifests\").uri = \"https://github.com/opendatahub-io/odh-manifests/tarball/$latest_version\")| \"---\", ." -i $kfdef
 done
 
+pushd odh-operator/base
+kustomize edit set image quay.io/opendatahub/opendatahub-operator:$latest_version
+popd
 #end.
