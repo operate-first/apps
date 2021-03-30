@@ -1,0 +1,9 @@
+apiVersion: kafka.strimzi.io/v1beta1
+kind: KafkaTopic
+metadata:
+  name: zero-prod.cluster.app-logs
+  labels:
+    strimzi.io/cluster: odh-message-bus
+spec:
+  partitions: 3
+  replicas: 2
