@@ -5,7 +5,7 @@ trap 'echo "Aborting due to errexit on line $LINENO. Exit code: $?" >&2' ERR
 set -o errtrace
 set -o pipefail
 
-k=$(find . -name kfdef.yaml)
+k=$(find ./odh ./observatorium -name kfdef.yaml)
 
 latest_version=$(basename $(curl -Ls -o /dev/null -w %{url_effective} https://github.com/opendatahub-io/odh-manifests/releases/latest))
 
