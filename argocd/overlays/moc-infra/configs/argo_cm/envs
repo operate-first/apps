@@ -1,4 +1,4 @@
 admin.enabled=true
 kustomize.buildOptions=--enable_alpha_plugins
-url=https://argocd-server-argocd.apps.moc-infra.massopen.cloud
+url=https://argocd.operate-first.cloud
 users.anonymous.enabled=true

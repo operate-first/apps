@@ -8,4 +8,4 @@ metadata:
     app.kubernetes.io/part-of: argocd
   annotations:
     serviceaccounts.openshift.io/oauth-redirecturi.moc-argocd: "api/dex/callback"
-    serviceaccounts.openshift.io/oauth-redirectreference.moc-argocd: "{\"kind\":\"OAuthRedirectReference\",\"apiVersion\":\"v1\",\"reference\":{\"kind\":\"Route\",\"name\":\"argocd-server\"}}"
+    serviceaccounts.openshift.io/oauth-redirectreference.moc-argocd: "{\"kind\":\"OAuthRedirectReference\",\"apiVersion\":\"v1\",\"reference\":{\"kind\":\"Route\",\"name\":\"argocd-google\"}}"
