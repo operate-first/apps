@@ -12,18 +12,13 @@ spec:
       tls: {}
       external:
         type: route
-    # authorization type: simple will enable authorization for KafkaUsers
-    authorization:
-      type: simple
     config:
       offsets.topic.replication.factor: 3
       transaction.state.log.replication.factor: 3
       transaction.state.log.min.isr: 3
       log.message.format.version: "2.4"
     storage:
-      type: persistent-claim
-      size: 10Gi
-      deleteClaim: false
+      type: ephemeral
     metrics:
       # Inspired by config from Kafka 2.0.0 example rules:
       # https://github.com/prometheus/jmx_exporter/blob/master/example_configs/kafka-2_0_0.yml
@@ -124,9 +119,7 @@ spec:
   zookeeper:
     replicas: 3
     storage:
-      type: persistent-claim
-      size: 10Gi
-      deleteClaim: false
+      type: ephemeral
     metrics:
       # Inspired by Zookeeper rules
       # https://github.com/prometheus/jmx_exporter/blob/master/example_configs/zookeeper.yaml
@@ -156,7 +149,4 @@ spec:
         name: "zookeeper_$2_$3"
   entityOperator:
     topicOperator: {}
-    # Meta Operator to manage KafkaUsers
-    userOperator:
-      watchedNamespace: opf-kafka
-      reconciliationIntervalSeconds: 60
+    userOperator: {}
