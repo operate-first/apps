@@ -17,3 +17,4 @@ resources:
 - thoth-unresolved-package.yaml
 - thoth-unrevsolved-package.yaml
 - thoth-update-provides-source-distro.yaml
+- zero-cluster-app-logs.yaml
