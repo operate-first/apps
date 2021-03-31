@@ -7,8 +7,13 @@ set -o pipefail
 
 k=$(find ./odh ./observatorium -name kfdef.yaml)
 
-latest_version=$(basename $(curl -Ls -o /dev/null -w %{url_effective} https://github.com/opendatahub-io/odh-manifests/releases/latest))
+if [ -z "$1" ]; then
+   latest_version=$(basename $(curl -Ls -o /dev/null -w %{url_effective} https://github.com/opendatahub-io/odh-manifests/releases/latest))
+else
+   latest_version=$1
+fi
 
+echo "updating version is $latest_version"
 for kfdef in $k; do
     if ! yq e -e ".metadata.name == \"opendatahub\"" $kfdef 2>&1 >/dev/null; then
         echo skipping $(dirname $kfdef)
