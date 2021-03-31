@@ -1,0 +1,9 @@
+---
+apiVersion: v1
+kind: Namespace
+metadata:
+  annotations:
+    openshift.io/display-name: "SA-DACH: Anwendertreffen"
+    openshift.io/requester: sa-dach
+  name: sa-dach-anwendertreffen
+spec: {}
