@@ -10,14 +10,14 @@ metadata:
 spec:
     resources:
         requests:
-            storage: 4Gi
+            storage: 16Gi
 sops:
     kms: []
     gcp_kms: []
     azure_kv: []
     hc_vault: []
-    lastmodified: '2021-03-04T18:27:24Z'
-    mac: ENC[AES256_GCM,data:MzAAoT48q3L1JKU2liMK3oz5JOdSZ1qLjr8gMu678WyUYSI18I2F3lnleCIfnu7h2y9TZB+28V/6T6t3YpqubjrSV4FNrDe/Aa42KYEHExIGqeHLK4V36LntjL2wsWtNsFiJ6nJ30taopUgJv52xI5GqJ3hnJvvH5g+b+aiUS6Y=,iv:fFKrEfV4ZbAO6b8Z71V8WVBfLfpFRvoTYNwr+TAehpw=,tag:xbyiFX4ZB6jCDUbPQC7pCQ==,type:str]
+    lastmodified: '2021-04-01T14:14:53Z'
+    mac: ENC[AES256_GCM,data:yaya9c+ixPm9TT7gkBXSY/LVJJ9sT9Nau1RLl9UvUp92vZeC04NK17m4axK83ASQ2DzknZmfcwTamtVcVE5WYA9xqnxvoOPnNsS01VPlbsD/yd3ZOJT6ya3mHzIDrHaTqP2FQJ3dL8CTxVVhfLdN16ss2En/oAtL/NnfRHLcKGY=,iv:ApKdpKtTUK19EpNeO9pk+7i2CErEeBvbVlvY1HZlA3Q=,tag:3ZjQwSBpvTNtncV1JiQMIw==,type:str]
     pgp:
     -   created_at: '2021-03-04T18:27:24Z'
         enc: |
