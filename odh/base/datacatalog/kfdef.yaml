@@ -33,5 +33,5 @@ spec:
       name: thriftserver
   repos:
     - name: manifests
-      uri: "https://github.com/opendatahub-io/odh-manifests/tarball/v1.0.6"
-  version: v1.0.6
+      uri: "https://github.com/opendatahub-io/odh-manifests/tarball/v1.0.7"
+  version: v1.0.7
