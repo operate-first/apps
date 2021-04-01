@@ -4,7 +4,7 @@ kind: Grafana
 metadata:
     name: grafana
 spec:
-    baseImage: quay.io/app-sre/grafana:7.1.1
+    baseImage: quay.io/operate-first/grafana:7.1.1
     config:
         users:
             viewers_can_edit: true
