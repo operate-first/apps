@@ -18,6 +18,7 @@ resources:
   - ../../../base/groups/ray
   - ../../../base/groups/rekor
   - ../../../base/groups/sa-dach
+  - ../../../base/groups/sdap-mslsp
   - ../../../base/groups/thoth
   - ../../../base/groups/tufts-dcc-6
   - ../../../base/groups/workshops
