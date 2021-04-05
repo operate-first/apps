@@ -1,0 +1,22 @@
+---
+kind: ImageStream
+apiVersion: image.openshift.io/v1
+metadata:
+  name: jupyter-book
+  labels:
+    component.opendatahub.io/name: jupyterhub
+    opendatahub.io/component: 'true'
+    opendatahub.io/notebook-image: 'true'
+spec:
+  lookupPolicy:
+    local: true
+  tags:
+    - name: latest
+      annotations: null
+      from:
+        kind: DockerImage
+        name: 'quay.io/thoth-station/s2i-jupyter-book-notebook:latest'
+      generation: 1
+      importPolicy: {}
+      referencePolicy:
+        type: Local
