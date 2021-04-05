@@ -6,6 +6,7 @@ resources:
   - ../../../base/clusterrolebindings/self-provisioners
   - ../../../base/configs/project
   - ../../../base/groups/ai-services
+  - ../../../base/groups/apicurio
   - ../../../base/groups/argocd-admins
   - ../../../base/groups/b4mad
   - ../../../base/groups/cnv-testing

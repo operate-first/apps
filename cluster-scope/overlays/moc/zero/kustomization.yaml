@@ -32,6 +32,7 @@ resources:
   - ../../../base/groups/cluster-admins
   - ../../../base/imageregistryconfigs/cluster
   - ../../../base/ingresscontrollers/default
+  - ../../../base/namespaces/apicurio-apicurio-registry
   - ../../../base/namespaces/as-pushgateway
   - ../../../base/namespaces/b4mad-minecraft
   - ../../../base/namespaces/cnv-testing
