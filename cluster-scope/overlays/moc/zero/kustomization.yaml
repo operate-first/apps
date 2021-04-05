@@ -94,6 +94,7 @@ resources:
   - ../../../base/namespaces/thoth-infra-prod
   - ../../../base/namespaces/thoth-middletier-prod
   - ../../../base/namespaces/tufts-dcc-6
+  - ../../../base/namespaces/uky-hpc-workload-generator
   - ../../../base/namespaces/ws-ml-prague
   - ../../../base/oauths/cluster
   - ../../../base/operatorgroups/local-storage

@@ -1,0 +1,9 @@
+---
+apiVersion: v1
+kind: Namespace
+metadata:
+  annotations:
+    openshift.io/display-name: "HPC Workload Generator exporting Prometheus Metrics"
+    openshift.io/requester: uky-redhat
+  name: uky-hpc-workload-generator
+spec: {}
