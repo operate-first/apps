@@ -82,6 +82,7 @@ resources:
   - ../../../base/namespaces/ray-odh-integration
   - ../../../base/namespaces/sa-dach-anwendertreffen
   - ../../../base/namespaces/sa-dach-openshift-examples
+  - ../../../base/namespaces/sdap
   - ../../../base/namespaces/tekton-pipelines
   - ../../../base/namespaces/thoth-amun-api-prod
   - ../../../base/namespaces/thoth-amun-inspection-prod
