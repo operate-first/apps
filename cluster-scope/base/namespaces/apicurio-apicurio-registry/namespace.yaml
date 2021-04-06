@@ -1,0 +1,9 @@
+---
+apiVersion: v1
+kind: Namespace
+metadata:
+  annotations:
+    openshift.io/display-name: "Apicurio Registry - High performance, runtime registry for API Designs and Schemas https://www.apicur.io/registry/"
+    openshift.io/requester: apicurio
+  name: apicurio-apicurio-registry
+spec: {}
