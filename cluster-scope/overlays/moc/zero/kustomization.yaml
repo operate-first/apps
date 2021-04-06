@@ -79,6 +79,7 @@ resources:
   - ../../../base/namespaces/opf-observatorium
   - ../../../base/namespaces/opf-slack-first
   - ../../../base/namespaces/opf-superset
+  - ../../../base/namespaces/opf-trino
   - ../../../base/namespaces/ray-odh-integration
   - ../../../base/namespaces/sa-dach-anwendertreffen
   - ../../../base/namespaces/sa-dach-openshift-examples
