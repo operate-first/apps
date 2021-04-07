@@ -1,0 +1,11 @@
+---
+apiVersion: route.openshift.io/v1
+kind: Route
+metadata:
+  name: slack-first
+spec:
+  to:
+    kind: Service
+    name: slack-first
+  port:
+    targetPort: events

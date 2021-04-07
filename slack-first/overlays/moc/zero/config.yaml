@@ -1,0 +1,15 @@
+supportChannelId: C01RMPVUUK1
+onCall:
+  schedule: weekly
+  members:
+    - tcoufal@redhat.com
+    - hukhan@redhat.com
+    - asanmukh@redhat.com
+github:
+  issues:
+    access:
+      - operate-first/apps
+      - operate-first/support
+      - operate-first/SRE
+    labels:
+      - kind/question

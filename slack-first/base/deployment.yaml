@@ -1,0 +1,61 @@
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: slack-first
+  labels:
+    app: slack-first
+spec:
+  selector:
+    matchLabels:
+      app: slack-first
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: slack-first
+    spec:
+      containers:
+        - name: slack-first
+          image: quay.io/tcoufal/slack-first:latest
+          imagePullPolicy: Always
+          resources:
+            requests:
+              cpu: 50m
+              memory: 100Mi
+            limits:
+              cpu: 150m
+              memory: 256Mi
+          readinessProbe:
+            httpGet:
+              path: /healthz
+              port: 3000
+            initialDelaySeconds: 5
+            timeoutSeconds: 2
+            successThreshold: 1
+            failureThreshold: 3
+            periodSeconds: 10
+          envFrom:
+            - secretRef:
+                name: slack-first
+          env:
+            - name: GITHUB_PRIVATE_KEY
+              value: /mnt/certs/github.pem
+            - name: SLACK_BOT_CONFIG
+              value: /mnt/config/config.yaml
+          ports:
+            - containerPort: 3000
+              name: slack-first
+          volumeMounts:
+            - name: cert
+              mountPath: /mnt/certs
+            - name: config
+              mountPath: /mnt/config
+      volumes:
+        - name: cert
+          secret:
+            secretName: slack-first
+        - name: config
+          configMap:
+            name: slack-first
+      restartPolicy: Always
