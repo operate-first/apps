@@ -82,3 +82,5 @@ spec:
       kind: ServiceMonitor
     - group: monitoring.coreos.com
       kind: ThanosRuler
+    - group: logging.openshift.io
+      kind: ClusterLogForwarder
