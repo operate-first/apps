@@ -10,18 +10,17 @@ metadata:
 spec:
     resources:
         requests:
-            storage: 8Gi
+            storage: 16Gi
 sops:
     kms: []
     gcp_kms: []
     azure_kv: []
     hc_vault: []
-    age: []
-    lastmodified: "2021-03-29T12:09:26Z"
-    mac: ENC[AES256_GCM,data:gLs8IiVa7VONTRpYv1X8TgVBIHOIWzEj978XLIo5c9mDFeDufYjrLq2oCOYVH0drwY1779iOk6e6AK6BZkNwpzh/bC6gCX7A+Ye3neFEEAx9rjeSNRi6LkMEyv4pdiEZ4ADDvRgxeJr9zC85xkFCUqMsvSxo6EMwEfu1vO6YvZo=,iv:E/U/9fkNkpxkFvsIGjajn/lApPf5kHUTF0nJL7h5PD4=,tag:xhtYxocfruiWXQV5i//3hw==,type:str]
+    lastmodified: '2021-04-07T17:58:42Z'
+    mac: ENC[AES256_GCM,data:0vWZDQEBQxxCEAcgrGW5ytVXbn8HEYkxE8pccLNuRChxEM6Kp7rayf6rtDlu6xWUBJmSQ4DoLq96XcZrJ2Do6dJ+rmz3gbsV5dRqDS2DORkTDxWKFQSUYf2f2+t27jtONnAymjH1gt/G4jgHZWzsaN+XBQ7crlvX6LtAHT8N0uU=,iv:2QTfyJNilSOl/PosYWelC/ttOO6sg249y7NnXRxMR3k=,tag:+R29O9u0AOv63MMJlJND6w==,type:str]
     pgp:
-        - created_at: "2021-03-04T18:27:24Z"
-          enc: |
+    -   created_at: '2021-03-04T18:27:24Z'
+        enc: |
             -----BEGIN PGP MESSAGE-----
 
             hQIMA9aKBcudqifiAQ//VK6pRCwA5P5ilvJJV0bB8SalkvgEyTMgpeO6Df2D0gIQ
@@ -39,6 +38,6 @@ sops:
             1c+sRo5fVMvCgoRZCRYH+P1VYcZFyTkK2LPsBGPf3wvf5afCGkF1KTrgv5iL
             =eds4
             -----END PGP MESSAGE-----
-          fp: 0508677DD04952D06A943D5B4DC4116D360E3276
+        fp: 0508677DD04952D06A943D5B4DC4116D360E3276
     encrypted_regex: ^annotations|name$
     version: 3.7.0
