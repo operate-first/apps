@@ -24,7 +24,9 @@ resources:
   - ../../../base/clusterrolebindings/metrics
   - ../../../base/clusterrolebindings/observatorium-operator
   - ../../../base/clusterrolebindings/opendatahub-operator
+  - ../../../base/clusterrolebindings/scc-anyuid-tufts-dcc-6
   - ../../../base/clusterrolebindings/scc-privileged-opf-ci-pipelines-aicoe-ci
+  - ../../../base/clusterrolebindings/scc-privileged-tufts-dcc-6
   - ../../../base/crds/cluster.ray.io
   - ../../../base/crds/kfdef.apps.kubeflow.org
   - ../../../base/crds/prow.k8s.io
