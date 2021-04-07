@@ -6,4 +6,6 @@ metadata:
     openshift.io/display-name: "tufts cloud computing group 6"
     openshift.io/requester: tufts-dcc-6
   name: tufts-dcc-6
+  labels:
+    istio-injection: enabled
 spec: {}
