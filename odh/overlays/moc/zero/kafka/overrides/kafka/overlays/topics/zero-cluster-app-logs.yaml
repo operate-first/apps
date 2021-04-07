@@ -7,3 +7,6 @@ metadata:
 spec:
   partitions: 3
   replicas: 2
+  config:
+    # max message size is 10MB because fluentd default chunk size is 8MB
+    message.max.bytes: 10000000
