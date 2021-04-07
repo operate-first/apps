@@ -21,6 +21,7 @@ resources:
   - ../../../base/groups/sa-dach
   - ../../../base/groups/sdap-mslsp
   - ../../../base/groups/thoth
+  - ../../../base/groups/thoth-devops
   - ../../../base/groups/tufts-dcc-6
   - ../../../base/groups/uky-redhat
   - ../../../base/groups/workshops

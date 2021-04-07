@@ -3,7 +3,7 @@ apiVersion: v1
 kind: Namespace
 metadata:
   annotations:
-    openshift.io/display-name: "thoth-middletier-prod"
+    openshift.io/display-name: "Thoth-Station: Middletier Namespace"
     openshift.io/requester: aicoe-thoth-devops
   name: thoth-middletier-prod
 spec: {}
