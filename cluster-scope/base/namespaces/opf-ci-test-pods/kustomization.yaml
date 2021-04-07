@@ -8,4 +8,5 @@ resources:
 - namespace.yaml
 
 components:
-- ../../../components/project-admin-rolebindings/thoth
+  - ../../../components/project-admin-rolebindings/thoth-devops
+  - ../../../components/project-admin-rolebindings/operate-first

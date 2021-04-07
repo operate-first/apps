@@ -2,7 +2,7 @@ apiVersion: v1
 kind: Namespace
 metadata:
   annotations:
-    openshift.io/display-name: "thoth-deployment-examples"
+    openshift.io/display-name: "Thoth-Station: Deployment Namespace"
     openshift.io/requester: aicoe-thoth-devops
   name: thoth-deployment-examples
 spec: {}

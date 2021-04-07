@@ -3,7 +3,7 @@ apiVersion: v1
 kind: Namespace
 metadata:
   annotations:
-    openshift.io/display-name: "thoth-bots-prod"
+    openshift.io/display-name: "Thoth-Station: Bots Namespace"
     openshift.io/requester: aicoe-thoth-devops
   name: thoth-bots-prod
 spec: {}
