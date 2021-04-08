@@ -22,4 +22,11 @@ Secrets in this environment are encrypted via these secrets. In order to modify 
 - Ilana Polonsky: [`3625572E2E3C694CB19911FFB727FBE237CEADAC`](https://keys.openpgp.org/search?q=3625572E2E3C694CB19911FFB727FBE237CEADAC)
 - Naved Ansari: [`B27ED6FAF92F28FA805451F33F5CA0E2A1824018`](https://keys.openpgp.org/search?q=B27ED6FAF92F28FA805451F33F5CA0E2A1824018)
 
+## Team specific keys
+
+Please import these public GPG keys in order to manage resources that belongs to specific teams:
+
+- Apicurio team: [`4B6A81C7D1711864408480CEC37C8EDF9301474C`](https://keys.openpgp.org/search?q=4B6A81C7D1711864408480CEC37C8EDF9301474C)
+- Lab CI-CD team: [`169131BA05F8885E6691A91AD7CFA8E51DA86A14`](https://keys.openpgp.org/search?q=169131BA05F8885E6691A91AD7CFA8E51DA86A14)
+
 Preferred key hosting: keys.openpgp.org, keys.gnupg.net
