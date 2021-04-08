@@ -16,6 +16,7 @@ resources:
   - ../../../base/groups/mesh-for-data
   - ../../../base/groups/open-aiops
   - ../../../base/groups/operate-first
+  - ../../../base/groups/pulp
   - ../../../base/groups/ray
   - ../../../base/groups/rekor
   - ../../../base/groups/sa-dach
