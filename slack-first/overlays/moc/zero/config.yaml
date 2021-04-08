@@ -2,9 +2,9 @@ supportChannelId: C01RMPVUUK1
 onCall:
   schedule: weekly
   members:
-    - tcoufal@redhat.com
     - hukhan@redhat.com
     - asanmukh@redhat.com
+    - tcoufal@redhat.com
 github:
   issues:
     access:
