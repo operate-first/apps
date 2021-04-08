@@ -1,0 +1,41 @@
+apiVersion: user.openshift.io/v1
+kind: Group
+metadata:
+    name: pulp
+    annotations:
+        kustomize.config.k8s.io/behavior: replace
+users:
+    - ENC[AES256_GCM,data:didxTCR+0WTKkBF9fWvo0jfI8Q==,iv:dIXvDepsi6axJVc3piGf6lPRrCl1QHpmOoqumGQqSfY=,tag:qUhq+eVeOtbGHn0eNhJqwQ==,type:str]
+    - ENC[AES256_GCM,data:Zd0DjmWveiYLq2z9wxWT6AoP3p+U,iv:yD4mTSqzWRCr30nra5JSBa7yQChuzF5A+YHvq3PPGnY=,tag:eeEPSkoL88BprBVUrKKy0Q==,type:str]
+    - ENC[AES256_GCM,data:aJfl8HLJf5NnqXGNTxoFxeJtmA==,iv:ppW/3bIX3cBiC5TqI5IBXgo0FVmC1s/7ELFSHX7Pkp4=,tag:PAerSR7bvI082jXie3/0qA==,type:str]
+sops:
+    kms: []
+    gcp_kms: []
+    azure_kv: []
+    hc_vault: []
+    age: []
+    lastmodified: "2021-04-08T12:43:35Z"
+    mac: ENC[AES256_GCM,data:IwERqfjah00M+vxnuFTiIFFi8/Iq93MRJ/vxtVdXtuFE1hng9BoX+PHamszQJpMetxj/DmgT7HlxJu33I5gn9JMvp2EcxvMH8EvxCnMt1m0VQqX8ugRBqF47pJtOUAPg5ipsMrAhUBFTPv2SUiMzVqwaI1ApmFGJP54i1nQY28k=,iv:3bRKUWHxZQGeU/wGf8/yll9fv4IMwpXLQNqpPLgT7KY=,tag:zxmE0qeNQ8P8MZ7VyajZiw==,type:str]
+    pgp:
+        - created_at: "2021-04-07T15:06:53Z"
+          enc: |
+            -----BEGIN PGP MESSAGE-----
+
+            hQIMA9aKBcudqifiAQ//WgTiWGPBSFkxyy776h9v1T3lEvWY87PGDPEsP1DzkvpP
+            93VsF3s6/F5WdPm0OTyiPAmXjP67ce1aMDcVfR7aeYmJmh6qFN3O4chp6ZvGSSGc
+            MZDIWp1UaglZ689teQcJ83ALZUtCaRiFgwW8TKoCMuzCXu2kLf+Tv6z1yVOyEMJx
+            jmf7aR0a0KI0jTazARnRU5nYAkAmqMz/B6+6FPGsdAP4oBpFgBX7++ECmul2Oj1i
+            ggcoE+YsSJatRAaKrAi0TopcI/6VPvWoLSzw1zYVQ9kW+epbhjW6HKTclFBBYaI9
+            kzx+x+CVVBEpz2gQWoUJx9q71LTNB4St3eKXem2FxmgAabigexF9M7Mg2HaP0542
+            qk8rc81gYpwtxwO6qmLewDFdN/GrwYVlUdPloBbpRm97pM6j82ioQhnaZjsY/V37
+            4BpYRnHqd5kDfAGcapHYfMwO6KLYaNPZFfdWAj/uCTAaDO2ENGditabnqU7TEaTh
+            b5vtNe3aFXCoaVtOsL6VrP9CnzAjzS6EJ9jwNup7CaIpGfT4qRKnoAIEBPEj+6hQ
+            q17I+StPjdKG3ebFL2xaNLQQB2zoAnW9Q+481rQxlYaAtawRut/ZDfaoFuOXgjMp
+            HTLjubWq4UUyaP7YlgZl8MMwqpbEKSHbsGJLfQr8y2+oR9X8vuu4m2A1g/T/gRLS
+            XgFJndZXs+d/zgNZ9bYLnUfcptcAjxSxXc9qWukHH6xdKEpynLBu3+WNmAVxHSM8
+            1EGkPq3253tI+Kt5pUH4KurqQDggEa6q5PU5uXEkJU+3bOufi51ic9YEGszm4Ug=
+            =On28
+            -----END PGP MESSAGE-----
+          fp: 0508677DD04952D06A943D5B4DC4116D360E3276
+    encrypted_regex: ^(users|data|stringData)$
+    version: 3.7.0
