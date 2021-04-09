@@ -4,7 +4,8 @@
 
 An instance of Kubeflow Pipelines is available for use in OperateFirst.
 
-- URL: http://ml-pipeline-ui-kubeflow.apps.zero.massopen.cloud
+- API Endpoint: http://istio-ingressgateway-istio-system.apps.zero.massopen.cloud/pipeline
+- UI: http://istio-ingressgateway-istio-system.apps.zero.massopen.cloud/pipeline/#/pipelines
 
 You can find some samples and tutorials for Kubeflow Pipelines [here](https://www.kubeflow.org/docs/pipelines/tutorials/build-pipeline/).
 
