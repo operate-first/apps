@@ -8,7 +8,7 @@ spec:
   outputs:
     - name: app-logs
       type: kafka
-      url: tcp://odh-message-bus-kafka-bootstrap.opf-kafka.svc:9092/zero-prod.cluster.app-logs
+      url: tcp://odh-message-bus-kafka-bootstrap.opf-kafka.svc:9092/zero-prod.cluster-logs.application
   pipelines:
     - name: forward-app-logs
       inputRefs:

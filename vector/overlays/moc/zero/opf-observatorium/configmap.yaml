@@ -13,7 +13,7 @@ data:
         group_id: cluster-logs-consumer
         key_field: message
         topics:
-        - zero-prod.cluster.app-logs
+        - zero-prod.cluster-logs.application
     sinks:
       opf_loki_sink:
         type: loki
