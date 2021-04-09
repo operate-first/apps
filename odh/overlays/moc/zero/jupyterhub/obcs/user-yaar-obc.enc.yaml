@@ -1,0 +1,42 @@
+apiVersion: objectbucket.io/v1alpha1
+kind: ObjectBucketClaim
+metadata:
+    annotations:
+        username: ENC[AES256_GCM,data:Lx34uSVzf01VRbeXBDcXzLc=,iv:TMrmjrIK9HbEzinbKUsXltXumD1v5t1+AoWKxvmsfl4=,tag:m3/dThN7UHmJRyABScGB+g==,type:str]
+    name: ENC[AES256_GCM,data:WuXEXayO9mJQPCRGbuaaaTkI9DA=,iv:1hr7dXy8P0k4c6MFmueWy7fgaYMeOnAWnZJRCvA3XQs=,tag:xqpmJ5UFtJ+vRew88TmxMA==,type:str]
+spec:
+    bucketName: ENC[AES256_GCM,data:hBLnvNwd3Mrgwju9KFF4KYcXS8JNMg==,iv:WpeEAzk7ZBUzyi2Pwpq98ZlcDV8A62XAM2iKvVlCZRA=,tag:EVetSgLECktJv/DapTtkUw==,type:str]
+    storageClassName: openshift-storage.noobaa.io
+    additionalConfig:
+        maxObjects: "10000"
+        maxSize: 1000G
+sops:
+    kms: []
+    gcp_kms: []
+    azure_kv: []
+    hc_vault: []
+    lastmodified: '2021-04-10T19:06:28Z'
+    mac: ENC[AES256_GCM,data:zhF8cpzxWjQezZLlTU4Yd1rkTUlwUxJEa3nx8qtwwazToi32iEpr2iHt5fwuqWqfS0aqCeNI629wvf7r2ahAY1dOIaG76zaqEkmqrS2zxwla9i8rH+1M4TqBcaTa8e5tbVWqwdWyyrDx53BgVesFWeNRR1KIuzWBcLVmIVJyLGM=,iv:i4UcToDAjCwizTWfPia1DkVb2IU0aERaole8tFLLr3k=,tag:khoBOEZqYouKnBRO5ID32Q==,type:str]
+    pgp:
+    -   created_at: '2021-04-10T19:06:28Z'
+        enc: |
+            -----BEGIN PGP MESSAGE-----
+
+            hQIMA9aKBcudqifiAQ//UAHehsTpdMG6Vz5or/tzg3Xzwlu/rww0IvJfIYetrrfl
+            MnpE9GtQsvC3i7wdQTA5XYcG7s3j74Zc/OCWB7vJeupCauhx5YoR0NHf6T1g6vkT
+            nqsQmuP7tkVvtF+PwQ7FdH7WwoL+2haT9YXWjtv9+y8+Ci3QyC9U1YPkQBmnbZkb
+            zLXm0xDO+tOOlzeJKJV41HtxYwMyzpiAaqO/Fg09PqrCC6yq3R3XuIze4tfQFMSJ
+            79pGg5Bd5SbRWyP4Pf2shpFj3Zt3Gh4m7+KLr2p1pX02XhIvsDwuRV/yIAs+redW
+            rTiWJx/vm8rzQ9PeUbnIsrXoOd4X/27oHv4E0q5EuQPkS8BhLcCzjos4ScF/wKcn
+            XSrm8iqmIak8utfhle8E+hKIgHGmy14wUOMBnYz5kXS5lxWtWq6jh80nsCda263q
+            stMXW/0G0y0WGjG7gqK8ueU3JdhSyVRZlV2WL2p4WB/RLlrvfygV+PCjoLSelgSL
+            BSCHqS6u9SG2K0/kcdT0gpcMd07wpSpVZDCkKmoGjlTBYZ3/3U4a2MKjczxrKjG8
+            p4gBJV2DDpuVJLO7RXWq/f48PvHMmAOPaFn1SujuI+B6euoBiRt4WOg6rz2fBCSE
+            v9SPAXqtdd5h1AMEbJhu5+m/HlLIrL8AKnn7FaCPjsmf6lK7/WtMMSTaSh5vHALS
+            XAHtLcgWNKLd8a6EIas134dFgzET2snk4nUdUMDv1oVIdudc/lX2NZYqkbNBEKaF
+            bJhwTdgFtpEa3e4IytM5Ge8KtbRk2ZMcvETRt9fP/M4kopRsnzUJkVlM3BXi
+            =xc3M
+            -----END PGP MESSAGE-----
+        fp: 0508677DD04952D06A943D5B4DC4116D360E3276
+    encrypted_regex: ^annotations|name|bucketName|generateBucketName$
+    version: 3.6.1

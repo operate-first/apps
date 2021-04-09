@@ -8,6 +8,7 @@ resources:
 
 generators:
   - pvcs/secret-generator.yaml
+  - obcs/secret-generator.yaml
 
 patchesJson6902:
   - patch: |
