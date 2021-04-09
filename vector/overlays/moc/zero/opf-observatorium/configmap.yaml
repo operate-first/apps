@@ -1,0 +1,32 @@
+---
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: vector-config
+data:
+  vector-config.yaml: |
+    ---
+    sources:
+      opf_kafka_source:
+        type: kafka
+        bootstrap_servers: odh-message-bus-kafka-bootstrap.opf-kafka.svc:9092
+        group_id: cluster-logs-consumer
+        key_field: message
+        topics:
+        - zero-prod.cluster.app-logs
+    sinks:
+      opf_loki_sink:
+        type: loki
+        inputs:
+        - opf_kafka_source
+        endpoint: http://opf-observatorium-loki-distributor-http.opf-observatorium.svc:3100
+        tenant_id: cluster-app-logs
+        encoding:
+          codec: text
+          only_fields:
+            - message
+        healthcheck:
+          enabled: true
+        labels:
+          openshift_cluster: moc/zero
+          cluster_log_level: app-logs
