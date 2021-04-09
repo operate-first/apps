@@ -8,7 +8,7 @@ metadata:
 spec:
   # Only Loki Components are scaled up
   loki:
-    image: quay.io/app-sre/loki:1.6.1
+    image: quay.io/app-sre/loki:2.2.0
     replicas:
       distributor: 1
       ingester: 1
