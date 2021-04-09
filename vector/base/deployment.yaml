@@ -1,0 +1,31 @@
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: vector-deployment
+  labels:
+    app: vector
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: vector
+  template:
+    metadata:
+      labels:
+        app: vector
+    spec:
+      containers:
+        - name: vector
+          image: quay.io/operate-first/vector:0.12.X-alpine
+          command: ["vector", "-c", "/home/config/vector-config.yaml"]
+          ports:
+            - containerPort: 8383
+          volumeMounts:
+            - name: config-volume
+              mountPath: /home/config
+              readOnly: true
+      volumes:
+        - name: config-volume
+          configMap:
+            name: vector-config
