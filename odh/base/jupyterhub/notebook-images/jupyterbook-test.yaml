@@ -12,11 +12,9 @@ spec:
     local: true
   tags:
     - name: latest
-      annotations: null
       from:
         kind: DockerImage
         name: 'quay.io/thoth-station/s2i-jupyter-book-notebook:latest'
-      generation: 1
       importPolicy: {}
       referencePolicy:
         type: Local
