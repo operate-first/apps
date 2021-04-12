@@ -1,0 +1,22 @@
+---
+apiVersion: rbac.authorization.k8s.io/v1beta1
+kind: ClusterRoleBinding
+metadata:
+  name: scc-anyuid-tufts-dcc-6
+roleRef:
+  apiGroup: rbac.authorization.k8s.io
+  kind: ClusterRole
+  name: system:openshift:scc:anyuid
+subjects:
+  - kind: ServiceAccount
+    name: bookinfo-details
+    namespace: tufts-dcc-6
+  - kind: ServiceAccount
+    name: bookinfo-productpage
+    namespace: tufts-dcc-6
+  - kind: ServiceAccount
+    name: bookinfo-ratings
+    namespace: tufts-dcc-6
+  - kind: ServiceAccount
+    name: bookinfo-reviews
+    namespace: tufts-dcc-6
