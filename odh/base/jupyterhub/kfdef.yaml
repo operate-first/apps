@@ -33,6 +33,11 @@ spec:
           name: manifests
           path: jupyterhub/notebook-images
       name: notebook-images
+    - kustomizeConfig:
+        repoRef:
+          name: manifests
+          path: radanalyticsio/spark/cluster
+      name: radanalyticsio-spark-cluster
   repos:
     - name: manifests
       uri: "https://github.com/opendatahub-io/odh-manifests/tarball/v1.0.8"
