@@ -11,3 +11,5 @@ components:
   - ../../../components/project-admin-rolebindings/operate-first
   - ../../../components/monitoring-rbac
   - ../../../components/odh-dashboard
+  - ../../../components/limitranges/default
+  - ../../../components/resourcequotas/small

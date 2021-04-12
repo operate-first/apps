@@ -10,3 +10,5 @@ resources:
 components:
   - ../../../components/project-admin-rolebindings/thoth-devops
   - ../../../components/project-admin-rolebindings/operate-first
+  - ../../../components/limitranges/default
+  - ../../../components/resourcequotas/small
