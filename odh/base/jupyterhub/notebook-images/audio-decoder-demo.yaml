@@ -1,0 +1,17 @@
+---
+apiVersion: image.openshift.io/v1
+kind: ImageStream
+metadata:
+  name: audio-decoder-notebook
+  labels:
+    opendatahub.io/notebook-image: "true"
+  spec:
+    lookupPolicy:
+      local: true
+    tags:
+      - from:
+          kind: DockerImage
+          name: quay.io/gkrumbach07/audio-decoder-demo:latest
+        name: latest
+        importPolicy:
+          scheduled: true
