@@ -5,13 +5,13 @@ metadata:
   name: audio-decoder-notebook
   labels:
     opendatahub.io/notebook-image: "true"
-  annotations: 
-   opendatahub.io/notebook-image-url: 
-     "https://github.com/Gkrumbach07/audio-decoder-demo" 
-   opendatahub.io/notebook-image-name: 
-     "Audio Decoder Demo Notebook Image" 
-   opendatahub.io/notebook-image-desc: 
-     "Jupyter notebook image with a model service example using Kafka." 
+  annotations:
+    opendatahub.io/notebook-image-url:
+      "https://github.com/Gkrumbach07/audio-decoder-demo"
+    opendatahub.io/notebook-image-name:
+      "Audio Decoder Demo Notebook Image"
+    opendatahub.io/notebook-image-desc:
+      "Jupyter notebook image with a model service example using Kafka."
   spec:
     lookupPolicy:
       local: true
