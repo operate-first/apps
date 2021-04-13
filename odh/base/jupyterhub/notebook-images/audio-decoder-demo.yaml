@@ -12,15 +12,15 @@ metadata:
       "Audio Decoder Demo Notebook Image"
     opendatahub.io/notebook-image-desc:
       "Jupyter notebook image with a model service example using Kafka."
-  spec:
-    lookupPolicy:
-      local: true
-    tags:
-      - annotations:
-          openshift.io/imported-from: quay.io/gkrumbach07/audio-decoder-demo
-        from:
-          kind: DockerImage
-          name: quay.io/gkrumbach07/audio-decoder-demo:latest
-        name: latest
-        importPolicy:
-          scheduled: true
+spec:
+  lookupPolicy:
+    local: true
+  tags:
+    - annotations:
+        openshift.io/imported-from: quay.io/gkrumbach07/audio-decoder-demo
+      from:
+        kind: DockerImage
+        name: quay.io/gkrumbach07/audio-decoder-demo:latest
+      name: latest
+      importPolicy:
+        scheduled: true
