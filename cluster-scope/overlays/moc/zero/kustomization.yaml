@@ -38,6 +38,7 @@ resources:
   - ../../../base/namespaces/as-pushgateway
   - ../../../base/namespaces/b4mad-minecraft
   - ../../../base/namespaces/cnv-testing
+  - ../../../base/namespaces/codait-advo
   - ../../../base/namespaces/ds-black-flake
   - ../../../base/namespaces/ds-example-project
   - ../../../base/namespaces/ds-ml-workflows-ws

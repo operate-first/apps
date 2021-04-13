@@ -10,6 +10,7 @@ resources:
   - ../../../base/groups/argocd-admins
   - ../../../base/groups/b4mad
   - ../../../base/groups/cnv-testing
+  - ../../../base/groups/codait-advo
   - ../../../base/groups/data-science
   - ../../../base/groups/fde
   - ../../../base/groups/lab-cicd
