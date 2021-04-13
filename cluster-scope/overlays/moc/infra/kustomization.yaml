@@ -29,6 +29,7 @@ resources:
 
   - crc-provisioning-vlan.yaml
   - zero-provisioning-vlan.yaml
+  - clusterversion.yaml
 
 generators:
   - secret-generator.yaml
