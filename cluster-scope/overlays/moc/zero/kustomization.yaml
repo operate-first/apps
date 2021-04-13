@@ -110,6 +110,7 @@ resources:
   - ../../../base/operatorgroups/openshift-storage
   - ../../../base/podsecuritypolicy/metallb-system-controller
   - ../../../base/podsecuritypolicy/metallb-system-speaker
+  - ../../../base/securitycontextconstraints/uky-hpc-workload-generator-hostpath
   - ../../../base/storageclasses/ocs-storagecluster-cephfs
   - ../../../base/subscriptions/cluster-logging-operator
   - ../../../base/subscriptions/elastic-operator
