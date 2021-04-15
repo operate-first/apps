@@ -5,10 +5,14 @@ kind: Kustomization
 resources:
   - ../../../base/clusterrolebindings/cluster-admins-rb
   - ../../../base/groups/cluster-admins
+  - ../../../base/hostpathprovisioners/hostpath-provisioner
   - ../../../base/ingresscontrollers/default
+  - ../../../base/namespaces/hostpath-provisioner
+  - ../../../base/namespaces/openshift-cnv
   - ../../../base/namespaces/openshift-storage
   - ../../../base/oauths/cluster
   - ../../../base/operatorgroups/openshift-storage
+  - ../../../base/subscriptions/kubevirt-hyperconverged
   - ../../../base/subscriptions/ocs-operator
   - ../../../base/subscriptions/web-terminal
 
@@ -17,5 +21,6 @@ generators:
 
 patchesStrategicMerge:
   - oauths/cluster_patch.yaml
-  - subscriptions/web-terminal.yaml
+  - subscriptions/kubevirt-hyperconverged_patch.yaml
   - subscriptions/ocs-operator_patch.yaml
+  - subscriptions/web-terminal.yaml

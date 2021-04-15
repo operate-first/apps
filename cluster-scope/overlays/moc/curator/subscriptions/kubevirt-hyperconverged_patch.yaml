@@ -1,0 +1,10 @@
+---
+apiVersion: operators.coreos.com/v1alpha1
+kind: Subscription
+metadata:
+  name: kubevirt-hyperconverged
+  namespace: openshift-cnv
+spec:
+  # https://www.openshift.com/blog/whats-new-in-openshift-virtualization-in-ocp-4.7
+  # As of 2021-03-01 there's no docs available for OpenShift Virtualization on Openshift 4.7. Guessing the proper channel from blogpost above.
+  channel: "stable"
