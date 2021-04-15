@@ -105,7 +105,7 @@ spec:
         - ReadWriteOnce
         resources:
           requests:
-            storage: 10Gi
+            storage: 50Gi
   query:
     image: quay.io/thanos/thanos:v0.16.0
     replicas: 2
