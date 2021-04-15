@@ -13,6 +13,7 @@ resources:
   - ../../../base/oauths/cluster
   - ../../../base/operatorgroups/openshift-storage
   - ../../../base/subscriptions/kubevirt-hyperconverged
+  - ../../../base/storageclasses/hostpath-provisioner
   - ../../../base/subscriptions/ocs-operator
   - ../../../base/subscriptions/web-terminal
 
