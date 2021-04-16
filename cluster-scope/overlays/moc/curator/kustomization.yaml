@@ -26,3 +26,4 @@ patchesStrategicMerge:
   - subscriptions/kubevirt-hyperconverged_patch.yaml
   - subscriptions/ocs-operator_patch.yaml
   - subscriptions/web-terminal.yaml
+  - storageclasses/hostpath-provisioner.yaml
