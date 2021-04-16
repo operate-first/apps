@@ -11,22 +11,33 @@ data:
         type: kafka
         bootstrap_servers: odh-message-bus-kafka-bootstrap.opf-kafka.svc:9092
         group_id: cluster-logs-consumer
-        key_field: message
+        key_field: message_key
         topics:
         - zero-prod.cluster-logs.application
+
+    transforms:
+      loki_parser:
+        type: remap
+        inputs:
+        - opf_kafka_source
+        source: "
+          message = parse_json!(.message) \n
+          .message = message.message \n
+          .docker = message.docker \n
+          .kubernetes = message.kubernetes \n "
+
     sinks:
       opf_loki_sink:
         type: loki
         inputs:
-        - opf_kafka_source
+        - loki_parser
         endpoint: http://opf-observatorium-loki-distributor-http.opf-observatorium.svc:3100
         tenant_id: cluster-app-logs
         encoding:
-          codec: text
-          only_fields:
-            - message
+          codec: json
         healthcheck:
           enabled: true
         labels:
           openshift_cluster: moc/zero
           cluster_log_level: app-logs
+          k8s_namespace_name: "{{ kubernetes.namespace_name }}"
