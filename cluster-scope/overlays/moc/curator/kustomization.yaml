@@ -7,6 +7,7 @@ resources:
   - ../../../base/groups/cluster-admins
   - ../../../base/hostpathprovisioners/hostpath-provisioner
   - ../../../base/ingresscontrollers/default
+  - ../../../base/machineconfigs/hostpath-provisioner-selinux
   - ../../../base/namespaces/hostpath-provisioner
   - ../../../base/namespaces/openshift-cnv
   - ../../../base/namespaces/openshift-storage
@@ -25,3 +26,4 @@ patchesStrategicMerge:
   - subscriptions/kubevirt-hyperconverged_patch.yaml
   - subscriptions/ocs-operator_patch.yaml
   - subscriptions/web-terminal.yaml
+  - storageclasses/hostpath-provisioner.yaml
