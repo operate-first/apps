@@ -17,13 +17,15 @@ You will need pre-requisite tools to follow along with this doc, please do one o
 Please fork/clone the [operate-first/apps](https://github.com/operate-first/apps) repository. **During this whole setup, we'll be working within this repository.**
 
 ### Steps:
-1. Add the following lines to each namespace's `kustomization.yaml` to enable rbac for each namespace:
-```
-components:
-  - ../../../components/monitoring-rbac
-```
 
-These will be located under `apps/cluster-scope/base/namespaces/${NAMESPACE}/kustomization.yaml`.
+1. Add the following lines to each namespace's `kustomization.yaml` to enable rbac for each namespace:
+
+  ```
+  components:
+    - ../../../components/monitoring-rbac
+  ```
+
+  These will be located under `apps/cluster-scope/base/namespaces/${NAMESPACE}/kustomization.yaml`.
 
 2. Add the service monitor filling out the details below accordingly:
 
@@ -48,6 +50,6 @@ These will be located under `apps/cluster-scope/base/namespaces/${NAMESPACE}/kus
     selector: {}
   ```
 
-Add this service monitor to `apps/odh/overlays/${ENV}/monitoring/servicemonitors`
+  Add this service monitor to `apps/odh/overlays/${ENV}/monitoring/servicemonitors`
 
 3. Add the servicemonitor from (2) to `apps/odh/overlays/${ENV}/monitoring/servicemonitors/kustomization.yaml`
