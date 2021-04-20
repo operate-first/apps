@@ -1,0 +1,114 @@
+---
+- name: Dynamically create Quicklab host in Ansible
+  hosts: localhost
+  pre_tasks:
+    - name: Load variables file
+      include_vars:
+        file: "{% if vars_file is defined %}{{ vars_file }}{% else %}env.yaml{% endif %}"
+    - name: Preprocess the PV count per size map to a flat list
+      set_fact:
+        pv_list: '[{% for size, count in pv_count_per_size.items() %}{% for i in range(count) %}["{{ size }}", {{ i }}],{% endfor %}{% endfor %}]'
+  tasks:
+    - name: Fetch Quicklab certificate
+      get_url:
+        url: https://gitlab.cee.redhat.com/cee_ops/quicklab/raw/master/docs/quicklab.key
+        dest: "{{ ansible_env.HOME }}/.ssh/quicklab.key"
+        mode: 0600
+
+    - name: Adding host
+      add_host:
+        name: quicklab
+        ansible_host: "{{ quicklab_host }}"
+        ansible_user: quicklab
+        ansible_ssh_private_key_file: "{{ ansible_env.HOME }}/.ssh/quicklab.key"
+        ansible_become: true
+        ansible_ssh_extra_args: "-o StrictHostKeyChecking=no -o UserKnownHostsFile=/dev/null"
+
+    - name: Get available Openshift nodes
+      community.kubernetes.k8s_info:
+        kind: Node
+      register: nodes
+
+    - name: Preprocess nodes k8s resource response to list of IPs
+      set_fact:
+        nodes: '[{% for r in nodes.resources %}{% for a in r.status.addresses %}{% if a.type == "InternalIP" %}"{{ a.address }}",{% endif %}{% endfor %}{% endfor %}]'
+
+- name: Setup NFS on Openshift host
+  hosts: quicklab
+  pre_tasks:
+    - name: Copy localhost variables for easier access
+      set_fact:
+        pv_list: "{{ hostvars.localhost.pv_list }}"
+        nodes: "{{ hostvars.localhost.nodes }}"
+  tasks:
+    - name: Install the NFS server
+      package:
+        name: nfs-utils
+        state: present
+
+    - name: Create export dirs
+      file:
+        path: "/mnt/nfs/{{ item[0] }}/{{ item[1] }}"
+        state: directory
+        owner: nfsnobody
+        group: nfsnobody
+        mode: 0777
+      loop: "{{ pv_list }}"
+
+    - name: Populate /etc/exports file
+      copy:
+        content: "{% for item in pv_list %}/mnt/nfs/{{ item[0] }}/{{ item[1] }}{% for node in nodes %} {{ node }}(rw){% endfor %}{% raw %}\n{% endraw %}{% endfor %}"
+        dest: /etc/exports
+      register: exports
+
+    - name: Allow services in firewall
+      ansible.posix.firewalld:
+        service: "{{ item }}"
+        state: enabled
+        permanent: yes
+      loop:
+        - nfs
+        - rpc-bind
+        - mountd
+
+    - name: Reload firewall
+      systemd:
+        name: firewalld
+        state: reloaded
+
+    - name: Enable and start NFS server
+      systemd:
+        name: nfs-server
+        enabled: yes
+        state: started
+      register: nfs_server
+
+    - name: Reload exports when the server was already started
+      when: not nfs_server.changed and exports.changed
+      command: exportfs -r -a
+
+- name: Create PersistentVolumes in OpenShift
+  hosts: localhost
+  pre_tasks:
+    - name: Find IPv4 of the host
+      set_fact:
+        host_ip: "{{ hostvars.quicklab.ansible_default_ipv4.address }}"
+  tasks:
+    - name: Create PersistentVolume resource
+      community.kubernetes.k8s:
+        state: present
+        inline: |
+          apiVersion: v1
+          kind: PersistentVolume
+          metadata:
+            name: pv-{{ item[0] | lower }}-{{ item[1] }}
+          spec:
+            capacity:
+              storage: {{ item[0] }}
+            accessModes:
+              - ReadWriteOnce
+            nfs:
+              path: /mnt/nfs/{{ item[0] }}/{{ item[1] }}
+              server: "{{ host_ip }}"
+            persistentVolumeReclaimPolicy: Recycle
+      loop: "{{ pv_list }}"
