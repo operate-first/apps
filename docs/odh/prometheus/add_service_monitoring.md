@@ -50,6 +50,6 @@ Please fork/clone the [operate-first/apps](https://github.com/operate-first/apps
     selector: {}
   ```
 
-  Add this service monitor to `apps/odh/overlays/${ENV}/monitoring/servicemonitors`
+  Add this service monitor to `kfdefs/overlays/${ENV}/${CLUSTER}/opf-monitoring/servicemonitors`
 
-3. Add the servicemonitor from (2) to `apps/odh/overlays/${ENV}/monitoring/servicemonitors/kustomization.yaml`
+3. Add the servicemonitor from (2) to `kfdefs/overlays/${ENV}/${CLUSTER}/opf-monitoring/servicemonitors/kustomization.yaml`
