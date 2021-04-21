@@ -1,0 +1,12 @@
+apiVersion: kustomize.config.k8s.io/v1beta1
+kind: Kustomization
+resources:
+- ../../cluster-scope/base/crds/appprojects.argoproj.io
+- ../../cluster-scope/base/crds/applications.argoproj.io
+- ../../cluster-scope/base/clusterrolebindings/argocd-server
+- ../../cluster-scope/base/clusterrolebindings/argocd-application-controller
+- ../../cluster-scope/base/clusterrolebindings/argocd-manager
+- ../../cluster-scope/base/clusterroles/argocd-application-controller
+- ../../cluster-scope/base/clusterroles/argocd-server
+- ../../cluster-scope/base/clusterroles/argocd-proj-apps-aggregate-to-admin
+- ../../cluster-scope/base/clusterroles/argocd-events-create-aggregate-to-admin
