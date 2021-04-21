@@ -1,6 +1,6 @@
 # Add Kafka Topics
 
-To add Kafka topics, find your target environment create a new `KafkaTopic` resource within the `odh/overlays/$ENV/$CLUSTER/kafka/overrides/kafka/overlay/topics` sub directory. `$ENV/$CLUSTER` corresponds to the environment and cluster you are adding the topic respectively. For example if you would like to add your `KafkaTopic` on `zero` cluster in the `MOC` environment then first create a topic like the one below:
+To add Kafka topics, find your target environment create a new `KafkaTopic` resource within the `odh-manifests/kafka/overlays/topics` sub directory.
 
 Replace `my-topic` with a preferred name.
 
@@ -21,12 +21,12 @@ The label `strimzi.io/cluster` should have the value `odh-message-bus`. On MOC t
 
 Pick a suitable name, ensure that it's unique in the `topics` folder.
 
-Save this file under `odh/overlays/moc/zero/kafka/overrides/kafka/overlay/topics/my-topic.yaml`.
+Save this file under `odh-manifests/kafka/overlays/topics/my-topic.yaml`.
 
-Then add it to `odh/overlays/moc/zero/kafka/overrides/kafka/overlay/topics/kustomization.yaml` by running the following:
+Then add it to `odh-manifests/kafka/overlays/topics/kustomization.yaml` by running the following:
 
 ```bash
-$ cd odh/overlays/moc/kafka/overrides/kafka/overlay/topics/
+$ cd odh-manifests/kafka/overlays/topics
 $ kustomize edit add resource my-topic.yaml
 ```
 
