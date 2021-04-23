@@ -6,12 +6,12 @@
 
 ## Instructions
 
-Create the project `aicoe-argocd-dev` and `argocd-test`. The latter will be used
+Create the project `argocd` and `argocd-test`. The latter will be used
 for deploying a dev application via ArgoCD.
 
 ```bash
 oc new-project argocd-test
-oc new-project argocd-dev
+oc new-project argocd
 ```
 
 ### Deploy ArgoCD
@@ -43,7 +43,7 @@ kustomize build argocd/overlays/dev --enable_alpha_plugins | oc delete -f -
 kustomize build argocd/cluster-resources --enable_alpha_plugins | oc delete -f -
 oc delete group dev-group
 oc delete project argocd-test
-oc delete project argocd-dev
+oc delete project argocd
 ```
 
 You may ignore the following error when removing secrets:
