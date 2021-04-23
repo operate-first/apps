@@ -8,3 +8,6 @@ spec:
     server: '*'
   sourceRepos:
   - '*'
+  clusterResourceWhitelist:
+  - group: '*'
+    kind: '*'
