@@ -11,7 +11,7 @@ for deploying a dev application via ArgoCD.
 
 ```bash
 oc new-project argocd-test
-oc new-project aicoe-argocd-dev
+oc new-project argocd-dev
 ```
 
 ### Deploy ArgoCD
