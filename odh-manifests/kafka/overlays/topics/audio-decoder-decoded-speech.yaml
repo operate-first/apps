@@ -1,5 +1,5 @@
 # audio-decoder-decoded-speech.yaml
-apiVersion: kafka.strimzi.io/v1beta1
+apiVersion: kafka.strimzi.io/v1beta2
 kind: KafkaTopic
 metadata:
   name: audio-decoder.decoded-speech
