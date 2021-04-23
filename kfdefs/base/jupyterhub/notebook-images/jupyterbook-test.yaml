@@ -14,7 +14,9 @@ spec:
   lookupPolicy:
     local: true
   tags:
-    - name: latest
+    - annotations:
+        openshift.io/imported-from: quay.io/thoth-station/s2i-jupyter-book-notebook
+      name: latest
       from:
         kind: DockerImage
         name: 'quay.io/thoth-station/s2i-jupyter-book-notebook:latest'

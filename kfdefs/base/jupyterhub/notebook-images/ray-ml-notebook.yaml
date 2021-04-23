@@ -12,7 +12,9 @@ spec:
     local: true
   tags:
     # This ray integration is being provided on an experimental basis
-    - name: experimental
+    - annotations:
+        openshift.io/imported-from: quay.io/erikerlandson/ray-ml-notebook
+      name: experimental
       from:
         kind: DockerImage
         # can rebuild with newer nightly SHAs periodically
