@@ -18,6 +18,7 @@ resources:
   - ../../../base/groups/open-aiops
   - ../../../base/groups/operate-first
   - ../../../base/groups/pulp
+  - ../../../base/groups/quarkus
   - ../../../base/groups/ray
   - ../../../base/groups/rekor
   - ../../../base/groups/sa-dach
