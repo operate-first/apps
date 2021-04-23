@@ -1,4 +1,4 @@
 admin.enabled=true
-kustomize.buildOptions=--enable_alpha_plugins
+kustomize.buildOptions=--enable-alpha-plugins
 url=https://argocd.operate-first.cloud
 users.anonymous.enabled=true
