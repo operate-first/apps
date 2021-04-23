@@ -1,0 +1,15 @@
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: blackbox-prober
+  labels:
+    app: blackbox-prober
+spec:
+  type: ClusterIP
+  ports:
+  - name: blackbox-prober
+    port: 80
+    targetPort: 9115
+  selector:
+    app: blackbox-prober
