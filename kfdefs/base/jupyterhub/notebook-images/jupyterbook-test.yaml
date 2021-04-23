@@ -7,6 +7,9 @@ metadata:
     component.opendatahub.io/name: jupyterhub
     opendatahub.io/component: 'true'
     opendatahub.io/notebook-image: 'true'
+  annotations:
+    opendatahub.io/notebook-image-name:
+      "Jupyter Book"
 spec:
   lookupPolicy:
     local: true

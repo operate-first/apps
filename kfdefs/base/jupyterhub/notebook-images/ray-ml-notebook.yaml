@@ -4,6 +4,9 @@ metadata:
   name: ray-ml-notebook
   labels:
     opendatahub.io/notebook-image: 'true'
+  annotations:
+    opendatahub.io/notebook-image-name:
+      "Ray ML Notebook"
 spec:
   lookupPolicy:
     local: true
