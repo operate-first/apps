@@ -5,6 +5,9 @@ metadata:
   labels:
     project-template: global
 spec:
+  clusterResourceWhitelist:
+    - group: kubeflow.org
+      kind: Profile
   destinations:
     - namespace: 'opf-*'
       server: 'https://api.moc-infra.massopen.cloud:6443'
