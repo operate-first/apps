@@ -76,6 +76,8 @@ Under the `images` section [here][11], update the `operate-first/argocd` tag to 
     newTag: v1.8.1-2
 ```
 
+Run a manual `kustomize build` for the `argocd` overlay, and ensure that the images are updated in the deployment specs as intended.
+
 # Changes to operate-first/toolbox
 
 If updating any of the custom tooling (e.g. sops, ksops, helm, helm-secrets, etc.), these changes should also be brought to `operate-first/toolbox`, simply update the Dockerfile [here][12], you will likely only need to update the version variables.
