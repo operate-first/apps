@@ -17,13 +17,13 @@ resources:
   - ../../../base/clusterrolebindings/argocd-manager
   - ../../../base/clusterrolebindings/cluster-admins-rb
   - ../../../base/clusterrolebindings/cluster-logs-readers
-  - ../../../base/clusterrolebindings/cluster-metrics-federation
   - ../../../base/clusterrolebindings/metallb-allow-privileged
   - ../../../base/clusterrolebindings/metallb-system-controller
   - ../../../base/clusterrolebindings/metallb-system-speaker
   - ../../../base/clusterrolebindings/metrics
   - ../../../base/clusterrolebindings/observatorium-operator
   - ../../../base/clusterrolebindings/opendatahub-operator
+  - ../../../base/clusterrolebindings/opf-cluster-metrics-federation
   - ../../../base/clusterrolebindings/scc-anyuid-tufts-dcc-6
   - ../../../base/clusterrolebindings/scc-privileged-opf-ci-pipelines-aicoe-ci
   - ../../../base/clusterrolebindings/scc-privileged-tufts-dcc-6
