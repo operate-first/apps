@@ -85,6 +85,7 @@ resources:
   - ../../../base/namespaces/opf-superset
   - ../../../base/namespaces/opf-trino
   - ../../../base/namespaces/pulp-operator
+  - ../../../base/namespaces/quarkus-extension-registry
   - ../../../base/namespaces/ray-odh-integration
   - ../../../base/namespaces/sa-dach-anwendertreffen
   - ../../../base/namespaces/sa-dach-openshift-examples
