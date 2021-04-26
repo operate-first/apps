@@ -6,7 +6,8 @@ namespace: thoth-amun-inspection-prod
 
 resources:
   - namespace.yaml
-
+  - resourcequota.yaml
 components:
   - ../../../components/project-admin-rolebindings/thoth-devops
   - ../../../components/monitoring-rbac
+  - ../../../components/limitranges/default

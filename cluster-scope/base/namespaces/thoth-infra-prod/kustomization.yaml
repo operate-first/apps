@@ -10,3 +10,5 @@ resources:
 components:
   - ../../../components/project-admin-rolebindings/thoth-devops
   - ../../../components/monitoring-rbac
+  - ../../../components/limitranges/default
+  - ../../../components/resourcequotas/large

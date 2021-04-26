@@ -10,3 +10,5 @@ resources:
 components:
   - ../../../components/project-admin-rolebindings/thoth
   - ../../../components/monitoring-rbac
+  - ../../../components/limitranges/default
+  - ../../../components/resourcequotas/medium

@@ -6,6 +6,8 @@ namespace: thoth-test-core
 
 resources:
 - namespace.yaml
+- resourcequota.yaml
 
 components:
 - ../../../components/project-admin-rolebindings/thoth
+- ../../../components/limitranges/default
