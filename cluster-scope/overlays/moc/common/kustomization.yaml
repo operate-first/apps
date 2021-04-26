@@ -28,6 +28,7 @@ resources:
   - ../../../base/groups/tufts-dcc-6
   - ../../../base/groups/uky-redhat
   - ../../../base/groups/workshops
+  - ../../../base/machineconfigs/opf-ssh-keys
   - alertmanager-main-secret.yaml
 
 generators:
