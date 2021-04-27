@@ -40,6 +40,11 @@ spec:
           name: manifests
           path: grafana/grafana
       name: grafana-operator
+    - kustomizeConfig:
+        repoRef:
+          name: opf
+          path: odh-manifests/grafana/grafana
+      name: grafana-operator
   repos:
     - name: manifests
       uri: "https://github.com/opendatahub-io/odh-manifests/tarball/v1.0.10"
