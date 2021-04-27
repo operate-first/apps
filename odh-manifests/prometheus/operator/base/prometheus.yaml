@@ -36,3 +36,35 @@ spec:
         resources:
           requests:
             storage: 100Gi
+  # Openshift OAuth Proxy config
+  listenLocal: true
+  containers:
+    - args:
+      - -provider=openshift
+      - -pass-basic-auth=false
+      - -https-address=:9091
+      - -http-address=
+      - -email-domain=*
+      - -upstream=http://localhost:9090
+      - '-openshift-sar={"resource": "namespaces", "verb": "get"}'
+      - -openshift-service-account=prometheus-k8s
+      - -openshift-ca=/etc/pki/tls/cert.pem
+      - -openshift-ca=/var/run/secrets/kubernetes.io/serviceaccount/ca.crt
+      - -tls-cert=/etc/tls/private/tls.crt
+      - -tls-key=/etc/tls/private/tls.key
+      - -cookie-secret=SECRET
+      - -skip-auth-regex=^/metrics
+      - '-openshift-sar={"resource": "namespaces", "verb": "get", "resourceName":
+          "opf-monitoring", "namespace": "opf-monitoring"}'
+      image: registry.redhat.io/openshift4/ose-oauth-proxy:v4.7
+      name: oauth-proxy
+      ports:
+      -   containerPort: 9091
+          name: oauth-proxy
+      resources: {}
+      volumeMounts:
+      -   mountPath: /etc/tls/private
+          name: secret-prometheus-tls
+          readOnly: false
+  secrets:
+  - prometheus-tls

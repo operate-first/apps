@@ -26,6 +26,7 @@ spec:
     - kustomizeConfig:
         overlays:
           - alerts
+          - openshift-proxy
         repoRef:
           name: opf
           path: odh-manifests/prometheus/operator
