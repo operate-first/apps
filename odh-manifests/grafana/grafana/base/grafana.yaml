@@ -57,9 +57,7 @@ spec:
             name: secret-grafana-tls
             readOnly: false
     ingress:
-        enabled: true
-        targetPort: oauth-proxy
-        termination: reencrypt
+        enabled: false
     secrets:
     - grafana-tls
     service:
@@ -72,4 +70,4 @@ spec:
             targetPort: oauth-proxy
     serviceAccount:
         annotations:
-            serviceaccounts.openshift.io/oauth-redirectreference.primary: '{"kind":"OAuthRedirectReference","apiVersion":"v1","reference":{"kind":"Route","name":"grafana-route"}}'
+            serviceaccounts.openshift.io/oauth-redirectreference.primary: '{"kind":"OAuthRedirectReference","apiVersion":"v1","reference":{"kind":"Route","name":"grafana"}}'
