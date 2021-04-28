@@ -5,6 +5,10 @@ kind: Kustomization
 resources:
   - ../common
   - ../../../base/clusterroles/cluster-logs-reader
+  - ../../../base/clusterroles/katalog-editor
+  - ../../../base/clusterroles/katalog-viewer
+  - ../../../base/clusterroles/m4d-manager-cr
+  - ../../../base/clusterroles/m4d-proxy-cr
   - ../../../base/clusterroles/metallb-system-controller
   - ../../../base/clusterroles/metallb-system-speaker
   - ../../../base/clusterroles/metrics
@@ -18,6 +22,9 @@ resources:
   - ../../../base/clusterrolebindings/argocd-manager
   - ../../../base/clusterrolebindings/cluster-admins-rb
   - ../../../base/clusterrolebindings/cluster-logs-readers
+  - ../../../base/clusterrolebindings/katalog-connector-editor
+  - ../../../base/clusterrolebindings/m4d-manager-crb
+  - ../../../base/clusterrolebindings/m4d-proxy-crb
   - ../../../base/clusterrolebindings/metallb-allow-privileged
   - ../../../base/clusterrolebindings/metallb-system-controller
   - ../../../base/clusterrolebindings/metallb-system-speaker
@@ -29,13 +36,22 @@ resources:
   - ../../../base/clusterrolebindings/scc-anyuid-tufts-dcc-6
   - ../../../base/clusterrolebindings/scc-privileged-opf-ci-pipelines-aicoe-ci
   - ../../../base/clusterrolebindings/scc-privileged-tufts-dcc-6
+  - ../../../base/crds/assets.katalog.m4d.ibm.com
+  - ../../../base/crds/batchtransfers.motion.m4d.ibm.com
+  - ../../../base/crds/blueprints.app.m4d.ibm.com
   - ../../../base/crds/cluster.ray.io
   - ../../../base/crds/kfdef.apps.kubeflow.org
-  - ../../../base/crds/prow.k8s.io
+  - ../../../base/crds/m4dapplications.app.m4d.ibm.com
+  - ../../../base/crds/m4dmodules.app.m4d.ibm.com
+  - ../../../base/crds/m4dstorageaccounts.app.m4d.ibm.com
   - ../../../base/crds/observatorium.io
+  - ../../../base/crds/plotters.app.m4d.ibm.com
+  - ../../../base/crds/prow.k8s.io
+  - ../../../base/crds/streamtransfers.motion.m4d.ibm.com
   - ../../../base/groups/cluster-admins
   - ../../../base/imageregistryconfigs/cluster
   - ../../../base/ingresscontrollers/default
+  - ../../../base/mutatingwebhookconfigurations/m4d-system-mutating-webhook
   - ../../../base/namespaces/apicurio-apicurio-registry
   - ../../../base/namespaces/as-pushgateway
   - ../../../base/namespaces/b4mad-minecraft
@@ -127,6 +143,7 @@ resources:
   - ../../../base/subscriptions/openshift-pipelines-operator-rh
   - ../../../base/subscriptions/serverless-operator
   - ../../../base/subscriptions/web-terminal
+  - ../../../base/validatingwebhookconfigurations/m4d-system-validating-webhook
   - clusterversion.yaml
 
 generators:
