@@ -9,7 +9,7 @@ spec:
       type: prometheus
       access: proxy
       url: http://prometheus-operated:9090
-      isDefault: true
+      isDefault: false
       version: 1
       editable: false
       jsonData:
