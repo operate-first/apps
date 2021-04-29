@@ -5,9 +5,12 @@ namespace: opf-monitoring
 
 resources:
   - ../../../../base/monitoring
-  - servicemonitors
   - dashboards
   - datasource
+  - roles
+  - rolebindings
   - rules/alerting
   - scrape-configs
   - secrets
+  - serviceaccounts
+  - servicemonitors

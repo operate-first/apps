@@ -4,3 +4,6 @@ kind: Kustomization
 resources:
   - thoth-station-datasource.yaml
   - opf-observatorium-thanos-datasource.yaml
+
+generators:
+  - secrets-generator.yaml
