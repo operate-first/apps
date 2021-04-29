@@ -57,7 +57,7 @@ spec:
       - '-openshift-sar={"resource": "namespaces", "verb": "get", "resourceName":
           "opf-monitoring", "namespace": "opf-monitoring"}'
       - '-openshift-delegate-urls={"/":{"resource": "namespaces", "verb": "get", "resourceName":
-          "opf-monitoring", "namespace": "opf-monitoring"}'
+          "opf-monitoring", "namespace": "opf-monitoring"}}'
       image: registry.redhat.io/openshift4/ose-oauth-proxy:v4.7
       name: oauth-proxy
       ports:
