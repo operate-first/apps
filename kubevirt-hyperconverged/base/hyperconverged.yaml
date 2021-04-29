@@ -7,4 +7,3 @@ metadata:
   namespace: openshift-cnv
 spec:
   bareMetalPlatform: true
-  version: v2.5.4
