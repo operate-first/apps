@@ -8,6 +8,7 @@ resources:
   - ../../../base/clusterroles/metallb-system-controller
   - ../../../base/clusterroles/metallb-system-speaker
   - ../../../base/clusterroles/metrics
+  - ../../../base/clusterroles/oauth-token-access-review
   - ../../../base/clusterroles/observatorium-operator
   - ../../../base/clusterroles/opendatahub-operator
   - ../../../base/clusterroles/prow-aggregate-to-admin
@@ -21,6 +22,7 @@ resources:
   - ../../../base/clusterrolebindings/metallb-system-controller
   - ../../../base/clusterrolebindings/metallb-system-speaker
   - ../../../base/clusterrolebindings/metrics
+  - ../../../base/clusterrolebindings/oauth-token-access-review
   - ../../../base/clusterrolebindings/observatorium-operator
   - ../../../base/clusterrolebindings/opendatahub-operator
   - ../../../base/clusterrolebindings/opf-cluster-metrics-federation
