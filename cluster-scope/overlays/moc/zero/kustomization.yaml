@@ -27,6 +27,7 @@ resources:
   - ../../../base/clusterrolebindings/opendatahub-operator
   - ../../../base/clusterrolebindings/opf-cluster-metrics-federation
   - ../../../base/clusterrolebindings/scc-anyuid-tufts-dcc-6
+  - ../../../base/clusterrolebindings/scc-anyuid-observatorium
   - ../../../base/clusterrolebindings/scc-privileged-opf-ci-pipelines-aicoe-ci
   - ../../../base/clusterrolebindings/scc-privileged-tufts-dcc-6
   - ../../../base/crds/cluster.ray.io

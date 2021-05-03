@@ -21,7 +21,7 @@ spec:
       serviceAccountName: observatorium-operator
       containers:
         - name: observatorium-operator
-          image: quay.io/observatorium/observatorium-operator:master-2020-11-04-acb908d
+          image: quay.io/observatorium/observatorium-operator:master-2021-04-07-08f589b
           imagePullPolicy: IfNotPresent
           args:
             - "--log-level=debug"
