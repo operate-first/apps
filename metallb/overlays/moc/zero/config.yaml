@@ -2,4 +2,4 @@ address-pools:
   - name: default
     protocol: layer2
     addresses:
-      - 192.12.185.32-192.12.175.63
+      - 192.12.185.32-192.12.185.63
