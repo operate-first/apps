@@ -9,4 +9,5 @@ resources:
 
 components:
   - ../../../components/project-admin-rolebindings/operate-first
+  - ../../../components/project-view-rolebindings/data-science
   - ../../../components/monitoring-rbac
