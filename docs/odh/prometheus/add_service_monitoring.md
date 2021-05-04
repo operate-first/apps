@@ -18,14 +18,13 @@ Please fork/clone the [operate-first/apps](https://github.com/operate-first/apps
 
 ### Steps:
 
-1. Add the following lines to each namespace's `kustomization.yaml` to enable rbac for each namespace:
+1. Run the following script to enable rbac for a namespace:
 
   ```
-  components:
-    - ../../../components/monitoring-rbac
+  bash scripts/enable-monitoring.sh NAMESPACE
   ```
 
-  These will be located under `apps/cluster-scope/base/namespaces/${NAMESPACE}/kustomization.yaml`.
+  This script will add a line that contains the 'monitoring-rbac' component to the components field in the kustomization.yaml of the given namespace.
 
 2. Add the service monitor filling out the details below accordingly:
 
