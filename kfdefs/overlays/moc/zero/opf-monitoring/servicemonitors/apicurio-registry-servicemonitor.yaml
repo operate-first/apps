@@ -8,7 +8,7 @@ metadata:
 spec:
   endpoints:
     - targetPort: web          # apicurio
-    - name: http               # limitador
+    - port: http               # limitador
     - targetPort: envoy-http   # envoy
     - targetPort: redis        # redis
   namespaceSelector:
