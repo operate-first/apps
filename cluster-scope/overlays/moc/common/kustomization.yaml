@@ -23,6 +23,7 @@ resources:
   - ../../../base/groups/rekor
   - ../../../base/groups/sa-dach
   - ../../../base/groups/sdap-mslsp
+  - ../../../base/groups/team-pixel
   - ../../../base/groups/thoth
   - ../../../base/groups/thoth-devops
   - ../../../base/groups/tufts-dcc-6
