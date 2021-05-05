@@ -19,5 +19,5 @@ spec:
       name: grafana-cluster
   repos:
     - name: manifests
-      uri: 'https://github.com/opendatahub-io/odh-manifests/tarball/v1.0.10'
-  version: v1.0.10
+      uri: 'https://github.com/opendatahub-io/odh-manifests/tarball/1.0.11'
+  version: 1.0.11
