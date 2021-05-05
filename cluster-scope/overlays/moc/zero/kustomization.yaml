@@ -131,6 +131,7 @@ resources:
   - ../../../base/subscriptions/serverless-operator
   - ../../../base/subscriptions/web-terminal
   - clusterversion.yaml
+  - nodenetworkconfigurationpolicies/moc-nfs-network.yaml
 
 generators:
   - secret-generator.yaml
