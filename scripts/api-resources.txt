@@ -1,0 +1,410 @@
+NAME                                  SHORTNAMES                             APIVERSION                                            NAMESPACED   KIND
+bindings                                                                     v1                                                    true         Binding
+componentstatuses                     cs                                     v1                                                    false        ComponentStatus
+configmaps                            cm                                     v1                                                    true         ConfigMap
+endpoints                             ep                                     v1                                                    true         Endpoints
+events                                ev                                     v1                                                    true         Event
+limitranges                           limits                                 v1                                                    true         LimitRange
+namespaces                            ns                                     v1                                                    false        Namespace
+nodes                                 no                                     v1                                                    false        Node
+persistentvolumeclaims                pvc                                    v1                                                    true         PersistentVolumeClaim
+persistentvolumes                     pv                                     v1                                                    false        PersistentVolume
+pods                                  po                                     v1                                                    true         Pod
+podtemplates                                                                 v1                                                    true         PodTemplate
+replicationcontrollers                rc                                     v1                                                    true         ReplicationController
+resourcequotas                        quota                                  v1                                                    true         ResourceQuota
+secrets                                                                      v1                                                    true         Secret
+serviceaccounts                       sa                                     v1                                                    true         ServiceAccount
+services                              svc                                    v1                                                    true         Service
+mutatingwebhookconfigurations                                                admissionregistration.k8s.io/v1                       false        MutatingWebhookConfiguration
+validatingwebhookconfigurations                                              admissionregistration.k8s.io/v1                       false        ValidatingWebhookConfiguration
+applicationmanagers                                                          agent.open-cluster-management.io/v1                   true         ApplicationManager
+certpolicycontrollers                                                        agent.open-cluster-management.io/v1                   true         CertPolicyController
+iampolicycontrollers                                                         agent.open-cluster-management.io/v1                   true         IAMPolicyController
+policycontrollers                                                            agent.open-cluster-management.io/v1                   true         PolicyController
+searchcollectors                                                             agent.open-cluster-management.io/v1                   true         SearchCollector
+workmanagers                                                                 agent.open-cluster-management.io/v1                   true         WorkManager
+customresourcedefinitions             crd,crds                               apiextensions.k8s.io/v1                               false        CustomResourceDefinition
+apiservices                                                                  apiregistration.k8s.io/v1                             false        APIService
+applications                          app                                    app.k8s.io/v1beta1                                    true         Application
+controllerrevisions                                                          apps/v1                                               true         ControllerRevision
+daemonsets                            ds                                     apps/v1                                               true         DaemonSet
+deployments                           deploy                                 apps/v1                                               true         Deployment
+replicasets                           rs                                     apps/v1                                               true         ReplicaSet
+statefulsets                          sts                                    apps/v1                                               true         StatefulSet
+channels                                                                     apps.open-cluster-management.io/v1                    true         Channel
+helmreleases                                                                 apps.open-cluster-management.io/v1                    true         HelmRelease
+placementrules                                                               apps.open-cluster-management.io/v1                    true         PlacementRule
+deploymentconfigs                     dc                                     apps.openshift.io/v1                                  true         DeploymentConfig
+clusterworkflowtemplates              clusterwftmpl,cwft                     argoproj.io/v1alpha1                                  false        ClusterWorkflowTemplate
+cronworkflows                         cwf,cronwf                             argoproj.io/v1alpha1                                  true         CronWorkflow
+workfloweventbindings                 wfeb                                   argoproj.io/v1alpha1                                  true         WorkflowEventBinding
+workflows                             wf                                     argoproj.io/v1alpha1                                  true         Workflow
+workflowtemplates                     wftmpl                                 argoproj.io/v1alpha1                                  true         WorkflowTemplate
+meshpolicies                                                                 authentication.istio.io/v1alpha1                      false        MeshPolicy
+policies                                                                     authentication.istio.io/v1alpha1                      true         Policy
+tokenreviews                                                                 authentication.k8s.io/v1                              false        TokenReview
+localsubjectaccessreviews                                                    authorization.k8s.io/v1                               true         LocalSubjectAccessReview
+selfsubjectaccessreviews                                                     authorization.k8s.io/v1                               false        SelfSubjectAccessReview
+selfsubjectrulesreviews                                                      authorization.k8s.io/v1                               false        SelfSubjectRulesReview
+subjectaccessreviews                                                         authorization.k8s.io/v1                               false        SubjectAccessReview
+clusterrolebindings                                                          authorization.openshift.io/v1                         false        ClusterRoleBinding
+clusterroles                                                                 authorization.openshift.io/v1                         false        ClusterRole
+localresourceaccessreviews                                                   authorization.openshift.io/v1                         true         LocalResourceAccessReview
+localsubjectaccessreviews                                                    authorization.openshift.io/v1                         true         LocalSubjectAccessReview
+resourceaccessreviews                                                        authorization.openshift.io/v1                         false        ResourceAccessReview
+rolebindingrestrictions                                                      authorization.openshift.io/v1                         true         RoleBindingRestriction
+rolebindings                                                                 authorization.openshift.io/v1                         true         RoleBinding
+roles                                                                        authorization.openshift.io/v1                         true         Role
+selfsubjectrulesreviews                                                      authorization.openshift.io/v1                         true         SelfSubjectRulesReview
+subjectaccessreviews                                                         authorization.openshift.io/v1                         false        SubjectAccessReview
+subjectrulesreviews                                                          authorization.openshift.io/v1                         true         SubjectRulesReview
+horizontalpodautoscalers              hpa                                    autoscaling/v1                                        true         HorizontalPodAutoscaler
+metrics                                                                      autoscaling.internal.knative.dev/v1alpha1             true         Metric
+podautoscalers                        kpa,pa                                 autoscaling.internal.knative.dev/v1alpha1             true         PodAutoscaler
+clusterautoscalers                    ca                                     autoscaling.openshift.io/v1                           false        ClusterAutoscaler
+machineautoscalers                    ma                                     autoscaling.openshift.io/v1beta1                      true         MachineAutoscaler
+cronjobs                              cj                                     batch/v1beta1                                         true         CronJob
+jobs                                                                         batch/v1                                              true         Job
+buildconfigs                          bc                                     build.openshift.io/v1                                 true         BuildConfig
+builds                                                                       build.openshift.io/v1                                 true         Build
+images                                img                                    caching.internal.knative.dev/v1alpha1                 true         Image
+cdiconfigs                                                                   cdi.kubevirt.io/v1beta1                               false        CDIConfig
+cdis                                  cdi,cdis                               cdi.kubevirt.io/v1beta1                               false        CDI
+datavolumes                           dv,dvs                                 cdi.kubevirt.io/v1beta1                               true         DataVolume
+cephblockpools                                                               ceph.rook.io/v1                                       true         CephBlockPool
+cephclients                                                                  ceph.rook.io/v1                                       true         CephClient
+cephclusters                                                                 ceph.rook.io/v1                                       true         CephCluster
+cephfilesystems                                                              ceph.rook.io/v1                                       true         CephFilesystem
+cephnfses                             nfs                                    ceph.rook.io/v1                                       true         CephNFS
+cephobjectrealms                                                             ceph.rook.io/v1                                       true         CephObjectRealm
+cephobjectstores                                                             ceph.rook.io/v1                                       true         CephObjectStore
+cephobjectstoreusers                  rcou,objectuser                        ceph.rook.io/v1                                       true         CephObjectStoreUser
+cephobjectzonegroups                                                         ceph.rook.io/v1                                       true         CephObjectZoneGroup
+cephobjectzones                                                              ceph.rook.io/v1                                       true         CephObjectZone
+cephrbdmirrors                                                               ceph.rook.io/v1                                       true         CephRBDMirror
+certificatesigningrequests            csr                                    certificates.k8s.io/v1                                false        CertificateSigningRequest
+certificates                          cert,certs                             certmanager.k8s.io/v1alpha1                           true         Certificate
+challenges                                                                   certmanager.k8s.io/v1alpha1                           true         Challenge
+clusterissuers                                                               certmanager.k8s.io/v1alpha1                           false        ClusterIssuer
+issuers                                                                      certmanager.k8s.io/v1alpha1                           true         Issuer
+orders                                                                       certmanager.k8s.io/v1alpha1                           true         Order
+credentialsrequests                                                          cloudcredential.openshift.io/v1                       true         CredentialsRequest
+clusterclaims                                                                cluster.open-cluster-management.io/v1alpha1           false        ClusterClaim
+rayclusters                                                                  cluster.ray.io/v1                                     true         RayCluster
+adapters                                                                     config.istio.io/v1alpha2                              true         adapter
+attributemanifests                                                           config.istio.io/v1alpha2                              true         attributemanifest
+handlers                                                                     config.istio.io/v1alpha2                              true         handler
+httpapispecbindings                                                          config.istio.io/v1alpha2                              true         HTTPAPISpecBinding
+httpapispecs                                                                 config.istio.io/v1alpha2                              true         HTTPAPISpec
+instances                                                                    config.istio.io/v1alpha2                              true         instance
+quotaspecbindings                                                            config.istio.io/v1alpha2                              true         QuotaSpecBinding
+quotaspecs                                                                   config.istio.io/v1alpha2                              true         QuotaSpec
+rules                                                                        config.istio.io/v1alpha2                              true         rule
+templates                                                                    config.istio.io/v1alpha2                              true         template
+apiservers                                                                   config.openshift.io/v1                                false        APIServer
+authentications                                                              config.openshift.io/v1                                false        Authentication
+builds                                                                       config.openshift.io/v1                                false        Build
+clusteroperators                      co                                     config.openshift.io/v1                                false        ClusterOperator
+clusterversions                                                              config.openshift.io/v1                                false        ClusterVersion
+consoles                                                                     config.openshift.io/v1                                false        Console
+dnses                                                                        config.openshift.io/v1                                false        DNS
+featuregates                                                                 config.openshift.io/v1                                false        FeatureGate
+images                                                                       config.openshift.io/v1                                false        Image
+infrastructures                                                              config.openshift.io/v1                                false        Infrastructure
+ingresses                                                                    config.openshift.io/v1                                false        Ingress
+networks                                                                     config.openshift.io/v1                                false        Network
+oauths                                                                       config.openshift.io/v1                                false        OAuth
+operatorhubs                                                                 config.openshift.io/v1                                false        OperatorHub
+projects                                                                     config.openshift.io/v1                                false        Project
+proxies                                                                      config.openshift.io/v1                                false        Proxy
+schedulers                                                                   config.openshift.io/v1                                false        Scheduler
+consoleclidownloads                                                          console.openshift.io/v1                               false        ConsoleCLIDownload
+consoleexternalloglinks                                                      console.openshift.io/v1                               false        ConsoleExternalLogLink
+consolelinks                                                                 console.openshift.io/v1                               false        ConsoleLink
+consolenotifications                                                         console.openshift.io/v1                               false        ConsoleNotification
+consoleplugins                                                               console.openshift.io/v1alpha1                         false        ConsolePlugin
+consolequickstarts                                                           console.openshift.io/v1                               false        ConsoleQuickStart
+consoleyamlsamples                                                           console.openshift.io/v1                               false        ConsoleYAMLSample
+components                                                                   controller.devfile.io/v1alpha1                        true         Component
+workspaceroutings                                                            controller.devfile.io/v1alpha1                        true         WorkspaceRouting
+podnetworkconnectivitychecks                                                 controlplane.operator.openshift.io/v1alpha1           true         PodNetworkConnectivityCheck
+leases                                                                       coordination.k8s.io/v1                                true         Lease
+observatoria                                                                 core.observatorium.io/v1alpha1                        true         Observatorium
+extensions                            ext,exts                               dashboard.tekton.dev/v1alpha1                         true         Extension
+endpointslices                                                               discovery.k8s.io/v1beta1                              true         EndpointSlice
+brokers                                                                      eventing.knative.dev/v1                               true         Broker
+eventtypes                                                                   eventing.knative.dev/v1beta1                          true         EventType
+triggers                                                                     eventing.knative.dev/v1                               true         Trigger
+events                                ev                                     events.k8s.io/v1                                      true         Event
+ingresses                             ing                                    extensions/v1beta1                                    true         Ingress
+flowschemas                                                                  flowcontrol.apiserver.k8s.io/v1beta1                  false        FlowSchema
+prioritylevelconfigurations                                                  flowcontrol.apiserver.k8s.io/v1beta1                  false        PriorityLevelConfiguration
+parallels                                                                    flows.knative.dev/v1                                  true         Parallel
+sequences                                                                    flows.knative.dev/v1                                  true         Sequence
+hyperconvergeds                       hco,hcos                               hco.kubevirt.io/v1beta1                               true         HyperConverged
+helmchartrepositories                                                        helm.openshift.io/v1beta1                             false        HelmChartRepository
+checkpoints                                                                  hive.openshift.io/v1                                  true         Checkpoint
+clusterclaims                                                                hive.openshift.io/v1                                  true         ClusterClaim
+clusterdeployments                    cd                                     hive.openshift.io/v1                                  true         ClusterDeployment
+clusterdeprovisions                   cdr                                    hive.openshift.io/v1                                  true         ClusterDeprovision
+clusterimagesets                      imgset                                 hive.openshift.io/v1                                  false        ClusterImageSet
+clusterpools                          cp                                     hive.openshift.io/v1                                  true         ClusterPool
+clusterprovisions                                                            hive.openshift.io/v1                                  true         ClusterProvision
+clusterrelocates                                                             hive.openshift.io/v1                                  true         ClusterRelocate
+clusterstates                                                                hive.openshift.io/v1                                  true         ClusterState
+dnszones                                                                     hive.openshift.io/v1                                  true         DNSZone
+hiveconfigs                                                                  hive.openshift.io/v1                                  false        HiveConfig
+machinepoolnameleases                                                        hive.openshift.io/v1                                  true         MachinePoolNameLease
+machinepools                                                                 hive.openshift.io/v1                                  true         MachinePool
+selectorsyncidentityproviders                                                hive.openshift.io/v1                                  false        SelectorSyncIdentityProvider
+selectorsyncsets                      sss                                    hive.openshift.io/v1                                  false        SelectorSyncSet
+syncidentityproviders                                                        hive.openshift.io/v1                                  true         SyncIdentityProvider
+syncsets                              ss                                     hive.openshift.io/v1                                  true         SyncSet
+clustersyncleases                     csl                                    hiveinternal.openshift.io/v1alpha1                    true         ClusterSyncLease
+clustersyncs                          csync                                  hiveinternal.openshift.io/v1alpha1                    true         ClusterSync
+hostpathprovisioners                  hpp,hpps                               hostpathprovisioner.kubevirt.io/v1beta1               false        HostPathProvisioner
+images                                                                       image.openshift.io/v1                                 false        Image
+imagesignatures                                                              image.openshift.io/v1                                 false        ImageSignature
+imagestreamimages                     isimage                                image.openshift.io/v1                                 true         ImageStreamImage
+imagestreamimports                                                           image.openshift.io/v1                                 true         ImageStreamImport
+imagestreammappings                                                          image.openshift.io/v1                                 true         ImageStreamMapping
+imagestreams                          is                                     image.openshift.io/v1                                 true         ImageStream
+imagestreamtags                       istag                                  image.openshift.io/v1                                 true         ImageStreamTag
+imagetags                             itag                                   image.openshift.io/v1                                 true         ImageTag
+configs                                                                      imageregistry.operator.openshift.io/v1                false        Config
+imagepruners                                                                 imageregistry.operator.openshift.io/v1                false        ImagePruner
+dnsrecords                                                                   ingress.operator.openshift.io/v1                      true         DNSRecord
+grafanadashboards                                                            integreatly.org/v1alpha1                              true         GrafanaDashboard
+grafanadatasources                                                           integreatly.org/v1alpha1                              true         GrafanaDataSource
+grafanas                                                                     integreatly.org/v1alpha1                              true         Grafana
+network-attachment-definitions        net-attach-def                         k8s.cni.cncf.io/v1                                    true         NetworkAttachmentDefinition
+kafkabridges                          kb                                     kafka.strimzi.io/v1beta2                              true         KafkaBridge
+kafkaconnectors                       kctr                                   kafka.strimzi.io/v1beta2                              true         KafkaConnector
+kafkaconnects                         kc                                     kafka.strimzi.io/v1beta2                              true         KafkaConnect
+kafkaconnects2is                      kcs2i                                  kafka.strimzi.io/v1beta2                              true         KafkaConnectS2I
+kafkamirrormaker2s                    kmm2                                   kafka.strimzi.io/v1beta2                              true         KafkaMirrorMaker2
+kafkamirrormakers                     kmm                                    kafka.strimzi.io/v1beta2                              true         KafkaMirrorMaker
+kafkarebalances                       kr                                     kafka.strimzi.io/v1beta2                              true         KafkaRebalance
+kafkas                                k                                      kafka.strimzi.io/v1beta2                              true         Kafka
+kafkatopics                           kt                                     kafka.strimzi.io/v1beta2                              true         KafkaTopic
+kafkausers                            ku                                     kafka.strimzi.io/v1beta2                              true         KafkaUser
+kfdefs                                                                       kfdef.apps.kubeflow.org/v1                            true         KfDef
+profiles                                                                     kubeflow.org/v1                                       false        Profile
+scheduledworkflows                    swf                                    kubeflow.org/v1beta1                                  true         ScheduledWorkflow
+viewers                               vi                                     kubeflow.org/v1beta1                                  true         Viewer
+kubevirts                             kv,kvs                                 kubevirt.io/v1alpha3                                  true         KubeVirt
+virtualmachineinstancemigrations      vmim,vmims                             kubevirt.io/v1alpha3                                  true         VirtualMachineInstanceMigration
+virtualmachineinstancepresets         vmipreset,vmipresets                   kubevirt.io/v1alpha3                                  true         VirtualMachineInstancePreset
+virtualmachineinstancereplicasets     vmirs,vmirss                           kubevirt.io/v1alpha3                                  true         VirtualMachineInstanceReplicaSet
+virtualmachineinstances               vmi,vmis                               kubevirt.io/v1alpha3                                  true         VirtualMachineInstance
+virtualmachines                       vm,vms                                 kubevirt.io/v1alpha3                                  true         VirtualMachine
+serviceimports                                                               lighthouse.submariner.io/v2alpha1                     true         ServiceImport
+localvolumediscoveries                                                       local.storage.openshift.io/v1alpha1                   true         LocalVolumeDiscovery
+localvolumediscoveryresults                                                  local.storage.openshift.io/v1alpha1                   true         LocalVolumeDiscoveryResult
+localvolumes                                                                 local.storage.openshift.io/v1                         true         LocalVolume
+localvolumesets                       lvset,lvsets                           local.storage.openshift.io/v1alpha1                   true         LocalVolumeSet
+clusterlogforwarders                  clf                                    logging.openshift.io/v1                               true         ClusterLogForwarder
+clusterloggings                       cl                                     logging.openshift.io/v1                               true         ClusterLogging
+elasticsearches                       es                                     logging.openshift.io/v1                               true         Elasticsearch
+kibanas                                                                      logging.openshift.io/v1                               true         Kibana
+machinehealthchecks                   mhc,mhcs                               machine.openshift.io/v1beta1                          true         MachineHealthCheck
+machines                                                                     machine.openshift.io/v1beta1                          true         Machine
+machinesets                                                                  machine.openshift.io/v1beta1                          true         MachineSet
+containerruntimeconfigs               ctrcfg                                 machineconfiguration.openshift.io/v1                  false        ContainerRuntimeConfig
+controllerconfigs                                                            machineconfiguration.openshift.io/v1                  false        ControllerConfig
+kubeletconfigs                                                               machineconfiguration.openshift.io/v1                  false        KubeletConfig
+machineconfigpools                    mcp                                    machineconfiguration.openshift.io/v1                  false        MachineConfigPool
+machineconfigs                        mc                                     machineconfiguration.openshift.io/v1                  false        MachineConfig
+seldondeployments                     sdep                                   machinelearning.seldon.io/v1                          true         SeldonDeployment
+channels                              ch                                     messaging.knative.dev/v1                              true         Channel
+inmemorychannels                      imc                                    messaging.knative.dev/v1                              true         InMemoryChannel
+subscriptions                         sub                                    messaging.knative.dev/v1                              true         Subscription
+compositecontrollers                  cc,cctl                                metacontroller.k8s.io/v1alpha1                        false        CompositeController
+controllerrevisions                                                          metacontroller.k8s.io/v1alpha1                        true         ControllerRevision
+decoratorcontrollers                  dec,decorators                         metacontroller.k8s.io/v1alpha1                        false        DecoratorController
+baremetalhosts                        bmh,bmhost                             metal3.io/v1alpha1                                    true         BareMetalHost
+provisionings                                                                metal3.io/v1alpha1                                    false        Provisioning
+hivetables                                                                   metering.openshift.io/v1                              true         HiveTable
+meteringconfigs                                                              metering.openshift.io/v1                              true         MeteringConfig
+prestotables                                                                 metering.openshift.io/v1                              true         PrestoTable
+reportdatasources                     datasource,datasources                 metering.openshift.io/v1                              true         ReportDataSource
+reportqueries                         rq                                     metering.openshift.io/v1                              true         ReportQuery
+reports                                                                      metering.openshift.io/v1                              true         Report
+storagelocations                                                             metering.openshift.io/v1                              true         StorageLocation
+nodes                                                                        metrics.k8s.io/v1beta1                                false        NodeMetrics
+pods                                                                         metrics.k8s.io/v1beta1                                true         PodMetrics
+storagestates                                                                migration.k8s.io/v1alpha1                             false        StorageState
+storageversionmigrations                                                     migration.k8s.io/v1alpha1                             false        StorageVersionMigration
+alertmanagerconfigs                                                          monitoring.coreos.com/v1alpha1                        true         AlertmanagerConfig
+alertmanagers                                                                monitoring.coreos.com/v1                              true         Alertmanager
+podmonitors                                                                  monitoring.coreos.com/v1                              true         PodMonitor
+probes                                                                       monitoring.coreos.com/v1                              true         Probe
+prometheuses                                                                 monitoring.coreos.com/v1                              true         Prometheus
+prometheusrules                                                              monitoring.coreos.com/v1                              true         PrometheusRule
+servicemonitors                                                              monitoring.coreos.com/v1                              true         ServiceMonitor
+thanosrulers                                                                 monitoring.coreos.com/v1                              true         ThanosRuler
+serviceimports                        svcim                                  multicluster.x-k8s.io/v1alpha1                        true         ServiceImport
+clusternetworks                                                              network.openshift.io/v1                               false        ClusterNetwork
+egressnetworkpolicies                                                        network.openshift.io/v1                               true         EgressNetworkPolicy
+hostsubnets                                                                  network.openshift.io/v1                               false        HostSubnet
+netnamespaces                                                                network.openshift.io/v1                               false        NetNamespace
+operatorpkis                                                                 network.operator.openshift.io/v1                      true         OperatorPKI
+networkaddonsconfigs                                                         networkaddonsoperator.network.kubevirt.io/v1          false        NetworkAddonsConfig
+certificates                          kcert                                  networking.internal.knative.dev/v1alpha1              true         Certificate
+clusterdomainclaims                   cdc                                    networking.internal.knative.dev/v1alpha1              false        ClusterDomainClaim
+ingresses                             kingress,king                          networking.internal.knative.dev/v1alpha1              true         Ingress
+serverlessservices                    sks                                    networking.internal.knative.dev/v1alpha1              true         ServerlessService
+destinationrules                      dr                                     networking.istio.io/v1alpha3                          true         DestinationRule
+envoyfilters                                                                 networking.istio.io/v1alpha3                          true         EnvoyFilter
+gateways                              gw                                     networking.istio.io/v1alpha3                          true         Gateway
+serviceentries                        se                                     networking.istio.io/v1alpha3                          true         ServiceEntry
+sidecars                                                                     networking.istio.io/v1alpha3                          true         Sidecar
+virtualservices                       vs                                     networking.istio.io/v1alpha3                          true         VirtualService
+ingressclasses                                                               networking.k8s.io/v1                                  false        IngressClass
+ingresses                             ing                                    networking.k8s.io/v1                                  true         Ingress
+networkpolicies                       netpol                                 networking.k8s.io/v1                                  true         NetworkPolicy
+nodenetworkconfigurationenactments    nnce                                   nmstate.io/v1beta1                                    false        NodeNetworkConfigurationEnactment
+nodenetworkconfigurationpolicies      nncp                                   nmstate.io/v1beta1                                    false        NodeNetworkConfigurationPolicy
+nodenetworkstates                     nns                                    nmstate.io/v1beta1                                    false        NodeNetworkState
+runtimeclasses                                                               node.k8s.io/v1                                        false        RuntimeClass
+nodemaintenances                                                             nodemaintenance.kubevirt.io/v1beta1                   false        NodeMaintenance
+backingstores                                                                noobaa.io/v1alpha1                                    true         BackingStore
+bucketclasses                                                                noobaa.io/v1alpha1                                    true         BucketClass
+noobaas                               nb                                     noobaa.io/v1alpha1                                    true         NooBaa
+oauthaccesstokens                                                            oauth.openshift.io/v1                                 false        OAuthAccessToken
+oauthauthorizetokens                                                         oauth.openshift.io/v1                                 false        OAuthAuthorizeToken
+oauthclientauthorizations                                                    oauth.openshift.io/v1                                 false        OAuthClientAuthorization
+oauthclients                                                                 oauth.openshift.io/v1                                 false        OAuthClient
+useroauthaccesstokens                                                        oauth.openshift.io/v1                                 false        UserOAuthAccessToken
+objectbucketclaims                    obc,obcs                               objectbucket.io/v1alpha1                              true         ObjectBucketClaim
+objectbuckets                         ob,obs                                 objectbucket.io/v1alpha1                              false        ObjectBucket
+multiclusterobservabilities           mco                                    observability.open-cluster-management.io/v1beta1      false        MultiClusterObservability
+observabilityaddons                   oba                                    observability.open-cluster-management.io/v1beta1      true         ObservabilityAddon
+ocsinitializations                                                           ocs.openshift.io/v1                                   true         OCSInitialization
+storageclusters                                                              ocs.openshift.io/v1                                   true         StorageCluster
+knativeeventings                                                             operator.knative.dev/v1alpha1                         true         KnativeEventing
+knativeservings                                                              operator.knative.dev/v1alpha1                         true         KnativeServing
+clustermanagers                                                              operator.open-cluster-management.io/v1                false        ClusterManager
+klusterlets                                                                  operator.open-cluster-management.io/v1                false        Klusterlet
+multiclusterhubs                      mch                                    operator.open-cluster-management.io/v1                true         MultiClusterHub
+authentications                                                              operator.openshift.io/v1                              false        Authentication
+cloudcredentials                                                             operator.openshift.io/v1                              false        CloudCredential
+clustercsidrivers                                                            operator.openshift.io/v1                              false        ClusterCSIDriver
+configs                                                                      operator.openshift.io/v1                              false        Config
+consoles                                                                     operator.openshift.io/v1                              false        Console
+csisnapshotcontrollers                                                       operator.openshift.io/v1                              false        CSISnapshotController
+dnses                                                                        operator.openshift.io/v1                              false        DNS
+etcds                                                                        operator.openshift.io/v1                              false        Etcd
+imagecontentsourcepolicies                                                   operator.openshift.io/v1alpha1                        false        ImageContentSourcePolicy
+ingresscontrollers                                                           operator.openshift.io/v1                              true         IngressController
+kubeapiservers                                                               operator.openshift.io/v1                              false        KubeAPIServer
+kubecontrollermanagers                                                       operator.openshift.io/v1                              false        KubeControllerManager
+kubeschedulers                                                               operator.openshift.io/v1                              false        KubeScheduler
+kubestorageversionmigrators                                                  operator.openshift.io/v1                              false        KubeStorageVersionMigrator
+networks                                                                     operator.openshift.io/v1                              false        Network
+openshiftapiservers                                                          operator.openshift.io/v1                              false        OpenShiftAPIServer
+openshiftcontrollermanagers                                                  operator.openshift.io/v1                              false        OpenShiftControllerManager
+servicecas                                                                   operator.openshift.io/v1                              false        ServiceCA
+storages                                                                     operator.openshift.io/v1                              false        Storage
+knativekafkas                                                                operator.serverless.openshift.io/v1alpha1             true         KnativeKafka
+tektonaddons                                                                 operator.tekton.dev/v1alpha1                          false        TektonAddon
+tektonconfigs                                                                operator.tekton.dev/v1alpha1                          false        TektonConfig
+tektonpipelines                                                              operator.tekton.dev/v1alpha1                          false        TektonPipeline
+tektontriggers                                                               operator.tekton.dev/v1alpha1                          false        TektonTrigger
+catalogsources                        catsrc                                 operators.coreos.com/v1alpha1                         true         CatalogSource
+clusterserviceversions                csv,csvs                               operators.coreos.com/v1alpha1                         true         ClusterServiceVersion
+installplans                          ip                                     operators.coreos.com/v1alpha1                         true         InstallPlan
+operatorconditions                                                           operators.coreos.com/v1                               true         OperatorCondition
+operatorgroups                        og                                     operators.coreos.com/v1                               true         OperatorGroup
+operators                                                                    operators.coreos.com/v1                               false        Operator
+subscriptions                         sub,subs                               operators.coreos.com/v1alpha1                         true         Subscription
+packagemanifests                                                             packages.operators.coreos.com/v1                      true         PackageManifest
+poddisruptionbudgets                  pdb                                    policy/v1beta1                                        true         PodDisruptionBudget
+podsecuritypolicies                   psp                                    policy/v1beta1                                        false        PodSecurityPolicy
+certificatepolicies                   certpl                                 policy.open-cluster-management.io/v1                  true         CertificatePolicy
+configurationpolicies                                                        policy.open-cluster-management.io/v1                  true         ConfigurationPolicy
+iampolicies                                                                  policy.open-cluster-management.io/v1                  true         IamPolicy
+projectrequests                                                              project.openshift.io/v1                               false        ProjectRequest
+projects                                                                     project.openshift.io/v1                               false        Project
+prowjobs                                                                     prow.k8s.io/v1                                        true         ProwJob
+appliedclusterresourcequotas                                                 quota.openshift.io/v1                                 true         AppliedClusterResourceQuota
+clusterresourcequotas                 clusterquota                           quota.openshift.io/v1                                 false        ClusterResourceQuota
+sparkapplications                                                            radanalytics.io/v1                                    true         SparkApplication
+sparkclusters                                                                radanalytics.io/v1                                    true         SparkCluster
+sparkhistoryservers                                                          radanalytics.io/v1                                    true         SparkHistoryServer
+clusterrolebindings                                                          rbac.authorization.k8s.io/v1                          false        ClusterRoleBinding
+clusterroles                                                                 rbac.authorization.k8s.io/v1                          false        ClusterRole
+rolebindings                                                                 rbac.authorization.k8s.io/v1                          true         RoleBinding
+roles                                                                        rbac.authorization.k8s.io/v1                          true         Role
+authorizationpolicies                                                        rbac.istio.io/v1alpha1                                true         AuthorizationPolicy
+clusterrbacconfigs                                                           rbac.istio.io/v1alpha1                                false        ClusterRbacConfig
+rbacconfigs                                                                  rbac.istio.io/v1alpha1                                true         RbacConfig
+servicerolebindings                                                          rbac.istio.io/v1alpha1                                true         ServiceRoleBinding
+serviceroles                                                                 rbac.istio.io/v1alpha1                                true         ServiceRole
+routes                                                                       route.openshift.io/v1                                 true         Route
+configs                                                                      samples.operator.openshift.io/v1                      false        Config
+priorityclasses                       pc                                     scheduling.k8s.io/v1                                  false        PriorityClass
+rangeallocations                                                             security.internal.openshift.io/v1                     false        RangeAllocation
+podsecuritypolicyreviews                                                     security.openshift.io/v1                              true         PodSecurityPolicyReview
+podsecuritypolicyselfsubjectreviews                                          security.openshift.io/v1                              true         PodSecurityPolicySelfSubjectReview
+podsecuritypolicysubjectreviews                                              security.openshift.io/v1                              true         PodSecurityPolicySubjectReview
+rangeallocations                                                             security.openshift.io/v1                              false        RangeAllocation
+securitycontextconstraints            scc                                    security.openshift.io/v1                              false        SecurityContextConstraints
+configurations                        config,cfg                             serving.knative.dev/v1                                true         Configuration
+domainmappings                        dm                                     serving.knative.dev/v1alpha1                          true         DomainMapping
+revisions                             rev                                    serving.knative.dev/v1                                true         Revision
+routes                                rt                                     serving.knative.dev/v1                                true         Route
+services                              kservice,ksvc                          serving.knative.dev/v1                                true         Service
+virtualmachinerestores                vmrestore,vmrestores                   snapshot.kubevirt.io/v1alpha1                         true         VirtualMachineRestore
+virtualmachinesnapshotcontents        vmsnapshotcontent,vmsnapshotcontents   snapshot.kubevirt.io/v1alpha1                         true         VirtualMachineSnapshotContent
+virtualmachinesnapshots               vmsnapshot,vmsnapshots                 snapshot.kubevirt.io/v1alpha1                         true         VirtualMachineSnapshot
+volumesnapshotclasses                                                        snapshot.storage.k8s.io/v1                            false        VolumeSnapshotClass
+volumesnapshotcontents                                                       snapshot.storage.k8s.io/v1                            false        VolumeSnapshotContent
+volumesnapshots                                                              snapshot.storage.k8s.io/v1                            true         VolumeSnapshot
+apiserversources                                                             sources.knative.dev/v1                                true         ApiServerSource
+containersources                                                             sources.knative.dev/v1                                true         ContainerSource
+pingsources                                                                  sources.knative.dev/v1beta1                           true         PingSource
+sinkbindings                                                                 sources.knative.dev/v1                                true         SinkBinding
+ssps                                                                         ssp.kubevirt.io/v1beta1                               true         SSP
+csidrivers                                                                   storage.k8s.io/v1                                     false        CSIDriver
+csinodes                                                                     storage.k8s.io/v1                                     false        CSINode
+storageclasses                        sc                                     storage.k8s.io/v1                                     false        StorageClass
+volumeattachments                                                            storage.k8s.io/v1                                     false        VolumeAttachment
+clusters                                                                     submariner.io/v1                                      true         Cluster
+endpoints                                                                    submariner.io/v1                                      true         Endpoint
+gateways                                                                     submariner.io/v1                                      true         Gateway
+submarinerconfigs                                                            submarineraddon.open-cluster-management.io/v1alpha1   true         SubmarinerConfig
+clustertasks                                                                 tekton.dev/v1beta1                                    false        ClusterTask
+conditions                                                                   tekton.dev/v1alpha1                                   true         Condition
+pipelineresources                                                            tekton.dev/v1alpha1                                   true         PipelineResource
+pipelineruns                          pr,prs                                 tekton.dev/v1beta1                                    true         PipelineRun
+pipelines                                                                    tekton.dev/v1beta1                                    true         Pipeline
+runs                                                                         tekton.dev/v1alpha1                                   true         Run
+taskruns                              tr,trs                                 tekton.dev/v1beta1                                    true         TaskRun
+tasks                                                                        tekton.dev/v1beta1                                    true         Task
+brokertemplateinstances                                                      template.openshift.io/v1                              false        BrokerTemplateInstance
+processedtemplates                                                           template.openshift.io/v1                              true         Template
+templateinstances                                                            template.openshift.io/v1                              true         TemplateInstance
+templates                                                                    template.openshift.io/v1                              true         Template
+clustertriggerbindings                ctb                                    triggers.tekton.dev/v1alpha1                          false        ClusterTriggerBinding
+eventlisteners                        el                                     triggers.tekton.dev/v1alpha1                          true         EventListener
+triggerbindings                       tb                                     triggers.tekton.dev/v1alpha1                          true         TriggerBinding
+triggers                              tri                                    triggers.tekton.dev/v1alpha1                          true         Trigger
+triggertemplates                      tt                                     triggers.tekton.dev/v1alpha1                          true         TriggerTemplate
+profiles                                                                     tuned.openshift.io/v1                                 true         Profile
+tuneds                                                                       tuned.openshift.io/v1                                 true         Tuned
+uploadtokenrequests                   utr,utrs                               upload.cdi.kubevirt.io/v1beta1                        true         UploadTokenRequest
+groups                                                                       user.openshift.io/v1                                  false        Group
+identities                                                                   user.openshift.io/v1                                  false        Identity
+useridentitymappings                                                         user.openshift.io/v1                                  false        UserIdentityMapping
+users                                                                        user.openshift.io/v1                                  false        User
+ovirtproviders                                                               v2v.kubevirt.io/v1alpha1                              true         OVirtProvider
+resourcemappings                                                             v2v.kubevirt.io/v1beta1                               true         ResourceMapping
+v2vvmwares                                                                   v2v.kubevirt.io/v1alpha1                              true         V2VVmware
+virtualmachineimports                 vmimports                              v2v.kubevirt.io/v1beta1                               true         VirtualMachineImport
+vmimportconfigs                                                              v2v.kubevirt.io/v1beta1                               false        VMImportConfig
+ippools                                                                      whereabouts.cni.cncf.io/v1alpha1                      true         IPPool
+overlappingrangeipreservations                                               whereabouts.cni.cncf.io/v1alpha1                      true         OverlappingRangeIPReservation
+appliedmanifestworks                                                         work.open-cluster-management.io/v1                    false        AppliedManifestWork
+devworkspaces                                                                workspace.devfile.io/v1alpha1                         true         DevWorkspace
