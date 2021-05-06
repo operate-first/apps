@@ -7,12 +7,12 @@ spec:
     moc/primary-interface: enp4s0f1np1
   desiredState:
     interfaces:
-      - name: enp4s0f1np1.210
+      - name: enp4s0f0np0.210
         description: zero cluster provisioning network
         type: vlan
         state: up
         vlan:
-          base-iface: enp4s0f1np1
+          base-iface: enp4s0f0np0
           id: 210
         ipv4:
           enabled: true
@@ -27,12 +27,12 @@ spec:
     moc/primary-interface: enp4s0f1
   desiredState:
     interfaces:
-      - name: enp4s0f1.210
+      - name: enp4s0f0.210
         description: zero cluster provisioning network
         type: vlan
         state: up
         vlan:
-          base-iface: enp4s0f1
+          base-iface: enp4s0f0
           id: 210
         ipv4:
           enabled: true
@@ -47,12 +47,12 @@ spec:
     moc/primary-interface: eno2
   desiredState:
     interfaces:
-      - name: eno2.210
+      - name: eno1.210
         description: zero cluster provisioning network
         type: vlan
         state: up
         vlan:
-          base-iface: eno2
+          base-iface: eno1
           id: 210
         ipv4:
           enabled: true
