@@ -1,0 +1,9 @@
+apiVersion: v1
+kind: ServiceAccount
+metadata:
+  labels:
+    app.kubernetes.io/instance: moc-nfs
+    app.kubernetes.io/managed-by: Helm
+    app.kubernetes.io/name: democratic-csi
+    helm.sh/chart: democratic-csi-0.8.1
+  name: moc-nfs-democratic-csi-controller-sa
