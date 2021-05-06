@@ -10,4 +10,4 @@ resources:
 components:
 - ../../../components/project-admin-rolebindings/quarkus
 - ../../../components/limitranges/default
-- ../../../components/resourcequotas/medium
+- ../../../components/resourcequotas/large
