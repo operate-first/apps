@@ -146,6 +146,7 @@ generators:
 patchesStrategicMerge:
   - oauths/cluster_patch.yaml
   - imageregistryconfigs/image-registry-storage_patch.yaml
+  - storageclasses/ocs-storagecluster-cephfs_patch.yaml
   - subscriptions/cluster-logging-operator_patch.yaml
   - subscriptions/elastic-operator_patch.yaml
   - subscriptions/kubevirt-hyperconverged_patch.yaml
