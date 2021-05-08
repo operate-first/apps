@@ -7,5 +7,5 @@ metadata:
     openshift.io/requester: operate-first
   labels:
     openshift.io/cluster-monitoring: "true"
-  name: openshift-storage
+  name: openshift-cnv
 spec: {}
