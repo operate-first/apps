@@ -1,7 +1,7 @@
 kind: ResourceQuota
 apiVersion: v1
 metadata:
-  name: custom
+  name: thoth-backend-prod-custom
 spec:
   hard:
     requests.cpu: '24'

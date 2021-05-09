@@ -16,7 +16,7 @@ $ kustomize edit add component ../../../components/resourcequotas/small
 
 # Adding a custom resource quota to a namespace
 
-Create your [own resource][quotas_doc] in the appropriate namespace folder in `cluster-scope/base/namespaces/<your_namespace>` name this file `resourcequota.yaml`, ensure that the `.metadata.name` is set to `custom`. Then if adding a custom resource to the namespace `argocd` you would run:
+Create your [own resource][quotas_doc] in the appropriate namespace folder in `cluster-scope/base/namespaces/<your_namespace>` name this file `resourcequota.yaml`, ensure that the `.metadata.name` is set to `<namespace_name>-custom`. Then if adding a custom resource to the namespace `argocd` you would run:
 
 ```bash
 # From the root of this repo
