@@ -7,3 +7,4 @@ kind: Kustomization
 namespace: thoth-graph-prod
 resources:
 - namespace.yaml
+- resourcequota.yaml

@@ -7,3 +7,4 @@ kind: Kustomization
 namespace: thoth-amun-inspection-prod
 resources:
 - namespace.yaml
+- resourcequota.yaml

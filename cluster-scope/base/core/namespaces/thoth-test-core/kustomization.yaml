@@ -6,3 +6,4 @@ kind: Kustomization
 namespace: thoth-test-core
 resources:
 - namespace.yaml
+- resourcequota.yaml

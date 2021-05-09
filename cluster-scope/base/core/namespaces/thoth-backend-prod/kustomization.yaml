@@ -7,3 +7,4 @@ kind: Kustomization
 namespace: thoth-backend-prod
 resources:
 - namespace.yaml
+- resourcequota.yaml
