@@ -3,33 +3,34 @@ apiVersion: kustomize.config.k8s.io/v1beta1
 kind: Kustomization
 
 resources:
-  - ../../../base/clusterrolebindings/self-provisioners
-  - ../../../base/configs/project
-  - ../../../base/groups/ai-services
-  - ../../../base/groups/apicurio
-  - ../../../base/groups/argocd-admins
-  - ../../../base/groups/b4mad
-  - ../../../base/groups/cnv-testing
-  - ../../../base/groups/codait-advo
-  - ../../../base/groups/data-science
-  - ../../../base/groups/fde
-  - ../../../base/groups/lab-cicd
-  - ../../../base/groups/mesh-for-data
-  - ../../../base/groups/open-aiops
-  - ../../../base/groups/operate-first
-  - ../../../base/groups/pulp
-  - ../../../base/groups/quarkus
-  - ../../../base/groups/ray
-  - ../../../base/groups/rekor
-  - ../../../base/groups/sa-dach
-  - ../../../base/groups/sdap-mslsp
-  - ../../../base/groups/team-pixel
-  - ../../../base/groups/thoth
-  - ../../../base/groups/thoth-devops
-  - ../../../base/groups/tufts-dcc-6
-  - ../../../base/groups/uky-redhat
-  - ../../../base/groups/workshops
-  - ../../../base/machineconfigs/opf-ssh-keys
+  - ../../../base/config.openshift.io/projects/cluster
+  - ../../../base/machineconfiguration.openshift.io/machineconfigs/99-master-ssh
+  - ../../../base/machineconfiguration.openshift.io/machineconfigs/99-worker-ssh
+  - ../../../base/rbac.authorization.k8s.io/clusterrolebindings/self-provisioners/
+  - ../../../base/user.openshift.io/groups/ai-services
+  - ../../../base/user.openshift.io/groups/apicurio
+  - ../../../base/user.openshift.io/groups/argocd-admins
+  - ../../../base/user.openshift.io/groups/b4mad
+  - ../../../base/user.openshift.io/groups/cnv-testing
+  - ../../../base/user.openshift.io/groups/codait-advo
+  - ../../../base/user.openshift.io/groups/data-science
+  - ../../../base/user.openshift.io/groups/fde
+  - ../../../base/user.openshift.io/groups/lab-cicd
+  - ../../../base/user.openshift.io/groups/mesh-for-data
+  - ../../../base/user.openshift.io/groups/open-aiops
+  - ../../../base/user.openshift.io/groups/operate-first
+  - ../../../base/user.openshift.io/groups/pulp
+  - ../../../base/user.openshift.io/groups/quarkus
+  - ../../../base/user.openshift.io/groups/ray
+  - ../../../base/user.openshift.io/groups/rekor
+  - ../../../base/user.openshift.io/groups/sa-dach
+  - ../../../base/user.openshift.io/groups/sdap-mslsp
+  - ../../../base/user.openshift.io/groups/team-pixel
+  - ../../../base/user.openshift.io/groups/thoth
+  - ../../../base/user.openshift.io/groups/thoth-devops
+  - ../../../base/user.openshift.io/groups/tufts-dcc-6
+  - ../../../base/user.openshift.io/groups/uky-redhat
+  - ../../../base/user.openshift.io/groups/workshops
   - alertmanager-main-secret.yaml
 
 generators:
