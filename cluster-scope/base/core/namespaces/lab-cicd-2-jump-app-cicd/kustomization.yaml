@@ -1,0 +1,8 @@
+apiVersion: kustomize.config.k8s.io/v1beta1
+components:
+- ../../../../components/project-admin-rolebindings/lab-cicd
+- ../../../../components/project-view-public
+kind: Kustomization
+namespace: lab-cicd-2-jump-app-cicd
+resources:
+- namespace.yaml
