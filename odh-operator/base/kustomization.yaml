@@ -10,4 +10,4 @@ resources:
 
 images:
 - name: quay.io/opendatahub/opendatahub-operator
-  newTag: v1.0.10
+  newTag: v1.0.11
