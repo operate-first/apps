@@ -25,11 +25,8 @@ spec:
       # it's better to keep nodeCount to a odd number for leader election issues
       nodeCount: 5
       storage:
-        # TODO: manually set the storageClassName
-        # Upstream Issue:
-        # https://github.com/openshift/cluster-logging-operator/issues/869
-        storageClassName: "ocs-storagecluster-cephfs"
-        size: 300G
+        storageClassName: "moc-nfs-csi"
+        size: 80Gi
       redundancyPolicy: "ZeroRedundancy"
   visualization:
     type: "kibana"
