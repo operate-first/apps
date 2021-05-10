@@ -28,7 +28,8 @@ spec:
       inter.broker.protocol.version: '2.7'
     storage:
       type: persistent-claim
-      size: 200Gi
+      size: 20Gi
+      class: moc-nfs-csi
       deleteClaim: false
     metricsConfig:
       type: jmxPrometheusExporter
@@ -40,7 +41,8 @@ spec:
     replicas: 3
     storage:
       type: persistent-claim
-      size: 10Gi
+      size: 2Gi
+      class: moc-nfs-csi
       deleteClaim: false
     metricsConfig:
       type: jmxPrometheusExporter
