@@ -10,6 +10,7 @@ resources:
   - ../../../base/apiextensions.k8s.io/customresourcedefinitions/prowjobs.prow.k8s.io
   - ../../../base/apiextensions.k8s.io/customresourcedefinitions/rayclusters.cluster.ray.io
   - ../../../base/config.openshift.io/oauths/cluster
+  - ../../../base/core/namespaces/acme-operator
   - ../../../base/core/namespaces/apicurio-apicurio-registry
   - ../../../base/core/namespaces/as-pushgateway
   - ../../../base/core/namespaces/b4mad-minecraft
@@ -104,6 +105,7 @@ resources:
   - ../../../base/operators.coreos.com/subscriptions/web-terminal
   - ../../../base/policy/podsecuritypolicies/controller
   - ../../../base/policy/podsecuritypolicies/speaker
+  - ../../../base/rbac.authorization.k8s.io/clusterrolebindings/acme-operator
   - ../../../base/rbac.authorization.k8s.io/clusterrolebindings/argocd-manager
   - ../../../base/rbac.authorization.k8s.io/clusterrolebindings/cluster-admins-rb
   - ../../../base/rbac.authorization.k8s.io/clusterrolebindings/cluster-logs-readers
@@ -121,6 +123,7 @@ resources:
   - ../../../base/rbac.authorization.k8s.io/clusterrolebindings/scc-anyuid-tufts-dcc-6
   - ../../../base/rbac.authorization.k8s.io/clusterrolebindings/scc-privileged-opf-ci-pipelines-aicoe-ci
   - ../../../base/rbac.authorization.k8s.io/clusterrolebindings/scc-privileged-tufts-dcc-6
+  - ../../../base/rbac.authorization.k8s.io/clusterroles/acme-operator
   - ../../../base/rbac.authorization.k8s.io/clusterroles/cluster-logs-reader
   - ../../../base/rbac.authorization.k8s.io/clusterroles/metallb-system:controller
   - ../../../base/rbac.authorization.k8s.io/clusterroles/metallb-system:speaker
