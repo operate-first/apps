@@ -4,28 +4,29 @@ kind: Kustomization
 
 resources:
   - ../common
-  - ../../../base/namespaces/acm
-  - ../../../base/namespaces/opf-alertreceiver
-  - ../../../base/clusterrolebindings/argocd-application-controller
-  - ../../../base/clusterrolebindings/argocd-manager
-  - ../../../base/clusterrolebindings/argocd-server
-  - ../../../base/clusterrolebindings/cluster-admins-rb
-  - ../../../base/clusterroles/argocd-application-controller
-  - ../../../base/clusterroles/argocd-events-create-aggregate-to-admin
-  - ../../../base/clusterroles/argocd-proj-apps-aggregate-to-admin
-  - ../../../base/clusterroles/argocd-server
-  - ../../../base/crds/applications.argoproj.io
-  - ../../../base/crds/appprojects.argoproj.io
-  - ../../../base/groups/cluster-admins
-  - ../../../base/oauths/cluster
-  - ../../../base/operatorgroups/acm
-  - ../../../base/subscriptions/advanced-cluster-management
-  - ../../../base/ingresscontrollers/default
+
+  - ../../../base/apiextensions.k8s.io/customresourcedefinitions/applications.argoproj.io
+  - ../../../base/apiextensions.k8s.io/customresourcedefinitions/appprojects.argoproj.io
+  - ../../../base/config.openshift.io/oauths/cluster
+  - ../../../base/core/namespaces/acm
+  - ../../../base/core/namespaces/opf-alertreceiver
+  - ../../../base/operator.openshift.io/ingresscontrollers/default
+  - ../../../base/operators.coreos.com/operatorgroups/operator-acm-group
+  - ../../../base/operators.coreos.com/subscriptions/acm-operator-subscription
+  - ../../../base/rbac.authorization.k8s.io/clusterrolebindings/argocd-application-controller
+  - ../../../base/rbac.authorization.k8s.io/clusterrolebindings/argocd-manager
+  - ../../../base/rbac.authorization.k8s.io/clusterrolebindings/argocd-server
+  - ../../../base/rbac.authorization.k8s.io/clusterrolebindings/cluster-admins-rb
+  - ../../../base/rbac.authorization.k8s.io/clusterroles/argocd-application-controller
+  - ../../../base/rbac.authorization.k8s.io/clusterroles/argocd-events-create-aggregate-to-admin
+  - ../../../base/rbac.authorization.k8s.io/clusterroles/argocd-proj-apps-aggregate-to-admin
+  - ../../../base/rbac.authorization.k8s.io/clusterroles/argocd-server
+  - ../../../base/user.openshift.io/groups/cluster-admins
 
   # install cnv for nmstate support in 4.6
-  - ../../../base/namespaces/openshift-cnv
-  - ../../../base/operatorgroups/openshift-cnv
-  - ../../../base/subscriptions/kubevirt-hyperconverged
+  - ../../../base/core/namespaces/openshift-cnv
+  - ../../../base/operators.coreos.com/operatorgroups/openshift-cnv-rn5jf
+  - ../../../base/operators.coreos.com/subscriptions/kubevirt-hyperconverged
 
   - crc-provisioning-vlan.yaml
   - zero-provisioning-vlan.yaml
