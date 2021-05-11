@@ -11,17 +11,19 @@ if [ $# -ne 1 ] || [ "$#" == "--help" ] || [ "$#" == "-h" ]; then
     exit 0
 fi
 
-APP_NAME="cluster-scope"
+TOPDIR=$(git rev-parse --show-toplevel)
+. "$TOPDIR/scripts/common.sh"
+
 NAMESPACE=$1
 
 add_rbac_component() {
-	pushd $APP_NAME/base/namespaces/$NAMESPACE > /dev/null
-	kustomize edit add component ../../../components/monitoring-rbac
+	pushd $NAMESPACE_PATH/$NAMESPACE > /dev/null
+	kustomize edit add component $COMPONENT_REL_PATH/monitoring-rbac
 	popd > /dev/null
 }
 
-if [ ! -d $APP_NAME/base/namespaces/$NAMESPACE ]; then
-	echo "Namespace '$NAMESPACE' does not exist in $APP_NAME/base/namespace/. Exiting."
+if [ ! -d $NAMESPACE_PATH/$NAMESPACE ]; then
+	echo "Namespace '$NAMESPACE' does not exist in $NAMESPACE_PATH. Exiting."
 	exit 1
 fi
 

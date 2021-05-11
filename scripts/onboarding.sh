@@ -5,14 +5,16 @@ if [ $# -le 1 ] || [ "$#" == "--help" ] || [ "$#" == "-h" ]; then
 	exit 0
 fi
 
-APP_NAME="cluster-scope"
+TOPDIR=$(git rev-parse --show-toplevel)
+. "$TOPDIR/scripts/common.sh"
+
 NAMESPACE=$1
 OWNER=$2
 DESCRIPTION=$3
 
 create_namespace() {
-	mkdir -p $APP_NAME/base/namespaces/$NAMESPACE
-	cat <<-EOF > $APP_NAME/base/namespaces/$NAMESPACE/namespace.yaml
+	mkdir -p $NAMESPACE_PATH/$NAMESPACE
+	cat <<-EOF > $NAMESPACE_PATH/$NAMESPACE/namespace.yaml
 	---
 	apiVersion: v1
 	kind: Namespace
@@ -23,7 +25,7 @@ create_namespace() {
 	  name: $NAMESPACE
 	spec: {}
 	EOF
-	cat <<-EOF > $APP_NAME/base/namespaces/$NAMESPACE/kustomization.yaml
+	cat <<-EOF > $NAMESPACE_PATH/$NAMESPACE/kustomization.yaml
 	---
 	apiVersion: kustomize.config.k8s.io/v1beta1
 	kind: Kustomization
@@ -34,14 +36,14 @@ create_namespace() {
 	- namespace.yaml
 
 	components:
-	- ../../../components/project-admin-rolebindings/$OWNER
+	- $COMPONENT_REL_PATH/project-admin-rolebindings/$OWNER
 	EOF
-	echo "Namespace base created at '$APP_NAME/base/namespaces/$NAMESPACE'."
+	echo "Namespace base created at '$NAMESPACE_PATH/$NAMESPACE'."
 }
 
 create_project_admin_rolebinding() {
-	mkdir -p $APP_NAME/components/project-admin-rolebindings/$OWNER
-	cat <<-EOF > $APP_NAME/components/project-admin-rolebindings/$OWNER/rbac.yaml
+	mkdir -p $COMPONENT_PATH/project-admin-rolebindings/$OWNER
+	cat <<-EOF > $COMPONENT_PATH/project-admin-rolebindings/$OWNER/rbac.yaml
 	---
 	apiVersion: rbac.authorization.k8s.io/v1
 	kind: RoleBinding
@@ -56,7 +58,7 @@ create_project_admin_rolebinding() {
 	  kind: Group
 	  name: $OWNER
 	EOF
-	cat <<-EOF > $APP_NAME/components/project-admin-rolebindings/$OWNER/kustomization.yaml
+	cat <<-EOF > $COMPONENT_PATH/project-admin-rolebindings/$OWNER/kustomization.yaml
 	---
 	apiVersion: kustomize.config.k8s.io/v1alpha1
 	kind: Component
@@ -64,12 +66,12 @@ create_project_admin_rolebinding() {
 	resources:
 	- ./rbac.yaml
 	EOF
-	echo "RBAC component successfully created at '$APP_NAME/components/project-admin-rolebindings/$OWNER'."
+	echo "RBAC component successfully created at '$COMPONENT_PATH/project-admin-rolebindings/$OWNER'."
 }
 
 create_group() {
-	mkdir -p $APP_NAME/base/groups/$OWNER
-	cat <<-EOF > $APP_NAME/base/groups/$OWNER/group.yaml
+	mkdir -p $GROUP_PATH/$OWNER
+	cat <<-EOF > $GROUP_PATH/$OWNER/group.yaml
 	---
 	apiVersion: user.openshift.io/v1
 	kind: Group
@@ -77,7 +79,7 @@ create_group() {
 	  name: $OWNER
 	users: []
 	EOF
-	cat <<-EOF > $APP_NAME/base/groups/$OWNER/kustomization.yaml
+	cat <<-EOF > $GROUP_PATH/$OWNER/kustomization.yaml
 	---
 	apiVersion: kustomize.config.k8s.io/v1beta1
 	kind: Kustomization
@@ -85,24 +87,24 @@ create_group() {
 	resources:
 	- ./group.yaml
 	EOF
-	echo "Group '$OWNER' created at '$APP_NAME/base/groups/$OWNER'."
+	echo "Group '$OWNER' created at '$GROUP_PATH/$OWNER'."
 }
 
 
-if [ -d $APP_NAME/base/namespaces/$NAMESPACE ]; then
-	echo "Namespace '$NAMESPACE' already exists in $APP_NAME/base/namespace/. Exiting."
+if [ -d $NAMESPACE_PATH/$NAMESPACE ]; then
+	echo "Namespace '$NAMESPACE' already exists in $NAMESPACE_PATH/. Exiting."
 	exit 1
 fi
 
 echo "Creating namespace '$NAMESPACE' in the base..."
 create_namespace
 
-if [ ! -d $APP_NAME/components/project-admin-rolebindings/$OWNER ]; then
+if [ ! -d $COMPONENT_PATH/project-admin-rolebindings/$OWNER ]; then
 	echo "RBAC for '$OWNER' group does not exist yet. Creating..."
 	create_project_admin_rolebinding
 fi
 
-if ! grep -r -q "name: $OWNER" "$APP_NAME/base/groups/"; then
+if ! grep -r -q "name: $OWNER" "$GROUP_PATH/"; then
 	echo "Group for '$OWNER' does not exist yet. Creating..."
 	create_group
 fi
