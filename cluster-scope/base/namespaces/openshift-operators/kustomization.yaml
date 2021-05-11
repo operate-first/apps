@@ -4,5 +4,8 @@ kind: Kustomization
 
 namespace: openshift-operators
 
+resources:
+  - namespace.yaml
+
 components:
   - ../../../components/monitoring-rbac
