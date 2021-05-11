@@ -15,13 +15,13 @@ APP_NAME="cluster-scope"
 NAMESPACE=$1
 
 add_rbac_component() {
-	pushd $APP_NAME/base/namespaces/$NAMESPACE > /dev/null
-	kustomize edit add component ../../../components/monitoring-rbac
+	pushd $APP_NAME/base/core/namespaces/$NAMESPACE > /dev/null
+	kustomize edit add component ../../../../components/monitoring-rbac
 	popd > /dev/null
 }
 
-if [ ! -d $APP_NAME/base/namespaces/$NAMESPACE ]; then
-	echo "Namespace '$NAMESPACE' does not exist in $APP_NAME/base/namespace/. Exiting."
+if [ ! -d $APP_NAME/base/core/namespaces/$NAMESPACE ]; then
+	echo "Namespace '$NAMESPACE' does not exist in $APP_NAME/base/core/namespace/. Exiting."
 	exit 1
 fi
 
