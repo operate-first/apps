@@ -11,8 +11,8 @@ OWNER=$2
 DESCRIPTION=$3
 
 create_namespace() {
-	mkdir -p $APP_NAME/base/namespaces/$NAMESPACE
-	cat <<-EOF > $APP_NAME/base/namespaces/$NAMESPACE/namespace.yaml
+	mkdir -p $APP_NAME/base/core/namespaces/$NAMESPACE
+	cat <<-EOF > $APP_NAME/base/core/namespaces/$NAMESPACE/namespace.yaml
 	---
 	apiVersion: v1
 	kind: Namespace
@@ -23,7 +23,7 @@ create_namespace() {
 	  name: $NAMESPACE
 	spec: {}
 	EOF
-	cat <<-EOF > $APP_NAME/base/namespaces/$NAMESPACE/kustomization.yaml
+	cat <<-EOF > $APP_NAME/base/core/namespaces/$NAMESPACE/kustomization.yaml
 	---
 	apiVersion: kustomize.config.k8s.io/v1beta1
 	kind: Kustomization
@@ -34,9 +34,9 @@ create_namespace() {
 	- namespace.yaml
 
 	components:
-	- ../../../components/project-admin-rolebindings/$OWNER
+	- ../../../../components/project-admin-rolebindings/$OWNER
 	EOF
-	echo "Namespace base created at '$APP_NAME/base/namespaces/$NAMESPACE'."
+	echo "Namespace base created at '$APP_NAME/base/core/namespaces/$NAMESPACE'."
 }
 
 create_project_admin_rolebinding() {
@@ -68,8 +68,8 @@ create_project_admin_rolebinding() {
 }
 
 create_group() {
-	mkdir -p $APP_NAME/base/groups/$OWNER
-	cat <<-EOF > $APP_NAME/base/groups/$OWNER/group.yaml
+	mkdir -p $APP_NAME/base/user.openshift.io/groups/$OWNER
+	cat <<-EOF > $APP_NAME/base/user.openshift.io/groups/$OWNER/group.yaml
 	---
 	apiVersion: user.openshift.io/v1
 	kind: Group
@@ -77,7 +77,7 @@ create_group() {
 	  name: $OWNER
 	users: []
 	EOF
-	cat <<-EOF > $APP_NAME/base/groups/$OWNER/kustomization.yaml
+	cat <<-EOF > $APP_NAME/base/user.openshift.io/groups/$OWNER/kustomization.yaml
 	---
 	apiVersion: kustomize.config.k8s.io/v1beta1
 	kind: Kustomization
@@ -85,12 +85,11 @@ create_group() {
 	resources:
 	- ./group.yaml
 	EOF
-	echo "Group '$OWNER' created at '$APP_NAME/base/groups/$OWNER'."
+	echo "Group '$OWNER' created at '$APP_NAME/base/user.openshift.io/groups/$OWNER'."
 }
 
-
-if [ -d $APP_NAME/base/namespaces/$NAMESPACE ]; then
-	echo "Namespace '$NAMESPACE' already exists in $APP_NAME/base/namespace/. Exiting."
+if [ -d $APP_NAME/base/core/namespaces/$NAMESPACE ]; then
+	echo "Namespace '$NAMESPACE' already exists in $APP_NAME/base/core/namespace/. Exiting."
 	exit 1
 fi
 
@@ -102,7 +101,7 @@ if [ ! -d $APP_NAME/components/project-admin-rolebindings/$OWNER ]; then
 	create_project_admin_rolebinding
 fi
 
-if ! grep -r -q "name: $OWNER" "$APP_NAME/base/groups/"; then
+if ! grep -r -q "name: $OWNER" "$APP_NAME/base/user.openshift.io/groups/"; then
 	echo "Group for '$OWNER' does not exist yet. Creating..."
 	create_group
 fi
