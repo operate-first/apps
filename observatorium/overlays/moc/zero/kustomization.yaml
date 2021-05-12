@@ -5,8 +5,12 @@ namespace: opf-observatorium
 
 resources:
   - ../../../base/instance
+  - ./deployments
   - ./grafana-data-sources
   - ./objectbucketclaims
+  - ./routes
+  - ./serviceaccounts
+  - ./services
 
 generators:
   - secrets/secret-generator.yaml
