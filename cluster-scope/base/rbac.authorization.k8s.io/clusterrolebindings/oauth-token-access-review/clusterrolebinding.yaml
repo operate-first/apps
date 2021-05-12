@@ -11,3 +11,6 @@ subjects:
 - kind: ServiceAccount
   name: prometheus-k8s
   namespace: opf-monitoring
+- kind: ServiceAccount
+  name: thanos-query-frontend-oauth-proxy
+  namespace: opf-observatorium
