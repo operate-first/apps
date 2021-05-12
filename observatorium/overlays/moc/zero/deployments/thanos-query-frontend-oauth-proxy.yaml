@@ -22,7 +22,7 @@ spec:
           - -email-domain=*
           - -upstream=http://opf-observatorium-thanos-query-frontend.opf-observatorium.svc.cluster.local:9090
           - '-openshift-sar={"resource": "namespaces", "verb": "get"}'
-          - -openshift-service-account=opf-observatorium-thanos-query-frontend
+          - -openshift-service-account=thanos-query-frontend-oauth-proxy
           - -openshift-ca=/etc/pki/tls/cert.pem
           - -openshift-ca=/var/run/secrets/kubernetes.io/serviceaccount/ca.crt
           - -tls-cert=/etc/tls/private/tls.crt
@@ -43,7 +43,7 @@ spec:
           -   mountPath: /etc/tls/private
               name: thanos-query-frontend-tls
               readOnly: false
-      serviceAccountName: opf-observatorium-thanos-query-frontend
+      serviceAccountName: thanos-query-frontend-oauth-proxy
       volumes:
       - name: thanos-query-frontend-tls
         secret:
