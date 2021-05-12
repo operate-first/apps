@@ -15,7 +15,6 @@ DESCRIPTION=$3
 create_namespace() {
 	mkdir -p $NAMESPACE_PATH/$NAMESPACE
 	cat <<-EOF > $NAMESPACE_PATH/$NAMESPACE/namespace.yaml
-	---
 	apiVersion: v1
 	kind: Namespace
 	metadata:
@@ -26,7 +25,6 @@ create_namespace() {
 	spec: {}
 	EOF
 	cat <<-EOF > $NAMESPACE_PATH/$NAMESPACE/kustomization.yaml
-	---
 	apiVersion: kustomize.config.k8s.io/v1beta1
 	kind: Kustomization
 
@@ -44,7 +42,6 @@ create_namespace() {
 create_project_admin_rolebinding() {
 	mkdir -p $COMPONENT_PATH/project-admin-rolebindings/$OWNER
 	cat <<-EOF > $COMPONENT_PATH/project-admin-rolebindings/$OWNER/rbac.yaml
-	---
 	apiVersion: rbac.authorization.k8s.io/v1
 	kind: RoleBinding
 	metadata:
@@ -59,7 +56,6 @@ create_project_admin_rolebinding() {
 	  name: $OWNER
 	EOF
 	cat <<-EOF > $COMPONENT_PATH/project-admin-rolebindings/$OWNER/kustomization.yaml
-	---
 	apiVersion: kustomize.config.k8s.io/v1alpha1
 	kind: Component
 
@@ -72,7 +68,6 @@ create_project_admin_rolebinding() {
 create_group() {
 	mkdir -p $GROUP_PATH/$OWNER
 	cat <<-EOF > $GROUP_PATH/$OWNER/group.yaml
-	---
 	apiVersion: user.openshift.io/v1
 	kind: Group
 	metadata:
@@ -80,7 +75,6 @@ create_group() {
 	users: []
 	EOF
 	cat <<-EOF > $GROUP_PATH/$OWNER/kustomization.yaml
-	---
 	apiVersion: kustomize.config.k8s.io/v1beta1
 	kind: Kustomization
 

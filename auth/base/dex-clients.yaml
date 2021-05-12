@@ -1,4 +1,3 @@
----
 # THIS IS A SAMPLE SECRET, DO NOT USE
 apiVersion: v1
 kind: Secret

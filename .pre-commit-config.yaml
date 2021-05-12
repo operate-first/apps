@@ -1,4 +1,3 @@
----
 exclude: scripts|argocd/overlays/dev/configs|argocd/overlays/moc-infra/configs
 
 repos:

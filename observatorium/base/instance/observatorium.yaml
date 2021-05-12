@@ -1,4 +1,3 @@
----
 apiVersion: core.observatorium.io/v1alpha1
 kind: Observatorium
 metadata:

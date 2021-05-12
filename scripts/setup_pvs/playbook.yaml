@@ -1,4 +1,3 @@
----
 - name: Dynamically create Quicklab host in Ansible
   hosts: localhost
   pre_tasks:
