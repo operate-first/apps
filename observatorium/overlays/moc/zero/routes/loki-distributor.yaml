@@ -1,0 +1,11 @@
+---
+apiVersion: route.openshift.io/v1
+kind: Route
+metadata:
+  name: loki-distributor
+spec:
+  to:
+    kind: Service
+    name: opf-observatorium-loki-distributor-http
+  port:
+    targetPort: metrics

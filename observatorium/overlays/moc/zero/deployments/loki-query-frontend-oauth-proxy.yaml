@@ -1,0 +1,50 @@
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: loki-query-frontend-oauth-proxy
+spec:
+  selector:
+    matchLabels:
+      app: loki-query-frontend-oauth-proxy
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: loki-query-frontend-oauth-proxy
+    spec:
+      containers:
+      -   args:
+          - -provider=openshift
+          - -pass-basic-auth=false
+          - -https-address=:9091
+          - -http-address=
+          - -email-domain=*
+          - -upstream=http://opf-observatorium-loki-query-frontend-http.opf-observatorium.svc.cluster.local:3100
+          - '-openshift-sar={"resource": "namespaces", "verb": "get"}'
+          - -openshift-service-account=loki-query-frontend-oauth-proxy
+          - -openshift-ca=/etc/pki/tls/cert.pem
+          - -openshift-ca=/var/run/secrets/kubernetes.io/serviceaccount/ca.crt
+          - -tls-cert=/etc/tls/private/tls.crt
+          - -tls-key=/etc/tls/private/tls.key
+          - -cookie-secret=SECRET
+          - -skip-auth-regex=^/metrics
+          - '-openshift-sar={"resource": "namespaces", "verb": "get", "resourceName":
+              "opf-observatorium", "namespace": "opf-observatorium"}'
+          - '-openshift-delegate-urls={"/":{"resource": "namespaces", "verb": "get", "resourceName":
+              "opf-observatorium", "namespace": "opf-observatorium"}}'
+          image: registry.redhat.io/openshift4/ose-oauth-proxy:v4.7
+          name: oauth-proxy
+          ports:
+          -   containerPort: 9091
+              name: oauth-proxy
+          resources: {}
+          volumeMounts:
+          -   mountPath: /etc/tls/private
+              name: loki-query-frontend-tls
+              readOnly: false
+      serviceAccountName: loki-query-frontend-oauth-proxy
+      volumes:
+      - name: loki-query-frontend-tls
+        secret:
+          secretName: loki-query-frontend-tls
