@@ -37,18 +37,21 @@ fi
 echo "Synchronizing resources to tag version ${1}"
 
 # CRDS
+CRD_PATH=cluster-scope/base/apiextensions.k8s.io/customresourcedefinitions
 echo "Updating Cluster CRDs.."
-wget -q https://raw.githubusercontent.com/argoproj/argo-cd/${1}/manifests/crds/application-crd.yaml -O cluster-scope/base/crds/applications.argoproj.io/crd.yaml
-wget -q https://raw.githubusercontent.com/argoproj/argo-cd/${1}/manifests/crds/appproject-crd.yaml -O cluster-scope/base/crds/appprojects.argoproj.io/crd.yaml
+wget -q https://raw.githubusercontent.com/argoproj/argo-cd/${1}/manifests/crds/application-crd.yaml -O $CRD_PATH/applications.argoproj.io/customresourcedefinition.yaml
+wget -q https://raw.githubusercontent.com/argoproj/argo-cd/${1}/manifests/crds/appproject-crd.yaml -O $CRD_PATH/appprojects.argoproj.io/customresourcedefinition.yaml
 
 # Clusterroles
+ROLE_PATH=cluster-scope/base/rbac.authorization.k8s.io/clusterroles
 echo "Updating Cluster ClusterRoles.."
-wget -q https://raw.githubusercontent.com/argoproj/argo-cd/${1}/manifests/cluster-rbac/argocd-server-clusterrole.yaml -O cluster-scope/base/clusterroles/argocd-server/clusterrole.yaml
-wget -q https://raw.githubusercontent.com/argoproj/argo-cd/${1}/manifests/cluster-rbac/argocd-application-controller-clusterrole.yaml -O cluster-scope/base/clusterroles/argocd-application-controller/clusterrole.yaml
+wget -q https://raw.githubusercontent.com/argoproj/argo-cd/${1}/manifests/cluster-rbac/argocd-server-clusterrole.yaml -O $ROLE_PATH/argocd-server/clusterrole.yaml
+wget -q https://raw.githubusercontent.com/argoproj/argo-cd/${1}/manifests/cluster-rbac/argocd-application-controller-clusterrole.yaml -O $ROLE_PATH/argocd-application-controller/clusterrole.yaml
 
 # ClusterroleBindings
+BINDING_PATH=cluster-scope/base/rbac.authorization.k8s.io/clusterrolebindings
 echo "Updating Cluster ClusterRoleRolebindings.."
-wget -q https://raw.githubusercontent.com/argoproj/argo-cd/${1}/manifests/cluster-rbac/argocd-application-controller-clusterrolebinding.yaml -O cluster-scope/base/clusterrolebindings/argocd-application-controller/clusterrolebinding.yaml
-wget -q https://raw.githubusercontent.com/argoproj/argo-cd/${1}/manifests/cluster-rbac/argocd-server-clusterrolebinding.yaml -O cluster-scope/base/clusterrolebindings/argocd-server/clusterrolebinding.yaml
+wget -q https://raw.githubusercontent.com/argoproj/argo-cd/${1}/manifests/cluster-rbac/argocd-application-controller-clusterrolebinding.yaml -O $BINDING_PATH/argocd-application-controller/clusterrolebinding.yaml
+wget -q https://raw.githubusercontent.com/argoproj/argo-cd/${1}/manifests/cluster-rbac/argocd-server-clusterrolebinding.yaml -O $BINDING_PATH/argocd-server/clusterrolebinding.yaml
 
 echo "Done!"
