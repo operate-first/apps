@@ -10,17 +10,17 @@ Now add this quota to the namespace. For example, if you want to add `small` tie
 
 ```bash
 # From the root of this repo
-$ cd cluster-scope/base/namespaces/argocd
-$ kustomize edit add component ../../../components/resourcequotas/small
+$ cd cluster-scope/base/core/namespaces/argocd
+$ kustomize edit add component ../../../../components/resourcequotas/small
 ```
 
 # Adding a custom resource quota to a namespace
 
-Create your [own resource][quotas_doc] in the appropriate namespace folder in `cluster-scope/base/namespaces/<your_namespace>` name this file `resourcequota.yaml`, ensure that the `.metadata.name` is set to `<namespace_name>-custom`. Then if adding a custom resource to the namespace `argocd` you would run:
+Create your [own resource][quotas_doc] in the appropriate namespace folder in `cluster-scope/base/core/namespaces/<your_namespace>` name this file `resourcequota.yaml`, ensure that the `.metadata.name` is set to `<namespace_name>-custom`. Then if adding a custom resource to the namespace `argocd` you would run:
 
 ```bash
 # From the root of this repo
-$ cd cluster-scope/base/namespaces/argocd
+$ cd cluster-scope/base/core/namespaces/argocd
 $ kustomize edit add resource ./resourcequota.yaml
 ```
 
@@ -30,8 +30,8 @@ Ensure that a default `LimitRange` is configured if adding a resource quota, oth
 
 ```bash
 # From the root of this repo
-$ cd cluster-scope/base/namespaces/argocd
-$ kustomize edit add component ../../../components/limitranges/default
+$ cd cluster-scope/base/core/namespaces/argocd
+$ kustomize edit add component ../../../../components/limitranges/default
 ```
 
 [quotas]:https://github.com/operate-first/apps/tree/master/cluster-scope/components/resourcequotas
