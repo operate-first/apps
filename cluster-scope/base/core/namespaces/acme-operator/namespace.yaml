@@ -1,0 +1,9 @@
+---
+apiVersion: v1
+kind: Namespace
+metadata:
+  annotations:
+    openshift.io/display-name: "Openshift-ACME Controller"
+    openshift.io/requester: operate-first
+  name: acme-operator
+spec: {}
