@@ -7,6 +7,5 @@ commonLabels:
   app.kubernetes.io/part-of: observatorium
 resources:
   - observatorium.yaml
-  - loki-routes.yaml
   - kfdef.yaml
   - grafana.yaml

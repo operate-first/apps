@@ -8,6 +8,8 @@ resources:
   - ./deployments
   - ./grafana-data-sources
   - ./objectbucketclaims
+  - ./rolebindings
+  - ./roles
   - ./routes
   - ./serviceaccounts
   - ./services
