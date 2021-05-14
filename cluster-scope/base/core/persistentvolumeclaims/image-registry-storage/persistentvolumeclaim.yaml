@@ -10,3 +10,4 @@ spec:
     requests:
       storage: 200Gi
   volumeMode: Filesystem
+  storageClassName: moc-nfs-csi
