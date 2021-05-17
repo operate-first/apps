@@ -17,6 +17,7 @@ resources:
   - ../../../base/user.openshift.io/groups/fde
   - ../../../base/user.openshift.io/groups/lab-cicd
   - ../../../base/user.openshift.io/groups/mesh-for-data
+  - ../../../base/user.openshift.io/groups/odh-admin
   - ../../../base/user.openshift.io/groups/open-aiops
   - ../../../base/user.openshift.io/groups/operate-first
   - ../../../base/user.openshift.io/groups/pulp
