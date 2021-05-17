@@ -3,7 +3,9 @@ components:
 - ../../../../components/project-admin-rolebindings/thoth-devops
 - ../../../../components/project-admin-rolebindings/operate-first
 - ../../../../components/monitoring-rbac
+- ../../../../components/limitranges/default
 kind: Kustomization
 namespace: opf-ci-pipelines
 resources:
 - namespace.yaml
+- resourcequota.yaml
