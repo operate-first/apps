@@ -14,6 +14,10 @@ presubmits:
             requests:
               memory: "256Mi"
               cpu: "200m"
+            limits:
+              memory: "500Mi"
+              cpu: "300m"
+
   - name: pre-commit
     decorate: true
     skip_report: false
@@ -28,5 +32,8 @@ presubmits:
             - "--all-files"
           resources:
             requests:
-              memory: "2Gi"
-              cpu: "200m"
+              memory: "500Mi"
+              cpu: "300m"
+            limits:
+              memory: "1Gi"
+              cpu: "300m"
