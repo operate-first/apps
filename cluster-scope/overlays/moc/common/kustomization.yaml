@@ -11,6 +11,7 @@ resources:
   - ../../../base/user.openshift.io/groups/apicurio
   - ../../../base/user.openshift.io/groups/argocd-admins
   - ../../../base/user.openshift.io/groups/b4mad
+  - ../../../base/user.openshift.io/groups/ccx
   - ../../../base/user.openshift.io/groups/cnv-testing
   - ../../../base/user.openshift.io/groups/codait-advo
   - ../../../base/user.openshift.io/groups/data-science

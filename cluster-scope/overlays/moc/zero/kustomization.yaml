@@ -39,6 +39,7 @@ resources:
   - ../../../base/core/namespaces/open-aiops
   - ../../../base/core/namespaces/opendatahub-operator
   - ../../../base/core/namespaces/openshift-cnv
+  - ../../../base/core/namespaces/openshift-insights
   - ../../../base/core/namespaces/openshift-logging
   - ../../../base/core/namespaces/openshift-metering
   - ../../../base/core/namespaces/openshift-monitoring
