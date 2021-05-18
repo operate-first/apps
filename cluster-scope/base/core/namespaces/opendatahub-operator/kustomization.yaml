@@ -1,6 +1,7 @@
 apiVersion: kustomize.config.k8s.io/v1beta1
 components:
 - ../../../../components/monitoring-rbac
+- ../../../../components/project-admin-rolebindings/odh-admin
 kind: Kustomization
 namespace: opendatahub-operator
 resources:
