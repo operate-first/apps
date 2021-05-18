@@ -73,7 +73,7 @@ spec:
           - ReadWriteOnce
         resources:
           requests:
-            storage: 50Gi
+            storage: 100Gi
   # thanosReceiveController auto populates the hashrings
   thanosReceiveController:
     image: 'quay.io/observatorium/thanos-receive-controller:master-2021-04-28-ee165b6'
