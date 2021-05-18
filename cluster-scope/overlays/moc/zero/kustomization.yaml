@@ -69,6 +69,7 @@ resources:
   - ../../../base/core/namespaces/ray-odh-integration
   - ../../../base/core/namespaces/sa-dach-anwendertreffen
   - ../../../base/core/namespaces/sa-dach-openshift-examples
+  - ../../../base/core/namespaces/sigstore-deploy
   - ../../../base/core/namespaces/sdap
   - ../../../base/core/namespaces/tekton-pipelines
   - ../../../base/core/namespaces/thoth-amun-api-prod
