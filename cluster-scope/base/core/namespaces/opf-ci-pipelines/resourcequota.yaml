@@ -9,5 +9,4 @@ spec:
     requests.cpu: '24'
     requests.memory: 80Gi
     requests.storage: 30Gi
-    count/pods: 400
     count/taskruns.tekton.dev: 3k
