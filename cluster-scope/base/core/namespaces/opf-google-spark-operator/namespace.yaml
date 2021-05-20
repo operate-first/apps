@@ -1,0 +1,7 @@
+apiVersion: v1
+kind: Namespace
+metadata:
+    name: opf-google-spark-operator
+    annotations:
+        openshift.io/display-name: Google Spark Operator
+        openshift.io/requester: odh-admin

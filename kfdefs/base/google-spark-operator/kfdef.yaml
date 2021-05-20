@@ -1,0 +1,20 @@
+---
+apiVersion: kfdef.apps.kubeflow.org/v1
+kind: KfDef
+metadata:
+  annotations:
+    kfctl.kubeflow.io/force-delete: "false"
+  name: opendatahub
+spec:
+  applications:
+    - kustomizeConfig:
+        repoRef:
+          name: guimou
+          path: google-spark-operator/operator
+      name: google-spark-operator
+  repos:
+    - name: manifests
+      uri: "https://github.com/opendatahub-io/odh-manifests/tarball/v1.0.11"
+    - name: guimou
+      uri: "https://github.com/guimou/odh-manifests/tarball/spark-operator"
+  version: v1.0.11

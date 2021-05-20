@@ -55,6 +55,7 @@ resources:
   - ../../../base/core/namespaces/opf-ci-test-pods
   - ../../../base/core/namespaces/opf-dashboard
   - ../../../base/core/namespaces/opf-datacatalog
+  - ../../../base/core/namespaces/opf-google-spark-operator
   - ../../../base/core/namespaces/opf-jupyterhub
   - ../../../base/core/namespaces/opf-jupyterhub-stage
   - ../../../base/core/namespaces/opf-kafka
