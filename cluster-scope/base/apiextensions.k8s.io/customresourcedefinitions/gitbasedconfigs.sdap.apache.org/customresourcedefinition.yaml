@@ -1,0 +1,33 @@
+apiVersion: apiextensions.k8s.io/v1beta1
+kind: CustomResourceDefinition
+metadata:
+  name: gitbasedconfigs.sdap.apache.org
+spec:
+  group: sdap.apache.org
+  names:
+    kind: GitBasedConfig
+    plural: gitbasedconfigs
+    shortNames:
+    - gitcfg
+    singular: gitbasedconfig
+  scope: Namespaced
+  validation:
+    openAPIV3Schema:
+      properties:
+        config-map:
+          type: string
+        git-branch:
+          type: string
+        git-token:
+          type: string
+        git-url:
+          type: string
+        local-dir:
+          type: string
+        update-every-seconds:
+          type: int
+      type: object
+  versions:
+  - name: v1
+    served: true
+    storage: true
