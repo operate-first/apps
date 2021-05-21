@@ -149,6 +149,7 @@ resources:
 
   - clusterversion.yaml
   - nodenetworkconfigurationpolicies/moc-nfs-network.yaml
+  - kubeletconfigs/increase-worker-system-reserved-memory.yaml
 
 generators:
   - secret-generator.yaml
