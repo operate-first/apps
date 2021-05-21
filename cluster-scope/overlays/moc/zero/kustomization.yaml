@@ -90,6 +90,7 @@ resources:
   - ../../../base/core/persistentvolumeclaims/image-registry-storage
   - ../../../base/imageregistry.operator.openshift.io/configs/cluster
   - ../../../base/operator.openshift.io/ingresscontrollers/default
+  - ../../../base/operators.coreos.com/catalogsources/pulp-catalog
   - ../../../base/operators.coreos.com/operatorgroups/cluster-logging
   - ../../../base/operators.coreos.com/operatorgroups/local-storage-operator-group
   - ../../../base/operators.coreos.com/operatorgroups/openshift-cnv-rn5jf
@@ -97,6 +98,7 @@ resources:
   - ../../../base/operators.coreos.com/operatorgroups/openshift-operators-redhat
   - ../../../base/operators.coreos.com/operatorgroups/openshift-serverless
   - ../../../base/operators.coreos.com/operatorgroups/openshift-storage
+  - ../../../base/operators.coreos.com/operatorgroups/pulp-operator
   - ../../../base/operators.coreos.com/subscriptions/cluster-logging
   - ../../../base/operators.coreos.com/subscriptions/elasticsearch-operator
   - ../../../base/operators.coreos.com/subscriptions/kubevirt-hyperconverged
@@ -104,6 +106,7 @@ resources:
   - ../../../base/operators.coreos.com/subscriptions/metering-operator
   - ../../../base/operators.coreos.com/subscriptions/ocs-operator
   - ../../../base/operators.coreos.com/subscriptions/openshift-pipelines-operator-rh
+  - ../../../base/operators.coreos.com/subscriptions/pulp-operator
   - ../../../base/operators.coreos.com/subscriptions/serverless-operator
   - ../../../base/operators.coreos.com/subscriptions/web-terminal
   - ../../../base/policy/podsecuritypolicies/controller
