@@ -8,6 +8,7 @@ resources:
   - opf-argo
   - opf-dashboard
   - opf-datacatalog
+  - opf-google-spark-operator
   - opf-jupyterhub
   - opf-jupyterhub-stage
   - opf-kafka
