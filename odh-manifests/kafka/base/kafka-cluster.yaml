@@ -29,7 +29,7 @@ spec:
       inter.broker.protocol.version: '2.7'
     storage:
       type: persistent-claim
-      size: 20Gi
+      size: 40Gi
       class: moc-nfs-csi
       deleteClaim: false
     metricsConfig:
