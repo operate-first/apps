@@ -7,10 +7,7 @@ metadata:
     monitor-component: thoth-station
 spec:
   endpoints:
-    - targetPort: 8080
-    - targetPort: 6066
-    - targetPort: 9187
-    - targetPort: 2746
+    - port: metrics
   namespaceSelector:
     matchNames:
       - thoth-frontend-prod
