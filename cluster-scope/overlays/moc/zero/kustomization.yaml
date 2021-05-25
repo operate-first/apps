@@ -84,6 +84,7 @@ resources:
   - ../../../base/core/namespaces/thoth-graph-prod
   - ../../../base/core/namespaces/thoth-infra-prod
   - ../../../base/core/namespaces/thoth-middletier-prod
+  - ../../../base/core/namespaces/thoth-pulp-experiments
   - ../../../base/core/namespaces/thoth-test-core
   - ../../../base/core/namespaces/tufts-dcc-6
   - ../../../base/core/namespaces/uky-hpc-workload-generator
