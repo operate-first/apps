@@ -21,6 +21,7 @@ spec:
         type: route
         tls: true
     config:
+      auto.create.topics.enable: false
       offsets.topic.replication.factor: 3
       transaction.state.log.replication.factor: 3
       transaction.state.log.min.isr: 3
@@ -28,7 +29,7 @@ spec:
       inter.broker.protocol.version: '2.7'
     storage:
       type: persistent-claim
-      size: 20Gi
+      size: 40Gi
       class: moc-nfs-csi
       deleteClaim: false
     metricsConfig:
