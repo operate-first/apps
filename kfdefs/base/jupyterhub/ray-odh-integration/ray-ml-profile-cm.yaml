@@ -23,8 +23,8 @@ data:
               ray_image: 'ray-ml-node:experimental'
               # number of workers currently disabled due to json/jinja bug in JH launcher
               #max_workers: 5
-              memory_request: '1024Mi'
-              memory_limit: '1024Mi'
+              memory_request: '3Gi'
+              memory_limit: '3Gi'
               cpu_request: '1'
               cpu_limit: '1'
             return:
