@@ -18,4 +18,4 @@ spec:
       from:
         kind: DockerImage
         # can rebuild with newer nightly SHAs periodically
-        name: 'quay.io/erikerlandson/ray-ml-notebook:py-3.6-ray-43570553'
+        name: 'quay.io/erikerlandson/ray-ml-notebook:py-3.6-ray-ea6bdfb9'
