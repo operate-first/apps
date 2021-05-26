@@ -4,8 +4,8 @@ components:
 - ../../../../components/project-admin-rolebindings/pulp
 - ../../../../components/monitoring-rbac
 - ../../../../components/limitranges/default
-- ../../../../components/resourcequotas/medium
 kind: Kustomization
 namespace: thoth-pulp-experiments
 resources:
 - namespace.yaml
+- resourcequota.yaml
