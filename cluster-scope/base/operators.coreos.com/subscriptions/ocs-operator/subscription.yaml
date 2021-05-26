@@ -5,7 +5,7 @@ metadata:
   name: ocs-operator
 spec:
   channel: DEFINED_IN_OVERLAY
-  installPlanApproval: Manual
+  installPlanApproval: Automatic
   name: ocs-operator
   source: redhat-operators
   sourceNamespace: openshift-marketplace
