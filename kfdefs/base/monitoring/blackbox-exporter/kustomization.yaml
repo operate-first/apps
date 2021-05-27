@@ -5,7 +5,6 @@ namespace: opf-monitoring
 resources:
   - blackbox.yaml
   - blackbox-service.yaml
-  - es-secret-generator.yaml
   - probe.yaml
 configMapGenerator:
   - name: blackbox-prober-config
@@ -13,3 +12,5 @@ configMapGenerator:
     - blackbox-prober-config.yaml
 generatorOptions:
   disableNameSuffixHash: true
+generators:
+  - es-secret-generator.yaml
