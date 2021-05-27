@@ -111,3 +111,17 @@ data:
       workerStartRayCommands:
           - cd /opt/ray; pipenv run ray stop
           - ulimit -n 65536; cd /opt/ray; pipenv run ray start --address=$RAY_HEAD_IP:6379 --object-manager-port=8076
+  rayDashboardRouteTemplate: |
+    kind: Route
+    apiVersion: route.openshift.io/v1
+    metadata:
+      name: 'ray-dashboard-{{ user }}'
+      labels:
+        # allows me to return name of service that Ray operator creates
+        odh-ray-cluster-service: 'ray-cluster-{{ user }}-ray-head'
+    spec:
+      to:
+        kind: Service
+        name: 'ray-cluster-{{ user }}-ray-head'
+      port:
+        targetPort: dashboard

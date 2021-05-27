@@ -11,6 +11,9 @@ data:
         images:
           - 'ray-ml-notebook:experimental'
         env:
+          # expose to jupyter users as a convenience
+          - name: RAY_DASH_URL
+            value: 'http://$(RAY_DASH_HOST)'
           # this is a workaround that may not be neccesary in the future
           - name: RAY_CLIENT_MODE
             value: '1'
@@ -19,6 +22,9 @@ data:
             resources:
               - name: ray-cluster-template
                 path: rayClusterResourceTemplate
+              # dashboard route must come last on this list or 'return' below will break
+              - name: ray-cluster-template
+                path: rayDashboardRouteTemplate
             configuration:
               ray_image: 'ray-ml-node:experimental'
               # number of workers currently disabled due to json/jinja bug in JH launcher
@@ -28,5 +34,7 @@ data:
               cpu_request: '1'
               cpu_limit: '1'
             return:
-              # This path applies to the last item in 'resources' list above
+              # Paths are applied to the last item in 'resources' list above
+              # These assume the dashboard route entry above is listed last
               RAY_CLUSTER: 'metadata.labels[odh-ray-cluster-service]'
+              RAY_DASH_HOST: 'spec.host'
