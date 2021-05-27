@@ -16,6 +16,7 @@ spec:
         port: web
   externalUrl: "http://prometheus-portal-opf-monitoring.apps.zero.massopen.cloud/"
   podMonitorSelector: {}
+  probeSelector: {}
   serviceAccountName: prometheus-k8s
   serviceMonitorSelector: {}
   securityContext: {}

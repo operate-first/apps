@@ -34,7 +34,7 @@ spec:
           name: blackbox-prober-config
       - name: es-cert
         secret:
-          secretName: es-crt
+          secretName: es-secret
       - name: es-key
         secret:
-          secretName: es-key
+          secretName: es-secret
