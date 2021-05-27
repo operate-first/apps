@@ -20,7 +20,7 @@ data:
       # This number should be > 0.
       upscalingSpeed: 1.0
       # If a node is idle for this many minutes, it will be removed.
-      idleTimeoutMinutes: 5
+      idleTimeoutMinutes: 30
       # Specify the pod type for the ray head node (as configured below).
       headPodType: head-node
       # Specify the allowed pod types for this ray cluster and the resources they provide.
@@ -106,7 +106,7 @@ data:
       # Note dashboard-host is set to 0.0.0.0 so that Kubernetes can port forward.
       headStartRayCommands:
           - cd /opt/ray; pipenv run ray stop
-          - ulimit -n 65536; cd /opt/ray; pipenv run ray start --head --no-monitor --port=6379 --object-manager-port=8076 --dashboard-host 0.0.0.0
+          - ulimit -n 65536; cd /opt/ray; pipenv run ray start --head --no-monitor --port=6379 --object-manager-port=8076 --dashboard-host=0.0.0.0
       # Commands to start Ray on worker nodes. You don't need to change this.
       workerStartRayCommands:
           - cd /opt/ray; pipenv run ray stop
