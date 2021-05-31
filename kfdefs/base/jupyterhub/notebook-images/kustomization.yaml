@@ -16,4 +16,5 @@ resources:
   - openshift-anomaly-detection.yaml
   - pet-image-detection.yaml
   - ray-ml-notebook.yaml
+  - s2i-spark3.0.1-minimal-notebook.yaml
   - time-series.yaml
