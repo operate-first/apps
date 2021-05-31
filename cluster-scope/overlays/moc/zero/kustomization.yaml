@@ -65,6 +65,7 @@ resources:
   - ../../../base/core/namespaces/opf-slack-first
   - ../../../base/core/namespaces/opf-superset
   - ../../../base/core/namespaces/opf-trino
+  - ../../../base/core/namespaces/osc-playground
   - ../../../base/core/namespaces/pixel-demos
   - ../../../base/core/namespaces/pixel-vault
   - ../../../base/core/namespaces/pulp-operator
