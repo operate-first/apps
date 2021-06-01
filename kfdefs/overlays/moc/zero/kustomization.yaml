@@ -14,3 +14,4 @@ resources:
   - opf-kafka
   - opf-monitoring
   - opf-superset
+  - osc-playground
