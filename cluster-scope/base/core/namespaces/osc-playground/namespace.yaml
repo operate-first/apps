@@ -1,0 +1,7 @@
+apiVersion: v1
+kind: Namespace
+metadata:
+    name: osc-playground
+    annotations:
+        openshift.io/display-name: OS-Climate playground.
+        openshift.io/requester: osc

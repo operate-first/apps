@@ -1,0 +1,9 @@
+apiVersion: kustomize.config.k8s.io/v1beta1
+kind: Kustomization
+resources:
+    - namespace.yaml
+namespace: osc-playground
+components:
+    - ../../../../components/project-admin-rolebindings/osc
+    - ../../../../components/limitranges/default
+    - ../../../../components/resourcequotas/medium
