@@ -1,0 +1,25 @@
+apiVersion: machine.openshift.io/v1beta1
+kind: MachineHealthCheck
+metadata:
+  name: worker-healthcheck
+  namespace: openshift-machine-api
+  annotations:
+    machine.openshift.io/remediation-strategy: external-baremetal
+spec:
+  selector:
+    matchLabels:
+      machine.openshift.io/cluster-api-cluster: "zero-n88km"
+      machine.openshift.io/cluster-api-machine-role: "worker"
+      machine.openshift.io/cluster-api-machine-type: "worker"
+  unhealthyConditions:
+    # Machine is unhealthy if Ready is False for > 10 minutes
+    - type: Ready
+      status: 'False'
+      timeout: 10m
+
+    # Or if Ready is Unknown for > 10 minutes
+    - type: Ready
+      status: Unknown
+      timeout: 10m
+  maxUnhealthy: 40%
+  nodeStartupTimeout: 15m
