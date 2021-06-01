@@ -8,7 +8,7 @@ metadata:
       "s2i-spark-minimal-notebook:py36-spark3.0.1-hadoop3.2.0"
     opendatahub.io/notebook-image-desc:
       "Jupyter notebook image based on spark3.0.1 with xskipper examples"
-  name: spark3.0.1-xskipper
+  name: s2i-spark-container
 spec:
   lookupPolicy:
     local: true
@@ -18,3 +18,4 @@ spec:
     from:
       kind: DockerImage
       name: quay.io/llasmith/s2i-spark-container:py36-spark3.0.1-hadoop3.2.0
+    name: "py36-spark3.0.1-hadoop3.2.0"
