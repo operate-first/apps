@@ -16,7 +16,7 @@ presubmits:
               cpu: "200m"
             limits:
               memory: "500Mi"
-              cpu: "300m"
+              cpu: "1"
 
   - name: pre-commit
     decorate: true
