@@ -6,4 +6,4 @@ namespace: osc-playground
 components:
     - ../../../../components/project-admin-rolebindings/osc
     - ../../../../components/limitranges/default
-    - ../../../../components/resourcequotas/medium
+    - ../../../../components/resourcequotas/large
