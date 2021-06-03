@@ -846,7 +846,7 @@ spec:
           }
         },
         {
-          "collapsed": true,
+          "collapsed": false,
           "datasource": "$datasource",
           "gridPos": {
             "h": 1,
@@ -855,436 +855,428 @@ spec:
             "y": 19
           },
           "id": 21,
-          "panels": [
-            {
-              "datasource": "$datasource",
-              "fieldConfig": {
-                "defaults": {
-                  "custom": {
-                    "align": null
-                  },
-                  "mappings": [],
-                  "thresholds": {
-                    "mode": "absolute",
-                    "steps": [
-                      {
-                        "color": "green",
-                        "value": null
-                      },
-                      {
-                        "color": "red",
-                        "value": 80
-                      }
-                    ]
-                  }
-                },
-                "overrides": []
-              },
-              "gridPos": {
-                "h": 16,
-                "w": 12,
-                "x": 0,
-                "y": 20
-              },
-              "id": 19,
-              "options": {
-                "showHeader": true
-              },
-              "pluginVersion": "7.1.1",
-              "targets": [
-                {
-                  "expr": "{namespace=\"$namespace\", pod=\"jupyterhub-nb-$account\"}",
-                  "hide": true,
-                  "interval": "",
-                  "legendFormat": "",
-                  "refId": "A"
-                }
-              ],
-              "timeFrom": null,
-              "timeShift": null,
-              "title": "User pod logs",
-              "type": "table"
-            },
-            {
-              "datasource": "$datasource",
-              "fieldConfig": {
-                "defaults": {
-                  "custom": {
-                    "align": null
-                  },
-                  "mappings": [],
-                  "thresholds": {
-                    "mode": "absolute",
-                    "steps": [
-                      {
-                        "color": "green",
-                        "value": null
-                      },
-                      {
-                        "color": "red",
-                        "value": 80
-                      }
-                    ]
-                  }
-                },
-                "overrides": []
-              },
-              "gridPos": {
-                "h": 8,
-                "w": 12,
-                "x": 12,
-                "y": 20
-              },
-              "id": 24,
-              "options": {
-                "showHeader": true
-              },
-              "pluginVersion": "7.1.1",
-              "targets": [
-                {
-                  "expr": "{namespace=\"$namespace\", pod=\"jupyterhub-\\d+.*\"}",
-                  "hide": true,
-                  "interval": "",
-                  "legendFormat": "",
-                  "refId": "A"
-                }
-              ],
-              "timeFrom": null,
-              "timeShift": null,
-              "title": "Hub log entries related to this account",
-              "type": "table"
-            },
-            {
-              "datasource": "$datasource",
-              "fieldConfig": {
-                "defaults": {
-                  "custom": {}
-                },
-                "overrides": []
-              },
-              "gridPos": {
-                "h": 8,
-                "w": 12,
-                "x": 12,
-                "y": 28
-              },
-              "id": 30,
-              "options": {
-                "showLabels": false,
-                "showTime": true,
-                "sortOrder": "Descending",
-                "wrapLogMessage": false
-              },
-              "pluginVersion": "7.1.1",
-              "targets": [
-                {
-                  "expr": "{namespace=\"$namespace\", pod=\"jupyterhub-nb-$account\"}",
-                  "interval": "",
-                  "legendFormat": "",
-                  "refId": "A"
-                }
-              ],
-              "timeFrom": null,
-              "timeShift": null,
-              "title": "Events",
-              "type": "logs"
-            }
-          ],
+          "panels": [],
           "title": "Logs",
           "type": "row"
         },
         {
-          "collapsed": true,
+          "datasource": "$log_datasource",
+          "fieldConfig": {
+            "defaults": {
+              "custom": {
+                "align": null
+              },
+              "mappings": [],
+              "thresholds": {
+                "mode": "absolute",
+                "steps": [
+                  {
+                    "color": "green",
+                    "value": null
+                  },
+                  {
+                    "color": "red",
+                    "value": 80
+                  }
+                ]
+              }
+            },
+            "overrides": []
+          },
+          "gridPos": {
+            "h": 13,
+            "w": 12,
+            "x": 0,
+            "y": 20
+          },
+          "id": 19,
+          "options": {
+            "showLabels": false,
+            "showTime": false,
+            "sortOrder": "Ascending",
+            "wrapLogMessage": false
+          },
+          "pluginVersion": "7.1.1",
+          "targets": [
+            {
+              "expr": "{k8s_namespace_name=\"$namespace\"} | json | kubernetes_pod_name=\"jupyterhub-nb-$account\" | line_format \"{{.message}}\"",
+              "legendFormat": "",
+              "refId": "A"
+            }
+          ],
+          "timeFrom": null,
+          "timeShift": null,
+          "title": "User pod logs",
+          "type": "logs"
+        },
+        {
+          "datasource": "$log_datasource",
+          "fieldConfig": {
+            "defaults": {
+              "custom": {
+                "align": null
+              },
+              "mappings": [],
+              "thresholds": {
+                "mode": "absolute",
+                "steps": [
+                  {
+                    "color": "green",
+                    "value": null
+                  },
+                  {
+                    "color": "red",
+                    "value": 80
+                  }
+                ]
+              }
+            },
+            "overrides": []
+          },
+          "gridPos": {
+            "h": 7,
+            "w": 12,
+            "x": 12,
+            "y": 20
+          },
+          "id": 24,
+          "options": {
+            "showLabels": false,
+            "showTime": false,
+            "sortOrder": "Descending",
+            "wrapLogMessage": false
+          },
+          "pluginVersion": "7.1.1",
+          "targets": [
+            {
+              "expr": "{k8s_namespace_name=\"$namespace\"} | json | kubernetes_pod_name=~\"jupyterhub-\\\\d+-.*\" | message=~\".*user/$account_substring.*\" | line_format \"{{.message}}\"",
+              "legendFormat": "",
+              "refId": "A"
+            }
+          ],
+          "timeFrom": null,
+          "timeShift": null,
+          "title": "Hub log entries related to this account",
+          "type": "logs"
+        },
+        {
+          "datasource": "$log_datasource",
+          "fieldConfig": {
+            "defaults": {
+              "custom": {}
+            },
+            "overrides": []
+          },
+          "gridPos": {
+            "h": 6,
+            "w": 12,
+            "x": 12,
+            "y": 27
+          },
+          "id": 30,
+          "options": {
+            "showLabels": false,
+            "showTime": true,
+            "sortOrder": "Descending",
+            "wrapLogMessage": false
+          },
+          "pluginVersion": "7.1.1",
+          "timeFrom": null,
+          "timeShift": null,
+          "title": "Events [WORK-IN-PROGRESS]",
+          "type": "logs"
+        },
+        {
+          "collapsed": false,
           "datasource": "$datasource",
           "gridPos": {
             "h": 1,
             "w": 24,
             "x": 0,
-            "y": 20
+            "y": 33
           },
           "id": 32,
-          "panels": [
-            {
-              "aliasColors": {},
-              "bars": false,
-              "dashLength": 10,
-              "dashes": false,
-              "datasource": "$datasource",
-              "description": "Stacked CPU usage per each node overlayed with total sum of memory limit and request",
-              "fieldConfig": {
-                "defaults": {
-                  "custom": {
-                    "align": null
-                  },
-                  "mappings": [],
-                  "thresholds": {
-                    "mode": "absolute",
-                    "steps": [
-                      {
-                        "color": "green",
-                        "value": null
-                      },
-                      {
-                        "color": "red",
-                        "value": 80
-                      }
-                    ]
-                  }
-                },
-                "overrides": []
-              },
-              "fill": 0,
-              "fillGradient": 0,
-              "gridPos": {
-                "h": 11,
-                "w": 12,
-                "x": 0,
-                "y": 21
-              },
-              "hiddenSeries": false,
-              "id": 33,
-              "legend": {
-                "alignAsTable": false,
-                "avg": false,
-                "current": false,
-                "max": false,
-                "min": false,
-                "rightSide": false,
-                "show": true,
-                "total": false,
-                "values": false
-              },
-              "lines": true,
-              "linewidth": 1,
-              "links": [],
-              "maxPerRow": 3,
-              "nullPointMode": null,
-              "percentage": false,
-              "pluginVersion": "7.1.1",
-              "pointradius": 2,
-              "points": false,
-              "renderer": "flot",
-              "repeat": null,
-              "repeatDirection": "v",
-              "seriesOverrides": [
-                {
-                  "alias": "/Usage:.*/",
-                  "fill": 1,
-                  "stack": true,
-                  "steppedLine": true
-                }
-              ],
-              "spaceLength": 10,
-              "stack": false,
-              "steppedLine": false,
-              "targets": [
-                {
-                  "expr": "sum(kube_pod_resource_limit{resource=\"cpu\", exported_namespace=\"$namespace\", exported_pod=~\"spark-cluster-$account-.*\"})",
-                  "format": "time_series",
-                  "instant": false,
-                  "interval": "",
-                  "legendFormat": "Total limit",
-                  "refId": "A"
-                },
-                {
-                  "expr": "sum(kube_pod_resource_request{resource=\"cpu\", exported_namespace=\"$namespace\", exported_pod=~\"spark-cluster-$account-.*\"})",
-                  "format": "time_series",
-                  "hide": false,
-                  "interval": "",
-                  "legendFormat": "Total request",
-                  "refId": "B"
-                },
-                {
-                  "expr": "pod:container_cpu_usage:sum{namespace=\"$namespace\",pod=~\"spark-cluster-$account-.*\"} * on(pod) group_right kube_pod_labels{namespace=\"opf-jupyterhub\",pod=~\"spark-cluster-$account-.*\",label_radanalytics_io_podType!=\"\"}",
-                  "format": "time_series",
-                  "hide": false,
-                  "instant": false,
-                  "interval": "",
-                  "intervalFactor": 1,
-                  "legendFormat": "Usage: {{label_radanalytics_io_podType}}",
-                  "refId": "C"
-                }
-              ],
-              "thresholds": [],
-              "timeFrom": null,
-              "timeRegions": [],
-              "timeShift": null,
-              "title": "CPU",
-              "tooltip": {
-                "shared": true,
-                "sort": 0,
-                "value_type": "individual"
-              },
-              "transformations": [],
-              "type": "graph",
-              "xaxis": {
-                "buckets": null,
-                "mode": "time",
-                "name": null,
-                "show": true,
-                "values": []
-              },
-              "yaxes": [
-                {
-                  "decimals": 2,
-                  "format": "short",
-                  "label": null,
-                  "logBase": 1,
-                  "max": null,
-                  "min": "0",
-                  "show": true
-                },
-                {
-                  "format": "short",
-                  "label": null,
-                  "logBase": 1,
-                  "max": null,
-                  "min": null,
-                  "show": false
-                }
-              ],
-              "yaxis": {
-                "align": false,
-                "alignLevel": null
-              }
-            },
-            {
-              "aliasColors": {},
-              "bars": false,
-              "dashLength": 10,
-              "dashes": false,
-              "datasource": "$datasource",
-              "description": "Stacked memory usage per each node overlayed with total sum of memory limit and request",
-              "fieldConfig": {
-                "defaults": {
-                  "custom": {
-                    "align": null
-                  },
-                  "mappings": [],
-                  "thresholds": {
-                    "mode": "absolute",
-                    "steps": [
-                      {
-                        "color": "green",
-                        "value": null
-                      },
-                      {
-                        "color": "red",
-                        "value": 80
-                      }
-                    ]
-                  }
-                },
-                "overrides": []
-              },
-              "fill": 0,
-              "fillGradient": 0,
-              "gridPos": {
-                "h": 11,
-                "w": 12,
-                "x": 12,
-                "y": 21
-              },
-              "hiddenSeries": false,
-              "id": 34,
-              "legend": {
-                "avg": false,
-                "current": false,
-                "max": false,
-                "min": false,
-                "rightSide": false,
-                "show": true,
-                "total": false,
-                "values": false
-              },
-              "lines": true,
-              "linewidth": 1,
-              "links": [],
-              "nullPointMode": null,
-              "percentage": false,
-              "pluginVersion": "7.1.1",
-              "pointradius": 2,
-              "points": false,
-              "renderer": "flot",
-              "seriesOverrides": [
-                {
-                  "alias": "/Usage: .*/",
-                  "fill": 1,
-                  "stack": true,
-                  "steppedLine": true
-                }
-              ],
-              "spaceLength": 10,
-              "stack": false,
-              "steppedLine": false,
-              "targets": [
-                {
-                  "expr": "sum(kube_pod_resource_limit{resource=\"memory\", exported_namespace=\"$namespace\", exported_pod=~\"spark-cluster-$account-.*\"})",
-                  "hide": false,
-                  "interval": "",
-                  "legendFormat": "Total limit",
-                  "refId": "A"
-                },
-                {
-                  "expr": "sum(kube_pod_resource_request{resource=\"memory\", exported_namespace=\"$namespace\", exported_pod=~\"spark-cluster-$account-.*\"})",
-                  "interval": "",
-                  "legendFormat": "Total request",
-                  "refId": "B"
-                },
-                {
-                  "expr": "pod:container_memory_usage_bytes:sum{namespace=\"$namespace\",pod=~\"spark-cluster-$account-.*\"} *\non(pod) group_right kube_pod_labels{namespace=\"opf-jupyterhub\",pod=~\"spark-cluster-$account-.*\",label_radanalytics_io_podType!=\"\"}",
-                  "format": "time_series",
-                  "interval": "",
-                  "legendFormat": "Usage: {{label_radanalytics_io_podType}}",
-                  "refId": "D"
-                }
-              ],
-              "thresholds": [],
-              "timeFrom": null,
-              "timeRegions": [],
-              "timeShift": null,
-              "title": "Memory breakdown",
-              "tooltip": {
-                "shared": true,
-                "sort": 0,
-                "value_type": "individual"
-              },
-              "type": "graph",
-              "xaxis": {
-                "buckets": null,
-                "mode": "time",
-                "name": null,
-                "show": true,
-                "values": []
-              },
-              "yaxes": [
-                {
-                  "decimals": 1,
-                  "format": "bytes",
-                  "label": null,
-                  "logBase": 1,
-                  "max": null,
-                  "min": "0",
-                  "show": true
-                },
-                {
-                  "format": "short",
-                  "label": null,
-                  "logBase": 1,
-                  "max": null,
-                  "min": null,
-                  "show": false
-                }
-              ],
-              "yaxis": {
-                "align": false,
-                "alignLevel": 2
-              }
-            }
-          ],
+          "panels": [],
           "repeat": null,
           "title": "Spark",
           "type": "row"
+        },
+        {
+          "aliasColors": {},
+          "bars": false,
+          "dashLength": 10,
+          "dashes": false,
+          "datasource": "$datasource",
+          "description": "Stacked CPU usage per each node overlayed with total sum of memory limit and request",
+          "fieldConfig": {
+            "defaults": {
+              "custom": {
+                "align": null
+              },
+              "mappings": [],
+              "thresholds": {
+                "mode": "absolute",
+                "steps": [
+                  {
+                    "color": "green",
+                    "value": null
+                  },
+                  {
+                    "color": "red",
+                    "value": 80
+                  }
+                ]
+              }
+            },
+            "overrides": []
+          },
+          "fill": 0,
+          "fillGradient": 0,
+          "gridPos": {
+            "h": 11,
+            "w": 12,
+            "x": 0,
+            "y": 34
+          },
+          "hiddenSeries": false,
+          "id": 33,
+          "legend": {
+            "alignAsTable": false,
+            "avg": false,
+            "current": false,
+            "max": false,
+            "min": false,
+            "rightSide": false,
+            "show": true,
+            "total": false,
+            "values": false
+          },
+          "lines": true,
+          "linewidth": 1,
+          "links": [],
+          "maxPerRow": 3,
+          "nullPointMode": null,
+          "percentage": false,
+          "pluginVersion": "7.1.1",
+          "pointradius": 2,
+          "points": false,
+          "renderer": "flot",
+          "repeat": null,
+          "repeatDirection": "v",
+          "seriesOverrides": [
+            {
+              "alias": "/Usage:.*/",
+              "fill": 1,
+              "stack": true,
+              "steppedLine": true
+            }
+          ],
+          "spaceLength": 10,
+          "stack": false,
+          "steppedLine": false,
+          "targets": [
+            {
+              "expr": "sum(kube_pod_resource_limit{resource=\"cpu\", exported_namespace=\"$namespace\", exported_pod=~\"spark-cluster-$account-.*\"})",
+              "format": "time_series",
+              "instant": false,
+              "interval": "",
+              "legendFormat": "Total limit",
+              "refId": "A"
+            },
+            {
+              "expr": "sum(kube_pod_resource_request{resource=\"cpu\", exported_namespace=\"$namespace\", exported_pod=~\"spark-cluster-$account-.*\"})",
+              "format": "time_series",
+              "hide": false,
+              "interval": "",
+              "legendFormat": "Total request",
+              "refId": "B"
+            },
+            {
+              "expr": "pod:container_cpu_usage:sum{namespace=\"$namespace\",pod=~\"spark-cluster-$account-.*\"} * on(pod) group_right kube_pod_labels{namespace=\"opf-jupyterhub\",pod=~\"spark-cluster-$account-.*\",label_radanalytics_io_podType!=\"\"}",
+              "format": "time_series",
+              "hide": false,
+              "instant": false,
+              "interval": "",
+              "intervalFactor": 1,
+              "legendFormat": "Usage: {{label_radanalytics_io_podType}}",
+              "refId": "C"
+            }
+          ],
+          "thresholds": [],
+          "timeFrom": null,
+          "timeRegions": [],
+          "timeShift": null,
+          "title": "CPU",
+          "tooltip": {
+            "shared": true,
+            "sort": 0,
+            "value_type": "individual"
+          },
+          "transformations": [],
+          "type": "graph",
+          "xaxis": {
+            "buckets": null,
+            "mode": "time",
+            "name": null,
+            "show": true,
+            "values": []
+          },
+          "yaxes": [
+            {
+              "decimals": 2,
+              "format": "short",
+              "label": null,
+              "logBase": 1,
+              "max": null,
+              "min": "0",
+              "show": true
+            },
+            {
+              "format": "short",
+              "label": null,
+              "logBase": 1,
+              "max": null,
+              "min": null,
+              "show": false
+            }
+          ],
+          "yaxis": {
+            "align": false,
+            "alignLevel": null
+          }
+        },
+        {
+          "aliasColors": {},
+          "bars": false,
+          "dashLength": 10,
+          "dashes": false,
+          "datasource": "$datasource",
+          "description": "Stacked memory usage per each node overlayed with total sum of memory limit and request",
+          "fieldConfig": {
+            "defaults": {
+              "custom": {
+                "align": null
+              },
+              "mappings": [],
+              "thresholds": {
+                "mode": "absolute",
+                "steps": [
+                  {
+                    "color": "green",
+                    "value": null
+                  },
+                  {
+                    "color": "red",
+                    "value": 80
+                  }
+                ]
+              }
+            },
+            "overrides": []
+          },
+          "fill": 0,
+          "fillGradient": 0,
+          "gridPos": {
+            "h": 11,
+            "w": 12,
+            "x": 12,
+            "y": 34
+          },
+          "hiddenSeries": false,
+          "id": 34,
+          "legend": {
+            "avg": false,
+            "current": false,
+            "max": false,
+            "min": false,
+            "rightSide": false,
+            "show": true,
+            "total": false,
+            "values": false
+          },
+          "lines": true,
+          "linewidth": 1,
+          "links": [],
+          "nullPointMode": null,
+          "percentage": false,
+          "pluginVersion": "7.1.1",
+          "pointradius": 2,
+          "points": false,
+          "renderer": "flot",
+          "seriesOverrides": [
+            {
+              "alias": "/Usage: .*/",
+              "fill": 1,
+              "stack": true,
+              "steppedLine": true
+            }
+          ],
+          "spaceLength": 10,
+          "stack": false,
+          "steppedLine": false,
+          "targets": [
+            {
+              "expr": "sum(kube_pod_resource_limit{resource=\"memory\", exported_namespace=\"$namespace\", exported_pod=~\"spark-cluster-$account-.*\"})",
+              "hide": false,
+              "interval": "",
+              "legendFormat": "Total limit",
+              "refId": "A"
+            },
+            {
+              "expr": "sum(kube_pod_resource_request{resource=\"memory\", exported_namespace=\"$namespace\", exported_pod=~\"spark-cluster-$account-.*\"})",
+              "interval": "",
+              "legendFormat": "Total request",
+              "refId": "B"
+            },
+            {
+              "expr": "pod:container_memory_usage_bytes:sum{namespace=\"$namespace\",pod=~\"spark-cluster-$account-.*\"} *\non(pod) group_right kube_pod_labels{namespace=\"opf-jupyterhub\",pod=~\"spark-cluster-$account-.*\",label_radanalytics_io_podType!=\"\"}",
+              "format": "time_series",
+              "interval": "",
+              "legendFormat": "Usage: {{label_radanalytics_io_podType}}",
+              "refId": "D"
+            }
+          ],
+          "thresholds": [],
+          "timeFrom": null,
+          "timeRegions": [],
+          "timeShift": null,
+          "title": "Memory breakdown",
+          "tooltip": {
+            "shared": true,
+            "sort": 0,
+            "value_type": "individual"
+          },
+          "type": "graph",
+          "xaxis": {
+            "buckets": null,
+            "mode": "time",
+            "name": null,
+            "show": true,
+            "values": []
+          },
+          "yaxes": [
+            {
+              "decimals": 1,
+              "format": "bytes",
+              "label": null,
+              "logBase": 1,
+              "max": null,
+              "min": "0",
+              "show": true
+            },
+            {
+              "format": "short",
+              "label": null,
+              "logBase": 1,
+              "max": null,
+              "min": null,
+              "show": false
+            }
+          ],
+          "yaxis": {
+            "align": false,
+            "alignLevel": 2
+          }
         }
       ],
       "refresh": false,
@@ -1295,9 +1287,9 @@ spec:
         "list": [
           {
             "current": {
-              "selected": false,
-              "text": "",
-              "value": ""
+              "selected": true,
+              "text": "openshift-monitoring",
+              "value": "openshift-monitoring"
             },
             "hide": 0,
             "includeAll": false,
@@ -1307,6 +1299,24 @@ spec:
             "options": [],
             "query": "prometheus",
             "queryValue": "",
+            "refresh": 1,
+            "regex": "",
+            "skipUrlSync": false,
+            "type": "datasource"
+          },
+          {
+            "current": {
+              "selected": false,
+              "text": "cluster-zero-app-logs",
+              "value": "cluster-zero-app-logs"
+            },
+            "hide": 0,
+            "includeAll": false,
+            "label": "Datasource for logs",
+            "multi": false,
+            "name": "log_datasource",
+            "options": [],
+            "query": "loki",
             "refresh": 1,
             "regex": "",
             "skipUrlSync": false,
@@ -1357,6 +1367,28 @@ spec:
             "regex": "/jupyterhub-nb-(.*)/",
             "skipUrlSync": false,
             "sort": 1,
+            "tagValuesQuery": "",
+            "tags": [],
+            "tagsQuery": "",
+            "type": "query",
+            "useTags": false
+          },
+          {
+            "allValue": null,
+            "current": {},
+            "datasource": "$datasource",
+            "definition": "label_values(kube_pod_container_info{namespace=\"opf-jupyterhub\",pod=\"jupyterhub-nb-$account\"}, pod)",
+            "hide": 2,
+            "includeAll": false,
+            "label": null,
+            "multi": false,
+            "name": "account_substring",
+            "options": [],
+            "query": "label_values(kube_pod_container_info{namespace=\"opf-jupyterhub\",pod=\"jupyterhub-nb-$account\"}, pod)",
+            "refresh": 1,
+            "regex": "/jupyterhub-nb-(.*?)-.*/",
+            "skipUrlSync": false,
+            "sort": 0,
             "tagValuesQuery": "",
             "tags": [],
             "tagsQuery": "",
