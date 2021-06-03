@@ -13,5 +13,6 @@ resources:
   - opf-jupyterhub-stage
   - opf-kafka
   - opf-monitoring
+  - opf-seldon
   - opf-superset
   - osc-playground
