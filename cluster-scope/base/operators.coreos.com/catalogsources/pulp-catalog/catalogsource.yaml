@@ -6,4 +6,4 @@ metadata:
   namespace: openshift-marketplace
 spec:
   sourceType: grpc
-  image: quay.io/tcoufal/olm-catalog
+  image: quay.io/pulp/pulp-index:0.2.0
