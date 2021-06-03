@@ -18,7 +18,7 @@ patchesJson6902:
         path: /spec/applications/2/kustomizeConfig/parameters/-
         value:
           name: storage_class
-          value: moc-nfs-csi
+          value: ocs-storagecluster-cephfs
     target:
       group: kfdef.apps.kubeflow.org
       kind: KfDef
