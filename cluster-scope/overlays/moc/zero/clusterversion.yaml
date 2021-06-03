@@ -3,7 +3,7 @@ kind: ClusterVersion
 metadata:
   name: version
 spec:
-  channel: stable-4.7
+  channel: fast-4.7
   desiredUpdate:
     image: >-
       quay.io/openshift-release-dev/ocp-release@sha256:aee8055875707962203197c4306e69b024bea1a44fa09ea2c2c621e8c5000794
