@@ -1,0 +1,17 @@
+---
+apiVersion: monitoring.coreos.com/v1
+kind: ServiceMonitor
+metadata:
+  labels:
+    team: opendatahub
+  name: odh-operator-servicemonitor
+spec:
+  endpoints:
+    - port: http-metrics    # Open Data Hub operator
+    - port: cr-metrics      # Open Data Hub Operator
+  selector:
+    matchLabels:
+      name: opendatahub-operator
+  namespaceSelector:
+    matchNames:
+      - opendatahub-operator
