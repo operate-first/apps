@@ -1,0 +1,9 @@
+apiVersion: kustomize.config.k8s.io/v1beta1
+kind: Kustomization
+resources:
+    - namespace.yaml
+namespace: redhat-cto-ns
+components:
+    - ../../../../components/project-admin-rolebindings/redhat-cto-team
+    - ../../../../components/resourcequotas/x-small
+    - ../../../../components/limitranges/default
