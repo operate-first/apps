@@ -8,6 +8,9 @@ metadata:
 spec:
   endpoints:
     - port: oauth-proxy     # Prometheus
+      scheme: https
+      tlsConfig:
+        insecureSkipVerify: true
     - port: web             # Alertmanager
     - port: metrics         # Argo
     - port: grafana         # grafana
