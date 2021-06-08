@@ -5,16 +5,17 @@ metadata:
     opendatahub.io/notebook-image: "true"
   annotations:
     opendatahub.io/notebook-image-name:
-      "s2i-spark-minimal-notebook:py36-spark3.0.1-hadoop3.2.0"
+      "s2i-spark-xskipper-minimal-notebook:py36-spark3.0.1-hadoop3.2.0"
     opendatahub.io/notebook-image-desc:
       "Jupyter notebook image based on spark3.0.1 with xskipper examples"
-  name: spark3.0.1-xskipper
+  name: s2i-spark-xskipper-minimal-notebook
 spec:
   lookupPolicy:
     local: true
   tags:
   - annotations:
-      openshift.io/imported-from: quay.io/llasmith/s2i-spark-container
+      openshift.io/imported-from: quay.io/oshritf/s2i-spark-xskipper-minimal-notebook
     from:
       kind: DockerImage
-      name: quay.io/llasmith/s2i-spark-container:py36-spark3.0.1-hadoop3.2.0
+      name: quay.io/oshritf/s2i-spark-xskipper-minimal-notebook:py36-spark3.0.1-hadoop3.2.0
+    name: "py36-spark3.0.1-hadoop3.2.0"
