@@ -1,0 +1,7 @@
+apiVersion: v1
+kind: Namespace
+metadata:
+    name: mwperf-horreum
+    annotations:
+        openshift.io/display-name: Horreum is a performance results repository
+        openshift.io/requester: mwperf
