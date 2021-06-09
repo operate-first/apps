@@ -37,6 +37,7 @@ resources:
   - ../../../base/core/namespaces/m4d-system
   - ../../../base/core/namespaces/mesh-for-data
   - ../../../base/core/namespaces/metallb-system
+  - ../../../base/core/namespaces/mwperf-horreum
   - ../../../base/core/namespaces/observatorium-operator
   - ../../../base/core/namespaces/open-aiops
   - ../../../base/core/namespaces/opendatahub-operator
