@@ -14,6 +14,7 @@ resources:
   - ../../../base/user.openshift.io/groups/ccx
   - ../../../base/user.openshift.io/groups/cnv-testing
   - ../../../base/user.openshift.io/groups/codait-advo
+  - ../../../base/user.openshift.io/groups/curator
   - ../../../base/user.openshift.io/groups/data-science
   - ../../../base/user.openshift.io/groups/fde
   - ../../../base/user.openshift.io/groups/lab-cicd
