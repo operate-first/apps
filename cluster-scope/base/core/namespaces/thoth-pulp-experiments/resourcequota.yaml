@@ -4,8 +4,8 @@ metadata:
   name: thoth-pulp-experiments-custom
 spec:
   hard:
-    requests.cpu: "2"
+    requests.cpu: "8"
     requests.memory: 8Gi
-    limits.cpu: "2"
+    limits.cpu: "8"
     limits.memory: 8Gi
     requests.storage: 60Gi
