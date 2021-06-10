@@ -30,6 +30,7 @@ resources:
 
   - crc-provisioning-vlan.yaml
   - zero-provisioning-vlan.yaml
+  - ocp-prod-provisioning-vlan.yaml
   - clusterversion.yaml
   - kubeletconfigs/increase-worker-system-reserved-memory.yaml
 
