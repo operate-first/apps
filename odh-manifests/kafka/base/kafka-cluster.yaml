@@ -16,10 +16,16 @@ spec:
         port: 9093
         type: internal
         tls: true
+        authentication:
+          type: tls
       - name: external
         port: 9094
         type: route
         tls: true
+        authentication:
+          type: tls
+    authorization:
+      type: simple
     config:
       auto.create.topics.enable: false
       offsets.topic.replication.factor: 3
@@ -53,4 +59,5 @@ spec:
           key: zookeeper-prometheus-metrics
   entityOperator:
     topicOperator: {}
-    userOperator: {}
+    userOperator:
+      secretPrefix: kafka-user-
