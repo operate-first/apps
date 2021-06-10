@@ -12,7 +12,7 @@ spec:
   selector:
     matchLabels:
       control-plane: observatorium-operator
-  replicas: 1
+  replicas: 0
   template:
     metadata:
       labels:
