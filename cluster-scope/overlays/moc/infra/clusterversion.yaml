@@ -6,5 +6,5 @@ spec:
   channel: stable-4.6
   upstream: https://api.openshift.com/api/upgrades_info/v1/graph
   desiredUpdate:
-    image: quay.io/openshift-release-dev/ocp-release@sha256:6ae80e777c206b7314732aff542be105db892bf0e114a6757cb9e34662b8f891
-    version: 4.16.21
+    image: quay.io/openshift-release-dev/ocp-release@sha256:f07ba64a24638e3bf8ff5d71b6f5bd400ed4501ed4aadf5f3a36ecda1ea75ec6
+    version: 4.6.31
