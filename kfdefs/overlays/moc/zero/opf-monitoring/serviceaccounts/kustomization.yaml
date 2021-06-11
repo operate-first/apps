@@ -5,3 +5,4 @@ namespace: opf-monitoring
 
 resources:
   - grafana-datasource.yaml
+  - thoth-station.yaml
