@@ -1,0 +1,28 @@
+---
+apiVersion: kfdef.apps.kubeflow.org/v1
+kind: KfDef
+metadata:
+  annotations:
+    kfctl.kubeflow.io/force-delete: "false"
+  name: opendatahub
+spec:
+  applications:
+    - kustomizeConfig:
+        repoRef:
+          name: manifests
+          path: odh-common
+      name: odh-common
+    - kustomizeConfig:
+        parameters:
+        - name: s3_endpoint_url
+          value: s3.odh.com
+        - name: s3_credentials_secret
+          value: s3-credentials
+        repoRef:
+          name: manifests
+          path: trino
+      name: trino
+  repos:
+    - name: manifests
+      uri: "https://github.com/opendatahub-io/odh-manifests/tarball/v1.0.11"
+  version: v1.0.11
