@@ -12,6 +12,10 @@ p, role:readonly-public, applications, get, workshops/*, allow
 # Give Openshift group (argocd-admins) the argocd admin role with unrestricted argocd access
 g, argocd-admins, role:admin
 
+# Give Openshift group (argocd-readonly) the argocd admin readonly for read access
+# to all resources.
+g, argocd-readonly, role:readonly
+
 # Give read access to argocd resources for standard users
 g, thoth, role:standard-user
 g, operate-first, role:standard-user
