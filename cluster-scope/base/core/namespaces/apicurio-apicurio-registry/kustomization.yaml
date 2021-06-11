@@ -3,7 +3,7 @@ components:
 - ../../../../components/project-admin-rolebindings/apicurio
 - ../../../../components/monitoring-rbac
 - ../../../../components/limitranges/default
-- ../../../../components/resourcequotas/medium
+- ../../../../components/resourcequotas/large
 kind: Kustomization
 namespace: apicurio-apicurio-registry
 resources:
