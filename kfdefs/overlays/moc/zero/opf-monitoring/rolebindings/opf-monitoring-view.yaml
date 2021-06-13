@@ -11,6 +11,9 @@ subjects:
   - kind: ServiceAccount
     name: grafana-datasource
     namespace: opf-monitoring
+  - kind: ServiceAccount
+    name: thoth-station
+    namespace: opf-monitoring
   - kind: Group
     apiGroup: rbac.authorization.k8s.io
     name: thoth-devops
