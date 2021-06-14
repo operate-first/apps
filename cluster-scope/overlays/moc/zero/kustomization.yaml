@@ -12,6 +12,7 @@ resources:
   - ../../../base/apiextensions.k8s.io/customresourcedefinitions/rayclusters.cluster.ray.io
   - ../../../base/config.openshift.io/oauths/cluster
   - ../../../base/core/namespaces/acme-operator
+  - ../../../base/core/namespaces/adoptium-project
   - ../../../base/core/namespaces/apicurio-apicurio-registry
   - ../../../base/core/namespaces/as-pushgateway
   - ../../../base/core/namespaces/b4mad-minecraft
