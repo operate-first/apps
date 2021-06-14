@@ -7,6 +7,7 @@ resources:
   - ../../../base/machineconfiguration.openshift.io/machineconfigs/99-master-ssh
   - ../../../base/machineconfiguration.openshift.io/machineconfigs/99-worker-ssh
   - ../../../base/rbac.authorization.k8s.io/clusterrolebindings/self-provisioners/
+  - ../../../base/rbac.authorization.k8s.io/clusterroles/events-aggregate-to-edit
   - ../../../base/user.openshift.io/groups/ai-services
   - ../../../base/user.openshift.io/groups/apicurio
   - ../../../base/user.openshift.io/groups/argocd-admins
