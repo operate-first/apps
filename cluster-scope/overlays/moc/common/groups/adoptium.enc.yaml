@@ -1,0 +1,39 @@
+apiVersion: user.openshift.io/v1
+kind: Group
+metadata:
+    name: adoptium
+    annotations:
+        kustomize.config.k8s.io/behavior: replace
+users:
+    - ENC[AES256_GCM,data:8VNtvhkj/d+FDiRHqF9L12ZuNw==,iv:W5ahLP6HrCk1Hg31yPoeXsggf0x5uLqA/eI4xr/oSxM=,tag:ukqfMxrdjdURjsVROnLhdQ==,type:str]
+sops:
+    kms: []
+    gcp_kms: []
+    azure_kv: []
+    hc_vault: []
+    age: []
+    lastmodified: "2021-06-17T18:25:11Z"
+    mac: ENC[AES256_GCM,data:3XWjT4paMsxXXvRBeVBisc52WvT/ZlGXBnSG31bVQbOTfDCDdS2qPldBmxCrxdiwBdUQj4oaEKA6m94eM7Usbq37deocuYLZWYHWNLRxVZRs8Jb2L9RPqhV2tyBtzYvg3V7NmxWGgdilBWK0IW10w0nxYt+4LpCcYsjTYUHuviI=,iv:/ByxNSAE4dLqQYpRcj2gUNNuURXudn2qsVfMVTQtkvY=,tag:sjCmlT1L/h5XasGDeqrtTQ==,type:str]
+    pgp:
+        - created_at: "2021-06-17T18:25:10Z"
+          enc: |-
+            -----BEGIN PGP MESSAGE-----
+
+            wcFMA9aKBcudqifiARAAfqVwXVNJzZF004N1ZRLlbM198SQ9Lz9T5h6Ol/P20R/t
+            4Ar0YvuSoploLSu8VKLHxqMLNI4F+yQ0mjbwZQeV6V29DVCthSYS4SwCabYlY3iX
+            D91rayjUkV/1MU9vbIaA3HPZ7NpRj12hkRzYcCL+RDOUq41FqnfVFdGmdSC6Jehv
+            IVf8WwD1PZb9WlfefUXe2MVlAch1wTuH7qxVN2MIgUFeIaikQHlu9IsHXjjctq3O
+            /3JBXTG61RECFk8lWVldkSS2BrzQreiyt7GLQv/aS58htQ9ng3kmISV7gSqJsqbl
+            E8RJtdfCtEEaBYBjPRGrFQyD1AfFk8bedaOeeoBWIF02xEQwtgvhfBE5elaEbtMh
+            r560dHPX9ftQM5SsBAH+7BasoPn5TUZWXnEs4HSFDhMKXoq8v4WdgaRLlYrAsSCK
+            lWOeLBEQ0rZPgmlimtupcWKJFSBvYeZg1txkCEKzhfECK7ZnCBFd2NgNUUPExj7+
+            yJh7JeifDCtLVm8uZ+EVt4UMxt5KowaqD0ZWfvpMJQtNX7e5fg4ko0Xq/B+nZRd+
+            DTCx1Gn4BW7dHeQ6SvQ3OfzeFcjgjCNtAkLDqYRFnhWU6YJWC+6ROFUqwb8QbzEV
+            5JAm6sWDnywqzH4GBt8JdNXKoAuPEolU+Z/v8b6hk8gOWmtsdmlIoi0/LeL64w3S
+            5gHXj4n//8Q6yITJMmpEom+C/8xDMQ9p+Qavp/a4ZsOdaXHiu+Y5KxVtutNSTEzy
+            TUnMXMCl2BekFhZuppFLGufk8axyTlHspRuZ0qXOPg579uImZHgOAA==
+            =CGpL
+            -----END PGP MESSAGE-----
+          fp: 0508677DD04952D06A943D5B4DC4116D360E3276
+    encrypted_regex: ^users$
+    version: 3.7.1
