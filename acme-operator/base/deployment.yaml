@@ -6,7 +6,7 @@ spec:
   selector:
     matchLabels:
       app: openshift-acme
-  replicas: 2
+  replicas: 1
   strategy:
     type: RollingUpdate
   template:
