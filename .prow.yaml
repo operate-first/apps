@@ -7,7 +7,7 @@ presubmits:
     context: aicoe-ci/prow/kustomize-build
     spec:
       containers:
-        - image: quay.io/operate-first/opf-toolbox:v0.3.3
+        - image: quay.io/operate-first/opf-toolbox:latest
           command:
             - "test-kustomize-build"
           resources:
