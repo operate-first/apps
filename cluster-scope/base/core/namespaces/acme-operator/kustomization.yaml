@@ -6,5 +6,5 @@ resources:
 - namespace.yaml
 components:
 - ../../../../components/project-admin-rolebindings/operate-first
-- ../../../../components/resourcequotas/small
+- ../../../../components/resourcequotas/x-small
 - ../../../../components/limitranges/default
