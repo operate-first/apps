@@ -20,7 +20,7 @@ create_namespace() {
 	kind: Namespace
 	metadata:
 	  annotations:
-	    openshift.io/display-name: "$DESCRIPTION"
+	    openshift.io/description: "$DESCRIPTION"
 	    openshift.io/requester: $OWNER
 	  name: $NAMESPACE
 	spec: {}
