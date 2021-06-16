@@ -13,6 +13,7 @@ patchesJson6902:
           kustomizeConfig:
             overlays:
               - topics
+              - users
             repoRef:
               name: opf
               path: odh-manifests/kafka
