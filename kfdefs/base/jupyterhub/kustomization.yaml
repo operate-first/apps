@@ -6,3 +6,4 @@ resources:
   - kfdef.yaml
   - ./notebook-images
   - ./ray-odh-integration
+  - ./xskipper
