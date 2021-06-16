@@ -10,8 +10,16 @@ spec:
       - host: '*'
         operation: All
         resource:
-          # this user has access to all topics with "thoth-" prefix
-          name: thoth-
+          # this user has access to all topics with "zero-prod.thoth." prefix
+          name: zero-prod.thoth.
+          patternType: prefix
+          type: topic
+        type: allow
+      - host: '*'
+        operation: All
+        resource:
+          # this user has access to all topics with "zero-test.thoth." prefix
+          name: zero-test.thoth.
           patternType: prefix
           type: topic
         type: allow
