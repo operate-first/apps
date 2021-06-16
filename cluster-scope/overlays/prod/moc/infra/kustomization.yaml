@@ -10,10 +10,13 @@ resources:
   - ../../../../base/config.openshift.io/oauths/cluster
   - ../../../../base/core/namespaces/acme-operator
   - ../../../../base/core/namespaces/acm
+  - ../../../../base/core/namespaces/keycloak
   - ../../../../base/core/namespaces/opf-alertreceiver
   - ../../../../base/operator.openshift.io/ingresscontrollers/default
   - ../../../../base/operators.coreos.com/operatorgroups/operator-acm-group
+  - ../../../../base/operators.coreos.com/operatorgroups/keycloak
   - ../../../../base/operators.coreos.com/subscriptions/acm-operator-subscription
+  - ../../../../base/operators.coreos.com/subscriptions/rhsso-operator
   - ../../../../base/rbac.authorization.k8s.io/clusterrolebindings/acme-operator
   - ../../../../base/rbac.authorization.k8s.io/clusterrolebindings/argocd-application-controller
   - ../../../../base/rbac.authorization.k8s.io/clusterrolebindings/argocd-manager
