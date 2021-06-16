@@ -10,8 +10,8 @@ spec:
       - host: '*'
         operation: All
         resource:
-          # this user has access to all topics with "audio-decoder-" prefix
-          name: audio-decoder-
+          # this user has access to all topics with "audio-decoder." prefix
+          name: audio-decoder.
           patternType: prefix
           type: topic
         type: allow
