@@ -6,9 +6,11 @@ resources:
 - audio-decoder-decoded-speech.yaml
 - audio-decoder-sentiment-text.yaml
 - thoth-advise-justification.yaml
-- thoth-adviser-re-run.yaml
 - thoth-adviser-trigger.yaml
+- thoth-build-analysis-trigger.yaml
+- thoth-cve-provided.yaml
 - thoth-hash-mismatch.yaml
+- thoth-kebechet-run-url.yaml
 - thoth-kebechet-trigger.yaml
 - thoth-missing-package-version.yaml
 - thoth-missing-package.yaml
