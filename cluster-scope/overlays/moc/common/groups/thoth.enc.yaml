@@ -8,6 +8,7 @@ users:
 - ENC[AES256_GCM,data:UudExMPhizTj7GJAlLiFQEk=,iv:l5DKt6mFOKzqVMqS5CWquMFS+yXPIsrar6IhxsUUcek=,tag:SxojJRdc2bRpbX6xmi+R1g==,type:str]
 - ENC[AES256_GCM,data:y+UvB7FDY3L0OR0BmGTeFHyZrw==,iv:syl/vrTf3+YsHPJv+HR5VnWxJLl7pemMgLGv880u3Bc=,tag:0epOmdQC4q9JiLb5cvFBlw==,type:str]
 - ENC[AES256_GCM,data:KMXV1OWh0e6rgR8oOV3nYSQ/Mg==,iv:GymdcoPCjeDt57+ljSjyLHq2eBxjsDqhzn4ywL3Esgg=,tag:kBMLJGBOXwRewCXQE7ijOg==,type:str]
+- ENC[AES256_GCM,data:czLs3ssPdwXfuf/90x5j087YWg==,iv:XdbnfzU7sqcwAbi7XKGpqKOiqeCQzfriWBMWF6rG8M0=,tag:CqeXgfj1sjDiXMEFI3fb4Q==,type:str]
 - ENC[AES256_GCM,data:kOn0043wv7t0T6H4Q4fctLM=,iv:sNAhmck3gQRWT+rp/9hzNTZ3FPaPV3OVczMAfiFKl+U=,tag:JxUvt0KAv2dd0NbtDEQPXA==,type:str]
 - ENC[AES256_GCM,data:0MAyr2KLl4sF110aaAhxaVfVeg==,iv:LyRzvHShChKUzXOAZNYWgxs7Xu9RHIB7NHEHw0Mkk58=,tag:QGMEB8U7HLHVGqIOgdkVDQ==,type:str]
 - ENC[AES256_GCM,data:rxfbzymWx/aO56Tt0Kh2QJt/mA==,iv:lLbLUgI8Yh73RPQGmTvxKW4fuSFDIdwjdxrM+pgiD4I=,tag:qUNc6q2QnNhUkbd7sDQRTg==,type:str]
@@ -15,8 +16,9 @@ sops:
     kms: []
     gcp_kms: []
     azure_kv: []
-    lastmodified: '2021-04-07T15:06:53Z'
-    mac: ENC[AES256_GCM,data:O97Ldm1JFfiKkhv+vwZ5E9wJxpk4elbcOwe1FY1i1QJgrvk4hFgy7eD2WVixi5rkG8DAn3B7NG3NpMWfA/1ZdGAMNhJuOqv9F/55oFmu0yhFQR49ESd2tgYDOMcLqirorhK96hk27Xxe/t0b9zuQGJV9GXGiJYlH4zeD/OaP4g0=,iv:Fl4TWARrGu0inhrl418KnRrWvL98LqsT7lAEWJB4bbc=,tag:DxnP5yJrZqjOJJxnrmhRWg==,type:str]
+    hc_vault: []
+    lastmodified: '2021-06-17T14:06:50Z'
+    mac: ENC[AES256_GCM,data:PQDprz5YxmN5puITEPYAbKgchl0dfFOLKeCUpnguVquFjNpE7L/38JT1cnP9dL+OyhVr0HXT2MLQRuGWzpsdyUIXWTw5ydAUpnP7ODWDLeTlBo4Y0AOkaEDoIK0gyC8CozCSHYjVAv2dOlVZ/waaGeh70lMRHze9u5pAnN71afM=,iv:XqWt1SV1xUjkjVLkp8QsLHTrvWNdsd6PKQxq2MhttXw=,tag:own6hafN0BaYjbVT3pS4Xg==,type:str]
     pgp:
     -   created_at: '2021-04-07T15:06:53Z'
         enc: |
@@ -39,4 +41,4 @@ sops:
             -----END PGP MESSAGE-----
         fp: 0508677DD04952D06A943D5B4DC4116D360E3276
     encrypted_regex: ^(users|data|stringData)$
-    version: 3.5.0
+    version: 3.6.1
