@@ -40,7 +40,7 @@ spec:
       name: radanalyticsio-spark-cluster
   repos:
     - name: manifests
-      uri: "https://github.com/opendatahub-io/odh-manifests/tarball/v1.0.11"
+      uri: "https://github.com/opendatahub-io/odh-manifests/tarball/v1.1.0"
     - name: opf-manifests
       uri: "https://github.com/operate-first/apps/tarball/master"
-  version: v1.0.11
+  version: v1.1.0
