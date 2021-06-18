@@ -33,6 +33,7 @@ resources:
   - ocp-prod-provisioning-vlan.yaml
   - clusterversion.yaml
   - kubeletconfigs/increase-worker-system-reserved-memory.yaml
+  - metal3.io/provisionings/provisioning-configuration.yaml
 
 generators:
   - secret-generator.yaml
