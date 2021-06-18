@@ -12,19 +12,22 @@ You will need pre-requisite tools to follow along with this doc, please do one o
 
 - Install our [toolbox](https://github.com/operate-first/toolbox) to have the developer setup ready automatically for you.
 - Install the tools manually. You'll need [kustomize](https://kustomize.io/), [sops](https://github.com/mozilla/sops) and [ksops](https://github.com/viaduct-ai/kustomize-sops).
-- Ensure that each namespace the services belong to are listed [here](https://github.com/operate-first/apps/tree/master/cluster-scope/base/namespaces). If not then please file an issue [here](https://github.com/operate-first/support/issues/new?assignees=&labels=onboarding&template=onboarding_to_cluster.md&title=).
+
+Also ensure that each namespace the services belong to are listed [here](https://github.com/operate-first/apps/tree/master/cluster-scope/base/namespaces). If not then please file an issue [here](https://github.com/operate-first/support/issues/new?assignees=&labels=onboarding&template=onboarding_to_cluster.md&title=).
+
+You will also need the `opfcli`. install the latest version from [here](https://github.com/operate-first/opfcli/releases).
 
 Please fork/clone the [operate-first/apps](https://github.com/operate-first/apps) repository. **During this whole setup, we'll be working within this repository.**
 
 ### Steps:
 
-1. Run the following script to enable rbac for a namespace:
+1. Run the following command to enable rbac for a namespace:
 
   ```
-  bash scripts/enable-monitoring.sh NAMESPACE
+  opfcli enable-monitoring $NAMESPACE
   ```
 
-  This script will add a line that contains the 'monitoring-rbac' component to the components field in the kustomization.yaml of the given namespace.
+  This command will add a line that contains the 'monitoring-rbac' component to the components field in the kustomization.yaml of the given namespace.
 
 2. Add the service monitor filling out the details below accordingly:
 
