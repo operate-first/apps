@@ -14,6 +14,11 @@ data:
         key_field: message_key
         topics:
         - zero-prod.cluster-logs.application
+        tls:
+          enabled: true
+          ca_file: "/mnt/ca-bundle.crt"
+          crt_file: "/mnt/tls.crt"
+          key_file: "/mnt/tls.key"
 
     transforms:
       loki_parser:
