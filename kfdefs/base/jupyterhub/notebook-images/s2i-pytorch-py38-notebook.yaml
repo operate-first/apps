@@ -4,6 +4,7 @@ metadata:
   name: s2i-pytorch-py38-notebook
   labels:
     opendatahub.io/notebook-image: "true"
+  annotations:
     opendatahub.io/notebook-image-name: "Minimal Python with PyTorch"
 spec:
   lookupPolicy:
