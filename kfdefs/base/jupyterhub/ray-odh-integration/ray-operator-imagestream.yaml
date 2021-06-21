@@ -10,4 +10,4 @@ spec:
       from:
         kind: DockerImage
         # can rebuild with newer nightly SHAs periodically
-        name: 'quay.io/erikerlandson/ray-operator-ubi:py-3.6-ray-ea6bdfb9'
+        name: 'quay.io/erikerlandson/ray-operator-ubi:py-3.8-ray-1.4.0'
