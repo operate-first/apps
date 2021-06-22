@@ -9,3 +9,4 @@ spec:
     requests.cpu: '8'
     requests.memory: 12Gi
     requests.storage: 40Gi
+    count/objectbucketclaims.objectbucket.io: 1

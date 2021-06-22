@@ -10,3 +10,4 @@ spec:
     requests.memory: 80Gi
     requests.storage: 30Gi
     count/taskruns.tekton.dev: 3k
+    count/objectbucketclaims.objectbucket.io: 1
