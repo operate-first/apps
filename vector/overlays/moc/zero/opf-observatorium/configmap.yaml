@@ -9,7 +9,7 @@ data:
     sources:
       opf_kafka_source:
         type: kafka
-        bootstrap_servers: odh-message-bus-kafka-bootstrap.opf-kafka.svc:9092
+        bootstrap_servers: odh-message-bus-kafka-bootstrap-opf-kafka.apps.zero.massopen.cloud:443
         group_id: cluster-logs-consumer
         key_field: message_key
         topics:
