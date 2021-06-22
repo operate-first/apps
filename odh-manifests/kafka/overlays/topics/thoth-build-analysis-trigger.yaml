@@ -1,7 +1,7 @@
 apiVersion: kafka.strimzi.io/v1beta2
 kind: KafkaTopic
 metadata:
-  name: zero-prod.thoth.investigator.adviser-re-run
+  name: zero-prod.thoth.build-analysis-trigger
   labels:
     strimzi.io/cluster: odh-message-bus
 spec:
