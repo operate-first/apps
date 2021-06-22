@@ -8,7 +8,9 @@ spec:
   outputs:
     - name: app-logs
       type: kafka
-      url: tcp://odh-message-bus-kafka-bootstrap.opf-kafka.svc:9092/zero-prod.cluster-logs.application
+      url: tls://odh-message-bus-kafka-bootstrap-opf-kafka.apps.zero.massopen.cloud:443/zero-prod.cluster-logs.application
+      secret:
+        name: clo-kafka
   pipelines:
     - name: forward-app-logs
       inputRefs:

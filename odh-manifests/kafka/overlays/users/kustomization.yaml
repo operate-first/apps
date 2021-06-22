@@ -4,4 +4,5 @@ commonLabels:
   strimzi.io/cluster: odh-message-bus
 resources:
 - audio-decoder.yaml
+- cluster-logging.yaml
 - thoth.yaml

@@ -10,4 +10,4 @@ resources:
   - clusterlogforwarders
 
 generators:
-  - routes/secret-generator.yaml
+  - ./secret-generator.yaml

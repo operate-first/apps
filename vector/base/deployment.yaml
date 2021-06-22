@@ -25,7 +25,14 @@ spec:
             - name: config-volume
               mountPath: /home/config
               readOnly: true
+            - name: clo-kafka
+              readOnly: true
+              mountPath: /mnt
       volumes:
         - name: config-volume
           configMap:
             name: vector-config
+        - name: clo-kafka
+          secret:
+            secretName: clo-kafka
+            defaultMode: 420
