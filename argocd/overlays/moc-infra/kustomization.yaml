@@ -6,6 +6,7 @@ resources:
 - applications
 - projects
 - secrets/auth/dex-server-sa.yaml
+- routes/argocd-google.yaml
 configMapGenerator:
 - name: argocd-cm
   behavior: replace
@@ -26,7 +27,6 @@ generatorOptions:
 generators:
 - secrets/gpg/secret-generator.yaml
 - secrets/clusters/secret-generator.yaml
-- routes/secret-generator.yaml
 patchesStrategicMerge:
 - serviceaccounts/argocd-dex-server.yaml
 - secrets/auth/argocd-secret.yaml

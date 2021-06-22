@@ -1,0 +1,12 @@
+kind: Route
+apiVersion: route.openshift.io/v1
+metadata:
+    name: argocd-google
+    annotations:
+        kubernetes.io/tls-acme: "true"
+spec:
+    host: argocd.operate-first.cloud
+    to:
+        kind: Service
+        name: argocd-server
+        weight: 100
