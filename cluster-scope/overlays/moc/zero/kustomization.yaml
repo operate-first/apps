@@ -16,6 +16,7 @@ resources:
   - ../../../base/core/namespaces/apicurio-apicurio-registry
   - ../../../base/core/namespaces/as-pushgateway
   - ../../../base/core/namespaces/b4mad-minecraft
+  - ../../../base/core/namespaces/chi-rhug
   - ../../../base/core/namespaces/cnv-testing
   - ../../../base/core/namespaces/codait-advo
   - ../../../base/core/namespaces/democratic-csi
