@@ -37,7 +37,6 @@ resources:
   - ../../../base/user.openshift.io/groups/team-pixel
   - ../../../base/user.openshift.io/groups/thoth
   - ../../../base/user.openshift.io/groups/thoth-devops
-  - ../../../base/user.openshift.io/groups/tufts-dcc-6
   - ../../../base/user.openshift.io/groups/uky-redhat
   - ../../../base/user.openshift.io/groups/workshops
   - alertmanager-main-secret.yaml
