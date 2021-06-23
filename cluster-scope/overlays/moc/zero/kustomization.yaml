@@ -23,6 +23,7 @@ resources:
   - ../../../base/core/namespaces/ds-black-flake
   - ../../../base/core/namespaces/ds-example-project
   - ../../../base/core/namespaces/ds-ml-workflows-ws
+  - ../../../base/core/namespaces/esi-operate-first-project
   - ../../../base/core/namespaces/fde-audio-decoder-demo
   - ../../../base/core/namespaces/koku-metrics-operator
   - ../../../base/core/namespaces/kubeflow
