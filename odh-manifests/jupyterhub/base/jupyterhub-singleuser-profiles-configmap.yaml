@@ -12,7 +12,7 @@ data:
         resources:
           requests:
             memory: 1Gi
-            cpu: 500m
+            cpu: 80m
           limits:
             memory: 2Gi
             cpu: 1
@@ -56,35 +56,27 @@ data:
               SPARK_CLUSTER: 'metadata.name'
 
       sizes:
-      - name: Small
-        resources:
-          requests:
-            memory: 1Gi
-            cpu: 1
-          limits:
-            memory: 2Gi
-            cpu: 2
       - name: Medium
         resources:
           requests:
             memory: 2Gi
-            cpu: 2
+            cpu: 100m
           limits:
             memory: 4Gi
-            cpu: 4
-      - name: Large
+            cpu: 2
+      - name: Large - CPU intensive
         resources:
           requests:
             memory: 4Gi
-            cpu: 4
+            cpu: 1
           limits:
             memory: 8Gi
-            cpu: 8
+            cpu: 4
       - name: Large - Memory intensive
         resources:
           requests:
             memory: 16Gi
-            cpu: 4
+            cpu: 100m
           limits:
             memory: 32Gi
-            cpu: 8
+            cpu: 4
