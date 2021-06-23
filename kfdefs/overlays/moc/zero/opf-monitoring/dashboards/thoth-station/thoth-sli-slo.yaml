@@ -3,6 +3,7 @@ kind: GrafanaDashboard
 metadata:
   name: thoth-sli-slo
   labels:
+    version: v2
     app: grafana
     component: thoth-station
 spec:
