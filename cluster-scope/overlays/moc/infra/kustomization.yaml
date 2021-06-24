@@ -14,10 +14,12 @@ resources:
   - ../../../base/operator.openshift.io/ingresscontrollers/default
   - ../../../base/operators.coreos.com/operatorgroups/operator-acm-group
   - ../../../base/operators.coreos.com/subscriptions/acm-operator-subscription
+  - ../../../base/rbac.authorization.k8s.io/clusterrolebindings/acme-operator
   - ../../../base/rbac.authorization.k8s.io/clusterrolebindings/argocd-application-controller
   - ../../../base/rbac.authorization.k8s.io/clusterrolebindings/argocd-manager
   - ../../../base/rbac.authorization.k8s.io/clusterrolebindings/argocd-server
   - ../../../base/rbac.authorization.k8s.io/clusterrolebindings/cluster-admins-rb
+  - ../../../base/rbac.authorization.k8s.io/clusterroles/acme-operator
   - ../../../base/rbac.authorization.k8s.io/clusterroles/argocd-application-controller
   - ../../../base/rbac.authorization.k8s.io/clusterroles/argocd-events-create-aggregate-to-admin
   - ../../../base/rbac.authorization.k8s.io/clusterroles/argocd-proj-apps-aggregate-to-admin
