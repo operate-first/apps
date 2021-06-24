@@ -4,7 +4,6 @@ namespace: argocd
 resources:
 - ../../base
 - applications
-- projects
 - secrets/auth/dex-server-sa.yaml
 configMapGenerator:
 - name: argocd-cm
