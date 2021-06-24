@@ -8,6 +8,7 @@ resources:
   - ../../../base/apiextensions.k8s.io/customresourcedefinitions/applications.argoproj.io
   - ../../../base/apiextensions.k8s.io/customresourcedefinitions/appprojects.argoproj.io
   - ../../../base/config.openshift.io/oauths/cluster
+  - ../../../base/core/namespaces/acme-operator
   - ../../../base/core/namespaces/acm
   - ../../../base/core/namespaces/opf-alertreceiver
   - ../../../base/operator.openshift.io/ingresscontrollers/default
