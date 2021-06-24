@@ -13,6 +13,8 @@ spec:
       server: 'https://api.moc-infra.massopen.cloud:6443'
     - namespace: 'argocd'
       server: 'https://api.moc-infra.massopen.cloud:6443'
+    - namespace: 'acme-operator'
+      server: 'https://api.moc-infra.massopen.cloud:6443'
     - namespace: 'opf-*'
       server: 'https://api.zero.massopen.cloud:6443'
     - namespace: 'tekton-pipelines'
