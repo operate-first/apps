@@ -5,9 +5,9 @@ metadata:
 spec:
   hard:
     count/pods: '625'
-    count/workflows.argoproj.io: 1k
+    count/workflows.argoproj.io: 1.5k
     limits.cpu: '16'
-    limits.memory: 32Gi
+    limits.memory: 48Gi
     requests.cpu: '16'
     requests.memory: 32Gi
     requests.storage: 64Gi
