@@ -5,6 +5,4 @@ namespace: opf-dashboard
 
 resources:
   - ../../../../base/dashboard
-
-generators:
-  - secret-generator.yaml
+  - route.yaml

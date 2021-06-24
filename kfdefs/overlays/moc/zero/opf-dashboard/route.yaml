@@ -1,0 +1,12 @@
+kind: Route
+apiVersion: route.openshift.io/v1
+metadata:
+    name: odh-dashboard-google
+    annotations:
+        kubernetes.io/tls-acme: "true"
+spec:
+    host: odh.operate-first.cloud
+    to:
+        kind: Service
+        name: odh-dashboard
+        weight: 100
