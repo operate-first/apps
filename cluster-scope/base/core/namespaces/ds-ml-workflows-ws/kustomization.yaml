@@ -3,7 +3,7 @@ components:
 - ../../../../components/project-admin-rolebindings/operate-first
 - ../../../../components/project-admin-rolebindings/data-science
 - ../../../../components/limitranges/default
-- ../../../../components/resourcequotas/medium
+- ../../../../components/resourcequotas/large
 kind: Kustomization
 namespace: ds-ml-workflows-ws
 resources:
