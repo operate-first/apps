@@ -6,7 +6,7 @@ metadata:
 spec:
   kafka:
     version: 2.7.0
-    replicas: 3
+    replicas: 5
     listeners:
       - name: plain
         port: 9092
@@ -45,7 +45,7 @@ spec:
           name: kafka-metrics-config
           key: kafka-prometheus-metrics
   zookeeper:
-    replicas: 3
+    replicas: 5
     storage:
       type: persistent-claim
       size: 2Gi
