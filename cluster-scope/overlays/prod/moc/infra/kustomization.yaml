@@ -1,0 +1,46 @@
+---
+apiVersion: kustomize.config.k8s.io/v1beta1
+kind: Kustomization
+
+resources:
+  - ../common
+
+  - ../../../../base/apiextensions.k8s.io/customresourcedefinitions/applications.argoproj.io
+  - ../../../../base/apiextensions.k8s.io/customresourcedefinitions/appprojects.argoproj.io
+  - ../../../../base/config.openshift.io/oauths/cluster
+  - ../../../../base/core/namespaces/acme-operator
+  - ../../../../base/core/namespaces/acm
+  - ../../../../base/core/namespaces/opf-alertreceiver
+  - ../../../../base/operator.openshift.io/ingresscontrollers/default
+  - ../../../../base/operators.coreos.com/operatorgroups/operator-acm-group
+  - ../../../../base/operators.coreos.com/subscriptions/acm-operator-subscription
+  - ../../../../base/rbac.authorization.k8s.io/clusterrolebindings/acme-operator
+  - ../../../../base/rbac.authorization.k8s.io/clusterrolebindings/argocd-application-controller
+  - ../../../../base/rbac.authorization.k8s.io/clusterrolebindings/argocd-manager
+  - ../../../../base/rbac.authorization.k8s.io/clusterrolebindings/argocd-server
+  - ../../../../base/rbac.authorization.k8s.io/clusterrolebindings/cluster-admins-rb
+  - ../../../../base/rbac.authorization.k8s.io/clusterroles/acme-operator
+  - ../../../../base/rbac.authorization.k8s.io/clusterroles/argocd-application-controller
+  - ../../../../base/rbac.authorization.k8s.io/clusterroles/argocd-events-create-aggregate-to-admin
+  - ../../../../base/rbac.authorization.k8s.io/clusterroles/argocd-proj-apps-aggregate-to-admin
+  - ../../../../base/rbac.authorization.k8s.io/clusterroles/argocd-server
+  - ../../../../base/user.openshift.io/groups/cluster-admins
+
+  # install cnv for nmstate support in 4.6
+  - ../../../../base/core/namespaces/openshift-cnv
+  - ../../../../base/operators.coreos.com/operatorgroups/openshift-cnv-rn5jf
+  - ../../../../base/operators.coreos.com/subscriptions/kubevirt-hyperconverged
+
+  - crc-provisioning-vlan.yaml
+  - zero-provisioning-vlan.yaml
+  - ocp-prod-provisioning-vlan.yaml
+  - clusterversion.yaml
+  - kubeletconfigs/increase-worker-system-reserved-memory.yaml
+  - metal3.io/provisionings/provisioning-configuration.yaml
+
+generators:
+  - secret-generator.yaml
+
+patchesStrategicMerge:
+  - oauths/cluster_patch.yaml
+  - subscriptions/kubevirt-hyperconverged_patch.yaml
