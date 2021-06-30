@@ -74,6 +74,7 @@ resources:
   - ../../../../base/core/namespaces/osc-playground
   - ../../../../base/core/namespaces/pixel-demos
   - ../../../../base/core/namespaces/pixel-vault
+  - ../../../../base/core/namespaces/prometheus-anomaly-detector
   - ../../../../base/core/namespaces/pulp-operator
   - ../../../../base/core/namespaces/quarkus-extension-registry
   - ../../../../base/core/namespaces/ray-odh-integration
