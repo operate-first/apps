@@ -245,7 +245,7 @@ spec:
           "repeatDirection": "h",
           "targets": [
             {
-              "expr": "scalar(pod:container_cpu_usage:sum{namespace=\"$namespace\",pod=\"jupyterhub-nb-$account\"}) / scalar(kube_pod_resource_request{resource=\"cpu\", exported_namespace=\"$namespace\", exported_pod=\"jupyterhub-nb-$account\"})",
+              "expr": "scalar(pod:container_cpu_usage:sum{namespace=\"$namespace\",pod=\"jupyterhub-nb-$account\"}) / scalar(kube_pod_resource_limit{resource=\"cpu\", exported_namespace=\"$namespace\", exported_pod=\"jupyterhub-nb-$account\"})",
               "format": "time_series",
               "hide": false,
               "instant": false,
