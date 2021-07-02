@@ -1,0 +1,24 @@
+---
+apiVersion: kustomize.config.k8s.io/v1beta1
+kind: Kustomization
+namespace: opf-trino
+
+resources:
+  - ../../../../base/trino
+
+generators:
+  - secrets/secret-generator.yaml
+
+patchesJson6902:
+  - patch: |
+      - op: replace
+        path: /spec/applications/1/kustomizeConfig/parameters/0/value
+        value: s3.openshift-storage.svc:443
+      - op: replace
+        path: /spec/applications/1/kustomizeConfig/parameters/1/value
+        value: opf-datacatalog-bucket
+    target:
+      group: kfdef.apps.kubeflow.org
+      kind: KfDef
+      name: opendatahub
+      version: v1
