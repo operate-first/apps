@@ -15,4 +15,5 @@ resources:
   - opf-monitoring
   - opf-seldon
   - opf-superset
+  - opf-trino
   - osc-playground
