@@ -1,0 +1,12 @@
+apiVersion: v1
+kind: ResourceQuota
+metadata:
+  name: opf-trino-custom
+spec:
+  hard:
+    limits.cpu: '6'
+    limits.memory: 20Gi
+    requests.cpu: '2'
+    requests.memory: 20Gi
+    requests.storage: 20Gi
+    count/objectbucketclaims.objectbucket.io: 1

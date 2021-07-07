@@ -5,8 +5,8 @@ components:
 - ../../../../components/monitoring-rbac
 - ../../../../components/odh-dashboard
 - ../../../../components/limitranges/default
-- ../../../../components/resourcequotas/x-small
 kind: Kustomization
 namespace: opf-superset
 resources:
 - namespace.yaml
+- resourcequota.yaml
