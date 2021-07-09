@@ -8,6 +8,7 @@ resources:
     - ../../../base/user.openshift.io/groups/ai-services
     - ../../../base/user.openshift.io/groups/apicurio
     - ../../../base/user.openshift.io/groups/argocd-admins
+    - ../../../base/user.openshift.io/groups/argocd-readonly
     - ../../../base/user.openshift.io/groups/b4mad
     - ../../../base/user.openshift.io/groups/ccx
     - ../../../base/user.openshift.io/groups/chi-rhug
