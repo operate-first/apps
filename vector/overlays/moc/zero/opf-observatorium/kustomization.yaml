@@ -6,6 +6,7 @@ namespace: opf-observatorium
 resources:
   - ../../../../base
   - configmap.yaml
+  - service.yaml
 
 generators:
   - ./secret-generator.yaml

@@ -6,10 +6,15 @@ metadata:
 data:
   vector-config.yaml: |
     ---
+    api:
+      enabled: true
+      address: 0.0.0.0:8686
+      playground: false
+
     sources:
       opf_kafka_source:
         type: kafka
-        bootstrap_servers: odh-message-bus-kafka-bootstrap-opf-kafka.apps.zero.massopen.cloud:443
+        bootstrap_servers: odh-message-bus-kafka-bootstrap.opf-kafka.svc:9093
         group_id: cluster-logs-consumer
         key_field: message_key
         topics:
@@ -19,6 +24,10 @@ data:
           ca_file: "/mnt/ca-bundle.crt"
           crt_file: "/mnt/tls.crt"
           key_file: "/mnt/tls.key"
+
+      vector_metrics_source:
+        type: internal_metrics
+        scrape_interval_secs: 60
 
     transforms:
       loki_parser:
@@ -37,6 +46,7 @@ data:
         inputs:
         - loki_parser
         endpoint: http://opf-observatorium-loki-distributor-http.opf-observatorium.svc:3100
+        out_of_order_action: rewrite_timestamp
         tenant_id: cluster-app-logs
         encoding:
           codec: json
@@ -46,3 +56,10 @@ data:
           openshift_cluster: moc/zero
           cluster_log_level: app-logs
           k8s_namespace_name: "{{ kubernetes.namespace_name }}"
+
+      vector_metrics_prom_exporter:
+        type: prometheus_exporter
+        inputs:
+        - vector_metrics_source
+        address: 0.0.0.0:9598
+        default_namespace: service
