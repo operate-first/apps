@@ -4,9 +4,9 @@ metadata:
   name: opf-trino-custom
 spec:
   hard:
-    limits.cpu: '6'
-    limits.memory: 20Gi
-    requests.cpu: '2'
-    requests.memory: 20Gi
+    limits.cpu: '8'
+    limits.memory: 30Gi
+    requests.cpu: '4'
+    requests.memory: 24Gi
     requests.storage: 20Gi
     count/objectbucketclaims.objectbucket.io: 1
