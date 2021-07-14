@@ -5,25 +5,35 @@ metadata:
     annotations:
         kustomize.config.k8s.io/behavior: replace
 users:
-- ENC[AES256_GCM,data:jFP/7OqNV9kxdfbJZh5hAsf0Vw==,iv:iur4nw0AKS+mDho/sS1O7uf8RN0jVdjXaEebG3dxbFs=,tag:xImpPVYFMQAX3SX0iTVggg==,type:str]
-- ENC[AES256_GCM,data:20ZSzh0u3K/mFZGlJsePHw==,iv:lGmTAfC4H7tghQPx6VrzouzzIDeaEQgDPJ2Rim77vDE=,tag:aIxi2kdp5Xu2Li+DcHxcXA==,type:str]
-- ENC[AES256_GCM,data:VKXH/iR/AMxz4lj/57Lc9N4=,iv:5W3Ch63dAzpSlNBzpIvMmlpKMKP15jbH6P+Bp3AiFzg=,tag:Xo3FZT4sL8pn9JHdt5ej8Q==,type:str]
-- ENC[AES256_GCM,data:VtedBp1rXZ2rQG61bgsXIezdVQ==,iv:QdBd4vUtcBRIK5P9RhVhtlSJUgrT/+NTqfXP2UqDF9A=,tag:Xc6UfxERIocCkk9j2FXjFA==,type:str]
-- ENC[AES256_GCM,data:TOE6B8u0JtlaA+Q=,iv:CP1f5xp28+k2AbwdYPtLLCTYQPHoS+GU5SxxdhenSYk=,tag:DPNyEKBEYGnskXywBSgK/w==,type:str]
-- ENC[AES256_GCM,data:G9eWuVxNv6qBW6O64B8H1A==,iv:BwImOt73k2SwRTN57fZPahgS8koRqyILtw0LrX43paY=,tag:lmdF/bgagMplV+k7YAxGOg==,type:str]
-- ENC[AES256_GCM,data:C1FzjjUBcQ4hltBwawAs,iv:Rrk3zMQRRSYr5tcTmzEzI/Sj3rOMMLncIPYF8EvQkEM=,tag:J89DGocC3IU6gexr2/E2bg==,type:str]
-- ENC[AES256_GCM,data:dNMEhoVzwpYfifruAk1c,iv:SDzAVj4Z/1xurYk2L6T46X+unYDjsVPR4RKy7GXqWt0=,tag:Hm/eQrGaj58EzmlBUcZ0vA==,type:str]
-- ENC[AES256_GCM,data:KGGg9ispMfT1v7xJaFuGM391,iv:A1GHS8oPVFxhYN2E1C5Mt6ibah5mpTFVL1eL3rLHrXc=,tag:lmCWY8pVNQoMDfdqk+8GBA==,type:str]
+    - ENC[AES256_GCM,data:j+xSeDs=,iv:QWZXv7YySP+p/H6ObxCYXkq2/dq4kIFiQ+RmM/v0UcA=,tag:JSZdgDyRXj2sv/bG7wTewQ==,type:str]
+    - ENC[AES256_GCM,data:jFP/7OqNV9kxdfbJZh5hAsf0Vw==,iv:iur4nw0AKS+mDho/sS1O7uf8RN0jVdjXaEebG3dxbFs=,tag:xImpPVYFMQAX3SX0iTVggg==,type:str]
+    - ENC[AES256_GCM,data:YIIlQcUW,iv:Sw5vbwl/VzwFnIwzYMVc7+fyWSC/Y1le9pHHkykQxWE=,tag:M20WqBxfeK/cEheyPLXLfw==,type:str]
+    - ENC[AES256_GCM,data:20ZSzh0u3K/mFZGlJsePHw==,iv:lGmTAfC4H7tghQPx6VrzouzzIDeaEQgDPJ2Rim77vDE=,tag:aIxi2kdp5Xu2Li+DcHxcXA==,type:str]
+    - ENC[AES256_GCM,data:UMZ/Gtg0ozI=,iv:JMrgZQSRAMngOMclEsIL5NDk4LGTjaP114jPokyAoeI=,tag:A6epaWbsoiWx2eM3UZ+6Vw==,type:str]
+    - ENC[AES256_GCM,data:VKXH/iR/AMxz4lj/57Lc9N4=,iv:5W3Ch63dAzpSlNBzpIvMmlpKMKP15jbH6P+Bp3AiFzg=,tag:Xo3FZT4sL8pn9JHdt5ej8Q==,type:str]
+    - ENC[AES256_GCM,data:5iyxqYv6Vnv7PPN6FA==,iv:T/aztbCuHWm2dq9C73QeV7K7ZHvLxO0IjFL4+eOGxZI=,tag:5OWFX0YsUUvK67HiW5GD+g==,type:str]
+    - ENC[AES256_GCM,data:VtedBp1rXZ2rQG61bgsXIezdVQ==,iv:QdBd4vUtcBRIK5P9RhVhtlSJUgrT/+NTqfXP2UqDF9A=,tag:Xc6UfxERIocCkk9j2FXjFA==,type:str]
+    - ENC[AES256_GCM,data:ZzKrXNch,iv:XtqonpANKWWW2szX8hAAHZsp/ukr4dN9YhQAv5UrmQE=,tag:ELPFfvELK97D7ca7Htrv7Q==,type:str]
+    - ENC[AES256_GCM,data:TOE6B8u0JtlaA+Q=,iv:CP1f5xp28+k2AbwdYPtLLCTYQPHoS+GU5SxxdhenSYk=,tag:DPNyEKBEYGnskXywBSgK/w==,type:str]
+    - ENC[AES256_GCM,data:BJlYkgg+BEM=,iv:O0U/yFIcDP4aXBlctrNCVUP13RWXybaI7sMvTqgRXN4=,tag:OogVsPGIU0IWQnIpxZwmJg==,type:str]
+    - ENC[AES256_GCM,data:G9eWuVxNv6qBW6O64B8H1A==,iv:BwImOt73k2SwRTN57fZPahgS8koRqyILtw0LrX43paY=,tag:lmdF/bgagMplV+k7YAxGOg==,type:str]
+    - ENC[AES256_GCM,data:gOU7pgsD9og=,iv:wZxJf1S4Ec1KuGTyV96icg6FKjdisEDopYHK9x8lDhY=,tag:SZq+vix73JF4D8ic/YweDA==,type:str]
+    - ENC[AES256_GCM,data:C1FzjjUBcQ4hltBwawAs,iv:Rrk3zMQRRSYr5tcTmzEzI/Sj3rOMMLncIPYF8EvQkEM=,tag:J89DGocC3IU6gexr2/E2bg==,type:str]
+    - ENC[AES256_GCM,data:aRaM3i0jujUD,iv:S7kPgQX6Giv/YPmRvusfPvHdPbGdICbl1LhVvVYnzlE=,tag:Afm1NipEEIPgFd79P9ZHXQ==,type:str]
+    - ENC[AES256_GCM,data:dNMEhoVzwpYfifruAk1c,iv:SDzAVj4Z/1xurYk2L6T46X+unYDjsVPR4RKy7GXqWt0=,tag:Hm/eQrGaj58EzmlBUcZ0vA==,type:str]
+    - ENC[AES256_GCM,data:LzXSJArs,iv:0aCN+BH7k4n+oWLtj8v9exZldTe9fgJViLfdRyWfwzM=,tag:KZDeFjG8P5Eka11GN0Y4xw==,type:str]
+    - ENC[AES256_GCM,data:KGGg9ispMfT1v7xJaFuGM391,iv:A1GHS8oPVFxhYN2E1C5Mt6ibah5mpTFVL1eL3rLHrXc=,tag:lmCWY8pVNQoMDfdqk+8GBA==,type:str]
 sops:
     kms: []
     gcp_kms: []
     azure_kv: []
     hc_vault: []
-    lastmodified: '2021-06-17T13:47:02Z'
-    mac: ENC[AES256_GCM,data:7tLVCFxDJ2T4Wk0k/H6OZdClEvn8yIjBuDDR0O4uw1sRI1+SxQNIzX1bZ4U2XbKEImyN98ypoeiG9Oih5I+NrokY3ZvDvTakFhBlb9Qu0e7O/JEJp7yof8o84bWw1h9GaBM7yPdUjx3Fs1Ah8r7X1tXqOJfSPtVkJRNcspPjy4U=,iv:JJoMGTZOs+auhuUTlZh3o8N254gi/aTPd3tup/2WEb8=,tag:QbgQGmm4JvmuVDfMn69qBw==,type:str]
+    age: []
+    lastmodified: "2021-07-14T20:38:18Z"
+    mac: ENC[AES256_GCM,data:hwYEICah8yZbNTzQ4UxMlQ8tmT229jRt2sdCijnCuyGu0+RrmScvdbkoZla8I1yzvGrFdkeYEwfwlKpEfNdkJM2WYSHWfrxRi9Oq5cWLSzOIuxDlOEDHYxaCXdt9IOtGD0GDSGJO6fML9hOJpxRY2sfi3kHMAumLkc6mbdFLDHE=,iv:ixwPPdbiOqB71HcxqElwonAt4dFZT7fwqB3yM59KDtI=,tag:+ZXXVlF/ppCYq2RGSiC5Dw==,type:str]
     pgp:
-    -   created_at: '2021-01-12T17:24:03Z'
-        enc: |-
+        - created_at: "2021-01-12T17:24:03Z"
+          enc: |-
             -----BEGIN PGP MESSAGE-----
 
             wcFMA9aKBcudqifiARAATDzySUo52IwfBnmfGVvfKy/EuenK0YLgkf6JNZ/t7pr3
@@ -42,9 +52,9 @@ sops:
             MMUA
             =QSN3
             -----END PGP MESSAGE-----
-        fp: 0508677DD04952D06A943D5B4DC4116D360E3276
-    -   created_at: '2021-03-11T14:06:50Z'
-        enc: |-
+          fp: 0508677DD04952D06A943D5B4DC4116D360E3276
+        - created_at: "2021-03-11T14:06:50Z"
+          enc: |-
             -----BEGIN PGP MESSAGE-----
 
             wcDMA7rAHYSMKfAZAQwAvK4kmChXK2YT7z9gCNUnG+dsx7AC+UXUFAGhRpqRg0oH
@@ -60,9 +70,9 @@ sops:
             mgRPeCoSOMsuJeL19uWc4ZJqAA==
             =vQo7
             -----END PGP MESSAGE-----
-        fp: B27ED6FAF92F28FA805451F33F5CA0E2A1824018
-    -   created_at: '2021-03-11T14:06:50Z'
-        enc: |-
+          fp: B27ED6FAF92F28FA805451F33F5CA0E2A1824018
+        - created_at: "2021-03-11T14:06:50Z"
+          enc: |-
             -----BEGIN PGP MESSAGE-----
 
             wcFMAyzcsT8FUYakARAAPrUmL2fHCeFpk5XSz1gt/wcMbrP8xEYBrddzhU/8tu2o
@@ -81,9 +91,9 @@ sops:
             MYkA
             =cJ8G
             -----END PGP MESSAGE-----
-        fp: 5B2E9490ED4F7BB379EC93C17BF065CD97112F06
-    -   created_at: '2021-03-11T14:06:50Z'
-        enc: |-
+          fp: 5B2E9490ED4F7BB379EC93C17BF065CD97112F06
+        - created_at: "2021-03-11T14:06:50Z"
+          enc: |-
             -----BEGIN PGP MESSAGE-----
 
             wcBMA77Gn+FOVmJYAQgAcnmXEzV0Tm3aZRkKE+7tyROPLn2q/zll3J7QW1FCxat+
@@ -96,6 +106,6 @@ sops:
             6I4pq8raJOCl5H6gM9CttYd840j6ZYALLefikzvG2+GHMgA=
             =aWv+
             -----END PGP MESSAGE-----
-        fp: 3625572E2E3C694CB19911FFB727FBE237CEADAC
+          fp: 3625572E2E3C694CB19911FFB727FBE237CEADAC
     encrypted_regex: ^users$
-    version: 3.6.1
+    version: 3.7.1

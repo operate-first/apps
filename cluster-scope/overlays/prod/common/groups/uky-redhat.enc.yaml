@@ -5,6 +5,7 @@ metadata:
     annotations:
         kustomize.config.k8s.io/behavior: replace
 users:
+    - ENC[AES256_GCM,data:pIBQPJ/aZT8=,iv:WRLdZXOFfP29Rf4UC3iwgGrgsdNe7Hx4BQgMfkergUg=,tag:4/1HBH/1bzC3ZwpAcPfYQg==,type:str]
     - ENC[AES256_GCM,data:X4KpHoCQZG1hCfgQwN+dDlgVyqI6Cw==,iv:flCCwDdYKb8YcTbhYU5rGcVeVZMmfmKAIrVGB4d+WVY=,tag:qr41Rab9dlFDct0uw6bm6w==,type:str]
 sops:
     kms: []
@@ -12,8 +13,8 @@ sops:
     azure_kv: []
     hc_vault: []
     age: []
-    lastmodified: "2021-04-06T15:07:35Z"
-    mac: ENC[AES256_GCM,data:2gP/5sVeaKV2kpzhxTFrdcLj+62KBfA4HAFiV81YBCnc7ETENfPbVmPJhRzz4I2H4KYaIvjIQQUOQnjijIEf5FOH1OBfdCVygeiesF2NDuI1+2ytuhVBG0cTqNs9VOqQ7BFVflbsSVH7YKCFJhm0kOHH8ArQ40ZOx+3kIGwn/AA=,iv:qWKwfV2D3W7Ib5WlTYEkndUtBbt3mkdrgcuTXLRCXuM=,tag:3kn53UoGXPZHxy01F1yfgQ==,type:str]
+    lastmodified: "2021-07-14T20:33:53Z"
+    mac: ENC[AES256_GCM,data:9Y3/HO0Im4cjXbCznIrF5oY8d2IKo8B48JCbj3+1ZbY+N9tGb+YT10GDxGaJrtDjA/j2FMAQCIDGWTShXzn0n9hVfhLWyZayG7NtCo1tTpUeHXijaWBhzrzMPil5pp6Lx7fpM7ztNVKkbSJf7vq497+q+sQ/8gmf22QziHf89Dg=,iv:+zm/uMc5EHMDe/e3RTuRmzaveL4sV1XVODL1ETY2oU8=,tag:BggUluXnR6PqTZ238sC5fw==,type:str]
     pgp:
         - created_at: "2021-04-05T18:14:51Z"
           enc: |
@@ -90,4 +91,4 @@ sops:
             -----END PGP MESSAGE-----
           fp: 3625572E2E3C694CB19911FFB727FBE237CEADAC
     encrypted_regex: ^users$
-    version: 3.7.0
+    version: 3.7.1

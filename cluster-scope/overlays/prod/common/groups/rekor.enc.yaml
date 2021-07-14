@@ -5,19 +5,23 @@ metadata:
     annotations:
         kustomize.config.k8s.io/behavior: replace
 users:
-- ENC[AES256_GCM,data:uswtyAH5tZtNi4kPTsrEgB9GOQ==,iv:ukBozXMKkDUZ7C2tbv2e0Ri5TgGcpUScgKt2GVlC4e4=,tag:WF3oKSxcGmHCDuZqeNuJLg==,type:str]
-- ENC[AES256_GCM,data:GTeb3baaaME1HkjCQY++/A==,iv:mdlIW+B1yBIftIstJhWPwOQBvR3/LKzpFthpfSZUpU0=,tag:C+XBdefZvVtAOMn1O5RRYQ==,type:str]
-- ENC[AES256_GCM,data:sbxKly1P+WS92b+C8eySmK8=,iv:2Jz/Z4zniygVQGAP4uHEoAA0xriE9Ruyxl5jr0BIQjE=,tag:boz/H4yNNE35HxbIyK+URg==,type:str]
+    - ENC[AES256_GCM,data:jlQZLqoH87I0fFg=,iv:NPpOjV/EnDBH2pADcnP5kfp17HkzZ0zRcoiuFtpj4hw=,tag:+5jypB7A49Qm8peFvFlh/Q==,type:str]
+    - ENC[AES256_GCM,data:uswtyAH5tZtNi4kPTsrEgB9GOQ==,iv:ukBozXMKkDUZ7C2tbv2e0Ri5TgGcpUScgKt2GVlC4e4=,tag:WF3oKSxcGmHCDuZqeNuJLg==,type:str]
+    - ENC[AES256_GCM,data:ddueKg==,iv:56FJGEdzHEVNs0KcDKui0u7h1TOy4XZpIR8ybj5NBHE=,tag:mNmZiXC3vndiv2S3Oiyyxw==,type:str]
+    - ENC[AES256_GCM,data:GTeb3baaaME1HkjCQY++/A==,iv:mdlIW+B1yBIftIstJhWPwOQBvR3/LKzpFthpfSZUpU0=,tag:C+XBdefZvVtAOMn1O5RRYQ==,type:str]
+    - ENC[AES256_GCM,data:dEvwPeHpcnK4,iv:lXduZLdsZ3QRcVWCoErpNj2KAJImlOes6P2JUOZyCtI=,tag:TQuuS2AgxKb2vLE6xg1siQ==,type:str]
+    - ENC[AES256_GCM,data:sbxKly1P+WS92b+C8eySmK8=,iv:2Jz/Z4zniygVQGAP4uHEoAA0xriE9Ruyxl5jr0BIQjE=,tag:boz/H4yNNE35HxbIyK+URg==,type:str]
 sops:
     kms: []
     gcp_kms: []
     azure_kv: []
     hc_vault: []
-    lastmodified: '2021-03-11T14:06:29Z'
-    mac: ENC[AES256_GCM,data:alI9nBKIrIWKM5EvOp2VlbpRGQRTMoK4M+btBcswBL44uK8F16goIdqQlYJmkqJcY0h/teErN0t/Umpc9IymLSrwusxZc2L5wq6ZfQbJ0gmQWei9EsGROgdxwrD8R5ZSjwijdzzz94HpqBEcvBvtcHMLhAJUkheMkbRvSKRXQYY=,iv:kOJE/JR1cDyMdRir2K0+iKHf0QXc1wVoqUhvHATzCpE=,tag:WCwhEaGZyfaq7cUulnf4DA==,type:str]
+    age: []
+    lastmodified: "2021-07-14T20:31:53Z"
+    mac: ENC[AES256_GCM,data:5fgqSg1tk638+SFZpTVE4UbHdp7OloKhARWQc8U5OjslNSN8Ws187ksDm9KCpuZvdoRSLIkvbYF0EzMR+Z4EdpeegPgVuCbMCojSv729VqKgXQfPd2i8DWCnt9R+JivVh2mZCF0lXYrElDU/kWsViC736uFtOICkTOkDFC7GR5Y=,iv:SkJ3GHA94doNvNH2PJlMBkiqYbtWPc8r5YE9sDWTE1M=,tag:6QR52Eg5Y9HMedV1SJ3w8Q==,type:str]
     pgp:
-    -   created_at: '2021-01-12T17:24:03Z'
-        enc: |-
+        - created_at: "2021-01-12T17:24:03Z"
+          enc: |-
             -----BEGIN PGP MESSAGE-----
 
             wcFMA9aKBcudqifiARAAb7Y2cY/KSoLioHHqILgZGYzwWldJ8otqj/JFZ4jmRlS6
@@ -36,9 +40,9 @@ sops:
             ndoA
             =kXmm
             -----END PGP MESSAGE-----
-        fp: 0508677DD04952D06A943D5B4DC4116D360E3276
-    -   created_at: '2021-03-11T14:06:25Z'
-        enc: |-
+          fp: 0508677DD04952D06A943D5B4DC4116D360E3276
+        - created_at: "2021-03-11T14:06:25Z"
+          enc: |-
             -----BEGIN PGP MESSAGE-----
 
             wcDMA7rAHYSMKfAZAQwAL8uQZ2kvvOqhAeeKBStF2cKjbWC/0ONCAfVPblx677Tw
@@ -54,9 +58,9 @@ sops:
             bkD+q5Lv9zu3I+JElIOb4fvMAA==
             =zcZP
             -----END PGP MESSAGE-----
-        fp: B27ED6FAF92F28FA805451F33F5CA0E2A1824018
-    -   created_at: '2021-03-11T14:06:25Z'
-        enc: |-
+          fp: B27ED6FAF92F28FA805451F33F5CA0E2A1824018
+        - created_at: "2021-03-11T14:06:25Z"
+          enc: |-
             -----BEGIN PGP MESSAGE-----
 
             wcFMAyzcsT8FUYakARAAKwe+QpcGp5b6mVrpA92yxoGG/dp7QTQoJhipICLfClMP
@@ -75,9 +79,9 @@ sops:
             RBYA
             =e+8J
             -----END PGP MESSAGE-----
-        fp: 5B2E9490ED4F7BB379EC93C17BF065CD97112F06
-    -   created_at: '2021-03-11T14:06:25Z'
-        enc: |-
+          fp: 5B2E9490ED4F7BB379EC93C17BF065CD97112F06
+        - created_at: "2021-03-11T14:06:25Z"
+          enc: |-
             -----BEGIN PGP MESSAGE-----
 
             wcBMA77Gn+FOVmJYAQgAZ4RNsf2QLABCil9bUIy9WrQG9Sl6tvU0pd7SuVBcq28u
@@ -90,6 +94,6 @@ sops:
             Xqekjao0MOBX5HlwdtJ7cG64/WmTUTc+fk7ivfKu0uFu6QA=
             =AWMl
             -----END PGP MESSAGE-----
-        fp: 3625572E2E3C694CB19911FFB727FBE237CEADAC
+          fp: 3625572E2E3C694CB19911FFB727FBE237CEADAC
     encrypted_regex: ^users$
-    version: 3.6.1
+    version: 3.7.1

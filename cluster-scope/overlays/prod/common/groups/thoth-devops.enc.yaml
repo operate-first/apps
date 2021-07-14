@@ -5,19 +5,25 @@ metadata:
     annotations:
         kustomize.config.k8s.io/behavior: replace
 users:
-- ENC[AES256_GCM,data:FDzD2ecEEpSksUJJEpGR9vY=,iv:ZH/9w3GbHzaCc49xZ705n4MK6aKp6IsuU2xwBFDYcHY=,tag:mPGIUZwYaSP+U/05PcMKjA==,type:str]
-- ENC[AES256_GCM,data:QUqEr1kVUZMoYPuFhHTUI7fmAA==,iv:yklTgdnp33WzT6WprU5CmhdRiafjxDMLxTcTfUSOwQg=,tag:5IiBWA/tmI2aumpKZBoRSQ==,type:str]
-- ENC[AES256_GCM,data:KpR2q3H05B2veTb2weeeLYkORg==,iv:72NKIIgdiG1x/0B6EryqiKLvJM4B7HL5YiU+GmBHh20=,tag:vp40f25hoIo3KLG8WnUoww==,type:str]
-- ENC[AES256_GCM,data:DNaYkJ+2m+fz/BmPE9WWf0I=,iv:ZVYo3qrcgFDn99tA6KwV7z6rdt3EzPokc42MdF0uWxA=,tag:PW+sieZwlfEV1O4AJvlzjQ==,type:str]
+    - ENC[AES256_GCM,data:bdru8Gs=,iv:/SyVinfqHO5EdDS1qJAFnaxU9gbT7pynZlnqc1TvyXQ=,tag:t3LIms3EKzsQjWNjwpKgoA==,type:str]
+    - ENC[AES256_GCM,data:FDzD2ecEEpSksUJJEpGR9vY=,iv:ZH/9w3GbHzaCc49xZ705n4MK6aKp6IsuU2xwBFDYcHY=,tag:mPGIUZwYaSP+U/05PcMKjA==,type:str]
+    - ENC[AES256_GCM,data:8KzV2gec/uSd,iv:EtGs/aWGuym/5R3hfsGBLnpBnmIjl+fnYQDPbi1zhlA=,tag:eqliCPqYDR34P0Xgf3D01w==,type:str]
+    - ENC[AES256_GCM,data:QUqEr1kVUZMoYPuFhHTUI7fmAA==,iv:yklTgdnp33WzT6WprU5CmhdRiafjxDMLxTcTfUSOwQg=,tag:5IiBWA/tmI2aumpKZBoRSQ==,type:str]
+    - ENC[AES256_GCM,data:InhVSEa3,iv:VZGZAXAkQyHMZZ3Jj/j9IlnhVOgO1UsL8z59Zks5cks=,tag:KqRioL7PyrC0/RZc05Ll2A==,type:str]
+    - ENC[AES256_GCM,data:KpR2q3H05B2veTb2weeeLYkORg==,iv:72NKIIgdiG1x/0B6EryqiKLvJM4B7HL5YiU+GmBHh20=,tag:vp40f25hoIo3KLG8WnUoww==,type:str]
+    - ENC[AES256_GCM,data:n+S6hhUE+vIe,iv:EkkmajJ09lVh37w0RBgqQtdRNTHH2+uC/DwqDQr6jzg=,tag:CNSoT2EiwLEDKRypfikReg==,type:str]
+    - ENC[AES256_GCM,data:DNaYkJ+2m+fz/BmPE9WWf0I=,iv:ZVYo3qrcgFDn99tA6KwV7z6rdt3EzPokc42MdF0uWxA=,tag:PW+sieZwlfEV1O4AJvlzjQ==,type:str]
 sops:
     kms: []
     gcp_kms: []
     azure_kv: []
-    lastmodified: '2021-04-07T15:07:03Z'
-    mac: ENC[AES256_GCM,data:X+3AJysD9VFUz1WmgWFwFNpIyVG5+j37xi8ebiR4A0z9xCOxlP5yWNTYDtvMTZ92+Ml0k+jPwaF0ZbjtCRF/4gwuPFUIQ0por8jwZddyEiXiCn4lpbyKOX5YJHPgC+Vrca0UBTEyglQluYdoOlpj0I/JKY5jzSITN8drpObITGM=,iv:31ou+6ARHTVu+fX8YNt+tQ94TMpzVpmgrr6um2HVN24=,tag:UYyJyOvZ3ZhorHCziyn+vA==,type:str]
+    hc_vault: []
+    age: []
+    lastmodified: "2021-07-14T20:33:35Z"
+    mac: ENC[AES256_GCM,data:fZu5o9aA1UbFkF/NpNBXtNrW5gUo69XJH/fdpoAZdT6Sa5ho8mgoBWiEHu0jH/KeqDZWDsf/UoEnOxnKZv4GK8mCym44qZYURMx+As2BjtmRuKg+20JlwfXubgzhTx/uwa/tBCmn1YxyGX20C5JgGIM2FlMkIJ9PKu1z3FDGMgk=,iv:BCZ8wgVHQRluKAJrpB3rDJfUxSigzrf/CDnwZtQEcdc=,tag:vVCn38/8vIIUNQqFzoodvA==,type:str]
     pgp:
-    -   created_at: '2021-04-07T15:07:03Z'
-        enc: |
+        - created_at: "2021-04-07T15:07:03Z"
+          enc: |
             -----BEGIN PGP MESSAGE-----
 
             hQIMA9aKBcudqifiAQ//SDj5aMGoOS9rh5ozSkDt47YQdNOsUuRmJorUO475lYao
@@ -35,6 +41,6 @@ sops:
             +03aIPr8/EdWOsJdUKdahywcJ1WdqILhFUPyeZMvnBFUNiW6+epYXPzZxVYNneo=
             =G8x1
             -----END PGP MESSAGE-----
-        fp: 0508677DD04952D06A943D5B4DC4116D360E3276
+          fp: 0508677DD04952D06A943D5B4DC4116D360E3276
     encrypted_regex: ^(users|data|stringData)$
-    version: 3.5.0
+    version: 3.7.1
