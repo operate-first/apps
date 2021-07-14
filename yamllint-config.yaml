@@ -8,4 +8,4 @@ rules:
   hyphens:
     max-spaces-after: 4
 ignore: |
-  scripts/setup_pvs/playbook.yaml
+  *.enc.yaml
