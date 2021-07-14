@@ -1,6 +1,12 @@
----
 apiVersion: user.openshift.io/v1
 kind: Group
 metadata:
-    name: sre
-users: []
+  name: sre
+users:
+  - 4n4nd
+  - fridex
+  - gregory-pereira
+  - harshad16
+  - humairak
+  - mimotej
+  - tumido

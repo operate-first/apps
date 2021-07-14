@@ -1,5 +1,10 @@
 apiVersion: user.openshift.io/v1
 kind: Group
 metadata:
-    name: enterprise-neurosystem
-users: []
+  name: enterprise-neurosystem
+users:
+  - erikerlandson
+  # FIXME: account missing
+  # FIXME: account missing
+  # FIXME: account missing
+  # FIXME: account missing

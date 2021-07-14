@@ -1,0 +1,9 @@
+apiVersion: user.openshift.io/v1
+kind: Group
+metadata:
+    name: cluster-admins
+users:
+    - 4n4nd
+    - humairak
+    - larsks
+    - tumido

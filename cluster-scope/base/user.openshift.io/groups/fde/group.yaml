@@ -1,6 +1,6 @@
----
 apiVersion: user.openshift.io/v1
 kind: Group
 metadata:
   name: fde
-users: []
+users:
+  - gkrumbach07

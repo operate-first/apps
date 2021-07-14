@@ -1,6 +1,7 @@
----
 apiVersion: user.openshift.io/v1
 kind: Group
 metadata:
   name: b4mad
-users: []
+users:
+  - goern
+  - durandom
