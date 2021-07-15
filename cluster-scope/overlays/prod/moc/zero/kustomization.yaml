@@ -21,6 +21,7 @@ resources:
   - ../../../../base/core/namespaces/cnv-testing
   - ../../../../base/core/namespaces/codait-advo
   - ../../../../base/core/namespaces/democratic-csi
+  - ../../../../base/core/namespaces/dex
   - ../../../../base/core/namespaces/ds-black-flake
   - ../../../../base/core/namespaces/ds-example-project
   - ../../../../base/core/namespaces/ds-ml-workflows-ws
@@ -56,7 +57,6 @@ resources:
   - ../../../../base/core/namespaces/openshift-storage
   - ../../../../base/core/namespaces/opf-alertreceiver
   - ../../../../base/core/namespaces/opf-argo
-  - ../../../../base/core/namespaces/opf-auth
   - ../../../../base/core/namespaces/opf-ci-pipelines
   - ../../../../base/core/namespaces/opf-ci-prow
   - ../../../../base/core/namespaces/opf-ci-test-pods
