@@ -13,6 +13,7 @@ resources:
   - ../../../../base/config.openshift.io/oauths/cluster
   - ../../../../base/core/namespaces/acme-operator
   - ../../../../base/core/namespaces/adoptium-project
+  - ../../../../base/core/namespaces/aicoe-meteor
   - ../../../../base/core/namespaces/apicurio-apicurio-registry
   - ../../../../base/core/namespaces/as-pushgateway
   - ../../../../base/core/namespaces/b4mad-minecraft
