@@ -11,12 +11,24 @@ generators:
 
 patchesJson6902:
   - patch: |
-      - op: replace
-        path: /spec/applications/1/kustomizeConfig/parameters/0/value
-        value: s3.openshift-storage.svc:443
-      - op: replace
-        path: /spec/applications/1/kustomizeConfig/parameters/1/value
-        value: opf-datacatalog-bucket
+      - op: add
+        path: /spec/applications/-
+        value:
+          kustomizeConfig:
+            parameters:
+              - name: s3_endpoint_url
+                value: s3-openshift-storage.apps.zero.massopen.cloud
+              - name: s3_credentials_secret
+                value: opf-datacatalog-bucket
+            repoRef:
+              name: opf
+              path: odh-manifests/trino
+          name: trino
+      - op: add
+        path: /spec/repos/-
+        value:
+          name: opf
+          uri: https://github.com/operate-first/apps/tarball/master
     target:
       group: kfdef.apps.kubeflow.org
       kind: KfDef
