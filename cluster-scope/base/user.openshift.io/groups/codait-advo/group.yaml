@@ -2,5 +2,6 @@
 apiVersion: user.openshift.io/v1
 kind: Group
 metadata:
-  name: codait-advo
-users: []
+    name: codait-advo
+users:
+    - ptitzler

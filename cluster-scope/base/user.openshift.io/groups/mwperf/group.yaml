@@ -2,4 +2,11 @@ apiVersion: user.openshift.io/v1
 kind: Group
 metadata:
     name: mwperf
-users: []
+users:
+    - rvansa
+    - johnaohara
+    - willr3
+    - stalep
+    - jesperpedersen
+    - whitingjr
+    - barreiro

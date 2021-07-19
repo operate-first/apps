@@ -2,4 +2,8 @@ apiVersion: user.openshift.io/v1
 kind: Group
 metadata:
     name: osc
-users: []
+users:
+    - erikerlandson
+    - guimou
+    - HumairAK
+    - caldeirav

@@ -2,5 +2,13 @@
 apiVersion: user.openshift.io/v1
 kind: Group
 metadata:
-  name: odh-admin
-users: []
+    name: odh-admin
+users:
+    - anishasthana
+    - accorvin
+    - maulikjs
+    - vpavlin
+    - LaVLaS
+    - crobby
+    - nakfour
+    - rimolive

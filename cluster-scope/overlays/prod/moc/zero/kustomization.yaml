@@ -189,3 +189,4 @@ patchesStrategicMerge:
   - subscriptions/openshift-pipelines-operator-rh_patch.yaml
   - subscriptions/serverless-operator_patch.yaml
   - subscriptions/web-terminal.yaml
+  - groups/cluster-admins.yaml

@@ -2,5 +2,8 @@
 apiVersion: user.openshift.io/v1
 kind: Group
 metadata:
-  name: sdap-mslsp
-users: []
+    name: sdap-mslsp
+users:
+    - tloubrieu-jpl
+    - ngachung
+    - wphyojpl

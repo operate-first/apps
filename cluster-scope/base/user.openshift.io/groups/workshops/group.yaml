@@ -2,5 +2,10 @@
 apiVersion: user.openshift.io/v1
 kind: Group
 metadata:
-  name: workshops
-users: []
+    name: workshops
+users:
+    - harshad16
+    - pacospace
+    - vpavlin
+    - tumido
+    - martinpovolny

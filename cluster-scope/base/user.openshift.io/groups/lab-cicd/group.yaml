@@ -2,5 +2,7 @@
 apiVersion: user.openshift.io/v1
 kind: Group
 metadata:
-  name: lab-cicd
-users: []
+    name: lab-cicd
+users:
+    # FIXME: 1 account missing
+    - acidonper

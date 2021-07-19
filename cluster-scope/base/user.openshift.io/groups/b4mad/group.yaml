@@ -2,5 +2,7 @@
 apiVersion: user.openshift.io/v1
 kind: Group
 metadata:
-  name: b4mad
-users: []
+    name: b4mad
+users:
+    - durandom
+    - goern

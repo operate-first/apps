@@ -47,3 +47,4 @@ generators:
 patchesStrategicMerge:
   - oauths/cluster_patch.yaml
   - subscriptions/kubevirt-hyperconverged_patch.yaml
+  - groups/cluster-admins.yaml

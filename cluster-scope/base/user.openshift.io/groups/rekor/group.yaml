@@ -2,5 +2,8 @@
 apiVersion: user.openshift.io/v1
 kind: Group
 metadata:
-  name: rekor
-users: []
+    name: rekor
+users:
+    - bobcallaway
+    - font
+    - lukehinds

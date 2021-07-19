@@ -2,4 +2,10 @@ apiVersion: user.openshift.io/v1
 kind: Group
 metadata:
     name: esi-project
-users: []
+users:
+    # FIXME 1 account missing
+    - larsks
+    - naved001
+    - DanNiESh
+    - betaredex
+    - tzumainn

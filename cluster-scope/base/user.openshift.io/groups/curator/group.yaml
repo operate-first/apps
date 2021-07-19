@@ -2,4 +2,7 @@ apiVersion: user.openshift.io/v1
 kind: Group
 metadata:
     name: curator
-users: []
+users:
+    - skanthed
+    - gagansk
+    - matankb
