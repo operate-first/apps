@@ -1,0 +1,29 @@
+apiVersion: local.storage.openshift.io/v1alpha1
+kind: LocalVolumeSet
+metadata:
+    name: local-disks
+    namespace: openshift-local-storage
+spec:
+    deviceInclusionSpec:
+        deviceMechanicalProperties:
+            - NonRotational
+        deviceTypes:
+            - disk
+            - part
+        minSize: 1Gi
+    nodeSelector:
+        nodeSelectorTerms:
+            - matchExpressions:
+                  - key: kubernetes.io/hostname
+                    operator: In
+                    values:
+                        - host05.emea.operate-first.cloud
+                        - host06.emea.operate-first.cloud
+                        - host07.emea.operate-first.cloud
+    storageClassName: local-disks
+    tolerations:
+        - effect: NoSchedule
+          key: node.ocs.openshift.io/storage
+          operator: Equal
+          value: "true"
+    volumeMode: Block
