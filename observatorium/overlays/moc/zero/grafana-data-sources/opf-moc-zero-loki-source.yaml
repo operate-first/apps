@@ -1,0 +1,38 @@
+---
+apiVersion: integreatly.org/v1alpha1
+kind: GrafanaDataSource
+metadata:
+    name: cluster-zero-logs
+spec:
+    name: cluster-zero-logs
+    datasources:
+        - name: cluster-zero-app-logs
+          type: loki
+          access: proxy
+          url: http://opf-observatorium-loki-query-frontend-http.opf-observatorium.svc.cluster.local:3100
+          version: 1
+          editable: false
+          jsonData:
+              httpHeaderName1: 'X-Scope-OrgID'
+          secureJsonData:
+              httpHeaderValue1: 'cluster-app-logs'
+        - name: cluster-zero-infra-logs
+          type: loki
+          access: proxy
+          url: http://opf-observatorium-loki-query-frontend-http.opf-observatorium.svc.cluster.local:3100
+          version: 1
+          editable: false
+          jsonData:
+              httpHeaderName1: 'X-Scope-OrgID'
+          secureJsonData:
+              httpHeaderValue1: 'cluster-infra-logs'
+        - name: cluster-zero-audit-logs
+          type: loki
+          access: proxy
+          url: http://opf-observatorium-loki-query-frontend-http.opf-observatorium.svc.cluster.local:3100
+          version: 1
+          editable: false
+          jsonData:
+              httpHeaderName1: 'X-Scope-OrgID'
+          secureJsonData:
+              httpHeaderValue1: 'cluster-audit-logs'

@@ -80,11 +80,7 @@ data:
         type: remap
         inputs:
         - zero-audit-logs-kafka
-        source: "
-          message = parse_json!(.message) \n
-          .message = message.message \n
-          .docker = message.docker \n
-          .kubernetes = message.kubernetes \n "
+        source: ". = parse_json!(.message)"
 
     sinks:
       loki_sink_app:
@@ -142,7 +138,7 @@ data:
         labels:
           openshift_cluster: moc/zero
           cluster_log_level: audit-logs
-          k8s_namespace_name: "{{ kubernetes.namespace_name }}"
+          k8s_namespace_name: "{{ objectRef.namespace }}"
 
       vector_metrics_prom_exporter:
         type: prometheus_exporter
