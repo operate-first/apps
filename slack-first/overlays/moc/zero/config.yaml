@@ -12,6 +12,8 @@ onCall:
       github: harshad16
     - slack: U01RF5SASLX
       github: HumairAK
+    - slack: U0277G1VAAV
+      github: mimotej
 github:
   issues:
     access:
