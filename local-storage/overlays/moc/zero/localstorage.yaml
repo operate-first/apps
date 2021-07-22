@@ -4,6 +4,15 @@ kind: LocalVolume
 metadata:
   name: localblock
 spec:
+  logLevel: Normal
+  managementState: Managed
+  nodeSelector:
+    nodeSelectorTerms:
+      - matchExpressions:
+          - key: cluster.ocs.openshift.io/openshift-storage
+            operator: In
+            values:
+              - ""
   storageClassDevices:
     - devicePaths:
         - /dev/disk/by-id/scsi-36c81f660d0a47e0026e3bc8686d39c5d
