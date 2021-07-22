@@ -78,7 +78,6 @@ resources:
   - ../../../../base/core/namespaces/prometheus-anomaly-detector
   - ../../../../base/core/namespaces/pulp-operator
   - ../../../../base/core/namespaces/quarkus-extension-registry
-  - ../../../../base/core/namespaces/ray-odh-integration
   - ../../../../base/core/namespaces/redhat-cto-ns
   - ../../../../base/core/namespaces/sa-dach-anwendertreffen
   - ../../../../base/core/namespaces/sa-dach-openshift-examples
