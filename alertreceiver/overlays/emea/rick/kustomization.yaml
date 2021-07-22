@@ -9,7 +9,7 @@ patchesJson6902:
   - patch: |
       - op: replace
         path: /spec/template/spec/containers/0/args/0
-        value: --label=environment/moc/zero
+        value: --label=environment/emea/rick
     target:
       group: apps
       kind: Deployment

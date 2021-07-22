@@ -5,7 +5,7 @@ kind: Kustomization
 namespace: opf-alertreceiver
 
 resources:
-  - ../../../base
+  - ../../base
 
 generators:
   - secret-generator.yaml
