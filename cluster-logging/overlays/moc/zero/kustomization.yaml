@@ -6,7 +6,6 @@ namespace: openshift-logging
 
 resources:
   - ../../../base
-  - configmaps
   - clusterlogforwarders
 
 generators:
