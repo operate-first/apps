@@ -8,7 +8,17 @@ spec:
   outputs:
     - name: app-logs
       type: kafka
-      url: tls://odh-message-bus-kafka-bootstrap-opf-kafka.apps.zero.massopen.cloud:443/zero-prod.cluster-logs.application
+      url: tls://odh-message-bus-kafka-bootstrap.opf-kafka.svc:9093/zero-prod.cluster-logs.application
+      secret:
+        name: clo-kafka
+    - name: infra-logs
+      type: kafka
+      url: tls://odh-message-bus-kafka-bootstrap.opf-kafka.svc:9093/zero-prod.cluster-logs.infrastructure
+      secret:
+        name: clo-kafka
+    - name: audit-logs
+      type: kafka
+      url: tls://odh-message-bus-kafka-bootstrap.opf-kafka.svc:9093/zero-prod.cluster-logs.audit
       secret:
         name: clo-kafka
   pipelines:
@@ -18,14 +28,14 @@ spec:
       outputRefs:
         - app-logs
         # default outputref sends logs to the default CLO ES
-        - default
+        # - default
     - name: forward-infra-logs
       inputRefs:
         - infrastructure
       outputRefs:
-        - default
+        - infra-logs
     - name: forward-audit-logs
       inputRefs:
         - audit
       outputRefs:
-        - default
+        - audit-logs
