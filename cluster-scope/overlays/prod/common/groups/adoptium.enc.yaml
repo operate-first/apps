@@ -5,15 +5,16 @@ metadata:
     annotations:
         kustomize.config.k8s.io/behavior: replace
 users:
-    - ENC[AES256_GCM,data:8VNtvhkj/d+FDiRHqF9L12ZuNw==,iv:W5ahLP6HrCk1Hg31yPoeXsggf0x5uLqA/eI4xr/oSxM=,tag:ukqfMxrdjdURjsVROnLhdQ==,type:str]
+    - ENC[AES256_GCM,data:ED4JfgIef/0=,iv:bi4Xj0rtQQbFYY75gtVYZ01IhBCqMywfzOPgK2ixdsU=,tag:ZD8lK6l6qROAxHAWrIKqig==,type:str]
+    - ENC[AES256_GCM,data:DLd0cxylT+WiwoyLbBxb/Z+O2A==,iv:/Wm7Ysgw84t9Ip5oYoVZ6CRZN14W2TIvPYYCVte8sW8=,tag:aUe0bJDTc6YI1l0RJ8R7sw==,type:str]
 sops:
     kms: []
     gcp_kms: []
     azure_kv: []
     hc_vault: []
     age: []
-    lastmodified: "2021-06-17T18:25:11Z"
-    mac: ENC[AES256_GCM,data:3XWjT4paMsxXXvRBeVBisc52WvT/ZlGXBnSG31bVQbOTfDCDdS2qPldBmxCrxdiwBdUQj4oaEKA6m94eM7Usbq37deocuYLZWYHWNLRxVZRs8Jb2L9RPqhV2tyBtzYvg3V7NmxWGgdilBWK0IW10w0nxYt+4LpCcYsjTYUHuviI=,iv:/ByxNSAE4dLqQYpRcj2gUNNuURXudn2qsVfMVTQtkvY=,tag:sjCmlT1L/h5XasGDeqrtTQ==,type:str]
+    lastmodified: "2021-07-14T20:18:25Z"
+    mac: ENC[AES256_GCM,data:5y9nuvhu4fQ6JdMc/5/dbfSJoINIiWs7Qibi09ZpRGeloYK+JIsRKx3XOgqhSgHtfTcWbX1Dm0p0Ry19fgljfi2z0Vo71JZhGLGGIx3Qaf40+RdF+wOdFFgaS96sfLlDkXj+k+B6kQESn5nphOj7Ea5f4w33PztESdaadhl95Vc=,iv:tigkzq0a+Ih2oFl4S9uH+o+UK/GXP1p1DYOhDcS57KQ=,tag:eIMnw5G8zxtYRyEyy5PUwQ==,type:str]
     pgp:
         - created_at: "2021-06-17T18:25:10Z"
           enc: |-

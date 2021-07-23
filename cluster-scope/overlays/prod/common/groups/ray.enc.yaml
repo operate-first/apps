@@ -5,17 +5,19 @@ metadata:
     annotations:
         kustomize.config.k8s.io/behavior: replace
 users:
-- ENC[AES256_GCM,data:ChKYHxk0uVj7wlOj9qbJirdDQg==,iv:Z8Qs/IHi1HSbaVxr5X2311bPNPP2Apm8Fdo9Cyu0aIw=,tag:Nhs0lnNvMooA40dcFIm2pg==,type:str]
+    - ENC[AES256_GCM,data:M4JbHsV9RQAxOaGtgA==,iv:bxWjZBDcM2q6QuqDSkdYD6u9TJnC975MY5YslkpMKFM=,tag:0fyOFGnE6H4qhBeyLhNTPA==,type:str]
+    - ENC[AES256_GCM,data:ChKYHxk0uVj7wlOj9qbJirdDQg==,iv:Z8Qs/IHi1HSbaVxr5X2311bPNPP2Apm8Fdo9Cyu0aIw=,tag:Nhs0lnNvMooA40dcFIm2pg==,type:str]
 sops:
     kms: []
     gcp_kms: []
     azure_kv: []
     hc_vault: []
-    lastmodified: '2021-03-11T14:06:16Z'
-    mac: ENC[AES256_GCM,data:n7XW6j5KAqOrgCTbyMXpub4h4Dgo6TAcOO8GwKjDMjdo+8kE7Kl+h3vtIrtNYC5iCbpfLJk18xJ0AuvAl+rxEFwrgLWe6vuXkmKzpQrtipvl8MUBRozwBwhcTk8QkUE+Keak7i4Fttclf6hmuyylv5D/FyFGJNrrTZNa+1U6/rY=,iv:O7ODXerM4fglJQaG0/nKKCfe0nzVbD4SGc1vv246Pkw=,tag:KguaLeXRH7XViSCfPGKMWQ==,type:str]
+    age: []
+    lastmodified: "2021-07-14T20:30:42Z"
+    mac: ENC[AES256_GCM,data:hibOXBAq5UuXgE0B9Edmkte3WQGeKCNxMzLd3SIpphT/TojnpwOKAz3QJs3UvUEKLMKX8bFz/7Uz0mCa4GD4TUKZZm8InMJ1uHul5oF4t+QMYdSX3skV4tn5GB/w48B2VAB3xf4F9z1QTeEM9WpepFKKL3deQkmTNmMCQLnBwrM=,iv:RqmlDM7yGumewI2t8rVJTI8GOYjJcYanKerkSrgvLZQ=,tag:6tehycDSWq9+2RGgiyjZjA==,type:str]
     pgp:
-    -   created_at: '2021-01-12T17:24:03Z'
-        enc: |-
+        - created_at: "2021-01-12T17:24:03Z"
+          enc: |-
             -----BEGIN PGP MESSAGE-----
 
             wcFMA9aKBcudqifiARAAxaxF7J7n8P0XUR0OAn8NkC2vPUyk+OEl3+q8RVlB9+Dx
@@ -34,9 +36,9 @@ sops:
             YbsA
             =F9dc
             -----END PGP MESSAGE-----
-        fp: 0508677DD04952D06A943D5B4DC4116D360E3276
-    -   created_at: '2021-03-11T14:06:12Z'
-        enc: |-
+          fp: 0508677DD04952D06A943D5B4DC4116D360E3276
+        - created_at: "2021-03-11T14:06:12Z"
+          enc: |-
             -----BEGIN PGP MESSAGE-----
 
             wcDMA7rAHYSMKfAZAQwACyx9MqvfeDX9BuUSJMsBPKQn7fzEBR1Z3Cx1uB0Yf9eB
@@ -52,9 +54,9 @@ sops:
             RiQwu7KWn4dipOKS+4UI4XrCAA==
             =ZlfO
             -----END PGP MESSAGE-----
-        fp: B27ED6FAF92F28FA805451F33F5CA0E2A1824018
-    -   created_at: '2021-03-11T14:06:12Z'
-        enc: |-
+          fp: B27ED6FAF92F28FA805451F33F5CA0E2A1824018
+        - created_at: "2021-03-11T14:06:12Z"
+          enc: |-
             -----BEGIN PGP MESSAGE-----
 
             wcFMAyzcsT8FUYakARAAgluAOUzaz92M/Bz6L0FGRrONlSr/Agm2V3lrE2VkFHLZ
@@ -73,9 +75,9 @@ sops:
             eLoA
             =W/0s
             -----END PGP MESSAGE-----
-        fp: 5B2E9490ED4F7BB379EC93C17BF065CD97112F06
-    -   created_at: '2021-03-11T14:06:12Z'
-        enc: |-
+          fp: 5B2E9490ED4F7BB379EC93C17BF065CD97112F06
+        - created_at: "2021-03-11T14:06:12Z"
+          enc: |-
             -----BEGIN PGP MESSAGE-----
 
             wcBMA77Gn+FOVmJYAQgACWRKtfGyrjdge2329oYoBhvM6uFJbrVkqCazu/4EnX1s
@@ -88,6 +90,6 @@ sops:
             8CB8P++QQeCa5FhnC84lRizuPOS8Lwno+87ipBpv3+EvkwA=
             =89kQ
             -----END PGP MESSAGE-----
-        fp: 3625572E2E3C694CB19911FFB727FBE237CEADAC
+          fp: 3625572E2E3C694CB19911FFB727FBE237CEADAC
     encrypted_regex: ^users$
-    version: 3.6.1
+    version: 3.7.1
