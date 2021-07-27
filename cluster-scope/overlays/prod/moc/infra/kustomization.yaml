@@ -41,12 +41,13 @@ resources:
   - ../../../../base/operators.coreos.com/operatorgroups/openshift-cnv-rn5jf
   - ../../../../base/operators.coreos.com/subscriptions/kubevirt-hyperconverged
 
-  - crc-provisioning-vlan.yaml
-  - zero-provisioning-vlan.yaml
-  - ocp-prod-provisioning-vlan.yaml
   - clusterversion.yaml
+  - crc-provisioning-vlan.yaml
   - kubeletconfigs/increase-worker-system-reserved-memory.yaml
   - metal3.io/provisionings/provisioning-configuration.yaml
+  - nodenetworkconfigurationpolicies/moc-nfs-network.yaml
+  - ocp-prod-provisioning-vlan.yaml
+  - zero-provisioning-vlan.yaml
 
 generators:
   - secret-generator.yaml
