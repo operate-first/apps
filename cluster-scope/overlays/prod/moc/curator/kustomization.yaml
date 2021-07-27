@@ -15,6 +15,7 @@ resources:
   - ../../../../base/operators.coreos.com/subscriptions/ocs-operator
   - ../../../../base/operators.coreos.com/subscriptions/web-terminal
   - ../../../../base/rbac.authorization.k8s.io/clusterrolebindings/cluster-admins-rb
+  - ../../../../base/rbac.authorization.k8s.io/clusterrolebindings/sre
   - ../../../../base/storage.k8s.io/storageclasses/hostpath-provisioner
   - ../../../../base/user.openshift.io/groups/cluster-admins
 
