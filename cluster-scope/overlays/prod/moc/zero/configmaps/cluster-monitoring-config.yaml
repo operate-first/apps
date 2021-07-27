@@ -13,4 +13,4 @@ data:
          volumeMode: Filesystem
          resources:
            requests:
-             storage: 100Gi
+             storage: 150Gi
