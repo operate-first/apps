@@ -1,0 +1,19 @@
+apiVersion: nmstate.io/v1alpha1
+kind: NodeNetworkConfigurationPolicy
+metadata:
+  name: moc-nfs-network
+spec:
+  nodeSelector:
+    node-role.kubernetes.io/worker: ""
+  desiredState:
+    interfaces:
+      - name: eno1.210
+        description: zero cluster provisioning network
+        type: vlan
+        state: up
+        vlan:
+          base-iface: eno1
+          id: 210
+        ipv4:
+          enabled: true
+          dhcp: true
