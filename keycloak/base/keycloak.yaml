@@ -11,3 +11,11 @@ spec:
         - >-
             https://github.com/aerogear/keycloak-metrics-spi/releases/download/1.0.4/keycloak-metrics-spi-1.0.4.jar
     instances: 1
+    keycloakDeploymentSpec:
+        resources:
+            limits:
+                cpu: 2
+                memory: 2Gi
+            requests:
+                cpu: 1
+                memory: 1Gi
