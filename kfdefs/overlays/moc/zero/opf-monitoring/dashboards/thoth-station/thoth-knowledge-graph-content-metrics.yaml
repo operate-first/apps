@@ -3,7 +3,7 @@ kind: GrafanaDashboard
 metadata:
   name: thoth-knowledge-graph-content-metrics
   labels:
-    version: v2
+    version: v3
     app: grafana
     component: thoth-station
 spec:
