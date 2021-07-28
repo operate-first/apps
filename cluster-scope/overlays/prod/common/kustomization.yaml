@@ -34,6 +34,7 @@ resources:
     - ../../../base/user.openshift.io/groups/sa-dach
     - ../../../base/user.openshift.io/groups/sdap-mslsp
     - ../../../base/user.openshift.io/groups/sigstore
+    - ../../../base/user.openshift.io/groups/sre
     - ../../../base/user.openshift.io/groups/team-pixel
     - ../../../base/user.openshift.io/groups/thoth
     - ../../../base/user.openshift.io/groups/thoth-devops

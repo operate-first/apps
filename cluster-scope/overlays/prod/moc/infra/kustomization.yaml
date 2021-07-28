@@ -22,6 +22,7 @@ resources:
   - ../../../../base/rbac.authorization.k8s.io/clusterrolebindings/argocd-application-controller
   - ../../../../base/rbac.authorization.k8s.io/clusterrolebindings/argocd-manager
   - ../../../../base/rbac.authorization.k8s.io/clusterrolebindings/argocd-server
+  - ../../../../base/rbac.authorization.k8s.io/clusterrolebindings/sre
   - ../../../../base/rbac.authorization.k8s.io/clusterrolebindings/cluster-admins-rb
   - ../../../../base/rbac.authorization.k8s.io/clusterrolebindings/moc-nfs-democratic-csi-controller-rb
   - ../../../../base/rbac.authorization.k8s.io/clusterrolebindings/moc-nfs-democratic-csi-node-rb
