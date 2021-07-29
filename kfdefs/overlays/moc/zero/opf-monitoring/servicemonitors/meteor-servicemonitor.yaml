@@ -1,0 +1,14 @@
+---
+apiVersion: monitoring.coreos.com/v1
+kind: ServiceMonitor
+metadata:
+  name: meteor-shower-monitor
+  labels:
+    monitor-component: meteor-shower
+spec:
+  endpoints:
+    - port: http
+  namespaceSelector:
+    matchNames:
+      - aicoe-meteor
+  selector: {}
