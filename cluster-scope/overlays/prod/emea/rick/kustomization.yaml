@@ -7,6 +7,7 @@ resources:
     - ../../../../base/core/namespaces/openshift-monitoring
     - ../../../../base/core/namespaces/openshift-operators
     - ../../../../base/core/namespaces/openshift-storage
+    - ../../../../base/core/namespaces/grok-micro
     - ../../../../base/operators.coreos.com/operatorgroups/openshift-local-storage-zj22x
     - ../../../../base/operators.coreos.com/operatorgroups/openshift-storage-24n7x
     - ../../../../base/operators.coreos.com/subscriptions/openshift-local-storage-operator

@@ -18,6 +18,7 @@ resources:
     - ../../../base/user.openshift.io/groups/data-science
     - ../../../base/user.openshift.io/groups/esi-project
     - ../../../base/user.openshift.io/groups/fde
+    - ../../../base/user.openshift.io/groups/grok-micro
     - ../../../base/user.openshift.io/groups/lab-cicd
     - ../../../base/user.openshift.io/groups/mesh-for-data
     - ../../../base/user.openshift.io/groups/mwperf
