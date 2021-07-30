@@ -3,6 +3,7 @@ apiVersion: kustomize.config.k8s.io/v1beta1
 kind: Kustomization
 
 resources:
+  - ../../base/cert-manager.io/issuers/ingress-letsencrypt-staging
   - ../../base/core/namespaces/observatorium-operator
   - ../../base/core/namespaces/opf-argo
   - ../../base/core/namespaces/opf-dashboard
