@@ -1,0 +1,43 @@
+apiVersion: user.openshift.io/v1
+kind: Group
+metadata:
+    name: enterprise-neurosystem
+    annotations:
+        kustomize.config.k8s.io/behavior: replace
+users:
+    - ENC[AES256_GCM,data:Ubd9aDk99JY3zOOvlgJmcU444Q==,iv:24rn7DSYMQWIvY/rhK173YkspcMWVGx0qAT+iAfb9OU=,tag:G3agO7U2hs1Ce7c2iSyzuQ==,type:str]
+    - ENC[AES256_GCM,data:ww6EXEX0gmdc1vsLr2v+S/4k,iv:bDM5HnTiU12OKqLEiwNeL0NQ0KqbE2UnEYSIr1yZrd4=,tag:bXxe0tnUSqft4OvbkOTDlg==,type:str]
+    - ENC[AES256_GCM,data:CHfLiDPQQmgwfd6Ifcovja6PkpsEWxYjpm4=,iv:0DND4K7Ob2QzYLRxb5BBP/qcJ2nTTgbHZ5Vq/e2+Bps=,tag:U1vRkdZeoYWIp5FfBymfGQ==,type:str]
+    - ENC[AES256_GCM,data:AJeABaM07a/BWqawdN+suInXpWc3rX9QWiVPdf1xVg==,iv:aXuLfrdL+NJFa6NKMeVIbdMimTFUVYtaFB00WF7woQs=,tag:j22k1HK1hsc33I6XQ1++mA==,type:str]
+    - ENC[AES256_GCM,data:IfBZV2Bg0LmsSWlsg//GpHmvv+Bu+ourhJ3kiHM82BA=,iv:TMb0E1YOaZOtB3aBHMU+rniHmbXH2CHyQGdWCoB3Yoo=,tag:etFWUueTfA7WutkEnctXEg==,type:str]
+sops:
+    kms: []
+    gcp_kms: []
+    azure_kv: []
+    hc_vault: []
+    age: []
+    lastmodified: "2021-07-29T22:53:52Z"
+    mac: ENC[AES256_GCM,data:4jLH+eJnnza8yPFyXqaiGcxiwaF3nLwxMAt54MUDV8oFWqH+5UPgyZPGPj6XyKZPn5J1wMj0etB6xkuueycF3dHRWn2HDERxaA2uwoRR4AZjx/dvt1saMU5T+hkduDN/0QwgczYEzDD9CwLkmOg7+dmEm+CIqQ+SZgb/Xmaxsu0=,iv:NPdwCMNWeLnZ8Dtp5abdDJYBqcAbNTfx7yLz8QXYD1M=,tag:rVJSFIz0nEZ+U3qlzo2m2w==,type:str]
+    pgp:
+        - created_at: "2021-07-29T22:53:51Z"
+          enc: |-
+            -----BEGIN PGP MESSAGE-----
+
+            wcFMA9aKBcudqifiARAAEO3rgP7qOD+orzibaUTQU+xgUn+lVpOyCyL/hBFqGbf8
+            2n2dvyVRReFENef9WHneX1RuudC/Q/cFbGFd159nMAGI+OarS5TBxPkrmYWmmlw9
+            MyPz9sShxZnC4d1GKmAZCCI9cE36TqFfVfLhICNOCbN1lc4OqFiGx3/zPY54SX2f
+            +SVYJjZHzPPzqqjQ65bNGTunqI16XRzR5Z2xHF0xRjyvH6op+9Rvw2lxqb+uRqVq
+            0Ct87OT0k9Ef1z6CiOH9OmGrxsLEGBpYuYvSszwHu012W7gKbC5K/+ZpnNjVq3+j
+            h7yd4klYMQe9fbLUnBzqNzXqCtCtxty3wms77c0hY7dg1bKb151ATY07XWf4rHsX
+            S/c/+cR0aFaqoTy40ulcUER+ANWmPIDSpOafokJvA/wtonDj6uEvJUI1TGQ7FiX+
+            Mcq/bNrr3D5I3g/bnW0a6cXp9bBKo/O7Rs5Iklv9Q6qx/Kn7EKNpGOpND8tCmi65
+            eQAMxqK5hYqJ1zWWNlsFxU3Zj/foLx0ChQTYwz9ucgaEG8mAJlOuaEeuXiDCMWix
+            TEyFiA3Fgxo7yNbMrm0frV7rktIqamr+oNER22Vi91HlGzwqg++1pDPuyxAKcqEO
+            JxwUL/m8fwiZvtgdznM3d4u79TP/ex7eC/lSu9zF1NuoeWNCmIcvroKLqPvzjN7S
+            5gHjUQynZRU3xD2Eqj/2125ZIK74G9mKS4hKKGNxdx92gdKv90z+ghNYlf6vikuw
+            xz6tSrjYceDjfAu77+0WHNXklGcPY1zsMeW/NMSKqF2iJeIXrr4VAA==
+            =BRGP
+            -----END PGP MESSAGE-----
+          fp: 0508677DD04952D06A943D5B4DC4116D360E3276
+    encrypted_regex: ^users$
+    version: 3.7.1
