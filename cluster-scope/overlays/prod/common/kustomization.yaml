@@ -2,7 +2,9 @@ apiVersion: kustomize.config.k8s.io/v1beta1
 kind: Kustomization
 resources:
     - ../../../base/config.openshift.io/projects/cluster
+    - ../../../base/rbac.authorization.k8s.io/clusterrolebindings/cluster-admins-rb
     - ../../../base/rbac.authorization.k8s.io/clusterrolebindings/self-provisioners
+    - ../../../base/rbac.authorization.k8s.io/clusterrolebindings/sre
     - ../../../base/rbac.authorization.k8s.io/clusterroles/events-aggregate-to-edit
     - ../../../base/user.openshift.io/groups/adoptium
     - ../../../base/user.openshift.io/groups/ai-services
@@ -17,6 +19,7 @@ resources:
     - ../../../base/user.openshift.io/groups/curator
     - ../../../base/user.openshift.io/groups/data-science
     - ../../../base/user.openshift.io/groups/esi-project
+    - ../../../base/user.openshift.io/groups/enterprise-neurosystem
     - ../../../base/user.openshift.io/groups/fde
     - ../../../base/user.openshift.io/groups/lab-cicd
     - ../../../base/user.openshift.io/groups/mesh-for-data

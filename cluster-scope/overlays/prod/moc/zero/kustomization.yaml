@@ -128,7 +128,6 @@ resources:
   - ../../../../base/policy/podsecuritypolicies/speaker
   - ../../../../base/rbac.authorization.k8s.io/clusterrolebindings/acme-operator
   - ../../../../base/rbac.authorization.k8s.io/clusterrolebindings/argocd-manager
-  - ../../../../base/rbac.authorization.k8s.io/clusterrolebindings/cluster-admins-rb
   - ../../../../base/rbac.authorization.k8s.io/clusterrolebindings/cluster-logs-readers
   - ../../../../base/rbac.authorization.k8s.io/clusterrolebindings/metallb-allow-privileged
   - ../../../../base/rbac.authorization.k8s.io/clusterrolebindings/metallb-system:controller
@@ -145,7 +144,6 @@ resources:
   - ../../../../base/rbac.authorization.k8s.io/clusterrolebindings/scc-anyuid-tufts-dcc-6
   - ../../../../base/rbac.authorization.k8s.io/clusterrolebindings/scc-privileged-opf-ci-pipelines-aicoe-ci
   - ../../../../base/rbac.authorization.k8s.io/clusterrolebindings/scc-privileged-tufts-dcc-6
-  - ../../../../base/rbac.authorization.k8s.io/clusterrolebindings/sre
   - ../../../../base/rbac.authorization.k8s.io/clusterroles/acme-operator
   - ../../../../base/rbac.authorization.k8s.io/clusterroles/cluster-logs-reader
   - ../../../../base/rbac.authorization.k8s.io/clusterroles/metallb-system:controller

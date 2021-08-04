@@ -1,9 +1,9 @@
 apiVersion: user.openshift.io/v1
 kind: Group
 metadata:
-    annotations: {}
-    labels: {}
     name: sre
+    annotations:
+        kustomize.config.k8s.io/behavior: replace
 users:
     - ENC[AES256_GCM,data:uDgWZDZACJiSMkgB+5DZ34Iycg==,iv:vyzVqP/O6iMfQS3mOjundlfsXvv4crjdL7XTH/CxDW4=,tag:5dwslZtsXqj/8euJayKV3Q==,type:str]
     - ENC[AES256_GCM,data:hJwlc9vuAjCoPqwHUfNJdWdbTA==,iv:wJ4dQ3wkP79oRXpLN65dQkRzMOLWtMc8ucIn669sxDI=,tag:hC+CZUJCt3FPFT+1xpeIRw==,type:str]
@@ -17,8 +17,8 @@ sops:
     azure_kv: []
     hc_vault: []
     age: []
-    lastmodified: "2021-07-27T07:56:24Z"
-    mac: ENC[AES256_GCM,data:gAD7RJ+ZZzJQJCawLN56gRlnFb2KAHO/j8kxb3l4SZEqi9UtisoTsTXCTqV4NyGTntDEsk7IP9bGgOjKmwjZm4t2XI0/x4wpVwyxKIVa5W4L2fdxx0gg6fW001VHl4u9lDs03b//M2UdxnpNhKAOSCsEzhmsdHe8FqoXOAn9GS8=,iv:NI1VbWwoDbuD9s6SpatWWXAt2RreDaLYrAOgCfpUJNM=,tag:rwE00VtBiVOfU3vy9I9/Yg==,type:str]
+    lastmodified: "2021-08-04T13:42:56Z"
+    mac: ENC[AES256_GCM,data:RaL60QYGBVKH0w+p0EvEYzZU8+4+f6o5W+E6Fhzn7so0NMbYkQmvQJCHbheVIlNF2jpzc7E3GIJiJp8SFaP/+bTg0gHtsoV+IIB3XU+sVrKk4dvK09Lta2jbgRxkJY7aqP9mfVOnitrW3Oi0qsmkNxP+TZtMWD4bMk+FQo2tudk=,iv:wp7ehavCNZKRKztDK3178anuoZHZnkyoLk5aE3o2WIQ=,tag:ePzls1uZvk0QUWIkwaMCEg==,type:str]
     pgp:
         - created_at: "2021-07-27T07:09:40Z"
           enc: |-
