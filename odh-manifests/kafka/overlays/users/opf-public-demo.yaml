@@ -1,0 +1,38 @@
+apiVersion: kafka.strimzi.io/v1beta2
+kind: KafkaUser
+metadata:
+  name: opf-public-demo
+spec:
+  authentication:
+    type: tls
+  authorization:
+    acls:
+      # list of topics that can be accessed publicly
+      - host: "*"
+        operation: Read
+        resource:
+          # this user has Read access to all topics with "audio-decoder." prefix
+          name: audio-decoder.
+          patternType: prefix
+          type: topic
+        type: allow
+      - host: "*"
+        operation: Write
+        resource:
+          # this user has Write access to all topics with "audio-decoder." prefix
+          name: audio-decoder.
+          patternType: prefix
+          type: topic
+        type: allow
+      - host: "*"
+        operation: All
+        resource:
+          name: opf-public-demo-consumer
+          patternType: literal
+          type: group
+        type: allow
+    type: simple
+  quotas:
+    requestPercentage: 10     # 10% max cpu utilization per client group
+    consumerByteRate: 500000  # 0.5mb/s
+    producerByteRate: 500000  # 0.5mb/s

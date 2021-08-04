@@ -5,4 +5,5 @@ commonLabels:
 resources:
 - audio-decoder.yaml
 - cluster-logging.yaml
+- opf-public-demo.yaml
 - thoth.yaml
