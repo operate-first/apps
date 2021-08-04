@@ -3,6 +3,7 @@ kind: NodeNetworkConfigurationPolicy
 metadata:
   name: moc-nfs-network-enp4s0f1np1
 spec:
+  Parallel: true
   nodeSelector:
     moc/primary-interface: enp4s0f1np1
   desiredState:
@@ -23,6 +24,7 @@ kind: NodeNetworkConfigurationPolicy
 metadata:
   name: moc-nfs-network-enp4s0f1
 spec:
+  Parallel: true
   nodeSelector:
     moc/primary-interface: enp4s0f1
   desiredState:
@@ -43,6 +45,7 @@ kind: NodeNetworkConfigurationPolicy
 metadata:
   name: moc-nfs-network-eno2
 spec:
+  Parallel: true
   nodeSelector:
     moc/primary-interface: eno2
   desiredState:
