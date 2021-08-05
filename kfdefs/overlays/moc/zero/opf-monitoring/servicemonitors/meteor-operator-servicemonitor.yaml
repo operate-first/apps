@@ -1,0 +1,22 @@
+---
+apiVersion: monitoring.coreos.com/v1
+kind: ServiceMonitor
+metadata:
+  name: meteor-operator-monitor
+  labels:
+    monitor-component: meteor-operator
+spec:
+  endpoints:
+    - bearerTokenSecret:
+        key: token
+        name: opf.prometheus-k8s
+      port: https
+      scheme: https
+      tlsConfig:
+        insecureSkipVerify: true
+  namespaceSelector:
+    matchNames:
+      - aicoe-meteor
+  selector:
+    matchLabels:
+      control-plane: controller-manager

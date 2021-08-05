@@ -7,4 +7,5 @@ resources:
   - observatorium-servicemonitor.yaml
   - argocd-servicemonitor.yaml
   - apicurio-registry-servicemonitor.yaml
+  - meteor-operator-servicemonitor.yaml
   - meteor-servicemonitor.yaml
