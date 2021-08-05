@@ -5,7 +5,7 @@ metadata:
   name: dex
 data:
   config.yaml: |
-    issuer: http://dex-server-opf-auth.apps.zero.massopen.cloud/api/dex
+    issuer: http://dex-dex.apps.zero.massopen.cloud
 
     storage:
       type: memory
@@ -32,15 +32,14 @@ data:
       - id: grafana
         name: Grafana
         redirectURIs:
-          - https://grafana-route-opf-monitoring.apps.zero.massopen.cloud/login/generic_oauth
+          - https://grafana-opf-monitoring.apps.zero.massopen.cloud/login/generic_oauth
         secretEnv: GRAFANA_SECRET
 
-      - id: hue
-        name: Hue
+      - id: grafana-observatorium
+        name: GrafanaObservatorium
         redirectURIs:
-          - https://hue-opf-datacatalog.apps.zero.massopen.cloud/oidc/callback
-          - https://hue-opf-datacatalog.apps.zero.massopen.cloud/hue/oidc_failed
-        secretEnv: HUE_SECRET
+          - https://grafana-opf-observatorium.apps.zero.massopen.cloud/login/generic_oauth
+        secretEnv: GRAFANA_SECRET
 
     connectors:
       - type: openshift
@@ -48,8 +47,8 @@ data:
         name: OpenShift
         config:
           issuer: https://kubernetes.default.svc
-          clientID: system:serviceaccount:opf-auth:dex
+          clientID: system:serviceaccount:dex:dex
           clientSecret: $OPENSHIFT_CLIENT_SECRET
-          redirectURI: http://dex-server-opf-auth.apps.zero.massopen.cloud/api/dex/callback
+          redirectURI: http://dex-dex.apps.zero.massopen.cloud/callback
           groups:
             - system:authenticated

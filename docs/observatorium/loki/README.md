@@ -60,7 +60,7 @@ More Info on [/query_range](https://grafana.com/docs/loki/latest/api/#get-lokiap
 
 ### Grafana
 
-- url: https://grafana-route-opf-observatorium.apps.zero.massopen.cloud/
+- url: https://grafana-opf-observatorium.apps.zero.massopen.cloud/
 
 This is the endpoint for Grafana that can be used to query logs from Loki in a UI.
 
@@ -68,4 +68,4 @@ To be able to query logs using Grafana, you will need to add a Grafana Datasourc
 specific to your Org-ID (the `'X-Scope-OrgID'` header). To do that instructions are available [here](./add_loki_grafana_datasource.md).
 
 An example query should be accessible at the following url: <br>
-https://grafana-route-opf-observatorium.apps.zero.massopen.cloud/explore?orgId=1&left=["1607519717000","1607526347000","loki-opf-example",{"expr":"{app%3D\"my-app-1\"}"}]
+https://grafana-opf-observatorium.apps.zero.massopen.cloud/explore?orgId=1&left=["1607519717000","1607526347000","loki-opf-example",{"expr":"{app%3D\"my-app-1\"}"}]
