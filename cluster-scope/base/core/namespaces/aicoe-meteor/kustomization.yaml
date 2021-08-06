@@ -6,7 +6,7 @@ components:
     - ../../../../components/project-admin-rolebindings/operate-first
     - ../../../../components/project-admin-rolebindings/data-science
     - ../../../../components/project-admin-rolebindings/thoth
-    - ../../../../components/resourcequotas/small
+    - ../../../../components/resourcequotas/large
     - ../../../../components/limitranges/default
     - ../../../../components/monitoring-rbac
 namespace: aicoe-meteor
