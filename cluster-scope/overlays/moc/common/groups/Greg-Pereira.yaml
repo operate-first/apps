@@ -1,0 +1,9 @@
+apiVersion: user.openshift.io/v1
+kind: Group
+metadata:
+  annotations:
+    kustomize.config.k8s.io/behavior: replace
+  name: Greg-Pereira
+users:
+- gregpere17@gmail.com
+- grpereir@redhat.com
