@@ -18,7 +18,7 @@ spec:
             claimName: cloudbeaver
       containers:
         - name: cloudbeaver
-          image: quay.io/operate-first/cloudbeaver:21.0.5
+          image: quay.io/operate-first/cloudbeaver:21.1.1
           ports:
             - containerPort: 8978
               name: web
