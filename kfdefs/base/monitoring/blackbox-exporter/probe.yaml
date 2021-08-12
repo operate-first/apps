@@ -19,7 +19,7 @@ spec:
       - http://superset-opf-superset.apps.zero.massopen.cloud/
       - https://hue-opf-datacatalog.apps.zero.massopen.cloud/desktop/debug/is_alive
       - http://thriftserver-opf-datacatalog.apps.zero.massopen.cloud/
-      - https://grafana-route-opf-monitoring.apps.zero.massopen.cloud/
+      - https://grafana-opf-monitoring.apps.zero.massopen.cloud/
       - https://kibana-openshift-logging.apps.zero.massopen.cloud/api/status
       - https://elasticsearch-openshift-logging.apps.zero.massopen.cloud/
       - http://istio-ingressgateway-istio-system.apps.zero.massopen.cloud/

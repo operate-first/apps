@@ -32,7 +32,13 @@ data:
       - id: grafana
         name: Grafana
         redirectURIs:
-          - https://grafana-route-opf-monitoring.apps-crc.testing/login/generic_oauth
+          - https://grafana-opf-monitoring.apps.zero.massopen.cloud/login/generic_oauth
+        secretEnv: GRAFANA_SECRET
+
+      - id: grafana-observatorium
+        name: Grafana Observatorium
+        redirectURIs:
+          - https://grafana-opf-observatorium.apps.zero.massopen.cloud/login/generic_oauth
         secretEnv: GRAFANA_SECRET
 
       - id: hue

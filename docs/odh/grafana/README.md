@@ -11,7 +11,7 @@ Dashboards can be represented by the `GrafanaDashboard` custom resource or by th
 
 ## Adding the Dashboards
 
-Grafana can be accessed at: https://grafana-route-opf-monitoring.apps.zero.massopen.cloud/.
+Grafana can be accessed at: https://grafana-opf-monitoring.apps.zero.massopen.cloud/.
 
 To add your dashboards to Grafana, you will need to create a `GrafanaDashboard` custom resource. To do this, you can follow the instructions available [here](./add_grafana_dashboard.md).
 

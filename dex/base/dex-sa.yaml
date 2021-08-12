@@ -4,5 +4,6 @@ kind: ServiceAccount
 metadata:
   name: dex
   annotations:
-    serviceaccounts.openshift.io/oauth-redirecturi.dex: "api/dex/callback"
+    kustomize.config.k8s.io/behavior: replace
+    serviceaccounts.openshift.io/oauth-redirecturi.dex: "callback"
     serviceaccounts.openshift.io/oauth-redirectreference.dex: '{"kind":"OAuthRedirectReference","apiVersion":"v1","reference":{"kind":"Route","name":"dex"}}'
