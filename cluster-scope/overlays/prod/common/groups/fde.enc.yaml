@@ -5,7 +5,7 @@ metadata:
     annotations:
         kustomize.config.k8s.io/behavior: replace
 users:
-    - ENC[AES256_GCM,data:HYjAh1/yD3ZQCaI=,iv:ljlrqVvePsvXv6LtoFXdbYIkrXBGXBt+kgpcnAzsKd0=,tag:vBue1MAizwo7Ly9iDAiq5w==,type:str]
+    - ENC[AES256_GCM,data:LWBWyIwhXxDggds=,iv:+vbsCv/rLvf3nGKAYo/rMs4RDVmFcR476Dq/QK3Yyh8=,tag:Jt4D7dEOpfMarB6y+5afLw==,type:str]
     - ENC[AES256_GCM,data:m6XSLo5iYZftw7qcSH+X07DnaQ==,iv:WPgrEjd6WTFSqRTOBebzDiXt+kdY4eTAm1BA5o+Pr5g=,tag:0DYieIZh8zL+tPCaDCXrHw==,type:str]
 sops:
     kms: []
@@ -13,8 +13,8 @@ sops:
     azure_kv: []
     hc_vault: []
     age: []
-    lastmodified: "2021-07-14T20:25:14Z"
-    mac: ENC[AES256_GCM,data:S14m3rgqGxpTDNH2bEYMqy8hv9Ka+QFHbK4ZyFEGDGwgCpxRZyuBcsmtqZdu7h4ZWVlvvG8W5+CRkxTW+NNILjZLqgiDb1+5b5cgCQDXHWWXI1247Ms4pvpg+lvNcnfSYqxPVGXBwotign5Zt9kAmgGrg7UFWJAjlnM5PsUh/UI=,iv:sMuq/LTeAhH/gBxFfuqv/CuxAmAPdwJ9jQbG2tj3hvI=,tag:C0464+cUI7bFuX6i8ZJPOQ==,type:str]
+    lastmodified: "2021-08-12T12:51:13Z"
+    mac: ENC[AES256_GCM,data:4uxGR+7xPxZ2JP/f+YvgYzixYayNiNv04zddYeBcyTNYeX7J30GwAbwtdXRndvDi7LH4iEbIyy8peRBB0Bo6IszpR7CAs71smwqZsXhdSbsEecR7sUlHUiNhO7q+99r+Dm8oX1TxuXSLosZbA/TpkXx6anbb9beeIttZ2Nj9PfQ=,iv:8/Jdhp7+gxsudefZfvHB06EzbFS3qbQrJje7oVTUU/8=,tag:YQ1a8p4Sa6Nh7McJybLzcQ==,type:str]
     pgp:
         - created_at: "2021-03-17T13:13:29Z"
           enc: |
