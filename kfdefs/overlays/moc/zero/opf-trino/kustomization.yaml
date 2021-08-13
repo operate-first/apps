@@ -5,9 +5,9 @@ namespace: opf-trino
 
 resources:
   - ../../../../base/trino
+  - secrets
+  - secure-route.yaml
 
-generators:
-  - secrets/secret-generator.yaml
 
 patchesJson6902:
   - patch: |
