@@ -5,6 +5,8 @@ namespace: opf-superset
 
 resources:
   - ../../../../base/superset
+  - secure-route.yaml
+  - secrets
 
 patchesJson6902:
   - patch: |

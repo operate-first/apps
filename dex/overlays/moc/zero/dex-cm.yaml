@@ -41,6 +41,21 @@ data:
           - https://grafana-opf-observatorium.apps.zero.massopen.cloud/login/generic_oauth
         secretEnv: GRAFANA_SECRET
 
+      - id: superset
+        name: Superset
+        redirectURIs:
+          - http://superset-opf-superset.apps.zero.massopen.cloud/oauth-authorized/dex
+          - https://superset-secure-opf-superset.apps.zero.massopen.cloud/oauth-authorized/dex
+          - http://superset-secure-opf-superset.apps.zero.massopen.cloud/oauth-authorized/dex
+        secretEnv: SUPERSET_SECRET
+
+      - id: trino
+        name: Trino
+        redirectURIs:
+          - https://trino-secure-odh-trino.apps.zero.massopen.cloud/oauth2/callback
+          - https://trino-route-odh-trino.apps.zero.massopen.cloud/oauth2/callback
+        secretEnv: TRINO_SECRET
+
     connectors:
       - type: openshift
         id: openshift
