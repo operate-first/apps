@@ -52,8 +52,8 @@ data:
       - id: trino
         name: Trino
         redirectURIs:
-          - https://trino-secure-odh-trino.apps.zero.massopen.cloud/oauth2/callback
-          - https://trino-route-odh-trino.apps.zero.massopen.cloud/oauth2/callback
+          - https://trino-secure-opf-trino.apps.zero.massopen.cloud/oauth2/callback
+          - https://trino-route-opf-trino.apps.zero.massopen.cloud/oauth2/callback
         secretEnv: TRINO_SECRET
 
     connectors:
