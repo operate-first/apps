@@ -15,9 +15,27 @@ spec:
             - name
           preferredUsername:
             - preferred_username
-        clientID: moc-openshift-zero
+        clientID: moc-openshift-infra
         clientSecret:
           name: moc-sso-client-secret
         extraScopes: []
         issuer: https://sso.massopen.cloud/auth/realms/moc
+      type: OpenID
+    - mappingMethod: claim
+      name: operate-first
+      openID:
+        ca:
+          name: kube-root-ca.crt
+        claims:
+          email:
+            - email
+          name:
+            - name
+          preferredUsername:
+            - preferred_username
+        clientID: zero
+        clientSecret:
+          name: operate-first-sso-secret
+        extraScopes: []
+        issuer: https://keycloak-opf-auth.apps.moc-infra.massopen.cloud/auth/realms/operate-first
       type: OpenID
