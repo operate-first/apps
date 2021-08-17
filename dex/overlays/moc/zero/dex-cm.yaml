@@ -44,9 +44,8 @@ data:
       - id: superset
         name: Superset
         redirectURIs:
-          - http://superset-opf-superset.apps.zero.massopen.cloud/oauth-authorized/dex
-          - https://superset-secure-opf-superset.apps.zero.massopen.cloud/oauth-authorized/dex
-          - http://superset-secure-opf-superset.apps.zero.massopen.cloud/oauth-authorized/dex
+          - http://superset.operate-first.cloud/oauth-authorized/dex
+          - https://superset.operate-first.cloud/oauth-authorized/dex
         secretEnv: SUPERSET_SECRET
 
       - id: trino
