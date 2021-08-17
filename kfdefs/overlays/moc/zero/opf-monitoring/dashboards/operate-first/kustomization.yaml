@@ -4,5 +4,6 @@ kind: Kustomization
 resources:
   - argocd.yaml
   - cluster-logs-quick-search.yaml
-  - opf-availability.yaml
   - cpu_usage.yaml
+  - opf-availability.yaml
+  - opf-cloud-flowchart.yaml
