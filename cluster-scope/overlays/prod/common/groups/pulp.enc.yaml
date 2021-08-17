@@ -5,10 +5,14 @@ metadata:
     annotations:
         kustomize.config.k8s.io/behavior: replace
 users:
+    - ENC[AES256_GCM,data:/csJxjdr/B8PHw==,iv:E6QumaG6umlRb6A/3yEK+u8kja3KN2pM24MKLj2hqR0=,tag:L1rBXghAahAqQKGakgjpAg==,type:str]
     - ENC[AES256_GCM,data:didxTCR+0WTKkBF9fWvo0jfI8Q==,iv:dIXvDepsi6axJVc3piGf6lPRrCl1QHpmOoqumGQqSfY=,tag:qUhq+eVeOtbGHn0eNhJqwQ==,type:str]
     - ENC[AES256_GCM,data:Zd0DjmWveiYLq2z9wxWT6AoP3p+U,iv:yD4mTSqzWRCr30nra5JSBa7yQChuzF5A+YHvq3PPGnY=,tag:eeEPSkoL88BprBVUrKKy0Q==,type:str]
+    - ENC[AES256_GCM,data:uDhZZJc=,iv:nAae1QCwhbgI6MmJ7F8fyOQmMEamH0fxk/lEzk8BBfo=,tag:agIHXguI/fvVB98EU3G/sw==,type:str]
     - ENC[AES256_GCM,data:aJfl8HLJf5NnqXGNTxoFxeJtmA==,iv:ppW/3bIX3cBiC5TqI5IBXgo0FVmC1s/7ELFSHX7Pkp4=,tag:PAerSR7bvI082jXie3/0qA==,type:str]
+    - ENC[AES256_GCM,data:yzsRTMMAunzODA==,iv:yvtYb3o0W7C92aRmXYJ7yQcpXZSKSlC0AE0ircGZ/DE=,tag:nPkqVo337S/uYSO2z4XSIw==,type:str]
     - ENC[AES256_GCM,data:TYcNvMbhhQ3t1dUT8TMquQgdgQ==,iv:beBRwzw5OlI9H/nZMSYEyo/5zSYESUcZlTfWSdxxcr0=,tag:Ce7bw5GpLTR1Q1lyAnJsrw==,type:str]
+    - ENC[AES256_GCM,data:WAeNukD1RA==,iv:Vz70TUOYBm9po0avdIJ0tVTWoWhhXbuWnmix0QUGotE=,tag:3Y0sOfYKZPGdlvgZXbDJaw==,type:str]
     - ENC[AES256_GCM,data:gjLqAKM3yBfq5VRAm086ex0=,iv:hRH+kJnmkJH/i/U3ZxY7D2xaU3Yis8yTaGqQR9T2/bw=,tag:tsQpMU9hLDUaOvdbeJX+ZA==,type:str]
 sops:
     kms: []
@@ -16,8 +20,8 @@ sops:
     azure_kv: []
     hc_vault: []
     age: []
-    lastmodified: "2021-06-29T12:11:59Z"
-    mac: ENC[AES256_GCM,data:hYisGxqAYLX58VQTvdOjwzuQ2hLZQgVV60TBmzCiVUpWZg1vIiI6CSuhWv8O4TaTa+1qmb9yBZIdahMnLBm9vRjY4O2XAYd803FIOeMgydCdrMwgFIFWMCA7KE1L/ozZY8KVI2IGSDldg1b90sCbHEr9Qr+orasjiqnWodbr08k=,iv:4noD9S8oTo7eu6n90ow+UXipKGaygrWX+OWYy7cpi8Y=,tag:p90ju50JUR0+cn42euzhoQ==,type:str]
+    lastmodified: "2021-07-14T20:30:22Z"
+    mac: ENC[AES256_GCM,data:hCVvhBTl61SfUvKcIHwrnuqU345meeCpDfNQQt3Bo0qrnYsJwT+ApWWpJWXoAaTgUlv0neOhHp6CPdO1/6hNX4n3fpvPEPdZo/of68zMk3JngmsVh4Q3aK6gHWwqooAbPFlhUtbubpoAu1Q2ibb8gGatTHhBJKtl0Ay13yoE500=,iv:n38Pp6ytYrEqD5WAKp81wN+aXFR/m2GbwwbJCkIdMAw=,tag:FpixSeDnjj9RzvHatJW7Ag==,type:str]
     pgp:
         - created_at: "2021-04-07T15:06:53Z"
           enc: |

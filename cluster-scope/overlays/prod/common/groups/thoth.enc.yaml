@@ -5,23 +5,31 @@ metadata:
     annotations:
         kustomize.config.k8s.io/behavior: replace
 users:
-- ENC[AES256_GCM,data:UudExMPhizTj7GJAlLiFQEk=,iv:l5DKt6mFOKzqVMqS5CWquMFS+yXPIsrar6IhxsUUcek=,tag:SxojJRdc2bRpbX6xmi+R1g==,type:str]
-- ENC[AES256_GCM,data:y+UvB7FDY3L0OR0BmGTeFHyZrw==,iv:syl/vrTf3+YsHPJv+HR5VnWxJLl7pemMgLGv880u3Bc=,tag:0epOmdQC4q9JiLb5cvFBlw==,type:str]
-- ENC[AES256_GCM,data:KMXV1OWh0e6rgR8oOV3nYSQ/Mg==,iv:GymdcoPCjeDt57+ljSjyLHq2eBxjsDqhzn4ywL3Esgg=,tag:kBMLJGBOXwRewCXQE7ijOg==,type:str]
-- ENC[AES256_GCM,data:czLs3ssPdwXfuf/90x5j087YWg==,iv:XdbnfzU7sqcwAbi7XKGpqKOiqeCQzfriWBMWF6rG8M0=,tag:CqeXgfj1sjDiXMEFI3fb4Q==,type:str]
-- ENC[AES256_GCM,data:kOn0043wv7t0T6H4Q4fctLM=,iv:sNAhmck3gQRWT+rp/9hzNTZ3FPaPV3OVczMAfiFKl+U=,tag:JxUvt0KAv2dd0NbtDEQPXA==,type:str]
-- ENC[AES256_GCM,data:0MAyr2KLl4sF110aaAhxaVfVeg==,iv:LyRzvHShChKUzXOAZNYWgxs7Xu9RHIB7NHEHw0Mkk58=,tag:QGMEB8U7HLHVGqIOgdkVDQ==,type:str]
-- ENC[AES256_GCM,data:rxfbzymWx/aO56Tt0Kh2QJt/mA==,iv:lLbLUgI8Yh73RPQGmTvxKW4fuSFDIdwjdxrM+pgiD4I=,tag:qUNc6q2QnNhUkbd7sDQRTg==,type:str]
+    - ENC[AES256_GCM,data:IYkKMEM=,iv:nl8Ty/gE6pfl+ge8b8LCNPS0AEVTm62GcdOC/nRYILI=,tag:+7qGWx3nbo0nj5ssG+LfIw==,type:str]
+    - ENC[AES256_GCM,data:UudExMPhizTj7GJAlLiFQEk=,iv:l5DKt6mFOKzqVMqS5CWquMFS+yXPIsrar6IhxsUUcek=,tag:SxojJRdc2bRpbX6xmi+R1g==,type:str]
+    - ENC[AES256_GCM,data:jG+dYp9AETso,iv:yojaPoY2bEi5KHDDEV/iDi26135Hc1g64jcz6NMQCS4=,tag:ElhPEOeqM5yLPU5O3NitFg==,type:str]
+    - ENC[AES256_GCM,data:y+UvB7FDY3L0OR0BmGTeFHyZrw==,iv:syl/vrTf3+YsHPJv+HR5VnWxJLl7pemMgLGv880u3Bc=,tag:0epOmdQC4q9JiLb5cvFBlw==,type:str]
+    - ENC[AES256_GCM,data:ZvpJpyhL,iv:0kMr9ApQvCBlYHQqMISC90o73H9qgInEGazHrWEDTvQ=,tag:1UDWnnUs6+wUoaC5hAmpbw==,type:str]
+    - ENC[AES256_GCM,data:KMXV1OWh0e6rgR8oOV3nYSQ/Mg==,iv:GymdcoPCjeDt57+ljSjyLHq2eBxjsDqhzn4ywL3Esgg=,tag:kBMLJGBOXwRewCXQE7ijOg==,type:str]
+    - ENC[AES256_GCM,data:JLrAkhoQUlDDtARAjC22,iv:y5QxiHb6CCauVTUfCx0t2N8qGHCZpqOazV45iMXr8UM=,tag:Sbea8IIUgybLJvbIQBvBfw==,type:str]
+    - ENC[AES256_GCM,data:czLs3ssPdwXfuf/90x5j087YWg==,iv:XdbnfzU7sqcwAbi7XKGpqKOiqeCQzfriWBMWF6rG8M0=,tag:CqeXgfj1sjDiXMEFI3fb4Q==,type:str]
+    - ENC[AES256_GCM,data:QyDEX9s8v0RR,iv:XaSbQLO4qBb+i9Ke4ezkMzj9d541M1/SfJ2j9Iam5Rw=,tag:1AFJ4EM1UhQ8Wmm22aM6XA==,type:str]
+    - ENC[AES256_GCM,data:kOn0043wv7t0T6H4Q4fctLM=,iv:sNAhmck3gQRWT+rp/9hzNTZ3FPaPV3OVczMAfiFKl+U=,tag:JxUvt0KAv2dd0NbtDEQPXA==,type:str]
+    - ENC[AES256_GCM,data:SR88qXrGVJibSVo=,iv:AH2cB6rH27AmyUSBn1wghrwO5hyLtWrvNkjJ6dCYx6o=,tag:Ju1qp5bKOHWRWUrvk64yGQ==,type:str]
+    - ENC[AES256_GCM,data:0MAyr2KLl4sF110aaAhxaVfVeg==,iv:LyRzvHShChKUzXOAZNYWgxs7Xu9RHIB7NHEHw0Mkk58=,tag:QGMEB8U7HLHVGqIOgdkVDQ==,type:str]
+    - ENC[AES256_GCM,data:aHCX/qYWkOw=,iv:XnJYFKeesQeaUdfoukzbRZVohq7AJR86D5Gpoti25yw=,tag:K3fVvOzyhN8mhtHSAHjvBg==,type:str]
+    - ENC[AES256_GCM,data:rxfbzymWx/aO56Tt0Kh2QJt/mA==,iv:lLbLUgI8Yh73RPQGmTvxKW4fuSFDIdwjdxrM+pgiD4I=,tag:qUNc6q2QnNhUkbd7sDQRTg==,type:str]
 sops:
     kms: []
     gcp_kms: []
     azure_kv: []
     hc_vault: []
-    lastmodified: '2021-06-17T14:06:50Z'
-    mac: ENC[AES256_GCM,data:PQDprz5YxmN5puITEPYAbKgchl0dfFOLKeCUpnguVquFjNpE7L/38JT1cnP9dL+OyhVr0HXT2MLQRuGWzpsdyUIXWTw5ydAUpnP7ODWDLeTlBo4Y0AOkaEDoIK0gyC8CozCSHYjVAv2dOlVZ/waaGeh70lMRHze9u5pAnN71afM=,iv:XqWt1SV1xUjkjVLkp8QsLHTrvWNdsd6PKQxq2MhttXw=,tag:own6hafN0BaYjbVT3pS4Xg==,type:str]
+    age: []
+    lastmodified: "2021-08-12T12:54:37Z"
+    mac: ENC[AES256_GCM,data:NO1d+IOkKt23tUFhd51/59d/mU6TNbfyMdydmwcDlqVFWIW+7/cWNA6vDLaqE1SS9LKH6KHrRaLz4jpv+ocsjSywHH9d0SWqrG4yFyKtzS5T6rhGj6OzneOidFOJqCgkcv8CWrGrKlzi1Te+LdHr0SFMvpxdz2QpbfCaLJY3ZaE=,iv:B++Gy4NlY3xJAmLoIrmfndAt9x3g8U5RVIcIcGPTcj4=,tag:CkxCnPlfV8I/82WSwlYqAA==,type:str]
     pgp:
-    -   created_at: '2021-04-07T15:06:53Z'
-        enc: |
+        - created_at: "2021-04-07T15:06:53Z"
+          enc: |
             -----BEGIN PGP MESSAGE-----
 
             hQIMA9aKBcudqifiAQ//WgTiWGPBSFkxyy776h9v1T3lEvWY87PGDPEsP1DzkvpP
@@ -39,6 +47,6 @@ sops:
             1EGkPq3253tI+Kt5pUH4KurqQDggEa6q5PU5uXEkJU+3bOufi51ic9YEGszm4Ug=
             =On28
             -----END PGP MESSAGE-----
-        fp: 0508677DD04952D06A943D5B4DC4116D360E3276
+          fp: 0508677DD04952D06A943D5B4DC4116D360E3276
     encrypted_regex: ^(users|data|stringData)$
-    version: 3.6.1
+    version: 3.7.1
