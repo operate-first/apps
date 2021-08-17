@@ -20,6 +20,10 @@ patchesJson6902:
                 value: s3-openshift-storage.apps.zero.massopen.cloud
               - name: s3_credentials_secret
                 value: opf-datacatalog-bucket
+              - name: trino_memory_request
+                value: 8Gi
+              - name: trino_memory_limit
+                value: 8Gi
             repoRef:
               name: opf
               path: odh-manifests/trino
