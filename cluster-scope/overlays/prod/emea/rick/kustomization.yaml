@@ -11,6 +11,7 @@ resources:
     - ../../../../base/operators.coreos.com/operatorgroups/openshift-storage-24n7x
     - ../../../../base/operators.coreos.com/subscriptions/openshift-local-storage-operator
     - ../../../../base/operators.coreos.com/subscriptions/ocs-operator
+    - ../../../../base/operators.coreos.com/subscriptions/openshift-pipelines-operator-rh
     - ../../../../base/user.openshift.io/groups/cluster-admins
 
 generators:
@@ -21,3 +22,4 @@ patchesStrategicMerge:
     - groups/cluster-admins.yaml
     - subscriptions/local-storage-operator_patch.yaml
     - subscriptions/ocs-operator_patch.yaml
+    - subscriptions/openshift-pipelines-operator-rh_patch.yaml
