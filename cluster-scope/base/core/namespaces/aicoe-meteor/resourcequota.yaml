@@ -1,0 +1,12 @@
+kind: ResourceQuota
+apiVersion: v1
+metadata:
+  name: aicoe-meteor-custom
+spec:
+  hard:
+    requests.cpu: "4"
+    requests.memory: 16Gi
+    limits.cpu: "16"
+    limits.memory: 30Gi
+    requests.storage: 80Gi
+    count/objectbucketclaims.objectbucket.io: 1
