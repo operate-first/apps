@@ -23,7 +23,11 @@ patchesJson6902:
               - name: trino_memory_request
                 value: 8Gi
               - name: trino_memory_limit
-                value: 8Gi
+                value: 16Gi
+              - name: trino_cpu_request
+                value: 4
+              - name: trino_cpu_limit
+                value: 8
             repoRef:
               name: opf
               path: odh-manifests/trino
