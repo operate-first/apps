@@ -34,4 +34,4 @@ p, role:admin, gpgkeys, create, *, allow
 p, role:admin, gpgkeys, delete, *, allow
 
 g, role:admin, role:readonly
-g, dev-group, role:admin
+g, system:authenticated, role:admin
