@@ -4,8 +4,6 @@ namespace: argocd
 resources:
 - ../../base
 - ../../cluster-resources
-- applications
-- projects
 configMapGenerator:
 - name: argocd-cm
   behavior: replace
