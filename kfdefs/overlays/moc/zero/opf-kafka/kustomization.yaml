@@ -16,7 +16,7 @@ patchesJson6902:
               - users
             repoRef:
               name: opf
-              path: odh-manifests/kafka
+              path: odh-manifests/zero/kafka
           name: kafka-cluster
       - op: add
         path: /spec/repos/-

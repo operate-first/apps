@@ -18,7 +18,7 @@ spec:
           - cluster-role
         repoRef:
           name: opf
-          path: odh-manifests/dashboard
+          path: odh-manifests/zero/dashboard
       name: odh-dashboard
   repos:
     - name: manifests

@@ -35,4 +35,4 @@ NOTE: The same applies for the observatorium CR found [here][observatorium_grafa
 [roles]: https://grafana.com/docs/grafana/latest/permissions/organization_roles/
 [role_mapping]: https://grafana.com/docs/grafana/latest/auth/generic-oauth/#jmespath-examples
 [observatorium_grafana]: https://github.com/operate-first/apps/blob/master/observatorium/base/instance/grafana.yaml
-[moc_environment]: https://github.com/operate-first/apps/blob/master/odh-manifests/grafana/grafana/base/grafana.yaml
+[moc_environment]: https://github.com/operate-first/apps/blob/master/odh-manifests/zero/grafana/grafana/base/grafana.yaml

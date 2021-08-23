@@ -19,7 +19,7 @@ patchesJson6902:
                 value: quay.io/opendatahub/superset:1.1.0
             repoRef:
               name: opf
-              path: odh-manifests/superset
+              path: odh-manifests/zero/superset
           name: superset
       - op: add
         path: /spec/repos/-
