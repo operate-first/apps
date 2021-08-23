@@ -1,0 +1,15 @@
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: thanos-receive-oauth-proxy
+  annotations:
+    service.alpha.openshift.io/serving-cert-secret-name: thanos-receive-tls
+spec:
+  selector:
+    app: thanos-receive-oauth-proxy
+  ports:
+    - name: oauth-proxy
+      port: 9091
+      protocol: TCP
+      targetPort: oauth-proxy
