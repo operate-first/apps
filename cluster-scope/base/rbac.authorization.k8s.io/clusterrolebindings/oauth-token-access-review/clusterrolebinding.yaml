@@ -15,5 +15,8 @@ subjects:
   name: thanos-query-frontend-oauth-proxy
   namespace: opf-observatorium
 - kind: ServiceAccount
+  name: thanos-receive-oauth-proxy
+  namespace: opf-observatorium
+- kind: ServiceAccount
   name: loki-query-frontend-oauth-proxy
   namespace: opf-observatorium

@@ -6,3 +6,4 @@ resources:
   - loki-distributor.yaml
   - loki-query-frontend-oauth-proxy.yaml
   - thanos-query-frontend-oauth-proxy.yaml
+  - thanos-receive-oauth-proxy.yaml
