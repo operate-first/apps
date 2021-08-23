@@ -18,4 +18,4 @@ the following format:
 
 Once done, submit a PR.
 
-[superset_config]: https://github.com/operate-first/apps/blob/master/odh-manifests/superset/base/secret.yaml
+[superset_config]: https://github.com/operate-first/apps/blob/master/odh-manifests/zero/superset/base/secret.yaml

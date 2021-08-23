@@ -30,7 +30,7 @@ patchesJson6902:
                 value: 8
             repoRef:
               name: opf
-              path: odh-manifests/trino
+              path: odh-manifests/zero/trino
           name: trino
       - op: add
         path: /spec/repos/-

@@ -29,7 +29,7 @@ spec:
           - openshift-proxy
         repoRef:
           name: opf
-          path: odh-manifests/prometheus/operator
+          path: odh-manifests/zero/prometheus/operator
       name: prometheus-operator
     - kustomizeConfig:
         repoRef:
@@ -44,7 +44,7 @@ spec:
     - kustomizeConfig:
         repoRef:
           name: opf
-          path: odh-manifests/grafana/grafana
+          path: odh-manifests/zero/grafana/grafana
       name: grafana-operator
   repos:
     - name: manifests

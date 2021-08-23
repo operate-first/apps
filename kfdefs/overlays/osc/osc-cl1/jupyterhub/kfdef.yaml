@@ -4,7 +4,7 @@ kind: KfDef
 metadata:
   annotations:
     kfctl.kubeflow.io/force-delete: "false"
-  name: opendatahub
+  name: jupyterhub
 spec:
   applications:
     - kustomizeConfig:
@@ -18,15 +18,6 @@ spec:
           path: jupyterhub/jupyterhub
       name: jupyterhub
     - kustomizeConfig:
-        overlays: []
-        parameters:
-          - name: s3_endpoint_url
-            value: s3.odh.com
-        repoRef:
-          name: opf-manifests
-          path: odh-manifests/zero/jupyterhub
-      name: jupyterhub
-    - kustomizeConfig:
         overlays:
           - additional
         repoRef:
@@ -38,9 +29,17 @@ spec:
           name: manifests
           path: radanalyticsio/spark/cluster
       name: radanalyticsio-spark-cluster
+    - kustomizeConfig:
+        parameters:
+          - name: s3_endpoint_url
+            value: s3.odh.com
+        repoRef:
+          name: opf
+          path: odh-manifests/osc-cl1/jupyterhub/jupyterhub
+      name: jupyterhub
   repos:
     - name: manifests
       uri: "https://github.com/opendatahub-io/odh-manifests/tarball/v1.1.0"
-    - name: opf-manifests
-      uri: "https://github.com/operate-first/apps/tarball/master"
+    - name: opf
+      uri: https://github.com/operate-first/apps/tarball/master
   version: v1.1.0

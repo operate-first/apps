@@ -1,0 +1,33 @@
+kind: ConfigMap
+apiVersion: v1
+metadata:
+  name: singleuser-profiles-container-sizes
+  labels:
+    jupyterhub: singleuser-profiles
+data:
+  jupyterhub-singleuser-profiles.yaml: |
+    sizes:
+    - name: Medium
+      resources:
+        requests:
+          memory: 2Gi
+          cpu: 100m
+        limits:
+          memory: 4Gi
+          cpu: 2
+    - name: Large - CPU intensive
+      resources:
+        requests:
+          memory: 4Gi
+          cpu: 1
+        limits:
+          memory: 8Gi
+          cpu: 4
+    - name: Large - Memory intensive
+      resources:
+        requests:
+          memory: 16Gi
+          cpu: 100m
+        limits:
+          memory: 32Gi
+          cpu: 4
