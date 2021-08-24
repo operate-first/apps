@@ -1,0 +1,29 @@
+---
+apiVersion: monitoring.coreos.com/v1
+kind: ServiceMonitor
+metadata:
+  name: cluster-monitor-federation
+  labels:
+    monitor-component: cluster-resources
+spec:
+  endpoints:
+    - bearerTokenSecret:
+        key: token
+        name: opf.prometheus-k8s
+      honorLabels: true
+      params:
+        'match[]':
+          - '{__name__=~".+"}'
+      path: /federate
+      port: web
+      scheme: https
+      tlsConfig:
+        insecureSkipVerify: true
+      scrapeTimeout: 130s
+      interval: 150s
+  namespaceSelector:
+    matchNames:
+      - openshift-monitoring
+  selector:
+    matchLabels:
+      prometheus: k8s
