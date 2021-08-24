@@ -1,0 +1,9 @@
+apiVersion: user.openshift.io/v1
+kind: Group
+metadata:
+    name: odh-users
+users:
+    - caldeirav
+    - erikerlandson
+    - oindrillac
+    - guimou

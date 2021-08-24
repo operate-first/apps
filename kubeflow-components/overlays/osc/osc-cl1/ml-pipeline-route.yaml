@@ -1,0 +1,14 @@
+kind: Route
+apiVersion: route.openshift.io/v1
+metadata:
+  name: ml-pipeline-ui
+  labels:
+    app: ml-pipeline-ui
+    app.kubernetes.io/component: ml-pipeline
+    app.kubernetes.io/name: kubeflow-pipelines
+spec:
+  to:
+    kind: Service
+    name: ml-pipeline-ui
+  port:
+    targetPort: http
