@@ -9,6 +9,7 @@ resources:
   - cloud-price-analysis.yaml
   - configuration-files-analysis.yaml
   - experimental-elyra-notebook-imagestream.yaml
+  - hitchhikers-guide.yaml
   - jupyterbook-test.yaml
   - mailing-list-analysis-toolkit.yaml
   - ml-prague-workshop.yaml
