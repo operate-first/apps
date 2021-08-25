@@ -15,14 +15,16 @@ users:
     - ENC[AES256_GCM,data:60SCFoXx76DpOA4=,iv:ob06MCEVNeG9thiJoL6px4eHF3U88luNoA/cl9JRVsw=,tag:pjDPhZ/NT5uMFqmkP+89qg==,type:str]
     - ENC[AES256_GCM,data:CWmGJG/n,iv:9cqjkX4WbGu0zlYlKoYkVe4N/pzSELwsc7nAbjElgmg=,tag:qEgWL96z/mdl89xCmaPNNQ==,type:str]
     - ENC[AES256_GCM,data:kIZdx5dhU91jyhXWxsmSQxmB,iv:AamSo3p2IfuKx17EsBcnzJuZfts1/A4SKSHSCmztEQU=,tag:necyTw5FGSgghisDxz+PRQ==,type:str]
+    - ENC[AES256_GCM,data:Oyb4hyVTFOo=,iv:gay6ow6aehR+cAw0ouzoPHolD3F065gsNtbT7/xlAMo=,tag:dwm2YAsM+T5i8kjdJxLGoQ==,type:str]
+    - ENC[AES256_GCM,data:8JyrYM4FCgE6Cl87TsvO,iv:IznThcnbHpfOuBuI1ZRcGIvyRltPtH6J/XSg7dyEfmw=,tag:Hz39x8qNQfbehz4o50Brkw==,type:str]
 sops:
     kms: []
     gcp_kms: []
     azure_kv: []
     hc_vault: []
     age: []
-    lastmodified: "2021-08-12T12:49:54Z"
-    mac: ENC[AES256_GCM,data:+nZ/1yYwH0m/tss4x7+CErmN9bLsk6PG4PY3uOf2sotzTWEHfJ3tLRd438rYA7X1FsBPAhC+aScKlIAEVhMLSKNu2eMwo2KYmVoShi5RkJlZF+GL8P2Bgh1Wk2sYy2xSzcYOUK03Bu18QEbAZDrheWwsDza+VQxO1Hf/lTt5DrU=,iv:Y1ECkcaILhxOTMvJerMgvKGo2mbqwn2Ffjs3ZAPsW6Y=,tag:DdvWiuPhVDnTwyBMCzezLw==,type:str]
+    lastmodified: "2021-08-25T18:17:52Z"
+    mac: ENC[AES256_GCM,data:3j1tnWuAxs9dsYene7i1qDS8A++VFYVQ7ZRMy8pz21JvO7uSO9BTygzuBqHcnZDtbHtLeLPRlvfw+XNpXB89gr4fLElDowcC6xAPA8fiT1RultNRNb9eFwF+Wmz/+VYkSbEYWSbhA38c57IG2zT8VEaF7erMHF9xGIwMma6YDTQ=,iv:u0vokshm4Krsy7P0D9eQAS8Hq/hpWC9VdJU6mSUvaVg=,tag:94KqkAHxgi4VUkga3ylnbQ==,type:str]
     pgp:
         - created_at: "2021-01-12T17:24:03Z"
           enc: |-
