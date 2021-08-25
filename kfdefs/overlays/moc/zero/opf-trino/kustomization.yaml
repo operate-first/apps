@@ -21,13 +21,13 @@ patchesJson6902:
               - name: s3_credentials_secret
                 value: opf-datacatalog-bucket
               - name: trino_memory_request
-                value: 8Gi
+                value: "8Gi"
               - name: trino_memory_limit
-                value: 16Gi
+                value: "16Gi"
               - name: trino_cpu_request
-                value: 4
+                value: "4"
               - name: trino_cpu_limit
-                value: 8
+                value: "8"
             repoRef:
               name: opf
               path: odh-manifests/zero/trino
