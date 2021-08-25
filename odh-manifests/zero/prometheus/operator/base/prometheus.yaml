@@ -20,6 +20,8 @@ spec:
   serviceAccountName: prometheus-k8s
   serviceMonitorSelector: {}
   securityContext: {}
+  externalLabels:
+    prometheus: moc/zero
   ruleSelector:
     matchLabels:
       prometheus: odh-monitoring
