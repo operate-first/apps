@@ -2,11 +2,11 @@ apiVersion: kustomize.config.k8s.io/v1beta1
 kind: Kustomization
 resources:
     - namespace.yaml
-    - limitrange.yaml
     - resourcequota.yaml
 components:
     - ../../../../components/project-admin-rolebindings/operate-first
     - ../../../../components/project-admin-rolebindings/data-science
     - ../../../../components/project-admin-rolebindings/thoth
+    - ../../../../components/limitranges/default
     - ../../../../components/monitoring-rbac
 namespace: aicoe-meteor
