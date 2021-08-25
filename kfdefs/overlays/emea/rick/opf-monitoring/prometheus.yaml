@@ -1,0 +1,38 @@
+---
+apiVersion: monitoring.coreos.com/v1
+kind: Prometheus
+metadata:
+  annotations:
+    argocd.argoproj.io/sync-wave: "1"
+  name: emea-rick-monitoring
+  labels:
+    app: prometheus
+    prometheus: k8s
+spec:
+  alerting:
+    alertmanagers:
+      - name: alertmanager-operated
+        namespace: opf-monitoring
+        port: web
+  podMonitorSelector: {}
+  probeSelector: {}
+  serviceAccountName: prometheus-k8s
+  serviceMonitorSelector: {}
+  securityContext: {}
+  externalLabels:
+    prometheus: emea/rick
+  ruleSelector:
+    matchLabels:
+      prometheus: emea-rick-monitoring
+      role: alert-rules
+  remoteWrite:
+    - url: "https://thanos-receive-opf-observatorium.apps.zero.massopen.cloud/api/v1/receive"
+      name: "emea/rick"
+      # headers can be added once the prometheus-operator is updated to something >v0.47
+      # headers:
+      #   THANOS-TENANT: "emea/rick"
+      bearerTokenFile: "/etc/prometheus/secrets/remote-write-emea-rick/token"
+  replicas: 1
+  retention: 7d
+  secrets:
+  - remote-write-emea-rick
