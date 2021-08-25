@@ -8,4 +8,4 @@ spec:
     requests.memory: 16Gi
     limits.cpu: "8"
     limits.memory: 16Gi
-    requests.storage: 60Gi
+    requests.storage: 96Gi
