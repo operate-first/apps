@@ -1,0 +1,14 @@
+---
+kind: Service
+apiVersion: v1
+metadata:
+  name: thanos-sidecar
+spec:
+  ports:
+    - name: grpc
+      protocol: TCP
+      port: 10901
+      targetPort: grpc
+  clusterIP: None
+  selector:
+    app: prometheus
