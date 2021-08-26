@@ -29,5 +29,13 @@ data:
             memory: 16Gi
             cpu: 100m
           limits:
+            memory: 32Gi
+            cpu: 4
+      - name: Extra Large - Memory intensive
+        resources:
+          requests:
+            memory: 16Gi
+            cpu: 100m
+          limits:
             memory: 48Gi
             cpu: 4
