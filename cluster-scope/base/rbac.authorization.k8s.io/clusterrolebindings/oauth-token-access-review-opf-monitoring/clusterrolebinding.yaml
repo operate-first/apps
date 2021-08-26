@@ -2,7 +2,7 @@
 apiVersion: rbac.authorization.k8s.io/v1beta1
 kind: ClusterRoleBinding
 metadata:
-  name: oauth-token-access-review
+  name: oauth-token-access-review-opf-monitoring
 roleRef:
   apiGroup: rbac.authorization.k8s.io
   kind: ClusterRole
@@ -12,11 +12,5 @@ subjects:
   name: prometheus-k8s
   namespace: opf-monitoring
 - kind: ServiceAccount
-  name: thanos-query-frontend-oauth-proxy
-  namespace: opf-observatorium
-- kind: ServiceAccount
-  name: thanos-receive-oauth-proxy
-  namespace: opf-observatorium
-- kind: ServiceAccount
-  name: loki-query-frontend-oauth-proxy
-  namespace: opf-observatorium
+  name: thanos-query-proxy
+  namespace: opf-monitoring

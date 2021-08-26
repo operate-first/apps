@@ -27,6 +27,7 @@ spec:
         overlays:
           - alerts
           - openshift-proxy
+          - thanos-sidecar
         repoRef:
           name: opf
           path: odh-manifests/zero/prometheus/operator

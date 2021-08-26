@@ -9,3 +9,4 @@ resources:
   - alertmanager-route.yaml
   - alertmanager-config.yaml
   - ./blackbox-exporter
+  - ./thanos-query
