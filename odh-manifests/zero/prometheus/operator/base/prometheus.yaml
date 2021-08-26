@@ -39,9 +39,31 @@ spec:
         resources:
           requests:
             storage: 100Gi
-  # Openshift OAuth Proxy config
   listenLocal: true
   containers:
+    # Thanos Sidecar container config
+    - args:
+        - sidecar
+        - '--prometheus.url=http://localhost:9090/'
+        - '--tsdb.path=/prometheus'
+        - '--grpc-address=[$(POD_IP)]:10901'
+        - '--http-address=127.0.0.1:10902'
+      image: quay.io/thanos/thanos:v0.22.0
+      name: thanos-sidecar
+      env:
+        - name: POD_IP
+          valueFrom:
+            fieldRef:
+              apiVersion: v1
+              fieldPath: status.podIP
+      ports:
+        - name: http
+          containerPort: 10902
+          protocol: TCP
+        - name: grpc
+          containerPort: 10901
+          protocol: TCP
+    # Openshift OAuth Proxy container config
     - args:
       - -provider=openshift
       - -pass-basic-auth=false
