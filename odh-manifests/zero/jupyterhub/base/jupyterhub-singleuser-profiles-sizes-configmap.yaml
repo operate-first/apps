@@ -29,5 +29,5 @@ data:
             memory: 16Gi
             cpu: 100m
           limits:
-            memory: 32Gi
+            memory: 48Gi
             cpu: 4
