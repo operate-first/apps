@@ -4,7 +4,11 @@ kind: Kustomization
 
 resources:
   - ../common
+  - ../../../../base/config.openshift.io/oauths/cluster
   - ../../../../base/user.openshift.io/groups/cluster-admins
 
 generators:
   - secret-generator.yaml
+
+patchesStrategicMerge:
+  - oauths/cluster_patch.yaml
