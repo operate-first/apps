@@ -5,8 +5,8 @@ metadata:
 spec:
   hard:
     limits.cpu: '4'
-    limits.memory: 8Gi
+    limits.memory: 10Gi
     requests.cpu: '1'
-    requests.memory: 4Gi
+    requests.memory: 8Gi
     requests.storage: 10Gi
     count/objectbucketclaims.objectbucket.io: 1
