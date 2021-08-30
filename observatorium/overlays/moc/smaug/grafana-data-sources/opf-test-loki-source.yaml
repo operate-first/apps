@@ -1,0 +1,18 @@
+---
+apiVersion: integreatly.org/v1alpha1
+kind: GrafanaDataSource
+metadata:
+    name: loki-opf-example
+spec:
+    name: loki-opf-example
+    datasources:
+        - name: loki-opf-example
+          type: loki
+          access: proxy
+          url: http://opf-observatorium-loki-query-frontend-http.opf-observatorium.svc.cluster.local:3100
+          version: 1
+          editable: false
+          jsonData:
+              httpHeaderName1: 'X-Scope-OrgID'
+          secureJsonData:
+              httpHeaderValue1: 'opf-example'

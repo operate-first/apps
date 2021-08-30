@@ -1,0 +1,24 @@
+supportChannelId: C01RMPVUUK1
+onCall:
+  schedule: weekly
+  members:
+    - slack: U01SKRUKCM6
+      github: 4n4nd
+    - slack: U01S22XJD60
+      github: tumido
+    - slack: U02580V036C
+      github: Gregory-Pereira
+    - slack: U01SW975LQY
+      github: harshad16
+    - slack: U01RF5SASLX
+      github: HumairAK
+    - slack: U0277G1VAAV
+      github: mimotej
+github:
+  issues:
+    access:
+      - operate-first/apps
+      - operate-first/support
+      - operate-first/SRE
+    labels:
+      - kind/question

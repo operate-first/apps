@@ -1,0 +1,25 @@
+---
+apiVersion: monitoring.coreos.com/v1
+kind: ServiceMonitor
+metadata:
+  labels:
+    team: opendatahub
+  name: odh-application-servicemonitor
+spec:
+  endpoints:
+    - port: oauth-proxy     # Prometheus
+      scheme: https
+      tlsConfig:
+        insecureSkipVerify: true
+    - port: web             # Alertmanager
+    - port: metrics         # Argo
+    - port: grafana         # grafana
+    - port: http-metrics    # grafana-operator
+    - port: 8080-tcp        # Jupyterhub
+      path: "/metrics"
+  selector: {}
+  namespaceSelector:
+    matchNames:
+      - opf-jupyterhub
+      - opf-argo
+      - opf-monitoring

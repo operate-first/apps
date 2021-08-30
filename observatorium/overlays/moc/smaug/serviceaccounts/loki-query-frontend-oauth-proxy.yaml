@@ -1,0 +1,8 @@
+---
+kind: ServiceAccount
+apiVersion: v1
+metadata:
+  annotations:
+    serviceaccounts.openshift.io/oauth-redirectreference.primary: >-
+      {"kind":"OAuthRedirectReference","apiVersion":"v1","reference":{"kind":"Route","name":"loki-frontend"}}
+  name: loki-query-frontend-oauth-proxy

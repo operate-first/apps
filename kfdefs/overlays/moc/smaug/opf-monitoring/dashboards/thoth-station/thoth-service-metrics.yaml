@@ -1,0 +1,10 @@
+apiVersion: integreatly.org/v1alpha1
+kind: GrafanaDashboard
+metadata:
+  name: thoth-service-metrics
+  labels:
+    version: v3
+    app: grafana
+    component: thoth-station
+spec:
+  url: https://raw.githubusercontent.com/thoth-station/thoth-application/master/grafana-dashboard/overlays/cnv-prod/thoth-service-metrics.json

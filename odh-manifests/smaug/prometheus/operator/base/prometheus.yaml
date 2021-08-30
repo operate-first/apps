@@ -1,0 +1,97 @@
+---
+apiVersion: monitoring.coreos.com/v1
+kind: Prometheus
+metadata:
+  annotations:
+    argocd.argoproj.io/sync-wave: "1"
+  name: odh-monitoring
+  labels:
+    app: prometheus
+    prometheus: k8s
+spec:
+  alerting:
+    alertmanagers:
+      - name: alertmanager-operated
+        namespace: opf-monitoring
+        port: web
+  externalUrl: "http://prometheus-portal-opf-monitoring.apps.zero.massopen.cloud/"
+  podMonitorSelector: {}
+  probeSelector: {}
+  serviceAccountName: prometheus-k8s
+  serviceMonitorSelector: {}
+  securityContext: {}
+  externalLabels:
+    prometheus: moc/zero
+  ruleSelector:
+    matchLabels:
+      prometheus: odh-monitoring
+      role: alert-rules
+  additionalScrapeConfigs:
+    name: additional-scrape-configs
+    key: prometheus-additional.yaml
+  remoteWrite:
+    - url: "http://opf-observatorium-thanos-receive.opf-observatorium.svc.cluster.local:19291/api/v1/receive"
+  replicas: 2
+  retention: 7d
+  storage:
+    volumeClaimTemplate:
+      spec:
+        resources:
+          requests:
+            storage: 100Gi
+  listenLocal: true
+  containers:
+    # Thanos Sidecar container config
+    - args:
+        - sidecar
+        - '--prometheus.url=http://localhost:9090/'
+        - '--tsdb.path=/prometheus'
+        - '--grpc-address=[$(POD_IP)]:10901'
+        - '--http-address=127.0.0.1:10902'
+      image: quay.io/thanos/thanos:v0.22.0
+      name: thanos-sidecar
+      env:
+        - name: POD_IP
+          valueFrom:
+            fieldRef:
+              apiVersion: v1
+              fieldPath: status.podIP
+      ports:
+        - name: http
+          containerPort: 10902
+          protocol: TCP
+        - name: grpc
+          containerPort: 10901
+          protocol: TCP
+    # Openshift OAuth Proxy container config
+    - args:
+      - -provider=openshift
+      - -pass-basic-auth=false
+      - -https-address=:9091
+      - -http-address=
+      - -email-domain=*
+      - -upstream=http://localhost:9090
+      - '-openshift-sar={"resource": "namespaces", "verb": "get"}'
+      - -openshift-service-account=prometheus-k8s
+      - -openshift-ca=/etc/pki/tls/cert.pem
+      - -openshift-ca=/var/run/secrets/kubernetes.io/serviceaccount/ca.crt
+      - -tls-cert=/etc/tls/private/tls.crt
+      - -tls-key=/etc/tls/private/tls.key
+      - -cookie-secret=SECRET
+      - -skip-auth-regex=^/metrics
+      - '-openshift-sar={"resource": "namespaces", "verb": "get", "resourceName":
+          "opf-monitoring", "namespace": "opf-monitoring"}'
+      - '-openshift-delegate-urls={"/":{"resource": "namespaces", "verb": "get", "resourceName":
+          "opf-monitoring", "namespace": "opf-monitoring"}}'
+      image: registry.redhat.io/openshift4/ose-oauth-proxy:v4.7
+      name: oauth-proxy
+      ports:
+      -   containerPort: 9091
+          name: oauth-proxy
+      resources: {}
+      volumeMounts:
+      -   mountPath: /etc/tls/private
+          name: secret-prometheus-tls
+          readOnly: false
+  secrets:
+  - prometheus-tls

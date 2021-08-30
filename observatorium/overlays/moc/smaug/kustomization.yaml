@@ -1,0 +1,18 @@
+---
+apiVersion: kustomize.config.k8s.io/v1beta1
+kind: Kustomization
+namespace: opf-observatorium
+
+resources:
+  - ../../../base/instance
+  - ./deployments
+  - ./grafana-data-sources
+  - ./objectbucketclaims
+  - ./rolebindings
+  - ./roles
+  - ./routes
+  - ./serviceaccounts
+  - ./services
+
+generators:
+  - secrets/secret-generator.yaml

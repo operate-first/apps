@@ -1,0 +1,41 @@
+---
+apiVersion: logging.openshift.io/v1
+kind: ClusterLogForwarder
+metadata:
+  name: instance
+  namespace: openshift-logging
+spec:
+  outputs:
+    - name: app-logs
+      type: kafka
+      url: tls://odh-message-bus-kafka-bootstrap.opf-kafka.svc:9093/moc-infra-prod.cluster-logs.application
+      secret:
+        name: clo-kafka
+    - name: infra-logs
+      type: kafka
+      url: tls://odh-message-bus-kafka-bootstrap.opf-kafka.svc:9093/moc-infra-prod.cluster-logs.infrastructure
+      secret:
+        name: clo-kafka
+    - name: audit-logs
+      type: kafka
+      url: tls://odh-message-bus-kafka-bootstrap.opf-kafka.svc:9093/moc-infra-prod.cluster-logs.audit
+      secret:
+        name: clo-kafka
+  pipelines:
+    - name: forward-app-logs
+      inputRefs:
+        - application
+      outputRefs:
+        - app-logs
+        # default outputref sends logs to the default CLO ES
+        # - default
+    - name: forward-infra-logs
+      inputRefs:
+        - infrastructure
+      outputRefs:
+        - infra-logs
+    - name: forward-audit-logs
+      inputRefs:
+        - audit
+      outputRefs:
+        - audit-logs

@@ -1,0 +1,29 @@
+- op: add
+  path: /spec/applications/2/kustomizeConfig/parameters
+  value:
+    - name: s3_endpoint_url
+      value: s3.openshift-storage.svc
+    - name: s3_is_secure
+      value: "false"
+    - name: s3_credentials_secret
+      value: opf-datacatalog-bucket
+    - name: storage_class
+      value: ocs-storagecluster-cephfs
+
+- op: add
+  path: /spec/applications/3/kustomizeConfig/parameters
+  value:
+    - name: s3_endpoint_url
+      value: s3.openshift-storage.svc
+    - name: s3_credentials_secret
+      value: opf-datacatalog-bucket
+    - name: storage_class
+      value: ocs-storagecluster-cephfs
+
+- op: add
+  path: /spec/applications/2/kustomizeConfig/overlays
+  value: [storage-class]
+
+- op: add
+  path: /spec/applications/3/kustomizeConfig/overlays/-
+  value: storage-class

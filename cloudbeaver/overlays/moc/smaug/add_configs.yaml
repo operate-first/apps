@@ -1,0 +1,16 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: cloudbeaver
+spec:
+  template:
+    spec:
+      volumes:
+        - name: configs
+          configMap:
+            name: cloudbeaver-config
+      containers:
+        - name: cloudbeaver
+          volumeMounts:
+            - name: configs
+              mountPath: /opt/cloudbeaver/conf

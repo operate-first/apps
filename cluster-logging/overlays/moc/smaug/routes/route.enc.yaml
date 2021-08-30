@@ -1,0 +1,43 @@
+apiVersion: route.openshift.io/v1
+kind: Route
+metadata:
+    name: elasticsearch
+    namespace: openshift-logging
+spec:
+    host: null
+    to:
+        kind: Service
+        name: elasticsearch
+    tls:
+        termination: reencrypt
+        destinationCACertificate: ENC[AES256_GCM,data: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,iv:ubeXSgvvwr31Pyi3iqnBzBznMEV3DB37PsE+7Wh3yHA=,tag:+T/LAnl4wuCHzwD4bz0+Wg==,type:str]
+sops:
+    kms: []
+    gcp_kms: []
+    azure_kv: []
+    hc_vault: []
+    lastmodified: '2021-03-25T13:49:40Z'
+    mac: ENC[AES256_GCM,data:LiPVyclLKO5hQ4gV34ULozWiyqNtMEGd49eqhpaCfhuxdjbtojy8DobsUntJ7+ZFFxeeQ882LgJMOL7k2TJdwV1B6BzybydFdXE3Cn1/6Pc6Fi0q1tDjDqMcmhXMMg/INuez/o/w3P7eDcixR1Ia2nvfr0W6e/TAFYMTCsNlhas=,iv:Y35TLD3CfGh9/XTVp2N7jAxg82HJHXiDoiBIQkpKTWU=,tag:qxOT/kds02r/xmnOi6aEMg==,type:str]
+    pgp:
+    -   created_at: '2021-03-25T13:49:39Z'
+        enc: |
+            -----BEGIN PGP MESSAGE-----
+
+            hQIMA9aKBcudqifiAQ//bTPRKQuQADQnhHQ7/X5gDGufL0l/97xwOiUgbBWoTrJw
+            UrEJjG2xf8dCIR5d+Q7FwTFjb0GSii2mrd9rrRvwyvxZpP+efBo4XqVsHQPrCrSd
+            h0nz5fN5P+kkCmn/s9TBx5ZuuIJNl9menrNIeuoezvqBiYrQ9ewus7TJaeRIm8Du
+            KzhQwmccm/avq/FythCL7DyLjf9I6psZW7Y1Lm4mgMWLK9fpgY7KQUWDIU7HGOoV
+            nbV2fKKKTLFj/msmDMu1+L86MdXVMoYOQOsZECLKaakx45LAd1Y1MdcyrMqUqoha
+            wjRzK/xD4JWgN+BX0WAY5HMBLqWnZgkfyvDkSIKIjBoEErohkClZx6U2AtdH0uf/
+            /MQ0PLvEVZYeeuF8ADZ00gIpaMoQzKXuOFt2M/pWB9hgb93M6lSW8SbUiqSTnOPI
+            XfbmFnZfcSqx8y+aHlpAEGW7RauqsuofErTvpTA2jKzjd3wPJ9f6L75crPDn+1Vs
+            1+Uc+rq5nTk0SE8NLiQgIfn7BiO4bP518CnK1IrHFJ0nTOSJBbVfaiY1fFUaVvjH
+            8MWeq1r65GuMXyy7UhziTt8gpoOqeV0Otl/sPctPqKcFlla5lZ9HWhfEprRvJ7Oy
+            Kucv6EeCA754tu2GSVVynhBQYYbDTCI88VXXnwWO7DyyWN2k/Vf4pSkVTiSWNpjS
+            XgEnkRtS8NlL0kHX+Vydq7SskfZIqfW/dIpSkWoz5SW+4Rvj9Dj4IDpM8YGgeJpF
+            Gmo0JEQk/994UbKy0tWVa+wwShEw7Jx82pmCkFBMCqRjHOkRHRN0/I3Rm0ITviI=
+            =6jn4
+            -----END PGP MESSAGE-----
+        fp: 0508677DD04952D06A943D5B4DC4116D360E3276
+    encrypted_regex: ^destinationCACertificate$
+    version: 3.6.1
