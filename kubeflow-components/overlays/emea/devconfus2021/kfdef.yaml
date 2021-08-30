@@ -1,0 +1,56 @@
+---
+apiVersion: kfdef.apps.kubeflow.org/v1
+kind: KfDef
+metadata:
+  name: kubeflow
+spec:
+  applications:
+    - kustomizeConfig:
+        repoRef:
+          name: manifests
+          path: stacks/openshift/application/openshift/openshift-scc
+      name: openshift-scc
+    - kustomizeConfig:
+        repoRef:
+          name: manifests
+          path: stacks/openshift/application/istio-1-3-1-stack
+      name: istio-stack
+    - kustomizeConfig:
+        repoRef:
+          name: manifests
+          path: stacks/openshift/application/cluster-local-gateway-1-3-1
+      name: cluster-local-gateway
+    - kustomizeConfig:
+        repoRef:
+          name: manifests
+          path: stacks/openshift/application/istio
+      name: istio
+    - kustomizeConfig:
+        repoRef:
+          name: manifests
+          path: application/v3
+      name: application
+    - kustomizeConfig:
+        repoRef:
+          name: manifests
+          path: metacontroller/base
+      name: metacontroller
+    - kustomizeConfig:
+        repoRef:
+          name: manifests
+          path: stacks/openshift/application/metadata
+      name: metadata
+    - kustomizeConfig:
+        repoRef:
+          name: manifests
+          path: stacks/openshift_without_registration_flow
+      name: kubeflow-apps
+    - kustomizeConfig:
+        repoRef:
+          name: manifests
+          path: stacks/openshift/application/kfp-tekton
+      name: kfp-tekton
+  repos:
+    - name: manifests
+      uri: "https://github.com/tumido/manifests/archive/ocp-stack-dashboard-params.tar.gz"
+  version: master
