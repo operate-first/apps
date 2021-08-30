@@ -8,14 +8,14 @@ spec:
     client:
         clientId: ENC[AES256_GCM,data:ILip2E/8rfjLI/d3FQ==,iv:3UJUIuAOPMagr044QzgjQeqhUkFafhWVqKf0a8l0Ryo=,tag:Qm8ECYSBJCint5zl//scXg==,type:str]
         defaultClientScopes:
-            - profile
+        - profile
         description: DevConf.US 2021 OpenShift cluster
         name: DevConf.US 2021 cluster
         protocol: openid-connect
-        secret: ENC[AES256_GCM,data:l8RGojGw8Rk19zB5GB71M1W0S7704vHLvF/nyu+9M08hwIId,iv:1f+iWPkBrjotm5CvX9TLrU5qyDYSqmWiza2xA8NthIc=,tag:zQAfBkMBj5p9fFePLW+QEQ==,type:str]
+        secret: ENC[AES256_GCM,data:F0fPeng5/r8RdVsMz9JAndjttUTVJQ2t4+5boryV4QPoGMZ1,iv:ZaoqKiH1isEVAoRzDDXQdA9dOSNKjIc9RmZ1pkLX5w8=,tag:8fR517GEBYfD1LhfFSiY4w==,type:str]
         standardFlowEnabled: true
         redirectUris:
-            - https://oauth-openshift.apps.devconfus2021.aws.operate-first.cloud/oauth2callback/operate-first
+        - https://oauth-openshift.apps.devconfus2021.aws.operate-first.cloud/oauth2callback/operate-first
     realmSelector:
         matchLabels:
             realm: operate-first
@@ -24,12 +24,11 @@ sops:
     gcp_kms: []
     azure_kv: []
     hc_vault: []
-    age: []
-    lastmodified: "2021-08-30T10:53:10Z"
-    mac: ENC[AES256_GCM,data:84yPQJtI/W9a8SpkoRZ21LfvG1F8bFVqUqZznLYmgErAFrh3Q9kxtQ7h/18hmssKGyG9OTd/o9nWHkb6u9qe28w0NtaKSt4qPAqDHZ9DabRv5qkyZ0oWTVAg+/1WqJlQjhDYK5hdBBKgOsc+kiVy9pVo4RR3Emn/Pqh6ZJKo/Rk=,iv:VTzhdp8wxJVz9Ab4HOAOL8ghrRL6VDS3E4WpMfCUii4=,tag:KVMDGvS4jiV9uROtSLr1HA==,type:str]
+    lastmodified: '2021-08-30T15:27:50Z'
+    mac: ENC[AES256_GCM,data:GdVqhJ3Tl5cNke/865RjGSiJUDBfPwhxBSjiasFZICuKzNqYgK7MgalF/2LnUbT77yLz8PaFXS5Ww6XzuuhiV6un0VwjNvSk/ulbZ771XcwNVi8nWOu/HfTH7wPorf9/3G39X5eQ7Gs/FMZfobJzo7SKNVVyvFgrBf4MoajcxT8=,iv:Y6TZ90NLhFvhb58FXVzvMwfzgzL6YNGkkPnAt+5P09k=,tag:+icn61VamS14NyiY/KPE4A==,type:str]
     pgp:
-        - created_at: "2021-06-16T22:13:59Z"
-          enc: |-
+    -   created_at: '2021-06-16T22:13:59Z'
+        enc: |-
             -----BEGIN PGP MESSAGE-----
 
             wcFMA9aKBcudqifiARAAtsJvD2FFO724wGspw+1StnWk+JlkyuCE78UMQ3ajoWzV
@@ -47,6 +46,6 @@ sops:
             wKOxlBtYOBYW3aaJCPRmbbPk8ZK33s6oZZ3N7edqmFjX9+IuI/VKAA==
             =BcQ5
             -----END PGP MESSAGE-----
-          fp: 0508677DD04952D06A943D5B4DC4116D360E3276
+        fp: 0508677DD04952D06A943D5B4DC4116D360E3276
     encrypted_regex: ^(clientId|clientSecret|secret)$
     version: 3.7.1
