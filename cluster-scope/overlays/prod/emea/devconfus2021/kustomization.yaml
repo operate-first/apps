@@ -6,6 +6,7 @@ resources:
     - ../../../../base/config.openshift.io/oauths/cluster
     - ../../../../base/core/namespaces/aicoe-meteor
     - ../../../../base/core/namespaces/kubeflow
+    - ../../../../base/core/namespaces/opendatahub-operator
     - ../../../../base/core/namespaces/opf-dashboard
     - ../../../../base/core/namespaces/opf-jupyterhub
     - ../../../../base/operators.coreos.com/subscriptions/openshift-pipelines-operator-rh
