@@ -5,3 +5,14 @@ namespace: opf-jupyterhub
 
 resources:
   - ../../../../base/jupyterhub
+
+patchesJson6902:
+  - patch: |
+      - op: replace
+        path: /spec/applications/2/kustomizeConfig/repoRef/path
+        value: odh-manifests/devconfus2021/jupyterhub
+    target:
+      group: kfdef.apps.kubeflow.org
+      kind: KfDef
+      name: opendatahub
+      version: v1
