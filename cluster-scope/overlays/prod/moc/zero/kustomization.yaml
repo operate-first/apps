@@ -70,7 +70,6 @@ resources:
   - ../../../../base/core/namespaces/opf-monitoring
   - ../../../../base/core/namespaces/opf-observatorium
   - ../../../../base/core/namespaces/opf-seldon
-  - ../../../../base/core/namespaces/opf-slack-first
   - ../../../../base/core/namespaces/opf-superset
   - ../../../../base/core/namespaces/opf-trino
   - ../../../../base/core/namespaces/osc-playground
