@@ -5,3 +5,5 @@ kind: Kustomization
 resources:
   - opf-dashboard
   - opf-jupyterhub
+  - opf-superset
+  - opf-trino
