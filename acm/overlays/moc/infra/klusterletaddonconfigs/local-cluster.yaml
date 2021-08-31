@@ -1,0 +1,11 @@
+apiVersion: agent.open-cluster-management.io/v1
+kind: KlusterletAddonConfig
+metadata:
+  name: local-cluster
+  namespace: local-cluster
+  labels:
+    installer.name: multiclusterhub
+    installer.namespace: acm
+spec:
+  applicationManager:
+    enabled: true

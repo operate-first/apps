@@ -1,0 +1,9 @@
+apiVersion: agent.open-cluster-management.io/v1
+kind: KlusterletAddonConfig
+metadata:
+  name: ocp-prod
+  namespace: ocp-prod
+spec:
+  applicationManager:
+    argocdCluster: true
+    enabled: true

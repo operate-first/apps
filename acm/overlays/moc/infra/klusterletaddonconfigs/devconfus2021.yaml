@@ -1,0 +1,9 @@
+apiVersion: agent.open-cluster-management.io/v1
+kind: KlusterletAddonConfig
+metadata:
+  name: devconfus2021
+  namespace: devconfus2021
+spec:
+  applicationManager:
+    argocdCluster: true
+    enabled: true

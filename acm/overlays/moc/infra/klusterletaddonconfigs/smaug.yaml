@@ -1,0 +1,9 @@
+apiVersion: agent.open-cluster-management.io/v1
+kind: KlusterletAddonConfig
+metadata:
+  name: smaug
+  namespace: smaug
+spec:
+  applicationManager:
+    argocdCluster: true
+    enabled: true
