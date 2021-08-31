@@ -1,9 +1,6 @@
----
 apiVersion: kustomize.config.k8s.io/v1beta1
 kind: Kustomization
-
 resources:
-  - opf-dashboard
-  - opf-jupyterhub
-  - opf-superset
-  - opf-trino
+- ../../../base
+- issuer-letsencrypt-live.yaml
+namespace: acme-operator
