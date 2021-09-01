@@ -1,7 +1,7 @@
 apiVersion: integreatly.org/v1alpha1
 kind: GrafanaDataSource
 metadata:
-  name: datasources
+  name: datasource
 spec:
   name: prometheus-grafanadatasource.yaml
   datasources:
