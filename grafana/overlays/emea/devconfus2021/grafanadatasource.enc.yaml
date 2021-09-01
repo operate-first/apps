@@ -6,28 +6,27 @@ metadata:
         kustomize.config.k8s.io/behavior: replace
 spec:
     datasources:
-        - editable: false
-          jsonData:
+    -   editable: false
+        jsonData:
             httpHeaderName1: Authorization
             timeInterval: 5s
             tlsSkipVerify: true
-          name: openshift-monitoring
-          secureJsonData:
-            httpHeaderValue1: ENC[AES256_GCM,data:0whKvMMll8PaWwDhttyCmGS6QQMIS30SM2T0nMESUMNucsOV03l/iOqzYx4r/4J+HqESz33rgxAlSBgbx/Pk/4JZj6SmJnF9GMcrD7YcTEZNoOY4RlrNElK48KI2heTMgO/LPwqgY73jPF7wN6bHC8g0D9Dwi92kd1QluUHd1svrXopgtIdwDlrKXk1JAEFAuyCVx3qmAFhHoMMFba/2Qgb1FWeX0sXnhIJGxehlRVWFmj1W9oTXbHMRscw0P3tmC0CG3M3f3lZYSroYSnr4GmLCP1ClZrAAnj70NuXR3s5/szc02n0eJ5Kf8gkkpadyVRlFBMRTMB62stvIJXn3vnLW9Ldu8bJiwQ9vm0Bxkgcr2uE3nM/PExdrxHAg4M+0Qk/Uepd74rU73kxKDR394h8UhY9QTj1nHDZweTlkeup1XQRPAkZLSKkYnpS8F69vvm+1/x7NgfS4n3hiYrR2Sjq7c9hacOQy+Usou9rgbm+Eg+4DQbo7InHEcFkHiderNQyo8B53D76HBFdpIDksjuwek3a+v2lPLeFSV4AJUuoKghZvo4cAHXacMKGJxWbds4ghWkUWitHHJtmNVa5znZFaJWtpQifrYzzXW3T3e/rhSUfe6r3BpQM+VkluG3WcyLJ26Qt0GjJHul35O4kodepSTyYRqB8NuqDPBsaZ8Wwo9j/kN/rHDYCJGXxZJtpaFC6fVj9JGtB4iBsC5/gunqJ9pciCfajY0JPyha1UlRw1FAjw/fTey9NzWI/+k8GtTJtpiHciXlGU9fhDhbvRGtUv9MwSw/fVmHChaS1QRCWxNUgvLzKduq58YDlC0U/LbHSyLejO1qsg41oI5PjjNYsxj+od/sZy2hAhFQylbBeHLF3+DduKw1Iyp4QFd33a5rr1glL16yyT5NZgEkQzGjwW2dbIEDqnXlIr5KQWTMaqvIa6nTKFz0c4IAHK5yW0CpWn5vmUAgk4kOMgt5Ymdieef69403Fhr1LsHc6slAuOPa3xmkm1Q/YdcLDXFjcfIVlhu/ksWR+VhGy+8m6V6bWgvVCMPFX8EKAfFfGcydozLY25mkImAZLc3aUPH4LM1JxXiuw8jqwx1qVc+9DspqNsGR+vBCQE7TZPjxGv8hoHIdrhaI4Uea65i4/QBV8hQkSS50Dy4PQvdTzhNzsnFB6NRf0BomcpQxYbTbAerX5RY0FFucakYssCNuAJzjmUaA7AvR2OLa1Mj5bABPa2tqiEaYjNdAM+sstuIOE5IzX3o/46yzn6l/YUeiD7R4b4oGmx6S/9CY6wsXM8lZ+CfvEjBMy4Jdq0Bb8g737xZDNr0njQsI3ARHekDIpjG0nnki8GbvhfXT9SXCIq6UVikzCwWpsj8NQV7xdImpCzVkjsAs4gmHj3jil39S5GuXDVrXEy6ZPCyQ7osLd26Bz73YUBOqn9Bk08DYCa6v6/SgmKhEMEfY79EGWpKqPJA3EZBb5zR8PrASanIzE8FcPNSrk1NU2BT9tc4QdLIeU19Zd/c2yojJ+cKoESsO/QZ2w1uVL3HV8zl0BsqHPGtskqlH47LlaDXb2SjmEHJP619f6mRn2/MqlfTzowuG3m30OEXbOw2mT493lqfmcEb1zuuArVwKLVuxaNOM1DkQrr3OqY3M1Fg/xx/ggGZsrcpiDUt7DRSAq7CtMy9/g3kQtG1k2TnQoGVSBDTRySqzW3At+x/HYNKjIsgVHbcbfrX+FTZm6f3jvxcKuHTZKVwg==,iv:LUGlr6hX3Wp08M9eu422orbZjIP1Q2wbC1U3vrXY8kg=,tag:QfeOYosEC5EAHnyg+bOZZg==,type:str]
-          type: prometheus
-          url: https://thanos-querier.openshift-monitoring.svc.cluster.local:9091
+        name: openshift-monitoring
+        secureJsonData:
+            httpHeaderValue1: ENC[AES256_GCM,data:XwxozW4A0+Enk0PDxoghNSn758F9riHHCgg2motXaPdynSkBM7o582uHRtCUUYgknKcTq28ilLNXDPsVGV4HTvt9js8nnS1cd4EodlhJJ8DbZl3lwIo4AJ4OAhSuxk+Vt1DJdQrxqYyIx7NjnDf82URn/eVnygOskqnyEktbJkW6JTICEtsXajxRGMYHVmafGhWMXA6w9iGcSCHkRWNd8MBcEGki3jaadHVKcEki9csdD5ms0e0SfBdN9z9knWCGxJRL3WJUnbnoeR3oebAGIGiNBPh+3SD/e7WgEzupdNt9/2RJyGYymPoddgIt7cmb0K3AvQSwjo+JNSnwYmZhUBdInAawAHys9/ZYgD4ZpRjXvCAdsf7iJgOX8ytP9tV9LX1AKyf90jJosvXU6QqmEvddXXkgARwUOzH8asXdU+evB7seIGWZl4hBZoYqPdu/MTEWnm4ybEUJkv/JSi1BP/ory7d1BmMddwLqX9U5/zcspyWhl9lH7hnQWy74RAcLlxuXPzUhyVCNZeENSh/Qp55AjYNBWw7T26B3Z85WyOvVLr5vPcva10AEs45+e+QEGXhmWFxDpp4reDeom+EzU/RDJT1g8+8s7lMlpN9DrR7Wts3bbvbFvp3vzaRubgWMKXqrZM2djbOVZaVyYFSivW35qRBXGloXaHT20538cRN6S50J5rk0Q3rDgQ10Jb1uLBDh34gWLob4IHwLMIdUGoDRM62ca8iWxpulTgF2M0SI2k1SHWgVjUbv4vMNJZ+GIjrfhHpb1bREBEWrjWdoihgGGNMo6BUbQGBGE3KPPxOcrCqSR+PtWaSZrgbC2V7y0i+VIg18Q7eqaT9s30K3+OPMHfZ0wud7Uqr/z4Lf3ypR2engvecSflgDe1VZiQd4ntJbNiXrm6KP1ShOIpXMvzeCES3Ylc6aONVn+GdGJzAhJkLlsIXuq/5H07JrjZ08jtk0bHCd3yH6fIDvw0qGhj1zBwKsUdt5wgULK1vcW/wV/KixGSrsSUbfdvjLXEzc94qX8bJ6HyVOyfvJ+4vmzpBaPhKXyM+bpzKUYoy8DyMjZkuHp8HdLpMOWKtTmaLmFXpDTPUSX2xsVJ5kLdXrhjVH9DpsjJQng7r7eN4V6x6nhI8Nolr0A7yAGHLRWBPDUrE0m9ah4DNTIY0EUdj6eo1OiDcRC67iUgIWR1YjG1sT85OEpZTxMKDuQAWY8MRNJrtSTBEm8Cd5dnWBEuGwxIi94Qz31QJAkGhXbrS0kaN1F0G+PHD0N8+onSx/MxKFYSpg9g8s/hmrpNjato3eU27ak8s55WNt8JzPB7Ssiy/kCBg/Fsi/IVMTiDbd2sNEYqqOxGxEOdMhEeYRwKFQwjKrU6HfkEX3swUhgma2huMoLXoQkowkaJi0wR/zFquzHqj9xVecYJPVEfEq6koW8QysA9YF26OmQ0W/+LOlqDziqDejiDpCX3b1cc+AxowM3AXPxDvRIKDy8xziplznW50LPLz8uBbIV8rZJB+aERpOLw0BcGsvLuimrrCGuJCPPeULk42+0yw5xN7gAogW1ZSv1f9VXRBDBKJPa7hN4eDJlCUbUvQ1CBy4QJ1DyS9Yjcb3sEQNS9JzFXqhSt4lx62e1BowCeMjPTKcInmsvdIDWN68iu4q9HEkUaKWPaZG2FU4EaGS2IQqOEN9ZNVvtg0TBViZVGyEeUIVYxUIsel4V4Jds8HrozO9TyUIo66j5pKEhJPZl1nHnGlHZpU+CL0xL3NkMfUfVHSIE+PN,iv:ZPB/ved71L1Km6yGrf+NORQ4DwZLcgHSg4UlFy+rDjQ=,tag:OS3PkfcUcCdxknqJx71VQQ==,type:str]
+        type: prometheus
+        url: https://thanos-querier.openshift-monitoring.svc.cluster.local:9091
     name: prometheus-grafanadatasource.yaml
 sops:
     kms: []
     gcp_kms: []
     azure_kv: []
     hc_vault: []
-    age: []
-    lastmodified: "2021-09-01T16:55:33Z"
-    mac: ENC[AES256_GCM,data:MO/Mc6cAFB6fdWjs+5tAuXyXjmo6UsnZbmkh+HaKq18Xy2h6YbkCyf6djioXpxIihWo6BBFH6hRACmX8s21DrD1KpZjq/XSQ/L0CObzqL53eAbXDqpCX0yVjfy90FlHXgYuN0oHCV/e6Htz68kgGpiXlS3V8SS8CIsskAyAmUrE=,iv:3KnLizZ7S0jgfGPfIHK7rlUUmyAGc7eCuxUswOFLZ8w=,tag:854H6s3hQMOSGTL9e2pVgA==,type:str]
+    lastmodified: '2021-09-01T18:21:12Z'
+    mac: ENC[AES256_GCM,data:vo99zeWCVaRGZ6jXSplcZDDgph6IB9XpxlDNX5AWcp0E42KaKspIUxJbJlAlRcf07lY0h/Tr/0ysaPE3772eG2ppPeYjkwCVfIIX73inlt3ad5q8l6NJiJ7NhhFsovgG0OICJtoDDRha1Xme2nIFfRy+Lyan8p0gsyYz22Z7jDA=,iv:dGTPgF2910bV8J/RxGisWJFG5TECgfaZnYxJ1RXPTbA=,tag:11yMzNRKQgmnrsgZ3S/JYA==,type:str]
     pgp:
-        - created_at: "2021-09-01T16:36:51Z"
-          enc: |-
+    -   created_at: '2021-09-01T16:36:51Z'
+        enc: |-
             -----BEGIN PGP MESSAGE-----
 
             wcFMA9aKBcudqifiARAAY1AD0HzMPQj8CyY5ctcxgTIBugnaQYxoGKVbTm6EHtu9
@@ -45,6 +44,6 @@ sops:
             v/lLY3ojACIgBrhqal6sj5fkbD3CZuOG7vgyHV0EgetqR+KuGrAhAA==
             =uWd6
             -----END PGP MESSAGE-----
-          fp: 0508677DD04952D06A943D5B4DC4116D360E3276
+        fp: 0508677DD04952D06A943D5B4DC4116D360E3276
     encrypted_regex: ^(users|data|stringData|secureJsonData)$
     version: 3.7.1
