@@ -4,6 +4,7 @@ kind: Kustomization
 
 resources:
   - ../common
+  - ../../../../base/apiextensions.k8s.io/customresourcedefinitions/prowjobs.prow.k8s.io
   - ../../../../base/config.openshift.io/oauths/cluster
   - ../../../../base/core/namespaces/acme-operator
    - ../../../../base/core/namespaces/opf-ci-prow
