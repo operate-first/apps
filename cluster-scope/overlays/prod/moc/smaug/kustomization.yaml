@@ -7,7 +7,7 @@ resources:
   - ../../../../base/apiextensions.k8s.io/customresourcedefinitions/prowjobs.prow.k8s.io
   - ../../../../base/config.openshift.io/oauths/cluster
   - ../../../../base/core/namespaces/acme-operator
-   - ../../../../base/core/namespaces/opf-ci-prow
+  - ../../../../base/core/namespaces/opf-ci-prow
   - ../../../../base/core/namespaces/opf-ci-test-pods
   - ../../../../base/operators.coreos.com/subscriptions/cert-manager
   - ../../../../base/rbac.authorization.k8s.io/clusterrolebindings/acme-operator
