@@ -12,11 +12,14 @@ resources:
     - ../../../../base/core/namespaces/opendatahub-operator
     - ../../../../base/core/namespaces/opf-dashboard
     - ../../../../base/core/namespaces/opf-jupyterhub
+    - ../../../../base/core/namespaces/opf-monitoring
     - ../../../../base/core/namespaces/opf-superset
     - ../../../../base/core/namespaces/opf-trino
     - ../../../../base/rbac.authorization.k8s.io/clusterrolebindings/acme-operator
     - ../../../../base/rbac.authorization.k8s.io/clusterroles/acme-operator
+    - ../../../../base/operators.coreos.com/operatorgroups/opf-monitoring
     - ../../../../base/operators.coreos.com/subscriptions/openshift-pipelines-operator-rh
+    - ../../../../base/operators.coreos.com/subscriptions/opf-grafana
     - ../../../../base/rbac.authorization.k8s.io/clusterrolebindings/opendatahub-operator
     - ../../../../base/rbac.authorization.k8s.io/clusterroles/opendatahub-operator
     - ../../../../base/user.openshift.io/groups/cluster-admins
