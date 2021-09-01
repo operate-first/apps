@@ -7,6 +7,3 @@ resources:
   - grafana.yaml
   - grafana-datasource.yaml
   - route.yaml
-
-generators:
-  - secrets-generator.yaml

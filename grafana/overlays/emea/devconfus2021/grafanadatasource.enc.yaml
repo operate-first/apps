@@ -1,12 +1,9 @@
 apiVersion: integreatly.org/v1alpha1
 kind: GrafanaDataSource
 metadata:
-    name: grafanadatasource
-    namespace: opf-monitoring
-    labels:
-        app: grafana-datasources
-        app.kubernetes.io/instance: devconfus2021
-        component: operate-first
+    name: datasource
+    annotations:
+        kustomize.config.k8s.io/behavior: replace
 spec:
     datasources:
         - editable: false
@@ -19,15 +16,15 @@ spec:
             httpHeaderValue1: ENC[AES256_GCM,data:0whKvMMll8PaWwDhttyCmGS6QQMIS30SM2T0nMESUMNucsOV03l/iOqzYx4r/4J+HqESz33rgxAlSBgbx/Pk/4JZj6SmJnF9GMcrD7YcTEZNoOY4RlrNElK48KI2heTMgO/LPwqgY73jPF7wN6bHC8g0D9Dwi92kd1QluUHd1svrXopgtIdwDlrKXk1JAEFAuyCVx3qmAFhHoMMFba/2Qgb1FWeX0sXnhIJGxehlRVWFmj1W9oTXbHMRscw0P3tmC0CG3M3f3lZYSroYSnr4GmLCP1ClZrAAnj70NuXR3s5/szc02n0eJ5Kf8gkkpadyVRlFBMRTMB62stvIJXn3vnLW9Ldu8bJiwQ9vm0Bxkgcr2uE3nM/PExdrxHAg4M+0Qk/Uepd74rU73kxKDR394h8UhY9QTj1nHDZweTlkeup1XQRPAkZLSKkYnpS8F69vvm+1/x7NgfS4n3hiYrR2Sjq7c9hacOQy+Usou9rgbm+Eg+4DQbo7InHEcFkHiderNQyo8B53D76HBFdpIDksjuwek3a+v2lPLeFSV4AJUuoKghZvo4cAHXacMKGJxWbds4ghWkUWitHHJtmNVa5znZFaJWtpQifrYzzXW3T3e/rhSUfe6r3BpQM+VkluG3WcyLJ26Qt0GjJHul35O4kodepSTyYRqB8NuqDPBsaZ8Wwo9j/kN/rHDYCJGXxZJtpaFC6fVj9JGtB4iBsC5/gunqJ9pciCfajY0JPyha1UlRw1FAjw/fTey9NzWI/+k8GtTJtpiHciXlGU9fhDhbvRGtUv9MwSw/fVmHChaS1QRCWxNUgvLzKduq58YDlC0U/LbHSyLejO1qsg41oI5PjjNYsxj+od/sZy2hAhFQylbBeHLF3+DduKw1Iyp4QFd33a5rr1glL16yyT5NZgEkQzGjwW2dbIEDqnXlIr5KQWTMaqvIa6nTKFz0c4IAHK5yW0CpWn5vmUAgk4kOMgt5Ymdieef69403Fhr1LsHc6slAuOPa3xmkm1Q/YdcLDXFjcfIVlhu/ksWR+VhGy+8m6V6bWgvVCMPFX8EKAfFfGcydozLY25mkImAZLc3aUPH4LM1JxXiuw8jqwx1qVc+9DspqNsGR+vBCQE7TZPjxGv8hoHIdrhaI4Uea65i4/QBV8hQkSS50Dy4PQvdTzhNzsnFB6NRf0BomcpQxYbTbAerX5RY0FFucakYssCNuAJzjmUaA7AvR2OLa1Mj5bABPa2tqiEaYjNdAM+sstuIOE5IzX3o/46yzn6l/YUeiD7R4b4oGmx6S/9CY6wsXM8lZ+CfvEjBMy4Jdq0Bb8g737xZDNr0njQsI3ARHekDIpjG0nnki8GbvhfXT9SXCIq6UVikzCwWpsj8NQV7xdImpCzVkjsAs4gmHj3jil39S5GuXDVrXEy6ZPCyQ7osLd26Bz73YUBOqn9Bk08DYCa6v6/SgmKhEMEfY79EGWpKqPJA3EZBb5zR8PrASanIzE8FcPNSrk1NU2BT9tc4QdLIeU19Zd/c2yojJ+cKoESsO/QZ2w1uVL3HV8zl0BsqHPGtskqlH47LlaDXb2SjmEHJP619f6mRn2/MqlfTzowuG3m30OEXbOw2mT493lqfmcEb1zuuArVwKLVuxaNOM1DkQrr3OqY3M1Fg/xx/ggGZsrcpiDUt7DRSAq7CtMy9/g3kQtG1k2TnQoGVSBDTRySqzW3At+x/HYNKjIsgVHbcbfrX+FTZm6f3jvxcKuHTZKVwg==,iv:LUGlr6hX3Wp08M9eu422orbZjIP1Q2wbC1U3vrXY8kg=,tag:QfeOYosEC5EAHnyg+bOZZg==,type:str]
           type: prometheus
           url: https://thanos-querier.openshift-monitoring.svc.cluster.local:9091
-    name: openshift-monitoring-grafana-ds.yaml
+    name: prometheus-grafanadatasource.yaml
 sops:
     kms: []
     gcp_kms: []
     azure_kv: []
     hc_vault: []
     age: []
-    lastmodified: "2021-09-01T16:37:11Z"
-    mac: ENC[AES256_GCM,data:1n1YLMZFvSYxuaA2ueLBdwXNVuxseQglzIDEPCMysUzisDUuV1HzHAc2+tQOE22bTVJUCCHZcEgLvHYtJAB7JGeHIT122WXdXxGafU/vDiTgcji+CCCtYx86Mh66eGGC9nH0lJCUONhcefG9wJhMLEfu4powwqwq78G+hZlKUvU=,iv:ko/Y1nI9+Oyzmu8Bd4hkP5p64i9Ec1rvheoaFFYrbik=,tag:zSUoLK31CTbZf8O/kfCvuQ==,type:str]
+    lastmodified: "2021-09-01T16:55:33Z"
+    mac: ENC[AES256_GCM,data:MO/Mc6cAFB6fdWjs+5tAuXyXjmo6UsnZbmkh+HaKq18Xy2h6YbkCyf6djioXpxIihWo6BBFH6hRACmX8s21DrD1KpZjq/XSQ/L0CObzqL53eAbXDqpCX0yVjfy90FlHXgYuN0oHCV/e6Htz68kgGpiXlS3V8SS8CIsskAyAmUrE=,iv:3KnLizZ7S0jgfGPfIHK7rlUUmyAGc7eCuxUswOFLZ8w=,tag:854H6s3hQMOSGTL9e2pVgA==,type:str]
     pgp:
         - created_at: "2021-09-01T16:36:51Z"
           enc: |-
