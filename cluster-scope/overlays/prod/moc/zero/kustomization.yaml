@@ -59,6 +59,8 @@ resources:
   - ../../../../base/core/namespaces/opf-alertreceiver
   - ../../../../base/core/namespaces/opf-argo
   - ../../../../base/core/namespaces/opf-ci-pipelines
+  - ../../../../base/core/namespaces/opf-ci-prow
+  - ../../../../base/core/namespaces/opf-ci-test-pods
   - ../../../../base/core/namespaces/opf-dashboard
   - ../../../../base/core/namespaces/opf-datacatalog
   - ../../../../base/core/namespaces/opf-google-spark-operator
