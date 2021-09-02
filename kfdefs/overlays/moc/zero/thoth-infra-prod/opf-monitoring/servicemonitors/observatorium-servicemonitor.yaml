@@ -1,0 +1,15 @@
+---
+apiVersion: monitoring.coreos.com/v1
+kind: ServiceMonitor
+metadata:
+  name: observatorium-monitor
+  labels:
+    monitor-component: observatorium
+spec:
+  endpoints:
+    - port: metrics   # Loki
+    - port: http      # Thanos
+  namespaceSelector:
+    matchNames:
+      - opf-observatorium
+  selector: {}
