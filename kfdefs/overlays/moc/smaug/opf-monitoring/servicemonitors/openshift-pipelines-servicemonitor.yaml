@@ -1,0 +1,16 @@
+---
+apiVersion: monitoring.coreos.com/v1
+kind: ServiceMonitor
+metadata:
+  name: openshift-pipelines-monitor
+  labels:
+    monitor-component: openshift-pipelines
+spec:
+  endpoints:
+    - port: http-metrics
+  namespaceSelector:
+    matchNames:
+      - openshift-pipelines
+  selector:
+    matchLabels:
+      app.kubernetes.io/part-of: tekton-pipelines

@@ -1,0 +1,9 @@
+
+---
+apiVersion: objectbucket.io/v1alpha1
+kind: ObjectBucketClaim
+metadata:
+  name: aicoe-kaggle-objectstorage
+spec:
+  generateBucketName: aicoe-kaggle-objectstorage
+  storageClassName: ocs-storagecluster-ceph-rgw

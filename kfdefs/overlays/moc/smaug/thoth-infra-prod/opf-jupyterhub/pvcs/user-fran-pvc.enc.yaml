@@ -1,0 +1,43 @@
+kind: PersistentVolumeClaim
+apiVersion: v1
+metadata:
+    annotations:
+        hub.jupyter.org/username: ENC[AES256_GCM,data:IOGt7ZXGBimAd9hTT5p7ADFtrWgBUO0JVIgVlfA=,iv:Zcn462vWlvdKyRL0G9J6CB2M3ooS65Sh7TNMzuE/ur8=,tag:KPquvzEhFQw9DhKPZMkzZQ==,type:str]
+    name: ENC[AES256_GCM,data:9E3Qp2iW4kan2CclMfL8Au9uFRVj79AYkRfx98kClKQwCDjn/KQ9tgBBDSIqH5YziZcgsRM=,iv:8yRsTRbmVxl/jPgblALFUnKmqcGM9O76mlQBt54kZiA=,tag:o5e/cighMN2vUGS/8i6a7Q==,type:str]
+    labels:
+        app: jupyterhub
+        component: singleuser-storage
+spec:
+    resources:
+        requests:
+            storage: 8Gi
+sops:
+    kms: []
+    gcp_kms: []
+    azure_kv: []
+    hc_vault: []
+    lastmodified: '2021-03-04T18:26:26Z'
+    mac: ENC[AES256_GCM,data:Snl3L41E/RgZ+OqUYpBbZP/vBkoyNmleM1HIk1f0B0KRqRv22yWlrJZF39fJrpLmDG1olVVXTbFveHB+G9JckWqkXe1Vbwt8BDTdWlQsE5hPRcGkAi7K3KnWVTvaIfyOhXCd4qnkrZTOlUdXTRDeTCG1QcdY7gADQ3RDnxrYra0=,iv:wn5hvLQ6UKIyZoxSMOpwVURAAi3Fu8MRSR053HNFDMQ=,tag:seyoKLEd/sqz3h4RBP1pkg==,type:str]
+    pgp:
+    -   created_at: '2021-03-04T18:26:25Z'
+        enc: |
+            -----BEGIN PGP MESSAGE-----
+
+            hQIMA9aKBcudqifiARAAu2+CTkuGxLV/uW5ZdcR80+TC5Tsnqncv1+vyFUk0MInH
+            sAC/3lSEqwsaGIHcB+BYe3eE+9sRfewMwHifWigkrQazlIzDbHgQbMBTxWvPJmgQ
+            uCX7zFHyIwKfTfN/vxy1H3XQxrqwFDDeFHTOI9dqNtCjogoeMvApO8Bc14aDbgN/
+            P/sl/1cd3rzRFJFu9zmE75ZL+AZ0tys9EvH8O3zcjV+Gp4SzSbCm2GEuQ1qbigzc
+            fzne3o0sxBDUnwn0aUf4THJEvNh8u+9HeBM3JrUBjaPWbMQEiQDQVSK2pgecF8p7
+            da0gsa0jT9b1ZJ5lzjHn+/5LPYE7hY3XJNOjEIvso128Xm9QsotTuY1a1F4UrTgF
+            5aGIBDYmkQzlc0m/RP5607DCZ3lUT9nzWyfR3r3sRQpsTFF6xnkkdjtvzJt+Sg5H
+            JJdbf3oa0rJpPBphaduRzxNuEbH/CxMkv8qYqxtIZlyv9PL+tlm+woecP0v/wr2g
+            XV4o19CS0Ettgmzz7LtnMuzMnxKGzeLqwhkTkRFozta4M9X498OpvugDf7Ctn09s
+            MZw8YPowkBXOBZ7Dk8FZM93bC8rU7h8rgy0bbp2qAiYPa13yLK77CTIvI9eBKXiG
+            qa8M8BlFomIgOubZLMUq7T/6SUR9HzlNI5Q7TZ7ZP9hyiMAmya5c/PU8Y4noW/7S
+            XgEjfUAohP51Ig0LAH53UmXGNgWrUdkmkwrymz+InAZavqzyc4AzfwkA2728geZr
+            lhDfSWTi2YG8dgyulDIyxJ8FIRDyOJ3taYnoHbWm9RIaruDO3CbvGxe87zrGdlc=
+            =j1vB
+            -----END PGP MESSAGE-----
+        fp: 0508677DD04952D06A943D5B4DC4116D360E3276
+    encrypted_regex: ^annotations|name$
+    version: 3.6.1

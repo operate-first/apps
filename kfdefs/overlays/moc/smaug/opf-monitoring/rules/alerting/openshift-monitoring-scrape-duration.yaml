@@ -1,0 +1,15 @@
+---
+apiVersion: monitoring.coreos.com/v1
+kind: PrometheusRule
+metadata:
+  name: openshift-monitoring-scrape-duration-alerts
+spec:
+  groups:
+    - name: Operate First Cluster Monitoring
+      rules:
+        - alert: Operate First Cluster Monitoring High Scrape Duration
+          expr: scrape_duration_seconds{namespace="openshift-monitoring"} > 80
+          for: 5m
+          annotations:
+            summary: "Openshift Cluster Monitoring Scrape Duration Too High (> 80 seconds)"
+            severity: "HIGH"

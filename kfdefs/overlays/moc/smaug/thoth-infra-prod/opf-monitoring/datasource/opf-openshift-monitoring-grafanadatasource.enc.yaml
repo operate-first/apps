@@ -1,0 +1,53 @@
+apiVersion: integreatly.org/v1alpha1
+kind: GrafanaDataSource
+metadata:
+    name: opf-openshift-monitoring-grafanadatasource
+    namespace: opf-monitoring
+    labels:
+        app: grafana-datasources
+        app.kubernetes.io/instance: kfdefs-smaug
+        component: operate-first
+spec:
+    datasources:
+    -   editable: false
+        jsonData:
+            httpHeaderName1: Authorization
+            timeInterval: 5s
+            tlsSkipVerify: true
+        name: openshift-monitoring
+        secureJsonData:
+            httpHeaderValue1: ENC[AES256_GCM,data:ZSCGAiejcdT2BDch+yESQdEgDp5Qixp0H3S/iS1PwBX3tIdT1dszkdlycjzvdZRO762qHcEXEN9gmo/jiwoKD3XgWHDP2zlsCzZdMhJ3Vu7s8D/XvcoHdEoTD/pVs3S3Biu8ib9D1ePS2g/ttWRPlFv7zaRbj3KR07OS0xtNFr9x0d+aImoTPZtqmx8ppskEchHU/Jk4KtsK+khdfe1zlCdov8ADuMz75RSQBjRBhGzNwns8TdjU3fJDUB9eYAc/RJhGr4UA2YE3TQtiq7YQno8SDfGUvGfHd03mEpGueeulO+rMVYzJmkoC61e3v1/Xkqr55D9iB8XRSA9sFEdk2cml0NWGR/Du9JJ2UuzJ5Rg9IDuL6YYtq3AGzcB51hnfcYPPb9VHApZnEdYm/Mv8+7SEFK7Gm8ti1ESyntjOgZYdUwXqG9UrOrJmSEDLDGMp2JCT4QB87uKzQIjecg3i2MQYUXeZljgrmNNHi3JRT5l5r4z8MPASd24zX7NxoC8woijpVXmfgyeH+kTRc13oramzvw2or23NMK4ejnBRH45/NjsDGQ2QJRpr8o8r/UQ7lKifTE90keHRtF0LkTHugLBgNDloNz7UAtAUIA29tKg/9V0RP4xIw3a7SZY4xSMKBl/LtUia1CPaRbZLDky41LMtP2U3iYU6U3XWx3QkNOZkt6+2/qfScl+mERo1Sde7uzkrNyQXrwBcoVlBL/LSmnAw9LIW57rmHy2AW6EKHpZAUuwa7vwDX3GcgnCMNA1DIiiP5pZgM0rk8y89lrLdY3HvU91mIojr/mlJxtMsg59N6unapQ7YxoHBu+9zD7gS6nQLdoCwaFSn5K5n128UotNHJA+kRSsLSZMZsSu+BWhwea4vkA5ZOSPzc+A+tR79azGwvjx8i1xW9YVCaRYyqSbR6/d2yMZMj2TE9FNzkcygvzFQLXq4hl3IAdmK4m1ywWj5IelcnOhZ51vTiVxDtcvwSCx+OwNRbIPhKpzddatgUPn8/4KykhCJ+JLv7ljmcqMsqfTe4QZfcbX52PJ/UOH0w5V+Xe0qGQ5tbklLdAcT3BiF7fc8lJUKoPDwSeqPStQFnfJV73gR/rKKG1VF4En5byzL0sRMDPjn/IlcCjCOMHHroI1LP2HeA2bKq9bf5ROUjmki7PjxC1VGU9S6oQly+4OC4sOOw00Mqsi30R/OVrx2fIJMzwEa+q8sccXj6u8E5TyIbHqQ0BTXrHk2jueV1io3FfTi8UHNtUbsPN0IJy04SsgOBO5GNnHOMzIcjnfzvn/lAhPMtRM7IG5GzWKF7m9FOEXv9g==,iv:NCgRuUiYecJqAfVRorr+wzW5bjTUz1san+KxjgyPAIQ=,tag:cDopAmZKnGeJLtTSO5Q13A==,type:str]
+        type: prometheus
+        url: https://thanos-querier.openshift-monitoring.svc.cluster.local:9091
+    name: openshift-monitoring-grafana-ds.yaml
+sops:
+    kms: []
+    gcp_kms: []
+    azure_kv: []
+    hc_vault: []
+    lastmodified: '2021-05-20T16:07:50Z'
+    mac: ENC[AES256_GCM,data:ZCP/v2dNLOJnBdgiAYOl/BoJ9v8+eZsHj8dbmD7qhtTo1tdQ6W449gI6FniStSrqyb09AC23L282jbNPCJMspe7wOiUL9WDEMr6qwgepg6zsx9iBOtER8lneHCQ+uLkjxBPKBqMwIeoT5GStp2z5IKAb2H+eimqxrzroeqI4hrE=,iv:OUoEtqhlORVG7Tkj0Jv6a02PPABnqDE1TEvD2VlAXwI=,tag:DOg2DNdy6ZClB+0H7g/ktA==,type:str]
+    pgp:
+    -   created_at: '2021-05-20T16:07:50Z'
+        enc: |-
+            -----BEGIN PGP MESSAGE-----
+
+            wcFMA9aKBcudqifiARAAXIcXnKqdKqWyBoekHP38a/c7iN/eM4EIRDYvuCJekPxx
+            EVsnxVRaoW4dgyVVoW+18jRm1JzUNCnWsrDkN0CZOMfh/eJpsAOFumrHg/4ZcWn1
+            f8ngDMgpXis0j8pkotsPGc2mTPfoY/W9+bjlTaCboj5xcdp9QugM2HZtgfYts597
+            fXmI3uNJwmuoEfovUnvk1sulVlZK920PLsiO0ZF7Ak+VBeGeJXzUNe8gi0tLUceX
+            AGEi49t54QPt8mX/Q3UCjObIK+3VJai0fyWFfqO3Hd9xwqaOpNczInPvwtH4VGX7
+            yezP4ppBlilxueTC8WmH60goOX4lsZA4RbakIpjCJYpWnD1+60VYbLt0S0CVC3Y0
+            1crtHDZvLbVfp+680EOw3JiDNX3wEx+s+OjXjJ/+bZu/uP/Uzn15/d1enbP2EYO3
+            fXe+XxDDDPbZFPPW4ge+LImE8gl4vAmbyasjn4+PMlPDeol62uORLbuBrZ1NtXzN
+            f7S2llLT7gvJca1zPg0QsaF3hPgJDnXFwHnvzxAKLXY82dLPTSn8rXVT/g2A9F0L
+            GHj3zeVf3OnJkobhgImabDBl4XcTHt4nehuRH5bTXDOe90DT4Gw8Nb+P+Sf3/+BQ
+            uzYWotgpBLDLobj1E4GW50hgzoiGSHDYXGCgqWAb7IIDr84PCZTyuwgwgp38hjLS
+            4AHkh2PFXLxjHsY7zxhbzplckeE5y+Bw4JrhFY3gsOJgNHOj4KjlYOWQDGAnDIRY
+            RaXgZhGRQhpUxNhB4ANXnW9DZi3Nyvzgz+Qqq38e369vuUOwCqCPLlfH4qGUy4zh
+            ZqMA
+            =LJEV
+            -----END PGP MESSAGE-----
+        fp: 0508677DD04952D06A943D5B4DC4116D360E3276
+    encrypted_regex: ^(data|stringData|secureJsonData)$
+    version: 3.6.1

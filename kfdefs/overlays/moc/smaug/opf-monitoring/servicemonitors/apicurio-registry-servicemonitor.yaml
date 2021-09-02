@@ -1,0 +1,17 @@
+---
+apiVersion: monitoring.coreos.com/v1
+kind: ServiceMonitor
+metadata:
+  name: apicurio-monitor
+  labels:
+    monitor-component: apicurio
+spec:
+  endpoints:
+    - targetPort: web          # apicurio
+    - port: http               # limitador
+    - targetPort: envoy-http   # envoy
+    - targetPort: redis        # redis
+  namespaceSelector:
+    matchNames:
+      - apicurio-apicurio-registry
+  selector: {}

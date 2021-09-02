@@ -1,0 +1,43 @@
+kind: PersistentVolumeClaim
+apiVersion: v1
+metadata:
+    annotations:
+        hub.jupyter.org/username: ENC[AES256_GCM,data:7qIujPJF7L2JCvMB/zZQ51Gd8g==,iv:f+8SasEZX1qI/DHEEE9a/Q4NoUjrv5EW7q+eYz+XcYk=,tag:P3qG8cKNeihNMwS54seC+g==,type:str]
+    name: ENC[AES256_GCM,data:eeot5hTzAwkvVXN8WYD7/VljAUCyO1wx3KltdvkOj+5amobuluGDPO8=,iv:PQN3RXAPcqFAhPRPjI8mV73BpL0eStjGm+rlciBjIXM=,tag:pD6MLFKsBrvhgeO7yfgpiw==,type:str]
+    labels:
+        app: jupyterhub
+        component: singleuser-storage
+spec:
+    resources:
+        requests:
+            storage: 8Gi
+sops:
+    kms: []
+    gcp_kms: []
+    azure_kv: []
+    hc_vault: []
+    lastmodified: '2021-03-04T18:22:39Z'
+    mac: ENC[AES256_GCM,data:zVUKL1xsXjy1gvpHDit3fSQ6e5DZ98CV+w3ny3GlxSbDgZMQCqMNk67Ndvr9EKuHdjCfAkMoSt1vHhr++7TCmLhSeceaut2C3JzdUajciJb/z82qsTekS5XOKi1qJnorKMBAvL1vw9QqXq6aepoUPkbWW4wXn1ydfM+v/xahb0o=,iv:a9uCBqTiZNeH76PalK6wZkZ85vJJy2pcVE6EUOqOlq0=,tag:f7fzH7YYdUqfDGmoQjtwOg==,type:str]
+    pgp:
+    -   created_at: '2021-03-04T18:22:38Z'
+        enc: |
+            -----BEGIN PGP MESSAGE-----
+
+            hQIMA9aKBcudqifiAQ//ZLIRF8Vc9OnFF4jqMntHJBjwQINOA4EbltsR6dZYrZTs
+            v8531GnEpmgHODttl4JXKStY9oYyluIkwgLaKNPGwyNGr7Ynp+rM3bmNRwLEB1Re
+            pZxHZdHrNNisN/Xz4K549Liv3qGUeKyeWJ8+U5T4LmzpZ6HiepPM6VX6LW+9rT4c
+            PdeTkO6if98MXN+jd4x6zQno5zQQwQxF9MQaWTXqHvPPUnDBRncO2haUvEOWrAol
+            B8FZu1GBDXKd1jsBc1W4GnKYLzkfV0Xkw2lVe4LBJFsVZzLZKVh069PlJTzYx2zq
+            0MGjPPwKe1sAWRGy/8jbF+iDm5IN3qlzvbvmIH7LFYxVzbZw6w31knr7VGvDgfRA
+            gWy/vt8en2Pho7S9uo/yXJVrLGFM6tXKx4TPVDZgReVQZfa731ZAwmvzIrh5a5iD
+            rtnc5TipFv02pSoKsmj+6dG4iFR3TZF/r7MMklIc1VsZ6tuogfLaiZZeFP5pWhi1
+            PwE73CkSmcgaczOpwch8PBEyVqygWcp+zaDzZwHsj4Qm8TQ4uxv9kpoK1wLWJi3P
+            yTiIQELOSmeHZLrG9nkB7uvU4srsWjx+N5jo6jdxPP/lk5yNS+ht6BqYtQxJJujx
+            bC1q9SfTLTfliT6CcU4CjvfHii+pIzyIQVNtNC38TtacBdVtBYWf0OJcEU/wWr7S
+            XAE8uItFCwBzUSSSl+pgxXMLShSK3aQ2L129OVRirl9NO/5/Yz34Vy6y+YM3y42X
+            wa43UCewIoYHa6P1bPOyJsF7lW7WAfDECS7meCuQ4ouRgzvaqFBtnkC2Lbra
+            =Yekb
+            -----END PGP MESSAGE-----
+        fp: 0508677DD04952D06A943D5B4DC4116D360E3276
+    encrypted_regex: ^annotations|name$
+    version: 3.6.1

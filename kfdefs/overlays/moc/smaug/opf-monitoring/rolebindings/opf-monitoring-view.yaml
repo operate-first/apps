@@ -1,0 +1,28 @@
+---
+kind: RoleBinding
+apiVersion: rbac.authorization.k8s.io/v1
+metadata:
+  name: opf-monitoring-view
+roleRef:
+  apiGroup: rbac.authorization.k8s.io
+  kind: Role
+  name: opf-monitoring-view
+subjects:
+  - kind: ServiceAccount
+    name: grafana-datasource
+    namespace: opf-monitoring
+  - kind: ServiceAccount
+    name: thoth-station
+    namespace: opf-monitoring
+  - kind: Group
+    apiGroup: rbac.authorization.k8s.io
+    name: thoth-devops
+  - kind: Group
+    apiGroup: rbac.authorization.k8s.io
+    name: apicurio
+  - kind: Group
+    apiGroup: rbac.authorization.k8s.io
+    name: fde
+  - kind: Group
+    apiGroup: rbac.authorization.k8s.io
+    name: prometheus-anomaly-detector
