@@ -1,0 +1,12 @@
+---
+apiVersion: rbac.authorization.k8s.io/v1
+kind: ClusterRole
+metadata:
+  labels:
+    app.kubernetes.io/component: dashboard
+    app.kubernetes.io/part-of: tekton-dashboard
+  name: tekton-dashboard-extensions
+aggregationRule:
+  clusterRoleSelectors:
+  - matchLabels:
+      rbac.dashboard.tekton.dev/aggregate-to-dashboard: "true"
