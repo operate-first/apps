@@ -1,22 +1,23 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: trino-coordinator
+  name: trino-worker
   labels:
     instance: trino
-    role: trino-coordinator
+    role: trino-worker
 spec:
+  replicas: 3
   selector:
     matchLabels:
       instance: trino
-      role: trino-coordinator
+      role: trino-worker
   strategy:
     type: Recreate
   template:
     metadata:
       labels:
         instance: trino
-        role: trino-coordinator
+        role: trino-worker
     spec:
       volumes:
         - name: trino-config-volume
@@ -35,7 +36,7 @@ spec:
             limits:
               cpu: $(trino_cpu_limit)
               memory: $(trino_memory_limit)
-          name: trino-coordinator
+          name: trino-worker
           command:
             - /usr/lib/trino/bin/run-trino
           env:
@@ -55,8 +56,6 @@ spec:
           image: $(trino_image)
           envFrom:
             - secretRef:
-                name: trino-oauth
-            - secretRef:
                 name: s3buckets
           args:
-            - --config=/etc/trino/config-coordinator.properties
+            - --config=/etc/trino/config-worker.properties

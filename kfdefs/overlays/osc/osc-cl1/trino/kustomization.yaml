@@ -6,5 +6,6 @@ resources:
   - kfdef.yaml
   - secure-route.yaml
   - secrets
+  - hive-metastores
 generatorOptions:
   disableNameSuffixHash: true

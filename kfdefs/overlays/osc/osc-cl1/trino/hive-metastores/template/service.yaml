@@ -1,0 +1,15 @@
+apiVersion: v1
+kind: Service
+metadata:
+  labels:
+    trino-catalog: catalog-name
+  name: catalog-name
+spec:
+  ports:
+    - name: meta
+      port: 9083
+      targetPort: meta
+    - name: metrics
+      port: 8082
+  selector:
+    trino-catalog: catalog-name
