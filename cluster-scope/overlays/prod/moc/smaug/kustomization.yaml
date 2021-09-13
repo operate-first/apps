@@ -16,3 +16,4 @@ generators:
 
 patchesStrategicMerge:
   - oauths/cluster_patch.yaml
+  - subscriptions/kubernetes-nmstate-operator.yaml
