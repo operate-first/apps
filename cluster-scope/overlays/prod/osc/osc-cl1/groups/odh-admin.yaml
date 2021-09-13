@@ -1,0 +1,12 @@
+apiVersion: user.openshift.io/v1
+kind: Group
+metadata:
+  name: odh-admin
+users:
+  - redmikhail
+  - HumairAK
+  - erikerlandson
+  - 4n4nd
+  - tumido
+  - guimou
+  - rimolive
