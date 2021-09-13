@@ -7,6 +7,7 @@ resources:
   - ../../../../base/apiextensions.k8s.io/customresourcedefinitions/prowjobs.prow.k8s.io
   - ../../../../base/config.openshift.io/oauths/cluster
   - ../../../../base/core/namespaces/acme-operator
+  - ../../../../base/core/namespaces/openshift-pipelines
   - ../../../../base/core/namespaces/opf-ci-pipelines
   - ../../../../base/core/namespaces/opf-ci-prow
   - ../../../../base/core/namespaces/opf-ci-test-pods
