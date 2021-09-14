@@ -4,8 +4,8 @@ kind: Kustomization
 
 resources:
   - ../common
-  - ../../../../base/apiextensions.k8s.io/customresourcedefinitions/prowjobs.prow.k8s.io
   - ../../../../base/apiextensions.k8s.io/customresourcedefinitions/extensions.dashboard.tekton.dev
+  - ../../../../base/apiextensions.k8s.io/customresourcedefinitions/prowjobs.prow.k8s.io
   - ../../../../base/config.openshift.io/oauths/cluster
   - ../../../../base/core/namespaces/acme-operator
   - ../../../../base/core/namespaces/dex
@@ -24,6 +24,7 @@ resources:
   - ../../../../base/core/namespaces/thoth-graph-prod
   - ../../../../base/core/namespaces/thoth-infra-prod
   - ../../../../base/core/namespaces/thoth-middletier-prod
+  - ../../../../base/operators.coreos.com/operatorgroups/openshift-nmstate
   - ../../../../base/operators.coreos.com/subscriptions/cert-manager
   - ../../../../base/operators.coreos.com/subscriptions/kubernetes-nmstate-operator
   - ../../../../base/operators.coreos.com/subscriptions/openshift-pipelines-operator-rh
