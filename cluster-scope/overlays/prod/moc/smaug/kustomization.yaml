@@ -36,6 +36,7 @@ resources:
   - ../../../../base/rbac.authorization.k8s.io/clusterroles/acme-operator
   - ../../../../base/rbac.authorization.k8s.io/clusterroles/tekton-dashboard
   - ../../../../base/user.openshift.io/groups/cluster-admins
+  - ingresscontrollers/default.yaml
 
 generators:
   - secret-generator.yaml
@@ -44,3 +45,4 @@ patchesStrategicMerge:
   - oauths/cluster_patch.yaml
   - subscriptions/kubernetes-nmstate-operator_patch.yaml
   - subscriptions/openshift-pipelines-operator-rh_patch.yaml
+  - groups/cluster-admins.enc.yaml

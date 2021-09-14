@@ -1,0 +1,12 @@
+apiVersion: operator.openshift.io/v1
+kind: IngressController
+metadata:
+  name: default
+  namespace: openshift-ingress-operator
+spec:
+  httpErrorCodePages:
+    name: ""
+  replicas: 2
+  unsupportedConfigOverrides: null
+  defaultCertificate:
+    name: default-ingress-certificate
