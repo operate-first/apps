@@ -4,4 +4,4 @@ metadata:
   name: kubernetes-nmstate-operator
   namespace: openshift-nmstate
 spec:
-  channel: 4.8
+  channel: "4.8"
