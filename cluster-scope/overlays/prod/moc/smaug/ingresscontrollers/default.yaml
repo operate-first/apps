@@ -9,4 +9,4 @@ spec:
   replicas: 2
   unsupportedConfigOverrides: null
   defaultCertificate:
-    name: default-ingress-certificate
+    name: ingress-certificate
