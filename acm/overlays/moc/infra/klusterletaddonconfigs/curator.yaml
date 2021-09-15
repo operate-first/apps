@@ -7,3 +7,17 @@ spec:
   applicationManager:
     argocdCluster: true
     enabled: true
+  certPolicyController:
+    enabled: true
+  clusterLabels:
+    cloud: Bare-Metal
+    vendor: OpenShift
+  clusterName: curator
+  clusterNamespace: curator
+  iamPolicyController:
+    enabled: true
+  policyController:
+    enabled: true
+  searchCollector:
+    enabled: true
+  version: 2.2.0
