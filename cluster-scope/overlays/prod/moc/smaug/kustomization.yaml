@@ -18,6 +18,7 @@ resources:
   - ../../../../base/core/namespaces/koku-metrics-operator
   - ../../../../base/core/namespaces/openshift-nmstate
   - ../../../../base/core/namespaces/openshift-pipelines
+  - ../../../../base/core/namespaces/opf-argo
   - ../../../../base/core/namespaces/opf-ci-pipelines
   - ../../../../base/core/namespaces/opf-ci-prow
   - ../../../../base/core/namespaces/opf-ci-test-pods
@@ -27,6 +28,7 @@ resources:
   - ../../../../base/core/namespaces/opf-kafka
   - ../../../../base/core/namespaces/opf-monitoring
   - ../../../../base/core/namespaces/opf-seldon
+  - ../../../../base/core/namespaces/opf-dashboard
   - ../../../../base/core/namespaces/opf-slack-first
   - ../../../../base/core/namespaces/tekton-pipelines
   - ../../../../base/core/namespaces/thoth-amun-api-prod
