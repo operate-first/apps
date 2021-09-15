@@ -37,6 +37,7 @@ resources:
   - ../../../../base/rbac.authorization.k8s.io/clusterroles/tekton-dashboard
   - ../../../../base/user.openshift.io/groups/cluster-admins
   - ingresscontrollers/default.yaml
+  - machineconfigs/99-vlan-210-nfs.yaml
 
 generators:
   - secret-generator.yaml
