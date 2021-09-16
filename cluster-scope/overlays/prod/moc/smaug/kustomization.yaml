@@ -39,6 +39,7 @@ resources:
   - ../../../../base/user.openshift.io/groups/cluster-admins
   - ingresscontrollers/default.yaml
   - machineconfigs/99-vlan-210-nfs.yaml
+  - configmaps/cluster-monitoring-config.yaml
 
 generators:
   - secret-generator.yaml
