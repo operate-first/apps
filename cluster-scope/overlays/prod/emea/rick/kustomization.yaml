@@ -9,6 +9,7 @@ resources:
     - ../../../../base/core/namespaces/openshift-storage
     - ../../../../base/core/namespaces/opf-monitoring
     - ../../../../base/core/namespaces/thoth-website-prod
+    - ../../../../base/core/namespaces/thoth-test-core
     - ../../../../base/operators.coreos.com/operatorgroups/openshift-local-storage-zj22x
     - ../../../../base/operators.coreos.com/operatorgroups/openshift-storage-24n7x
     - ../../../../base/operators.coreos.com/operatorgroups/opf-monitoring
