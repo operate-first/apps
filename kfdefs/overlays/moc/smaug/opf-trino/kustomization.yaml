@@ -1,0 +1,43 @@
+---
+apiVersion: kustomize.config.k8s.io/v1beta1
+kind: Kustomization
+namespace: opf-trino
+
+resources:
+  - ../../../../base/trino
+  - secrets
+  - secure-route.yaml
+
+patchesJson6902:
+  - patch: |
+      - op: add
+        path: /spec/applications/-
+        value:
+          kustomizeConfig:
+            parameters:
+              - name: s3_endpoint_url
+                value: s3-openshift-storage.apps.smaug.na.operate-first.cloud
+              - name: s3_credentials_secret
+                value: opf-datacatalog-bucket
+              - name: trino_memory_request
+                value: "8Gi"
+              - name: trino_memory_limit
+                value: "16Gi"
+              - name: trino_cpu_request
+                value: "4"
+              - name: trino_cpu_limit
+                value: "8"
+            repoRef:
+              name: opf
+              path: odh-manifests/smaug/trino
+          name: trino
+      - op: add
+        path: /spec/repos/-
+        value:
+          name: opf
+          uri: https://github.com/operate-first/apps/tarball/master
+    target:
+      group: kfdef.apps.kubeflow.org
+      kind: KfDef
+      name: opendatahub
+      version: v1
