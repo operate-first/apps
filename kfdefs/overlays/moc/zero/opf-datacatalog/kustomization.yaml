@@ -6,9 +6,7 @@ namespace: opf-datacatalog
 resources:
   - ../../../../base/datacatalog
   - bucket.yaml
-
-generators:
-  - user-buckets/secret-generator.yaml
+  - user-buckets/xtuchyna.yaml
 
 patchesJson6902:
   - path: kfdef_patch.yaml
