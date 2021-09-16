@@ -26,7 +26,7 @@ spec:
             value: odh-datacatalog-bucket
         repoRef:
           name: opf
-          path: odh-manifests/osc-cl/trino
+          path: odh-manifests/osc-cl1/trino
       name: trino
   repos:
     - name: manifests
