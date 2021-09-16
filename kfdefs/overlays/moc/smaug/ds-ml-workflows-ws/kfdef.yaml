@@ -1,0 +1,38 @@
+---
+apiVersion: kfdef.apps.kubeflow.org/v1
+kind: KfDef
+metadata:
+  name: opendatahub
+spec:
+  applications:
+    - kustomizeConfig:
+        repoRef:
+          name: manifests
+          path: odh-common
+      name: odh-common
+    - kustomizeConfig:
+        repoRef:
+          name: manifests
+          path: odhseldon/cluster
+      name: odhseldon
+    - kustomizeConfig:
+        parameters:
+          - name: s3_endpoint_url
+            value: s3.odh.com
+        repoRef:
+          name: manifests
+          path: jupyterhub/jupyterhub
+      name: jupyterhub
+    - kustomizeConfig:
+        overlays:
+          - additional
+        repoRef:
+          name: manifests
+          path: jupyterhub/notebook-images
+      name: notebook-images
+  repos:
+    - name: kf-manifests
+      uri: https://github.com/kubeflow/manifests/tarball/v1.2-branch
+    - name: manifests
+      uri: https://github.com/opendatahub-io/odh-manifests/tarball/v1.1.0
+  version: v1.1.0

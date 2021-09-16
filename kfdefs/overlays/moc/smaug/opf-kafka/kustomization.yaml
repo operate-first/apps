@@ -1,0 +1,30 @@
+---
+apiVersion: kustomize.config.k8s.io/v1beta1
+kind: Kustomization
+namespace: opf-kafka
+
+resources:
+  - ../../../../base/kafka
+patchesJson6902:
+  - patch: |
+      - op: add
+        path: /spec/applications/-
+        value:
+          kustomizeConfig:
+            overlays:
+              - topics
+              - users
+            repoRef:
+              name: opf
+              path: odh-manifests/smaug/kafka
+          name: kafka-cluster
+      - op: add
+        path: /spec/repos/-
+        value:
+          name: opf
+          uri: https://github.com/operate-first/apps/tarball/master
+    target:
+      group: kfdef.apps.kubeflow.org
+      kind: KfDef
+      name: opendatahub
+      version: v1
