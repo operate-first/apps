@@ -1,11 +1,14 @@
 apiVersion: user.openshift.io/v1
 kind: Group
 metadata:
-  name: argocd-admins
+  name: cluster-admins
 users:
-  - anishasthana
   - 4n4nd
+  - cdoan1
   - humairak
+  - kevinfcormier
   - larsks
-  - tumido
+  - durandom
   - naved001
+  - rob-baron
+  - tumido

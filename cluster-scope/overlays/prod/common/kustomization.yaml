@@ -45,5 +45,3 @@ resources:
     - ../../../base/user.openshift.io/groups/uky-redhat
     - ../../../base/user.openshift.io/groups/workshops
     - alertmanager-main-secret.yaml
-generators:
-    - secret-generator.yaml

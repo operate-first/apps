@@ -1,6 +1,9 @@
----
 apiVersion: user.openshift.io/v1
 kind: Group
 metadata:
   name: ccx
-users: []
+users:
+  - tremes
+  - natiiix
+  - sergey1011010
+  - rluders

@@ -1,6 +1,11 @@
----
 apiVersion: user.openshift.io/v1
 kind: Group
 metadata:
   name: apicurio
-users: []
+users:
+  - carlesarnal
+  - ericwittmann
+  - famartinrh
+  - jsenko
+  - paoloantinori
+  - riprasad

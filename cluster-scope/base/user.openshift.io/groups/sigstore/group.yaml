@@ -1,6 +1,7 @@
----
 apiVersion: user.openshift.io/v1
 kind: Group
 metadata:
   name: sigstore
-users: []
+users:
+  - mbestavros
+  - lukehinds

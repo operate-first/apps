@@ -48,3 +48,4 @@ patchesStrategicMerge:
   - oauths/cluster_patch.yaml
   - subscriptions/kubernetes-nmstate-operator_patch.yaml
   - subscriptions/openshift-pipelines-operator-rh_patch.yaml
+  - groups/cluster-admins.yaml

@@ -26,3 +26,4 @@ patchesStrategicMerge:
   - subscriptions/ocs-operator_patch.yaml
   - subscriptions/web-terminal.yaml
   - storageclasses/hostpath-provisioner_patch.yaml
+  - groups/cluster-admins.yaml

@@ -1,5 +1,8 @@
 apiVersion: user.openshift.io/v1
 kind: Group
 metadata:
-    name: argocd-readonly
-users: []
+  name: argocd-readonly
+users:
+  - naved001
+  - larsks
+  - rbo
