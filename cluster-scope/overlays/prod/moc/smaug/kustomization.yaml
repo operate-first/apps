@@ -24,6 +24,7 @@ resources:
   - ../../../../base/core/namespaces/thoth-graph-prod
   - ../../../../base/core/namespaces/thoth-infra-prod
   - ../../../../base/core/namespaces/thoth-middletier-prod
+  - ../../../../base/core/namespaces/opf-slack-first
   - ../../../../base/nmstate.io/nmstates/nmstate
   - ../../../../base/operators.coreos.com/operatorgroups/openshift-nmstate
   - ../../../../base/operators.coreos.com/subscriptions/cert-manager
