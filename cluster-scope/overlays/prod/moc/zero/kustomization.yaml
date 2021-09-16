@@ -94,7 +94,6 @@ resources:
   - ../../../../base/core/namespaces/thoth-infra-prod
   - ../../../../base/core/namespaces/thoth-middletier-prod
   - ../../../../base/core/namespaces/thoth-pulp-experiments
-  - ../../../../base/core/namespaces/thoth-test-core
   - ../../../../base/core/namespaces/uky-hpc-workload-generator
   - ../../../../base/core/namespaces/ws-ml-prague
   - ../../../../base/core/persistentvolumeclaims/image-registry-storage
