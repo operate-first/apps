@@ -1,0 +1,33 @@
+apiVersion: kafka.strimzi.io/v1beta2
+kind: KafkaUser
+metadata:
+  name: thoth
+spec:
+  authentication:
+    type: tls
+  authorization:
+    acls:
+      - host: '*'
+        operation: All
+        resource:
+          # this user has access to all topics with "smaug-prod.thoth." prefix
+          name: smaug-prod.thoth.
+          patternType: prefix
+          type: topic
+        type: allow
+      - host: '*'
+        operation: All
+        resource:
+          # this user has access to all topics with "smaug-test.thoth." prefix
+          name: smaug-test.thoth.
+          patternType: prefix
+          type: topic
+        type: allow
+      - host: '*'
+        operation: All
+        resource:
+          name: thoth.
+          patternType: prefix
+          type: group
+        type: allow
+    type: simple
