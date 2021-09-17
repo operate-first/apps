@@ -1,0 +1,12 @@
+---
+apiVersion: kustomize.config.k8s.io/v1beta1
+kind: Kustomization
+commonLabels:
+  prometheus: odh-monitoring
+resources:
+  - apicurio-registry-servicemonitor.yaml
+  - argocd-servicemonitor.yaml
+  - meteor-operator-servicemonitor.yaml
+  - meteor-servicemonitor.yaml
+  - observatorium-servicemonitor.yaml
+  - openshift-pipelines-servicemonitor.yaml

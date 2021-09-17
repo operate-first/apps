@@ -12,9 +12,12 @@ resources:
   - ../../../base
   - dashboards
   - datasources
+  - serviceaccounts
+  - servicemonitors
 
 patchesStrategicMerge:
   - ./grafana-oauth.yaml
 
 generators:
   - secrets-generator.yaml
+
