@@ -1,0 +1,51 @@
+apiVersion: integreatly.org/v1alpha1
+kind: GrafanaDataSource
+metadata:
+    name: opf-prom-grafanadatasource
+    labels:
+        app: grafana-datasources
+        component: operate-first
+spec:
+    name: opf-prom-grafana-ds.yaml
+    datasources:
+    -   name: opf-prometheus
+        type: prometheus
+        url: https://prometheus-portal-opf-monitoring.apps.smaug.na.operate-first.cloud/
+        version: 1
+        editable: false
+        isDefault: false
+        jsonData:
+            httpHeaderName1: Authorization
+        secureJsonData:
+            httpHeaderValue1: ENC[AES256_GCM,data:9V4AJtJpEma0NEfPtKyjAmOKR4m3+cg76i6fNEusKzKvo9A15zNn/6JdPajv3ooVaCb+i/5ZR3IU63IzMuUCZTeNE/He/V5w2bogTh4P17rgfWu2FFYO+P8S0ttvrM5IYOONmPSiSsOUewKITysXKKXPyUBA2g677n7cqsEmZLJ70xt2tykia/IdwkcNWfjlH/KM5oVYbcoLHw9b56YmTRL6gif3PDiyLbVIEGpDou3rQ1sGBcBLHmZVPiCvy5xYz+RbFMEbm9fA7hNOIrQpUuxNXAI1C9r7yNqsJKyTslJT0Spyaem/GrSgX9Ho8sf1PQn3/RbN0r3syf8TkaqsenskEyle2g8t++3Y1RhJyJMG5lisnz89RYMgxMhd7UWsD+QtwJ6IpdTYbBpdarpSw062WvzIoS0ZQZnDzACTG1/e+jbBTp6QWq4nmJXzUBP3965UWSidVveGF+Yh2JeGc4xe34SmXJ5TImjfEOJ4ZdR+hLlYsPs0bVuU7xOMn7DlS7Hmesu6arM07kxI+J/oD5e8bOuSCNAvez+TwlRuRJV68QIgu0hPk+eztdiDm3kwJ4xKsoxCr72z4QHQ1BlK6TvVi62gkCGUD89Vzk78O7sB0BQBCGsttvaaCbA1Bsxg4QDmPT8tEq2ynZlR/cGxNGmPN2CRMl5u7uhuQ7WDg2z7tbkIP1Xog7DZfMwHYhdRYXAGK8awNo7RONI9KMN4dsD6kl26oe/sxdx+I9TnVE5+XOa7j0MnhiI/f0KGq1wW9Y4vYnqMTtvz8WcF25k+9ZQyu8flm9hZ2iUpvB+24xxOGEMmUH8rTkHrj/4qjKiKpRGHwnilQjDn5rnBE+0H3d7xOl+mSfWF/hwffxrUXskw07APi/um5RARXxIopNpRvp3Bwp3SLk84vlZJtiOov4fGFthsZLULB9s+m0omujN31LvyFs3H9BYjUz+Uvelut+JcV5jxHurGkGSroIBTMKfQSHo1v45TOcUtDwuaHK5gWzydRW2C4XKGgiR8LpmZR/wq+A6ommKV/9GwCxuBP3ZAO8wj/IKmEPscq1TyesdtRhSKQTjKExYPm7FgJeTd22f9GyjendMXPuN3eciRxhiGj/tG8S1UZZSyaA7MGR6Yf+s+k+/jIALHqc7t0s3VoUtUdyw0l1puEEfKV6QGG6WAYlAI6DyDpTHf8OS9KpznlnYTHlnpo1Yq96epA/V7sCoEDbtMy+TmO/3Iej5b9TRpx3wzMKZDNaM5D2XVPZOQcRhh5NLlUC5AOVFhqGgSL/qjeA7Y4WZM,iv:fsm8q+ZPECl6XTlyVTH7ieaFlVtnw/GyIOj/0UNY2MQ=,tag:LoGXiB6kRJPauSaT7aF60g==,type:str]
+sops:
+    kms: []
+    gcp_kms: []
+    azure_kv: []
+    hc_vault: []
+    lastmodified: '2021-04-29T17:00:47Z'
+    mac: ENC[AES256_GCM,data:a3rigUHjTQDURSaL1bTebrAlzPPdGT35WftF5LldPbiWedvRAfbYADm6BfS1RFJClrhmfiKqQiYcuavKkqMRHJ1NDXzXcmJzyhaE7eKYsNcLD3U00ihSZydfZEBUOSYBm2aDF01cszR4s7upCqh+l9/d4QDHV/e3vGD3KnNLF/k=,iv:W168K86Femh9NfLK1yQNRLvueU9C0cPkT1byqUsvmPc=,tag:SWTTqzuNlGe8vzPq2LwkoQ==,type:str]
+    pgp:
+    -   created_at: '2021-04-29T16:54:34Z'
+        enc: |-
+            -----BEGIN PGP MESSAGE-----
+
+            wcFMA9aKBcudqifiARAANSOOl9UywbaSQpfiNmH9TQO+ErbS9hgRlzbefPG9cL7X
+            mIpc0AxZ3cLuPDGF6A0rKZ4NTqf0BfEZqsLxQChLKFtaYp/CSIHrNaJtvz2xVUQg
+            froo5gbMOaerP6A5IYfQuTLyFo1b+y+kWSyUS5l2SXwt5QLI8VMs8B5CGXohPLce
+            ax3dvp3Tl77zpCbZallElY0l0ebzpwXqJxGhPaAS1KhQx2WqadrXHeme/g4BNPwL
+            etM/Oia1HAL+7q4EMgc22XC1vvYBt7gxlUTNoK7YR1sfU4LY6/fbSs6Eyrz0TP/4
+            9E/JzsaAreWRQ1M2F8Ixvb+YB56JWQgh9L4dmOAAPteN3HHO/YpMeuqdF4NbRBBq
+            fX3+RrTZVWENyY5ywEWsk4pCYO3cR5QUSF28CBYg+RVE0T9BnGPpkA/btVp591qu
+            G1ytCUim4G7E0Bn/vXPXTIhocSyn6hMuaMt8bss85ZLn/1BS+9P0tAGl3jV7p/Mi
+            k2wktYbK47QL+lDSWHL2NIZWObbxY1jV4sxQSb6GK1GTUVsnJ8CREpVlKMvVy++f
+            PhZqZ0k9XMOqzvUubpX0xb3M0C0hk+9dr4HSgrv2C7Jb3ujcvxb/1zsHG1Sbyb8J
+            2qxmDYX+oTGSxqIW3YWQzIbkkxeCnfQ1iLLaTiWRQVmrkoJ+hzsg1WpemEckPoLS
+            4AHk0v/NCfOYKpLMLhahNx+tnOHV+eAc4N7h4tXgkuLPNM1G4FzlSdUYchRhHUQC
+            XIawkmM6U9d7kkx8t2f3Z1HvCjT2DajgpOTU4JriVGBKuughoUW61zCL4lxdywHh
+            ESQA
+            =Bj4y
+            -----END PGP MESSAGE-----
+        fp: 0508677DD04952D06A943D5B4DC4116D360E3276
+    encrypted_regex: ^(secureJsonData)$
+    version: 3.6.1

@@ -1,0 +1,18 @@
+apiVersion: integreatly.org/v1alpha1
+kind: GrafanaDataSource
+metadata:
+  name: thoth-station-grafanadatasource
+  labels:
+    app: grafana-datasources
+    component: thoth-station
+spec:
+  name: thoth-station-grafana-ds.yaml
+  datasources:
+    - name: thoth-station
+      type: prometheus
+      url: http://prometheus-portal-thoth-infra-prod.apps.smaug.na.operate-first.cloud/
+      version: 1
+      editable: false
+      jsonData:
+        tlsSkipVerify: true
+        timeInterval: "5s"
