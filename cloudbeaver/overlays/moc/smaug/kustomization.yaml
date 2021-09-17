@@ -1,0 +1,16 @@
+apiVersion: kustomize.config.k8s.io/v1beta1
+kind: Kustomization
+namespace: opf-trino
+resources:
+  - ../../../base
+patchesStrategicMerge:
+  - add_configs.yaml
+generatorOptions:
+  disableNameSuffixHash: true
+configMapGenerator:
+  - name: cloudbeaver-config
+    files:
+      - configs/cloudbeaver.conf
+      - configs/initial-data-sources.conf
+      - configs/initial-data.conf
+      - configs/product.conf
