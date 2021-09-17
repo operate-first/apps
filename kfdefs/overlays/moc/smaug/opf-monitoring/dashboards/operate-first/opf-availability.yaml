@@ -1,0 +1,9 @@
+apiVersion: integreatly.org/v1alpha1
+kind: GrafanaDashboard
+metadata:
+  labels:
+    app: grafana
+  name: opf-availability
+spec:
+  customFolderName: Operate-First
+  url: https://raw.githubusercontent.com/operate-first/SRE/master/dashboards/opf-availability.json
