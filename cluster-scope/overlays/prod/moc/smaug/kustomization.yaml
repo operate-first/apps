@@ -18,6 +18,8 @@ resources:
   - ../../../../base/core/namespaces/opf-ci-prow
   - ../../../../base/core/namespaces/opf-ci-test-pods
   - ../../../../base/core/namespaces/opf-google-spark-operator
+  - ../../../../base/core/namespaces/opf-jupyterhub
+  - ../../../../base/core/namespaces/opf-jupyterhub-stage
   - ../../../../base/core/namespaces/opf-kafka
   - ../../../../base/core/namespaces/opf-slack-first
   - ../../../../base/core/namespaces/tekton-pipelines
