@@ -1,0 +1,67 @@
+---
+apiVersion: v1
+kind: Secret
+metadata:
+  name: additional-scrape-configs
+stringData:
+  prometheus-additional.yaml: |
+    - job_name: "argocd"
+      static_configs:
+      - targets: ["argocd-server-metrics-argocd.apps.moc-infra.massopen.cloud"]
+        labels:
+          service: argocd-server-metrics
+      - targets: ["argocd-metrics-argocd.apps.moc-infra.massopen.cloud"]
+        labels:
+          service: argocd-metrics
+      - targets: ["argocd-dex-server-metrics-argocd.apps.moc-infra.massopen.cloud"]
+        labels:
+          service: argocd-dex-server
+      - targets: ["argocd-repo-server-metrics-argocd.apps.moc-infra.massopen.cloud"]
+        labels:
+          service: argocd-repo-server
+
+    # Metrics for thoth-station services
+    - job_name: 'Thoth Pushgateway'
+      honor_labels: true
+      scheme: http
+      static_configs:
+        - targets:
+            - pushgateway-thoth-infra-prod.apps.smaug.na.operate-first.cloud
+          labels:
+            service: thoth-pushgateway
+
+    - job_name: 'Thoth Metrics'
+      metrics_path: '/metrics'
+      scheme: http
+      static_configs:
+        - targets:
+            - metrics-exporter-thoth-infra-prod.apps.smaug.na.operate-first.cloudud
+          labels:
+            service: metrics-exporter
+        - targets:
+            - user-api-thoth-frontend-prod.apps.apps.smaug.na.operate-first.cloud
+          labels:
+            service: user-api-metrics
+        - targets:
+            - amun-api-thoth-amun-api-prod.apps.smaug.na.operate-first.cloud
+          labels:
+            service: amun-api-metrics
+        - targets:
+            - management-api-thoth-frontend-prod.apps.smaug.na.operate-first.cloud
+          labels:
+            service: management-api-metrics
+        - targets:
+            - workflow-controller-metrics-thoth-middletier-prod.apps.smaug.na.operate-first.cloud
+            - workflow-controller-metrics-thoth-amun-inspection-prod.apps.smaug.na.operate-first.cloud
+            - workflow-controller-metrics-thoth-backend-prod.apps.smaug.na.operate-first.cloud
+          labels:
+            service: argo-workflow-metrics
+        - targets:
+            - investigator-faust-web-thoth-infra-prod.apps.smaug.na.operate-first.cloud
+            - investigator-message-metrics-thoth-infra-prod.apps.smaug.na.operate-first.cloud
+          labels:
+            service: investigator-consumer-metrics
+        - targets:
+            - postgres-metrics-exporter-thoth-graph-prod.apps.smaug.na.operate-first.cloud
+          labels:
+            service: postgresql-exporter
