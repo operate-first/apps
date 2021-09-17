@@ -9,6 +9,7 @@ resources:
   - ../../../../base/config.openshift.io/oauths/cluster
   - ../../../../base/core/namespaces/acme-operator
   - ../../../../base/core/namespaces/dex
+  - ../../../../base/core/namespaces/metallb-system
   - ../../../../base/core/namespaces/openshift-nmstate
   - ../../../../base/core/namespaces/openshift-pipelines
   - ../../../../base/core/namespaces/opf-ci-pipelines
