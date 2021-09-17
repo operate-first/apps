@@ -1,0 +1,11 @@
+apiVersion: kafka.strimzi.io/v1beta2
+kind: KafkaTopic
+metadata:
+  name: smaug-prod.thoth.advise-reporter.advise-justification
+  labels:
+    strimzi.io/cluster: odh-message-bus
+spec:
+  partitions: 1
+  replicas: 1
+  config:
+    retention.ms: 86400000

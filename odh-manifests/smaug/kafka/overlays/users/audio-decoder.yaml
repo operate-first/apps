@@ -1,0 +1,25 @@
+apiVersion: kafka.strimzi.io/v1beta2
+kind: KafkaUser
+metadata:
+  name: audio-decoder
+spec:
+  authentication:
+    type: tls
+  authorization:
+    acls:
+      - host: "*"
+        operation: All
+        resource:
+          # this user has access to all topics with "audio-decoder." prefix
+          name: audio-decoder.
+          patternType: prefix
+          type: topic
+        type: allow
+      - host: "*"
+        operation: All
+        resource:
+          name: audio-decoder-consumer
+          patternType: literal
+          type: group
+        type: allow
+    type: simple

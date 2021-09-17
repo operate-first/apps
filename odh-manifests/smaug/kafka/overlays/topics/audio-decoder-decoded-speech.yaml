@@ -1,0 +1,12 @@
+# audio-decoder-decoded-speech.yaml
+apiVersion: kafka.strimzi.io/v1beta2
+kind: KafkaTopic
+metadata:
+  name: audio-decoder.decoded-speech
+  labels:
+    strimzi.io/cluster: odh-message-bus
+spec:
+  partitions: 2
+  replicas: 3
+  config:
+    retention.ms: 3600000
