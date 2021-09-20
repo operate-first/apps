@@ -10,7 +10,7 @@ patchesJson6902:
   - patch: |
       - op: replace
         path: /spec/applications/2/kustomizeConfig/repoRef/path
-        value: odh-manifests/devconfus2021/jupyterhub
+        value: odh-manifests/ai4ci/jupyterhub
     target:
       group: kfdef.apps.kubeflow.org
       kind: KfDef
