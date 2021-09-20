@@ -9,6 +9,7 @@ resources:
     - ../../../../base/core/namespaces/openshift-operators
     - ../../../../base/core/namespaces/openshift-storage
     - ../../../../base/core/namespaces/opf-monitoring
+    - ../../../../base/core/namespaces/opf-kafka
     - ../../../../base/core/namespaces/thoth-website-prod
     - ../../../../base/core/namespaces/thoth-test-core
     - ../../../../base/operators.coreos.com/operatorgroups/openshift-local-storage-zj22x
@@ -19,6 +20,7 @@ resources:
     - ../../../../base/operators.coreos.com/subscriptions/openshift-pipelines-operator-rh
     - ../../../../base/operators.coreos.com/subscriptions/prometheus-operator
     - ../../../../base/rbac.authorization.k8s.io/clusterrolebindings/acme-operator
+    - ../../../../base/operators.coreos.com/subscriptions/strimzi
     - ../../../../base/rbac.authorization.k8s.io/clusterrolebindings/opf-cluster-metrics-federation
     - ../../../../base/rbac.authorization.k8s.io/clusterrolebindings/oauth-token-access-review-opf-monitoring
     - ../../../../base/rbac.authorization.k8s.io/clusterroles/acme-operator
