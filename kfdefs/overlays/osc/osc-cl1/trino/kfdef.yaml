@@ -3,7 +3,7 @@ kind: KfDef
 metadata:
   annotations:
     kfctl.kubeflow.io/force-delete: "false"
-    kfdef-version: '1'
+    kfdef-version: '2'
   name: opendatahub
   namespace: odh-trino
 spec:
