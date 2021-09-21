@@ -2,6 +2,7 @@ apiVersion: cert-manager.io/v1
 kind: Issuer
 metadata:
   name: ingress-letsencrypt-production
+  namespace: openshift-ingress
 spec:
   acme:
     email: ops-team@operate-first.cloud
@@ -12,11 +13,11 @@ spec:
       - selector:
           dnsZones:
             - "na.operate-first.cloud"
-      - dns01:
+        dns01:
           cnameStrategy: Follow
           cloudDNS:
             project: aicoe-prow
-            hostedZoneName: 'na-operate-first-cloud'
+            hostedZoneName: "na-operate-first"
             serviceAccountSecretRef:
               key: key.json
               name: clouddns-dns01-na-svc-acct
