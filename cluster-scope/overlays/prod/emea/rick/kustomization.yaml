@@ -17,6 +17,7 @@ resources:
     - ../../../../base/operators.coreos.com/operatorgroups/openshift-local-storage-zj22x
     - ../../../../base/operators.coreos.com/operatorgroups/openshift-storage-24n7x
     - ../../../../base/operators.coreos.com/operatorgroups/opf-monitoring
+    - ../../../../base/operators.coreos.com/operatorgroups/opf-kafka
     - ../../../../base/operators.coreos.com/subscriptions/openshift-local-storage-operator
     - ../../../../base/operators.coreos.com/subscriptions/ocs-operator
     - ../../../../base/operators.coreos.com/subscriptions/openshift-pipelines-operator-rh
