@@ -4,4 +4,5 @@ kind: Kustomization
 namespace: odh-trino
 resources:
   - demo1
+  - default
   - osc-physical-landing
