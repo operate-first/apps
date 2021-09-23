@@ -3,8 +3,7 @@ kind: Group
 metadata:
     name: cluster-admins
 users:
-    - pacospace
-    - vpavlin
     - tumido
     - humairak
     - 4n4nd
+    - harshad16

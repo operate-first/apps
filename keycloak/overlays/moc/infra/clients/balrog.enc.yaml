@@ -1,0 +1,52 @@
+apiVersion: keycloak.org/v1alpha1
+kind: KeycloakClient
+metadata:
+    name: balrog
+    labels:
+        client: balrog
+spec:
+    client:
+        clientId: ENC[AES256_GCM,data:9HG7MmCe,iv:G2Ld8+FzrSAnkEJcSb9Iouhg3vX0YtyyuQWkvhdtYgg=,tag:RioCeqCSAU4H8MNIcQO+uA==,type:str]
+        defaultClientScopes:
+        - profile
+        description: Balrog OpenShift cluster
+        name: Balrog cluster
+        protocol: openid-connect
+        secret: ENC[AES256_GCM,data:j7jlorPopoj+u+rjluLcnjuMdLozpKQ/wbd981vR0Nl20h39,iv:MRAJC/6bA4UDB7oDd67Nsffhp5agxuunjwXzoGEt3X8=,tag:kbB9MO/cOwexGixDRfrL1A==,type:str]
+        standardFlowEnabled: true
+        redirectUris:
+        - https://oauth-openshift.apps.balrog.aws.operate-first.cloud/oauth2callback/operate-first
+    realmSelector:
+        matchLabels:
+            realm: operate-first
+sops:
+    kms: []
+    gcp_kms: []
+    azure_kv: []
+    hc_vault: []
+    lastmodified: '2021-09-23T17:07:33Z'
+    mac: ENC[AES256_GCM,data:KqiRFG4oBsi55UfR55f/EuDsjjSVbtUabeaLVHXlx6foL1WoFde+SaKfhkZn6keFSE6BQTBZqJbCs1WzZl/uTvtRKEKrTPaRLozdOzbgcir0qT3YvyhLZPIRS/Hz5bn/vtvg/SLiRBDrkR4SYycCYWhLp6ptJ67QSVIiBUVfwXc=,iv:ixGEqA8BJo2GuMEl6/70HmzZRa5HXd5ZdZrUtEoKeGk=,tag:P5zeOr0Z02sBXgoGG+vCeA==,type:str]
+    pgp:
+    -   created_at: '2021-09-23T17:00:57Z'
+        enc: |-
+            -----BEGIN PGP MESSAGE-----
+
+            wcFMA9aKBcudqifiARAADDBLwIUiLMHGFRaSdEWnuF4c4W84lyJRH03Rf5qdcktv
+            GQ+xO6s89a96XZa4Bd9vDrVacZaTvfR4RdU5lYoQDmSG+uxkIyCbSzkmTu9hQ1X/
+            tK7PWMi0TCdDoOgY3YmbRlKDDPqsLGar7P7NC7HPaJoaqg5eoSm7SlgvRwnhwMFh
+            lQKKeSTaoatbjfeEQ/g1fsmwNfYvkKgR/G0Uh1HtSiU4gk/on186LTxilRDSOhuE
+            DVDE+AmwRw80GmpBvLWX80vacaufq0fuOwv/Hj6SzH9vpnONeXz70Qj8FQrqYvRT
+            SWqwzKs6vxOpFQY0Ce2sq/Djb9mD5Frqn3OpbDOuR1YjcUFU5sjdtZovdWM+QSgT
+            WqwKaTNW6XrUUlcujgE7PRxUegqnLowzwJw17ZE82zHyiQ9My2j5l3RMpPUTXJcQ
+            mgK8/KmVacYeIx0GKWwm/kh2iDd7oeNiLhLBqGIzHzqqWJGgJryYcsFiOwBjth8G
+            uurZnJ7t24LxaeT7gPAz3L/acMlj0jnTFyRmt+s0+RLxhoytgsE8fNQYzmaqbbBp
+            nY6I31I9Ei698KF8UKllZMvYwRq9oHlzpxw/jHsEEa+nvpXLo+8j/P/kMfgUgzK1
+            Qb/s9h9oH9BqxuhNJzpCvdGlHpw0DZx0kyfkMCw288KKs6A6IEhHYeJnbNIiNyjS
+            4AHkdygjtysToOv8Spsx/3j8FuFkP+A94IjhNGTgKuIxsOoI4CnlWlXvLRjh+js4
+            rFboeex91COEDP1MDioDUljU96QUurDgbORb8bLvK/BIoBzvDRfhi9kx4jASSeXh
+            JUAA
+            =duMS
+            -----END PGP MESSAGE-----
+        fp: 0508677DD04952D06A943D5B4DC4116D360E3276
+    encrypted_regex: ^(clientId|clientSecret|secret)$
+    version: 3.6.1
