@@ -4,13 +4,10 @@ kind: Kustomization
 
 resources:
   - ../../../base
+  - gitopsclusters
+  - klusterletaddonconfigs
+  - managedclusters
+  - managedclustersetbindings
+  - managedclustersets
+  - placements
   - provider-connections
-  - klusterletaddonconfigs/alex.yaml
-  - klusterletaddonconfigs/balrog.yaml
-  - klusterletaddonconfigs/curator.yaml
-  - klusterletaddonconfigs/local-cluster.yaml
-  - klusterletaddonconfigs/ocp-prod.yaml
-  - klusterletaddonconfigs/osc-cl1.yaml
-  - klusterletaddonconfigs/rick.yaml
-  - klusterletaddonconfigs/smaug.yaml
-  - klusterletaddonconfigs/zero.yaml
