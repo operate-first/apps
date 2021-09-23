@@ -15,7 +15,7 @@ spec:
             - name
           preferredUsername:
             - preferred_username
-        clientID: devconfus2021
+        clientID: balrog
         clientSecret:
           name: operate-first-sso-secret
         extraScopes: []

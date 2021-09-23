@@ -1,8 +1,8 @@
 apiVersion: agent.open-cluster-management.io/v1
 kind: KlusterletAddonConfig
 metadata:
-  name: devconfus2021
-  namespace: devconfus2021
+  name: balrog
+  namespace: balrog
 spec:
   applicationManager:
     argocdCluster: true
