@@ -1,8 +1,0 @@
-apiVersion: kustomize.config.k8s.io/v1beta1
-kind: Kustomization
-resources:
-- iface-eno1-vlan210.yaml
-- iface-enp4s0f0np0-vlan210.yaml
-- iface-enp5s0f0np0-vlan210.yaml
-- iface-enp65s0f0np0-vlan210.yaml
-- iface-enp65s0f1np1-vlan210.yaml

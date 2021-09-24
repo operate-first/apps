@@ -55,7 +55,7 @@ resources:
 
   - configmaps/cluster-monitoring-config.yaml
   - ingresscontrollers/default.yaml
-  - nodenetworkconfigurationpolicies
+  - nodenetworkconfigurationpolicies/vlan-interfaces.yaml
 
 generators:
   - secret-generator.yaml
