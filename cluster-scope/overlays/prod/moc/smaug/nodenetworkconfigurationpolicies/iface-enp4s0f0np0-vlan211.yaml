@@ -1,0 +1,19 @@
+apiVersion: nmstate.io/v1beta1
+kind: NodeNetworkConfigurationPolicy
+metadata:
+  name: iface-enp4s0f0np0-vlan211
+spec:
+  desiredState:
+    interfaces:
+    - name: vlan211
+      state: up
+      type: vlan
+      vlan:
+        base-iface: enp4s0f0np0
+        id: 211
+      ipv4:
+        dhcp: true
+        enabled: true
+  nodeSelector:
+    node-role.kubernetes.io/worker: ""
+    massopen.cloud/primary-interface: "enp4s0f0np0"
