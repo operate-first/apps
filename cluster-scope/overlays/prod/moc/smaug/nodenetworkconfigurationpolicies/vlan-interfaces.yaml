@@ -178,6 +178,7 @@ spec:
     massopen.cloud/primary-interface: enp65s0f1np1
     node-role.kubernetes.io/worker: ""
 ---
+apiVersion: nmstate.io/v1beta1
 kind: NodeNetworkConfigurationPolicy
 metadata:
   name: iface-eno1-vlan210
