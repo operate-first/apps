@@ -12,6 +12,7 @@ resources:
   - ../../../../base/core/namespaces/democratic-csi
   - ../../../../base/core/namespaces/dex
   - ../../../../base/core/namespaces/ds-ml-workflows-ws
+  - ../../../../base/core/namespaces/koku-metrics-operator
   - ../../../../base/core/namespaces/openshift-nmstate
   - ../../../../base/core/namespaces/openshift-pipelines
   - ../../../../base/core/namespaces/opf-ci-pipelines
@@ -33,8 +34,10 @@ resources:
   - ../../../../base/core/namespaces/thoth-infra-prod
   - ../../../../base/core/namespaces/thoth-middletier-prod
   - ../../../../base/nmstate.io/nmstates/nmstate
+  - ../../../../base/operators.coreos.com/operatorgroups/koku-metrics-operator
   - ../../../../base/operators.coreos.com/operatorgroups/openshift-nmstate
   - ../../../../base/operators.coreos.com/subscriptions/cert-manager
+  - ../../../../base/operators.coreos.com/subscriptions/koku-metrics-operator
   - ../../../../base/operators.coreos.com/subscriptions/kubernetes-nmstate-operator
   - ../../../../base/operators.coreos.com/subscriptions/openshift-pipelines-operator-rh
   - ../../../../base/rbac.authorization.k8s.io/clusterrolebindings/acme-operator
