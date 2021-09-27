@@ -21,6 +21,7 @@ resources:
   - ../../../../base/core/namespaces/opf-jupyterhub
   - ../../../../base/core/namespaces/opf-jupyterhub-stage
   - ../../../../base/core/namespaces/opf-kafka
+  - ../../../../base/core/namespaces/opf-monitoring
   - ../../../../base/core/namespaces/opf-slack-first
   - ../../../../base/core/namespaces/tekton-pipelines
   - ../../../../base/core/namespaces/thoth-amun-api-prod
@@ -34,9 +35,11 @@ resources:
   - ../../../../base/core/namespaces/thoth-middletier-prod
   - ../../../../base/nmstate.io/nmstates/nmstate
   - ../../../../base/operators.coreos.com/operatorgroups/openshift-nmstate
+  - ../../../../base/operators.coreos.com/operatorgroups/opf-monitoring
   - ../../../../base/operators.coreos.com/subscriptions/cert-manager
   - ../../../../base/operators.coreos.com/subscriptions/kubernetes-nmstate-operator
   - ../../../../base/operators.coreos.com/subscriptions/openshift-pipelines-operator-rh
+  - ../../../../base/operators.coreos.com/subscriptions/opf-grafana
   - ../../../../base/rbac.authorization.k8s.io/clusterrolebindings/acme-operator
   - ../../../../base/rbac.authorization.k8s.io/clusterrolebindings/cluster-interceptor-opf-ci-pipelines
   - ../../../../base/rbac.authorization.k8s.io/clusterrolebindings/moc-nfs-democratic-csi-controller-rb
