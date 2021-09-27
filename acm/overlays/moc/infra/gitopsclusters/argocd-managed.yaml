@@ -1,0 +1,13 @@
+apiVersion: apps.open-cluster-management.io/v1alpha1
+kind: GitOpsCluster
+metadata:
+  name: argocd-managed
+  namespace: argocd
+spec:
+  argoServer:
+    argoNamespace: argocd
+    cluster: local-cluster
+  placementRef:
+    apiVersion: cluster.open-cluster-management.io/v1alpha1
+    kind: Placement
+    name: argocd-managed-clusters
