@@ -1,0 +1,26 @@
+---
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: prod-thoth-graph-sync-backend
+spec:
+  project: thoth
+  source:
+    repoURL: "https://github.com/thoth-station/thoth-application.git"
+    path: graph-sync/overlays/moc-prod
+    targetRevision: master
+  destination:
+    name: smaug
+    namespace: thoth-backend-prod
+  syncPolicy:
+    automated:
+      selfHeal: true
+      prune: true
+    syncOptions:
+      - Validate=false
+  ignoreDifferences:
+    - group: template.openshift.io
+      kind: Template
+      name: graph-sync-job
+      jsonPointers:
+        - /metadata/labels

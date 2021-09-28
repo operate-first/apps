@@ -1,0 +1,17 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: opf-app-of-apps-smaug
+spec:
+  destination:
+    namespace: argocd
+    name: moc-infra
+  project: operate-first
+  source:
+    path: argocd/overlays/moc-infra/applications/envs/moc/smaug
+    repoURL: https://github.com/operate-first/apps.git
+    targetRevision: HEAD
+  syncPolicy:
+    syncOptions:
+    - Validate=false
+    - ApplyOutOfSyncOnly=true

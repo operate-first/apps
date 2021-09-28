@@ -1,0 +1,18 @@
+---
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: prod-aicoe-ci
+spec:
+  destination:
+    name: smaug
+    namespace: opf-ci-pipelines
+  project: operate-first
+  source:
+    path: manifests/overlays/moc
+    repoURL: https://github.com/AICoE/aicoe-ci.git
+    targetRevision: master
+  syncPolicy:
+    automated: {}
+    syncOptions:
+    - Validate=false

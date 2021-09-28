@@ -1,0 +1,29 @@
+---
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: ci-prow-prod-test-pods
+spec:
+  destination:
+    name: smaug
+    namespace: opf-ci-test-pods
+  ignoreDifferences:
+    - group: apps
+      jsonPointers:
+        - /spec/template/spec/containers/0/image
+      kind: Deployment
+    - group: batch
+      jsonPointers:
+        - /spec/jobTemplate/spec/template/spec/containers/0/image
+      kind: CronJob
+  project: operate-first
+  source:
+    path: prow/overlays/cnv-prod-test-pods
+    repoURL: https://github.com/thoth-station/thoth-application.git
+    targetRevision: master
+  syncPolicy:
+    automated:
+      prune: true
+      selfHeal: true
+    syncOptions:
+      - Validate=false

@@ -1,0 +1,16 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: black-flake
+spec:
+  destination:
+    name: zero
+    namespace: ds-black-flake
+  project: data-science
+  source:
+    path: manifests
+    repoURL: https://github.com/aicoe-aiops/ocp-ci-analysis.git
+    targetRevision: master
+  syncPolicy:
+    syncOptions:
+    - Validate=false

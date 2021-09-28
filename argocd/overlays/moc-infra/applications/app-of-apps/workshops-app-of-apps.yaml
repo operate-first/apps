@@ -1,0 +1,18 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: workshops
+spec:
+  destination:
+    name: moc-infra
+    namespace: argocd
+  project: operate-first
+  source:
+    path: apps
+    repoURL: https://github.com/operate-first/workshop-apps.git
+    targetRevision: HEAD
+    directory:
+      recurse: true
+  syncPolicy:
+    syncOptions:
+      - Validate=false

@@ -1,0 +1,20 @@
+---
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: prod-thoth-elyra-aidevsecops-tutorial
+spec:
+  project: thoth
+  source:
+    repoURL: "https://github.com/thoth-station/elyra-aidevsecops-tutorial.git"
+    path: manifests/overlays/test
+    targetRevision: master
+  destination:
+    name: smaug
+    namespace: thoth-deployment-examples
+  syncPolicy:
+    automated:
+      selfHeal: true
+      prune: true
+    syncOptions:
+      - Validate=false

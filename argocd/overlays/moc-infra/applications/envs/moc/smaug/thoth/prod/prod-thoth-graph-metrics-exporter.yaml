@@ -1,0 +1,20 @@
+---
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: prod-thoth-graph-metrics-exporter
+spec:
+  project: thoth
+  source:
+    repoURL: "https://github.com/thoth-station/thoth-application.git"
+    path: graph-metrics-exporter/overlays/moc-prod
+    targetRevision: master
+  destination:
+    name: smaug
+    namespace: thoth-graph-prod
+  syncPolicy:
+    automated:
+      selfHeal: true
+      prune: true
+    syncOptions:
+      - Validate=false

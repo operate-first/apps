@@ -1,0 +1,16 @@
+---
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: test-thoth-investigator
+spec:
+  project: thoth
+  source:
+    repoURL: 'https://github.com/thoth-station/thoth-application.git'
+    path: investigator/overlays/rick-test
+    targetRevision: HEAD
+  destination:
+    name: rick
+    namespace: thoth-test-core
+  syncPolicy:
+    automated: {}

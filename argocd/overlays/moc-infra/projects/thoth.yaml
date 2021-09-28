@@ -1,0 +1,26 @@
+apiVersion: argoproj.io/v1alpha1
+kind: AppProject
+metadata:
+  name: thoth
+  labels:
+    project-template: global
+spec:
+  destinations:
+    - namespace: 'thoth-*'
+      server: '*'
+  sourceRepos:
+    - '*'
+  roles:
+    - name: project-admin
+      description: Read/Write access to this project only
+      policies:
+        - p, proj:thoth:project-admin, applications, get, thoth/*, allow
+        - p, proj:thoth:project-admin, applications, create, thoth/*, allow
+        - p, proj:thoth:project-admin, applications, update, thoth/*, allow
+        - p, proj:thoth:project-admin, applications, delete, thoth/*, allow
+        - p, proj:thoth:project-admin, applications, sync, thoth/*, allow
+        - p, proj:thoth:project-admin, applications, override, thoth/*, allow
+        - p, proj:thoth:project-admin, applications, action/*, thoth/*, allow
+      groups:
+        - thoth
+        - operate-first

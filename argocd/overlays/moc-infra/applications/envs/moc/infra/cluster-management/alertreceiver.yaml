@@ -1,0 +1,19 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: alertreceiver
+spec:
+  destination:
+    name: moc-infra
+    namespace: opf-alertreceiver
+  project: cluster-management
+  source:
+    path: alertreceiver/overlays/moc/infra
+    repoURL: https://github.com/operate-first/apps.git
+    targetRevision: HEAD
+  syncPolicy:
+    automated:
+      prune: true
+      selfHeal: true
+    syncOptions:
+      - Validate=false

@@ -1,0 +1,14 @@
+---
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: cluster-logging
+spec:
+  project: operate-first
+  source:
+    repoURL: https://github.com/operate-first/apps.git
+    targetRevision: HEAD
+    path: cluster-logging/overlays/dev
+  destination:
+    name: in-cluster
+    namespace: openshift-logging

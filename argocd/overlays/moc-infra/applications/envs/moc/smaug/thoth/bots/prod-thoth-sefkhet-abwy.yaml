@@ -1,0 +1,36 @@
+---
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: prod-thoth-sefkhet-abwy
+spec:
+  project: thoth
+  source:
+    repoURL: "https://github.com/thoth-station/thoth-application.git"
+    path: sefkhet-abwy/overlays/moc
+    targetRevision: master
+  destination:
+    name: smaug
+    namespace: thoth-bots-prod
+  syncPolicy:
+    automated:
+      selfHeal: true
+      prune: true
+    syncOptions:
+      - Validate=false
+  ignoreDifferences:
+    - group: batch
+      kind: CronJob
+      name: new-label-normalizer-aicoe
+      jsonPointers:
+        - /spec/jobTemplate/spec/template/spec/containers/0/image
+    - group: batch
+      kind: CronJob
+      name: new-label-normalizer-thoth-station
+      jsonPointers:
+        - /spec/jobTemplate/spec/template/spec/containers/0/image
+    - group: apps
+      kind: Deployment
+      name: ghproxy
+      jsonPointers:
+        - /spec/template/spec/containers/0/image

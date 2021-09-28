@@ -1,0 +1,17 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: opf-app-of-apps-curator
+spec:
+  destination:
+    namespace: argocd
+    name: moc-infra
+  project: operate-first
+  source:
+    path: argocd/overlays/moc-infra/applications/envs/moc/curator
+    repoURL: https://github.com/operate-first/apps.git
+    targetRevision: HEAD
+  syncPolicy:
+    syncOptions:
+    - Validate=false
+    - ApplyOutOfSyncOnly=true
