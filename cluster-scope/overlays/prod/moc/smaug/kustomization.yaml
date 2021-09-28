@@ -34,6 +34,7 @@ resources:
   - ../../../../base/core/namespaces/opf-dashboard
   - ../../../../base/core/namespaces/opf-slack-first
   - ../../../../base/core/namespaces/opf-superset
+  - ../../../../base/core/namespaces/opf-triage-party
   - ../../../../base/core/namespaces/opf-trino
   - ../../../../base/core/namespaces/report-system
   - ../../../../base/core/namespaces/tekton-pipelines

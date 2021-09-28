@@ -1,0 +1,38 @@
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: triage-party
+spec:
+  selector:
+    matchLabels:
+      app: triage-party
+  template:
+    metadata:
+      labels:
+        app: triage-party
+    spec:
+      containers:
+        - name: triage-party
+          image: quay.io/thoth-station/triage-party:v1.4.0
+          env:
+            - name: GITHUB_TOKEN
+              valueFrom:
+                secretKeyRef:
+                  name: triage-party-github-token
+                  key: token
+            - name: PERSIST_PATH
+              value: "/app/pcache"
+            - name: PERSIST_BACKEND
+              value: "disk"
+          volumeMounts:
+            - name: config
+              mountPath: /app/config
+            - name: pcache
+              mountPath: /app/pcache
+      volumes:
+        - name: config
+          configMap:
+            name: triage-party-config
+        - name: pcache
+          emptyDir: {}
