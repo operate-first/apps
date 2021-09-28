@@ -8,3 +8,4 @@ kind: Kustomization
 namespace: opf-monitoring
 resources:
 - namespace.yaml
+- resourcequota.yaml
