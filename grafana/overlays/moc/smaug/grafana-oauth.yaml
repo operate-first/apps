@@ -1,0 +1,34 @@
+---
+apiVersion: integreatly.org/v1alpha1
+kind: Grafana
+metadata:
+  annotations:
+    argocd.argoproj.io/sync-wave: "1"
+  name: grafana
+spec:
+  deployment:
+    envFrom:
+      - secretRef:
+          name: oauth-client-secret
+      - configMapRef:
+          name: grafana-config-overrides
+  config:
+    server:
+      root_url: https://grafana-route-opf-monitoring.apps.smaug.na.operate-first.cloud
+    auth.generic_oauth:
+      name: Dex
+      enabled: true
+      scopes: openid email groups profile
+      email_attribute_name: name
+      email_attribute_path: name
+      client_id: grafana
+      client_secret: "${GRAFANA_CLIENT_SECRET}"
+      api_url: http://dex-dex.apps.smaug.na.operate-first.cloud/userinfo
+      auth_url: http://dex-dex.apps.smaug.na.operate-first.cloud/auth
+      token_url: http://dex-dex.apps.smaug.na.operate-first.cloud/token
+      role_attribute_path: >-
+        contains(groups[*], 'cluster-admins') && 'Admin' ||
+        contains(groups[*], 'operate-first') && 'Admin' ||
+        contains(groups[*], 'data-science') && 'Viewer' ||
+        'Deny'
+      role_attribute_strict: true

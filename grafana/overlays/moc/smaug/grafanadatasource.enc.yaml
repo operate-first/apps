@@ -1,0 +1,50 @@
+apiVersion: integreatly.org/v1alpha1
+kind: GrafanaDataSource
+metadata:
+    name: datasource
+    annotations:
+        kustomize.config.k8s.io/behavior: replace
+spec:
+    datasources:
+        - editable: false
+          jsonData:
+            httpHeaderName1: Authorization
+            timeInterval: 5s
+            tlsSkipVerify: true
+          name: openshift-monitoring
+          secureJsonData:
+            httpHeaderValue1: ENC[AES256_GCM,data:t2BhRl9RNBiHTA1CnKteJK30DrtQaQ8KZ6oIlyXOIfNaBLDUCNjHTATNWX8cYotL2WcwRDeg6LzSyq6hchWsE3gaKeWbtZxtEt/ZshCj7CCo7O2Sq5LVEuGrKBp4W5Ax1BQluxJkwFQ4+8gcemK15syQRIjuA6NoJXUBb211Chy/yFSUhpZlcgcUbNuD/4b4TFUa3C9tJwcCpOFIxxJzDUADs9vp5BDw13o1jqdcT0TIwoFVtCjH8FfdEQUH4Fm5U/4Hv0RzsVpQ4gtr2ToF4XlQf4yBEHo4Xa1nWKc/yz5sR/AqtucGpmTXTdfnNnwZVcqUAFE5aifFD2MrnyiiyWSMWRfJE138DEQ5aiWctgJXfzShwXnb/iTyShH3dpjyGIoX3Dfo6E43ZEbm7Bk1lOFa1jjzchtTXQ5N76DGt84RNoj1krOUiTTYSf0l15ey4PfSY8gvfdNe6ZiZQyfbenys8aRrvJrFzHU1x7ClaVZScel/TT4EzbSNAhKEn+zNUglvtzROGok095sPqvXYG+x6/quKy9jArmR1i8jr5tdXA4L951/EMkaIpiWjfpZVJ1obp3dLCaAGltexcMNscEawAbCwVa7LMduueF2N9ydWzpw656EsWvkNiNYcw5YVqyMf6josIOohgp1Wsep1NyaDUVJJPLtued6hDl3zdkBGOD5tFp7g/DAqsJTAfEZdb4EtQhAFMKkyVCLFHU24P4VCWmwQCTUrisObpdlml6PDDmqXeXKw4RUreJLZijji10z0ybazEadZzVT4Er2T2ieSQ/9tUFy47wEkFpEJ705iZZ8m9V4ENWEk2Rh3U2CkZXIe6U8yxYP9mdDrY2M5Ia34QqFenlqizx+gW2ZCtJfFGwpNNmbHBD5ouP5cp4YngfeuE44kMFwQ8Lzd4hp9X0Imu/PPJtA0Kj+7AdDVmfrlyMXHCSPWQzwnAU4K7lWtposVgryZjczWInYYRkcGHdHFOAVcGLL2OdcSh1JLtzY6dlwvOMG7jE9IQTENnyDLiauWJip32yT15kSZgv3wxynrFk6SCw3Slx8+3sb8Z2lLyrCApzfW4PEvitpMqlO24WV3xk9IS194jzHsd7/T8ic9e6AknZ97lZqzlzOGlRHMTWxPSdwkfhptU6MqKN+EH/Q3Su/iX/OeCURLFS2etF1rOvTWnxYhhTQPfYmwlekdKzQt85jQtuE01rnR4dUd4lshgnH1paP2P4W0mQLQN22eHhMEA1/j28ljR5MoNSpAN6t+GYvaJVzwLo51VHPDHo+xyETvm4OgDhvzKQ/48DAbzsMTXQDKjgtoH8dPkjK6gA7KVtWQ3rCo64EoOcLCz3RsfGEgtX83vHho5IGsgLOxiwSsHtoaTkn313m+wdJcxU4jUuzJ99LNO7kLURd2c6z37NfUckT+2dxn3vaH2iobhIkUD6LzO4en9L8fW0S55h9W4w1Vn2QB/uqAh00IIHyIGZXPT9wUnI5jXuux4IZyQLsFW2nSXQFqdOsKt66B0+L54dtEvibLdfPOOv9L4MBrjtt1iyqkAzmSeVsBtGK2KwcKdr84p0iV2rm3cp78tYquE/gezdYRlYqV2r6H+oFSlu7eGboHs9YDL4brF1MvenqivinfeZAqDRbn3QHb9LAtOFMJlQsqIGyyYZYroCWcZy7v9jdnFPEc1KL6Kf4hInAjy+LksTCwC0pFTkqqAqLxbdFPCbv6C21JM+ymRljRvCmEVM7NYODb2+yYiF+gpNUUmaGShB8AqFUKi0XaDfp5zxR0CDLzRXePT4IZSkT4eTbcaEOHO1tQaUqyAZlV1HvVSweV+eMwwr07ZchTsA18Wr98puoNC5I=,iv:xmApgAHjdx2t9jxZqq6oWlN9SNnn/Cq+N5D7k+qunfI=,tag:IVvp5hq7TXoZP1NOnOjenA==,type:str]
+          type: prometheus
+          url: https://thanos-querier.openshift-monitoring.svc.cluster.local:9091
+    name: prometheus-grafanadatasource.yaml
+sops:
+    kms: []
+    gcp_kms: []
+    azure_kv: []
+    hc_vault: []
+    age: []
+    lastmodified: "2021-09-28T15:14:24Z"
+    mac: ENC[AES256_GCM,data:Y7PHhZDQ2avXk1/+wVv8YWYQRsUNd2nZwSPy40+T+fYoE+XPadZLdtGxqLh5cF3h13djKYC2SJDG0DeOueKdMDtuRA6fg2M5bDlsWT6WFTBeQQIkJwGXqTQWWNL67T3Eec9UGUHtrPULdxVyMTNKjRktWkgqrO9nXgaVE4G+to8=,iv:FHtrW4DWnfoLkzwaYaeuGz8PLrUGjwNhgHA/uqzRarE=,tag:5K1K9effzNRL2oLM5zO8+Q==,type:str]
+    pgp:
+        - created_at: "2021-09-01T16:36:51Z"
+          enc: |-
+            -----BEGIN PGP MESSAGE-----
+
+            wcFMA9aKBcudqifiARAAY1AD0HzMPQj8CyY5ctcxgTIBugnaQYxoGKVbTm6EHtu9
+            TTEeAe1oCe3faP8y8S2E4VYMn0a4vTME8xFvRydThtRIGxG/GCEw1uAETMnBMxRX
+            ngKIVRxQhWjAxv0igJTzWU8DLnqhHsSp0l15+jzcMHlZ6iSdUfCpYjgZdB65rr5m
+            spBXSiFpjE7cfiP2Hrz7waBJDcggjERFxRwJAACDKEjJoY9u0t4uMcWw46ZkPTTV
+            P19/uB7h+yU8141zI08QHSy89/aHpf2gGcy+qkv41743f8mR2h7UNNLrbsfnp72I
+            lHvhk8Sg6c47zR4xxcUU9tzf0yj865fxtBFlN6LTjNjZehUkvZfC42+a37WUD4GD
+            83iWoLl0mZIeM88OubSo49Uv3CXKzw4JXxQ0tBLimyjumEIhohxz0rURIePhloXi
+            LYp6L8S816Nevsmiy0UTDa/1g96WnTmhd14Wpdqd2D5oOxbhvAPBuQhLAQ3aRAIP
+            ttJVITpEM8ZcBMD0PbPTOyqPrqNw9FGXfADw3HXwREfEp9F0xZewc0a9CPkNXiVK
+            ZlKpjyfhgOwsjAI40Opke3oRBsczq17ssuw40toPEpPA624afLTzdHLUYZDAmmtB
+            085CI55fdaElpR7WpAkKbkojITNWZ3y5X7AZ6PfBQ8yWRM9bKOcyriBAGXV00fzS
+            5gGUkL6VokoHgcTwDhaCKw3uczG+9QnPueaghJSTrxQYUn7oTLERtHtNFAuqeaZR
+            v/lLY3ojACIgBrhqal6sj5fkbD3CZuOG7vgyHV0EgetqR+KuGrAhAA==
+            =uWd6
+            -----END PGP MESSAGE-----
+          fp: 0508677DD04952D06A943D5B4DC4116D360E3276
+    encrypted_regex: ^(users|data|stringData|secureJsonData)$
+    version: 3.7.1
