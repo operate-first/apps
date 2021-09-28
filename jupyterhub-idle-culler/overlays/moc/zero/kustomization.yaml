@@ -8,4 +8,4 @@ commonLabels:
 generators:
   - secrets/secret-generator.yaml
 patchesStrategicMerge:
-  - deploymentconfig_patch.yaml
+  - deployment_patch.yaml
