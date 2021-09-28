@@ -4,3 +4,4 @@ kind: Kustomization
 namespace: opf-argo
 resources:
   - kfdef.yaml
+  - servicemonitor.yaml
