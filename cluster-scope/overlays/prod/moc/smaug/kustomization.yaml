@@ -23,6 +23,7 @@ resources:
   - ../../../../base/core/namespaces/opf-jupyterhub-stage
   - ../../../../base/core/namespaces/opf-kafka
   - ../../../../base/core/namespaces/opf-monitoring
+  - ../../../../base/core/namespaces/opf-seldon
   - ../../../../base/core/namespaces/opf-slack-first
   - ../../../../base/core/namespaces/tekton-pipelines
   - ../../../../base/core/namespaces/thoth-amun-api-prod
