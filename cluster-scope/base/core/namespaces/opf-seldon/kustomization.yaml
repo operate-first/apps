@@ -11,3 +11,4 @@ components:
 - ../../../../components/project-admin-rolebindings/data-science
 - ../../../../components/project-admin-rolebindings/operate-first
 - ../../../../components/project-admin-rolebindings/odh-admin
+- ../../../../components/resourcequotas/medium
