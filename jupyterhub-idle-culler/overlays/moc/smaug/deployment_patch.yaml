@@ -1,0 +1,27 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: jupyterhub-idle-culler
+spec:
+  selector:
+    matchLabels:
+      app: jupyterhub-idle-culler
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: jupyterhub-idle-culler
+    spec:
+      containers:
+        - name: jupyterhub-idle-culler
+          image: 'quay.io/odh-jupyterhub/jupyterhub-img:v0.3.4'
+          env:
+            - name: JUPYTERHUB_API_TOKEN
+              valueFrom:
+                secretKeyRef:
+                  name: jupyterhub-api-token
+                  key: token
+          command:
+            - jupyterhub-idle-culler
+            - --timeout=259200  # 3 days
+            - --url=https://jupyterhub-opf-jupyterhub.apps.smaug.na.operate-first.cloud/hub/api
