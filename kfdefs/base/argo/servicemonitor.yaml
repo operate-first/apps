@@ -1,0 +1,14 @@
+---
+apiVersion: monitoring.coreos.com/v1
+kind: ServiceMonitor
+metadata:
+  labels:
+    team: opendatahub
+  name: opf-argo-servicemonitor
+spec:
+  endpoints:
+    - port: metrics         # Argo
+  selector: {}
+  namespaceSelector:
+    matchNames:
+      - opf-argo
