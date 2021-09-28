@@ -31,3 +31,27 @@ data:
         limits:
           memory: 32Gi
           cpu: 4
+    - name: '1 cpu, 2GB mem'
+      resources:
+        requests:
+          memory: '1Gi'
+          cpu: '1'
+        limits:
+          memory: '2Gi'
+          cpu: '1'
+    - name: '1 cpu, 4GB mem'
+      resources:
+        requests:
+          memory: '2Gi'
+          cpu: '1'
+        limits:
+          memory: '4Gi'
+          cpu: '1'
+    - name: '1 cpu, 8GB mem'
+      resources:
+        requests:
+          memory: '4Gi'
+          cpu: '1'
+        limits:
+          memory: '8Gi'
+          cpu: '1'

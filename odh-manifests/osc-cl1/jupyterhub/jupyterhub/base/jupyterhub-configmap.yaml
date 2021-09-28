@@ -10,4 +10,4 @@ data:
     c.JupyterHub.authenticate_prometheus = False;
   jupyterhub_admins: "admin"
   gpu_mode: ""
-  singleuser_pvc_size: 2Gi
+  singleuser_pvc_size: 16Gi
