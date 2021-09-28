@@ -8,3 +8,4 @@ kind: Kustomization
 namespace: opf-kafka
 resources:
 - namespace.yaml
+- resourcequota.yaml

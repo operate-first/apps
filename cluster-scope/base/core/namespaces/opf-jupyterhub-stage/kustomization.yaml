@@ -7,3 +7,4 @@ kind: Kustomization
 namespace: opf-jupyterhub-stage
 resources:
 - namespace.yaml
+- resourcequota.yaml

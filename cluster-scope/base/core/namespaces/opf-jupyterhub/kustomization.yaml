@@ -10,3 +10,4 @@ kind: Kustomization
 namespace: opf-jupyterhub
 resources:
 - namespace.yaml
+- resourcequota.yaml
