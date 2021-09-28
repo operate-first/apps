@@ -1,10 +1,11 @@
-apiVersion: apps.openshift.io/v1
-kind: DeploymentConfig
+apiVersion: apps/v1
+kind: Deployment
 metadata:
   name: jupyterhub-idle-culler
 spec:
   selector:
-    app: jupyterhub-idle-culler
+    matchLabels:
+      app: jupyterhub-idle-culler
   replicas: 1
   template:
     metadata:
@@ -13,15 +14,13 @@ spec:
     spec:
       containers:
         - name: jupyterhub-idle-culler
-          image: jupyterhub-idle-culler:latest
+          image: 'quay.io/odh-jupyterhub/jupyterhub-img:v0.3.4'
           env:
             - name: JUPYTERHUB_API_TOKEN
               valueFrom:
                 secretKeyRef:
                   name: jupyterhub-api-token
                   key: token
-          ports:
-            - containerPort: 8080
           command:
             - jupyterhub-idle-culler
             - --timeout=259200  # 3 days

@@ -1,10 +1,11 @@
-apiVersion: apps.openshift.io/v1
-kind: DeploymentConfig
+apiVersion: apps/v1
+kind: Deployment
 metadata:
   name: jupyterhub-idle-culler
 spec:
   selector:
-    app: jupyterhub-idle-culler
+    matchLabels:
+      app: jupyterhub-idle-culler
   replicas: 1
   template:
     metadata:
@@ -13,7 +14,7 @@ spec:
     spec:
       containers:
         - name: jupyterhub-idle-culler
-          image: jupyterhub-idle-culler:latest
+          image: 'quay.io/odh-jupyterhub/jupyterhub-img:v0.3.4'
           env:
             - name: JUPYTERHUB_API_TOKEN
               valueFrom:
@@ -22,17 +23,15 @@ spec:
                   key: token
           ports:
             - containerPort: 8080
+          resources:
+            limits:
+              cpu: 100m
+              memory: 100Mi
+            requests:
+              cpu: 100m
+              memory: 100Mi
+          imagePullPolicy: IfNotPresent
           command:
             - jupyterhub-idle-culler
             - --timeout=120
             - --url=<some-url>
-  triggers:
-    - type: ConfigChange
-    - type: ImageChange
-      imageChangeParams:
-        automatic: true
-        containerNames:
-          - jupyterhub-idle-culler
-        from:
-          kind: ImageStreamTag
-          name: jupyterhub-idle-culler:latest
