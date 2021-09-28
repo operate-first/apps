@@ -1,0 +1,11 @@
+apiVersion: v1
+kind: ResourceQuota
+metadata:
+  name: opf-kafka-custom
+spec:
+  hard:
+    limits.cpu: '8'
+    limits.memory: 50Gi
+    requests.cpu: '8'
+    requests.memory: 50Gi
+    requests.storage: 250Gi
