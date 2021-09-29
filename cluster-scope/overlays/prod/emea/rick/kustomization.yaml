@@ -14,6 +14,8 @@ resources:
     - ../../../../base/core/namespaces/opf-kafka
     - ../../../../base/core/namespaces/thoth-website-prod
     - ../../../../base/core/namespaces/thoth-test-core
+    - ../../../../base/core/persistentvolumeclaims/image-registry-storage
+    - ../../../../base/imageregistry.operator.openshift.io/configs/cluster
     - ../../../../base/operators.coreos.com/operatorgroups/openshift-local-storage-zj22x
     - ../../../../base/operators.coreos.com/operatorgroups/openshift-storage-24n7x
     - ../../../../base/operators.coreos.com/operatorgroups/opf-monitoring
