@@ -3,6 +3,5 @@ apiVersion: kustomize.config.k8s.io/v1beta1
 kind: Kustomization
 namespace: odh-trino
 resources:
-  - demo1
-  - default
-  - osc-physical-landing
+  - OSC_DataCommons_Dev
+  - OSC_DataCommons_Prod
