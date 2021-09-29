@@ -13,7 +13,7 @@ spec:
     targetRevision: HEAD
   syncPolicy:
     automated:
-      prune: true
+      prune: false
       selfHeal: true
     syncOptions:
-    - Validate=false
+      - Validate=false
