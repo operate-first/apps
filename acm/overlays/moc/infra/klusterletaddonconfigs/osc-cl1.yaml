@@ -1,9 +1,0 @@
-apiVersion: agent.open-cluster-management.io/v1
-kind: KlusterletAddonConfig
-metadata:
-  name: osc-cl1
-  namespace: osc-cl1
-spec:
-  applicationManager:
-    argocdCluster: true
-    enabled: true

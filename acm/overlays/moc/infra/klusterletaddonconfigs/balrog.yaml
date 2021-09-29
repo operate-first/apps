@@ -1,9 +1,0 @@
-apiVersion: agent.open-cluster-management.io/v1
-kind: KlusterletAddonConfig
-metadata:
-  name: balrog
-  namespace: balrog
-spec:
-  applicationManager:
-    argocdCluster: true
-    enabled: true
