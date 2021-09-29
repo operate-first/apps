@@ -1,0 +1,17 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: opf-app-of-apps-ocp-prod
+spec:
+  destination:
+    namespace: argocd
+    name: moc-infra
+  project: operate-first
+  source:
+    path: app-of-apps/envs/ocp-prod
+    repoURL: https://github.com/CCI-MOC/moc-apps.git
+    targetRevision: HEAD
+  syncPolicy:
+    syncOptions:
+    - Validate=false
+    - ApplyOutOfSyncOnly=true

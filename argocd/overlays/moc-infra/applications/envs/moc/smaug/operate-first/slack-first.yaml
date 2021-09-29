@@ -1,0 +1,20 @@
+---
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: opf-slack-first
+spec:
+  destination:
+    name: smaug
+    namespace: opf-slack-first
+  project: operate-first
+  source:
+    path: slack-first/overlays/moc/smaug
+    repoURL: https://github.com/operate-first/apps.git
+    targetRevision: HEAD
+  syncPolicy:
+    automated:
+      prune: true
+      selfHeal: true
+    syncOptions:
+      - Validate=false

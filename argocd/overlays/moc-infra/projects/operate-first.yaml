@@ -1,0 +1,75 @@
+apiVersion: argoproj.io/v1alpha1
+kind: AppProject
+metadata:
+  name: operate-first
+  labels:
+    project-template: global
+spec:
+  clusterResourceWhitelist:
+    - group: kubeflow.org
+      kind: Profile
+  destinations:
+    - namespace: '*'
+      server: '*'
+  sourceRepos:
+    - '*'
+  roles:
+    - name: project-admin
+      description: Read/Write access to this project only
+      policies:
+        - p, proj:operate-first:project-admin, applications, get, operate-first/*, allow
+        - p, proj:operate-first:project-admin, applications, create, operate-first/*, allow
+        - p, proj:operate-first:project-admin, applications, update, operate-first/*, allow
+        - p, proj:operate-first:project-admin, applications, delete, operate-first/*, allow
+        - p, proj:operate-first:project-admin, applications, sync, operate-first/*, allow
+        - p, proj:operate-first:project-admin, applications, override, operate-first/*, allow
+        - p, proj:operate-first:project-admin, applications, action/*, operate-first/*, allow
+      groups:
+        - operate-first
+  namespaceResourceWhitelist:
+    - group: argoproj.io
+      kind: Application
+    - group: logging.openshift.io
+      kind: ClusterLogging
+    - group: core.observatorium.io
+      kind: Observatorium
+    - group: integreatly.org
+      kind: GrafanaDashboard
+    - group: integreatly.org
+      kind: GrafanaDataSource
+    - group: integreatly.org
+      kind: Grafana
+    - group: kafka.strimzi.io
+      kind: Kafka
+    - group: kafka.strimzi.io
+      kind: KafkaBridge
+    - group: kafka.strimzi.io
+      kind: KafkaConnect
+    - group: kafka.strimzi.io
+      kind: KafkaConnectS2I
+    - group: kafka.strimzi.io
+      kind: KafkaConnector
+    - group: kafka.strimzi.io
+      kind: KafkaMirrorMaker
+    - group: kafka.strimzi.io
+      kind: KafkaMirrorMaker2
+    - group: kafka.strimzi.io
+      kind: KafkaRebalance
+    - group: kafka.strimzi.io
+      kind: KafkaTopic
+    - group: kafka.strimzi.io
+      kind: KafkaUser
+    - group: kfdef.apps.kubeflow.org
+      kind: KfDef
+    - group: monitoring.coreos.com
+      kind: Alertmanager
+    - group: monitoring.coreos.com
+      kind: Prometheus
+    - group: monitoring.coreos.com
+      kind: PrometheusRule
+    - group: monitoring.coreos.com
+      kind: ServiceMonitor
+    - group: monitoring.coreos.com
+      kind: ThanosRuler
+    - group: logging.openshift.io
+      kind: ClusterLogForwarder

@@ -1,0 +1,19 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: opf-dashboard
+spec:
+  destination:
+    namespace: opf-dashboard
+    name: in-cluster
+  project: operate-first
+  source:
+    path: odh/overlays/dev/dashboard
+    repoURL: https://github.com/operate-first/apps.git
+    targetRevision: HEAD
+  syncPolicy:
+    automated:
+      prune: true
+      selfHeal: true
+    syncOptions:
+    - Validate=false

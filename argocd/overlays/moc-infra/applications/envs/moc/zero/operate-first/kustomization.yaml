@@ -1,0 +1,11 @@
+apiVersion: kustomize.config.k8s.io/v1beta1
+kind: Kustomization
+resources:
+  - acme-operator.yaml
+  - cluster-logging.yaml
+  - jh-idle-culler.yaml
+  - kubeflow.yaml
+  - observatorium-operator.yaml
+  - observatorium.yaml
+  - odh-operator.yaml
+  - vector.yaml
