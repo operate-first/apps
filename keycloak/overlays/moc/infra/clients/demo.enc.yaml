@@ -1,4 +1,4 @@
-apiVersion: keycloak.org/v3alpha1
+apiVersion: keycloak.org/v1alpha1
 kind: KeycloakClient
 metadata:
     name: demo
@@ -25,8 +25,8 @@ sops:
     azure_kv: []
     hc_vault: []
     age: []
-    lastmodified: "2021-09-30T15:57:08Z"
-    mac: ENC[AES256_GCM,data:VqL2VKQMWYXgnApnITckmWWOhVQpZsPUkB3I1Rr2DSbGCJYTzgV5m+BGKlKrqnfb2Gk1L0A+YE89HMRqGHNMeTL03ciZUGrxN6sWbMz9yQdWKO9n43p799PnB7I5CNESit7UtH5HZhLxwUgvAjLnnU3woWXBgkUThFc2I43U+u8=,iv:KjJhzXmjSlKB4+2jCvrmJIBvLEj04VZjrjBFgUVsV14=,tag:Ptlkn9ACLOBDd+ZUvCQ//w==,type:str]
+    lastmodified: "2021-09-30T16:25:49Z"
+    mac: ENC[AES256_GCM,data:AFs8PQTrje12HezN02hBMwML02uoiWpoBBZ5jCm6aV7q+mrw0tWwFqQXp1jYbKQXEMLNa3oEICELMmB3pUDEIzC9Ulv3eN8hjtMEOjZTNWLR6gY65g7wVDlrPc5qgSyfklNsvnrIC6Rl2YTZ6qZhW9oD/q64cBCbjbt7UnJ8cKQ=,iv:/PX6D8OaJ6RwdXFJxbWiMDElgbzrG6hDX3ww8d8UtoM=,tag:AWMFipY6yXawXuAPpUGwgQ==,type:str]
     pgp:
         - created_at: "2021-09-30T15:57:08Z"
           enc: |-
