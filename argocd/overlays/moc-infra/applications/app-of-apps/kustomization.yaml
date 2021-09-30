@@ -2,11 +2,11 @@ apiVersion: kustomize.config.k8s.io/v1beta1
 kind: Kustomization
 namespace: argocd
 resources:
-  - app-of-apps-balrog.yaml
-  - app-of-apps-curator.yaml
-  - app-of-apps-infra.yaml
-  - app-of-apps-ocp-prod.yaml
-  - app-of-apps-osc-cl1.yaml
-  - app-of-apps-rick.yaml
-  - app-of-apps-smaug.yaml
-  - workshops-app-of-apps.yaml
+- app-of-apps-balrog.yaml
+- app-of-apps-curator.yaml
+- app-of-apps-infra.yaml
+- app-of-apps-ocp-prod.yaml
+- app-of-apps-osc-cl1.yaml
+- app-of-apps-rick.yaml
+- app-of-apps-smaug.yaml
+- workshops-app-of-apps.yaml
