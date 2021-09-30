@@ -12,6 +12,7 @@ spec:
     repoURL: https://github.com/CCI-MOC/moc-apps.git
     targetRevision: HEAD
   syncPolicy:
+    automated: {}
     syncOptions:
     - Validate=false
     - ApplyOutOfSyncOnly=true
