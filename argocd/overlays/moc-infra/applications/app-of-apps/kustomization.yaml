@@ -10,3 +10,4 @@ resources:
 - app-of-apps-rick.yaml
 - app-of-apps-smaug.yaml
 - workshops-app-of-apps.yaml
+- app-of-apps-demo.yaml
