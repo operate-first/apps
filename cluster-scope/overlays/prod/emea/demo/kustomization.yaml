@@ -7,6 +7,7 @@ resources:
 - ../../../../base/user.openshift.io/groups/cluster-admins
 - ../../../../base/core/configmaps/cluster-monitoring-config
 - ../../../../base/core/namespaces/opf-alertreceiver
+- ../../../../base/operators.coreos.com/subscriptions/opendatahub-operator
 
 patchesStrategicMerge:
 - groups/cluster-admins.yaml
