@@ -8,6 +8,7 @@ resources:
 - ../../../../base/core/configmaps/cluster-monitoring-config
 - ../../../../base/core/namespaces/opf-alertreceiver
 - ../../../../base/core/namespaces/demo-project
+- ../../../../base/core/namespaces/demo-jupyterhub
 
 patchesStrategicMerge:
 - groups/cluster-admins.yaml
