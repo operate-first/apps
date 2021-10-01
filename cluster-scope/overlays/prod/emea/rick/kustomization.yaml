@@ -19,7 +19,7 @@ resources:
     - ../../../../base/core/persistentvolumeclaims/image-registry-storage
     - ../../../../base/imageregistry.operator.openshift.io/configs/cluster
     - ../../../../base/operators.coreos.com/subscriptions/kubevirt-hyperconverged
-    - ../../../../base/operators.coreos.com/operatorgroups/openshift-cnv-rn5j
+    - ../../../../base/operators.coreos.com/operatorgroups/openshift-cnv-rn5jf
     - ../../../../base/operators.coreos.com/operatorgroups/openshift-local-storage-zj22x
     - ../../../../base/operators.coreos.com/operatorgroups/openshift-storage-24n7x
     - ../../../../base/operators.coreos.com/operatorgroups/opf-monitoring
