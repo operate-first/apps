@@ -1,0 +1,11 @@
+apiVersion: cert-manager.io/v1
+kind: Issuer
+metadata:
+  name: ingress-letsencrypt-production
+  namespace: openshift-ingress
+spec:
+  acme:
+    email: ops-team@operate-first.cloud
+    server: https://acme-v02.api.letsencrypt.org/directory
+    privateKeySecretRef:
+      name: ingress-certificate

@@ -3,3 +3,4 @@ kind: Kustomization
 namespace: openshift-ingress
 resources:
   - ingress-certificate.yaml
+  - ingress-letsencrypt-production.yaml

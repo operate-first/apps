@@ -5,19 +5,15 @@ metadata:
   namespace: openshift-ingress
 spec:
   acme:
-    email: ops-team@operate-first.cloud
-    server: https://acme-v02.api.letsencrypt.org/directory
-    privateKeySecretRef:
-      name: ingress-certificate
     solvers:
       - selector:
           dnsZones:
-            - "na.operate-first.cloud"
+            - REPLACE_ME
         dns01:
           cnameStrategy: Follow
           cloudDNS:
             project: aicoe-prow
-            hostedZoneName: "na-operate-first"
+            hostedZoneName: REPLACE_ME
             serviceAccountSecretRef:
               key: key.json
-              name: clouddns-dns01-na-svc-acct
+              name: clouddns

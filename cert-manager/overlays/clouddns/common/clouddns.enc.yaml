@@ -1,7 +1,7 @@
 apiVersion: v1
 kind: Secret
 metadata:
-    name: clouddns-dns01-na-svc-acct
+    name: clouddns
     namespace: openshift-ingress
 type: Opaque
 stringData:
@@ -12,8 +12,8 @@ sops:
     azure_kv: []
     hc_vault: []
     age: []
-    lastmodified: "2021-09-20T14:00:50Z"
-    mac: ENC[AES256_GCM,data:fb35sOSzJsQjD9yDqMTx2Zk3oJGzWA+r+E3zpuzh3uq9REoymtgXztTDyhhZglS0X6idv8UfVkTYMnCzku5lPS7QkExvtr1oVBC9rGPr3E9JU7aUJQ7FIVZbm3hcSh8U9WTtRw9yk07RetAwfNjS/cksyhuuF5CR0WdTdo8Aw7I=,iv:pCI7D5iyuR8ipi7xH2PmrB+CDQ6gd8BLGfI+5I+JYGQ=,tag:bJYD9u4UjRBpOFFiQvrsaw==,type:str]
+    lastmodified: "2021-10-05T10:41:40Z"
+    mac: ENC[AES256_GCM,data:0p8OBDdewL57q0pox3EktYCOfeG/hk5kNCrWzRFcCV0dVq55oHb8EBmYY3FBT1SqGoOzaFP2ZHQ8/46+CVYN/5pUshGn58dxWt1VSiMcFZwGEM4PBCSltwqKZhsd9t/W9eIfrwAGqEs2bQ4u56zCa6vJlA6P74UXSuu7ag3czV0=,iv:VJHbVv8fFbJJFcDitbKFpKwidUM63sS6iCIbooMwGzs=,tag:fcZFvMbTd1kURHCidsYocw==,type:str]
     pgp:
         - created_at: "2021-09-20T13:47:12Z"
           enc: |-

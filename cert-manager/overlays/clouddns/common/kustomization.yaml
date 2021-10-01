@@ -3,7 +3,9 @@ kind: Kustomization
 
 resources:
   - ../../../base
-  - openshift-ingress-issuer.yaml
+
+patchesStrategicMerge:
+  - ingress-letsencrypt-production_patch.yaml
 
 generators:
   - secret-generator.yaml

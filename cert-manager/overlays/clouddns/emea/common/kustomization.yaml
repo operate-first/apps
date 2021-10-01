@@ -1,0 +1,19 @@
+apiVersion: kustomize.config.k8s.io/v1beta1
+kind: Kustomization
+
+resources:
+  - ../../common
+
+patchesJson6902:
+  - patch: |
+      - op: replace
+        path: /spec/acme/solvers/0/selector/dnsZones/0
+        value: emea.operate-first.cloud
+      - op: replace
+        path: /spec/acme/solvers/0/dns01/cloudDNS/hostedZoneName
+        value: emea-operate-first
+    target:
+      kind: Issuer
+      name: ingress-letsencrypt-production
+      namespace: openshift-ingress
+      version: v1

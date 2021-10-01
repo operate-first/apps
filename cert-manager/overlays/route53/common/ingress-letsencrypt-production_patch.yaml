@@ -1,0 +1,19 @@
+apiVersion: cert-manager.io/v1
+kind: Issuer
+metadata:
+  name: ingress-letsencrypt-production
+  namespace: openshift-ingress
+spec:
+  acme:
+    solvers:
+      - selector:
+          dnsZones:
+            - aws.operate-first.cloud
+        dns01:
+          cnameStrategy: Follow
+          route53:
+            region: REPLACE_ME
+            accessKeyID: AKIA5VY3HAI5Q34MC2M6
+            secretAccessKeySecretRef:
+              name: route53
+              key: secret-access-key

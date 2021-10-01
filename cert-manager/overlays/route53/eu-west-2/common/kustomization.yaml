@@ -1,0 +1,16 @@
+apiVersion: kustomize.config.k8s.io/v1beta1
+kind: Kustomization
+
+resources:
+  - ../../common
+
+patchesJson6902:
+  - patch: |
+      - op: replace
+        path: /spec/acme/solvers/0/dns01/route53/region
+        value: eu-west-2
+    target:
+      kind: Issuer
+      name: ingress-letsencrypt-production
+      namespace: openshift-ingress
+      version: v1
