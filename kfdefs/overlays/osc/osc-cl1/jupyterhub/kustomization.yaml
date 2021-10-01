@@ -5,3 +5,4 @@ namespace: odh-jupyterhub
 resources:
   - kfdef.yaml
   - profiles
+  - notebook-images
