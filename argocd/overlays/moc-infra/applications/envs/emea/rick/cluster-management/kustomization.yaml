@@ -4,3 +4,4 @@ resources:
   - alertreceiver.yaml
   - cluster-resources.yaml
   - local-storage.yaml
+  - kubevirt-hyperconverged.yaml

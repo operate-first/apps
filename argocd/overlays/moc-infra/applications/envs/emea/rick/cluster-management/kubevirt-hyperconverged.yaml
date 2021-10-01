@@ -1,0 +1,20 @@
+---
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: kubevirt-hyperconverged
+spec:
+  destination:
+    name: zero
+    namespace: argocd
+  project: cluster-management
+  source:
+    path: kubevirt-hyperconverged/overlays/emea/rick
+    repoURL: https://github.com/operate-first/apps.git
+    targetRevision: HEAD
+  syncPolicy:
+    automated:
+      prune: true
+      selfHeal: true
+    syncOptions:
+    - Validate=false
