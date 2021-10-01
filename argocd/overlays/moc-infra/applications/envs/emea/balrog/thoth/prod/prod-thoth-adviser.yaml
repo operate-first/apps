@@ -1,0 +1,20 @@
+---
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: prod-thoth-adviser
+spec:
+  project: thoth
+  source:
+    repoURL: "https://github.com/thoth-station/thoth-application.git"
+    path: adviser/overlays/aws-prod
+    targetRevision: master
+  destination:
+    name: balrog
+    namespace: thoth-backend-prod
+  syncPolicy:
+    automated:
+      selfHeal: true
+      prune: true
+    syncOptions:
+      - Validate=false
