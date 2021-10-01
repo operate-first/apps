@@ -10,6 +10,7 @@ resources:
     - ../../../../base/core/namespaces/openshift-monitoring
     - ../../../../base/core/namespaces/openshift-operators
     - ../../../../base/core/namespaces/openshift-storage
+    - ../../../../base/core/namespaces/opf-alertreceiver
     - ../../../../base/core/namespaces/opf-monitoring
     - ../../../../base/core/namespaces/opf-kafka
     - ../../../../base/core/namespaces/thoth-website-prod
