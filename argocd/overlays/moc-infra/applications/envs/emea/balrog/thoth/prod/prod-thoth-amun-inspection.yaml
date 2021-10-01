@@ -1,0 +1,26 @@
+---
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: prod-thoth-amun-inspection
+spec:
+  project: thoth
+  source:
+    repoURL: "https://github.com/thoth-station/thoth-application.git"
+    path: amun/overlays/aws-prod/amun-inspection
+    targetRevision: HEAD
+  destination:
+    name: balrog
+    namespace: thoth-amun-inspection-prod
+  syncPolicy:
+    automated:
+      selfHeal: true
+      prune: true
+    syncOptions:
+      - Validate=false
+  ignoreDifferences:
+    - group: apps
+      kind: Deployment
+      name: argo-server
+      jsonPointers:
+        - /spec/template/spec/containers/0/image

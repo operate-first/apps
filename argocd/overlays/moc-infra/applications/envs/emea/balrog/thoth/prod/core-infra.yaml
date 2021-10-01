@@ -1,0 +1,20 @@
+---
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: prod-thoth-core-infra
+spec:
+  project: thoth
+  source:
+    path: core/overlays/aws-prod/infra-prod
+    repoURL: "https://github.com/thoth-station/thoth-application.git"
+    targetRevision: master
+  destination:
+    namespace: thoth-infra-prod
+    name: balrog
+  syncPolicy:
+    automated:
+      selfHeal: true
+      prune: true
+    syncOptions:
+      - Validate=false

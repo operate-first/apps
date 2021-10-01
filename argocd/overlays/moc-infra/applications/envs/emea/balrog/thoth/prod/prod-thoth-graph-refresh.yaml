@@ -1,0 +1,26 @@
+---
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: prod-thoth-graph-refresh
+spec:
+  project: thoth
+  source:
+    repoURL: "https://github.com/thoth-station/thoth-application.git"
+    path: graph-refresh/overlays/aws-prod
+    targetRevision: master
+  destination:
+    name: balrog
+    namespace: thoth-frontend-prod
+  syncPolicy:
+    automated:
+      selfHeal: true
+      prune: true
+    syncOptions:
+      - Validate=false
+  ignoreDifferences:
+    - group: batch
+      kind: CronJob
+      name: graph-refresh
+      jsonPointers:
+        - /spec/jobTemplate/spec/template/spec/containers/0/image
