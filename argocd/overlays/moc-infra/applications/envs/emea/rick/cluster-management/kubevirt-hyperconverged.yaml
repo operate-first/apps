@@ -5,8 +5,8 @@ metadata:
   name: kubevirt-hyperconverged
 spec:
   destination:
-    name: zero
-    namespace: argocd
+    name: rick
+    namespace: openshift-cnv
   project: cluster-management
   source:
     path: kubevirt-hyperconverged/overlays/emea/rick
