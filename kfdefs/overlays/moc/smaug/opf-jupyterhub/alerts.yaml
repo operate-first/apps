@@ -1,0 +1,28 @@
+apiVersion: monitoring.coreos.com/v1
+kind: PrometheusRule
+metadata:
+  name: jupyterhub-alerts
+spec:
+  groups:
+    - name: jupyterhub
+      rules:
+        - alert: PVCFillingUp
+          annotations:
+            description: >-
+              The PersistentVolume claimed by {{ $labels.persistentvolumeclaim
+              }} in Namespace {{ $labels.namespace }} is only {{ $value |
+              humanizePercentage }} free.
+            summary: PersistentVolume is filling up.
+            # Tag the user who owns the PVC
+            user: >-
+              @{{ reReplaceAll "^jupyterhub-nb-|-pvc$" ""
+              $labels.persistentvolumeclaim }}
+            # Link the runbook with instructions to fix this issue
+            runbook: >-
+              https://github.com/operate-first/SRE/blob/master/runbooks/jupyterhub.md#insufficient-disk-space-for-notebook-pod
+          # Alert when 90% of PVC is full
+          expr: >-
+            kubelet_volume_stats_available_bytes{namespace="opf-jupyterhub"}/kubelet_volume_stats_capacity_bytes{namespace="opf-jupyterhub"}
+            < 0.1
+          labels:
+            severity: critical
