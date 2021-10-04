@@ -5,5 +5,5 @@ resources:
 components:
     - ../../../../components/project-admin-rolebindings/octo-ushift-dev
     - ../../../../components/limitranges/default
-    - ../../../../components/resourcequotas/x-small
+    - ../../../../components/resourcequotas/medium
 namespace: ushift-dev
