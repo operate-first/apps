@@ -3,6 +3,7 @@ kind: Kustomization
 namespace: argocd
 resources:
 - ../../base
+- ../../cluster-resources
 - applications
 - secrets/auth/dex-server-sa.yaml
 - routes/argocd-google.yaml
