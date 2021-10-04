@@ -28,7 +28,8 @@ spec:
       token_url: http://dex-dex.apps.smaug.na.operate-first.cloud/token
       role_attribute_path: >-
         contains(groups[*], 'cluster-admins') && 'Admin' ||
-        contains(groups[*], 'operate-first') && 'Admin' ||
-        contains(groups[*], 'data-science') && 'Viewer' ||
+        contains(groups[*], 'operate-first')  && 'Admin' ||
+        ontains(groups[*], 'sre')             && 'Editor' ||
+        contains(groups[*], 'data-science')   && 'Viewer' ||
         'Deny'
       role_attribute_strict: true
