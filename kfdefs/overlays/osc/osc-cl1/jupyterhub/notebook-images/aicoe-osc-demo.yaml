@@ -16,10 +16,10 @@ spec:
   lookupPolicy:
     local: true
   tags:
-    - name: "v.10"
+    - name: "latest"
       from:
         kind: DockerImage
-        name: quay.io/os-climate/aicoe-osc-demo:v.10
+        name: quay.io/os-climate/aicoe-osc-demo:latest
       annotations:
         openshift.io/imported-from: quay.io/os-climate/aicoe-osc-demo
       importPolicy:
