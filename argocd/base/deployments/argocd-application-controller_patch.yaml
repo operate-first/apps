@@ -1,0 +1,12 @@
+apiVersion: apps/v1
+kind: StatefulSet
+metadata:
+  name: argocd-application-controller
+spec:
+  template:
+    spec:
+      containers:
+        - name: argocd-application-controller
+          # TODO: argocd image user should be set to 999 to avoid https://github.com/argoproj/argo-cd/issues/6851
+          securityContext:
+            runAsNonRoot: false
