@@ -4,12 +4,12 @@ metadata:
   name: cert-manager
 spec:
   destination:
-    name: smaug
+    name: rick
     namespace: openshift-ingress
   project: cluster-management
   source:
     repoURL: https://github.com/operate-first/apps.git
-    path: cert-manager/overlays/clouddns/na/smaug
+    path: cert-manager/overlays/route53/eu-west-2/balrog
     targetRevision: HEAD
   syncPolicy:
     automated:
