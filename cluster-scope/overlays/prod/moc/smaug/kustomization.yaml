@@ -18,6 +18,7 @@ resources:
   - ../../../../base/core/namespaces/koku-metrics-operator
   - ../../../../base/core/namespaces/openshift-nmstate
   - ../../../../base/core/namespaces/openshift-pipelines
+  - ../../../../base/core/namespaces/opf-alertreceiver
   - ../../../../base/core/namespaces/opf-ci-pipelines
   - ../../../../base/core/namespaces/opf-ci-prow
   - ../../../../base/core/namespaces/opf-ci-test-pods
