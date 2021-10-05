@@ -1,0 +1,12 @@
+kind: Route
+apiVersion: route.openshift.io/v1
+metadata:
+  name: trino-secure
+  annotations:
+    kubernetes.io/tls-acme: "true"
+spec:
+  to:
+    kind: Service
+    name: trino-service
+  port:
+    targetPort: 8080
