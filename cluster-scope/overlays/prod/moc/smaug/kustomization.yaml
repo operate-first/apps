@@ -69,6 +69,7 @@ resources:
   - ../../../../base/user.openshift.io/groups/cluster-admins
 
   - ingresscontrollers/default.yaml
+  - machineconfigs/nese-static-routes.yaml
   - nodenetworkconfigurationpolicies/vlan-210-nfs.yaml
   - nodenetworkconfigurationpolicies/vlan-211-nese.yaml
 

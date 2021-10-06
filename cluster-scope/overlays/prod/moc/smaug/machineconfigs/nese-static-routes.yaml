@@ -1,0 +1,26 @@
+apiVersion: machineconfiguration.openshift.io/v1
+kind: MachineConfig
+metadata:
+  labels:
+    machineconfiguration.openshift.io/role: worker
+  name: nese-static-routes
+spec:
+  config:
+    ignition:
+      version: 3.1.0
+    systemd:
+      units:
+      - contents: |
+          [Unit]
+          Description=Static routes for NESE storage
+          After=network-online.target
+
+          [Service]
+          Type=oneshot
+          ExecStart=nmcli dev modify vlan211 +ipv4.routes \
+            "10.255.116.0/23 10.0.120.1,10.247.236.0/25 10.0.120.1,140.247.236.0/25 10.0.120.1"
+
+          [Install]
+          WantedBy=multi-user.target
+        enabled: true
+        name: nese-static-routes
