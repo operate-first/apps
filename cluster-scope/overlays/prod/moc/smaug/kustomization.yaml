@@ -69,7 +69,8 @@ resources:
   - ../../../../base/user.openshift.io/groups/cluster-admins
 
   - ingresscontrollers/default.yaml
-  - nodenetworkconfigurationpolicies/vlan-interfaces.yaml
+  - nodenetworkconfigurationpolicies/vlan-210-nfs.yaml
+  - nodenetworkconfigurationpolicies/vlan-211-nese.yaml
 
 generators:
   - secret-generator.yaml
