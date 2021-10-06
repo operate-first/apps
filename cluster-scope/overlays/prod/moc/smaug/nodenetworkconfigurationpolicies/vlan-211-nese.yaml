@@ -14,17 +14,6 @@ spec:
         vlan:
           base-iface: eno1
           id: 211
-    routes:
-      config:
-        - destination: 10.255.116.0/23
-          next-hop-address: 10.0.120.1
-          next-hop-interface: vlan211
-        - destination: 10.247.236.0/25
-          next-hop-address: 10.0.120.1
-          next-hop-interface: vlan211
-        - destination: 140.247.236.0/25
-          next-hop-address: 10.0.120.1
-          next-hop-interface: vlan211
   nodeSelector:
     massopen.cloud/primary-interface: eno1
     node-role.kubernetes.io/worker: ''
@@ -45,17 +34,6 @@ spec:
         vlan:
           base-iface: enp4s0f0np0
           id: 211
-    routes:
-      config:
-        - destination: 10.255.116.0/23
-          next-hop-address: 10.0.120.1
-          next-hop-interface: vlan211
-        - destination: 10.247.236.0/25
-          next-hop-address: 10.0.120.1
-          next-hop-interface: vlan211
-        - destination: 140.247.236.0/25
-          next-hop-address: 10.0.120.1
-          next-hop-interface: vlan211
   nodeSelector:
     massopen.cloud/primary-interface: enp4s0f0np0
     node-role.kubernetes.io/worker: ''
@@ -76,17 +54,6 @@ spec:
         vlan:
           base-iface: enp5s0f0np0
           id: 211
-    routes:
-      config:
-        - destination: 10.255.116.0/23
-          next-hop-address: 10.0.120.1
-          next-hop-interface: vlan211
-        - destination: 10.247.236.0/25
-          next-hop-address: 10.0.120.1
-          next-hop-interface: vlan211
-        - destination: 140.247.236.0/25
-          next-hop-address: 10.0.120.1
-          next-hop-interface: vlan211
   nodeSelector:
     massopen.cloud/primary-interface: enp5s0f0np0
     node-role.kubernetes.io/worker: ''
@@ -107,17 +74,6 @@ spec:
         vlan:
           base-iface: enp65s0f0np0
           id: 211
-    routes:
-      config:
-        - destination: 10.255.116.0/23
-          next-hop-address: 10.0.120.1
-          next-hop-interface: vlan211
-        - destination: 10.247.236.0/25
-          next-hop-address: 10.0.120.1
-          next-hop-interface: vlan211
-        - destination: 140.247.236.0/25
-          next-hop-address: 10.0.120.1
-          next-hop-interface: vlan211
   nodeSelector:
     massopen.cloud/primary-interface: enp65s0f0np0
     node-role.kubernetes.io/worker: ''
@@ -138,17 +94,6 @@ spec:
         vlan:
           base-iface: enp65s0f1np1
           id: 211
-    routes:
-      config:
-        - destination: 10.255.116.0/23
-          next-hop-address: 10.0.120.1
-          next-hop-interface: vlan211
-        - destination: 10.247.236.0/25
-          next-hop-address: 10.0.120.1
-          next-hop-interface: vlan211
-        - destination: 140.247.236.0/25
-          next-hop-address: 10.0.120.1
-          next-hop-interface: vlan211
   nodeSelector:
     massopen.cloud/primary-interface: enp65s0f1np1
     node-role.kubernetes.io/worker: ''
