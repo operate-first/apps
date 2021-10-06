@@ -1,0 +1,99 @@
+apiVersion: nmstate.io/v1beta1
+kind: NodeNetworkConfigurationPolicy
+metadata:
+  name: iface-enp4s0f0np0-vlan210
+spec:
+  desiredState:
+    interfaces:
+      - ipv4:
+          dhcp: true
+          enabled: true
+        name: vlan210
+        state: up
+        type: vlan
+        vlan:
+          base-iface: enp4s0f0np0
+          id: 210
+  nodeSelector:
+    massopen.cloud/primary-interface: enp4s0f0np0
+    node-role.kubernetes.io/worker: ''
+---
+apiVersion: nmstate.io/v1beta1
+kind: NodeNetworkConfigurationPolicy
+metadata:
+  name: iface-enp5s0f0np0-vlan210
+spec:
+  desiredState:
+    interfaces:
+      - ipv4:
+          dhcp: true
+          enabled: true
+        name: vlan210
+        state: up
+        type: vlan
+        vlan:
+          base-iface: enp5s0f0np0
+          id: 210
+  nodeSelector:
+    massopen.cloud/primary-interface: enp5s0f0np0
+    node-role.kubernetes.io/worker: ''
+---
+apiVersion: nmstate.io/v1beta1
+kind: NodeNetworkConfigurationPolicy
+metadata:
+  name: iface-enp65s0f0np0-vlan210
+spec:
+  desiredState:
+    interfaces:
+      - ipv4:
+          dhcp: true
+          enabled: true
+        name: vlan210
+        state: up
+        type: vlan
+        vlan:
+          base-iface: enp65s0f0np0
+          id: 210
+  nodeSelector:
+    massopen.cloud/primary-interface: enp65s0f0np0
+    node-role.kubernetes.io/worker: ''
+---
+apiVersion: nmstate.io/v1beta1
+kind: NodeNetworkConfigurationPolicy
+metadata:
+  name: iface-enp65s0f1np1-vlan210
+spec:
+  desiredState:
+    interfaces:
+      - ipv4:
+          dhcp: true
+          enabled: true
+        name: vlan210
+        state: up
+        type: vlan
+        vlan:
+          base-iface: enp65s0f1np1
+          id: 210
+  nodeSelector:
+    massopen.cloud/primary-interface: enp65s0f1np1
+    node-role.kubernetes.io/worker: ''
+---
+apiVersion: nmstate.io/v1beta1
+kind: NodeNetworkConfigurationPolicy
+metadata:
+  name: iface-eno1-vlan210
+spec:
+  desiredState:
+    interfaces:
+      - ipv4:
+          dhcp: true
+          enabled: true
+        name: vlan210
+        state: up
+        type: vlan
+        vlan:
+          base-iface: eno1
+          id: 210
+  nodeSelector:
+    massopen.cloud/primary-interface: eno1
+    node-role.kubernetes.io/worker: ''
