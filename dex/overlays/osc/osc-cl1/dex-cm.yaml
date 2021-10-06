@@ -38,6 +38,9 @@ data:
           - https://trino-route-odh-trino.apps.odh-cl1.apps.os-climate.org
         secretEnv: TRINO_SECRET
 
+    expiry:
+      idTokens: "168h"
+
     connectors:
       - type: openshift
         id: openshift
