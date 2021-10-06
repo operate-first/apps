@@ -5,3 +5,4 @@ namespace: odh-trino
 resources:
   - OSC_DataCommons_Dev
   - OSC_DataCommons_Prod
+  - OSC_DataCommons_Iceberg_Dev
