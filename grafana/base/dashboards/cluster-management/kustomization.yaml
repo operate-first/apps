@@ -1,0 +1,8 @@
+---
+apiVersion: kustomize.config.k8s.io/v1beta1
+kind: Kustomization
+
+resources:
+  - cluster-cpu-overview.yaml
+  - cluster-memory-overview.yaml
+  - namespace_cpu_and_memory_overview.yaml
