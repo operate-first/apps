@@ -7,7 +7,7 @@ spec:
   project: thoth
   source:
     repoURL: "https://github.com/thoth-station/thoth-application.git"
-    path: graph-sync/overlays/aws-prod
+    path: graph-sync/overlays/aws-prod/backend
     targetRevision: master
   destination:
     name: balrog
