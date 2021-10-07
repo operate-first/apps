@@ -7,7 +7,7 @@ spec:
   project: thoth
   source:
     repoURL: "https://github.com/thoth-station/thoth-application.git"
-    path: graph-sync/overlays/moc-prod
+    path: graph-sync/overlays/moc-prod/middletier
     targetRevision: master
   destination:
     name: smaug
