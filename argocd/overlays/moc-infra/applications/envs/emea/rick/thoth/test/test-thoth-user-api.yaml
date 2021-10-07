@@ -7,7 +7,7 @@ spec:
   project: thoth
   source:
     repoURL: 'https://github.com/thoth-station/thoth-application.git'
-    path: user-api/overlays/test
+    path: user-api/overlays/rick-test
     targetRevision: master
   destination:
     name: rick
