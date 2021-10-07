@@ -6,6 +6,7 @@ resources:
     - ../../../../base/apiextensions.k8s.io/customresourcedefinitions/workflowtemplate.argoproj.io
     - ../../../../base/config.openshift.io/oauths/cluster
     - ../../../../base/core/configmaps/cluster-monitoring-config
+    - ../../../../base/core/configmaps/user-workload-monitoring-config
     - ../../../../base/core/namespaces/acme-operator
     - ../../../../base/core/namespaces/opf-kafka
     - ../../../../base/core/namespaces/thoth-amun-api-prod
@@ -26,5 +27,6 @@ generators:
 
 patchesStrategicMerge:
     - configmaps/cluster-monitoring-config.yaml
+    - configmaps/user-workload-monitoring-config.yaml
     - oauths/cluster_patch.yaml
     - groups/cluster-admins.yaml
