@@ -19,6 +19,6 @@ spec:
             secretAccessKeySecretRef:
               key: secret-access-key
               name: route53
-          selector:
-            dnsZones:
-              - apps.os-climate.org
+        selector:
+          dnsZones:
+            - apps.os-climate.org
