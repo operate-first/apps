@@ -5,4 +5,4 @@ metadata:
   name: ocs-operator
   namespace: openshift-storage
 spec:
-  channel: "stable-4.7"
+  channel: "stable-4.8"
