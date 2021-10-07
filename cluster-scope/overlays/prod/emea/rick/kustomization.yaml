@@ -37,6 +37,7 @@ resources:
     - ../../../../base/rbac.authorization.k8s.io/clusterroles/oauth-token-access-review
     - ../../../../base/user.openshift.io/groups/cluster-admins
     - ../../../../base/storage.k8s.io/storageclasses/ocs-storagecluster-cephfs
+    - clusterversion.yaml
 
 generators:
     - secret-generator.yaml
