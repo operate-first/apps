@@ -1,0 +1,24 @@
+apiVersion: cert-manager.io/v1
+kind: Issuer
+metadata:
+  name: ingress-letsencrypt-production
+  namespace: openshift-ingress
+spec:
+  acme:
+    email: ops-team@operate-first.cloud
+    server: https://acme-staging-v02.api.letsencrypt.org/directory
+    privateKeySecretRef:
+      name: ingress-certificate
+    solvers:
+      - dns01:
+          cnameStrategy: Follow
+          route53:
+            accessKeyID: AKIAZNQ2HXS5NOCJNRWM
+            hostedZoneID: Z04490453K6YE8HM7YHJ6
+            region: us-east-1
+            secretAccessKeySecretRef:
+              key: secret-access-key
+              name: route53
+          selector:
+            dnsZones:
+              - apps.os-climate.org

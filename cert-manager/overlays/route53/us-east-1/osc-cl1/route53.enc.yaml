@@ -1,0 +1,39 @@
+apiVersion: v1
+kind: Secret
+metadata:
+    name: route53
+    namespace: openshift-ingress
+stringData:
+    secret-access-key: ENC[AES256_GCM,data:JqRjyh4/9lLxLaqC3SJsiIA6LJkiAGT//BbwDHS3U1OiY2l3phiIpA==,iv:GFXwzWkHlGqFHLF6245p7glJ58qiPeT0haxSEXRER5o=,tag:s6lB4mSG1R3/PgnBmnmrzA==,type:str]
+type: Opaque
+sops:
+    kms: []
+    gcp_kms: []
+    azure_kv: []
+    hc_vault: []
+    lastmodified: '2021-10-07T17:37:27Z'
+    mac: ENC[AES256_GCM,data:DAogUA/Wvy6pT8LYkLBA2kmRacl157cuLeqFcfUxhD0Zqha62D1uS0d8qr6XQx0rwst5xDO0tgV445DPMPBshV8XfcbpRREZjf4s49xUpr+2UyR16Q0KYhoAL3nfZ56CX1pq66kr2AGNaBgYEiXeVD1WN/tWbDRvE4awD+tRrZ0=,iv:5tCWmCqqR884cx3m3J9MYhHyHqwuFC/UVsK3ZB4ADKY=,tag:bCnjhbXjr0wlC100USOAvA==,type:str]
+    pgp:
+    -   created_at: '2021-10-07T17:37:26Z'
+        enc: |-
+            -----BEGIN PGP MESSAGE-----
+
+            wcFMA9aKBcudqifiARAAxOygmnwnqaRrP8VZwstL9ZOOHjIUTuHLnZQgJtcZXG0R
+            MKc0DNdnoA7bWOKLJHaJTcDhH5YcaDRecgBs6IY96v3CUddVCFTNWnlfUJYqaxpY
+            vdQC1EoWeFXqc0xXi1XLUw3eIWbU+tysry+ZcuaTIvALvcXLbM7PeT63ssBt6KwY
+            MlvpmNblZoww8GcCDWVrL+W80PY6NF/30TVIm0yfkZCnyHn6+G6L3pvYGt2KIrQK
+            OrfKnQZ9G8yl6GjEE2HfsvryN6wLIJ/DuB2LxnJ0jd89awkL80X0I5dg/ArfY6vZ
+            zhXq49hXAtK1NeRvSS76H5OyFT9zTKyQNqmYQiM99mZAYAhH9UZZqaRxQhWPUPHW
+            0mma0qaxdMl2OAbsngFah/Old12Nesuqk24h1Eu4sJupqafNfCZeGlaEcYrF5doW
+            mFY189clOmiXyUGdVTRaNdFe7LkY96LrqMkuf3DwhQDm49jTCwEjSBC+mrhyE1Gg
+            Z7la8ROSy+5cC++jvyYAn4CXABrqu3R/OVgr0IlDmg0I0MkXxWwRmKY2WHgUmoOJ
+            Mz4swqFLQ5S5r1eUphO699uRP2JUPG6MwuQsrth15voju7CCrloRljj+cAWklOvT
+            2ycJ9nu7ergogIaJu993BYfZlQJ+AvmmGxF/p1Jq6WEIJEa8StclY0057oS4irbS
+            4AHkHSWK5TEonaMnYl6XJ4UQVOEXi+C14DThtaXg3uJeoNzh4ATlh/qoCyu1sFPU
+            nvGLl6PmPDQiwuBL4C7RhiyjtJwC/wDgPeTPVmWC20KOSfmp14+x1VSu4kBUYLHh
+            9OAA
+            =Eesz
+            -----END PGP MESSAGE-----
+        fp: 0508677DD04952D06A943D5B4DC4116D360E3276
+    encrypted_regex: ^(users|data|stringData)$
+    version: 3.6.1
