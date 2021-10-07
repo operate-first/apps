@@ -1,0 +1,7 @@
+apiVersion: v1
+kind: Namespace
+metadata:
+    name: report-system
+    annotations:
+        openshift.io/display-name: Curator team requested, required by kube builder to configure and deploy API
+        openshift.io/requester: curator
