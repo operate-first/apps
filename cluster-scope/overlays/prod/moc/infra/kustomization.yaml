@@ -5,6 +5,7 @@ kind: Kustomization
 resources:
   - ../common
   - ../../../../base/config.openshift.io/oauths/cluster
+  - ../../../../base/core/configmaps/cluster-monitoring-config
   - ../../../../base/core/namespaces/acm
   - ../../../../base/core/namespaces/acme-operator
   - ../../../../base/core/namespaces/democratic-csi
@@ -42,6 +43,7 @@ generators:
   - secret-generator.yaml
 
 patchesStrategicMerge:
+  - configmaps/cluster-monitoring-config.yaml
   - oauths/cluster_patch.yaml
   - storageclasses/moc-nfs-csi_patch.yaml
   - subscriptions/kubevirt-hyperconverged_patch.yaml

@@ -76,6 +76,7 @@ generators:
   - secret-generator.yaml
 
 patchesStrategicMerge:
+  - configmaps/cluster-monitoring-config.yaml
   - groups/cluster-admins.yaml
   - oauths/cluster_patch.yaml
   - storageclasses/moc-nfs-csi_patch.yaml
