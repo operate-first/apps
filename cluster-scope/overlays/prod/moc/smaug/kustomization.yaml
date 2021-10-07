@@ -44,7 +44,9 @@ resources:
   - ../../../../base/core/namespaces/thoth-graph-prod
   - ../../../../base/core/namespaces/thoth-infra-prod
   - ../../../../base/core/namespaces/thoth-middletier-prod
+  - ../../../../base/core/persistentvolumeclaims/image-registry-storage
   - ../../../../base/nmstate.io/nmstates/nmstate
+  - ../../../../base/imageregistry.operator.openshift.io/configs/cluster
   - ../../../../base/operators.coreos.com/operatorgroups/koku-metrics-operator
   - ../../../../base/operators.coreos.com/operatorgroups/openshift-nmstate
   - ../../../../base/operators.coreos.com/operatorgroups/opf-monitoring
