@@ -9,4 +9,4 @@ data:
     enableUserWorkload: true
     prometheusK8s:
       externalLabels:
-        cluster: emea/balrog
+        cluster: moc/infra
