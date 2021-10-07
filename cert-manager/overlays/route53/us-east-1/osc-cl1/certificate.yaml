@@ -1,0 +1,8 @@
+apiVersion: cert-manager.io/v1
+kind: Certificate
+metadata:
+  name: ingress-certificate
+  namespace: openshift-ingress
+spec:
+  dnsNames:
+    - "*.apps.odh-cl1.apps.os-climate.org"
