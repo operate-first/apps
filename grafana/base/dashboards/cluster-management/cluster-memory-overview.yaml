@@ -1,0 +1,702 @@
+apiVersion: integreatly.org/v1alpha1
+kind: GrafanaDashboard
+metadata:
+  labels:
+    app: grafana
+  name: cluster-memory-overview
+spec:
+  customFolderName: Cluster Management
+  json: |
+    {
+      "annotations": {
+        "list": [
+          {
+            "builtIn": 1,
+            "datasource": "-- Grafana --",
+            "enable": true,
+            "hide": true,
+            "iconColor": "rgba(0, 211, 255, 1)",
+            "name": "Annotations & Alerts",
+            "target": {
+              "limit": 100,
+              "matchAny": false,
+              "tags": [],
+              "type": "dashboard"
+            },
+            "type": "dashboard"
+          }
+        ]
+      },
+      "editable": true,
+      "gnetId": null,
+      "graphTooltip": 0,
+      "id": 6,
+      "iteration": 1633666509249,
+      "links": [],
+      "panels": [
+        {
+          "datasource": "$datasource",
+          "description": "Total memory available on master nodes. ",
+          "fieldConfig": {
+            "defaults": {
+              "color": {
+                "fixedColor": "green",
+                "mode": "fixed"
+              },
+              "mappings": [],
+              "max": 192,
+              "thresholds": {
+                "mode": "absolute",
+                "steps": [
+                  {
+                    "color": "green",
+                    "value": null
+                  }
+                ]
+              },
+              "unit": "decbytes"
+            },
+            "overrides": []
+          },
+          "gridPos": {
+            "h": 6,
+            "w": 6,
+            "x": 0,
+            "y": 0
+          },
+          "id": 2,
+          "options": {
+            "colorMode": "value",
+            "graphMode": "none",
+            "justifyMode": "auto",
+            "orientation": "auto",
+            "reduceOptions": {
+              "calcs": [
+                "mean"
+              ],
+              "fields": "",
+              "values": false
+            },
+            "text": {},
+            "textMode": "auto"
+          },
+          "pluginVersion": "8.1.1",
+          "targets": [
+            {
+              "exemplar": true,
+              "expr": "cluster:capacity_memory_bytes:sum{cluster=\"$cluster\", label_node_role_kubernetes_io=\"master\"}",
+              "instant": true,
+              "interval": "",
+              "legendFormat": "",
+              "refId": "A"
+            }
+          ],
+          "timeFrom": null,
+          "timeShift": null,
+          "title": "Total Memory on cluster (Master)",
+          "type": "stat"
+        },
+        {
+          "datasource": "$datasource",
+          "description": "Total memory available on worker nodes.",
+          "fieldConfig": {
+            "defaults": {
+              "color": {
+                "fixedColor": "green",
+                "mode": "fixed"
+              },
+              "mappings": [],
+              "max": 192,
+              "thresholds": {
+                "mode": "absolute",
+                "steps": [
+                  {
+                    "color": "green",
+                    "value": null
+                  }
+                ]
+              },
+              "unit": "decbytes"
+            },
+            "overrides": []
+          },
+          "gridPos": {
+            "h": 6,
+            "w": 6,
+            "x": 6,
+            "y": 0
+          },
+          "id": 4,
+          "options": {
+            "colorMode": "value",
+            "graphMode": "none",
+            "justifyMode": "auto",
+            "orientation": "auto",
+            "reduceOptions": {
+              "calcs": [
+                "mean"
+              ],
+              "fields": "",
+              "values": false
+            },
+            "text": {},
+            "textMode": "auto"
+          },
+          "pluginVersion": "8.1.1",
+          "targets": [
+            {
+              "exemplar": true,
+              "expr": "cluster:capacity_memory_bytes:sum{cluster=\"$cluster\", label_node_role_kubernetes_io!~\".+\"}",
+              "instant": true,
+              "interval": "",
+              "legendFormat": "",
+              "refId": "A"
+            }
+          ],
+          "timeFrom": null,
+          "timeShift": null,
+          "title": "Total Memory on Cluster (Workers)",
+          "type": "stat"
+        },
+        {
+          "datasource": "$datasource",
+          "description": "The total amount of memory that has been requested by ResourceQuotas currently active.\n\nMax value is total cores available on cluster.",
+          "fieldConfig": {
+            "defaults": {
+              "color": {
+                "mode": "thresholds"
+              },
+              "mappings": [],
+              "min": 0,
+              "thresholds": {
+                "mode": "percentage",
+                "steps": [
+                  {
+                    "color": "green",
+                    "value": null
+                  },
+                  {
+                    "color": "yellow",
+                    "value": 60
+                  },
+                  {
+                    "color": "red",
+                    "value": 80
+                  },
+                  {
+                    "color": "dark-red",
+                    "value": 90
+                  }
+                ]
+              },
+              "unit": "decbytes"
+            },
+            "overrides": []
+          },
+          "gridPos": {
+            "h": 6,
+            "w": 6,
+            "x": 12,
+            "y": 0
+          },
+          "id": 6,
+          "options": {
+            "orientation": "auto",
+            "reduceOptions": {
+              "calcs": [
+                "mean"
+              ],
+              "fields": "",
+              "values": false
+            },
+            "showThresholdLabels": false,
+            "showThresholdMarkers": true,
+            "text": {}
+          },
+          "pluginVersion": "8.1.1",
+          "targets": [
+            {
+              "exemplar": true,
+              "expr": "sum(kube_resourcequota{cluster=\"$cluster\", type=\"hard\", resource=\"requests.memory\"})",
+              "instant": true,
+              "interval": "",
+              "legendFormat": "",
+              "refId": "A"
+            },
+            {
+              "exemplar": true,
+              "expr": "cluster:capacity_memory_bytes:sum{cluster=\"$cluster\", label_node_role_kubernetes_io!~\".+\"}",
+              "hide": false,
+              "instant": false,
+              "interval": "",
+              "legendFormat": "Total Memory",
+              "refId": "B"
+            }
+          ],
+          "timeFrom": null,
+          "timeShift": null,
+          "title": "Total Memory ResourceQuota",
+          "transformations": [
+            {
+              "id": "configFromData",
+              "options": {
+                "applyTo": {
+                  "id": "byName",
+                  "options": "Value"
+                },
+                "configRefId": "B",
+                "mappings": [
+                  {
+                    "fieldName": "Total Memory",
+                    "handlerKey": "max"
+                  }
+                ]
+              }
+            }
+          ],
+          "type": "gauge"
+        },
+        {
+          "datasource": "openshift-monitoring",
+          "description": "Memory currently not in use. This does not take into account ResourceQuotas, rather -- it takes into account memory available for the scheduler to reserve for pods.",
+          "fieldConfig": {
+            "defaults": {
+              "color": {
+                "mode": "thresholds"
+              },
+              "mappings": [],
+              "min": 0,
+              "thresholds": {
+                "mode": "percentage",
+                "steps": [
+                  {
+                    "color": "dark-red",
+                    "value": null
+                  },
+                  {
+                    "color": "red",
+                    "value": 10
+                  },
+                  {
+                    "color": "#EAB839",
+                    "value": 20
+                  },
+                  {
+                    "color": "green",
+                    "value": 30
+                  }
+                ]
+              },
+              "unit": "decbytes"
+            },
+            "overrides": []
+          },
+          "gridPos": {
+            "h": 6,
+            "w": 6,
+            "x": 18,
+            "y": 0
+          },
+          "id": 8,
+          "options": {
+            "orientation": "auto",
+            "reduceOptions": {
+              "calcs": [
+                "mean"
+              ],
+              "fields": "",
+              "values": false
+            },
+            "showThresholdLabels": false,
+            "showThresholdMarkers": true,
+            "text": {}
+          },
+          "pluginVersion": "8.1.1",
+          "targets": [
+            {
+              "exemplar": true,
+              "expr": "sum(cluster:capacity_memory_bytes:sum{cluster=\"$cluster\", label_node_role_kubernetes_io!~\".+\"}) - (sum(kube_pod_resource_request{cluster=\"$cluster\", resource=\"memory\"} * on (node) group_left kube_node_role{cluster=\"$cluster\", role=\"worker\"}))",
+              "instant": true,
+              "interval": "",
+              "legendFormat": "Free Memory",
+              "refId": "A"
+            },
+            {
+              "exemplar": true,
+              "expr": "cluster:capacity_memory_bytes:sum{cluster=\"$cluster\", label_node_role_kubernetes_io!~\".+\"}",
+              "hide": false,
+              "interval": "",
+              "legendFormat": "Total Memory",
+              "refId": "B"
+            }
+          ],
+          "timeFrom": null,
+          "timeShift": null,
+          "title": "Free Memory (Approx)",
+          "transformations": [
+            {
+              "id": "configFromData",
+              "options": {
+                "applyTo": {
+                  "id": "byName",
+                  "options": "Value"
+                },
+                "configRefId": "B",
+                "mappings": [
+                  {
+                    "fieldName": "Total Memory",
+                    "handlerKey": "max"
+                  }
+                ]
+              }
+            }
+          ],
+          "type": "gauge"
+        },
+        {
+          "aliasColors": {},
+          "breakPoint": "50%",
+          "cacheTimeout": null,
+          "combine": {
+            "label": "Others",
+            "threshold": ".01"
+          },
+          "datasource": "$datasource",
+          "description": "This graph shows the sum of memory being requested by pods per namespace. ",
+          "fontSize": "80%",
+          "format": "decbytes",
+          "gridPos": {
+            "h": 8,
+            "w": 12,
+            "x": 0,
+            "y": 6
+          },
+          "id": 10,
+          "interval": null,
+          "legend": {
+            "percentage": true,
+            "show": true,
+            "sort": null,
+            "sortDesc": null,
+            "values": true
+          },
+          "legendType": "Right side",
+          "links": [],
+          "nullPointMode": "connected",
+          "pieType": "pie",
+          "pluginVersion": "7.1.1",
+          "strokeWidth": ".05",
+          "targets": [
+            {
+              "exemplar": true,
+              "expr": "sort_desc(sum(kube_pod_resource_request{cluster=\"$cluster\", resource=\"memory\"}) by (namespace))",
+              "instant": true,
+              "interval": "",
+              "legendFormat": "{{namespace}}",
+              "refId": "A"
+            }
+          ],
+          "timeFrom": null,
+          "timeShift": null,
+          "title": "Pod Memory Requests by Namespace",
+          "type": "grafana-piechart-panel",
+          "valueName": "current"
+        },
+        {
+          "aliasColors": {},
+          "bars": false,
+          "dashLength": 10,
+          "dashes": false,
+          "datasource": "${datasource}",
+          "description": "Memory currently not in use. This does not take into account ResourceQuotas, rather -- it takes into account memory available for the scheduler to reserve for pods.",
+          "fill": 1,
+          "fillGradient": 0,
+          "gridPos": {
+            "h": 8,
+            "w": 12,
+            "x": 12,
+            "y": 6
+          },
+          "hiddenSeries": false,
+          "id": 14,
+          "legend": {
+            "avg": false,
+            "current": false,
+            "max": false,
+            "min": false,
+            "show": true,
+            "total": false,
+            "values": false
+          },
+          "lines": true,
+          "linewidth": 1,
+          "nullPointMode": "null",
+          "options": {
+            "alertThreshold": true
+          },
+          "percentage": false,
+          "pluginVersion": "8.1.1",
+          "pointradius": 2,
+          "points": false,
+          "renderer": "flot",
+          "seriesOverrides": [],
+          "spaceLength": 10,
+          "stack": false,
+          "steppedLine": false,
+          "targets": [
+            {
+              "exemplar": true,
+              "expr": "sum(cluster:capacity_memory_bytes:sum{cluster=\"$cluster\", label_node_role_kubernetes_io!~\".+\"}) - (sum(kube_pod_resource_request{cluster=\"$cluster\", resource=\"memory\"} * on (node) group_left kube_node_role{cluster=\"$cluster\", role=\"worker\"}))",
+              "instant": false,
+              "interval": "",
+              "legendFormat": "Free Cores",
+              "refId": "A"
+            }
+          ],
+          "thresholds": [],
+          "timeFrom": null,
+          "timeRegions": [],
+          "timeShift": null,
+          "title": "Free Memory (Approx)",
+          "tooltip": {
+            "shared": true,
+            "sort": 0,
+            "value_type": "individual"
+          },
+          "type": "graph",
+          "xaxis": {
+            "buckets": null,
+            "mode": "time",
+            "name": null,
+            "show": true,
+            "values": []
+          },
+          "yaxes": [
+            {
+              "format": "short",
+              "label": null,
+              "logBase": 1,
+              "max": null,
+              "min": null,
+              "show": true
+            },
+            {
+              "format": "short",
+              "label": null,
+              "logBase": 1,
+              "max": null,
+              "min": null,
+              "show": true
+            }
+          ],
+          "yaxis": {
+            "align": false,
+            "alignLevel": null
+          }
+        },
+        {
+          "aliasColors": {},
+          "breakPoint": "50%",
+          "cacheTimeout": null,
+          "combine": {
+            "label": "Others",
+            "threshold": ".01"
+          },
+          "datasource": "$datasource",
+          "description": "This graph shows the sum of memory being requested by resourcequotas. I.e. how much memory can be requested per namespace in total.",
+          "fontSize": "80%",
+          "format": "decbytes",
+          "gridPos": {
+            "h": 8,
+            "w": 12,
+            "x": 0,
+            "y": 14
+          },
+          "id": 12,
+          "interval": null,
+          "legend": {
+            "percentage": true,
+            "show": true,
+            "sort": "current",
+            "sortDesc": true,
+            "values": true
+          },
+          "legendType": "Right side",
+          "links": [],
+          "nullPointMode": "connected",
+          "pieType": "pie",
+          "pluginVersion": "7.1.1",
+          "strokeWidth": ".05",
+          "targets": [
+            {
+              "exemplar": true,
+              "expr": "sum(kube_resourcequota{cluster=\"$cluster\", type=\"hard\", resource=\"requests.memory\"}) by (namespace)",
+              "instant": true,
+              "interval": "",
+              "legendFormat": "{{namespace}}",
+              "refId": "A"
+            }
+          ],
+          "timeFrom": null,
+          "timeShift": null,
+          "title": "Memory ResourceQuota By Namespace",
+          "type": "grafana-piechart-panel",
+          "valueName": "current"
+        },
+        {
+          "datasource": "$datasource",
+          "description": "Approximate Memory requests on each node by summing Memory requests on all PENDING and RUNNING pods.",
+          "fieldConfig": {
+            "defaults": {
+              "color": {
+                "mode": "thresholds"
+              },
+              "custom": {
+                "align": "auto",
+                "displayMode": "auto"
+              },
+              "mappings": [],
+              "thresholds": {
+                "mode": "absolute",
+                "steps": [
+                  {
+                    "color": "green",
+                    "value": null
+                  },
+                  {
+                    "color": "red",
+                    "value": 80
+                  }
+                ]
+              },
+              "unit": "decbytes"
+            },
+            "overrides": []
+          },
+          "gridPos": {
+            "h": 8,
+            "w": 12,
+            "x": 12,
+            "y": 14
+          },
+          "id": 16,
+          "options": {
+            "frameIndex": 3,
+            "showHeader": true,
+            "sortBy": [
+              {
+                "desc": true,
+                "displayName": "Value"
+              }
+            ]
+          },
+          "pluginVersion": "8.1.1",
+          "targets": [
+            {
+              "exemplar": true,
+              "expr": "sort(sum(sum(kube_pod_container_resource_requests{cluster=\"$cluster\", resource=\"memory\"}) by (namespace, pod, node) * on (pod, namespace) group_left() (sum(kube_pod_status_phase{cluster=\"$cluster\", phase=~\"Pending|Running\"}) by (pod, namespace) == 1)) by (node))",
+              "format": "table",
+              "instant": true,
+              "interval": "",
+              "legendFormat": "{{node}}",
+              "refId": "A"
+            }
+          ],
+          "timeFrom": null,
+          "timeShift": null,
+          "title": "Total Memory Requests",
+          "transformations": [
+            {
+              "id": "filterFieldsByName",
+              "options": {
+                "include": {
+                  "names": [
+                    "node",
+                    "Value"
+                  ]
+                }
+              }
+            }
+          ],
+          "type": "table"
+        }
+      ],
+      "refresh": "",
+      "schemaVersion": 30,
+      "style": "dark",
+      "tags": [],
+      "templating": {
+        "list": [
+          {
+            "current": {
+              "selected": false,
+              "text": "openshift-monitoring",
+              "value": "openshift-monitoring"
+            },
+            "description": null,
+            "error": null,
+            "hide": 0,
+            "includeAll": false,
+            "label": null,
+            "multi": false,
+            "name": "datasource",
+            "options": [],
+            "query": "prometheus",
+            "refresh": 1,
+            "regex": "",
+            "skipUrlSync": false,
+            "type": "datasource"
+          },
+          {
+            "allValue": null,
+            "current": {
+              "selected": false,
+              "text": "moc/smaug",
+              "value": "moc/smaug"
+            },
+            "description": null,
+            "error": null,
+            "hide": 0,
+            "includeAll": false,
+            "label": null,
+            "multi": false,
+            "name": "cluster",
+            "options": [
+              {
+                "selected": true,
+                "text": "moc/smaug",
+                "value": "moc/smaug"
+              },
+              {
+                "selected": false,
+                "text": "moc/infra",
+                "value": "moc/infra"
+              },
+              {
+                "selected": false,
+                "text": "emea/rick",
+                "value": "emea/rick"
+              },
+              {
+                "selected": false,
+                "text": "emea/balrog",
+                "value": "emea/balrog"
+              }
+            ],
+            "query": "moc/smaug,moc/infra,emea/rick,emea/balrog",
+            "queryValue": "",
+            "skipUrlSync": false,
+            "type": "custom"
+          }
+        ]
+      },
+      "time": {
+        "from": "now-6h",
+        "to": "now"
+      },
+      "timepicker": {},
+      "timezone": "",
+      "title": "Cluster Memory overview",
+      "uid": "3_qfQpv7k",
+      "version": 22
+    }

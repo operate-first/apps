@@ -1,0 +1,163 @@
+apiVersion: integreatly.org/v1alpha1
+kind: GrafanaDashboard
+metadata:
+  labels:
+    app: grafana
+  name: cluster-storage-overview
+spec:
+  customFolderName: Cluster Management
+  json: |
+    {
+      "annotations": {
+        "list": [
+          {
+            "builtIn": 1,
+            "datasource": "-- Grafana --",
+            "enable": true,
+            "hide": true,
+            "iconColor": "rgba(0, 211, 255, 1)",
+            "name": "Annotations & Alerts",
+            "target": {
+              "limit": 100,
+              "matchAny": false,
+              "tags": [],
+              "type": "dashboard"
+            },
+            "type": "dashboard"
+          }
+        ]
+      },
+      "editable": true,
+      "gnetId": null,
+      "graphTooltip": 0,
+      "id": 8,
+      "iteration": 1633665678155,
+      "links": [],
+      "panels": [
+        {
+          "aliasColors": {},
+          "breakPoint": "50%",
+          "cacheTimeout": null,
+          "combine": {
+            "label": "Others",
+            "threshold": ".01"
+          },
+          "datasource": "$datasource",
+          "description": "This graph shows the sum of PVC storage requested by namespace.",
+          "fontSize": "80%",
+          "format": "decbytes",
+          "gridPos": {
+            "h": 8,
+            "w": 12,
+            "x": 0,
+            "y": 0
+          },
+          "id": 2,
+          "interval": null,
+          "legend": {
+            "percentage": true,
+            "show": true,
+            "sort": null,
+            "sortDesc": null,
+            "values": true
+          },
+          "legendType": "Right side",
+          "links": [],
+          "nullPointMode": "connected",
+          "pieType": "pie",
+          "pluginVersion": "7.1.1",
+          "strokeWidth": ".05",
+          "targets": [
+            {
+              "exemplar": true,
+              "expr": "sum(kube_persistentvolumeclaim_resource_requests_storage_bytes{cluster=\"$cluster\"}) by (namespace)",
+              "instant": true,
+              "interval": "",
+              "legendFormat": "{{namespace}}",
+              "refId": "A"
+            }
+          ],
+          "timeFrom": null,
+          "timeShift": null,
+          "title": "PVC's by Namespace",
+          "type": "grafana-piechart-panel",
+          "valueName": "current"
+        }
+      ],
+      "schemaVersion": 30,
+      "style": "dark",
+      "tags": [],
+      "templating": {
+        "list": [
+          {
+            "current": {
+              "selected": false,
+              "text": "openshift-monitoring",
+              "value": "openshift-monitoring"
+            },
+            "description": null,
+            "error": null,
+            "hide": 0,
+            "includeAll": false,
+            "label": null,
+            "multi": false,
+            "name": "datasource",
+            "options": [],
+            "query": "prometheus",
+            "refresh": 1,
+            "regex": "",
+            "skipUrlSync": false,
+            "type": "datasource"
+          },
+          {
+            "allValue": null,
+            "current": {
+              "selected": false,
+              "text": "moc/smaug",
+              "value": "moc/smaug"
+            },
+            "description": null,
+            "error": null,
+            "hide": 0,
+            "includeAll": false,
+            "label": null,
+            "multi": false,
+            "name": "cluster",
+            "options": [
+              {
+                "selected": true,
+                "text": "moc/smaug",
+                "value": "moc/smaug"
+              },
+              {
+                "selected": false,
+                "text": "moc/infra",
+                "value": "moc/infra"
+              },
+              {
+                "selected": false,
+                "text": "emea/rick",
+                "value": "emea/rick"
+              },
+              {
+                "selected": false,
+                "text": "emea/balrog",
+                "value": "emea/balrog"
+              }
+            ],
+            "query": "moc/smaug,moc/infra,emea/rick,emea/balrog",
+            "skipUrlSync": false,
+            "type": "custom"
+          }
+        ]
+      },
+      "time": {
+        "from": "now-6h",
+        "to": "now"
+      },
+      "timepicker": {},
+      "timezone": "",
+      "title": "Cluster Storage Overview",
+      "uid": "Z7hD22v7k",
+      "version": 7
+    }
