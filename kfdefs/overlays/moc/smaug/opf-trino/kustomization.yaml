@@ -6,6 +6,7 @@ namespace: opf-trino
 resources:
   - ../../../../base/trino
   - secrets
+  - hive-metastores
 
 patchesJson6902:
   - patch: |
