@@ -10,35 +10,35 @@ patches:
     patch: |
       - op: replace
         path: /metadata/name
-        value: hive-metastore-osc_datacommons_iceberg_dev
+        value: hive-metastore-osc-datacommons-iceberg-dev
       - op: replace
         path: /metadata/labels/trino-catalog
-        value: hive-metastore-osc_datacommons_iceberg_dev
+        value: hive-metastore-osc-datacommons-iceberg-dev
       - op: replace
         path: /spec/selector/trino-catalog
-        value: hive-metastore-osc_datacommons_iceberg_dev
+        value: hive-metastore-osc-datacommons-iceberg-dev
   - target:
       kind: StatefulSet
       name: catalog-name
     patch: |
       - op: replace
         path: /metadata/name
-        value: hive-metastore-osc_datacommons_iceberg_dev
+        value: hive-metastore-osc-datacommons-iceberg-dev
       - op: replace
         path: /metadata/labels/trino-catalog
-        value: hive-metastore-osc_datacommons_iceberg_dev
+        value: hive-metastore-osc-datacommons-iceberg-dev
       - op: replace
         path: /spec/selector/matchLabels/trino-catalog
-        value: hive-metastore-osc_datacommons_iceberg_dev
+        value: hive-metastore-osc-datacommons-iceberg-dev
       - op: replace
         path: /spec/serviceName
-        value: hive-metastore-osc_datacommons_iceberg_dev
+        value: hive-metastore-osc-datacommons-iceberg-dev
       - op: replace
         path: /spec/template/metadata/labels/trino-catalog
-        value: hive-metastore-osc_datacommons_iceberg_dev
+        value: hive-metastore-osc-datacommons-iceberg-dev
       - op: replace
         path: /spec/selector/matchLabels/trino-catalog
-        value: hive-metastore-osc_datacommons_iceberg_dev
+        value: hive-metastore-osc-datacommons-iceberg-dev
       - op: add
         path: /spec/template/spec/containers/0/env/-
         value:
