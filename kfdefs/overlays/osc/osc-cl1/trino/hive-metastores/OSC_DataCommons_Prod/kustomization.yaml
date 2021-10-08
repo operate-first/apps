@@ -2,7 +2,7 @@
 apiVersion: kustomize.config.k8s.io/v1beta1
 kind: Kustomization
 resources:
-  - ../template
+  - ../../../../../../base/trino/hive-metastore-template
 patches:
   - target:
       kind: Service

@@ -19,7 +19,6 @@ spec:
           path: trino
       name: trino
     - kustomizeConfig:
-        # TODO: Change to production bucket when available.
         parameters:
           - name: s3_endpoint_url
             value: s3.us-east-1.amazonaws.com

@@ -6,7 +6,6 @@ namespace: opf-trino
 resources:
   - ../../../../base/trino
   - secrets
-  - secure-route.yaml
 
 patchesJson6902:
   - patch: |
@@ -15,10 +14,6 @@ patchesJson6902:
         value:
           kustomizeConfig:
             parameters:
-              - name: s3_endpoint_url
-                value: s3-openshift-storage.apps.smaug.na.operate-first.cloud
-              - name: s3_credentials_secret
-                value: opf-datacatalog-bucket
               - name: trino_memory_request
                 value: "8Gi"
               - name: trino_memory_limit
