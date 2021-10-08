@@ -22,6 +22,8 @@ resources:
   - ../../../../base/user.openshift.io/groups/odh-admin
   - ../../../../base/user.openshift.io/groups/odh-users
   - ../../../../base/user.openshift.io/groups/cluster-admins
+  - apiserver
+  - ingresscontroller
 
 patchesStrategicMerge:
   - configmaps/cluster-monitoring-config.yaml
