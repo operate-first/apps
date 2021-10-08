@@ -10,35 +10,35 @@ patches:
     patch: |
       - op: replace
         path: /metadata/name
-        value: hive-metastore-data-science_general
+        value: hive-metastore-data-science-general
       - op: replace
         path: /metadata/labels/trino-catalog
-        value: hive-metastore-data-science_general
+        value: hive-metastore-data-science-general
       - op: replace
         path: /spec/selector/trino-catalog
-        value: hive-metastore-data-science_general
+        value: hive-metastore-data-science-general
   - target:
       kind: StatefulSet
       name: catalog-name
     patch: |
       - op: replace
         path: /metadata/name
-        value: hive-metastore-data-science_general
+        value: hive-metastore-data-science-general
       - op: replace
         path: /metadata/labels/trino-catalog
-        value: hive-metastore-data-science_general
+        value: hive-metastore-data-science-general
       - op: replace
         path: /spec/selector/matchLabels/trino-catalog
-        value: hive-metastore-data-science_general
+        value: hive-metastore-data-science-general
       - op: replace
         path: /spec/serviceName
-        value: hive-metastore-data-science_general
+        value: hive-metastore-data-science-general
       - op: replace
         path: /spec/template/metadata/labels/trino-catalog
-        value: hive-metastore-data-science_general
+        value: hive-metastore-data-science-general
       - op: replace
         path: /spec/selector/matchLabels/trino-catalog
-        value: hive-metastore-data-science_general
+        value: hive-metastore-data-science-general
       - op: add
         path: /spec/template/spec/containers/0/env/-
         value:
