@@ -192,10 +192,6 @@ data:
         <value>thrift://hive-metastore-0:9083,thrift://hive-metastore-1:9083,thrift://hive-metastore-2:9083</value>
       </property>
       <property>
-        <name>fs.s3a.path.style.access</name>
-        <value>true</value>
-      </property>
-      <property>
         <name>datanucleus.schema.autoCreateAll</name>
         <value>false</value>
       </property>
@@ -211,7 +207,8 @@ data:
         <name>hive.metastore.warehouse.dir</name>
         <value>s3a://XXX_S3ENDPOINT_XXX/</value>
       </property>
-            <property> <name>fs.s3a.endpoint</name>
+      <property>
+        <name>fs.s3a.endpoint</name>
         <value>XXX_S3ENDPOINT_URL_PREFIX_XXXXXX_S3LOCATION_XXX/</value>
       </property>
      <property>

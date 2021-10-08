@@ -19,33 +19,15 @@ spec:
         instance: trino
         role: trino-worker
     spec:
-      nodeSelector:
-        kubernetes.io/hostname: os-wrk-1
-      tolerations:
-        - key: "no-storage"
-          value: "true"
-          effect: "NoExecute"
       volumes:
         - name: trino-config-volume
           secret:
             secretName: trino-config
             defaultMode: 420
-            items:
-              - key: config-worker.properties
-                path: config-worker.properties
-              - key: jvm.config
-                path: jvm.config
-              - key: log.properties
-                path: log.properties
-              - key: node.properties
-                path: node.properties
         - name: trino-catalogs-volume
           secret:
             secretName: trino-catalog
             defaultMode: 420
-            items:
-              - key: hive.properties
-                path: hive.properties
       containers:
         - resources:
             requests:
@@ -63,16 +45,6 @@ spec:
                 fieldRef:
                   apiVersion: v1
                   fieldPath: metadata.uid
-            - name: AWS_ACCESS_KEY_ID
-              valueFrom:
-                secretKeyRef:
-                  name: $(s3_credentials_secret)
-                  key: AWS_ACCESS_KEY_ID
-            - name: AWS_SECRET_ACCESS_KEY
-              valueFrom:
-                secretKeyRef:
-                  name: $(s3_credentials_secret)
-                  key: AWS_SECRET_ACCESS_KEY
           ports:
             - containerPort: 8080
               protocol: TCP
@@ -82,5 +54,8 @@ spec:
             - name: trino-catalogs-volume
               mountPath: /etc/trino/catalog
           image: $(trino_image)
+          envFrom:
+            - secretRef:
+                name: s3buckets
           args:
             - --config=/etc/trino/config-worker.properties
