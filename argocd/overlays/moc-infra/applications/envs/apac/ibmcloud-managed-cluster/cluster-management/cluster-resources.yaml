@@ -1,0 +1,30 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: cluster-resources
+spec:
+  destination:
+    name: ibmcloud-managed-cluster
+    namespace: open-cluster-management-agent
+  ignoreDifferences:
+    - group: imageregistry.operator.openshift.io
+      jsonPointers:
+        - /spec/defaultRoute
+        - /spec/httpSecret
+        - /spec/proxy
+        - /spec/requests
+        - /spec/rolloutStrategy
+      kind: Config
+      name: cluster
+  project: cluster-management
+  source:
+    path: cluster-scope/overlays/prod/apac/ibmcloud-managed-cluster
+    repoURL: https://github.com/operate-first/apps.git
+    targetRevision: HEAD
+  syncPolicy:
+    automated:
+      prune: true
+      selfHeal: true
+    syncOptions:
+    - Validate=false
+    - ApplyOutOfSyncOnly=true

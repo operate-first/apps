@@ -11,3 +11,4 @@ resources:
 - app-of-apps-smaug.yaml
 - workshops-app-of-apps.yaml
 - app-of-apps-demo.yaml
+- app-of-apps-ibmcloud-managed-cluster.yaml

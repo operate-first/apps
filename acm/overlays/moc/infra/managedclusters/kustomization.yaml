@@ -8,3 +8,4 @@ resources:
 - rick.yaml
 - smaug.yaml
 - demo.yaml
+- ibmcloud-managed-cluster.yaml

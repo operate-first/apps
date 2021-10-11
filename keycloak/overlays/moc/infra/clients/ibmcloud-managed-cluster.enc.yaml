@@ -1,0 +1,52 @@
+apiVersion: keycloak.org/v1alpha1
+kind: KeycloakClient
+metadata:
+    name: ibmcloud-managed-cluster
+    labels:
+        client: ibmcloud-managed-cluster
+spec:
+    client:
+        clientId: ibmcloud-managed-cluster
+        defaultClientScopes:
+            - profile
+        description: A cluster in IBM Cloud
+        name: ibmcloud-managed-cluster cluster
+        protocol: openid-connect
+        secret: ENC[AES256_GCM,data:j3lF/XcVrEUAThX7mGGtYfKOm/LzW8iOdYCozhb1HFEw+Fyz,iv:ESsSC65AAFie6JjvQ+RjEX/Rqp0D0p8ahqG6eKzZaK0=,tag:PBjVNkwbDLnQkEgxsa9vVQ==,type:str]
+        standardFlowEnabled: true
+        redirectUris:
+            - https://oauth-openshift.ibmcloud-managed-cluster-b8ef7649236a07f2b2866d2585e12cb2-0000.jp-tok.containers.appdomain.cloud/oauth2callback/operate-first
+    realmSelector:
+        matchLabels:
+            realm: operate-first
+sops:
+    kms: []
+    gcp_kms: []
+    azure_kv: []
+    hc_vault: []
+    age: []
+    lastmodified: "2021-10-11T11:46:07Z"
+    mac: ENC[AES256_GCM,data:aoa9MXNLo1/Dc0wKoYwFEMocbyrnEb6kD9AM6u2z07KgQ4AtcbpdYG+vSEtEbm9CRpS6+efLep+XeDMZQy8ifb51wJSPPUblboXrTVCFRTrjSSnu699H1ROAMZ9JUhjEy1j17Kc9rXPiorgKyiTzhryIlYSyOwZ14I/m/9P1jLg=,iv:Tm+OIMuFw5RhK7Cx7JPh2ldOd0Hvw2b5gACFiBe4BKY=,tag:VyJpqxtEBg8jM29jfmRTSQ==,type:str]
+    pgp:
+        - created_at: "2021-10-11T11:46:07Z"
+          enc: |-
+            -----BEGIN PGP MESSAGE-----
+
+            wcFMA9aKBcudqifiARAAliWmzmnkr2Cu/eV2ECimXCA/eqvZ9xRMLNIXAVFWw1i4
+            ijzAcpm45pjKmOVQ/TwU2T7IRaEl/YuiiTXpldN/1NTQopmZdgeRGwkBk8pQNLrZ
+            uRtPq/GD2TiwUMVlwaGxxtClKVqlowrZ3I9IcMz1OnzdspQ498f5z771/Y8omDw0
+            rTbcgfFcPTvJsPdB/TdzuuHnj28hz4GwdBUj5KKa6VL6hEWdGC/Yj1TpgYBGR7vi
+            hQs5ElhdK5sHmt4qojwC+WJH5tSLYP7/PXc9KyO2DEZeeu4inbQqdgpFN4R14QnU
+            DMm/qzUIleQ3E5kLMmPntGIq8gplqMjvvFZV5Uf3Q5z9U6cte3NcytkUnxvznXab
+            ndvyLtTUjE6v8GyL+t//K3z3NrTW6NH0T2EOdWHbHU5hgoRkOLgHogOLOnF3/Xq6
+            z3ENqtK+DoBg5D58Kghf5CmE+MRQfgxLar7y7glyC7lihPfw/Lzbl0Yv8SX4tS9x
+            0v8/ZZI8RogaTzyqaAalIUQTskba6p6U1f07jn7UVcaSr1XEPG4Orkca6J9RU14X
+            jVXnjj3XOR8CBFYhKeXqk4o2YYL/LnGyG47+l96eJNPZrq/0L1egb2RZZ7c6+zI2
+            e+luvrj+KXX2nUHucJt6qqlQFMMfX47GoQyDO1Z/LIfsxgLw+HeVCEr8TEM0sXrS
+            5gEy69PWW9RvpHd2WLizaHBpsQeVmzycnoFG0DpLl6QjgD8CAk86ip2b4QDgbCZ/
+            g4+taXHzo1lI75BJgnp0gZfkl248X15IiE/+BV0l3zZvruI2wBe5AA==
+            =Qxau
+            -----END PGP MESSAGE-----
+          fp: 0508677DD04952D06A943D5B4DC4116D360E3276
+    encrypted_regex: ^secret$
+    version: 3.7.1
