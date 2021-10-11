@@ -17,6 +17,7 @@ resources:
   - ../../../../base/core/namespaces/dex
   - ../../../../base/core/namespaces/ds-ml-workflows-ws
   - ../../../../base/core/namespaces/koku-metrics-operator
+  - ../../../../base/core/namespaces/openshift-logging
   - ../../../../base/core/namespaces/openshift-nmstate
   - ../../../../base/core/namespaces/openshift-pipelines
   - ../../../../base/core/namespaces/opf-alertreceiver
@@ -48,10 +49,12 @@ resources:
   - ../../../../base/core/persistentvolumeclaims/image-registry-storage
   - ../../../../base/nmstate.io/nmstates/nmstate
   - ../../../../base/imageregistry.operator.openshift.io/configs/cluster
+  - ../../../../base/operators.coreos.com/operatorgroups/cluster-logging
   - ../../../../base/operators.coreos.com/operatorgroups/koku-metrics-operator
   - ../../../../base/operators.coreos.com/operatorgroups/openshift-nmstate
   - ../../../../base/operators.coreos.com/operatorgroups/opf-monitoring
   - ../../../../base/operators.coreos.com/subscriptions/cert-manager
+  - ../../../../base/operators.coreos.com/subscriptions/cluster-logging
   - ../../../../base/operators.coreos.com/subscriptions/koku-metrics-operator
   - ../../../../base/operators.coreos.com/subscriptions/kubernetes-nmstate-operator
   - ../../../../base/operators.coreos.com/subscriptions/openshift-pipelines-operator-rh
@@ -85,5 +88,6 @@ patchesStrategicMerge:
   - groups/cluster-admins.yaml
   - oauths/cluster_patch.yaml
   - storageclasses/moc-nfs-csi_patch.yaml
+  - subscriptions/cluster-logging-operator_patch.yaml
   - subscriptions/kubernetes-nmstate-operator_patch.yaml
   - subscriptions/openshift-pipelines-operator-rh_patch.yaml
