@@ -31,7 +31,7 @@ spec:
       "gnetId": null,
       "graphTooltip": 0,
       "id": 5,
-      "iteration": 1633665869899,
+      "iteration": 1633725003409,
       "links": [],
       "panels": [
         {
@@ -549,7 +549,7 @@ spec:
           ],
           "timeFrom": null,
           "timeShift": null,
-          "title": "CPU ResourceQuota By Namespace",
+          "title": "CPU ResourceQuota (Requests) By Namespace",
           "type": "grafana-piechart-panel",
           "valueName": "current"
         },
@@ -956,10 +956,12 @@ spec:
           {
             "allValue": null,
             "current": {
-              "selected": true,
+              "selected": false,
               "text": "moc/smaug",
               "value": "moc/smaug"
             },
+            "datasource": "${datasource}",
+            "definition": "label_values(kubelet_node_name, cluster)",
             "description": null,
             "error": null,
             "hide": 0,
@@ -967,42 +969,26 @@ spec:
             "label": null,
             "multi": false,
             "name": "cluster",
-            "options": [
-              {
-                "selected": true,
-                "text": "moc/smaug",
-                "value": "moc/smaug"
-              },
-              {
-                "selected": false,
-                "text": "moc/infra",
-                "value": "moc/infra"
-              },
-              {
-                "selected": false,
-                "text": "emea/rick",
-                "value": "emea/rick"
-              },
-              {
-                "selected": false,
-                "text": "emea/balrog",
-                "value": "emea/balrog"
-              }
-            ],
-            "query": "moc/smaug,moc/infra,emea/rick,emea/balrog",
-            "queryValue": "",
+            "options": [],
+            "query": {
+              "query": "label_values(kubelet_node_name, cluster)",
+              "refId": "StandardVariableQuery"
+            },
+            "refresh": 2,
+            "regex": "",
             "skipUrlSync": false,
-            "type": "custom"
+            "sort": 0,
+            "type": "query"
           }
         ]
       },
       "time": {
-        "from": "now-5m",
+        "from": "now-6h",
         "to": "now"
       },
       "timepicker": {},
       "timezone": "",
       "title": "Cluster CPU overview",
       "uid": "nA4fwtvnz",
-      "version": 39
+      "version": 41
     }
