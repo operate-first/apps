@@ -6,3 +6,4 @@ resources:
   - kfdef.yaml
   - profiles
   - notebook-images
+  - ./pvcs/
