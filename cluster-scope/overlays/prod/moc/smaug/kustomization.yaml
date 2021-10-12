@@ -19,6 +19,7 @@ resources:
   - ../../../../base/core/namespaces/ds-ml-workflows-ws
   - ../../../../base/core/namespaces/koku-metrics-operator
   - ../../../../base/core/namespaces/openshift-logging
+  - ../../../../base/core/namespaces/openshift-nfd
   - ../../../../base/core/namespaces/openshift-nmstate
   - ../../../../base/core/namespaces/openshift-pipelines
   - ../../../../base/core/namespaces/opf-alertreceiver
@@ -57,6 +58,7 @@ resources:
   - ../../../../base/operators.coreos.com/catalogsources/pulp-catalog
   - ../../../../base/operators.coreos.com/operatorgroups/koku-metrics-operator
   - ../../../../base/operators.coreos.com/operatorgroups/openshift-nmstate
+  - ../../../../base/operators.coreos.com/operatorgroups/openshift-nfd
   - ../../../../base/operators.coreos.com/operatorgroups/opf-monitoring
   - ../../../../base/operators.coreos.com/operatorgroups/pulp-operator
   - ../../../../base/operators.coreos.com/subscriptions/cert-manager
@@ -65,6 +67,7 @@ resources:
   - ../../../../base/operators.coreos.com/subscriptions/kubernetes-nmstate-operator
   - ../../../../base/operators.coreos.com/subscriptions/openshift-pipelines-operator-rh
   - ../../../../base/operators.coreos.com/subscriptions/opf-grafana
+  - ../../../../base/operators.coreos.com/subscriptions/nfd
   - ../../../../base/operators.coreos.com/subscriptions/pulp-operator
   - ../../../../base/rbac.authorization.k8s.io/clusterrolebindings/acme-operator
   - ../../../../base/rbac.authorization.k8s.io/clusterrolebindings/cluster-interceptor-opf-ci-pipelines
@@ -97,4 +100,5 @@ patchesStrategicMerge:
   - storageclasses/moc-nfs-csi_patch.yaml
   - subscriptions/cluster-logging-operator_patch.yaml
   - subscriptions/kubernetes-nmstate-operator_patch.yaml
+  - subscriptions/nfd_patch.yaml
   - subscriptions/openshift-pipelines-operator-rh_patch.yaml
