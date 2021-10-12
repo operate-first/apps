@@ -13,6 +13,7 @@ resources:
   - ../../../../base/core/configmaps/cluster-monitoring-config
   - ../../../../base/core/configmaps/user-workload-monitoring-config
   - ../../../../base/core/namespaces/acme-operator
+  - ../../../../base/core/namespaces/aicoe-meteor
   - ../../../../base/core/namespaces/democratic-csi
   - ../../../../base/core/namespaces/dex
   - ../../../../base/core/namespaces/ds-ml-workflows-ws
