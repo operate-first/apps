@@ -37,6 +37,7 @@ resources:
   - ../../../../base/core/namespaces/opf-superset
   - ../../../../base/core/namespaces/opf-trino
   - ../../../../base/core/namespaces/report-system
+  - ../../../../base/core/namespaces/pulp-operator
   - ../../../../base/core/namespaces/tekton-pipelines
   - ../../../../base/core/namespaces/thoth-amun-api-prod
   - ../../../../base/core/namespaces/thoth-amun-inspection-prod
@@ -47,19 +48,23 @@ resources:
   - ../../../../base/core/namespaces/thoth-graph-prod
   - ../../../../base/core/namespaces/thoth-infra-prod
   - ../../../../base/core/namespaces/thoth-middletier-prod
+  - ../../../../base/core/namespaces/thoth-pulp-experiments
   - ../../../../base/core/persistentvolumeclaims/image-registry-storage
   - ../../../../base/nmstate.io/nmstates/nmstate
   - ../../../../base/imageregistry.operator.openshift.io/configs/cluster
   - ../../../../base/operators.coreos.com/operatorgroups/cluster-logging
+  - ../../../../base/operators.coreos.com/catalogsources/pulp-catalog
   - ../../../../base/operators.coreos.com/operatorgroups/koku-metrics-operator
   - ../../../../base/operators.coreos.com/operatorgroups/openshift-nmstate
   - ../../../../base/operators.coreos.com/operatorgroups/opf-monitoring
+  - ../../../../base/operators.coreos.com/operatorgroups/pulp-operator
   - ../../../../base/operators.coreos.com/subscriptions/cert-manager
   - ../../../../base/operators.coreos.com/subscriptions/cluster-logging
   - ../../../../base/operators.coreos.com/subscriptions/koku-metrics-operator
   - ../../../../base/operators.coreos.com/subscriptions/kubernetes-nmstate-operator
   - ../../../../base/operators.coreos.com/subscriptions/openshift-pipelines-operator-rh
   - ../../../../base/operators.coreos.com/subscriptions/opf-grafana
+  - ../../../../base/operators.coreos.com/subscriptions/pulp-operator
   - ../../../../base/rbac.authorization.k8s.io/clusterrolebindings/acme-operator
   - ../../../../base/rbac.authorization.k8s.io/clusterrolebindings/cluster-interceptor-opf-ci-pipelines
   - ../../../../base/rbac.authorization.k8s.io/clusterrolebindings/moc-nfs-democratic-csi-controller-rb
