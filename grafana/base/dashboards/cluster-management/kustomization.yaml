@@ -5,4 +5,6 @@ kind: Kustomization
 resources:
   - cluster-cpu-overview.yaml
   - cluster-memory-overview.yaml
+  - cluster-pod-overview.yaml
+  - cluster-storage-overview.yaml
   - namespace_cpu_and_memory_overview.yaml
