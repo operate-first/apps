@@ -1,0 +1,92 @@
+apiVersion: apiextensions.k8s.io/v1
+kind: CustomResourceDefinition
+metadata:
+  annotations:
+    controller-gen.kubebuilder.io/version: v0.4.1
+  creationTimestamp: null
+  name: reports.batch.curator.openshift.io
+spec:
+  group: batch.curator.openshift.io
+  names:
+    kind: Report
+    listKind: ReportList
+    plural: reports
+    singular: report
+  scope: Namespaced
+  versions:
+  - name: v1
+    schema:
+      openAPIV3Schema:
+        description: Report is the Schema for the reports API
+        properties:
+          apiVersion:
+            description: 'APIVersion defines the versioned schema of this representation
+              of an object. Servers should convert recognized schemas to the latest
+              internal value, and may reject unrecognized values. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#resources'
+            type: string
+          kind:
+            description: 'Kind is a string value representing the REST resource this
+              object represents. Servers may infer this from the endpoint the client
+              submits requests to. Cannot be updated. In CamelCase. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#types-kinds'
+            type: string
+          metadata:
+            type: object
+          spec:
+            description: ReportSpec defines the desired state of Report
+            properties:
+              namespace:
+                minLength: 0
+                type: string
+              reportPeriod:
+                description: 'Specifies how to treat concurrent executions of a Job.
+                  Valid values are: - "Day" (default): daily (24 hrs) report ends
+                  on ReportingEnd; - "Week": weekly (7 days) report ends on ReportingEnd;
+                  - "Month": monthly (30 calendar days) report ends on ReportingEnd'
+                enum:
+                - Day
+                - Week
+                - Month
+                type: string
+              reportingEnd:
+                description: ReportingStart specifies the time this Report should
+                  start from instead of the current time. This is intended for allowing
+                  a Report to start from the past and report on data collected before
+                  the Report was created.
+                format: date-time
+                type: string
+              runImmediately:
+                description: RunImmediately will run the report immediately, ignoring
+                  ReportingStart and, ReportingEnd.
+                type: boolean
+              schedule:
+                description: The schedule in Cron format, see https://en.wikipedia.org/wiki/Cron.
+                minLength: 0
+                type: string
+            required:
+            - namespace
+            - reportingEnd
+            type: object
+          status:
+            description: ReportStatus defines the observed state of Report
+            properties:
+              conditions:
+                type: string
+              lastScheduleTime:
+                description: 'INSERT ADDITIONAL STATUS FIELD - define observed state
+                  of cluster Important: Run "make" to regenerate code after modifying
+                  this file Information when was the last time the report was successfully
+                  generated.'
+                format: date-time
+                type: string
+            type: object
+        type: object
+    served: true
+    storage: true
+    subresources:
+      status: {}
+status:
+  acceptedNames:
+    kind: ""
+    plural: ""
+  conditions: []
+  storedVersions: []
