@@ -8,3 +8,4 @@ resources:
   - jh-idle-culler.yaml
   - prod-aicoe-ci.yaml
   - slack-first.yaml
+  - triage-party.yaml
