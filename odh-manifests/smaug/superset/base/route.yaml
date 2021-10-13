@@ -5,6 +5,7 @@ metadata:
   annotations:
     kubernetes.io/tls-acme: "true"
 spec:
+  host: superset.operate-first.cloud
   to:
     kind: Service
     name: superset
