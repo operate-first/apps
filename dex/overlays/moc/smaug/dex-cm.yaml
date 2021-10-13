@@ -26,7 +26,7 @@ data:
       - id: grafana
         name: Grafana
         redirectURIs:
-          - https://grafana-opf-monitoring.apps.smaug.na.operate-first.cloud/login/generic_oauth
+          - https://grafana.operate-first.cloud/login/generic_oauth
         secretEnv: GRAFANA_SECRET
 
       - id: superset
@@ -39,7 +39,7 @@ data:
       - id: trino
         name: Trino
         redirectURIs:
-          - https://trino-route-opf-trino.apps.smaug.na.operate-first.cloud/oauth2/callback
+          - https://trino.operate-first.cloud/oauth2/callback
         secretEnv: TRINO_SECRET
 
     connectors:
