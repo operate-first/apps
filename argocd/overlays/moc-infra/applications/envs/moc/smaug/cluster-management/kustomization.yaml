@@ -10,3 +10,4 @@ resources:
   - moc-nfs-democratic-csi.yaml
   - node-labeler.yaml
   - odh-operator.yaml
+  - nfd.yaml

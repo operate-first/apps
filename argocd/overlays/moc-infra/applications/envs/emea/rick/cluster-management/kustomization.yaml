@@ -5,3 +5,4 @@ resources:
   - cluster-resources.yaml
   - local-storage.yaml
   - kubevirt-hyperconverged.yaml
+  - nfd.yaml
