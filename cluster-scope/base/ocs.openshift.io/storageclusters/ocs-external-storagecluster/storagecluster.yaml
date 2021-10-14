@@ -1,0 +1,12 @@
+apiVersion: ocs.openshift.io/v1
+kind: StorageCluster
+metadata:
+    annotations:
+        uninstall.ocs.openshift.io/cleanup-policy: delete
+        uninstall.ocs.openshift.io/mode: graceful
+    name: ocs-external-storagecluster
+    namespace: openshift-storage
+spec:
+    externalStorage:
+        enable: true
+    version: 4.8.0
