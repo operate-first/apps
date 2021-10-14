@@ -1,0 +1,7 @@
+apiVersion: v1
+kind: Namespace
+metadata:
+    name: ds-github-labeler
+    annotations:
+        openshift.io/requester: data-science
+        openshift.io/display-name: "A project to automatically attach labels to github issues"
