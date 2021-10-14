@@ -3,6 +3,7 @@ kind: Kustomization
 
 patchesStrategicMerge:
   - certificate.yaml
+  - certificate-api.yaml
 
 resources:
   - ../common

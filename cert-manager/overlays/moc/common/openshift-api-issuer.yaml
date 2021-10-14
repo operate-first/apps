@@ -1,0 +1,16 @@
+apiVersion: cert-manager.io/v1
+kind: Issuer
+metadata:
+  name: api-letsencrypt-production
+  namespace: openshift-config
+spec:
+  acme:
+    email: ops-team@operate-first.cloud
+    server: https://acme-v02.api.letsencrypt.org/directory
+    privateKeySecretRef:
+      name: api-certificate
+    solvers:
+      - selector:
+          dnsZones:
+            - "na.operate-first.cloud"
+        http01: {}

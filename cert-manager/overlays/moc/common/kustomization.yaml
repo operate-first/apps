@@ -4,6 +4,7 @@ kind: Kustomization
 resources:
   - ../../../base
   - openshift-ingress-issuer.yaml
+  - openshift-api-issuer.yaml
 
 generators:
   - secret-generator.yaml
