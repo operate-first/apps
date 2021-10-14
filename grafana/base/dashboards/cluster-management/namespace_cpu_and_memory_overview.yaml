@@ -31,7 +31,7 @@ spec:
       "gnetId": null,
       "graphTooltip": 0,
       "id": 7,
-      "iteration": 1633665713747,
+      "iteration": 1633725282339,
       "links": [],
       "panels": [
         {
@@ -312,10 +312,12 @@ spec:
           {
             "allValue": null,
             "current": {
-              "selected": true,
+              "selected": false,
               "text": "moc/smaug",
               "value": "moc/smaug"
             },
+            "datasource": "${datasource}",
+            "definition": "label_values(kubelet_node_name, cluster)",
             "description": null,
             "error": null,
             "hide": 0,
@@ -323,32 +325,16 @@ spec:
             "label": null,
             "multi": false,
             "name": "cluster",
-            "options": [
-              {
-                "selected": true,
-                "text": "moc/smaug",
-                "value": "moc/smaug"
-              },
-              {
-                "selected": false,
-                "text": "moc/infra",
-                "value": "moc/infra"
-              },
-              {
-                "selected": false,
-                "text": "emea/rick",
-                "value": "emea/rick"
-              },
-              {
-                "selected": false,
-                "text": "emea/balrog",
-                "value": "emea/balrog"
-              }
-            ],
-            "query": "moc/smaug,moc/infra,emea/rick,emea/balrog",
-            "queryValue": "",
+            "options": [],
+            "query": {
+              "query": "label_values(kubelet_node_name, cluster)",
+              "refId": "StandardVariableQuery"
+            },
+            "refresh": 2,
+            "regex": "",
             "skipUrlSync": false,
-            "type": "custom"
+            "sort": 0,
+            "type": "query"
           }
         ]
       },
@@ -360,5 +346,5 @@ spec:
       "timezone": "",
       "title": "Namespace CPU and Memory overview",
       "uid": "9iXbjpD7k",
-      "version": 4
+      "version": 5
     }
