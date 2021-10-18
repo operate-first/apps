@@ -72,6 +72,7 @@ resources:
   - ../../../../base/operators.coreos.com/subscriptions/openshift-pipelines-operator-rh
   - ../../../../base/operators.coreos.com/subscriptions/opf-grafana
   - ../../../../base/operators.coreos.com/subscriptions/nfd
+  - ../../../../base/operators.coreos.com/subscriptions/ovms-operator
   - ../../../../base/operators.coreos.com/subscriptions/pulp-operator
   - ../../../../base/operators.coreos.com/subscriptions/vertical-pod-autoscaler
   - ../../../../base/rbac.authorization.k8s.io/clusterrolebindings/acme-operator
