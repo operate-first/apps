@@ -1,0 +1,43 @@
+apiVersion: user.openshift.io/v1
+kind: Group
+metadata:
+    name: debezium
+    annotations:
+        kustomize.config.k8s.io/behavior: replace
+users:
+    - ENC[AES256_GCM,data:j2XjkaED4Gi8+XBsLCPMHUeGqA==,iv:IOsP0fkcjogYV73mc3RjkRP7ns1n+vXGYhV6Of5D/i8=,tag:natUWo/jK1XUFN1cTNhpRg==,type:str]
+    - ENC[AES256_GCM,data:MQmjbe32ojJ/1uL1gPXt1KSN,iv:t0joOok3tuB4dw8+dsq7q1US8u2jSHGHucifKhhkZ5k=,tag:CTpG9lK06j1KmV/5jmKSbQ==,type:str]
+    - ENC[AES256_GCM,data:htmkTV3reZJvWpbQ0U0mr5x25so=,iv:LflzRmFg7VgqCTb/sGASHWDcL35vANZWq9TdrkddAEY=,tag:6YLqcWOCSofGovfczJG+Og==,type:str]
+    - ENC[AES256_GCM,data:PD++nu8cuWcouQKwL+R7IE2qDA==,iv:UR2hND8bF4wYacF3A9NhRzKfLXFKd0aQwj1yVn5MwJw=,tag:3C6Vzm5kI0ipuFQ9bXEJMA==,type:str]
+    - ENC[AES256_GCM,data:vf3RSNKpZVZ5jtN5QaUtD4JG,iv:ytcTgKowwta82+Uu5S+YNanke2K8sVjOdZk9SM+Se2I=,tag:RZ5yJUAlaonlhFTkAiFPmQ==,type:str]
+sops:
+    kms: []
+    gcp_kms: []
+    azure_kv: []
+    hc_vault: []
+    age: []
+    lastmodified: "2021-07-13T12:24:45Z"
+    mac: ENC[AES256_GCM,data:a8LQuyDLU2pZpgzbgWsM9eXSh5V9R6ZiJGbbVFvv75e92muZ0wF0JnxLpyOgC2QjP4KilGuF3KJQan6m+kCAwDDJ8A94os17lRsXRAosTnkcGIrBWyhxiMmMo0RMiYLmGSjmxlb/o+V8q3S4QboDGPFWwBhWxPMhf3lhJvxGPU4=,iv:g2fF+JMeCI3m13YOt0uzdwWHHU43tqUSWLUQxjPtqZs=,tag:7oMBrCL4wAj79PeCc3RF0A==,type:str]
+    pgp:
+        - created_at: "2021-07-13T12:24:44Z"
+          enc: |-
+            -----BEGIN PGP MESSAGE-----
+
+            wcFMA9aKBcudqifiARAAwd9mOFa3Uk20VB/KWiNzTzjoujpFKlXDyc99wQSmQNnF
+            /vw11UGWKOl+Edn4NyO/IwrrdSloX5ZoFCYODEo3TBXCdE1+AR1OItU8kwjxyj37
+            1vt1Pb7x8RzanMbxRs10jGF+zcXCxL2jOkDCNnMBKZnkGA17I6bom0HO5hpO6hKy
+            FQdU5qV7UkH1rQw+7g8ctNSyyFW0QQervJgeeP42rjGZTcr5+/0ke8+P4Wg0YNF6
+            knZi97LxYBWsMgzo1v7zwBkf28XRMqTqeztaliw7WrDXthsHgqTxlVarqiZCpydO
+            keDlBpP1pw2OKGe9RyLOGXr+uHPuRJDmZIebAngVOJq7B4+0fUN/0d9Bqz9Zw8kH
+            Ovt+sr3QZ4LeBp38V+9ILQCViUF9SSC7b8K6O5DX2MZNoiN/19sIFp2kULN9tHN/
+            Y9SmmapCohsJMalaW3LpygBBrnuMIJr5HU0o1WvlbJgLtyVNMSd9Zbh/1hR+Oz1m
+            9zxujc/5nPnjES5cpQ/iNqkS26oY9z6st93Jwn2y3YwSDyQ2+c3xidGC83E9w8ro
+            tzBpDHUyPg/wQVAO+xIy5IM5ME3mhtQNvLyfNqnbveQD8YqKkvdtcANYMzxi0n/i
+            28mHorn9Tx9/UjhEnmYApE7QWg4yeocbpIBocPepTPkIorPA6QwBPO/KwWesx7vS
+            5gEcsD+N9vvNXMaKSuVY+ZNF3KRaaVqfJiauVQCxJMRtDR9REJE4OIwhXk3WRuE8
+            D6NmY+wecHnYIWDMQDDSDiLkg2fR8ZYyldFE3slKRqllFOKn8hYWAA==
+            =f5bn
+            -----END PGP MESSAGE-----
+          fp: 0508677DD04952D06A943D5B4DC4116D360E3276
+    encrypted_regex: ^users$
+    version: 3.7.1

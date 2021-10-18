@@ -23,6 +23,7 @@ resources:
   - ../../../../base/core/namespaces/codait-advo
   - ../../../../base/core/namespaces/democratic-csi
   - ../../../../base/core/namespaces/dex
+  - ../../../../base/core/namespaces/debezium-ui
   - ../../../../base/core/namespaces/ds-black-flake
   - ../../../../base/core/namespaces/ds-example-project
   - ../../../../base/core/namespaces/ds-ml-workflows-ws
