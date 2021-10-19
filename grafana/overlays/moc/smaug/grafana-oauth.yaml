@@ -29,7 +29,8 @@ spec:
       role_attribute_path: >-
         contains(groups[*], 'cluster-admins') && 'Admin' ||
         contains(groups[*], 'operate-first')  && 'Admin' ||
-        ontains(groups[*], 'sre')             && 'Editor' ||
+        contains(groups[*], 'neu-students')   && 'Editor' ||
+        contains(groups[*], 'sre')            && 'Editor' ||
         contains(groups[*], 'data-science')   && 'Viewer' ||
         'Deny'
       role_attribute_strict: true
