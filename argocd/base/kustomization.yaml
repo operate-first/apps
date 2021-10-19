@@ -12,6 +12,7 @@ patchesStrategicMerge:
 - deployments/argocd-server_patch.yaml
 - deployments/argocd-dex-server_patch.yaml
 - deployments/argocd-application-controller_patch.yaml
+- deployments/argocd-redis_patch.yaml
 images:
 - name: quay.io/argoproj/argocd
   newName: quay.io/operate-first/argocd
