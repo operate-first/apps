@@ -2,4 +2,9 @@ apiVersion: user.openshift.io/v1
 kind: Group
 metadata:
     name: debezium
-users: []
+users:
+    - uidoyen
+    - indraraj
+    - mdrillin
+    - gunnarmorling
+    - rk3rn3r

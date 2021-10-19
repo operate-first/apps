@@ -22,13 +22,14 @@ resources:
   - ../../../../base/core/configmaps/user-workload-monitoring-config
   - ../../../../base/core/namespaces/acme-operator
   - ../../../../base/core/namespaces/aicoe-meteor
-  - ../../../../base/core/namespaces/fybrik-applications
-  - ../../../../base/core/namespaces/fybrik-blueprints
-  - ../../../../base/core/namespaces/fybrik-system
+  - ../../../../base/core/namespaces/debezium-ui
   - ../../../../base/core/namespaces/democratic-csi
   - ../../../../base/core/namespaces/dex
   - ../../../../base/core/namespaces/ds-github-labeler
   - ../../../../base/core/namespaces/ds-ml-workflows-ws
+  - ../../../../base/core/namespaces/fybrik-applications
+  - ../../../../base/core/namespaces/fybrik-blueprints
+  - ../../../../base/core/namespaces/fybrik-system
   - ../../../../base/core/namespaces/koku-metrics-operator
   - ../../../../base/core/namespaces/neu-cs6620
   - ../../../../base/core/namespaces/openshift-cnv
