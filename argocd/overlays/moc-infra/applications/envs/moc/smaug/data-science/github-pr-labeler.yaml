@@ -1,0 +1,20 @@
+---
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: github-pr-labeler
+spec:
+  destination:
+    name: smaug
+    namespace: ds-github-labeler
+  project: data-science
+  source:
+    path: manifests/base
+    repoURL: https://github.com/aicoe-aiops/github-labeler.git
+    targetRevision: HEAD
+  syncPolicy:
+    automated:
+      prune: true
+      selfHeal: true
+    syncOptions:
+      - Validate=false

@@ -7,9 +7,9 @@ metadata:
 spec:
   destinations:
     - namespace: 'ds-*'
-      server: 'https://api.zero.massopen.cloud:6443'
+      server: 'https://api.smaug.na.operate-first.cloud:6443'
     - namespace: 'opf-argo'
-      server: 'https://api.zero.massopen.cloud:6443'
+      server: 'https://api.smaug.na.operate-first.cloud:6443'
   sourceRepos:
     - '*'
   roles:
