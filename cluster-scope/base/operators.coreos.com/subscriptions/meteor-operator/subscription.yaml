@@ -1,0 +1,11 @@
+---
+apiVersion: operators.coreos.com/v1alpha1
+kind: Subscription
+metadata:
+  name: meteor-operator
+spec:
+  channel: alpha
+  installPlanApproval: Automatic
+  name: meteor-operator
+  source: meteor-catalog
+  sourceNamespace: openshift-marketplace
