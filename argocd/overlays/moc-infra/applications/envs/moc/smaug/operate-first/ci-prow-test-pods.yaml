@@ -18,7 +18,7 @@ spec:
       kind: CronJob
   project: operate-first
   source:
-    path: prow/overlays/cnv-prod-test-pods
+    path: prow/overlays/smaug-test-pods
     repoURL: https://github.com/thoth-station/thoth-application.git
     targetRevision: master
   syncPolicy:
