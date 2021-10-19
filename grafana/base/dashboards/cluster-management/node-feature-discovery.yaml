@@ -1,0 +1,489 @@
+apiVersion: integreatly.org/v1alpha1
+kind: GrafanaDashboard
+metadata:
+  labels:
+    app: grafana
+  name: node-feature-discovery
+spec:
+  customFolderName: Cluster Management
+  json: |
+    {
+      "__inputs": [
+        {
+          "name": "DS_OPENSHIFT-MONITORING",
+          "label": "openshift-monitoring",
+          "description": "",
+          "type": "datasource",
+          "pluginId": "prometheus",
+          "pluginName": "Prometheus"
+        }
+      ],
+      "__requires": [
+        {
+          "type": "grafana",
+          "id": "grafana",
+          "name": "Grafana",
+          "version": "8.1.1"
+        },
+        {
+          "type": "datasource",
+          "id": "prometheus",
+          "name": "Prometheus",
+          "version": "1.0.0"
+        },
+        {
+          "type": "panel",
+          "id": "table",
+          "name": "Table",
+          "version": ""
+        },
+        {
+          "type": "panel",
+          "id": "text",
+          "name": "Text",
+          "version": ""
+        }
+      ],
+      "annotations": {
+        "list": [
+          {
+            "builtIn": 1,
+            "datasource": "-- Grafana --",
+            "enable": true,
+            "hide": true,
+            "iconColor": "rgba(0, 211, 255, 1)",
+            "name": "Annotations & Alerts",
+            "target": {
+              "limit": 100,
+              "matchAny": false,
+              "tags": [],
+              "type": "dashboard"
+            },
+            "type": "dashboard"
+          }
+        ]
+      },
+      "editable": true,
+      "gnetId": null,
+      "graphTooltip": 0,
+      "id": null,
+      "iteration": 1634223425326,
+      "links": [],
+      "panels": [
+        {
+          "datasource": null,
+          "gridPos": {
+            "h": 1,
+            "w": 24,
+            "x": 0,
+            "y": 0
+          },
+          "id": 9,
+          "title": "Filtered by flag",
+          "type": "row"
+        },
+        {
+          "datasource": "${DS_OPENSHIFT-MONITORING}",
+          "fieldConfig": {
+            "defaults": {
+              "color": {
+                "fixedColor": "dark-green",
+                "mode": "fixed"
+              },
+              "custom": {
+                "align": "center",
+                "displayMode": "color-background-solid"
+              },
+              "mappings": [],
+              "thresholds": {
+                "mode": "absolute",
+                "steps": [
+                  {
+                    "color": "green",
+                    "value": null
+                  }
+                ]
+              }
+            },
+            "overrides": []
+          },
+          "gridPos": {
+            "h": 7,
+            "w": 4,
+            "x": 0,
+            "y": 1
+          },
+          "id": 4,
+          "options": {
+            "showHeader": false,
+            "sortBy": [
+              {
+                "desc": false,
+                "displayName": "node"
+              }
+            ]
+          },
+          "pluginVersion": "8.1.1",
+          "targets": [
+            {
+              "exemplar": false,
+              "expr": "sum(kube_node_labels{label_feature_node_kubernetes_io_cpu_cpuid_$flag=\"true\"}) by (cluster)",
+              "format": "table",
+              "instant": true,
+              "interval": "",
+              "legendFormat": "",
+              "queryType": "randomWalk",
+              "refId": "A"
+            }
+          ],
+          "title": "Clusters with support for \"$flag\"",
+          "transformations": [
+            {
+              "id": "organize",
+              "options": {
+                "excludeByName": {
+                  "Time": true,
+                  "Value": true
+                },
+                "indexByName": {},
+                "renameByName": {}
+              }
+            }
+          ],
+          "type": "table"
+        },
+        {
+          "datasource": "${DS_OPENSHIFT-MONITORING}",
+          "fieldConfig": {
+            "defaults": {
+              "color": {
+                "mode": "thresholds"
+              },
+              "custom": {
+                "align": "auto",
+                "displayMode": "auto"
+              },
+              "mappings": [],
+              "thresholds": {
+                "mode": "absolute",
+                "steps": [
+                  {
+                    "color": "green",
+                    "value": null
+                  },
+                  {
+                    "color": "red",
+                    "value": 80
+                  }
+                ]
+              }
+            },
+            "overrides": []
+          },
+          "gridPos": {
+            "h": 7,
+            "w": 6,
+            "x": 4,
+            "y": 1
+          },
+          "id": 7,
+          "options": {
+            "showHeader": true,
+            "sortBy": [
+              {
+                "desc": false,
+                "displayName": "node"
+              }
+            ]
+          },
+          "pluginVersion": "8.1.1",
+          "targets": [
+            {
+              "exemplar": false,
+              "expr": "sum(kube_node_labels{label_feature_node_kubernetes_io_cpu_cpuid_$flag=\"true\"}) by (node, cluster)",
+              "format": "table",
+              "instant": true,
+              "interval": "",
+              "legendFormat": "",
+              "queryType": "randomWalk",
+              "refId": "A"
+            }
+          ],
+          "title": "Nodes with support for \"$flag\"",
+          "transformations": [
+            {
+              "id": "organize",
+              "options": {
+                "excludeByName": {
+                  "Time": true,
+                  "Value": true
+                },
+                "indexByName": {},
+                "renameByName": {}
+              }
+            }
+          ],
+          "type": "table"
+        },
+        {
+          "datasource": null,
+          "description": "https://kubernetes-sigs.github.io/node-feature-discovery",
+          "gridPos": {
+            "h": 7,
+            "w": 7,
+            "x": 10,
+            "y": 1
+          },
+          "id": 6,
+          "options": {
+            "content": "<pre>\nspec:\n  nodeSelector:\n    feature.node.kubernetes.io/cpu-cpuid.<span style=\"text-transform:uppercase;\">$flag</span>: 'true'\n</pre>",
+            "mode": "markdown"
+          },
+          "pluginVersion": "8.1.1",
+          "targets": [
+            {
+              "queryType": "randomWalk",
+              "refId": "A"
+            }
+          ],
+          "title": "Node selector for \"$flag\"",
+          "type": "text"
+        },
+        {
+          "collapsed": false,
+          "datasource": null,
+          "gridPos": {
+            "h": 1,
+            "w": 24,
+            "x": 0,
+            "y": 8
+          },
+          "id": 11,
+          "panels": [],
+          "title": "Cluster \"$cluster\" details",
+          "type": "row"
+        },
+        {
+          "datasource": "${DS_OPENSHIFT-MONITORING}",
+          "fieldConfig": {
+            "defaults": {
+              "color": {
+                "mode": "thresholds"
+              },
+              "custom": {
+                "align": "center",
+                "displayMode": "auto",
+                "filterable": true
+              },
+              "mappings": [
+                {
+                  "options": {
+                    "match": "true",
+                    "result": {
+                      "index": 0,
+                      "text": "🟢"
+                    }
+                  },
+                  "type": "special"
+                },
+                {
+                  "options": {
+                    "match": "false",
+                    "result": {
+                      "index": 1,
+                      "text": "🔴"
+                    }
+                  },
+                  "type": "special"
+                },
+                {
+                  "options": {
+                    "match": "empty",
+                    "result": {
+                      "index": 2,
+                      "text": "🔴"
+                    }
+                  },
+                  "type": "special"
+                }
+              ],
+              "thresholds": {
+                "mode": "absolute",
+                "steps": [
+                  {
+                    "color": "transparent",
+                    "value": null
+                  }
+                ]
+              }
+            },
+            "overrides": [
+              {
+                "matcher": {
+                  "id": "byName",
+                  "options": "node"
+                },
+                "properties": [
+                  {
+                    "id": "custom.filterable"
+                  }
+                ]
+              }
+            ]
+          },
+          "gridPos": {
+            "h": 21,
+            "w": 24,
+            "x": 0,
+            "y": 9
+          },
+          "id": 2,
+          "options": {
+            "showHeader": true,
+            "sortBy": []
+          },
+          "pluginVersion": "8.1.1",
+          "targets": [
+            {
+              "exemplar": true,
+              "expr": "kube_node_labels{} * on (node) group_left sum(kube_node_labels{cluster=\"$cluster\"}) by (node)",
+              "format": "table",
+              "hide": false,
+              "instant": true,
+              "interval": "",
+              "legendFormat": "",
+              "queryType": "randomWalk",
+              "refId": "A"
+            }
+          ],
+          "title": "Supported flags on cluster \"$cluster\"",
+          "transformations": [
+            {
+              "id": "filterFieldsByName",
+              "options": {
+                "include": {
+                  "pattern": ".*cpu_cpuid_.*|node"
+                }
+              }
+            },
+            {
+              "id": "organize",
+              "options": {
+                "excludeByName": {
+                  "label_feature_node_kubernetes_io_cpu_pstate_scaling_governor": true,
+                  "label_feature_node_kubernetes_io_cpu_pstate_status": true,
+                  "label_feature_node_kubernetes_io_cpu_pstate_turbo": false
+                },
+                "indexByName": {
+                  "cluster": 0,
+                  "label_feature_node_kubernetes_io_cpu_cpuid_aesni": 2,
+                  "label_feature_node_kubernetes_io_cpu_cpuid_avx": 3,
+                  "label_feature_node_kubernetes_io_cpu_cpuid_avxslow": 4,
+                  "label_feature_node_kubernetes_io_cpu_cpuid_ibpb": 5,
+                  "label_feature_node_kubernetes_io_cpu_cpuid_sse4": 6,
+                  "label_feature_node_kubernetes_io_cpu_cpuid_sse42": 7,
+                  "label_feature_node_kubernetes_io_cpu_cpuid_stibp": 8,
+                  "label_feature_node_kubernetes_io_cpu_cpuid_vmx": 9,
+                  "label_feature_node_kubernetes_io_cpu_cstate_enabled": 10,
+                  "label_feature_node_kubernetes_io_cpu_hardware_multithreading": 11,
+                  "label_feature_node_kubernetes_io_cpu_pstate_scaling_governor": 12,
+                  "label_feature_node_kubernetes_io_cpu_pstate_status": 13,
+                  "label_feature_node_kubernetes_io_cpu_pstate_turbo": 14,
+                  "node": 1
+                },
+                "renameByName": {}
+              }
+            },
+            {
+              "id": "renameByRegex",
+              "options": {
+                "regex": "label_feature_node_kubernetes_io_cpu_cpuid_",
+                "renamePattern": ""
+              }
+            }
+          ],
+          "type": "table"
+        }
+      ],
+      "refresh": false,
+      "schemaVersion": 30,
+      "style": "dark",
+      "tags": [],
+      "templating": {
+        "list": [
+          {
+            "allValue": null,
+            "current": {
+              "selected": true,
+              "text": "moc/smaug",
+              "value": "moc/smaug"
+            },
+            "description": null,
+            "error": null,
+            "hide": 0,
+            "includeAll": false,
+            "label": "Cluster",
+            "multi": false,
+            "name": "cluster",
+            "options": [
+              {
+                "selected": true,
+                "text": "moc/smaug",
+                "value": "moc/smaug"
+              },
+              {
+                "selected": false,
+                "text": "moc/infra",
+                "value": "moc/infra"
+              },
+              {
+                "selected": false,
+                "text": "emea/rick",
+                "value": "emea/rick"
+              },
+              {
+                "selected": false,
+                "text": "emea/balrog",
+                "value": "emea/balrog"
+              }
+            ],
+            "query": "moc/smaug,moc/infra,emea/rick,emea/balrog",
+            "queryValue": "",
+            "skipUrlSync": false,
+            "type": "custom"
+          },
+          {
+            "allValue": null,
+            "current": {},
+            "datasource": "${DS_OPENSHIFT-MONITORING}",
+            "definition": "label_names()",
+            "description": "Filter all clusters and all nodes by a flag to see which clusters and nodes can be scheduled",
+            "error": null,
+            "hide": 0,
+            "includeAll": false,
+            "label": "Global flag filter",
+            "multi": false,
+            "name": "flag",
+            "options": [],
+            "query": {
+              "query": "label_names()",
+              "refId": "StandardVariableQuery"
+            },
+            "refresh": 1,
+            "regex": "/label_feature_node_kubernetes_io_cpu_cpuid_(.*)/",
+            "skipUrlSync": false,
+            "sort": 0,
+            "type": "query"
+          }
+        ]
+      },
+      "time": {
+        "from": "now-5m",
+        "to": "now"
+      },
+      "timepicker": {},
+      "timezone": "",
+      "title": "Node feature discovery",
+      "uid": "LCLH8kd7z",
+      "version": 8
+    }

@@ -31,7 +31,7 @@ spec:
       "gnetId": null,
       "graphTooltip": 0,
       "id": 8,
-      "iteration": 1633665678155,
+      "iteration": 1633725270713,
       "links": [],
       "panels": [
         {
@@ -116,6 +116,8 @@ spec:
               "text": "moc/smaug",
               "value": "moc/smaug"
             },
+            "datasource": "${datasource}",
+            "definition": "label_values(kubelet_node_name, cluster)",
             "description": null,
             "error": null,
             "hide": 0,
@@ -123,31 +125,16 @@ spec:
             "label": null,
             "multi": false,
             "name": "cluster",
-            "options": [
-              {
-                "selected": true,
-                "text": "moc/smaug",
-                "value": "moc/smaug"
-              },
-              {
-                "selected": false,
-                "text": "moc/infra",
-                "value": "moc/infra"
-              },
-              {
-                "selected": false,
-                "text": "emea/rick",
-                "value": "emea/rick"
-              },
-              {
-                "selected": false,
-                "text": "emea/balrog",
-                "value": "emea/balrog"
-              }
-            ],
-            "query": "moc/smaug,moc/infra,emea/rick,emea/balrog",
+            "options": [],
+            "query": {
+              "query": "label_values(kubelet_node_name, cluster)",
+              "refId": "StandardVariableQuery"
+            },
+            "refresh": 2,
+            "regex": "",
             "skipUrlSync": false,
-            "type": "custom"
+            "sort": 0,
+            "type": "query"
           }
         ]
       },
@@ -159,5 +146,5 @@ spec:
       "timezone": "",
       "title": "Cluster Storage Overview",
       "uid": "Z7hD22v7k",
-      "version": 7
+      "version": 8
     }

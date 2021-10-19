@@ -4,6 +4,7 @@ components:
 - ../../../../components/project-admin-rolebindings/odh-admin
 - ../../../../components/project-view-rolebindings/data-science
 - ../../../../components/monitoring-rbac
+- ../../../../components/limitranges/default
 kind: Kustomization
 namespace: opf-monitoring
 resources:

@@ -8,4 +8,5 @@ resources:
   - opf-jupyterhub
   - opf-jupyterhub-stage
   - opf-kafka
+  - opf-superset
   - opf-trino

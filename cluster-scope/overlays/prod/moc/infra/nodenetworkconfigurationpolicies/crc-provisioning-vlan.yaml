@@ -1,68 +1,68 @@
-apiVersion: nmstate.io/v1alpha1
+apiVersion: nmstate.io/v1beta1
 kind: NodeNetworkConfigurationPolicy
 metadata:
-  name: zero-provisioning-vlan-ctrl-0
+  name: crc-provisioning-vlan-ctrl-0
 spec:
   nodeSelector:
     kubernetes.io/hostname: os-ctrl-0
   desiredState:
     interfaces:
-      - name: eno1.294
-        description: zero cluster provisioning network
+      - name: eno1.307
+        description: crc cluster provisioning network
         type: vlan
         state: up
         vlan:
           base-iface: eno1
-          id: 294
+          id: 307
         ipv4:
           enabled: true
           dhcp: false
           address:
-            - ip: 172.22.2.250
+            - ip: 172.22.1.250
               prefix-length: 24
 ---
-apiVersion: nmstate.io/v1alpha1
+apiVersion: nmstate.io/v1beta1
 kind: NodeNetworkConfigurationPolicy
 metadata:
-  name: zero-provisioning-vlan-ctrl-1
+  name: crc-provisioning-vlan-ctrl-1
 spec:
   nodeSelector:
     kubernetes.io/hostname: os-ctrl-1
   desiredState:
     interfaces:
-      - name: eno1.294
-        description: zero cluster provisioning network
+      - name: eno1.307
+        description: crc cluster provisioning network
         type: vlan
         state: up
         vlan:
           base-iface: eno1
-          id: 294
+          id: 307
         ipv4:
           enabled: true
           dhcp: false
           address:
-            - ip: 172.22.2.251
+            - ip: 172.22.1.251
               prefix-length: 24
 ---
-apiVersion: nmstate.io/v1alpha1
+apiVersion: nmstate.io/v1beta1
 kind: NodeNetworkConfigurationPolicy
 metadata:
-  name: zero-provisioning-vlan-ctrl-2
+  name: crc-provisioning-vlan-ctrl-2
 spec:
   nodeSelector:
     kubernetes.io/hostname: os-ctrl-2
   desiredState:
     interfaces:
-      - name: eno1.294
-        description: zero cluster provisioning network
+      - name: eno1.307
+        description: crc cluster provisioning network
         type: vlan
         state: up
         vlan:
           base-iface: eno1
-          id: 294
+          id: 307
         ipv4:
           enabled: true
           dhcp: false
           address:
-            - ip: 172.22.2.252
+            - ip: 172.22.1.252
               prefix-length: 24

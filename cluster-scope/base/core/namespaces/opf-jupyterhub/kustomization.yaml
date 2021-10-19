@@ -6,6 +6,7 @@ components:
 - ../../../../components/project-logs-reader
 - ../../../../components/monitoring-rbac
 - ../../../../components/odh-dashboard
+- ../../../../components/limitranges/default
 kind: Kustomization
 namespace: opf-jupyterhub
 resources:

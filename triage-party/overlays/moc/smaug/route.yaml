@@ -1,0 +1,12 @@
+apiVersion: route.openshift.io/v1
+kind: Route
+metadata:
+  name: triage-party
+  annotations:
+    kubernetes.io/tls-acme: "true"
+    haproxy.router.openshift.io/timeout: 45s
+spec:
+  host: triage-party.operate-first.cloud
+  to:
+    kind: Service
+    name: triage-party

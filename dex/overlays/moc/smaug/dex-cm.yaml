@@ -26,8 +26,22 @@ data:
       - id: grafana
         name: Grafana
         redirectURIs:
-          - https://grafana-opf-monitoring.apps.smaug.na.operate-first.cloud/login/generic_oauth
+          - https://grafana.operate-first.cloud/login/generic_oauth
         secretEnv: GRAFANA_SECRET
+
+      - id: superset
+        name: Superset
+        redirectURIs:
+          - http://superset.operate-first.cloud/oauth-authorized/dex
+          - https://superset.operate-first.cloud/oauth-authorized/dex
+        secretEnv: SUPERSET_SECRET
+
+      - id: trino
+        name: Trino
+        redirectURIs:
+          - https://trino.operate-first.cloud/oauth2/callback
+        secretEnv: TRINO_SECRET
+
     connectors:
       - type: openshift
         id: openshift

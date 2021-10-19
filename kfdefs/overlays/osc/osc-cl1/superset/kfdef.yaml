@@ -12,7 +12,7 @@ spec:
     - kustomizeConfig:
         parameters:
           - name: SUPERSET_IMAGE
-            value: quay.io/opendatahub/superset:1.1.0
+            value: quay.io/opendatahub/superset:1.3.0
         repoRef:
           name: manifests
           path: superset

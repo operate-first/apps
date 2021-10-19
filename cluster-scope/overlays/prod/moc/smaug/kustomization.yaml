@@ -13,12 +13,18 @@ resources:
   - ../../../../base/core/configmaps/cluster-monitoring-config
   - ../../../../base/core/configmaps/user-workload-monitoring-config
   - ../../../../base/core/namespaces/acme-operator
+  - ../../../../base/core/namespaces/aicoe-meteor
   - ../../../../base/core/namespaces/democratic-csi
   - ../../../../base/core/namespaces/dex
+  - ../../../../base/core/namespaces/ds-github-labeler
   - ../../../../base/core/namespaces/ds-ml-workflows-ws
   - ../../../../base/core/namespaces/koku-metrics-operator
+  - ../../../../base/core/namespaces/neu-cs6620
+  - ../../../../base/core/namespaces/openshift-logging
+  - ../../../../base/core/namespaces/openshift-nfd
   - ../../../../base/core/namespaces/openshift-nmstate
   - ../../../../base/core/namespaces/openshift-pipelines
+  - ../../../../base/core/namespaces/openshift-vertical-pod-autoscaler
   - ../../../../base/core/namespaces/opf-alertreceiver
   - ../../../../base/core/namespaces/opf-argo
   - ../../../../base/core/namespaces/opf-ci-pipelines
@@ -33,8 +39,10 @@ resources:
   - ../../../../base/core/namespaces/opf-dashboard
   - ../../../../base/core/namespaces/opf-slack-first
   - ../../../../base/core/namespaces/opf-superset
+  - ../../../../base/core/namespaces/opf-triage-party
   - ../../../../base/core/namespaces/opf-trino
   - ../../../../base/core/namespaces/report-system
+  - ../../../../base/core/namespaces/pulp-operator
   - ../../../../base/core/namespaces/tekton-pipelines
   - ../../../../base/core/namespaces/thoth-amun-api-prod
   - ../../../../base/core/namespaces/thoth-amun-inspection-prod
@@ -45,17 +53,31 @@ resources:
   - ../../../../base/core/namespaces/thoth-graph-prod
   - ../../../../base/core/namespaces/thoth-infra-prod
   - ../../../../base/core/namespaces/thoth-middletier-prod
+  - ../../../../base/core/namespaces/thoth-pulp-experiments
+  - ../../../../base/core/namespaces/ushift-dev
   - ../../../../base/core/persistentvolumeclaims/image-registry-storage
   - ../../../../base/nmstate.io/nmstates/nmstate
   - ../../../../base/imageregistry.operator.openshift.io/configs/cluster
+  - ../../../../base/operators.coreos.com/operatorgroups/cluster-logging
+  - ../../../../base/operators.coreos.com/catalogsources/pulp-catalog
   - ../../../../base/operators.coreos.com/operatorgroups/koku-metrics-operator
+  - ../../../../base/operators.coreos.com/operatorgroups/openshift-cnv-rn5jf
   - ../../../../base/operators.coreos.com/operatorgroups/openshift-nmstate
+  - ../../../../base/operators.coreos.com/operatorgroups/openshift-nfd
+  - ../../../../base/operators.coreos.com/operatorgroups/openshift-vertical-pod-autoscaler
   - ../../../../base/operators.coreos.com/operatorgroups/opf-monitoring
+  - ../../../../base/operators.coreos.com/operatorgroups/pulp-operator
   - ../../../../base/operators.coreos.com/subscriptions/cert-manager
+  - ../../../../base/operators.coreos.com/subscriptions/cluster-logging
   - ../../../../base/operators.coreos.com/subscriptions/koku-metrics-operator
   - ../../../../base/operators.coreos.com/subscriptions/kubernetes-nmstate-operator
+  - ../../../../base/operators.coreos.com/subscriptions/kubevirt-hyperconverged
   - ../../../../base/operators.coreos.com/subscriptions/openshift-pipelines-operator-rh
   - ../../../../base/operators.coreos.com/subscriptions/opf-grafana
+  - ../../../../base/operators.coreos.com/subscriptions/nfd
+  - ../../../../base/operators.coreos.com/subscriptions/ovms-operator
+  - ../../../../base/operators.coreos.com/subscriptions/pulp-operator
+  - ../../../../base/operators.coreos.com/subscriptions/vertical-pod-autoscaler
   - ../../../../base/rbac.authorization.k8s.io/clusterrolebindings/acme-operator
   - ../../../../base/rbac.authorization.k8s.io/clusterrolebindings/cluster-interceptor-opf-ci-pipelines
   - ../../../../base/rbac.authorization.k8s.io/clusterrolebindings/moc-nfs-democratic-csi-controller-rb
@@ -85,5 +107,9 @@ patchesStrategicMerge:
   - groups/cluster-admins.yaml
   - oauths/cluster_patch.yaml
   - storageclasses/moc-nfs-csi_patch.yaml
+  - subscriptions/cluster-logging-operator_patch.yaml
   - subscriptions/kubernetes-nmstate-operator_patch.yaml
+  - subscriptions/nfd_patch.yaml
+  - subscriptions/vpa_patch.yaml
   - subscriptions/openshift-pipelines-operator-rh_patch.yaml
+  - subscriptions/kubevirt-hyperconverged_patch.yaml

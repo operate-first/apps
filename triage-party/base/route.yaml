@@ -1,0 +1,9 @@
+---
+kind: Route
+apiVersion: route.openshift.io/v1
+metadata:
+  name: triage-party
+spec:
+  to:
+    kind: Service
+    name: triage-party

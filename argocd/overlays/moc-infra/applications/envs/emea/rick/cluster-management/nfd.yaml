@@ -1,0 +1,20 @@
+---
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: nfd
+spec:
+  destination:
+    name: rick
+    namespace: openshift-nfd
+  project: cluster-management
+  source:
+    path: nfd/overlays/emea/rick
+    repoURL: https://github.com/operate-first/apps.git
+    targetRevision: HEAD
+  syncPolicy:
+    automated:
+      prune: true
+      selfHeal: true
+    syncOptions:
+    - Validate=false

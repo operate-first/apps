@@ -11,15 +11,20 @@ resources:
   - ../../../../base/core/namespaces/acme-operator
   - ../../../../base/core/namespaces/democratic-csi
   - ../../../../base/core/namespaces/keycloak
+  - ../../../../base/core/namespaces/openshift-nmstate
   - ../../../../base/core/namespaces/opf-alertreceiver
+  - ../../../../base/nmstate.io/nmstates/nmstate
   - ../../../../base/operator.openshift.io/ingresscontrollers/default
   - ../../../../base/operators.coreos.com/operatorgroups/keycloak
+  - ../../../../base/operators.coreos.com/operatorgroups/openshift-nmstate
   - ../../../../base/operators.coreos.com/operatorgroups/operator-acm-group
   - ../../../../base/operators.coreos.com/subscriptions/acm-operator-subscription
+  - ../../../../base/operators.coreos.com/subscriptions/kubernetes-nmstate-operator
   - ../../../../base/operators.coreos.com/subscriptions/rhsso-operator
   - ../../../../base/rbac.authorization.k8s.io/clusterrolebindings/acme-operator
   - ../../../../base/rbac.authorization.k8s.io/clusterrolebindings/moc-nfs-democratic-csi-controller-rb
   - ../../../../base/rbac.authorization.k8s.io/clusterrolebindings/moc-nfs-democratic-csi-node-rb
+  - ../../../../base/rbac.authorization.k8s.io/clusterrolebindings/open-cluster-management:admin:osc-cl1
   - ../../../../base/rbac.authorization.k8s.io/clusterroles/acme-operator
   - ../../../../base/rbac.authorization.k8s.io/clusterroles/moc-nfs-democratic-csi-controller-cr
   - ../../../../base/rbac.authorization.k8s.io/clusterroles/moc-nfs-democratic-csi-node-cr
@@ -27,18 +32,13 @@ resources:
   - ../../../../base/storage.k8s.io/storageclasses/moc-nfs-csi
   - ../../../../base/user.openshift.io/groups/cluster-admins
 
-  # install cnv for nmstate support in 4.6
-  - ../../../../base/core/namespaces/openshift-cnv
-  - ../../../../base/operators.coreos.com/operatorgroups/openshift-cnv-rn5jf
-  - ../../../../base/operators.coreos.com/subscriptions/kubevirt-hyperconverged
-
   - clusterversion.yaml
-  - crc-provisioning-vlan.yaml
+  - nodenetworkconfigurationpolicies/crc-provisioning-vlan.yaml
   - kubeletconfigs/increase-worker-system-reserved-memory.yaml
   - metal3.io/provisionings/provisioning-configuration.yaml
   - nodenetworkconfigurationpolicies/moc-nfs-network.yaml
-  - ocp-prod-provisioning-vlan.yaml
-  - zero-provisioning-vlan.yaml
+  - nodenetworkconfigurationpolicies/ocp-prod-provisioning-vlan.yaml
+  - nodenetworkconfigurationpolicies/zero-provisioning-vlan.yaml
 
 generators:
   - secret-generator.yaml
@@ -48,5 +48,5 @@ patchesStrategicMerge:
   - configmaps/user-workload-monitoring-config.yaml
   - oauths/cluster_patch.yaml
   - storageclasses/moc-nfs-csi_patch.yaml
-  - subscriptions/kubevirt-hyperconverged_patch.yaml
+  - subscriptions/kubernetes-nmstate-operator_patch.yaml
   - groups/cluster-admins.yaml

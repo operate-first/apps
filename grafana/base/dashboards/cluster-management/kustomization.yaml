@@ -6,3 +6,4 @@ resources:
   - cluster-cpu-overview.yaml
   - cluster-memory-overview.yaml
   - namespace_cpu_and_memory_overview.yaml
+  - node-feature-discovery.yaml
