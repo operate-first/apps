@@ -6,5 +6,5 @@ resources:
 components:
     - ../../../../components/project-admin-rolebindings/operate-first
     - ../../../../components/limitranges/default
-    - ../../../../components/resourcequotas/x-small
+    - ../../../../components/resourcequotas/small
 namespace: opf-triage-party
