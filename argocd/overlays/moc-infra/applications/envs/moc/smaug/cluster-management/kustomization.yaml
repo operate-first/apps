@@ -11,3 +11,4 @@ resources:
   - node-labeler.yaml
   - odh-operator.yaml
   - nfd.yaml
+  - kubevirt-hyperconverged.yaml
