@@ -9,11 +9,21 @@ resources:
   - ../../../../base/apiextensions.k8s.io/customresourcedefinitions/prowjobs.prow.k8s.io
   - ../../../../base/apiextensions.k8s.io/customresourcedefinitions/workflow.argoproj.io
   - ../../../../base/apiextensions.k8s.io/customresourcedefinitions/workflowtemplate.argoproj.io
+  - ../../../../base/apiextensions.k8s.io/customresourcedefinitions/assets.katalog.fybrik.io
+  - ../../../../base/apiextensions.k8s.io/customresourcedefinitions/batchtransfers.motion.fybrik.io
+  - ../../../../base/apiextensions.k8s.io/customresourcedefinitions/blueprints.app.fybrik.io
+  - ../../../../base/apiextensions.k8s.io/customresourcedefinitions/fybrikapplications.app.fybrik.io
+  - ../../../../base/apiextensions.k8s.io/customresourcedefinitions/fybrikmodules.app.fybrik.io
+  - ../../../../base/apiextensions.k8s.io/customresourcedefinitions/fybrikstorageaccounts.app.fybrik.io
+  - ../../../../base/apiextensions.k8s.io/customresourcedefinitions/streamtransfers.motion.fybrik.io
   - ../../../../base/config.openshift.io/oauths/cluster
   - ../../../../base/core/configmaps/cluster-monitoring-config
   - ../../../../base/core/configmaps/user-workload-monitoring-config
   - ../../../../base/core/namespaces/acme-operator
   - ../../../../base/core/namespaces/aicoe-meteor
+  - ../../../../base/core/namespaces/fybrik-applications
+  - ../../../../base/core/namespaces/fybrik-blueprints
+  - ../../../../base/core/namespaces/fybrik-system
   - ../../../../base/core/namespaces/democratic-csi
   - ../../../../base/core/namespaces/dex
   - ../../../../base/core/namespaces/ds-github-labeler
