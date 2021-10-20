@@ -60,8 +60,10 @@ resources:
   - ../../../../base/imageregistry.operator.openshift.io/configs/cluster
   - ../../../../base/operators.coreos.com/operatorgroups/cluster-logging
   - ../../../../base/operators.coreos.com/catalogsources/pulp-catalog
+  - ../../../../base/operators.coreos.com/catalogsources/meteor-operator
   - ../../../../base/operators.coreos.com/operatorgroups/koku-metrics-operator
   - ../../../../base/operators.coreos.com/operatorgroups/openshift-cnv-rn5jf
+  - ../../../../base/operators.coreos.com/operatorgroups/meteor-operator
   - ../../../../base/operators.coreos.com/operatorgroups/openshift-nmstate
   - ../../../../base/operators.coreos.com/operatorgroups/openshift-nfd
   - ../../../../base/operators.coreos.com/operatorgroups/openshift-vertical-pod-autoscaler
@@ -72,9 +74,10 @@ resources:
   - ../../../../base/operators.coreos.com/subscriptions/koku-metrics-operator
   - ../../../../base/operators.coreos.com/subscriptions/kubernetes-nmstate-operator
   - ../../../../base/operators.coreos.com/subscriptions/kubevirt-hyperconverged
+  - ../../../../base/operators.coreos.com/subscriptions/meteor-operator
+  - ../../../../base/operators.coreos.com/subscriptions/nfd
   - ../../../../base/operators.coreos.com/subscriptions/openshift-pipelines-operator-rh
   - ../../../../base/operators.coreos.com/subscriptions/opf-grafana
-  - ../../../../base/operators.coreos.com/subscriptions/nfd
   - ../../../../base/operators.coreos.com/subscriptions/ovms-operator
   - ../../../../base/operators.coreos.com/subscriptions/pulp-operator
   - ../../../../base/operators.coreos.com/subscriptions/vertical-pod-autoscaler

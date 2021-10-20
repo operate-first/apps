@@ -9,3 +9,6 @@ resources:
   - prod-aicoe-ci.yaml
   - slack-first.yaml
   - triage-party.yaml
+  - meteor-shower.yaml
+  - meteor-operator-pipelines.yaml
+  - meteor-operator-pushgateway.yaml
