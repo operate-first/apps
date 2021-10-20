@@ -14,7 +14,7 @@ spec:
           name: grafana-config-overrides
   config:
     server:
-      root_url: https://grafana-route-opf-monitoring.apps.smaug.na.operate-first.cloud
+      root_url: https://grafana.operate-first.cloud
     auth.generic_oauth:
       name: Dex
       enabled: true

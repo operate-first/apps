@@ -7,4 +7,5 @@ resources:
   - dashboards
   - grafana.yaml
   - grafana-datasource-serviceaccount.yaml
+  - grafana-route.yaml
   - servicemonitor.yaml

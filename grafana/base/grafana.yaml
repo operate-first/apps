@@ -18,5 +18,4 @@ spec:
           values:
             - grafana
   ingress:
-    enabled: true
-    hostname: grafana.operate-first.cloud
+    enabled: false

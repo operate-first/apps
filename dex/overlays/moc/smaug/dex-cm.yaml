@@ -27,6 +27,7 @@ data:
         name: Grafana
         redirectURIs:
           - https://grafana.operate-first.cloud/login/generic_oauth
+          - http://grafana.operate-first.cloud/login/generic_oauth
         secretEnv: GRAFANA_SECRET
 
       - id: superset
