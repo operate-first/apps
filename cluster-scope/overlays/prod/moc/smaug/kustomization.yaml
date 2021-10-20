@@ -95,12 +95,18 @@ resources:
   - ../../../../base/operators.coreos.com/subscriptions/vertical-pod-autoscaler
   - ../../../../base/rbac.authorization.k8s.io/clusterrolebindings/acme-operator
   - ../../../../base/rbac.authorization.k8s.io/clusterrolebindings/cluster-interceptor-opf-ci-pipelines
+  - ../../../../base/rbac.authorization.k8s.io/clusterrolebindings/curator-manager-rb
+  - ../../../../base/rbac.authorization.k8s.io/clusterrolebindings/curator-oauth-proxy-rb
   - ../../../../base/rbac.authorization.k8s.io/clusterrolebindings/moc-nfs-democratic-csi-controller-rb
   - ../../../../base/rbac.authorization.k8s.io/clusterrolebindings/moc-nfs-democratic-csi-node-rb
   - ../../../../base/rbac.authorization.k8s.io/clusterrolebindings/node-labeler
   - ../../../../base/rbac.authorization.k8s.io/clusterrolebindings/scc-privileged-opf-ci-pipelines-aicoe-ci
   - ../../../../base/rbac.authorization.k8s.io/clusterrolebindings/tekton-dashboard
   - ../../../../base/rbac.authorization.k8s.io/clusterroles/acme-operator
+  - ../../../../base/rbac.authorization.k8s.io/clusterroles/curator-auth-proxy-role
+  - ../../../../base/rbac.authorization.k8s.io/clusterroles/curator-report-editor-role
+  - ../../../../base/rbac.authorization.k8s.io/clusterroles/curator-report-manager-role
+  - ../../../../base/rbac.authorization.k8s.io/clusterroles/curator-report-viewer-role
   - ../../../../base/rbac.authorization.k8s.io/clusterroles/moc-nfs-democratic-csi-controller-cr
   - ../../../../base/rbac.authorization.k8s.io/clusterroles/moc-nfs-democratic-csi-node-cr
   - ../../../../base/rbac.authorization.k8s.io/clusterroles/node-labeler
