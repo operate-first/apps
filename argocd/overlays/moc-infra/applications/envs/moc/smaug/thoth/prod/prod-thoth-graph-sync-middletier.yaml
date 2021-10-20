@@ -24,3 +24,8 @@ spec:
       name: graph-sync-job
       jsonPointers:
         - /metadata/labels
+    - group: template.openshift.io
+      kind: Template
+      name: graph-sync
+      jsonPointers:
+        - /metadata/labels
