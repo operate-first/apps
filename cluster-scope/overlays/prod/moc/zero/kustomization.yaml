@@ -40,9 +40,6 @@ resources:
   - ../../../../base/core/namespaces/lab-cicd-4-jump-app-cicd
   - ../../../../base/core/namespaces/lab-cicd-4-jump-app-dev
   - ../../../../base/core/namespaces/local-storage
-  - ../../../../base/core/namespaces/m4d-blueprints
-  - ../../../../base/core/namespaces/m4d-system
-  - ../../../../base/core/namespaces/mesh-for-data
   - ../../../../base/core/namespaces/metallb-system
   - ../../../../base/core/namespaces/mwperf-horreum
   - ../../../../base/core/namespaces/observatorium-operator

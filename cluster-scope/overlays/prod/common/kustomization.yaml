@@ -21,8 +21,8 @@ resources:
     - ../../../base/user.openshift.io/groups/esi-project
     - ../../../base/user.openshift.io/groups/enterprise-neurosystem
     - ../../../base/user.openshift.io/groups/fde
+    - ../../../base/user.openshift.io/groups/fybrik
     - ../../../base/user.openshift.io/groups/lab-cicd
-    - ../../../base/user.openshift.io/groups/mesh-for-data
     - ../../../base/user.openshift.io/groups/mwperf
     - ../../../base/user.openshift.io/groups/neu-students
     - ../../../base/user.openshift.io/groups/odh-admin
