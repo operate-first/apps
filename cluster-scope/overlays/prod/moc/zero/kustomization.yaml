@@ -74,7 +74,6 @@ resources:
   - ../../../../base/core/namespaces/pixel-demos
   - ../../../../base/core/namespaces/pixel-vault
   - ../../../../base/core/namespaces/prometheus-anomaly-detector
-  - ../../../../base/core/namespaces/pulp-operator
   - ../../../../base/core/namespaces/quarkus-extension-registry
   - ../../../../base/core/namespaces/redhat-cto-ns
   - ../../../../base/core/namespaces/sa-dach-anwendertreffen
@@ -97,7 +96,6 @@ resources:
   - ../../../../base/core/persistentvolumeclaims/image-registry-storage
   - ../../../../base/imageregistry.operator.openshift.io/configs/cluster
   - ../../../../base/operator.openshift.io/ingresscontrollers/default
-  - ../../../../base/operators.coreos.com/catalogsources/pulp-catalog
   - ../../../../base/operators.coreos.com/operatorgroups/cluster-logging
   - ../../../../base/operators.coreos.com/operatorgroups/koku-metrics-operator
   - ../../../../base/operators.coreos.com/operatorgroups/local-storage-operator-group
@@ -107,7 +105,6 @@ resources:
   - ../../../../base/operators.coreos.com/operatorgroups/openshift-operators-redhat
   - ../../../../base/operators.coreos.com/operatorgroups/openshift-serverless
   - ../../../../base/operators.coreos.com/operatorgroups/openshift-storage
-  - ../../../../base/operators.coreos.com/operatorgroups/pulp-operator
   - ../../../../base/operators.coreos.com/subscriptions/cluster-logging
   - ../../../../base/operators.coreos.com/subscriptions/elasticsearch-operator
   - ../../../../base/operators.coreos.com/subscriptions/horreum-operator
@@ -117,7 +114,6 @@ resources:
   - ../../../../base/operators.coreos.com/subscriptions/metering-operator
   - ../../../../base/operators.coreos.com/subscriptions/ocs-operator
   - ../../../../base/operators.coreos.com/subscriptions/openshift-pipelines-operator-rh
-  - ../../../../base/operators.coreos.com/subscriptions/pulp-operator
   - ../../../../base/operators.coreos.com/subscriptions/serverless-operator
   - ../../../../base/operators.coreos.com/subscriptions/web-terminal
   - ../../../../base/policy/podsecuritypolicies/controller

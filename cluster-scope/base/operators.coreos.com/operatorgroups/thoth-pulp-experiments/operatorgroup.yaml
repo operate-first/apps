@@ -1,0 +1,8 @@
+---
+apiVersion: operators.coreos.com/v1
+kind: OperatorGroup
+metadata:
+  name: thoth-pulp-experiments
+spec:
+  targetNamespaces:
+    - thoth-pulp-experiments
