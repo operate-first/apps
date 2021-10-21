@@ -18,6 +18,7 @@ resources:
     - ../../../base/user.openshift.io/groups/codait-advo
     - ../../../base/user.openshift.io/groups/curator
     - ../../../base/user.openshift.io/groups/data-science
+    - ../../../base/user.openshift.io/groups/debezium
     - ../../../base/user.openshift.io/groups/esi-project
     - ../../../base/user.openshift.io/groups/enterprise-neurosystem
     - ../../../base/user.openshift.io/groups/fde
