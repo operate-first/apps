@@ -10,3 +10,5 @@ subjects:
 - kind: ServiceAccount
   name: controller-manager
   namespace: report-system
+- kind: Group
+  name: curator
