@@ -54,7 +54,6 @@ resources:
   - ../../../../base/core/namespaces/opf-triage-party
   - ../../../../base/core/namespaces/opf-trino
   - ../../../../base/core/namespaces/report-system
-  - ../../../../base/core/namespaces/pulp-operator
   - ../../../../base/core/namespaces/tekton-pipelines
   - ../../../../base/core/namespaces/thoth-amun-api-prod
   - ../../../../base/core/namespaces/thoth-amun-inspection-prod
@@ -71,7 +70,6 @@ resources:
   - ../../../../base/nmstate.io/nmstates/nmstate
   - ../../../../base/imageregistry.operator.openshift.io/configs/cluster
   - ../../../../base/operators.coreos.com/operatorgroups/cluster-logging
-  - ../../../../base/operators.coreos.com/catalogsources/pulp-catalog
   - ../../../../base/operators.coreos.com/catalogsources/meteor-operator
   - ../../../../base/operators.coreos.com/operatorgroups/koku-metrics-operator
   - ../../../../base/operators.coreos.com/operatorgroups/openshift-cnv-rn5jf
@@ -80,7 +78,7 @@ resources:
   - ../../../../base/operators.coreos.com/operatorgroups/openshift-nfd
   - ../../../../base/operators.coreos.com/operatorgroups/openshift-vertical-pod-autoscaler
   - ../../../../base/operators.coreos.com/operatorgroups/opf-monitoring
-  - ../../../../base/operators.coreos.com/operatorgroups/pulp-operator
+  - ../../../../base/operators.coreos.com/operatorgroups/thoth-pulp-experiments
   - ../../../../base/operators.coreos.com/subscriptions/cert-manager
   - ../../../../base/operators.coreos.com/subscriptions/cluster-logging
   - ../../../../base/operators.coreos.com/subscriptions/koku-metrics-operator
