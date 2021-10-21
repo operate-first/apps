@@ -5,6 +5,7 @@ resources:
   - b4mad.yaml
   - cluster-management.yaml
   - data-science.yaml
+  - fybrik.yaml
   - global_project.yaml
   - lab-cicd.yaml
   - mocops.yaml
