@@ -1,0 +1,38 @@
+apiVersion: autoscaling.openshift.io/v1beta1
+kind: MachineAutoscaler
+metadata:
+  name: balrog-lxtnd-worker-eu-west-2a
+  namespace: openshift-machine-api
+spec:
+  minReplicas: 1
+  maxReplicas: 2
+  scaleTargetRef:
+    apiVersion: machine.openshift.io/v1beta1
+    kind: MachineSet
+    name: balrog-lxtnd-worker-eu-west-2a
+---
+apiVersion: autoscaling.openshift.io/v1beta1
+kind: MachineAutoscaler
+metadata:
+  name: balrog-lxtnd-worker-eu-west-2b
+  namespace: openshift-machine-api
+spec:
+  minReplicas: 1
+  maxReplicas: 2
+  scaleTargetRef:
+    apiVersion: machine.openshift.io/v1beta1
+    kind: MachineSet
+    name: balrog-lxtnd-worker-eu-west-2b
+---
+apiVersion: autoscaling.openshift.io/v1beta1
+kind: MachineAutoscaler
+metadata:
+  name: balrog-lxtnd-worker-eu-west-2c
+  namespace: openshift-machine-api
+spec:
+  minReplicas: 1
+  maxReplicas: 2
+  scaleTargetRef:
+    apiVersion: machine.openshift.io/v1beta1
+    kind: MachineSet
+    name: balrog-lxtnd-worker-eu-west-2c

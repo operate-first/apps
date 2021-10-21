@@ -1,0 +1,13 @@
+apiVersion: "autoscaling.openshift.io/v1"
+kind: "ClusterAutoscaler"
+metadata:
+  name: "default"
+spec:
+  resourceLimits:
+    maxNodesTotal: 9  # 3 master + 6 worker nodes
+    cores:
+      min: 72  # 8*3 for masters + 16*3 for a worker in each region
+      max: 120  # 8*3 for masters + 16*6 for workers
+    memory:
+      min: 192  # 32*3 for masters + 32*3 for a worker in each region
+      max: 288  # 32*3 for masters + 32*6 for workers
