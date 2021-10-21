@@ -1,31 +1,31 @@
 # Contribution Guide
 
-Contribution guidelines for operate-first/apps repo.
+This document provides guidelines for contribution to the operate-first/apps repo.
 
 ## Creating issues
 
-If you would like to create an issue for any of the following:
+If you would like to create an issue regarding any of the following:
 
-- Question regarding an Open Data Hub, or any other Operate-first provisioned application
-- Question about onboarding
-- Request additional services/features to MOC (or other environments)
+- An Operate First provisioned application (Open Data Hub or others)
+- Onboarding
+- Additional services/features for any environment
 - Service degradation and/or operational issues
 
-Please create an issue in [operate-first/support](https://github.com/operate-first/support) repo instead.
+Please create an issue in the [operate-first/support](https://github.com/operate-first/support) repo instead.
 
-Please create an issue in this repo if it directly concerns contents within this repo. Examples include issues concerning:
+Please only create an issue here in operate-first/apps if it directly concerns the contents of this repo. For example, you can create issues concerning:
 
-- Implementation details (manifests needing to be added, configured, removed, etc.)
+- Implementation details (manifests that need to be added, configured, removed, etc.)
 - Bugs found within this repo
 - Continuous integration for this repo
 - Improving workflows within this repo
-- Adding documentation
+- Adding or improving documentation
 
-## Creating Pull Requests
+## Creating pull requests
 
 ### General guide of code contributions
 
-1. Create a personal fork of the project on Github. **Please use this fork for all of your contribution, even if you have write access to the upstream repositories.**
+1. Create a personal fork of the project on Github. **Please use this fork for all of your contributions, even if you have write access to the upstream repositories.**
 2. Clone the fork on your local machine. Your remote repo on Github is called `origin`.
 
    ```sh
@@ -38,7 +38,7 @@ Please create an issue in this repo if it directly concerns contents within this
    git remote add upstream git@github.com:operate-first/REPOSITORY_NAME.git
    ```
 
-4. If you created your fork a while ago be sure to pull upstream changes into your local repository.
+4. If you created your fork previously, be sure to pull upstream changes into your local repository.
 
    ```sh
    git checkout master # or main
@@ -47,25 +47,41 @@ Please create an issue in this repo if it directly concerns contents within this
    git push origin master
    ```
 
-5. Create a new branch to work on. Create this branch from the default, up to date branch like `master` or `main`.
+5. Create a new branch to work on. Create this branch from the default, up-to-date branch like `master` or `main`.
+
+   ```sh
+   git checkout -b "BRANCH-NAME"
+   ```
+
 6. Install `pre-commit` git hook by running `pre-commit install`.
-7. Implement/fix your feature, comment your code.
+7. Implement/fix your feature, and comment your code.
 8. Add or change the documentation as needed.
-9. Run local test (if available) and linter (`pre-commit run -a`)
+9. Run a local test (if available) and linter (see the **Tests** section below for more information).
 10. Push your branch to your fork on Github, the remote origin.
+   ```sh
+   git push origin BRANCH-NAME
+   ```
+11. Review the checklist below and make sure your PR adheres to the criteria given.
+12. Contribute your PR!
 
 ### Checklist
 
-When creating a PR please use the following checklist:
+When creating a pull request (PR) please use the following checklist:
 
-- Ensure there is an issue attached to the pull-request. We consider this is good practice, but recognize that it's not always necessary.
+- Ensure there is an issue attached to the PR. We consider this good practice, but recognize that it's not always necessary.
 - Ensure that the pre-commit check passes.
-- Ensure that your commit history is clean and minimal. Avoid commits like "Fix a typo" or "Forgot to add x". You can use [fixup or squashing](https://fle.github.io/git-tip-keep-your-branch-clean-with-fixup-and-autosquash.html) to clean up your commits. Aim to have one commit per PR. If you really want to have multiple commits for a change, you should at least squash down so each commit corresponds to a singular change or addition.
+- Ensure that your commit history is clean and minimal.
+   - Avoid commits like "Fix a typo" or "Forgot to add x." You can use [fixup or squashing](https://fle.github.io/git-tip-keep-your-branch-clean-with-fixup-and-autosquash.html) to clean up your commits.
+   - Aim to have one commit per PR. If you really want to have multiple commits for a change, you should at least squash down so each commit corresponds to a singular change or addition.
 - If updating a kustomization build, ensure that the `kustomize build` on that path still works.
 - Ensure that all confidential information has been encrypted via [sops](https://github.com/mozilla/sops) and [ksops](https://github.com/viaduct-ai/kustomize-sops), before making the PR.
-- If the PR is a work-in-progress, then please create a `Draft` PR. You can also just add the "WIP" prefix to your PR title. Doing either will prevent our CI bot from merging this PR until it is ready. If using the WIP prefix in title, when the PR is ready for merge, simply remove the WIP prefix. For example a WIP title could be "WIP: Added new namespace to zero cluster."
+- If the PR is a work-in-progress, you need to prevent our CI bot from merging it until it's ready. To do so, please create a `Draft` PR or add the WIP prefix to your PR title.
+   - An example of a WIP-prefixed title could be "WIP: Added new namespace to zero cluster."
+   - When the PR is ready to be merged, you can simply remove the WIP prefix from the title.
 
-## Tools / Resources
+## Resources
+
+### Tools
 
 To generate/edit manifests you will need the following tools:
 
@@ -75,8 +91,27 @@ To generate/edit manifests you will need the following tools:
 
 While you can install them manually, we recommend using our [toolbox](https://github.com/operate-first/toolbox) container to get started.
 
+### Prow for ChatOps
+
+Prow is a CI/CD system for Kubernetes. We use Prow for ChatOps, which is done via slash commands. With the help of our CI bot Sesheta, we can execute commands by writing them in GitHub comments. Common uses include adding or removing labels, assigning issues or requesting review, and approving PRs to be merged. Prow for ChatOps helps us to streamline the issue and PR processes overall.
+
+The following is a list of some common commands and their uses, but more can be found [here](https://prow.operate-first.cloud/command-help).
+
+- `/assign USERNAME` assigns the person with the corresponding Github username.
+   - `/unassign USERNAME` removes the assignment from that user.
+- `/cc USERNAME` requests review from the user.
+   - `/uncc USERNAME` removes the request for review from that user.
+- `/hold` applies a blocking label `do-not-merge/hold` that will prevent a PR from being merged.
+   - `/unhold`, `/remove-hold`, or `/hold cancel` removes the blocking label.
+- `/test` or `/retest` triggers the test checks that PRs must pass.
+- `/lgtm` indicates that someone (other than the creator) has reviewed a PR and believes that the changes look good. With this command, Sesheta will apply the lgtm label.
+  - `/remove-lgtm` or `/lgtm cancel` removes the `lgtm` label.
+- `/approve` is similar to `/lgtm`, except this command is written by someone who qualifies as an approver (meaning they are listed in the appropriate OWNERS files). Sesheta will apply the approve label.
+  - `/remove approve` or `/approve cancel` removes the `approve` label.
+
+> Note that both the `lgtm` and `approve` labels must be present for the PR to be merged. Barring any blocking labels, the PR is automatically merged once both of these are present and the appropriate checks have been passed.
+
+
 ## Tests
 
-To run linting tests please install [pre-commit](https://pre-commit.com/) and run `pre-commit run --all-files` at the repository root before contributing a PR.
-
-Alternatively, you can run `pre-commit install` after you clone the repo and `pre-commit` will run automatically on git commit.
+To run linting tests, we use [pre-commit](https://pre-commit.com/). Run `pre-commit install` after you clone the repo. Then, `pre-commit` will run automatically on git commit. If any one of the tests fail, add and commit the changes made by pre-commit. Once the pre-commit check passes, you can make your PR.
