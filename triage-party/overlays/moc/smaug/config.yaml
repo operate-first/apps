@@ -52,6 +52,17 @@ settings:
     - https://github.com/operate-first/workshop-apps
 
 collections:
+
+  - id: trial
+    name: trial
+    dedup: true
+    description: >
+      try new cluster ideas
+    rules:
+      - issue-needs-kind
+      - issue-needs-priority
+      - issue-needs-comment
+
   - id: daily
     name: Daily Triage
     dedup: true
