@@ -23,6 +23,9 @@ spec:
         volumeMounts:
           - mountPath: /etc/superset
             name: superset-config
+        envFrom:
+          - secretRef:
+              name: superset-oidc
       containers:
       - name: superset
         envFrom:
