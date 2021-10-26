@@ -4,8 +4,6 @@ onCall:
   members:
     - slack: U01SKRUKCM6
       github: 4n4nd
-    - slack: U01S22XJD60
-      github: tumido
     - slack: U02580V036C
       github: Gregory-Pereira
     - slack: U01SW975LQY
