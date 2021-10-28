@@ -1,0 +1,17 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: fybrik
+spec:
+  destination:
+    name: smaug
+    namespace: fybrik-system
+  source:
+    path: charts/fybrik
+    repoURL: 'https://github.com/fybrik/fybrik'
+    targetRevision: HEAD
+    helm:
+      parameters:
+        - name: clusterScoped
+          value: "false"
+  project: fybrik

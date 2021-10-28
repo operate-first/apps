@@ -98,6 +98,7 @@ resources:
   - ../../../../base/rbac.authorization.k8s.io/clusterrolebindings/cluster-interceptor-opf-ci-pipelines
   - ../../../../base/rbac.authorization.k8s.io/clusterrolebindings/curator-manager-rb
   - ../../../../base/rbac.authorization.k8s.io/clusterrolebindings/curator-oauth-proxy-rb
+  - ../../../../base/rbac.authorization.k8s.io/clusterrolebindings/fybrik-admin-rb
   - ../../../../base/rbac.authorization.k8s.io/clusterrolebindings/moc-nfs-democratic-csi-controller-rb
   - ../../../../base/rbac.authorization.k8s.io/clusterrolebindings/moc-nfs-democratic-csi-node-rb
   - ../../../../base/rbac.authorization.k8s.io/clusterrolebindings/node-labeler
@@ -108,6 +109,7 @@ resources:
   - ../../../../base/rbac.authorization.k8s.io/clusterroles/curator-report-editor-role
   - ../../../../base/rbac.authorization.k8s.io/clusterroles/curator-report-manager-role
   - ../../../../base/rbac.authorization.k8s.io/clusterroles/curator-report-viewer-role
+  - ../../../../base/rbac.authorization.k8s.io/clusterroles/fybrik-admin-cr
   - ../../../../base/rbac.authorization.k8s.io/clusterroles/moc-nfs-democratic-csi-controller-cr
   - ../../../../base/rbac.authorization.k8s.io/clusterroles/moc-nfs-democratic-csi-node-cr
   - ../../../../base/rbac.authorization.k8s.io/clusterroles/node-labeler
