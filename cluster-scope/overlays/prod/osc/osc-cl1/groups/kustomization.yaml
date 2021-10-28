@@ -1,9 +1,0 @@
----
-apiVersion: kustomize.config.k8s.io/v1beta1
-kind: Kustomization
-
-resources:
-  - cluster-admins.yaml
-  - odh-admin.yaml
-  - odh-users.yaml
-  - seldon-admin.yaml
