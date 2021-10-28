@@ -1,0 +1,10 @@
+---
+apiVersion: v1
+kind: Namespace
+metadata:
+  annotations:
+    openshift.io/display-name: "B4mad: Racing"
+    openshift.io/requester: b4mad
+    operate-first.cloud/issue: "https://github.com/operate-first/support/issues/350"
+  name: b4mad-racing
+spec: {}

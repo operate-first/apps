@@ -23,6 +23,7 @@ resources:
   - ../../../../base/core/configmaps/user-workload-monitoring-config
   - ../../../../base/core/namespaces/acme-operator
   - ../../../../base/core/namespaces/aicoe-meteor
+  - ../../../../base/core/namespaces/b4mad-racing
   - ../../../../base/core/namespaces/debezium-ui
   - ../../../../base/core/namespaces/democratic-csi
   - ../../../../base/core/namespaces/dex
