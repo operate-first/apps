@@ -1,0 +1,7 @@
+apiVersion: v1
+kind: Namespace
+metadata:
+    name: b4mad-racing
+    annotations:
+        openshift.io/display-name: 'B4mad: Racing'
+        openshift.io/requester: b4mad
