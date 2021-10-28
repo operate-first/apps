@@ -6,3 +6,4 @@ resources:
   - cluster-admins.yaml
   - odh-admin.yaml
   - odh-users.yaml
+  - seldon-admin.yaml

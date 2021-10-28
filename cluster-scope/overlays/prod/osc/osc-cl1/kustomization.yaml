@@ -11,6 +11,7 @@ resources:
   - ../../../../base/core/namespaces/kubeflow
   - ../../../../base/core/namespaces/opendatahub-operator
   - ../../../../base/core/namespaces/odh-jupyterhub
+  - ../../../../base/core/namespaces/odh-seldon
   - ../../../../base/core/namespaces/odh-superset
   - ../../../../base/core/namespaces/odh-trino
   - ../../../../base/core/namespaces/sandbox
@@ -23,6 +24,7 @@ resources:
   - ../../../../base/user.openshift.io/groups/odh-admin
   - ../../../../base/user.openshift.io/groups/odh-users
   - ../../../../base/user.openshift.io/groups/cluster-admins
+  - ../../../../base/user.openshift.io/groups/seldon-admin
   - apiserver
   - ingresscontroller
 
@@ -32,3 +34,4 @@ patchesStrategicMerge:
   - groups/odh-admin.yaml
   - groups/odh-users.yaml
   - groups/cluster-admins.yaml
+  - groups/seldon-admin.yaml
