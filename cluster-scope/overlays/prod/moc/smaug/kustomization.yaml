@@ -37,6 +37,7 @@ resources:
   - ../../../../base/core/namespaces/openshift-logging
   - ../../../../base/core/namespaces/openshift-nfd
   - ../../../../base/core/namespaces/openshift-nmstate
+  - ../../../../base/core/namespaces/openshift-operators
   - ../../../../base/core/namespaces/openshift-pipelines
   - ../../../../base/core/namespaces/openshift-vertical-pod-autoscaler
   - ../../../../base/core/namespaces/opf-alertreceiver
