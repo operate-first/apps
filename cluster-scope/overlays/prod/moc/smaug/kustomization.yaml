@@ -99,6 +99,7 @@ resources:
   - ../../../../base/operators.coreos.com/subscriptions/vertical-pod-autoscaler
   - ../../../../base/rbac.authorization.k8s.io/clusterrolebindings/acme-operator
   - ../../../../base/rbac.authorization.k8s.io/clusterrolebindings/cluster-interceptor-opf-ci-pipelines
+  - ../../../../base/rbac.authorization.k8s.io/clusterrolebindings/cluster-monitoring-view
   - ../../../../base/rbac.authorization.k8s.io/clusterrolebindings/curator-manager-rb
   - ../../../../base/rbac.authorization.k8s.io/clusterrolebindings/curator-oauth-proxy-rb
   - ../../../../base/rbac.authorization.k8s.io/clusterrolebindings/fybrik-admin-rb
