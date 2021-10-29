@@ -4,6 +4,7 @@ resources:
   - acme-operator.yaml
   - ci-prow.yaml
   - ci-prow-test-pods.yaml
+  - cluster-logging.yaml
   - grafana.yaml
   - jh-idle-culler.yaml
   - prod-aicoe-ci.yaml
