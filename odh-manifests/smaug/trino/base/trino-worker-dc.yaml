@@ -57,5 +57,7 @@ spec:
           envFrom:
             - secretRef:
                 name: s3buckets
+            - secretRef:
+                name: postgres-dbs
           args:
             - --config=/etc/trino/config-worker.properties
