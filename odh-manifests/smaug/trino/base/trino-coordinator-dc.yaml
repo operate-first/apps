@@ -58,5 +58,7 @@ spec:
                 name: trino-oauth
             - secretRef:
                 name: s3buckets
+            - secretRef:
+                name: postgres-dbs
           args:
             - --config=/etc/trino/config-coordinator.properties
