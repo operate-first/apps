@@ -48,22 +48,20 @@ spec:
                 - Month
                 type: string
               reportingEnd:
-                description: ReportingStart specifies the time this Report should
-                  start from instead of the current time. This is intended for allowing
-                  a Report to start from the past and report on data collected before
-                  the Report was created.
+                description: ReportingEnd specifies the time this Report should end
                 format: date-time
                 type: string
-              runImmediately:
-                description: RunImmediately will run the report immediately, ignoring
-                  ReportingStart and, ReportingEnd.
-                type: boolean
+              reportingStart:
+                description: ReportingStart specifies the time this Report should
+                  start from This is intended for allowing a Report to start from
+                  the past
+                format: date-time
+                type: string
               schedule:
                 description: The schedule in Cron format, see https://en.wikipedia.org/wiki/Cron.
                 minLength: 0
                 type: string
             required:
-            - namespace
             - reportingEnd
             type: object
           status:
