@@ -11,3 +11,6 @@ subjects:
   - apiGroup: rbac.authorization.k8s.io
     kind: Group
     name: sre
+  - apiGroup: rbac.authorization.k8s.io
+    kind: Group
+    name: ocp-pipelines-sre

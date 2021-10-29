@@ -1,5 +1,5 @@
 apiVersion: kustomize.config.k8s.io/v1beta1
 kind: Kustomization
 components:
-    - ../../../../components/project-view-rolebindings/ocp-pipelines-sre
+    - ../../../../components/project-edit-rolebindings/ocp-pipelines-sre
 namespace: openshift-operators
