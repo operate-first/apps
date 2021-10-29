@@ -1,0 +1,10 @@
+apiVersion: objectbucket.io/v1alpha1
+kind: ObjectBucketClaim
+metadata:
+  name: opf-datacatalog
+spec:
+  additionalConfig:
+    maxSize: 15G
+  bucketName: opf-datacatalog
+  objectBucketName: opf-datacatalog
+  storageClassName: openshift-storage.noobaa.io
