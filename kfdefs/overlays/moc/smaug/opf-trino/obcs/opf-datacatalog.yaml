@@ -6,5 +6,5 @@ spec:
   additionalConfig:
     maxSize: 15G
   bucketName: opf-datacatalog
-  objectBucketName: opf-datacatalog
+  objectBucketName: obc-opf-trino-opf-datacatalog
   storageClassName: openshift-storage.noobaa.io
