@@ -119,6 +119,19 @@ rules:
   - update
   - watch
 - apiGroups:
+  - katalog.fybrik.io
+  resources:
+  - assets
+  verbs:
+  - get
+  - list
+  - watch
+  - create
+  - update
+  - patch
+  - delete
+  - deletecollection
+- apiGroups:
   - com.ie.ibm.hpsys
   resources:
   - datasets
