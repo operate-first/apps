@@ -14,7 +14,7 @@ spec:
       name: google-spark-operator
   repos:
     - name: manifests
-      uri: "https://github.com/opendatahub-io/odh-manifests/tarball/v1.1.0"
+      uri: "https://github.com/opendatahub-io/odh-manifests/tarball/v1.1.1"
     - name: guimou
       uri: "https://github.com/humairak/odh-manifests/tarball/spark-operator"
-  version: v1.1.0
+  version: v1.1.1
