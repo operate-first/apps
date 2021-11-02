@@ -5,8 +5,6 @@ kind: Kustomization
 resources:
   - aakankshaduggal.yaml
   - antter.yaml
-  - bkoz.yaml
-  - cdolfi.yaml
   - chauhankaranraj.yaml
   - hemajv.yaml
   - isabelizimm.yaml
