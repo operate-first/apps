@@ -4,3 +4,4 @@ kind: Kustomization
 
 resources:
   - shreyanand.yaml
+  - oindrillac.yaml
