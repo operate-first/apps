@@ -73,6 +73,7 @@ resources:
   - ../../../../base/core/namespaces/thoth-pulp-experiments
   - ../../../../base/core/namespaces/ushift-dev
   - ../../../../base/core/persistentvolumeclaims/image-registry-storage
+  - ../../../../base/noobaa.io/backingstores
   - ../../../../base/imageregistry.operator.openshift.io/configs/cluster
   - ../../../../base/operators.coreos.com/operatorgroups/cluster-logging
   - ../../../../base/operators.coreos.com/catalogsources/meteor-operator
@@ -128,6 +129,7 @@ generators:
   - secret-generator.yaml
 
 patchesStrategicMerge:
+  - backingstores/noobaa-default-backing-store_patch.yaml
   - configmaps/cluster-monitoring-config.yaml
   - configmaps/user-workload-monitoring-config.yaml
   - groups/cluster-admins.yaml
