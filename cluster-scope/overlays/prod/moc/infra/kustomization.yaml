@@ -11,6 +11,7 @@ resources:
   - ../../../../base/core/namespaces/acme-operator
   - ../../../../base/core/namespaces/democratic-csi
   - ../../../../base/core/namespaces/keycloak
+  - ../../../../base/core/namespaces/openshift-cnv
   - ../../../../base/core/namespaces/openshift-nmstate
   - ../../../../base/core/namespaces/opf-alertreceiver
   - ../../../../base/nmstate.io/nmstates/nmstate
