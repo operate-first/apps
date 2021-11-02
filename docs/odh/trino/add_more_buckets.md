@@ -1,6 +1,5 @@
 # Adding buckets to Trino
 
-> Note: currently this is only supported for the osc cluster
 
 ### Prerequisites
 - Must be Operate-First admin with SOPS GPG access
@@ -8,14 +7,18 @@
 ### Steps
 
 1. Clone apps repo
-2. Navigate to `apps/kfdefs/overlays/$ENV/$CLUSTER/trino/hive-metastores`
+2. Navigate to `apps/kfdefs/overlays/$ENV/$CLUSTER/$TRINO_FOLDER/hive-metastores`
+
+> Note: Values for $ENV, $CLUSTER, $TRINO_FOLDER are dependent upon which cluster you are deploying.
+> Please explore [kfdefs][kfdefs] overlays folder to identify the values for these variables.
+
 3. Create a new directory which is named after the new Trino catalog you will add, in this example we'll create
 a catalog called `some-catalog`, so we create:
 
 ```bash
 $ cd $APPS_REPO
 # Replace dashes with underscores in catalog names, so some-catalog becomes some_catalog
-$ mkdir apps/kfdefs/overlays/$ENV/$CLUSTER/trino/hive-metastores/some_catalog
+$ mkdir apps/kfdefs/overlays/$ENV/$CLUSTER/$TRINO_FOLDER/hive-metastores/some_catalog
 ```
 
 Now create a new file in this directory called `kustomization.yaml` and fill it out like so:
@@ -119,13 +122,14 @@ $ sed -i 's/<catalog_name>/some-catalog/g' kustomization.yaml
 $ sed -i 's/<catalog_name_upercase>/SOME_CATALOG/g' kustomization.yaml
 ```
 
-Add this file to the `kustomization.yaml` [here](https://github.com/operate-first/apps/blob/master/kfdefs/overlays/osc/osc-cl1/trino/hive-metastores/kustomization.yaml).
+Add this file to the `kustomization.yaml` in `apps/kfdefs/overlays/$ENV/$CLUSTER/$TRINO_FOLDER/`.
 
-Next add the following to the `s3buckets` secret found at `apps/kfdefs/overlays/$ENV/$CLUSTER/trino/secrets/s3buckets.yaml`.
+Next add the following to the `s3buckets` secret found at `apps/kfdefs/overlays/$ENV/$CLUSTER/$TRINO_FOLDER/secrets/s3buckets.yaml`.
 
 > Note you will need to use sops to edit this file with the appropriate gpg key
 
 ```yaml
+    # Fill these values out accordingly
     <catalog_name_upercase>_AWS_ACCESS_KEY_ID:
     <catalog_name_upercase>_AWS_SECRET_ACCESS_KEY:
     <catalog_name_upercase>_BUCKET:
@@ -149,7 +153,8 @@ metadata:
   name: trino-catalog
 stringData:
     .....
-  default.properties: |
+  # same as <catalog_name> but replace any spaces/dashes with underscores
+  <catalog_name_underscored>.properties: |
     connector.name=hive-hadoop2
     hive.metastore.uri=thrift://<catalog_name>:9083
     hive.s3.endpoint=${ENV:<catalog_name_upercase>_S3_ENDPOINT_URL_PREFIX}${ENV:<catalog_name_upercase>_S3_ENDPOINT}
@@ -167,3 +172,6 @@ stringData:
 ```
 
 Commit changes, make a pr.
+
+
+[kfdefs]: https://github.com/operate-first/apps/tree/master/kfdefs/overlays
