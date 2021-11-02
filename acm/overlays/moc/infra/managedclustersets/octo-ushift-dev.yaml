@@ -1,0 +1,5 @@
+kind: ManagedClusterSet
+apiVersion: cluster.open-cluster-management.io/v1alpha1
+metadata:
+  name: octo-ushift-dev
+spec: {}
