@@ -1,0 +1,6 @@
+---
+apiVersion: pulp.pulpproject.org/v1beta1
+kind: Pulp
+metadata:
+  name: pulp
+spec: {}

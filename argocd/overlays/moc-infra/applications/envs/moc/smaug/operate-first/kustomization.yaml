@@ -8,6 +8,7 @@ resources:
   - grafana.yaml
   - jh-idle-culler.yaml
   - prod-aicoe-ci.yaml
+  - pulp.yaml
   - slack-first.yaml
   - triage-party.yaml
   - meteor-shower.yaml

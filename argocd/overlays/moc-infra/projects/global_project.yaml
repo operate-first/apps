@@ -160,6 +160,8 @@ spec:
       kind: PackageManifest
     - group: policy
       kind: PodDisruptionBudget
+    - group: pulp.pulpproject.org
+      kind: Pulp
     - group: quota.openshift.io
       kind: AppliedClusterResourceQuota
     - group: rbac.authorization.k8s.io

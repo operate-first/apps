@@ -1,7 +1,7 @@
 apiVersion: v1
 kind: ResourceQuota
 metadata:
-  name: thoth-pulp-experiments-custom
+  name: opf-pulp-custom
 spec:
   hard:
     requests.cpu: "8"

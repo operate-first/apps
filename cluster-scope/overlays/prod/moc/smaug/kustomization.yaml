@@ -52,6 +52,7 @@ resources:
   - ../../../../base/core/namespaces/opf-jupyterhub-stage
   - ../../../../base/core/namespaces/opf-kafka
   - ../../../../base/core/namespaces/opf-monitoring
+  - ../../../../base/core/namespaces/opf-pulp
   - ../../../../base/core/namespaces/opf-seldon
   - ../../../../base/core/namespaces/opf-dashboard
   - ../../../../base/core/namespaces/opf-slack-first
@@ -70,7 +71,6 @@ resources:
   - ../../../../base/core/namespaces/thoth-graph-prod
   - ../../../../base/core/namespaces/thoth-infra-prod
   - ../../../../base/core/namespaces/thoth-middletier-prod
-  - ../../../../base/core/namespaces/thoth-pulp-experiments
   - ../../../../base/core/namespaces/ushift-dev
   - ../../../../base/core/persistentvolumeclaims/image-registry-storage
   - ../../../../base/nmstate.io/nmstates/nmstate
@@ -84,7 +84,7 @@ resources:
   - ../../../../base/operators.coreos.com/operatorgroups/openshift-nfd
   - ../../../../base/operators.coreos.com/operatorgroups/openshift-vertical-pod-autoscaler
   - ../../../../base/operators.coreos.com/operatorgroups/opf-monitoring
-  - ../../../../base/operators.coreos.com/operatorgroups/thoth-pulp-experiments
+  - ../../../../base/operators.coreos.com/operatorgroups/opf-pulp
   - ../../../../base/operators.coreos.com/subscriptions/cert-manager
   - ../../../../base/operators.coreos.com/subscriptions/cluster-logging
   - ../../../../base/operators.coreos.com/subscriptions/koku-metrics-operator

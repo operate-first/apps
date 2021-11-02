@@ -1,0 +1,30 @@
+---
+apiVersion: pulp.pulpproject.org/v1beta1
+kind: Pulp
+metadata:
+  name: pulp
+spec:
+  route_tls_termination_mechanism: Edge
+  ingress_type: Route
+  loadbalancer_port: 80
+  file_storage_size: 50Gi
+  image_pull_policy: IfNotPresent
+  file_storage_storage_class: ocs-external-storagecluster-ceph-rbd
+  image_web: 'quay.io/pulp/pulp-web:stable'
+  web:
+    replicas: 1
+  file_storage_access_mode: ReadWriteMany
+  content:
+    log_level: INFO
+    replicas: 2
+  api:
+    log_level: INFO
+    replicas: 1
+  image: 'quay.io/pulp/pulp:stable'
+  loadbalancer_protocol: http
+  resource_manager:
+    replicas: 1
+  route_host: pulp.operate-first.cloud
+  storage_type: File
+  worker:
+    replicas: 2
