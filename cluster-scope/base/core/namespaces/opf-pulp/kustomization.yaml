@@ -5,7 +5,7 @@ components:
 - ../../../../components/monitoring-rbac
 - ../../../../components/limitranges/default
 kind: Kustomization
-namespace: thoth-pulp-experiments
+namespace: opf-pulp
 resources:
 - namespace.yaml
 - resourcequota.yaml
