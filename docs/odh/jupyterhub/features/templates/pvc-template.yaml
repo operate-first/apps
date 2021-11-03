@@ -1,0 +1,14 @@
+---
+kind: PersistentVolumeClaim
+apiVersion: v1
+metadata:
+  annotations:
+    hub.jupyter.org/username: username
+  name: name
+  labels:
+    app: jupyterhub
+    component: singleuser-storage
+spec:
+  resources:
+    requests:
+      storage: 10Gi

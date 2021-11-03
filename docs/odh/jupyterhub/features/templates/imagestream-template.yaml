@@ -1,0 +1,23 @@
+---
+apiVersion: image.openshift.io/v1
+kind: ImageStream
+metadata:
+  labels:
+    opendatahub.io/notebook-image: "true"
+  annotations:
+    opendatahub.io/notebook-image-url: <IMAGE-URL>
+    opendatahub.io/notebook-image-name: <IMAGE-NAME>
+    opendatahub.io/notebook-image-desc: <IMAGE-Description>
+  name: Notebook-template
+spec:
+  lookupPolicy:
+    local: true
+  tags:
+    - annotations:
+        openshift.io/imported-from: <IMAGE-REPO>
+      from:
+        kind: DockerImage
+        name: <IMAGE-REPO>:<IMAGE-TAG>
+      importPolicy:
+        scheduled: true
+      name: <IMAGE-TAG>
