@@ -28,19 +28,15 @@ spec:
 ```
 
 In this template, all you need to do is update various resource names and
-replace `opf-example` in `httpHeaderValue1` with a preferred OrgID. <br>
+replace `opf-example` in `httpHeaderValue1` with a preferred OrgID.
 _Please note that you will have to use this OrgID to push logs into Loki,
 otherwise your logs won't be visible in Grafana._
 
-Pick a suitable name, ensure that it's unique in the [`observatorium/overlays/moc/grafana-data-sources`](../../../observatorium/overlays/moc/grafana-data-sources) folder.
+Pick a suitable name, and add it our `smaug` `grafana` configurations [here](https://github.com/operate-first/apps/tree/master/grafana/overlays/moc/smaug). Ensure that the name is unique amongst the `GrafanaDataSource`.
 
-Save this file under `observatorium/overlays/moc/zero/grafana-data-sources/opf-example-loki-source.yaml`.
-
-Then add it to `observatorium/overlays/moc/zero/grafana-data-sources/kustomization.yaml` by running the following:
+Also add this datasource file to the main `kustomization.yaml` by running the following:
 
 ```bash
-$ cd observatorium/overlays/moc/grafana-data-sources/
+$ cd grafana/overlays/moc/smaug/kustomization.yaml
 $ kustomize edit add resource opf-example-loki-source.yaml
 ```
-
-The steps are identical for the other environments.

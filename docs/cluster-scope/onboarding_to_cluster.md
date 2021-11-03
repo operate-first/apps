@@ -24,19 +24,19 @@ Please fork/clone the [operate-first/apps](https://github.com/operate-first/apps
 For successful completion of this guide you need to understand what the aim is. Please have prepared following data:
 
 - Name of the onboarded team.
-- Desired namespace name. Please use your team name as a prefix. This will make it easier for you to [onboard to ArgoCD](./onboarding_to_argocd.md) later on.
+- Desired namespace name. Please use your team name as a prefix. This will make it easier for you to [onboard to ArgoCD](../argocd-gitops/onboarding_to_argocd.md) later on.
 - List of users you'd like to add to your team.
 - An optional team GPG key, in case you would like to modify the encrypted list of users of your team later on.
 
 ## Recipe
 
-If you want to know more about the overall design please consult the ADR documentation at [operate-first/support](https://github.com/operate-first/blueprint).
+If you want to know more about the overall design please consult the ADR documentation at [operate-first/blueprint](https://github.com/operate-first/blueprint).
 
 In general we store all the cluster-scoped resources in a `cluster-scope` kustomize application within this repository.
 
 ## Adding namespaces
 
-For easier [onboard to ArgoCD](./onboarding_to_argocd.md) later on, we prefer to follow a name pattern for all our namespaces. Please use your team name as a prefix to the namespace name like so: `$OWNER_TEAM-example-project`.
+For easier [onboard to ArgoCD](../argocd-gitops/onboarding_to_argocd.md) later on, we prefer to follow a name pattern for all our namespaces. Please use your team name as a prefix to the namespace name like so: `$OWNER_TEAM-example-project`.
 
 ### Base resources
 
@@ -52,7 +52,7 @@ This command will create:
 - A blank user group for the `$OWNER_TEAM` if it does not exist yet in the `cluster-scope/base/user.openshift.io/groups/$OWNER_TEAM`
 - An RBAC component for the project admin role `RoleBinding` in `cluster-scope/components/namespace-admin-rolebinding/$OWNER_TEAM` and maps it to the newly added namespace.
 
-### Enabling namespace deployment to Zero cluster
+### Enabling namespace deployment to target cluster
 
 ```sh
 cd cluster-scope/overlays/prod/$ENV/$TARGET_CLUSTER
@@ -74,17 +74,9 @@ resources:
 ```
 
 ### Authenticate via OpenShift
-Users are automatically created upon login to the appropriate cluster. This is done by logging in via SSO (any gmail account will work).
+Users are automatically created upon login to the appropriate cluster. This is done by logging in via your GitHub account.
 
-For the `MOC/Zero` you can access the login from [this link](https://console-openshift-console.apps.zero.massopen.cloud/).
-
-This will lead the user to an authentication provider selection screen:
-
-![Auth provider selection screen in OpenShift](assets/images/openshift-login.png)
-
-Please select `moc-sso` provider. Then choose the final account provider that fits you the most:
-
-![MOC auth provider selection screen](assets/images/moc-login.png)
+Follow the link on the website at [operate-first.cloud](https://www.operate-first.cloud/), and click the grid icon at the top right, you will see a list of clusters. Clicking a cluster will redirect you to a login page, select `operate-first` and login using your GitHub account.
 
 With the user now created, we will need to provide them with appropriate rbac access to this namespace.
 

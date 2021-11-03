@@ -4,12 +4,12 @@ This onboarding guide will help you set up your application's secrets in a way t
 
 ## Prerequisites
 
-1. Please install GPG and [SOPS](https://github.com/mozilla/sops)
+1. Install GPG and [SOPS](https://github.com/mozilla/sops)
 2. Have ready your own/team-owned secret GPG key that you want to access the encrypted data with
 
 ## Obtain OperateFirst GPG public key
 
-Please fetch [`0508677DD04952D06A943D5B4DC4116D360E3276` GPG key](http://keys.gnupg.net/pks/lookup?op=vindex&fingerprint=on&search=0x4DC4116D360E3276):
+Fetch [`0508677DD04952D06A943D5B4DC4116D360E3276` GPG key](http://keys.gnupg.net/pks/lookup?op=vindex&fingerprint=on&search=0x4DC4116D360E3276):
 
 ```sh
 gpg --keyserver keys.gnupg.net --recv 0508677DD04952D06A943D5B4DC4116D360E3276
@@ -17,7 +17,7 @@ gpg --keyserver keys.gnupg.net --recv 0508677DD04952D06A943D5B4DC4116D360E3276
 
 ## Create sops file
 
-Please create a `.sops.yaml` file within your application manifests repository with the following content:
+Create a `.sops.yaml` file within your application manifests repository with the following content:
 
 ```yaml
 creation_rules:
@@ -28,9 +28,9 @@ creation_rules:
 This creation rule specifies:
 
 - `encrypted_regex` instructs SOPS to (by default) encrypt only the `data` or `stringData` properties of resources
-- `pgp` specifies which GPG keys to be used for the encryption. Multiple key fingerprints can be specified here separated by a comma. Each of the private GPG key holders to fingerprints specified in this list will be able to decrypt and reencrypt the resource.
+- `pgp` specifies which GPG keys to be used for the encryption. Multiple key fingerprints can be specified here separated by a comma. Each of the private GPG key holders to fingerprints specified in this list will be able to decrypt and re-encrypt the resource.
 
-For more details on the SOPS configuration, please consult the SOPS documentation](https://github.com/mozilla/sops).
+For more details on the SOPS configuration, please consult the [SOPS documentation](https://github.com/mozilla/sops).
 
 ## Encrypting a resource
 
@@ -40,7 +40,7 @@ To encrypt a resource, run the `sops --encrypt/-e` command:
 sops -e path/to/resource.yaml > path/to/resource.enc.yaml
 ```
 
-Please make sure the encrypted resource includes the `0508677DD04952D06A943D5B4DC4116D360E3276` GPG key, otherwise our ArgoCD won't be able to decrypt and apply the resource.
+Make sure the encrypted resource includes the `0508677DD04952D06A943D5B4DC4116D360E3276` GPG key, otherwise our ArgoCD won't be able to decrypt and apply the resource.
 
 ```sh
 grep "fp: " path/to/resource.enc.yaml

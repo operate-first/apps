@@ -1,8 +1,6 @@
 # ArgoCD onboarding procedure
 
-We have an ArgoCD instance deployed on MOC that can be used to deploy the application manifests located in this repo.
-
-The ArgoCD instance is deployed on [MOC Infra][1] cluster.
+The ArgoCD instance is deployed on [MOC Infra][1] cluster and can be used to deploy the application manifests located in this repo.
 
 Each team is given an [ArgoCD Project][2] that has an allow-list of clusters and namespaces to which they can deploy. They also have an allow-list of resources they can deploy within those namespaces. These restrictions exist to prevent teams from being able to use ArgoCD to deploy cluster scoped resources, or resources onto other team's namespaces. You can browse the projects [here][3] to get an idea of the current set of permissions. Note that for most projects, majority of these permissions are inherited from the [global project][4].
 
@@ -15,13 +13,11 @@ The following steps should be completed to fully onboard and enable a team to us
 ## Pre-requisites
 Team requesting ArgoCD access must have been onboarded to the cluster. See [here][5].
 
-Please fork/clone the [operate-first/apps][6] and [operate-first/argocd-apps][18] repositories.
-
-**During this whole setup, we'll be working within these repositories.**
+Please fork/clone the [operate-first/apps][6] repo.
 
 ## OpenShift Group
 
-To add multi-tenancy support, we require the team to have an OpenShift group on the MOC cluster on which our ArgoCD instance resides. This OpenShift group should include all the people belonging to the team that will need write-level access to applications belonging to the team's ArgoCD Project (explained later). The team being onboarded to ArgoCD should have had a group already created during cluster onboarding, as described [here][5].
+To add multi-tenancy support, we require the team to have an OpenShift group on the cluster on which our ArgoCD instance resides. This OpenShift group should include all the people belonging to the team that will need write-level access to applications belonging to the team's ArgoCD Project (explained later). The team being onboarded to ArgoCD should have had a group already created during cluster onboarding, as described [here][5].
 
 > Note: We use teams/project names interchangeably throughout this doc as all ArgoCD projects (for end-users) are named after their team names picked during the cluster onboarding process.
 
@@ -74,12 +70,12 @@ Some notes:
 * Ensure that the `spec.destinations` field contains a prefix for the team's namespaces. The team will be required to prefix their namespaces with this attribute if they want ArgoCD to be able to deploy to them, any other namespaces not following the prefix will need to be added manually under this field. See additional notes for more details.
 * Ensure `operate-first` is added into the `roles.groups` for each role. This allows the operate-first team to help diagnose issues.
 * `namespaceResourceWhitelist` generally contains the list of resources a project `admin` has access to. The general idea is that a team should be able to deploy via ArgoCD what they can deploy using `oc apply`. See other projects for a list of such resources.
-* `<cluster-name>` should be one of `zero` or `infra`.
+* `<cluster-name>` should be a cluster found [here][cluster-list], use the `metadata.name` value.
 
-Ensure that the argocd project is included in the `kustomization.yaml` [here][11].
+Ensure that the ArgoCD project is included in the `kustomization.yaml` [here][11].
 
 ## Enable OpenShift auth to ArgoCD Console
-By default all users should be able to see the [ArgoCD console][12]. To be able to make changes to applications belonging to the team's ArgoCD Project (via the cli or ui), the team will need to be able to log into the console with appropriate access. This accomplished by adding the team's OpenShift group mentioned in the beginning under the dex config [here][13].
+By default all users should be able to see the [ArgoCD console][12]. To be able to make changes to applications belonging to the team's ArgoCD Project (via the cli or ui), the team will need to be able to log into the console with appropriate access. This is accomplished by adding the team's OpenShift group mentioned in the beginning under the dex config [here][13].
 
 ## Give team read access to non-app ArgoCD resources
 
@@ -137,14 +133,15 @@ Now, as long as all thoth team's namespaces have `metadata.name` beginning with 
 [5]: https://github.com/operate-first/support/blob/main/docs/onboarding_to_cluster.md
 [6]: https://github.com/operate-first/apps
 [7]: https://argoproj.github.io/argo-cd/operator-manual/declarative-setup/#applications
-[8]: https://github.com/operate-first/argocd-apps/tree/main/envs
-[9]: https://github.com/operate-first/argocd-apps/blob/main/docs/add_application.md
+[8]: https://github.com/operate-first/apps/tree/master/argocd/overlays/moc-infra/applications/envs
+[9]: ./add_application.md
 [10]: https://github.com/operate-first/apps/tree/master/argocd/overlays/moc-infra/secrets/clusters
 [11]: https://github.com/operate-first/apps/blob/master/argocd/overlays/moc-infra/projects/kustomization.yaml
 [12]: https://argocd-server-argocd.apps.moc-infra.massopen.cloud
 [13]: https://github.com/operate-first/apps/blob/master/argocd/overlays/moc-infra/configs/argo_cm/dex.config#L11
-[14]: https://github.com/operate-first/apps/blob/master/argocd/overlays/moc-infra/configs/argo_rbac_cm/policy.csv#L15
+[14]: https://github.com/operate-first/apps/blob/master/argocd/overlays/moc-infra/configs/argo_rbac_cm/policy.csv#L21
 [15]: https://argoproj.github.io/argo-cd/operator-manual/declarative-setup/
 [16]: https://argoproj.github.io/argo-cd/operator-manual/user-management/#dex
 [17]: https://kubernetes.io/docs/tasks/manage-kubernetes-objects/kustomization/#bases-and-overlays
 [18]: https://github.com/operate-first/argocd-apps
+[cluster-list]: https://github.com/operate-first/apps/tree/master/acm/overlays/moc/infra/managedclusters

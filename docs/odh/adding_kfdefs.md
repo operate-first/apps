@@ -4,6 +4,7 @@ Due to security reasons, we do not allow users to deploy their own `Kfdefs` (see
 
 Steps:
 Let `ENV`, `CLUSTER`, and `NAMESPACE` be the environment, cluster, and namespace you would like to deploy this `Kfdef` to respectively.
+
 1. Fork & Clone https://github.com/operate-first/apps
 2. Add your `Kfdef` to `kfdefs/overlays/$ENV/$CLUSTER/$NAMESPACE/kfdef.yaml`, accompanied by a `Kustomization.yaml` that includes the `kfdef.yaml`.
 3. Add this `Kfdef` to the `kfdefs/overlays/$ENV/$CLUSTER/kustomization.yaml`
@@ -14,4 +15,4 @@ Note:
 - Please avoid adding cluster-wide operators to your `Kfdef` if they have already been deployed by another `Kfdef`.
 
 
-[1]: https://github.com/opendatahub-io/opendatahub-operator/issues/85
+[1]: https://github.com/operate-first/apps/issues/206

@@ -1,4 +1,6 @@
-# Kubeflow on MOC Zero
+# Kubeflow on Operate-First
+
+> Note: Currently our Kubeflow deployments are no longer active, see [this discussion](https://github.com/operate-first/support/issues/435) for details.
 
 The Operate First managed Kubeflow deployment on the MOC cluster is available for the public to experience.
 

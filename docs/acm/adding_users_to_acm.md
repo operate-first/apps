@@ -1,6 +1,6 @@
 ### Adding users to ACM
 
-We use ACM [managedclustersets][1] to organize our clusters. When a team is looking to create, import, or manage a cluster
+We use ACM [managed cluster sets][1] to organize our clusters. When a team is looking to create, import, or manage a cluster
 using the Operate First ACM instance (and thus make it part of the Operate First Cloud), they can do so by creating their
 own `ManagedClusterSet`. Once a team is given admin access to their `ManagedClusterSet`, they can then create and manage
 clusters in this `ManagedClusterSet`, isolated from other clusters within ACM.
@@ -10,7 +10,7 @@ clusters in this `ManagedClusterSet`, isolated from other clusters within ACM.
 
 1. Fork/Clone the [apps repo][2]
 2. Navigate to: `acm/overlays/moc/infra/managedclustersets`
-3. Create a new clusterset like so:
+3. Create a new `clusterset` like so:
 
 ```yaml
 kind: ManagedClusterSet
@@ -21,8 +21,8 @@ spec: {}
 ```
 Name it `<YOUR-CLUSTER-SET-NAME>.yaml`.
 
-4. Add `<YOUR-CLUSTER-SET-NAME>.yaml` clusterset to the `kustomization.yaml` [here][3].
-5. Enable gitops via ArgoCD for this cluster by adding the ManagedClusterSet to the `Placement` [here][4].
+4. Add `<YOUR-CLUSTER-SET-NAME>.yaml` `clusterset` to the `kustomization.yaml` to `acm/overlays/moc/infra/managedclustersets/kustomization.yaml`.
+5. Enable GitOps via ArgoCD for this cluster by adding the `ManagedClusterSet` to the `Placement` found here:  `acm/overlays/moc/infra/placements/argocd-managed-clusters.yaml`.
 
 Then Create the following `ManagedClusterSetBinding`:
 
@@ -57,7 +57,8 @@ roleRef:
 ```
 
 Replace `<YOUR-CLUSTER-SET-NAME>` with the same name used in (3).
-Replace `<YOUR_OCP_GROUP>` with your team's ocp group. You can find your group [here][6].
+Replace `<YOUR_OCP_GROUP>` with your team's ocp group. You can find your group at `${APPS_REPO}/cluster-scope/base/user.openshift.io/groups`.
+
 Name this file `clusterrolebinding.yaml`, and add it to this path
 `cluster-scope/base/rbac.authorization.k8s.io/clusterrolebindings/open-cluster-management:managedclusterset:admin:<YOUR-CLUSTER-SET-NAME>`.
 Also add this `kustomization.yaml` file in the same path:
@@ -100,14 +101,11 @@ subjects:
 
 > Note: This is a workaround for https://github.com/operate-first/support/issues/436
 
-> Please do not manually create namespaces in the infra cluster, this should be done via filing an issue [here][5].
+> Please do not manually create namespaces in the infra cluster, this should be done via filing an issue [here][3].
 
 Commit your changes, make a PR, once merged, ArgoCD will deploy these changes and the team should now be able to
 create/manage clusters in this ManagedClusterSet.
 
 [1]: https://access.redhat.com/documentation/en-us/red_hat_advanced_cluster_management_for_kubernetes/2.3/html/clusters/managedclustersets#creating-a-managedclusterset
 [2]: https://github.com/operate-first/apps
-[3]: https://github.com/operate-first/apps/blob/master/acm/overlays/moc/infra/managedclustersets/kustomization.yaml
-[4]: https://github.com/operate-first/apps/blob/master/acm/overlays/moc/infra/placements/argocd-managed-clusters.yaml#L7
-[5]: https://github.com/operate-first/support/issues/new?assignees=first-operator&labels=kind%2Fonboarding%2Carea%2Fcluster&template=onboarding_to_cluster.yaml&title=NEW+PROJECT%3A+%3Cname%3E
-[6]: https://github.com/operate-first/apps/tree/master/cluster-scope/base/user.openshift.io/groups
+[3]: https://github.com/operate-first/support/issues/new?assignees=first-operator&labels=kind%2Fonboarding%2Carea%2Fcluster&template=onboarding_to_cluster.yaml&title=NEW+PROJECT%3A+%3Cname%3E

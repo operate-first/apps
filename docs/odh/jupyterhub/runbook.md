@@ -5,47 +5,27 @@ deployment.
 
 ## Key Locations
 
-| Env      | Namespace            | GitHub Repo                                                           |
-|----------|----------------------|-----------------------------------------------------------------------|
-| MOC ZERO | [opf-jupyterhub][1]  | https://github.com/operate-first/apps/tree/master/odh/base/jupyterhub |
+| Env       | Namespace           | GitHub Repo                                                  |
+| --------- | ------------------- | ------------------------------------------------------------ |
+| MOC Smaug | [opf-jupyterhub][1] | https://jupyterhub-opf-jupyterhub.apps.smaug.na.operate-first.cloud |
 
+## Setup
 
-## Dashboards
-
-Links to the monitoring dashboards for this service.
-
-| Dashboard Description         | Dashboard URL                                                                                                                     |
-| ----------------------------- | --------------------------------------------------------------------------------------------------------------------------------- |
-| JupyterHub SLI/SLO            | https://grafana-route-opf-monitoring.apps.zero.massopen.cloud/d/BfSK2f1Mz/jupyterhub-sli-slo                                      |
-| JupyterHub Usage              | https://grafana-route-opf-monitoring.apps.zero.massopen.cloud/d/24cc5f554da78f3ca60a40f190f7e23203f7d847/jupyterhub-usage?orgId=1 |
-| JypyterHub - User Perspective | https://grafana-route-opf-monitoring.apps.zero.massopen.cloud/d/fuJBFErMz/jupyterhub-user-perspective                             |
-
-## Prerequisites
-
-Our JupyterHub instance is managed by the Open Data Hub operator.
-
-## Deployment
-
-The JupyterHub server is deployed using Kustomize and ArgoCD. As such, any changes should be made
-in the necessary files in git and redeployed (rather than manually editing
-OpenShift objects directly).
+Our JupyterHub instance is managed by the Open Data Hub operator. Any changes should be made in the necessary files in git and redeployed (rather than manually editing OpenShift objects directly).
 
 ## Upkeep and Administration
 
-JupyterHub includes an Admin tool that lets us manage users. In production,
-this tool can be reached [here][2]. Note that the members of the `operate-first` group have been added as `jupyterhub_admins` [here][3]. The admin tool will let you stop/start,
-delete, and access a user's notebook server and can be very helpful for
-addressing issues that JupyterHub users may encounter.
+JupyterHub includes an Admin tool that lets us manage users. In production, this tool can be reached [here][2]. Note that the members of the `operate-first` group have been added as `jupyterhub_admins` [here][3]. If you require admin access, make a pr adding yourself to this OCP `group`, it can be found [here](https://github.com/operate-first/apps/blob/master/cluster-scope/base/user.openshift.io/groups/operate-first/group.yaml).
+
+The admin tool will let you stop/start, delete, and access a user's notebook server and can be very helpful for addressing issues that JupyterHub users may encounter.
 
 ## Common Problems
 
-The following is a list of common issues we've encountered with JupyterHub and
-how to fix them.
+The following is a list of common issues we've encountered with JupyterHub and how to fix them.
 
 ### Smoke Test
 
-Verify that the service is `up` and `available` by checking if you can access/login to the service [endpoint][4]. Verify that the page loads, that you can log in, and
-that you can spin up a notebook.
+Verify that the service is `up` and `available` by checking if you can access/login to the service [endpoint][4]. Verify that the page loads, that you can log in, and that you can spin up a notebook.
 
 ### Insufficient disk space for notebook pod
 
@@ -101,12 +81,12 @@ The issue can be resolved by restarting both pods.
 
 If the user is encountering issues starting their server and encounter errors pertaining to their Kernel, they can try restarting their Kernel by following steps [here][9].
 
-[1]: https://console-openshift-console.apps.zero.massopen.cloud/project-details/ns/opf-jupyterhub
-[2]: https://jupyterhub-opf-jupyterhub.apps.zero.massopen.cloud/hub/admin
-[3]: https://github.com/operate-first/apps/blob/master/odh/base/jupyterhub/overrides/jupyterhub/base/jupyterhub-configmap.yaml
-[4]: https://jupyterhub-opf-jupyterhub.apps.zero.massopen.cloud/
-[5]: https://github.com/operate-first/blueprint/blob/main/docs/userstories/jupyterhub/analyze_storage.feature
-[6]: https://github.com/operate-first/blueprint/blob/main/docs/userstories/jupyterhub/increase_pvc_size_jh.feature
-[7]: https://github.com/operate-first/blueprint/blob/main/docs/userstories/jupyterhub/add_imagestream_to_jh.feature
-[8]: https://argocd-server-argocd.apps.moc-infra.massopen.cloud/applications/opf-jupyterhub
-[9]: https://github.com/operate-first/blueprint/blob/main/docs/userstories/jupyterhub/reinstall_kernel.feature
+[1]: https://console-openshift-console.apps.smaug.na.operate-first.cloud/k8s/ns/opf-jupyterhub/
+[2]: https://jupyterhub-opf-jupyterhub.apps.smaug.na.operate-first.cloud/hub/admin
+[3]: https://github.com/operate-first/apps/blob/master/odh-manifests/smaug/jupyterhub/base/jupyterhub-groups-configmap.yaml#L9
+[4]: https://jupyterhub-opf-jupyterhub.apps.smaug.na.operate-first.cloud
+[5]: features/analyze_storage.feature
+[6]: features/increase_pvc_size_jh.feature
+[7]: features/add_imagestream_to_jh.feature
+[8]: https://argocd.operate-first.cloud/applications/kfdefs-smaug
+[9]: features/reinstall_kernel.feature

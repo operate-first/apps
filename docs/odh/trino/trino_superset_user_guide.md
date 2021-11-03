@@ -6,14 +6,14 @@ The purpose of this document is to list out all the steps to be followed while i
 
 The following are the pre-requisites needed before you can start interacting with Trino and Superset:
 
-* Access to [CloudBeaver](http://cloudbeaver-opf-trino.apps.zero.massopen.cloud/)
+* Access to [CloudBeaver](http://cloudbeaver-opf-trino.apps.smaug.na.operate-first.cloud)
     * Reach out to Operate First team for credentials (only `admin` account is available now, user authentication is a WIP)
-* Access to [Trino](https://trino-secure-opf-trino.apps.zero.massopen.cloud)
+* Access to [Trino](https://trino.operate-first.cloud)
     * Login with `trino` via OCP
-* Access to [Superset](https://superset-secure-opf-superset.apps.zero.massopen.cloud/)
-    * Login to Superset via OCP. Reach out to Operate First team for sufficient access via [support repo](https://github.com/operate-first/support/issues/new/choose)
+* Access to [Superset](https://superset.operate-first.cloud)
+    * Follow instructions [here](../superset/add_superset_users.md).
 * Data is stored in an S3 bucket hosted on Operate First and the bucket is configured with Trino i.e. Trino has the correct credentials and permission to read the bucket
-    * Reach out to Operate First team to create/configure the S3 bucket with Trino via opening an issue in the [support repo](https://github.com/operate-first/support/issues/new/choose). (You can also follow [this document](https://www.operate-first.cloud/users/support/docs/claiming_object_store.md) for requesting an S3 bucket)
+    * Follow [this document](https://www.operate-first.cloud/users/support/docs/claiming_object_store.md) for provisioning an S3 bucket.
 * Data in S3 bucket is contained within directories/folders for it to be exported as a table in Trino and is of the supported data types mentioned [here](https://trino.io/docs/current/connector/hive.html#supported-file-types)
 
 
@@ -31,7 +31,7 @@ Data in Ceph needs to be contained within a directory/folder in order to be expo
 
 In order to create the tables in Trino, we will use [CloudBeaver](https://github.com/dbeaver/cloudbeaver).
 
-* **Login to CloudBeaver at**: [http://cloudbeaver-opf-trino.apps.zero.massopen.cloud/](http://cloudbeaver-opf-trino.apps.zero.massopen.cloud/)
+* **Login to CloudBeaver at**: http://cloudbeaver-opf-trino.apps.smaug.na.operate-first.cloud
 
 (***Note: User authentication for CloudBeaver is still a WIP. Reach out to the Operate First team for admin credentials***)
 
@@ -89,7 +89,8 @@ Reference documents, if the result differs from the desired one:
 
 You can view the logs/performance of each SQL query executed by logging into Trino.
 
-* **Login to Trino**: [https://trino-secure-opf-trino.apps.zero.massopen.cloud](https://trino-secure-opf-trino.apps.zero.massopen.cloud).
+* **Login to Trino**: [
+https://trino.operate-first.cloud](https://trino.operate-first.cloud).
 
 After logging in you should see a landing page which displays the number of queries running, active workers, queries executed etc:
 
@@ -105,9 +106,7 @@ Now that we have the tables created in Trino, we can start creating our dashboar
 
 **The Operate First Superset is already configured to use Trino as the database**.
 
-* **Login to Superset**: [https://superset-secure-opf-superset.apps.zero.massopen.cloud/](https://superset-secure-opf-superset.apps.zero.massopen.cloud/)
-
-(**_Note: Reach out to the Operate First team for requesting a user account. You can create an issue for this in the support repo [here](https://github.com/operate-first/support/issues/new/choose)_**)
+* **Login to Superset**: https://superset.operate-first.cloud
 
 ### Configuring a Dataset
 

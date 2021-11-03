@@ -2,9 +2,9 @@
 
 ## Key Locations
 
-| Env                                    | Namespace                     |GitHub Repo                     |
-|----------------------------------------|-------------------------------|--------------------------------|
-| MOC-ZERO Prod                          | [opf-superset][superset]      | [repo][repo]                   |
+| Env            | Namespace                | GitHub Repo  |
+| -------------- | ------------------------ | ------------ |
+| MOC-Smaug Prod | [opf-superset][superset] | [repo][repo] |
 
 
 
@@ -51,6 +51,6 @@ Try going to `Data > Databases` at the top, open edit panel for `opf-trino` data
 If it reports an error, try adding in the password again where it says `XXX..` and see if that works.
 
 
-[oauth-mapping]: https://github.com/operate-first/apps/blob/master/odh-manifests/zero/superset/base/secret.yaml#L29
+[oauth-mapping]: https://github.com/operate-first/apps/blob/master/odh-manifests/smaug/superset/base/secret.yaml#L29
 [superset]: superset
-[repo]: https://github.com/operate-first/apps/tree/master/odh/overlays/moc/zero/kafka
+[repo]: https://github.com/operate-first/apps/tree/master/kfdefs/overlays/moc/smaug/opf-superset

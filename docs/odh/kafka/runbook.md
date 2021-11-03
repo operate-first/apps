@@ -4,7 +4,7 @@
 
 | Env                                    | Namespace                                                    | GitHub Repo                        |
 |----------------------------------------|-----------------------------------------------------------------------------------------------------------|-------------------------------|
-| MOC-ZERO Prod                       | [opf-kafka](https://console-openshift-console.apps.zero.massopen.cloud/k8s/cluster/projects/opf-kafka)                                                                            | https://github.com/operate-first/apps/tree/master/odh/overlays/moc/zero/kafka                        |
+| MOC-Smaug Prod                   | [opf-kafka](https://console-openshift-console.apps.smaug.na.operate-first.cloud/k8s/ns/opf-kafka/) | - [kfdef app](https://github.com/operate-first/apps/tree/master/kfdefs/overlays/moc/smaug/opf-kafka)<br />- [odh overrides](https://github.com/operate-first/apps/tree/master/odh-manifests/smaug/kafka) |
 
 ## Contact for Additional Help
 
@@ -17,7 +17,7 @@ Links to the monitoring dashboards for this service.
 
 | Dashboard Description                     | Dashboard URL     |
 | ------------------------------------------- | ------------ |
-| Kafka Overview                       | https://grafana-route-opf-monitoring.apps.zero.massopen.cloud/d/80de0e219205a33a2d87820f1ce335b6805ddbfc/kafka-overview?orgId=1 |                            |
+| Kafka Overview                       | N/A - [pending](https://github.com/operate-first/SRE/issues/382) |
 
 Some items to take note of:
 
@@ -42,8 +42,8 @@ They are as follows:
 
 | Pods | Description |
 | --------- | ----------- |
-| [Strimzi cluster operator](https://console-openshift-console.apps.zero.massopen.cloud/k8s/ns/openshift-operators/pods/strimzi-cluster-operator-v0.19.0-7c78d4cc-m654p) | This is the main Strimzi operator pod. It orchestrates all other pods and resides in the `openshift-operators` namespace. |
-| [Zookeeper](https://console-openshift-console.apps.zero.massopen.cloud/k8s/ns/opf-kafka/statefulsets/odh-message-bus-zookeeper) | Zookeper performs controller election, cluster membership and maintain a list of all topics and configurations for the kafka brokers. |
+| [Strimzi cluster operator](https://console-openshift-console.apps.smaug.na.operate-first.cloud/k8s/ns/openshift-operators/pods) | This is the main Strimzi operator pod. It orchestrates all other pods and resides in the `openshift-operators` namespace. |
+| Zookeeper | Zookeper performs controller election, cluster membership and maintain a list of all topics and configurations for the kafka brokers. |
 | Kafka Brokers| Kafka brokers handle and store the topic log partitions and services the consumers and producers. These are deployed and managed by the Strimzi Operator. |
 | Kafka Connect | Kafka connect utilizes various connectors to connect the Kafka cluster to a variety of data sources and streams. These are deployed and managed by the Strimzi Operator. |
 

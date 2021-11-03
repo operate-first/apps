@@ -1,6 +1,6 @@
 # Claiming S3-compatible object store buckets
 
-This doc brings a brief summary on how to request a hosted S3 buckets within the Operate First managed deployments. We use the [Rook](https://rook.io/) operator.
+This doc brings a brief summary on how to request a hosted S3 buckets within the Operate First managed deployments. We use the [OCS](https://github.com/red-hat-storage/ocs-operator) operator to manage our Ceph storage. We use [Nooba operator](https://github.com/noobaa/noobaa-operator) as part of the OCS platform to provide S3 object store. As such all buckets are to be provisioned using the Nooba storage class.
 
 ## Claim a new bucket
 
@@ -26,14 +26,14 @@ Once deployed and bound, the `ObjectBucketClaim` resource will be updated. Addit
 
 ### Secret
 
-The autocreated secret `CLAIM_NAME` contains 2 properties, which provide access credentials for this bucket:
+The auto created secret `CLAIM_NAME` contains 2 properties, which provide access credentials for this bucket:
 
 - `AWS_ACCESS_KEY_ID`
 - `AWS_SECRET_ACCESS_KEY`
 
 ### ConfigMap
 
-The autocreated configmap `CLAIM_NAME` contains 4 additional properties, which specifies means to access the bucket:
+The auto created configmap `CLAIM_NAME` contains 4 additional properties, which specifies means to access the bucket:
 
 - `BUCKET_HOST` which corresponds to an internal cluster route to the Rook operator deployment (`*.openshift-storage.svc.cluster.local`).
 - `BUCKET_NAME` which holds the unique name (in the cluster) of the bucket, prefixed with what was specified in `spec.generateBucketName` of the `ObjectBucketClaim`
@@ -60,9 +60,9 @@ spec:
 
 ## External access
 
-Accessing S3 bucket from outside of the cluster is possible via `https://s3-openshift-storage.apps.zero.massopen.cloud/` route.
+Accessing S3 bucket from outside of the cluster is possible via `https://s3-openshift-storage.apps.smaug.na.operate-first.cloud` route.
 
 
 ## Resources and links
 
-- [`ObjectBucketClaim` in Rook documentation](https://rook.io/docs/rook/v1.5/ceph-object-bucket-claim.html)
+- [OpenShift Container Storage Documentation](https://access.redhat.com/documentation/en-us/red_hat_openshift_container_storage/4.8/html/managing_hybrid_and_multicloud_resources/object-bucket-claim)
