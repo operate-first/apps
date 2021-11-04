@@ -6,3 +6,4 @@ commonLabels:
 namespace: opf-observatorium
 resources:
   - loki
+  - vector

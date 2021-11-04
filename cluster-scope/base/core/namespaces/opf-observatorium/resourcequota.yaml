@@ -1,0 +1,12 @@
+apiVersion: v1
+kind: ResourceQuota
+metadata:
+  name: opf-observatorium-custom
+spec:
+  hard:
+    limits.cpu: '32'
+    limits.memory: 64Gi
+    requests.cpu: '32'
+    requests.memory: 64Gi
+    requests.storage: 500Gi
+    count/objectbucketclaims.objectbucket.io: 2
