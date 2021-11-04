@@ -4,6 +4,7 @@ kind: Kustomization
 commonLabels:
   app: grafana
 resources:
+  - cluster-management
   - operate-first
   - thanos
   - thoth-station
