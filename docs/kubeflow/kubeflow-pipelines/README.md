@@ -1,5 +1,7 @@
 ## Kubeflow-Pipelines Access
 
+> Note: Currently our Kubeflow deployments are no longer active, see [this discussion](https://github.com/operate-first/support/issues/435) for details.
+
 [Kubeflow Pipelines](https://www.kubeflow.org/docs/pipelines/overview/pipelines-overview/#what-is-kubeflow-pipelines) is a platform for building and deploying portable, scalable machine learning (ML) workflows based on Docker containers.
 
 An instance of Kubeflow Pipelines is available for use in OperateFirst.

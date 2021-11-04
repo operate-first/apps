@@ -1,6 +1,6 @@
 # Requesting more permissions for an ArgoCD Project (MOC)
 
-Once a team has been onboarded to ArgoCD on MOC. They may request additional permissions for their ArgoCD Project. For example, a team
+Once a team has been onboarded to ArgoCD. They may request additional permissions for their ArgoCD Project. For example, a team
 may request permissions to deploy a custom resource, but lack the permissions to do so.
 
 Permissions for all projects can be found [here][1].
