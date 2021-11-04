@@ -1,0 +1,17 @@
+apiVersion: v1
+kind: Service
+metadata:
+  labels:
+    app.kubernetes.io/component: index-query-cache
+  name: observatorium-loki-index-query-cache
+spec:
+  clusterIP: None
+  ports:
+  - name: client
+    port: 11211
+    targetPort: 11211
+  - name: metrics
+    port: 9150
+    targetPort: 9150
+  selector:
+    app.kubernetes.io/component: index-query-cache
