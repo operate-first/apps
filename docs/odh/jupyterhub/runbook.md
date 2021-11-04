@@ -85,8 +85,8 @@ If the user is encountering issues starting their server and encounter errors pe
 [2]: https://jupyterhub-opf-jupyterhub.apps.smaug.na.operate-first.cloud/hub/admin
 [3]: https://github.com/operate-first/apps/blob/master/odh-manifests/smaug/jupyterhub/base/jupyterhub-groups-configmap.yaml#L9
 [4]: https://jupyterhub-opf-jupyterhub.apps.smaug.na.operate-first.cloud
-[5]: features/analyze_storage.feature
-[6]: features/increase_pvc_size_jh.feature
-[7]: features/add_imagestream_to_jh.feature
+[5]: analyze_storage.md
+[6]: increase_pvc_size_jh.md
+[7]: add_imagestream_to_jh.md
 [8]: https://argocd.operate-first.cloud/applications/kfdefs-smaug
-[9]: features/reinstall_kernel.feature
+[9]: reinstall_kernel.md
