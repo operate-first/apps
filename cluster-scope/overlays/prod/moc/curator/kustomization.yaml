@@ -18,6 +18,8 @@ resources:
   - ../../../../base/storage.k8s.io/storageclasses/hostpath-provisioner
   - ../../../../base/user.openshift.io/groups/cluster-admins
 
+  - machineconfigs/50-ipmi-route.yaml
+
 generators:
   - secret-generator.yaml
 
