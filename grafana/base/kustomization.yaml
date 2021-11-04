@@ -4,7 +4,6 @@ kind: Kustomization
 
 resources:
   - datasource.yaml
-  - dashboards
   - grafana.yaml
   - grafana-datasource-serviceaccount.yaml
   - grafana-route.yaml
