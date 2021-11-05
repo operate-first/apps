@@ -127,6 +127,8 @@ spec:
     - group: metrics.k8s.io
       kind: PodMetrics
     - group: monitoring.coreos.com
+      kind: PrometheusRule
+    - group: monitoring.coreos.com
       kind: ServiceMonitor
     - group: networking.k8s.io
       kind: Ingress
