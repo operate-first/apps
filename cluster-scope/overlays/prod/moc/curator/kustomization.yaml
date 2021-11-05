@@ -19,6 +19,7 @@ resources:
   - ../../../../base/user.openshift.io/groups/cluster-admins
 
   - machineconfigs/50-ipmi-route.yaml
+  - configmaps/admin-acks.yaml
 
 generators:
   - secret-generator.yaml
