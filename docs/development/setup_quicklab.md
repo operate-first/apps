@@ -21,6 +21,8 @@
 7. Select **openshift4upi** bundle. A new form loads. **Opt-in for the `htpasswd` credentials provider.** (You can ignore the warning on top as well, since this is the first install attempt of Openshift on that cluster):
    ![Select a bundle][5]
 
+   **Note**: Pick the latest version of Openshift from the dropdown.
+
 8. Wait for OCP4 to install. After successful installation you should see a cluster history log like this:
    ![Cluster log after OCP4 install][6]
 
