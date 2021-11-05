@@ -28,7 +28,7 @@ Now create a new file in this directory called `kustomization.yaml` and fill it 
 apiVersion: kustomize.config.k8s.io/v1beta1
 kind: Kustomization
 resources:
-  - ../template
+  - ../../../../../../base/trino/hive-metastore-template
 patches:
   - target:
       kind: Service
@@ -123,6 +123,8 @@ $ sed -i 's/<catalog_name_upercase>/SOME_CATALOG/g' kustomization.yaml
 ```
 
 Add this file to the `kustomization.yaml` in `apps/kfdefs/overlays/$ENV/$CLUSTER/$TRINO_FOLDER/`.
+
+Also add the path to this file to the `kustomization.yaml` located at `kfdefs/overlays/$ENV/$CLUSTER/$TRINO_FOLDER/hive-metastores/kustomization.yaml`
 
 Next add the following to the `s3buckets` secret found at `apps/kfdefs/overlays/$ENV/$CLUSTER/$TRINO_FOLDER/secrets/s3buckets.yaml`.
 
