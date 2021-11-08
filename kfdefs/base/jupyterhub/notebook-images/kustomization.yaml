@@ -18,6 +18,7 @@ resources:
   - pet-image-detection.yaml
   - ray-ml-notebook.yaml
   - s2i-spark3.0.1-minimal-notebook.yaml
+  - summit-2021-octo-keynote.yaml
   - time-series.yaml
   - s2i-pytorch-py38-notebook.yaml
   - bu-cs-jupyterbook.yaml

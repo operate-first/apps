@@ -1,0 +1,26 @@
+---
+apiVersion: image.openshift.io/v1
+kind: ImageStream
+metadata:
+  labels:
+    opendatahub.io/notebook-image: "true"
+  annotations:
+    opendatahub.io/notebook-image-url:
+      "https://github.com/AICoE/summit-2021-octo-keynote"
+    opendatahub.io/notebook-image-name:
+      "Summit 2021 OCTO Keynote Image"
+    opendatahub.io/notebook-image-desc:
+      "Image for running the notebooks associated with the summit-2021-octo-keynote project"
+  name: summit-2021-octo-keynote
+spec:
+  lookupPolicy:
+    local: true
+  tags:
+    - annotations:
+        openshift.io/imported-from: quay.io/aicoe/summit-2021-octo-keynote
+      from:
+        kind: DockerImage
+        name: quay.io/aicoe/summit-2021-octo-keynote:latest
+      importPolicy:
+        scheduled: true
+      name: "latest"
