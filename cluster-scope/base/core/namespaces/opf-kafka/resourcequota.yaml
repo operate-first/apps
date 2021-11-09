@@ -4,8 +4,8 @@ metadata:
   name: opf-kafka-custom
 spec:
   hard:
-    limits.cpu: '8'
-    limits.memory: 50Gi
+    limits.cpu: '16'
+    limits.memory: 100Gi
     requests.cpu: '8'
     requests.memory: 50Gi
     requests.storage: 250Gi
