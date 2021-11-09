@@ -10,6 +10,7 @@ resources:
     - ../../../../base/core/namespaces/acme-operator
     - ../../../../base/core/namespaces/openshift-cnv
     - ../../../../base/core/namespaces/openshift-insights
+    - ../../../../base/core/namespaces/openshift-logging
     - ../../../../base/core/namespaces/openshift-monitoring
     - ../../../../base/core/namespaces/openshift-nfd
     - ../../../../base/core/namespaces/openshift-operators
