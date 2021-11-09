@@ -12,6 +12,7 @@ resources:
   - ../../../../base/core/namespaces/democratic-csi
   - ../../../../base/core/namespaces/keycloak
   - ../../../../base/core/namespaces/openshift-cnv
+  - ../../../../base/core/namespaces/openshift-logging
   - ../../../../base/core/namespaces/openshift-nmstate
   - ../../../../base/core/namespaces/opf-alertreceiver
   - ../../../../base/nmstate.io/nmstates/nmstate
@@ -20,6 +21,7 @@ resources:
   - ../../../../base/operators.coreos.com/operatorgroups/openshift-nmstate
   - ../../../../base/operators.coreos.com/operatorgroups/operator-acm-group
   - ../../../../base/operators.coreos.com/subscriptions/acm-operator-subscription
+  - ../../../../base/operators.coreos.com/subscriptions/cluster-logging
   - ../../../../base/operators.coreos.com/subscriptions/kubernetes-nmstate-operator
   - ../../../../base/operators.coreos.com/subscriptions/rhsso-operator
   - ../../../../base/rbac.authorization.k8s.io/clusterrolebindings/acme-operator
@@ -50,6 +52,7 @@ patchesStrategicMerge:
   - configmaps/user-workload-monitoring-config.yaml
   - oauths/cluster_patch.yaml
   - storageclasses/moc-nfs-csi_patch.yaml
+  - subscriptions/cluster-logging-operator_patch.yaml
   - subscriptions/kubernetes-nmstate-operator_patch.yaml
   - groups/cluster-admins.yaml
   - clusterrolebindings/self-provisioners_patch.yaml
