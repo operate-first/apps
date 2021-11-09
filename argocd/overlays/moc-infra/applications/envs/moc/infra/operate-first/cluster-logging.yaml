@@ -5,7 +5,7 @@ metadata:
   name: cluster-logging
 spec:
   destination:
-    name: infra
+    name: moc-infra
     namespace: openshift-logging
   project: operate-first
   source:
