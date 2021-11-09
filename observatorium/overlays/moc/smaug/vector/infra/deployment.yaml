@@ -1,0 +1,52 @@
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: vector-infra
+  labels:
+    app: vector-infra
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: vector-infra
+  template:
+    metadata:
+      labels:
+        app: vector-infra
+    spec:
+      containers:
+        - name: vector
+          image: quay.io/operate-first/vector:0.14.X-alpine
+          command: ["vector", "-c", "/home/config/vector-config.yaml"]
+          resources:
+            limits:
+              cpu: "2"
+              memory: 2Gi
+            requests:
+              cpu: 1500m
+              memory: 500Mi
+          ports:
+            - containerPort: 8686
+              name: graphql-api
+            - containerPort: 9598
+              name: metrics
+          volumeMounts:
+            - name: config-volume
+              mountPath: /home/config
+              readOnly: true
+            - name: clo-kafka
+              readOnly: true
+              mountPath: /mnt
+          livenessProbe:
+            httpGet:
+              path: /metrics
+              port: metrics
+      volumes:
+        - name: config-volume
+          configMap:
+            name: vector-config-infra
+        - name: clo-kafka
+          secret:
+            secretName: clo-kafka
+            defaultMode: 420
