@@ -5,6 +5,15 @@ commonLabels:
 resources:
 - audio-decoder-decoded-speech.yaml
 - audio-decoder-sentiment-text.yaml
+- balrog-cluster-app-logs.yaml
+- balrog-cluster-audit-logs.yaml
+- balrog-cluster-infra-logs.yaml
+- infra-cluster-app-logs.yaml
+- infra-cluster-audit-logs.yaml
+- infra-cluster-infra-logs.yaml
+- rick-cluster-app-logs.yaml
+- rick-cluster-audit-logs.yaml
+- rick-cluster-infra-logs.yaml
 - smaug-cluster-app-logs.yaml
 - smaug-cluster-audit-logs.yaml
 - smaug-cluster-infra-logs.yaml
