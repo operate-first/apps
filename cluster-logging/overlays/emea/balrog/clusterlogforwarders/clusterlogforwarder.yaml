@@ -11,19 +11,19 @@ spec:
         name: clo-kafka
       type: kafka
       url: >-
-        tls://odh-message-bus-kafka-bootstrap-opf-kafka.apps.smaug.na.operate-first.cloud/balrog-prod.cluster-logs.application
+        tls://odh-message-bus-kafka-bootstrap-opf-kafka.apps.smaug.na.operate-first.cloud:443/balrog-prod.cluster-logs.application
     - name: infra-logs
       secret:
         name: clo-kafka
       type: kafka
       url: >-
-        tls://odh-message-bus-kafka-bootstrap-opf-kafka.apps.smaug.na.operate-first.cloud/balrog-prod.cluster-logs.infrastructure
+        tls://odh-message-bus-kafka-bootstrap-opf-kafka.apps.smaug.na.operate-first.cloud:443/balrog-prod.cluster-logs.infrastructure
     - name: audit-logs
       secret:
         name: clo-kafka
       type: kafka
       url: >-
-        tls://odh-message-bus-kafka-bootstrap-opf-kafka.apps.smaug.na.operate-first.cloud/balrog-prod.cluster-logs.audit
+        tls://odh-message-bus-kafka-bootstrap-opf-kafka.apps.smaug.na.operate-first.cloud:443/balrog-prod.cluster-logs.audit
   pipelines:
     - inputRefs:
         - application
