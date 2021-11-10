@@ -9,7 +9,7 @@ spec:
   project: b4mad
   source:
     path: manifests
-    repoURL: https://github.com/durandom/formula1-telemetry-kafka.git
+    repoURL: https://github.com/b4mad/racing.git
     targetRevision: master
   syncPolicy:
     syncOptions:
