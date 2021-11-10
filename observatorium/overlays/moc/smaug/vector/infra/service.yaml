@@ -1,0 +1,17 @@
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: vector-infra-metrics
+spec:
+  selector:
+    app: vector-infra
+  ports:
+    - name: metrics
+      protocol: TCP
+      port: 9598
+      targetPort: metrics
+    - name: graphql-api
+      protocol: TCP
+      port: 8686
+      targetPort: graphql-api

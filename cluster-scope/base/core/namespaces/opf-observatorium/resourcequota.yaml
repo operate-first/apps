@@ -4,8 +4,8 @@ metadata:
   name: opf-observatorium-custom
 spec:
   hard:
-    limits.cpu: '32'
-    limits.memory: 64Gi
+    limits.cpu: '48'
+    limits.memory: 100Gi
     requests.cpu: '32'
     requests.memory: 64Gi
     requests.storage: 500Gi
