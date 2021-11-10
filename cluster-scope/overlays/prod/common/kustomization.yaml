@@ -51,4 +51,5 @@ resources:
     - ../../../base/user.openshift.io/groups/octo-ushift-dev
     - ../../../base/user.openshift.io/groups/octo-otel-dev
     - ../../../base/user.openshift.io/groups/workshops
+    - ../../../base/user.openshift.io/groups/prometheus-ai
     - alertmanager-main-secret.yaml
