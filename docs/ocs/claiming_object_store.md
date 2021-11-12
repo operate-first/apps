@@ -7,7 +7,6 @@ This doc brings a brief summary on how to request a hosted S3 buckets within the
 Deploying a following resource within your application will grant you a bucket:
 
 ```yaml
----
 apiVersion: objectbucket.io/v1alpha1
 kind: ObjectBucketClaim
 metadata:
@@ -35,7 +34,7 @@ The auto created secret `CLAIM_NAME` contains 2 properties, which provide access
 
 The auto created configmap `CLAIM_NAME` contains 4 additional properties, which specifies means to access the bucket:
 
-- `BUCKET_HOST` which corresponds to an internal cluster route to the Rook operator deployment (`*.openshift-storage.svc.cluster.local`).
+- `BUCKET_HOST` which corresponds to an internal cluster route to the Noobaa service (usually `s3.openshift-storage.svc`)
 - `BUCKET_NAME` which holds the unique name (in the cluster) of the bucket, prefixed with what was specified in `spec.generateBucketName` of the `ObjectBucketClaim`
 - `BUCKET_PORT`
 - `BUCKET_REGION`
@@ -43,7 +42,7 @@ The auto created configmap `CLAIM_NAME` contains 4 additional properties, which 
 
 ### Usage in deployment
 
-In order to use the bucket within your deployment, you can mount the `Secret` and a `ConfigMap`:
+In order to use the bucket within your deployment, you can import the information from the `Secret` and `ConfigMap` as environment variables:
 
 ```yaml
 ...
@@ -53,15 +52,28 @@ spec:
       ...
       envFrom:
         - configMapRef:
-          name: CLAIM_NAME
+            name: CLAIM_NAME
         - secretRef:
-          name: CLAIM_NAME
+            name: CLAIM_NAME
 ```
+
+Alternately, you could expose these values as files on the filesystem
+by creating volumes [from the `Secret`][secret-vol] and
+[from the `ConfigMap`][configmap-vol].
+
+[secret-vol]: https://kubernetes.io/docs/concepts/configuration/secret/#using-secrets-as-files-from-a-pod
+[configmap-vol]: https://kubernetes.io/docs/tasks/configure-pod-container/configure-pod-configmap/#populate-a-volume-with-data-stored-in-a-configmap
 
 ## External access
 
-Accessing S3 bucket from outside of the cluster is possible via `https://s3-openshift-storage.apps.smaug.na.operate-first.cloud` route.
+Accessing S3 bucket from outside of the cluster is possible using the
+`s3` route exposed in `openshift-storage` namespace. For example, when
+logged into the `smaug` cluster:
 
+```sh
+$ echo $(oc -n openshift-storage get route s3 -o jsonpath='{.spec.host}')
+s3-openshift-storage.apps.smaug.na.operate-first.cloud
+```
 
 ## Resources and links
 
