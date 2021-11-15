@@ -4,7 +4,7 @@ metadata:
   name: registry
 spec:
   destination:
-    name: zero
+    name: smaug
     namespace: apicurio-apicurio-registry
   project: apicurio
   source:

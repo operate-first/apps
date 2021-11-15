@@ -3,6 +3,7 @@ kind: Kustomization
 namespace: argocd
 nameSuffix: -smaug
 resources:
+- apicurio
 - cluster-management
 - operate-first
 - thoth
