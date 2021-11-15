@@ -62,6 +62,8 @@ resources:
   - ../../../../base/core/namespaces/opf-trino
   - ../../../../base/core/namespaces/prometheus-anomaly-detector
   - ../../../../base/core/namespaces/report-system
+  - ../../../../base/core/namespaces/seraph-ingress
+  - ../../../../base/core/namespaces/seraph-platform-mq
   - ../../../../base/core/namespaces/tekton-pipelines
   - ../../../../base/core/namespaces/thoth-amun-api-prod
   - ../../../../base/core/namespaces/thoth-amun-inspection-prod
