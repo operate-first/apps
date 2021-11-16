@@ -1,0 +1,8 @@
+apiVersion: v1
+kind: Namespace
+metadata:
+  name: tekton-chains
+  labels:
+    app.kubernetes.io/component: chains
+    app.kubernetes.io/part-of: tekton-pipelines
+spec: {}
