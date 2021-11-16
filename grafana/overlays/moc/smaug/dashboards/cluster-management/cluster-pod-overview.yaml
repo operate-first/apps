@@ -6,6 +6,9 @@ metadata:
   name: cluster-pod-overview
 spec:
   customFolderName: Cluster Management
+  plugins:
+    - name: grafana-piechart-panel
+      version: 1.6.2
   json: |
     {
       "annotations": {
