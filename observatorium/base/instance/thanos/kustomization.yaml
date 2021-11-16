@@ -1,0 +1,10 @@
+---
+apiVersion: kustomize.config.k8s.io/v1beta1
+kind: Kustomization
+commonLabels:
+  app.kubernetes.io/instance: observatorium
+  app.kubernetes.io/part-of: observatorium
+  app.kubernetes.io/name: thanos
+resources:
+  - receive
+  - receive-controller
