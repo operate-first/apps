@@ -33,6 +33,6 @@ spec:
         contains(groups[*], 'sre')            && 'Editor' ||
         contains(groups[*], 'logs-insights')  && 'Editor' ||
         contains(groups[*], 'data-science')   && 'Viewer' ||
-        contains(groups[*], 'curator')        && 'Viewer' ||
+        contains(groups[*], 'curator')        && 'Editor' ||
         'Deny'
       role_attribute_strict: true
