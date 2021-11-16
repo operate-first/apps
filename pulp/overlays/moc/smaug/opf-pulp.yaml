@@ -7,13 +7,13 @@ spec:
   route_tls_termination_mechanism: Edge
   ingress_type: Route
   loadbalancer_port: 80
-  file_storage_size: 50Gi
   image_pull_policy: IfNotPresent
-  file_storage_storage_class: ocs-external-storagecluster-ceph-rbd
   image_web: 'quay.io/pulp/pulp-web:stable'
+  file_storage_size: 50Gi
+  file_storage_storage_class: ocs-external-storagecluster-ceph-rbd
+  file_storage_access_mode: ReadWriteOnce
   web:
     replicas: 1
-  file_storage_access_mode: ReadWriteMany
   content:
     log_level: INFO
     replicas: 2
@@ -28,3 +28,12 @@ spec:
   storage_type: File
   worker:
     replicas: 2
+  affinity:
+    node_affinity:
+      requiredDuringSchedulingIgnoredDuringExecution:
+        nodeSelectorTerms:
+        - matchExpressions:
+          - key: name
+            operator: In
+            values:
+            - oct-03-31-compute
