@@ -6,4 +6,5 @@ commonLabels:
 namespace: opf-observatorium
 resources:
   - loki
+  - thanos
   - vector
