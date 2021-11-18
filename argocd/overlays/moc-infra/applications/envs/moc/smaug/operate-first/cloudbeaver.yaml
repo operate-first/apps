@@ -6,15 +6,15 @@ metadata:
 spec:
   destination:
     name: smaug
-    namespace: odh-trino
+    namespace: opf-trino
   project: cluster-management
   source:
     path: cloudbeaver/overlays/moc/smaug
     repoURL: https://github.com/operate-first/apps.git
     targetRevision: HEAD
-#  syncPolicy:
-#    automated:
-#      prune: true
-#      selfHeal: true
-#    syncOptions:
-#      - Validate=false
+  syncPolicy:
+    automated:
+      prune: true
+      selfHeal: true
+    syncOptions:
+      - Validate=false
