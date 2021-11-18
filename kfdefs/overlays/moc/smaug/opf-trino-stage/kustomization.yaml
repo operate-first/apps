@@ -1,0 +1,39 @@
+apiVersion: kustomize.config.k8s.io/v1beta1
+kind: Kustomization
+namespace: opf-trino-stage
+resources:
+  - ../../../../base/trino
+  - hive-metastores
+  - obcs
+  - secrets
+patchesJson6902:
+  - patch: |
+      - op: add
+        path: /spec/applications/-
+        value:
+          kustomizeConfig:
+            parameters:
+              - name: trino_memory_request
+                value: "2Gi"
+              - name: trino_memory_limit
+                value: "2Gi"
+              - name: trino_cpu_request
+                value: "500m"
+              - name: trino_cpu_limit
+                value: "500m"
+              - name: trino_image
+                value: quay.io/opendatahub/trino:362
+            repoRef:
+              name: opf
+              path: odh-manifests/smaug-stage/trino
+          name: trino
+      - op: add
+        path: /spec/repos/-
+        value:
+          name: opf
+          uri: https://github.com/operate-first/apps/tarball/master
+    target:
+      group: kfdef.apps.kubeflow.org
+      kind: KfDef
+      name: opendatahub
+      version: v1

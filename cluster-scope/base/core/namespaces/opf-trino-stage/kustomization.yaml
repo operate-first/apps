@@ -1,0 +1,11 @@
+apiVersion: kustomize.config.k8s.io/v1beta1
+kind: Kustomization
+resources:
+  - namespace.yaml
+  - resourcequota.yaml
+components:
+  - ../../../../components/project-admin-rolebindings/operate-first
+  - ../../../../components/project-admin-rolebindings/odh-admin
+  - ../../../../components/project-admin-rolebindings/neu-students
+  - ../../../../components/limitranges/default
+namespace: opf-trino-stage

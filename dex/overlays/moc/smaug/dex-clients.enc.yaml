@@ -11,13 +11,14 @@ stringData:
     HUE_SECRET: ENC[AES256_GCM,data:o1fDhBpmH+kKbmfa6JHhLDOBp/q9V1NETS8r1xg881YDwevL,iv:D29/WlwnJJWDo91j3DqiHTvkYpeYzFijFxTJwLN87Mo=,tag:1tocWpCKxVByfzZ+U6FMiw==,type:str]
     SUPERSET_SECRET: ENC[AES256_GCM,data:kSW6lUW5Qvn3cwCqVoaEIFFYxgiOfTSCzvD+EEiMe/ZcSgxhXpi1ZaKBUHTlrOUKFJow+48TqAhqmUutcdi/Hw==,iv:Dxm70p5ZwSMj3X1KSBYQratSAm2Gjv5AcboTRy8NL6Y=,tag:Hqte6gr2rfFfMvRlZFqyHQ==,type:str]
     TRINO_SECRET: ENC[AES256_GCM,data:cB5zAMWefwla4HBPDZ2ZA/byNkUyDV0aGfiHswDzRtK5G5CI/owe4uXEErj7Rzcjz1VXPW4vjX368Iu4FPFPJQ==,iv:1dfaZxuT6thQlgG6oSZ0MmEZ3pMUTC8pttkm+u+ZgEE=,tag:BqPFHojxQ8xofuvLEa7gcg==,type:str]
+    TRINO_STAGING_SECRET: ENC[AES256_GCM,data:lBhNIKseVZeYVJYgM9LunkOJ7X9nfX3+L7XStAgglBxJG0eH,iv:C3qaYCo3LRuVWuajhQAR/q+QMuVe2HpXWONI1PUvpkI=,tag:ZjI3zfMXBCLX+3io+IhlRA==,type:str]
 sops:
     kms: []
     gcp_kms: []
     azure_kv: []
     hc_vault: []
-    lastmodified: '2021-08-13T00:39:12Z'
-    mac: ENC[AES256_GCM,data:qgKIR3EIi+FjDtfvZNmhkpBb8QhkfubdtLX8cgoCFZ6EWEof8CrUHsK9qclAvx3Qxalaa7ldNHg/IYCCnqTNA3luTOJ3VIKkHj2U7mXrrlSBGjhTsshc2Xy/62pErjm0IE+epr7DGB8IyYDCUS0GJInczhN8NLXHCzaQXnWXZ/g=,iv:Z0/gmFWxKLeKPyfBT7+mIlXmIL3OzWa5jIPhSeTt6M8=,tag:An3i8JhP34aiC7RIjMfe5Q==,type:str]
+    lastmodified: '2021-11-18T15:38:47Z'
+    mac: ENC[AES256_GCM,data:3CCAPK5rUOfpXfS07PBdFUr+6BjZo9ZlSCVrLFlfCS9GEWx55+gJq9tCNKpw49UT+ssQUHg0o0Syu2S/bCbMWv1/IpLg+Uy2LdrhbucNW0JxhQHExj7RM7ZGPiA8fIGlzL4/F+m4E7t9+wswOsjq1DZhOpFAkFafRF7Inv1IkIM=,iv:UZ4kKN2Q0XANyiN5yxnr7CMIAbNo2ZI9tmsVpL8RTgk=,tag:lC10LwKUF5etoilZbHGxjg==,type:str]
     pgp:
     -   created_at: '2021-03-16T13:59:12Z'
         enc: |
