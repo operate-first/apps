@@ -3,7 +3,7 @@ kind: GrafanaDashboard
 metadata:
   name: thoth-kafka-argo-metrics
   labels:
-    version: v4
+    version: v5
     app: grafana
     component: thoth-station
 spec:
