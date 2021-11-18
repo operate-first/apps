@@ -6,6 +6,7 @@ commonLabels:
 resources:
   - cluster-management
   - operate-first
+  - prometheus-anomaly-detector
   - thanos
   - thoth-station
   - kubeflow
