@@ -6,5 +6,7 @@ commonLabels:
   app.kubernetes.io/part-of: observatorium
   app.kubernetes.io/name: thanos
 resources:
+  - query
+  - query-frontend
   - receive
   - receive-controller
