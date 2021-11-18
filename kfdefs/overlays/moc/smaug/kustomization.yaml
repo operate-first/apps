@@ -10,3 +10,4 @@ resources:
   - opf-kafka
   - opf-superset
   - opf-trino
+  - opf-trino-stage

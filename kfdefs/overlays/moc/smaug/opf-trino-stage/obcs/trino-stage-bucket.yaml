@@ -1,0 +1,10 @@
+apiVersion: objectbucket.io/v1alpha1
+kind: ObjectBucketClaim
+metadata:
+  name: trino-stage
+spec:
+  additionalConfig:
+    maxSize: 5G
+  bucketName: trino-stage
+  objectBucketName: obc-opf-trino-stage-trino-stage
+  storageClassName: openshift-storage.noobaa.io

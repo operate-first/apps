@@ -60,6 +60,7 @@ resources:
   - ../../../../base/core/namespaces/opf-superset
   - ../../../../base/core/namespaces/opf-triage-party
   - ../../../../base/core/namespaces/opf-trino
+  - ../../../../base/core/namespaces/opf-trino-stage
   - ../../../../base/core/namespaces/prometheus-anomaly-detector
   - ../../../../base/core/namespaces/report-system
   - ../../../../base/core/namespaces/seraph-ingress

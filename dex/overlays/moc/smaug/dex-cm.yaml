@@ -43,6 +43,18 @@ data:
           - https://trino.operate-first.cloud/oauth2/callback
         secretEnv: TRINO_SECRET
 
+      - id: trino
+        name: Trino
+        redirectURIs:
+          - https://trino.operate-first.cloud/oauth2/callback
+        secretEnv: TRINO_SECRET
+
+      - id: trino-staging
+        name: Trino
+        redirectURIs:
+          - https://trino-route-opf-trino-stage.apps.smaug.na.operate-first.cloud/oauth2/callback
+        secretEnv: TRINO_STAGING_SECRET
+
     connectors:
       - type: openshift
         id: openshift
