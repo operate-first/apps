@@ -1,8 +1,0 @@
-apiVersion: v1
-kind: Namespace
-metadata:
-  annotations:
-    openshift.io/display-name: "Pulp+Thoth-Station: Experimenting with Pulp"
-    openshift.io/requester: thoth-devops
-  name: thoth-pulp-experiments
-spec: {}

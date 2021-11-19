@@ -1,0 +1,79 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  labels:
+    app.kubernetes.io/component: query-frontend
+  name: observatorium-thanos-query-frontend
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app.kubernetes.io/component: query-frontend
+  template:
+    metadata:
+      labels:
+        app.kubernetes.io/component: query-frontend
+    spec:
+      containers:
+      - args:
+        - query-frontend
+        - --log.level=info
+        - --log.format=logfmt
+        - --query-frontend.compress-responses
+        - --http-address=0.0.0.0:9090
+        - --query-frontend.downstream-url=http://observatorium-thanos-query.$(NAMESPACE).svc.cluster.local.:9090
+        - --query-frontend.log-queries-longer-than=5s
+        - |-
+          --query-range.response-cache-config="config":
+            "max_size": "0"
+            "max_size_items": 2048
+            "validity": "6h"
+          "type": "in-memory"
+        - --query-range.split-interval=24h
+        - --labels.split-interval=24h
+        - --query-range.max-retries-per-request=0
+        - --labels.max-retries-per-request=0
+        - --labels.default-time-range=336h
+        - |-
+          --labels.response-cache-config="config":
+            "max_size": "0"
+            "max_size_items": 2048
+            "validity": "6h"
+          "type": "in-memory"
+        - --cache-compression-type=snappy
+        env:
+        - name: HOST_IP_ADDRESS
+          valueFrom:
+            fieldRef:
+              fieldPath: status.hostIP
+        - name: NAMESPACE
+          valueFrom:
+            fieldRef:
+              fieldPath: metadata.namespace
+        image: quay.io/thanos/thanos:main-2021-11-11-aee7c97b
+        livenessProbe:
+          failureThreshold: 4
+          httpGet:
+            path: /-/healthy
+            port: 9090
+            scheme: HTTP
+          periodSeconds: 30
+        name: thanos-query-frontend
+        ports:
+        - containerPort: 9090
+          name: http
+        readinessProbe:
+          failureThreshold: 20
+          httpGet:
+            path: /-/ready
+            port: 9090
+            scheme: HTTP
+          periodSeconds: 5
+        resources:
+          limits:
+            cpu: "1"
+            memory: 1Gi
+          requests:
+            cpu: 100m
+            memory: 256Mi
+        terminationMessagePolicy: FallbackToLogsOnError

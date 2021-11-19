@@ -15,7 +15,6 @@ resources:
   - ../../../../base/core/namespaces/acme-operator
   - ../../../../base/core/namespaces/adoptium-project
   - ../../../../base/core/namespaces/aicoe-meteor
-  - ../../../../base/core/namespaces/apicurio-apicurio-registry
   - ../../../../base/core/namespaces/as-pushgateway
   - ../../../../base/core/namespaces/b4mad-minecraft
   - ../../../../base/core/namespaces/chi-rhug
@@ -90,7 +89,6 @@ resources:
   - ../../../../base/core/namespaces/thoth-graph-prod
   - ../../../../base/core/namespaces/thoth-infra-prod
   - ../../../../base/core/namespaces/thoth-middletier-prod
-  - ../../../../base/core/namespaces/thoth-pulp-experiments
   - ../../../../base/core/namespaces/uky-hpc-workload-generator
   - ../../../../base/core/namespaces/ws-ml-prague
   - ../../../../base/core/persistentvolumeclaims/image-registry-storage

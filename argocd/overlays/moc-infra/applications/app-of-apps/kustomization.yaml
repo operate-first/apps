@@ -6,8 +6,11 @@ resources:
 - app-of-apps-curator.yaml
 - app-of-apps-infra.yaml
 - app-of-apps-ocp-prod.yaml
+- app-of-apps-ocp-staging.yaml
 - app-of-apps-osc-cl1.yaml
 - app-of-apps-rick.yaml
 - app-of-apps-smaug.yaml
 - workshops-app-of-apps.yaml
-- app-of-apps-demo.yaml
+
+# Used for demo clusters
+# - app-of-apps-demo.yaml

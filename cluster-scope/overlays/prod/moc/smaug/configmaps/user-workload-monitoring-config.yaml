@@ -8,3 +8,5 @@ data:
     prometheus:
       externalLabels:
         cluster: moc/smaug
+      remoteWrite:
+      - url: "http://observatorium-thanos-receive.opf-observatorium.svc.cluster.local:19291/api/v1/receive"

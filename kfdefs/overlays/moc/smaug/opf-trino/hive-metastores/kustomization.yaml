@@ -4,3 +4,4 @@ kind: Kustomization
 namespace: odh-trino
 resources:
   - data-science_general
+  - operate-first_general

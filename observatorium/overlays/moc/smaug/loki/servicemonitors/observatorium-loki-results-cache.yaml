@@ -1,0 +1,17 @@
+apiVersion: monitoring.coreos.com/v1
+kind: ServiceMonitor
+metadata:
+  labels:
+    prometheus: app-sre
+  name: observatorium-loki-results-cache
+spec:
+  endpoints:
+  - port: metrics
+  namespaceSelector:
+    matchNames:
+    - opf-observatorium
+  selector:
+    matchLabels:
+      app.kubernetes.io/component: results-cache
+      app.kubernetes.io/name: loki
+      app.kubernetes.io/part-of: observatorium

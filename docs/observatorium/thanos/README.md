@@ -1,5 +1,7 @@
 ## Thanos Access
 
+> Note: as part of our migration from Zero to Smaug cluster, Thanos is yet to be re-provisioned, as such the links in this doc are currently not active. See [here](https://github.com/operate-first/SRE/issues/382) for more details.
+
 [Thanos](https://github.com/thanos-io/thanos) is a set of components that can be composed into a highly available metric system with unlimited storage capacity, which can be added seamlessly on top of existing Prometheus deployments.
 
 An instance of Thanos is available for use in Operate First.

@@ -1,0 +1,14 @@
+apiVersion: kafka.strimzi.io/v1beta2
+kind: KafkaTopic
+metadata:
+  name: infra-prod.cluster-logs.infrastructure
+  labels:
+    strimzi.io/cluster: odh-message-bus
+spec:
+  partitions: 3
+  replicas: 2
+  config:
+    # max message size is 10MB because fluentd default chunk size is 8MB
+    max.message.bytes: 10000000
+    # message retention period is 3 hours
+    retention.ms: 10800000

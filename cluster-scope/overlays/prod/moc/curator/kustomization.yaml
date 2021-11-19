@@ -14,8 +14,12 @@ resources:
   - ../../../../base/operators.coreos.com/subscriptions/kubevirt-hyperconverged
   - ../../../../base/operators.coreos.com/subscriptions/ocs-operator
   - ../../../../base/operators.coreos.com/subscriptions/web-terminal
+  - ../../../../base/rbac.authorization.k8s.io/clusterrolebindings/cluster-admins-rb
   - ../../../../base/storage.k8s.io/storageclasses/hostpath-provisioner
   - ../../../../base/user.openshift.io/groups/cluster-admins
+
+  - machineconfigs/50-ipmi-route.yaml
+  - configmaps/admin-acks.yaml
 
 generators:
   - secret-generator.yaml

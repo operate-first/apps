@@ -4,11 +4,17 @@ resources:
   - acme-operator.yaml
   - ci-prow.yaml
   - ci-prow-test-pods.yaml
+  - cloudbeaver.yaml
+  - cloudbeaver-stage.yaml
+  - cluster-logging.yaml
   - grafana.yaml
   - jh-idle-culler.yaml
-  - prod-aicoe-ci.yaml
-  - slack-first.yaml
-  - triage-party.yaml
   - meteor-shower.yaml
   - meteor-operator-pipelines.yaml
   - meteor-operator-pushgateway.yaml
+  - observatorium.yaml
+  - prod-aicoe-ci.yaml
+  - pulp.yaml
+  - slack-first.yaml
+  - tekton-chains.yaml
+  - triage-party.yaml

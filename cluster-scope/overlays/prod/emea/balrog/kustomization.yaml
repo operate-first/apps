@@ -8,6 +8,7 @@ resources:
     - ../../../../base/core/configmaps/cluster-monitoring-config
     - ../../../../base/core/configmaps/user-workload-monitoring-config
     - ../../../../base/core/namespaces/acme-operator
+    - ../../../../base/core/namespaces/openshift-logging
     - ../../../../base/core/namespaces/opf-kafka
     - ../../../../base/core/namespaces/thoth-amun-api-prod
     - ../../../../base/core/namespaces/thoth-amun-inspection-prod
@@ -18,6 +19,7 @@ resources:
     - ../../../../base/core/namespaces/thoth-middletier-prod
     - ../../../../base/operators.coreos.com/operatorgroups/opf-kafka
     - ../../../../base/operators.coreos.com/subscriptions/cert-manager
+    - ../../../../base/operators.coreos.com/subscriptions/cluster-logging
     - ../../../../base/operators.coreos.com/subscriptions/strimzi
     - ../../../../base/rbac.authorization.k8s.io/clusterrolebindings/acme-operator
     - ../../../../base/rbac.authorization.k8s.io/clusterroles/acme-operator
@@ -30,3 +32,4 @@ patchesStrategicMerge:
     - configmaps/user-workload-monitoring-config.yaml
     - oauths/cluster_patch.yaml
     - groups/cluster-admins.yaml
+    - subscriptions/cluster-logging-operator_patch.yaml

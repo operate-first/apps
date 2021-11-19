@@ -24,10 +24,12 @@ resources:
     - ../../../base/user.openshift.io/groups/fde
     - ../../../base/user.openshift.io/groups/fybrik
     - ../../../base/user.openshift.io/groups/lab-cicd
+    - ../../../base/user.openshift.io/groups/logs-insights
     - ../../../base/user.openshift.io/groups/mwperf
     - ../../../base/user.openshift.io/groups/neu-students
     - ../../../base/user.openshift.io/groups/odh-admin
     - ../../../base/user.openshift.io/groups/open-aiops
+    - ../../../base/user.openshift.io/groups/ocp-pipelines-sre
     - ../../../base/user.openshift.io/groups/operate-first
     - ../../../base/user.openshift.io/groups/osc
     - ../../../base/user.openshift.io/groups/osc-admins
@@ -47,5 +49,7 @@ resources:
     - ../../../base/user.openshift.io/groups/thoth-devops
     - ../../../base/user.openshift.io/groups/uky-redhat
     - ../../../base/user.openshift.io/groups/octo-ushift-dev
+    - ../../../base/user.openshift.io/groups/octo-otel-dev
     - ../../../base/user.openshift.io/groups/workshops
+    - ../../../base/user.openshift.io/groups/prometheus-ai
     - alertmanager-main-secret.yaml

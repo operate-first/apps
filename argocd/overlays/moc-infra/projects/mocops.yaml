@@ -5,6 +5,8 @@ metadata:
 spec:
   destinations:
   - namespace: '*'
+    server: 'https://api.ocp-staging.massopen.cloud:6443'
+  - namespace: '*'
     server: 'https://api.ocp-prod.massopen.cloud:6443'
   sourceRepos:
     - 'https://github.com/CCI-MOC/*'

@@ -33,6 +33,13 @@ spec:
       transaction.state.log.min.isr: 3
       log.message.format.version: '2.7'
       inter.broker.protocol.version: '2.7'
+    resources:
+      limits:
+        cpu: 2000m
+        memory: 32Gi
+      requests:
+        cpu: 1000m
+        memory: 16Gi
     storage:
       type: persistent-claim
       size: 40Gi
@@ -46,6 +53,13 @@ spec:
           key: kafka-prometheus-metrics
   zookeeper:
     replicas: 5
+    resources:
+      limits:
+        cpu: 500m
+        memory: 2Gi
+      requests:
+        cpu: 200m
+        memory: 1Gi
     storage:
       type: persistent-claim
       size: 2Gi

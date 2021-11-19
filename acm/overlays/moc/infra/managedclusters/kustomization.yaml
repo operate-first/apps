@@ -4,6 +4,7 @@ resources:
 - balrog.yaml
 - curator.yaml
 - ocp-prod.yaml
+- ocp-staging.yaml
 - osc-cl1.yaml
 - rick.yaml
 - smaug.yaml

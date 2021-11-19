@@ -1,0 +1,20 @@
+apiVersion: monitoring.coreos.com/v1
+kind: ServiceMonitor
+metadata:
+  labels:
+    app.kubernetes.io/instance: observatorium
+    app.kubernetes.io/name: loki
+    app.kubernetes.io/part-of: observatorium
+    prometheus: app-sre
+  name: observatorium-loki-compactor
+spec:
+  endpoints:
+  - port: metrics
+  namespaceSelector:
+    matchNames:
+    - opf-observatorium
+  selector:
+    matchLabels:
+      app.kubernetes.io/component: compactor
+      app.kubernetes.io/name: loki
+      app.kubernetes.io/part-of: observatorium

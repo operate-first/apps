@@ -31,6 +31,9 @@ spec:
         contains(groups[*], 'operate-first')  && 'Admin' ||
         contains(groups[*], 'neu-students')   && 'Editor' ||
         contains(groups[*], 'sre')            && 'Editor' ||
+        contains(groups[*], 'logs-insights')  && 'Editor' ||
         contains(groups[*], 'data-science')   && 'Viewer' ||
+        contains(groups[*], 'curator')        && 'Editor' ||
+        contains(groups[*], 'prometheus-anomaly-detector') && 'Editor' ||
         'Deny'
       role_attribute_strict: true

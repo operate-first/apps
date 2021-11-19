@@ -3,7 +3,6 @@ kind: Kustomization
 resources:
   - alertreceiver.yaml
   - cert-manager.yaml
-  - cloudbeaver.yaml
   - cluster-resources.yaml
   - dex.yaml
   - kfdefs.yaml

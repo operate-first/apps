@@ -1,5 +1,7 @@
 ## Kubeflow Access
 
+> Note: Currently our Kubeflow deployments are no longer active, see [this discussion](https://github.com/operate-first/support/issues/435) for details.
+
 [Kubeflow](https://www.kubeflow.org/docs/about/kubeflow/) is a machine learning toolkit for Kubernetes.
 
 An instance of Kubeflow is available for use in OperateFirst.
