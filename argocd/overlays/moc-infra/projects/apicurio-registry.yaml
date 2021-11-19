@@ -7,7 +7,7 @@ metadata:
 spec:
   destinations:
     - namespace: 'apicurio-*'
-      server: 'smaug'
+      name: 'smaug'
   sourceRepos:
     - '*'
   roles:
