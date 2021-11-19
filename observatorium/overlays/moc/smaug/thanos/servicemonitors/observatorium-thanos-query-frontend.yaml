@@ -18,7 +18,8 @@ spec:
       - pod
       targetLabel: instance
   namespaceSelector:
-    matchNames: opf-observatorium
+    matchNames:
+      - opf-observatorium
   selector:
     matchLabels:
       app.kubernetes.io/component: query-frontend
