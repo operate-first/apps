@@ -6,7 +6,6 @@ metadata:
   name: observatorium-thanos-query
 spec:
   replicas: 3
-  securityContext: {}
   selector:
     matchLabels:
       app.kubernetes.io/component: query
