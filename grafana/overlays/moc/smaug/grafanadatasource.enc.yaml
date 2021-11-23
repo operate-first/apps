@@ -7,6 +7,11 @@ metadata:
 spec:
     datasources:
         - editable: false
+          name: thanos-frontend
+          isDefault: true
+          type: prometheus
+          url: http://observatorium-thanos-query-frontend.opf-observatorium.svc.cluster.local:9090
+        - editable: false
           jsonData:
             httpHeaderName1: Authorization
             timeInterval: 5s
@@ -53,8 +58,8 @@ sops:
     azure_kv: []
     hc_vault: []
     age: []
-    lastmodified: "2021-11-02T19:18:54Z"
-    mac: ENC[AES256_GCM,data:QqmRO4yMIvl4V9M4lYAjtyV4RiODAAmMJsGRQ4odRsc6vJ2OgOJBNofMcbZv3LZplEoV2XVoxfDJS3nW9ZJsJ+m7w7WenseTsebww5Fsd6gPQLURbzU+iRaSXw04SX92xvIE21yM5OyKK0ciEoS8/iT5pZvjoakTWnfwzpPXvdA=,iv:cMtgAhQxjG9g4eN659AeRGK6rdCQXRjrmDXivMZCwGQ=,tag:nO+g3NufF9cSKvjNrNanVw==,type:str]
+    lastmodified: "2021-11-23T15:46:29Z"
+    mac: ENC[AES256_GCM,data:P05GeK+JrhZCY3fewoylYw9za3p1s/pN+nxnqB4sVx+6Mx7PuAugEKyBB90s+lIQHHuTlxhQjv+mIivhZTWTRmjChnIm/gDXoT9PFsQsAXuKI6N6Ta/hG+0P+m3uMg1wfIHQ2ZqvGyCKhuOBqSxlfG4XOFavhrQ7L2DL1YQyre8=,iv:Borq08b3WCT/1sjX5ekZZa7wwANWGoeVn96pEBAVxKU=,tag:gcF8WQZ1pZkbl75UKX75cg==,type:str]
     pgp:
         - created_at: "2021-09-01T16:36:51Z"
           enc: |-
