@@ -1,0 +1,12 @@
+kind: ResourceQuota
+apiVersion: v1
+metadata:
+  name: seraph-platform-mq-custom
+spec:
+  hard:
+    requests.cpu: "5"
+    requests.memory: 16Gi
+    limits.cpu: "5"
+    limits.memory: 16Gi
+    requests.storage: 80Gi
+    count/objectbucketclaims.objectbucket.io: 1
