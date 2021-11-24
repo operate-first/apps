@@ -1,0 +1,14 @@
+---
+apiVersion: route.openshift.io/v1
+kind: Route
+metadata:
+  name: thanos-receive
+spec:
+  to:
+    kind: Service
+    name: thanos-receive-oauth-proxy
+  port:
+    targetPort: oauth-proxy
+  tls:
+    termination: reencrypt
+    insecureEdgeTerminationPolicy: Redirect

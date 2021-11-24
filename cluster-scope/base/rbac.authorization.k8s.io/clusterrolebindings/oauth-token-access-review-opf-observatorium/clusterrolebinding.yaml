@@ -17,3 +17,6 @@ subjects:
 - kind: ServiceAccount
   name: loki-query-frontend-oauth-proxy
   namespace: opf-observatorium
+- kind: ServiceAccount
+  name: loki-distributor-oauth-proxy
+  namespace: opf-observatorium
