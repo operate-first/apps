@@ -90,6 +90,7 @@ resources:
   - ../../../../base/operators.coreos.com/operatorgroups/openshift-vertical-pod-autoscaler
   - ../../../../base/operators.coreos.com/operatorgroups/opf-monitoring
   - ../../../../base/operators.coreos.com/operatorgroups/opf-pulp
+  - ../../../../base/operators.coreos.com/subscriptions/camel-k
   - ../../../../base/operators.coreos.com/subscriptions/cert-manager
   - ../../../../base/operators.coreos.com/subscriptions/cluster-logging
   - ../../../../base/operators.coreos.com/subscriptions/koku-metrics-operator
