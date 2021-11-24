@@ -53,7 +53,7 @@ Note: Exceptions are made for custom resource quotas, and other namespace scoped
 1. Create the resource in `base` folder.
 2. Pull the resource in desired `overlay`s.
 
-> For adding a custom resource quotas follow instructions as outlined [here](../docs/cluster-scope/add_resource_quotas.md)
+> For adding a custom resource quotas follow instructions as outlined [here](../docs/content/cluster-scope/add_resource_quotas.md)
 
 ## Updating existing resource in base
 
