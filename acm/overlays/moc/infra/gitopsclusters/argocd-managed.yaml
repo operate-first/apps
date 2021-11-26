@@ -1,4 +1,4 @@
-apiVersion: apps.open-cluster-management.io/v1alpha1
+apiVersion: apps.open-cluster-management.io/v1beta1
 kind: GitOpsCluster
 metadata:
   name: argocd-managed
