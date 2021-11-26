@@ -9,3 +9,4 @@ resources:
   - cluster-storage-overview.yaml
   - namespace_cpu_and_memory_overview.yaml
   - node-feature-discovery.yaml
+  - vpa-rc-cpu-and-memory-overview.yaml
