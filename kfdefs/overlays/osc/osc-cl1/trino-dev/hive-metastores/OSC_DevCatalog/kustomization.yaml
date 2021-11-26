@@ -10,42 +10,42 @@ patches:
     patch: |
       - op: replace
         path: /metadata/name
-        value: hive-metastore-osc-datacommons-dev
+        value: hive-metastore-osc-devcatalog
       - op: replace
         path: /metadata/labels/trino-catalog
-        value: hive-metastore-osc-datacommons-dev
+        value: hive-metastore-osc-devcatalog
       - op: replace
         path: /spec/selector/trino-catalog
-        value: hive-metastore-osc-datacommons-dev
+        value: hive-metastore-osc-devcatalog
   - target:
       kind: StatefulSet
       name: catalog-name
     patch: |
       - op: replace
         path: /metadata/name
-        value: hive-metastore-osc-datacommons-dev
+        value: hive-metastore-osc-devcatalog
       - op: replace
         path: /metadata/labels/trino-catalog
-        value: hive-metastore-osc-datacommons-dev
+        value: hive-metastore-osc-devcatalog
       - op: replace
         path: /spec/selector/matchLabels/trino-catalog
-        value: hive-metastore-osc-datacommons-dev
+        value: hive-metastore-osc-devcatalog
       - op: replace
         path: /spec/serviceName
-        value: hive-metastore-osc-datacommons-dev
+        value: hive-metastore-osc-devcatalog
       - op: replace
         path: /spec/template/metadata/labels/trino-catalog
-        value: hive-metastore-osc-datacommons-dev
+        value: hive-metastore-osc-devcatalog
       - op: replace
         path: /spec/selector/matchLabels/trino-catalog
-        value: hive-metastore-osc-datacommons-dev
+        value: hive-metastore-osc-devcatalog
       - op: add
         path: /spec/template/spec/containers/0/env/-
         value:
           name: S3_ENDPOINT
           valueFrom:
             secretKeyRef:
-              key: OSC_DATACOMMONS_DEV_S3_ENDPOINT
+              key: OSC_DEVCATALOG_S3_ENDPOINT
               name: s3buckets
       - op: add
         path: /spec/template/spec/containers/0/env/-
@@ -53,7 +53,7 @@ patches:
           name: S3_ENDPOINT_URL_PREFIX
           valueFrom:
             secretKeyRef:
-              key: OSC_DATACOMMONS_DEV_S3_ENDPOINT_URL_PREFIX
+              key: OSC_DEVCATALOG_S3_ENDPOINT_URL_PREFIX
               name: s3buckets
       - op: add
         path: /spec/template/spec/containers/0/env/-
@@ -61,7 +61,7 @@ patches:
           name: AWS_ACCESS_KEY_ID
           valueFrom:
             secretKeyRef:
-              key: OSC_DATACOMMONS_DEV_AWS_ACCESS_KEY_ID
+              key: OSC_DEVCATALOG_AWS_ACCESS_KEY_ID
               name: s3buckets
       - op: add
         path: /spec/template/spec/containers/0/env/-
@@ -69,7 +69,7 @@ patches:
           name: AWS_SECRET_ACCESS_KEY
           valueFrom:
             secretKeyRef:
-              key: OSC_DATACOMMONS_DEV_AWS_SECRET_ACCESS_KEY
+              key: OSC_DEVCATALOG_AWS_SECRET_ACCESS_KEY
               name: s3buckets
       - op: add
         path: /spec/template/spec/containers/0/env/-
@@ -77,7 +77,7 @@ patches:
           name: S3_BUCKET_NAME
           valueFrom:
             secretKeyRef:
-              key: OSC_DATACOMMONS_DEV_BUCKET
+              key: OSC_DEVCATALOG_BUCKET
               name: s3buckets
       - op: add
         path: /spec/template/spec/containers/0/env/-

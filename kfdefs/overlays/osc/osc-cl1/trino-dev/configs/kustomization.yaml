@@ -7,7 +7,7 @@ configMapGenerator:
   - name: trino-catalog
     files:
       - jmx.properties
-      - catalogs/osc_datacommons_dev.properties
+      - catalogs/osc_devcatalog.properties
   - name: trino-configfiles
     files:
       - config-coordinator.properties
