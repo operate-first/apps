@@ -7,13 +7,14 @@ metadata:
 stringData:
     SUPERSET_SECRET: ENC[AES256_GCM,data:fSPCyYDsZpUQ6feMJJS84hfc9c1M1c4B8AWMkSlyDeo8zun7NW5kVZtVQhffRGicZtkKzTgPfOUS/5EEnZpHDw==,iv:kjDZu6tsifWW2GfDBmHiEdsiD8TfT7dtmeAtsTdqjls=,tag:Dsv4u9ayHgntNl5qADtBOw==,type:str]
     TRINO_SECRET: ENC[AES256_GCM,data:2NjyvL7O/TZcYJX0xBOCSCsoC5vlMZMPthu7rok6/xmlFO/p9sL/V51MZZgfnh/GUv1nj7lmuLWpGw0juqAesA==,iv:X1UTYquhIwSLFK3l3BRTE70qyaiKEB7m9SF407IRPbI=,tag:wNwyt4Bje0dx1VvnfJ2WxQ==,type:str]
+    TRINO_DEV_SECRET: ENC[AES256_GCM,data:drbA5u9fAHCVFPchAhGIGYhNjbHxcyML9nXY27Nv3adKqiAosGWuYyLv8LlhgZU7ZnpHpgywuL1AfLjhRASdOA==,iv:IPAhrVdd3YWcgXVFhS9vtIeorhZT1P2vKDVilbDO6Ao=,tag:6dBNgpdweqSozkWFK4Brwg==,type:str]
 sops:
     kms: []
     gcp_kms: []
     azure_kv: []
     hc_vault: []
-    lastmodified: '2021-08-23T21:08:55Z'
-    mac: ENC[AES256_GCM,data:WueKJxXbPEpmKmpbvuDO0kgGUsNrPhpGl7UrKccQoNyAfo0Oa2rhySCUgXgoPfJ4nUHc7DZM3cQx9aflmqR7TIf6ke2e/hLkikOafqD7HYuUo6gIkAK71Rcr3tAPvzE7qd3RoY2uGUwndA9Qoye1oTgJ6XNLvz0ZEhHuHMY2Jmw=,iv:mshZjD2zRqafRnKFjplVoCJyoi0XVtkrIsRwEb7QweA=,tag:ACDTgNc/EaFcH2HwHYXHEQ==,type:str]
+    lastmodified: '2021-11-26T15:40:42Z'
+    mac: ENC[AES256_GCM,data:THdi37bEk8DKkS9+A/IHIviT4zuTo1ukV5UqZBW4BPCq4U+zVZ6nqjArXD3+h7tWFHt+AprFvdwZOadHKwgzHcgf3eDR8DEMErx7z/L43NBP1+Mhkm5yq7M/9rthCEgV8NSAb8QjPqjSJDuElY4a8yaRQRAGWcNdvW8vMZYSHf8=,iv:JZcd1qb6yVFP9120SL7+B0btcpTSPmzMqvZ6cLCfKEQ=,tag:Cic5xqD3+EMZfg7eBYuvkA==,type:str]
     pgp:
     -   created_at: '2021-08-23T21:08:55Z'
         enc: |-

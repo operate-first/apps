@@ -38,6 +38,13 @@ data:
           - https://trino-route-odh-trino.apps.odh-cl1.apps.os-climate.org
         secretEnv: TRINO_SECRET
 
+      - id: trino-dev
+        name: Trino
+        redirectURIs:
+          - https://trino-secure-odh-trino-dev.apps.odh-cl1.apps.os-climate.org/oauth2/callback
+          - https://trino-route-odh-trino-dev.apps.odh-cl1.apps.os-climate.org
+        secretEnv: TRINO_DEV_SECRET
+
       - id: das
         name: Dex Auth Service
         redirectURIs:

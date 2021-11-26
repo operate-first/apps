@@ -1,0 +1,23 @@
+---
+apiVersion: kustomize.config.k8s.io/v1beta1
+kind: Kustomization
+generatorOptions:
+  disableNameSuffixHash: true
+configMapGenerator:
+  - name: trino-catalog
+    files:
+      - jmx.properties
+      - catalogs/osc_datacommons_dev.properties
+  - name: trino-config
+    files:
+      - config-coordinator.properties
+      - config-worker.properties
+      - jvm.config
+      - log.properties
+      - node.properties
+      - password-authenticator.properties
+      - password.db
+      - group-provider.properties
+      - group-mapping.properties
+      - access-control.properties
+      - rules.json
