@@ -28,6 +28,9 @@ stringData:
 type: Opaque
 ```
 
+> Note that <catalog_name_upercase>_POSTGRESQL_URL should be of the form: jdbc:postgresql://{host}:{port}
+
+
 3. Navigate to: `odh-manifests/$CLUSTER/$TRINO_FOLDER/base`, open the file called `trino-catalog-secret.yaml`. Append the following
 entry to `stringData`, replacing all `<*>` values same as above:
 

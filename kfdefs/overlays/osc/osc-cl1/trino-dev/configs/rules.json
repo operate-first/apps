@@ -1,0 +1,20 @@
+{
+  "catalogs": [
+    {
+      "group": "admins",
+      "allow": "all"
+    }
+  ],
+  "schemas": [
+    {
+      "group": "admins",
+      "owner": true
+    }
+  ],
+  "tables": [
+    {
+      "group": "admins",
+      "privileges": ["SELECT", "INSERT", "DELETE", "OWNERSHIP"]
+    }
+  ]
+}
