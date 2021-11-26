@@ -21,7 +21,7 @@ spec:
       volumes:
         - name: trino-config-volume
           configMap:
-            name: trino-config
+            name: trino-configfiles
             defaultMode: 420
         - name: trino-catalogs-volume
           configMap:
