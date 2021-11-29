@@ -8,7 +8,7 @@ spec:
   ingress_type: Route
   loadbalancer_port: 80
   image_pull_policy: IfNotPresent
-  image_web: 'quay.io/pulp/pulp-web:stable'
+  image_web: 'quay.io/pulp/pulp-web'
   file_storage_size: 50Gi
   file_storage_storage_class: ocs-external-storagecluster-ceph-rbd
   file_storage_access_mode: ReadWriteOnce
@@ -20,7 +20,7 @@ spec:
   api:
     log_level: INFO
     replicas: 1
-  image: 'quay.io/pulp/pulp:stable'
+  image: 'quay.io/pulp/pulp'
   loadbalancer_protocol: http
   resource_manager:
     replicas: 1
