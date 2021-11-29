@@ -2,7 +2,6 @@ allowVolumeExpansion: true
 apiVersion: storage.k8s.io/v1
 kind: StorageClass
 metadata:
-  annotations: null
   labels:
     app.kubernetes.io/instance: moc-nfs
     app.kubernetes.io/managed-by: Helm

@@ -1,7 +1,6 @@
 apiVersion: apiextensions.k8s.io/v1
 kind: CustomResourceDefinition
 metadata:
-  creationTimestamp: null
   name: assets.katalog.fybrik.io
 spec:
   group: katalog.fybrik.io
@@ -153,5 +152,4 @@ status:
   acceptedNames:
     kind: ''
     plural: ''
-  conditions: null
   storedVersions: []
