@@ -76,6 +76,7 @@ resources:
   - ../../../../base/core/namespaces/thoth-graph-prod
   - ../../../../base/core/namespaces/thoth-infra-prod
   - ../../../../base/core/namespaces/thoth-middletier-prod
+  - ../../../../base/core/namespaces/tremor-demo
   - ../../../../base/core/namespaces/ushift-dev
   - ../../../../base/core/namespaces/otel-dev
   - ../../../../base/core/namespaces/prometheus-ai-project
