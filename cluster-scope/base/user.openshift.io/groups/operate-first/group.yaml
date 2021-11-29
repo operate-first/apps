@@ -3,18 +3,19 @@ kind: Group
 metadata:
   name: operate-first
 users:
-  - anishasthana
-  - accorvin
   - 4n4nd
-  - humairak
-  - hemajv
-  - mimotej
+  - accorvin
+  - anishasthana
   - durandom
-  - martinpovolny
-  - tumido
   - goern
   - harshad16
-  - pacospace
+  - hemajv
+  - humairak
   - ipolonsk
+  - martinpovolny
   - maulikjs
+  - mimotej
+  - pacospace
+  - schwesig
+  - tumido
   - vpavlin

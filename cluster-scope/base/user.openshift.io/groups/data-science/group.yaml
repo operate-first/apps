@@ -3,16 +3,15 @@ kind: Group
 metadata:
   name: data-science
 users:
-  - oindrillac
   - aakankshaduggal
-  - shreyanand
-  - michaelclifford
-  - chauhankaranraj
-  - sankbad
-  - goern
-  - pacospace
-  - durandom
-  - martinpovolny
-  - isabelizimm
   - antter
+  - chauhankaranraj
+  - durandom
+  - goern
+  - michaelclifford
+  - oindrillac
+  - pacospace
+  - sankbad
+  - schwesig
+  - shreyanand
   - suppathak
