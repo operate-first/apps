@@ -1,0 +1,13 @@
+apiVersion: user.openshift.io/v1
+kind: Group
+metadata:
+    name: tremor-demo
+users:
+    - garypwhite
+    - hgies
+    - darach
+    - natalisucks
+    - mfelsche
+    - drowe
+    - jdhtml
+    - lelia

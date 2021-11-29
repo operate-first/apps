@@ -1,0 +1,7 @@
+apiVersion: v1
+kind: Namespace
+metadata:
+    name: tremor-demo
+    annotations:
+        openshift.io/display-name: tremor.rs demo
+        openshift.io/requester: tremor-demo
