@@ -78,6 +78,7 @@ resources:
   - ../../../../base/core/namespaces/thoth-middletier-prod
   - ../../../../base/core/namespaces/ushift-dev
   - ../../../../base/core/namespaces/otel-dev
+  - ../../../../base/core/namespaces/prometheus-ai-project
   - ../../../../base/core/persistentvolumeclaims/image-registry-storage
   - ../../../../base/noobaa.io/backingstores
   - ../../../../base/imageregistry.operator.openshift.io/configs/cluster
