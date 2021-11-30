@@ -10,8 +10,7 @@ resources:
   - grafana.yaml
   - jh-idle-culler.yaml
   - meteor-shower.yaml
-  - meteor-operator-pipelines.yaml
-  - meteor-operator-pushgateway.yaml
+  - meteor-pipelines.yaml
   - observatorium.yaml
   - prod-aicoe-ci.yaml
   - pulp.yaml

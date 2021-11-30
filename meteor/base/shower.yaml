@@ -1,0 +1,6 @@
+apiVersion: meteor.zone/v1alpha1
+kind: Shower
+metadata:
+  name: perseids
+spec:
+  replicas: 1

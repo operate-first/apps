@@ -1,0 +1,20 @@
+apiVersion: meteor.zone/v1alpha1
+kind: Shower
+metadata:
+  name: perseids
+spec:
+  externalServices:
+    - name: jupyterhub
+      namespace: opf-jupyterhub
+  ingress:
+    annotations:
+      kubernetes.io/tls-acme: "true"
+    host: shower.meteor.zone
+  persistentMeteorHost: catalog.meteor.zone
+  showerEnv:
+    - name: GA_TRACKING_ID
+      value: G-QXLQRGTYL2
+  workspace:
+    resources:
+      requests:
+        storage: 2Gi

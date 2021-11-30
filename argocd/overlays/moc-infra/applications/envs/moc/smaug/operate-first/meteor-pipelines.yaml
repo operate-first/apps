@@ -2,15 +2,15 @@
 apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
-  name: meteor-operator-pipelines
+  name: meteor-pipelines
 spec:
   destination:
     name: smaug
     namespace: aicoe-meteor
   project: operate-first
   source:
-    path: config/pipelines
-    repoURL: https://github.com/AICoE/meteor-operator
+    path: charts/meteor-pipelines
+    repoURL: https://github.com/thoth-station/helm-charts
     targetRevision: HEAD
   syncPolicy:
     automated:

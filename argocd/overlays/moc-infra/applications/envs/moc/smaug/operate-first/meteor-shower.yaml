@@ -9,8 +9,8 @@ spec:
     namespace: aicoe-meteor
   project: operate-first
   source:
-    path: manifests
-    repoURL: https://github.com/AICoE/meteor
+    path: meteor/overlays/moc/smaug
+    repoURL: https://github.com/operate-first/apps
     targetRevision: HEAD
   syncPolicy:
     automated:
