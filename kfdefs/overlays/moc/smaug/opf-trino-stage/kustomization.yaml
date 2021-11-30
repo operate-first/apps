@@ -6,6 +6,7 @@ resources:
   - hive-metastores
   - obcs
   - secrets
+  - vpa
 patchesJson6902:
   - patch: |
       - op: add
