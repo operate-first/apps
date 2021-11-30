@@ -1,0 +1,957 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>How To Guide: Ceph -&gt; Trino -&gt; Superset &#8212; GitOps Docs</title>
+    
+  <link href="../../../_static/css/theme.css" rel="stylesheet">
+  <link href="../../../_static/css/index.ff1ffe594081f20da1ef19478df9384b.css" rel="stylesheet">
+
+    
+  <link rel="stylesheet"
+    href="../../../_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../../../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../../../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    
+      
+
+    
+    <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/sphinx-book-theme.css?digest=c3fdc42140077d1ad13ad2f1588a4309" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
+    
+  <link rel="preload" as="script" href="../../../_static/js/index.be7d3bbb2ef33a8344ce.js">
+
+    <script data-url_root="../../../" id="documentation_options" src="../../../_static/documentation_options.js"></script>
+    <script src="../../../_static/jquery.js"></script>
+    <script src="../../../_static/underscore.js"></script>
+    <script src="../../../_static/doctools.js"></script>
+    <script src="../../../_static/togglebutton.js"></script>
+    <script src="../../../_static/clipboard.min.js"></script>
+    <script src="../../../_static/copybutton.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="../../../_static/sphinx-book-theme.12a9622fbb08dcb3a2a40b2c02b83a57.js"></script>
+    <script async="async" src="https://unpkg.com/thebe@0.5.1/lib/index.js"></script>
+    <script>
+        const thebe_selector = ".thebe"
+        const thebe_selector_input = "pre"
+        const thebe_selector_output = ".output"
+    </script>
+    <script async="async" src="../../../_static/sphinx-thebe.js"></script>
+    <link rel="shortcut icon" href="../../../_static/favicon.png"/>
+    <link rel="index" title="Index" href="../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../search.html" />
+    <link rel="next" title="Add a new Kfdef" href="../adding_kfdefs.html" />
+    <link rel="prev" title="Adding additional Postgres catalogs to Trino" href="add_more_postgress_catalogs.html" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="None">
+    
+
+    <!-- Google Analytics -->
+    
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+    <div class="container-fluid" id="banner"></div>
+
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
+    
+        <div class="navbar-brand-box">
+    <a class="navbar-brand text-wrap" href="../../../index.html">
+      
+        <!-- `logo` is deprecated in Sphinx 4.0, so remove this when we stop supporting 3 -->
+        
+      
+      
+      <img src="../../../_static/icon.png" class="logo" alt="logo">
+      
+      
+      <h1 class="site-logo" id="site-title">GitOps Docs</h1>
+      
+    </a>
+</div><form class="bd-search d-flex align-items-center" action="../../../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item active">
+        <ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../README.html">
+   GitOps Documentation
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  GitOps
+ </span>
+</p>
+<ul class="current nav bd-sidenav">
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../../about/README.html">
+   About
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/>
+  <label for="toctree-checkbox-1">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../about/intro.html">
+     Getting started with Operate First
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../../acm/README.html">
+   ACM
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/>
+  <label for="toctree-checkbox-2">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../acm/adding_managed_cluster_to_argocd.html">
+     Adding Managed Cluster to ArgoCD
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../acm/adding_users_to_acm.html">
+     Adding users to ACM
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../../acme/README.html">
+   ACME
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"/>
+  <label for="toctree-checkbox-3">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../acme/issuing_certificates.html">
+     Issuing certificates
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../../argocd-gitops/README.html">
+   ArgoCD
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" type="checkbox"/>
+  <label for="toctree-checkbox-4">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../argocd-gitops/add_application.html">
+     Adding ArgoCD Applications
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../argocd-gitops/add_permissions_to_project.html">
+     Requesting more permissions for an ArgoCD Project (MOC)
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../argocd-gitops/encrypting_applications.html">
+     How to encrypt apps in this repo
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../argocd-gitops/get_access_to_argocd.html">
+     Get access to ArgoCD
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../argocd-gitops/import_dev_gpg.html">
+     Import Development GPG Key
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../argocd-gitops/onboarding_to_argocd.html">
+     ArgoCD onboarding procedure
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../argocd-gitops/secret_management.html">
+     Secret management for applications
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../argocd-gitops/setup_argocd_dev_environment.html">
+     Deploying a development environment
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../argocd-gitops/update_argocd.html">
+     Steps for Upgrading ArgoCD
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../argocd-gitops/update_gpg_key.html">
+     Update gpg key
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../../cluster-scope/README.html">
+   Cluster Management
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-5" name="toctree-checkbox-5" type="checkbox"/>
+  <label for="toctree-checkbox-5">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../cluster-scope/add_resource_quotas.html">
+     Adding Resource Quotas
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../cluster-scope/add_user_to_group.html">
+     Adding User to an OCP team
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../cluster-scope/onboarding_to_cluster.html">
+     Onboarding to a cluster
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../cluster-scope/quotas.html">
+     Resource Quota Tiers
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../../development/README.html">
+   Development
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-6" name="toctree-checkbox-6" type="checkbox"/>
+  <label for="toctree-checkbox-6">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../development/crc-disk-size.html">
+     Increasing CRC disk space
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../development/setup_quicklab.html">
+     Quicklab
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../../grafana/README.html">
+   Grafana
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-7" name="toctree-checkbox-7" type="checkbox"/>
+  <label for="toctree-checkbox-7">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../grafana/add_grafana_dashboard.html">
+     Add a Grafana dashboard to OperateFirst Grafana
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../grafana/map_groups_to_roles.html">
+     Adding permissions in Grafana
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../../kubeflow/README.html">
+   Kubeflow
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-8" name="toctree-checkbox-8" type="checkbox"/>
+  <label for="toctree-checkbox-8">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../kubeflow/kubeflow-dashboard/README.html">
+     Kubeflow Access
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../kubeflow/kubeflow-pipelines/README.html">
+     Kubeflow-Pipelines Access
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../../observatorium/README.html">
+   Observatorium
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-9" name="toctree-checkbox-9" type="checkbox"/>
+  <label for="toctree-checkbox-9">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../observatorium/loki/add_loki_grafana_datasource.html">
+     Add a Loki Data Source in OperateFirst Grafana
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../observatorium/loki/README.html">
+     Loki Access
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../observatorium/thanos/README.html">
+     Thanos Access
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../observatorium/thanos/request_thanos_access.html">
+     Request Thanos Query API Access
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../observatorium/vector/README.html">
+     Vector on Operate First
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../../ocs/README.html">
+   OpenShift Container Storage
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-10" name="toctree-checkbox-10" type="checkbox"/>
+  <label for="toctree-checkbox-10">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../ocs/buckets-external-access.html">
+     Accessing buckets from outside the cluster
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../ocs/claiming_object_store.html">
+     Claiming S3-compatible object store buckets
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../ocs/runbook.html">
+     OpenShift Container Storage (OCS) Runbook
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 current active has-children">
+  <a class="reference internal" href="../README.html">
+   Open Data Hub (ODH)
+  </a>
+  <input checked="" class="toctree-checkbox" id="toctree-checkbox-11" name="toctree-checkbox-11" type="checkbox"/>
+  <label for="toctree-checkbox-11">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul class="current">
+   <li class="toctree-l2 has-children">
+    <a class="reference internal" href="../jupyterhub/README.html">
+     JupyterHub
+    </a>
+    <input class="toctree-checkbox" id="toctree-checkbox-12" name="toctree-checkbox-12" type="checkbox"/>
+    <label for="toctree-checkbox-12">
+     <i class="fas fa-chevron-down">
+     </i>
+    </label>
+    <ul>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../jupyterhub/access_jupyterhub.html">
+       Access JupyterHub
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../jupyterhub/add_imagestream_to_jh.html">
+       Provision a new ImageStream
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../jupyterhub/analyze_storage.html">
+       Analyze Storage for a Notebook
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../jupyterhub/increase_pvc_size_jh.html">
+       Increase PVC size for JupyterHub
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../jupyterhub/reinstall_kernel.html">
+       How to restart a Notebook Kernel
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../jupyterhub/runbook.html">
+       JupyterHub Runbook
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../jupyterhub/user_profiles.html">
+       Managing user profiles
+      </a>
+     </li>
+    </ul>
+   </li>
+   <li class="toctree-l2 has-children">
+    <a class="reference internal" href="../kafka/README.html">
+     Kafka
+    </a>
+    <input class="toctree-checkbox" id="toctree-checkbox-13" name="toctree-checkbox-13" type="checkbox"/>
+    <label for="toctree-checkbox-13">
+     <i class="fas fa-chevron-down">
+     </i>
+    </label>
+    <ul>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../kafka/add_kafka_topics.html">
+       Add Kafka Topics
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../kafka/add_kafka_users.html">
+       Add Kafka Users
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../kafka/runbook.html">
+       Kafka Runbook
+      </a>
+     </li>
+    </ul>
+   </li>
+   <li class="toctree-l2 has-children">
+    <a class="reference internal" href="../superset/README.html">
+     Superset
+    </a>
+    <input class="toctree-checkbox" id="toctree-checkbox-14" name="toctree-checkbox-14" type="checkbox"/>
+    <label for="toctree-checkbox-14">
+     <i class="fas fa-chevron-down">
+     </i>
+    </label>
+    <ul>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../superset/add_superset_users.html">
+       Provision Superset Access
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../superset/map_groups_to_roles.html">
+       Map OCP Group to Superset Role
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../superset/runbook.html">
+       Superset Runbook
+      </a>
+     </li>
+    </ul>
+   </li>
+   <li class="toctree-l2 current active has-children">
+    <a class="reference internal" href="README.html">
+     Trino
+    </a>
+    <input checked="" class="toctree-checkbox" id="toctree-checkbox-15" name="toctree-checkbox-15" type="checkbox"/>
+    <label for="toctree-checkbox-15">
+     <i class="fas fa-chevron-down">
+     </i>
+    </label>
+    <ul class="current">
+     <li class="toctree-l3">
+      <a class="reference internal" href="access_public_bucket.html">
+       Operate-First Public Bucket
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="add_more_buckets.html">
+       Adding buckets to Trino
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="add_more_postgress_catalogs.html">
+       Adding additional Postgres catalogs to Trino
+      </a>
+     </li>
+     <li class="toctree-l3 current active">
+      <a class="current reference internal" href="#">
+       How To Guide: Ceph -&gt; Trino -&gt; Superset
+      </a>
+     </li>
+    </ul>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../adding_kfdefs.html">
+     Add a new Kfdef
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../../uwm/README.html">
+   User WorkLoad Monitoring
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-16" name="toctree-checkbox-16" type="checkbox"/>
+  <label for="toctree-checkbox-16">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../uwm/overview.html">
+     Overview
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../../templates/README.html">
+   Templates
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-17" name="toctree-checkbox-17" type="checkbox"/>
+  <label for="toctree-checkbox-17">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../templates/runbook.html">
+     &lt;Application/Service Name&gt; Runbook
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../../CONTRIBUTING.html">
+   Contributing to GitOps Docs
+  </a>
+ </li>
+</ul>
+
+    </div>
+</nav> <!-- To handle the deprecated key -->
+
+<div class="navbar_extra_footer">
+  Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+</div>
+
+</div>
+
+
+          
+
+
+          
+<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
+    
+    <div class="topbar container-xl fixed-top">
+    <div class="topbar-contents row">
+        <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show"></div>
+        <div class="col pl-md-4 topbar-main">
+            
+            <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
+                data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
+                aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
+                title="Toggle navigation" data-toggle="tooltip" data-placement="left">
+                <i class="fas fa-bars"></i>
+                <i class="fas fa-arrow-left"></i>
+                <i class="fas fa-arrow-up"></i>
+            </button>
+            
+            
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
+            class="fas fa-download"></i></button>
+
+    <div class="dropdown-buttons">
+        <!-- ipynb file if we had a myst markdown file -->
+        
+        <!-- Download raw file -->
+        <a class="dropdown-buttons" href="../../../_sources/content/odh/trino/trino_superset_user_guide.md"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
+                data-placement="left">.md</button></a>
+        <!-- Download PDF via print -->
+        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
+            onClick="window.print()" data-toggle="tooltip" data-placement="left">.pdf</button>
+    </div>
+</div>
+
+            <!-- Source interaction buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Connect with source repository"><i class="fab fa-github"></i></button>
+    <div class="dropdown-buttons sourcebuttons">
+        <a class="repository-button"
+            href="https://github.com/operate-first/apps"><button type="button" class="btn btn-secondary topbarbtn"
+                data-toggle="tooltip" data-placement="left" title="Source repository"><i
+                    class="fab fa-github"></i>repository</button></a>
+        <a class="issues-button"
+            href="https://github.com/operate-first/apps/issues/new?title=Issue%20on%20page%20%2Fcontent/odh/trino/trino_superset_user_guide.html&body=Your%20issue%20content%20here."><button
+                type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
+                title="Open an issue"><i class="fas fa-lightbulb"></i>open issue</button></a>
+        
+    </div>
+</div>
+
+            <!-- Full screen (wrap in <a> to have style consistency -->
+
+<a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
+        data-placement="bottom" onclick="toggleFullScreen()" aria-label="Fullscreen mode"
+        title="Fullscreen mode"><i
+            class="fas fa-expand"></i></button></a>
+
+            <!-- Launch buttons -->
+
+        </div>
+
+        <!-- Table of contents -->
+        <div class="d-none d-md-block col-md-2 bd-toc show">
+            
+            <div class="tocsection onthispage pt-5 pb-3">
+                <i class="fas fa-list"></i> Contents
+            </div>
+            <nav id="bd-toc-nav" aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#pre-requisites">
+   Pre-Requisites
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#ceph-s3-to-trino-via-cloudbeaver">
+   Ceph (S3) to Trino via CloudBeaver
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#login-to-cloudbeaver">
+     Login to CloudBeaver
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#create-a-schema">
+     Create a Schema
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#create-a-table">
+     Create a Table
+    </a>
+    <ul class="nav section-nav flex-column">
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#from-parquet">
+       From Parquet
+      </a>
+     </li>
+    </ul>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#trino">
+     Trino
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#trino-to-superset">
+   Trino to Superset
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#configuring-a-dataset">
+     Configuring a Dataset
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#creating-charts">
+     Creating Charts
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#creating-and-adding-charts-to-dashboards">
+     Creating and Adding Charts to Dashboards
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#exporting-dashboards">
+     Exporting Dashboards
+    </a>
+   </li>
+  </ul>
+ </li>
+</ul>
+
+            </nav>
+        </div>
+    </div>
+</div>
+    <div id="main-content" class="row">
+        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
+        
+              <div>
+                
+  <div class="tex2jax_ignore mathjax_ignore section" id="how-to-guide-ceph-trino-superset">
+<h1>How To Guide: Ceph -&gt; Trino -&gt; Superset<a class="headerlink" href="#how-to-guide-ceph-trino-superset" title="Permalink to this headline">¶</a></h1>
+<p>The purpose of this document is to list out all the steps to be followed while interacting with Trino and Superset for importing data from Ceph, creating tables in Trino and developing dashboards in Superset.</p>
+<div class="section" id="pre-requisites">
+<h2>Pre-Requisites<a class="headerlink" href="#pre-requisites" title="Permalink to this headline">¶</a></h2>
+<p>The following are the pre-requisites needed before you can start interacting with Trino and Superset:</p>
+<ul class="simple">
+<li><p>Access to <a class="reference external" href="http://cloudbeaver-opf-trino.apps.smaug.na.operate-first.cloud">CloudBeaver</a></p>
+<ul>
+<li><p>Reach out to Operate First team for credentials (only <code class="docutils literal notranslate"><span class="pre">admin</span></code> account is available now, user authentication is a WIP)</p></li>
+</ul>
+</li>
+<li><p>Access to <a class="reference external" href="https://trino.operate-first.cloud">Trino</a></p>
+<ul>
+<li><p>Login with <code class="docutils literal notranslate"><span class="pre">trino</span></code> via OCP</p></li>
+</ul>
+</li>
+<li><p>Access to <a class="reference external" href="https://superset.operate-first.cloud">Superset</a></p>
+<ul>
+<li><p>Follow instructions <a class="reference internal" href="../superset/add_superset_users.html"><span class="doc std std-doc">here</span></a>.</p></li>
+</ul>
+</li>
+<li><p>Data is stored in an S3 bucket hosted on Operate First and the bucket is configured with Trino i.e. Trino has the correct credentials and permission to read the bucket</p>
+<ul>
+<li><p>Follow <a class="reference external" href="https://www.operate-first.cloud/users/support/docs/claiming_object_store.md">this document</a> for provisioning an S3 bucket.</p></li>
+</ul>
+</li>
+<li><p>Data in S3 bucket is contained within directories/folders for it to be exported as a table in Trino and is of the supported data types mentioned <a class="reference external" href="https://trino.io/docs/current/connector/hive.html#supported-file-types">here</a></p></li>
+</ul>
+</div>
+<div class="section" id="ceph-s3-to-trino-via-cloudbeaver">
+<h2>Ceph (S3) to Trino via CloudBeaver<a class="headerlink" href="#ceph-s3-to-trino-via-cloudbeaver" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><p><strong>Trino</strong> - <a class="reference external" href="https://trino.io/">Trino</a> is a distributed SQL query engine designed to query large data sets distributed over one or more heterogeneous data sources. Since our data is stored in Ceph, <strong>the Operate First Trino is currently configured to use the</strong> <code class="docutils literal notranslate"><span class="pre">opf-datacatalog-bucket</span></code> <strong>S3 bucket</strong>.</p></li>
+<li><p><strong>CloudBeaver</strong> - <a class="reference external" href="https://cloudbeaver.io/">CloudBeaver</a> is a popular web application which provides a rich UI for working and interacting with SQL databases.</p></li>
+</ul>
+<p>Data in Ceph needs to be contained within a directory/folder in order to be exported as a table in Trino. A folder in Ceph (S3) maps to a table in Trino. If you put multiple files in a S3 folder, all of them will be treated as data for the same table. For example, in your S3 bucket, you can create a folder <code class="docutils literal notranslate"><span class="pre">datasets</span></code> and within this folder you can either create sub-directories like <code class="docutils literal notranslate"><span class="pre">animal-datasets</span></code>, <code class="docutils literal notranslate"><span class="pre">flower-datasets</span></code>, etc or have all your individual data files within this folder alone. While creating a table, specify the appropriate directory path containing the data files you want to populate your table with, such as:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">s3a://&lt;bucket-name&gt;/datasets/animal-datasets</span></code> - This will populate the table by consolidating <strong>all the data files</strong> present under the <strong>datasets/animal-datasets</strong> directory</p></li>
+</ul>
+<div class="section" id="login-to-cloudbeaver">
+<h3>Login to CloudBeaver<a class="headerlink" href="#login-to-cloudbeaver" title="Permalink to this headline">¶</a></h3>
+<p>In order to create the tables in Trino, we will use <a class="reference external" href="https://github.com/dbeaver/cloudbeaver">CloudBeaver</a>.</p>
+<ul class="simple">
+<li><p><strong>Login to CloudBeaver at</strong>: <a class="reference external" href="http://cloudbeaver-opf-trino.apps.smaug.na.operate-first.cloud">http://cloudbeaver-opf-trino.apps.smaug.na.operate-first.cloud</a></p></li>
+</ul>
+<p>(<em><strong>Note: User authentication for CloudBeaver is still a WIP. Reach out to the Operate First team for admin credentials</strong></em>)</p>
+<p>After logging in, you should see the <code class="docutils literal notranslate"><span class="pre">Operate</span> <span class="pre">First</span> <span class="pre">Trino</span></code> database already created like so:</p>
+<img src="assets/images/cloudbeaver-db-view.png" width="200" height="250">
+<p>Each database has the following structure:</p>
+<p><strong>Database -&gt; Catalog -&gt; Schema -&gt; Tables</strong></p>
+<p>For eg: In the <code class="docutils literal notranslate"><span class="pre">Operate</span> <span class="pre">First</span> <span class="pre">Trino</span></code> db, we have 2 <a class="reference external" href="https://trino.io/docs/current/overview/concepts.html#catalog">catalogs</a> (data sources) i.e. ‘hive’ and ‘system’. In the <code class="docutils literal notranslate"><span class="pre">hive</span></code> catalog we have the different schemas such as <code class="docutils literal notranslate"><span class="pre">default</span></code>, <code class="docutils literal notranslate"><span class="pre">ocp</span></code> etc. Under each of these schemas, we have different tables created.</p>
+<img src="assets/images/cloudbeaver-table-view.png" width="200">
+</div>
+<div class="section" id="create-a-schema">
+<h3>Create a Schema<a class="headerlink" href="#create-a-schema" title="Permalink to this headline">¶</a></h3>
+<p>In order to start importing our data from s3 into tables, we need to first create a schema. <strong><em>Please note that we will always create schemas/tables within the <code class="docutils literal notranslate"><span class="pre">hive</span></code> catalog alone</em></strong>. Before we start creating the schemas and tables, <strong>make sure you have selected the “Operate First Trino” database and the “hive” catalog in the upper tab</strong> like so: (next to the “Tools” dropdown)</p>
+<img src="assets/images/cloudbeaver-main-tab.png">
+<p>Once you have selected the database and the catalog, click on the <code class="docutils literal notranslate"><span class="pre">SQL</span></code> tab to open a SQL script. To create a schema execute the following SQL statement:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">CREATE</span> <span class="n">SCHEMA</span> <span class="n">IF</span> <span class="n">NOT</span> <span class="n">EXISTS</span> <span class="n">hive</span><span class="o">.&lt;</span><span class="n">schema</span> <span class="n">name</span><span class="o">&gt;</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="create-a-table">
+<h3>Create a Table<a class="headerlink" href="#create-a-table" title="Permalink to this headline">¶</a></h3>
+<p>Once the schema is created, we can go ahead and create our tables by running the following SQL command for importing data from S3 by specifying the path to the folder/directory containing the data files and specifying the data file type:</p>
+<div class="section" id="from-parquet">
+<h4>From Parquet<a class="headerlink" href="#from-parquet" title="Permalink to this headline">¶</a></h4>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">CREATE</span> <span class="n">TABLE</span> <span class="n">IF</span> <span class="n">NOT</span> <span class="n">EXISTS</span> <span class="n">hive</span><span class="o">.&lt;</span><span class="n">schema</span> <span class="n">name</span><span class="o">&gt;.&lt;</span><span class="n">table</span> <span class="n">name</span><span class="o">&gt;</span> <span class="p">(</span>
+        <span class="o">&lt;</span><span class="n">column</span> <span class="n">name</span><span class="o">&gt;</span> <span class="o">&lt;</span><span class="n">data</span> <span class="nb">type</span><span class="o">&gt;</span><span class="p">,</span>
+        <span class="o">&lt;</span><span class="n">column</span> <span class="n">name</span><span class="o">&gt;</span> <span class="o">&lt;</span><span class="n">data</span> <span class="nb">type</span><span class="o">&gt;</span><span class="p">,</span>
+        <span class="o">...</span>
+<span class="p">)</span>
+<span class="n">WITH</span> <span class="p">(</span>
+   <span class="n">external_location</span> <span class="o">=</span> <span class="s1">&#39;s3a://&lt;bucket_name&gt;/&lt;s3_path_to_data_folder&gt;&#39;</span><span class="p">,</span>
+   <span class="nb">format</span> <span class="o">=</span> <span class="s1">&#39;PARQUET&#39;</span>
+<span class="p">)</span>
+</pre></div>
+</div>
+<p><strong>Note: Ensure that the table column names are the same as the column names mentioned in your data set.</strong></p>
+<p>Reference documents, if the result differs from the desired one:</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://trino.io/docs/current/sql.html">SQL Syntax</a></p></li>
+<li><p><a class="reference external" href="https://trino.io/docs/current/connector/hive.html#supported-file-types">Supported file types</a></p></li>
+<li><p><a class="reference external" href="https://trino.io/docs/current/language/types.html">Supported data types</a></p></li>
+<li><p><a class="reference external" href="https://trino.io/docs/current/sql/create-table.html">Create table statement</a></p></li>
+</ul>
+</div>
+</div>
+<div class="section" id="trino">
+<h3>Trino<a class="headerlink" href="#trino" title="Permalink to this headline">¶</a></h3>
+<p>You can view the logs/performance of each SQL query executed by logging into Trino.</p>
+<ul class="simple">
+<li><p><strong>Login to Trino</strong>: <a class="reference external" href="https://trino.operate-first.cloud">
+https://trino.operate-first.cloud</a>.</p></li>
+</ul>
+<p>After logging in you should see a landing page which displays the number of queries running, active workers, queries executed etc:</p>
+<img src="assets/images/trino-landing-page.png" width="500">
+<p>You can click on a particular query ID to view its logs like so:</p>
+<img src="assets/images/trino-query-page.png" width="500">
+</div>
+</div>
+<div class="section" id="trino-to-superset">
+<h2>Trino to Superset<a class="headerlink" href="#trino-to-superset" title="Permalink to this headline">¶</a></h2>
+<p>Now that we have the tables created in Trino, we can start creating our dashboards in Superset. <a class="reference external" href="https://superset.apache.org/">Apache Superset</a> is an open source visualization tool that allows users to create interactive dashboards. Superset is very simple to use and requires no coding knowledge.</p>
+<p><strong>The Operate First Superset is already configured to use Trino as the database</strong>.</p>
+<ul class="simple">
+<li><p><strong>Login to Superset</strong>: <a class="reference external" href="https://superset.operate-first.cloud">https://superset.operate-first.cloud</a></p></li>
+</ul>
+<div class="section" id="configuring-a-dataset">
+<h3>Configuring a Dataset<a class="headerlink" href="#configuring-a-dataset" title="Permalink to this headline">¶</a></h3>
+<p>We need to select the dataset we would like to use i.e. the tables created in Trino for which we would like to create dashboards. To select click on <strong><code class="docutils literal notranslate"><span class="pre">Data</span></code> -&gt; <code class="docutils literal notranslate"><span class="pre">Datasets</span></code></strong> like so:</p>
+<img src="assets/images/superset-data-tab.png" width="500">
+<p>Click on the <strong>‘+’</strong> button in the top right corner to add a new data set, a pop-up should appear like so:</p>
+<img src="assets/images/superset-add-dataset.png" width="500">
+<ul class="simple">
+<li><p>Select the <strong>datasource</strong> as the <code class="docutils literal notranslate"><span class="pre">trino</span> <span class="pre">opf-trino</span></code> database</p></li>
+<li><p>Select the <strong>schema</strong> of your interest from the drop-down (you should see all the schemas that have been created under the hive catalog in Trino)</p></li>
+<li><p>Select the <strong>table</strong> you would like to import and click on <code class="docutils literal notranslate"><span class="pre">Add</span></code></p></li>
+</ul>
+<p>You should now see the table/dataset created and listed.</p>
+</div>
+<div class="section" id="creating-charts">
+<h3>Creating Charts<a class="headerlink" href="#creating-charts" title="Permalink to this headline">¶</a></h3>
+<p>Now that we have the required dataset, we can go ahead and start creating our charts and dashboards. To create a chart, click on “<strong>Charts</strong>” tab on top and add a new chart by clicking on the “<strong>+ Chart</strong>” button:</p>
+<img src="assets/images/superset-add-chart.png" width="200">
+<p>Choose the dataset from the dropdown and the type of visualization:</p>
+<img src="assets/images/superset-select-chart.png" width="700">
+<p>There are many different charts/visualizations you can choose from:</p>
+<img src="assets/images/superset-visualizations.png" width="500">
+<p>Based on the chart type you choose, you will have a number of fields to edit and write the appropriate SQL queries for visualizing your data. The fields are mostly self explanatory. “<strong>Metric</strong>” is the key data you are trying to convey (where you write your SQL queries). “<strong>Filters</strong>” allow you to specify which data is used. “<strong>Group by</strong>” combines the data into groups. After the chart has been adjusted as desired, click on the “<strong>Run</strong>” button to create it.</p>
+<p>For example, below we have created a bar chart which displays the average test duration per TestGrid dashboard tab. Our query here would be - <strong>AVERAGE(test_duration)</strong>. Since we want to display this per TestGrid dashboard, we can specify this in the “Series” field. Similarly, for every chart type the fields to edit will vary and we can create our visualization as per our needs.</p>
+<img src="assets/images/superset-barchart.png" width="800">
+<p>Once you have created a chart and are happy with how it looks, you can click “<strong>Save</strong>” and add it to a dashboard.</p>
+</div>
+<div class="section" id="creating-and-adding-charts-to-dashboards">
+<h3>Creating and Adding Charts to Dashboards<a class="headerlink" href="#creating-and-adding-charts-to-dashboards" title="Permalink to this headline">¶</a></h3>
+<p>Dashboards are a feature of Superset that allow for multiple charts and queries to be displayed in one place. To add a chart to a dashboard, click the “<strong>Save</strong>” button when viewing the chart and provide a name for it. If adding to a pre-existing dashboard, specify that dashboard’s name, otherwise select to add to a new dashboard.</p>
+<img src="assets/images/superset-save-chart.png" width="400">
+<p>After clicking “<strong>Save &amp; Go To Dashboard</strong>”, you will be able to see the dashboard. Dashboards allow for many different charts and can easily be reorganized by clicking on the pencil icon (edit option) in the top right corner.</p>
+<img src="assets/images/superset-dashboard.png" width="700">
+<p>To save the dashboard, click on the <strong>3 dots</strong> next to the pencil icon on the top right:</p>
+<img src="assets/images/superset-save-dashboard.png" width="200">
+<p>In order to share your dashboard with others, make sure to click on “<strong>Publish</strong>” next to the dashboard title name and copy the dashboard URL generated.</p>
+<p>You can also edit the properties of each dashboard. To do so, click on the “<strong>Dashboards</strong>” tab to view the list of dashboards.</p>
+<img src="assets/images/superset-dashboard-properties.png" width="800" height="150">
+<p>Hover under the “<strong>Actions</strong>” column next to the dashboard name you are interested in. Click on the** pencil icon**, to edit the fields such as adding owners to the dashboard, <strong>creating a readable URL for the dashboard</strong> etc.</p>
+</div>
+<div class="section" id="exporting-dashboards">
+<h3>Exporting Dashboards<a class="headerlink" href="#exporting-dashboards" title="Permalink to this headline">¶</a></h3>
+<p>Another useful feature of Superset is the ability to quickly export dashboards. To export a dashboard first go to the “<strong>Dashboards</strong>” tab of the top bar.  Next, hover under the “<strong>Actions</strong>” column next to the dashboard you would like to export. Finally, click on the <strong>arrow icon</strong> to export the dashboard and a JSON file download should start. Make sure that you have pop-ups enabled for this page or the download might not run.</p>
+<img src="assets/images/superset-export-dashboard.png" width="800" height="250">
+</div>
+</div>
+</div>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python3",
+            path: "./content/odh/trino"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+              </div>
+              
+        
+            <!-- Previous / next buttons -->
+<div class='prev-next-area'> 
+    <a class='left-prev' id="prev-link" href="add_more_postgress_catalogs.html" title="previous page">
+        <i class="fas fa-angle-left"></i>
+        <div class="prev-next-info">
+            <p class="prev-next-subtitle">previous</p>
+            <p class="prev-next-title">Adding additional Postgres catalogs to Trino</p>
+        </div>
+    </a>
+    <a class='right-next' id="next-link" href="../adding_kfdefs.html" title="next page">
+    <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Add a new Kfdef</p>
+    </div>
+    <i class="fas fa-angle-right"></i>
+    </a>
+</div>
+        
+        </div>
+    </div>
+    <footer class="footer">
+    <div class="container">
+      <p>
+        
+          By The Jupyter Book Community<br/>
+        
+            &copy; Copyright 2021.<br/>
+      </p>
+    </div>
+  </footer>
+</main>
+
+
+      </div>
+    </div>
+  
+  <script src="../../../_static/js/index.be7d3bbb2ef33a8344ce.js"></script>
+
+  </body>
+</html>

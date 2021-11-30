@@ -1,0 +1,849 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>GitOps Documentation &#8212; GitOps Docs</title>
+    
+  <link href="../_static/css/theme.css" rel="stylesheet">
+  <link href="../_static/css/index.ff1ffe594081f20da1ef19478df9384b.css" rel="stylesheet">
+
+    
+  <link rel="stylesheet"
+    href="../_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    
+      
+
+    
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-book-theme.css?digest=c3fdc42140077d1ad13ad2f1588a4309" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
+    
+  <link rel="preload" as="script" href="../_static/js/index.be7d3bbb2ef33a8344ce.js">
+
+    <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/togglebutton.js"></script>
+    <script src="../_static/clipboard.min.js"></script>
+    <script src="../_static/copybutton.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="../_static/sphinx-book-theme.12a9622fbb08dcb3a2a40b2c02b83a57.js"></script>
+    <script async="async" src="https://unpkg.com/thebe@0.5.1/lib/index.js"></script>
+    <script>
+        const thebe_selector = ".thebe"
+        const thebe_selector_input = "pre"
+        const thebe_selector_output = ".output"
+    </script>
+    <script async="async" src="../_static/sphinx-thebe.js"></script>
+    <link rel="shortcut icon" href="../_static/favicon.png"/>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="About" href="about/README.html" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="None">
+    
+
+    <!-- Google Analytics -->
+    
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+    <div class="container-fluid" id="banner"></div>
+
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
+    
+        <div class="navbar-brand-box">
+    <a class="navbar-brand text-wrap" href="../index.html">
+      
+        <!-- `logo` is deprecated in Sphinx 4.0, so remove this when we stop supporting 3 -->
+        
+      
+      
+      <img src="../_static/icon.png" class="logo" alt="logo">
+      
+      
+      <h1 class="site-logo" id="site-title">GitOps Docs</h1>
+      
+    </a>
+</div><form class="bd-search d-flex align-items-center" action="../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item active">
+        <ul class="nav bd-sidenav">
+ <li class="toctree-l1 current">
+  <a class="reference internal" href="#">
+   GitOps Documentation
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  GitOps
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="about/README.html">
+   About
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/>
+  <label for="toctree-checkbox-1">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="about/intro.html">
+     Getting started with Operate First
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="acm/README.html">
+   ACM
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/>
+  <label for="toctree-checkbox-2">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="acm/adding_managed_cluster_to_argocd.html">
+     Adding Managed Cluster to ArgoCD
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="acm/adding_users_to_acm.html">
+     Adding users to ACM
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="acme/README.html">
+   ACME
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"/>
+  <label for="toctree-checkbox-3">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="acme/issuing_certificates.html">
+     Issuing certificates
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="argocd-gitops/README.html">
+   ArgoCD
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" type="checkbox"/>
+  <label for="toctree-checkbox-4">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="argocd-gitops/add_application.html">
+     Adding ArgoCD Applications
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="argocd-gitops/add_permissions_to_project.html">
+     Requesting more permissions for an ArgoCD Project (MOC)
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="argocd-gitops/encrypting_applications.html">
+     How to encrypt apps in this repo
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="argocd-gitops/get_access_to_argocd.html">
+     Get access to ArgoCD
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="argocd-gitops/import_dev_gpg.html">
+     Import Development GPG Key
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="argocd-gitops/onboarding_to_argocd.html">
+     ArgoCD onboarding procedure
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="argocd-gitops/secret_management.html">
+     Secret management for applications
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="argocd-gitops/setup_argocd_dev_environment.html">
+     Deploying a development environment
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="argocd-gitops/update_argocd.html">
+     Steps for Upgrading ArgoCD
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="argocd-gitops/update_gpg_key.html">
+     Update gpg key
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="cluster-scope/README.html">
+   Cluster Management
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-5" name="toctree-checkbox-5" type="checkbox"/>
+  <label for="toctree-checkbox-5">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="cluster-scope/add_resource_quotas.html">
+     Adding Resource Quotas
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="cluster-scope/add_user_to_group.html">
+     Adding User to an OCP team
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="cluster-scope/onboarding_to_cluster.html">
+     Onboarding to a cluster
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="cluster-scope/quotas.html">
+     Resource Quota Tiers
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="development/README.html">
+   Development
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-6" name="toctree-checkbox-6" type="checkbox"/>
+  <label for="toctree-checkbox-6">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="development/crc-disk-size.html">
+     Increasing CRC disk space
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="development/setup_quicklab.html">
+     Quicklab
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="grafana/README.html">
+   Grafana
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-7" name="toctree-checkbox-7" type="checkbox"/>
+  <label for="toctree-checkbox-7">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="grafana/add_grafana_dashboard.html">
+     Add a Grafana dashboard to OperateFirst Grafana
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="grafana/map_groups_to_roles.html">
+     Adding permissions in Grafana
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="kubeflow/README.html">
+   Kubeflow
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-8" name="toctree-checkbox-8" type="checkbox"/>
+  <label for="toctree-checkbox-8">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="kubeflow/kubeflow-dashboard/README.html">
+     Kubeflow Access
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="kubeflow/kubeflow-pipelines/README.html">
+     Kubeflow-Pipelines Access
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="observatorium/README.html">
+   Observatorium
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-9" name="toctree-checkbox-9" type="checkbox"/>
+  <label for="toctree-checkbox-9">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="observatorium/loki/add_loki_grafana_datasource.html">
+     Add a Loki Data Source in OperateFirst Grafana
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="observatorium/loki/README.html">
+     Loki Access
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="observatorium/thanos/README.html">
+     Thanos Access
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="observatorium/thanos/request_thanos_access.html">
+     Request Thanos Query API Access
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="observatorium/vector/README.html">
+     Vector on Operate First
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="ocs/README.html">
+   OpenShift Container Storage
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-10" name="toctree-checkbox-10" type="checkbox"/>
+  <label for="toctree-checkbox-10">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="ocs/buckets-external-access.html">
+     Accessing buckets from outside the cluster
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="ocs/claiming_object_store.html">
+     Claiming S3-compatible object store buckets
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="ocs/runbook.html">
+     OpenShift Container Storage (OCS) Runbook
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="odh/README.html">
+   Open Data Hub (ODH)
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-11" name="toctree-checkbox-11" type="checkbox"/>
+  <label for="toctree-checkbox-11">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2 has-children">
+    <a class="reference internal" href="odh/jupyterhub/README.html">
+     JupyterHub
+    </a>
+    <input class="toctree-checkbox" id="toctree-checkbox-12" name="toctree-checkbox-12" type="checkbox"/>
+    <label for="toctree-checkbox-12">
+     <i class="fas fa-chevron-down">
+     </i>
+    </label>
+    <ul>
+     <li class="toctree-l3">
+      <a class="reference internal" href="odh/jupyterhub/access_jupyterhub.html">
+       Access JupyterHub
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="odh/jupyterhub/add_imagestream_to_jh.html">
+       Provision a new ImageStream
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="odh/jupyterhub/analyze_storage.html">
+       Analyze Storage for a Notebook
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="odh/jupyterhub/increase_pvc_size_jh.html">
+       Increase PVC size for JupyterHub
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="odh/jupyterhub/reinstall_kernel.html">
+       How to restart a Notebook Kernel
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="odh/jupyterhub/runbook.html">
+       JupyterHub Runbook
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="odh/jupyterhub/user_profiles.html">
+       Managing user profiles
+      </a>
+     </li>
+    </ul>
+   </li>
+   <li class="toctree-l2 has-children">
+    <a class="reference internal" href="odh/kafka/README.html">
+     Kafka
+    </a>
+    <input class="toctree-checkbox" id="toctree-checkbox-13" name="toctree-checkbox-13" type="checkbox"/>
+    <label for="toctree-checkbox-13">
+     <i class="fas fa-chevron-down">
+     </i>
+    </label>
+    <ul>
+     <li class="toctree-l3">
+      <a class="reference internal" href="odh/kafka/add_kafka_topics.html">
+       Add Kafka Topics
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="odh/kafka/add_kafka_users.html">
+       Add Kafka Users
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="odh/kafka/runbook.html">
+       Kafka Runbook
+      </a>
+     </li>
+    </ul>
+   </li>
+   <li class="toctree-l2 has-children">
+    <a class="reference internal" href="odh/superset/README.html">
+     Superset
+    </a>
+    <input class="toctree-checkbox" id="toctree-checkbox-14" name="toctree-checkbox-14" type="checkbox"/>
+    <label for="toctree-checkbox-14">
+     <i class="fas fa-chevron-down">
+     </i>
+    </label>
+    <ul>
+     <li class="toctree-l3">
+      <a class="reference internal" href="odh/superset/add_superset_users.html">
+       Provision Superset Access
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="odh/superset/map_groups_to_roles.html">
+       Map OCP Group to Superset Role
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="odh/superset/runbook.html">
+       Superset Runbook
+      </a>
+     </li>
+    </ul>
+   </li>
+   <li class="toctree-l2 has-children">
+    <a class="reference internal" href="odh/trino/README.html">
+     Trino
+    </a>
+    <input class="toctree-checkbox" id="toctree-checkbox-15" name="toctree-checkbox-15" type="checkbox"/>
+    <label for="toctree-checkbox-15">
+     <i class="fas fa-chevron-down">
+     </i>
+    </label>
+    <ul>
+     <li class="toctree-l3">
+      <a class="reference internal" href="odh/trino/access_public_bucket.html">
+       Operate-First Public Bucket
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="odh/trino/add_more_buckets.html">
+       Adding buckets to Trino
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="odh/trino/add_more_postgress_catalogs.html">
+       Adding additional Postgres catalogs to Trino
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="odh/trino/trino_superset_user_guide.html">
+       How To Guide: Ceph -&gt; Trino -&gt; Superset
+      </a>
+     </li>
+    </ul>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="odh/adding_kfdefs.html">
+     Add a new Kfdef
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="uwm/README.html">
+   User WorkLoad Monitoring
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-16" name="toctree-checkbox-16" type="checkbox"/>
+  <label for="toctree-checkbox-16">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="uwm/overview.html">
+     Overview
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="templates/README.html">
+   Templates
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-17" name="toctree-checkbox-17" type="checkbox"/>
+  <label for="toctree-checkbox-17">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="templates/runbook.html">
+     &lt;Application/Service Name&gt; Runbook
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../CONTRIBUTING.html">
+   Contributing to GitOps Docs
+  </a>
+ </li>
+</ul>
+
+    </div>
+</nav> <!-- To handle the deprecated key -->
+
+<div class="navbar_extra_footer">
+  Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+</div>
+
+</div>
+
+
+          
+
+
+          
+<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
+    
+    <div class="topbar container-xl fixed-top">
+    <div class="topbar-contents row">
+        <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show"></div>
+        <div class="col pl-md-4 topbar-main">
+            
+            <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
+                data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
+                aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
+                title="Toggle navigation" data-toggle="tooltip" data-placement="left">
+                <i class="fas fa-bars"></i>
+                <i class="fas fa-arrow-left"></i>
+                <i class="fas fa-arrow-up"></i>
+            </button>
+            
+            
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
+            class="fas fa-download"></i></button>
+
+    <div class="dropdown-buttons">
+        <!-- ipynb file if we had a myst markdown file -->
+        
+        <!-- Download raw file -->
+        <a class="dropdown-buttons" href="../_sources/content/README.md"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
+                data-placement="left">.md</button></a>
+        <!-- Download PDF via print -->
+        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
+            onClick="window.print()" data-toggle="tooltip" data-placement="left">.pdf</button>
+    </div>
+</div>
+
+            <!-- Source interaction buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Connect with source repository"><i class="fab fa-github"></i></button>
+    <div class="dropdown-buttons sourcebuttons">
+        <a class="repository-button"
+            href="https://github.com/operate-first/apps"><button type="button" class="btn btn-secondary topbarbtn"
+                data-toggle="tooltip" data-placement="left" title="Source repository"><i
+                    class="fab fa-github"></i>repository</button></a>
+        <a class="issues-button"
+            href="https://github.com/operate-first/apps/issues/new?title=Issue%20on%20page%20%2Fcontent/README.html&body=Your%20issue%20content%20here."><button
+                type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
+                title="Open an issue"><i class="fas fa-lightbulb"></i>open issue</button></a>
+        
+    </div>
+</div>
+
+            <!-- Full screen (wrap in <a> to have style consistency -->
+
+<a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
+        data-placement="bottom" onclick="toggleFullScreen()" aria-label="Fullscreen mode"
+        title="Fullscreen mode"><i
+            class="fas fa-expand"></i></button></a>
+
+            <!-- Launch buttons -->
+
+        </div>
+
+        <!-- Table of contents -->
+        <div class="d-none d-md-block col-md-2 bd-toc show">
+            
+            <div class="tocsection onthispage pt-5 pb-3">
+                <i class="fas fa-list"></i> Contents
+            </div>
+            <nav id="bd-toc-nav" aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#environments">
+   Environments
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#moc">
+     MOC
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#emea">
+     EMEA
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#os-climate">
+     OS-Climate
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#managed-services">
+   Managed Services
+  </a>
+ </li>
+</ul>
+
+            </nav>
+        </div>
+    </div>
+</div>
+    <div id="main-content" class="row">
+        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
+        
+              <div>
+                
+  <div class="tex2jax_ignore mathjax_ignore section" id="gitops-documentation">
+<h1>GitOps Documentation<a class="headerlink" href="#gitops-documentation" title="Permalink to this headline">¶</a></h1>
+<p>This JupyterBook is intended to serve as a main resource for all Operate First GitHub Org contributors.</p>
+<p>It contains documentation on how to perform GitHub contributor-related tasks and encourages input and contributions from
+the community. JupyterBook format combines easy readability with efficient methods on how to apply newly acquired
+knowledge.</p>
+<div class="section" id="environments">
+<h2>Environments<a class="headerlink" href="#environments" title="Permalink to this headline">¶</a></h2>
+<p>If you would like to use one of our clusters, please create an issue <a class="reference external" href="https://github.com/operate-first/support/issues/new?assignees=&amp;labels=onboarding&amp;template=onboarding_to_cluster.yaml&amp;title=">here</a>.</p>
+<div class="section" id="moc">
+<h3><a class="reference external" href="https://massopen.cloud/">MOC</a><a class="headerlink" href="#moc" title="Permalink to this headline">¶</a></h3>
+<p>The Operate First initiative currently manages two clusters within the MOC environment.</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://console-openshift-console.apps.smaug.na.operate-first.cloud/"><code class="docutils literal notranslate"><span class="pre">Smaug</span></code> cluster</a> for all user workloads</p></li>
+<li><p><a class="reference external" href="https://console-openshift-console.apps.moc-infra.massopen.cloud/"><code class="docutils literal notranslate"><span class="pre">Infra</span></code> cluster</a> for cluster management, housing ACM and ArgoCD</p></li>
+</ul>
+</div>
+<div class="section" id="emea">
+<h3><a class="reference external" href="https://www.hetzner.com/">EMEA</a><a class="headerlink" href="#emea" title="Permalink to this headline">¶</a></h3>
+<p>The Operate First community deploys the following cluster within the EMEA region.</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://console-openshift-console.apps.rick.emea.operate-first.cloud/"><code class="docutils literal notranslate"><span class="pre">Rick</span></code> cluster</a> for experimental user workloads</p></li>
+</ul>
+</div>
+<div class="section" id="os-climate">
+<h3><a class="reference external" href="https://github.com/os-climate/os_c_data_commons">OS-Climate</a><a class="headerlink" href="#os-climate" title="Permalink to this headline">¶</a></h3>
+<p>OS-Climate (OSC) provides a unified, open Multimodal Data Processing platform used by OS-Climate members to collect, normalize and integrate climate and ESG data from public and private sources.</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://console-openshift-console.apps.odh-cl1.apps.os-climate.org/dashboards">OSC cluster</a> for all OSC workloads</p></li>
+</ul>
+</div>
+</div>
+<div class="section" id="managed-services">
+<h2>Managed Services<a class="headerlink" href="#managed-services" title="Permalink to this headline">¶</a></h2>
+<p>Operate First manages various applications and services in the environments listed above.</p>
+<ul>
+<li><p><a class="reference external" href="https://grafana.com/">Grafana</a></p>
+<ul class="simple">
+<li><p>We use Grafana for monitoring and dashboards</p></li>
+<li><p>To request access to Grafana, please file an issue <a class="reference external" href="https://github.com/operate-first/support/issues">here</a></p></li>
+</ul>
+</li>
+<li><p><a class="reference external" href="https://opendatahub.io/">Open Data Hub</a></p>
+<ul class="simple">
+<li><p>We manage a deployment of Open Data Hub (ODH) on the Smaug cluster and OSC cluster</p></li>
+<li><p><a class="reference external" href="https://github.com/operate-first/apps/tree/master/docs/odh">Read more</a> about our deployment of ODH and access our <a class="reference external" href="https://odh.operate-first.cloud/">dashboard</a></p></li>
+</ul>
+</li>
+<li><p><a class="reference external" href="https://argoproj.github.io/argo-cd/">ArgoCD</a></p>
+<ul class="simple">
+<li><p>We manage a multi-tenant deployment of ArgoCD on the MOC Infra cluster</p></li>
+<li><p>Anyone can be onboarded to this ArgoCD instance and use it to deploy to any cluster managed by Operate First</p>
+<ul>
+<li><p>Before being onboarded to ArgoCD, you must be onboarded to the OCP cluster you wish to deploy your applications on</p></li>
+<li><p>Request access to an OCP cluster by filing an issue <a class="reference external" href="https://github.com/operate-first/support/issues/new?assignees=&amp;labels=onboarding&amp;template=onboarding_to_cluster.yaml&amp;title=">here</a> and ArgoCD by filing an issue <a class="reference external" href="https://github.com/operate-first/support/issues/new?assignees=&amp;labels=onboarding&amp;template=onboarding_argocd.yaml&amp;title=">here</a></p></li>
+</ul>
+</li>
+<li><p>Console: <a class="reference external" href="https://argocd.operate-first.cloud">https://argocd.operate-first.cloud</a></p></li>
+</ul>
+</li>
+<li><p><a class="reference external" href="https://github.com/observatorium">Observatorium</a></p>
+<blockquote>
+<div><p>Note: Links are currently outdated as Observatorium is being migrated to Smaug cluster. We will update this document with the new routes once the migration is complete.</p>
+</div></blockquote>
+<ul class="simple">
+<li><p>We have an instance of Observatorium currently being used to provision Thanos and Loki</p></li>
+<li><p>Thanos enables long term storage for Prometheus (deployed by ODH)</p>
+<ul>
+<li><p>Anyone can enable their applications deployed on the Smaug cluster to be monitored by this Prometheus instance</p></li>
+<li><p>To do so, follow the instructions <a class="reference external" href="https://github.com/operate-first/support/blob/main/docs/add_service_monitoring.md">here</a> and make a pull request against this repo</p></li>
+</ul>
+</li>
+<li><p>Loki is used to query logs; click <a class="reference external" href="https://www.operate-first.cloud/users/apps/docs/observatorium/loki/README.md">here</a> to learn more about sending or retrieving logs using Loki</p></li>
+<li><p>Thanos: <a class="reference external" href="http://thanos-query-frontend-opf-observatorium.apps.zero.massopen.cloud">http://thanos-query-frontend-opf-observatorium.apps.zero.massopen.cloud</a></p></li>
+</ul>
+</li>
+<li><p><a class="reference external" href="https://cloud.redhat.com/products/container-storage/?extIdCarryOver=true&amp;sc_cid=701f2000001Css5AAC">OpenShift Data Foundation</a></p>
+<ul class="simple">
+<li><p>We deploy the OpenShift Data Foundation (ODF) operator on the Smaug cluster</p></li>
+<li><p>ODF provides both persistent volumes and S3 compatible object storage via <a class="reference external" href="https://rook.io/">Rook</a> Operator</p></li>
+<li><p>Users can deploy their own S3 buckets via ObjectBucketClaims. Visit <a class="reference external" href="https://www.operate-first.cloud/users/support/docs/claiming_object_store.md">this page</a> for more information and request an S3 bucket by filing an issue <a class="reference external" href="https://github.com/operate-first/support/issues/new?assignees=first-operator&amp;labels=kind%2Fonboarding%2Carea%2Fbucket&amp;template=ceph_bucket_request.yaml&amp;title=BUCKET%3A+%3Cname%3E">here</a>.</p></li>
+</ul>
+</li>
+<li><p><a class="reference external" href="https://github.com/dexidp/dex">Dex OIDC Provider</a></p>
+<ul class="simple">
+<li><p>We manage an instance of Dex on the Smaug cluster to provide authentication for some of our services</p></li>
+<li><p>Our Dex instance can also be used to drive authentication for other users. While documents are not yet available for this, experienced users can find the configurations <a class="reference external" href="https://github.com/operate-first/apps/tree/master/dex">here</a></p></li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="toctree-wrapper compound">
+</div>
+</div>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python3",
+            path: "./content"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+              </div>
+              
+        
+            <!-- Previous / next buttons -->
+<div class='prev-next-area'>
+    <a class='right-next' id="next-link" href="about/README.html" title="next page">
+    <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">About</p>
+    </div>
+    <i class="fas fa-angle-right"></i>
+    </a>
+</div>
+        
+        </div>
+    </div>
+    <footer class="footer">
+    <div class="container">
+      <p>
+        
+          By The Jupyter Book Community<br/>
+        
+            &copy; Copyright 2021.<br/>
+      </p>
+    </div>
+  </footer>
+</main>
+
+
+      </div>
+    </div>
+  
+  <script src="../_static/js/index.be7d3bbb2ef33a8344ce.js"></script>
+
+  </body>
+</html>
