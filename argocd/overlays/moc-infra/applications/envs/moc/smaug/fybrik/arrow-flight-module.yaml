@@ -1,0 +1,13 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: arrow-flight-module
+spec:
+  project: fybrik
+  source:
+    repoURL: 'https://github.com/fybrik/arrow-flight-module'
+    path: helm/afm
+    targetRevision: HEAD
+  destination:
+    namespace: fybrik-system
+    name: smaug
