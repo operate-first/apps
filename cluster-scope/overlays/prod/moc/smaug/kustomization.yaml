@@ -144,8 +144,6 @@ generators:
 
 patchesStrategicMerge:
   - backingstores/noobaa-default-backing-store_patch.yaml
-  - configmaps/cluster-monitoring-config.yaml
-  - configmaps/user-workload-monitoring-config.yaml
   - groups/cluster-admins.yaml
   - oauths/cluster_patch.yaml
   - storageclasses/ocs-external-storagecluster-ceph-rbd.yaml
