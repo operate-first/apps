@@ -1,0 +1,124 @@
+format: jb-book
+root: content/README.md
+parts:
+  - caption: GitOps
+    chapters:
+
+      # About
+      - file: content/about/README.md
+        sections:
+          - file: content/about/intro.md
+
+      # ACM
+      - file: content/acm/README.md
+        sections:
+          - file: content/acm/adding_managed_cluster_to_argocd.md
+          - file: content/acm/adding_users_to_acm.md
+
+      # ACME
+      - file: content/acme/README.md
+        sections:
+          - file: content/acme/issuing_certificates.md
+
+      # ArgoCD
+      - file: content/argocd-gitops/README.md
+        sections:
+          - file: content/argocd-gitops/add_application.md
+          - file: content/argocd-gitops/add_permissions_to_project.md
+          - file: content/argocd-gitops/encrypting_applications.md
+          - file: content/argocd-gitops/get_access_to_argocd.md
+          - file: content/argocd-gitops/import_dev_gpg.md
+          - file: content/argocd-gitops/onboarding_to_argocd.md
+          - file: content/argocd-gitops/secret_management.md
+          - file: content/argocd-gitops/setup_argocd_dev_environment.md
+          - file: content/argocd-gitops/update_argocd.md
+          - file: content/argocd-gitops/update_gpg_key.md
+
+      # Cluster Scope
+      - file: content/cluster-scope/README.md
+        sections:
+          - file: content/cluster-scope/add_resource_quotas.md
+          - file: content/cluster-scope/add_user_to_group.md
+          - file: content/cluster-scope/onboarding_to_cluster.md
+          - file: content/cluster-scope/quotas.md
+
+      # Development
+      - file: content/development/README.md
+        sections:
+          - file: content/development/crc-disk-size.md
+          - file: content/development/setup_quicklab.md
+
+      # Grafana
+      - file: content/grafana/README.md
+        sections:
+          - file: content/grafana/add_grafana_dashboard.md
+          - file: content/grafana/map_groups_to_roles.md
+
+      # Kubeflow
+      - file: content/kubeflow/README.md
+        sections:
+          - file: content/kubeflow/kubeflow-dashboard/README.md
+          - file: content/kubeflow/kubeflow-pipelines/README.md
+
+      # Observatorium
+      - file: content/observatorium/README.md
+        sections:
+          - file: content/observatorium/loki/add_loki_grafana_datasource.md
+          - file: content/observatorium/loki/README.md
+          - file: content/observatorium/thanos/README.md
+          - file: content/observatorium/thanos/request_thanos_access.md
+          - file: content/observatorium/vector/README.md
+
+      #  Openshift Container Storage
+      - file: content/ocs/README.md
+        sections:
+          - file: content/ocs/buckets-external-access.md
+          - file: content/ocs/claiming_object_store.md
+          - file: content/ocs/runbook.md
+
+      # ODH
+      - file: content/odh/README.md
+        sections:
+          - file: content/odh/jupyterhub/README.md
+            sections:
+            - file: content/odh/jupyterhub/access_jupyterhub.md
+            - file: content/odh/jupyterhub/add_imagestream_to_jh.md
+            - file: content/odh/jupyterhub/analyze_storage.md
+            - file: content/odh/jupyterhub/increase_pvc_size_jh.md
+            - file: content/odh/jupyterhub/reinstall_kernel.md
+            - file: content/odh/jupyterhub/runbook.md
+            - file: content/odh/jupyterhub/user_profiles.md
+
+          - file: content/odh/kafka/README.md
+            sections:
+              - file: content/odh/kafka/add_kafka_topics.md
+              - file: content/odh/kafka/add_kafka_users.md
+              - file: content/odh/kafka/runbook.md
+
+          - file: content/odh/superset/README.md
+            sections:
+            - file: content/odh/superset/add_superset_users.md
+            - file: content/odh/superset/map_groups_to_roles.md
+            - file: content/odh/superset/runbook.md
+
+          - file: content/odh/trino/README.md
+            sections:
+            - file: content/odh/trino/access_public_bucket.md
+            - file: content/odh/trino/add_more_buckets.md
+            - file: content/odh/trino/add_more_postgress_catalogs.md
+            - file: content/odh/trino/trino_superset_user_guide.md
+
+          - file: content/odh/adding_kfdefs.md
+
+      # UWM
+      - file: content/uwm/README.md
+        sections:
+          - file: content/uwm/overview.md
+
+      # Templates
+      - file: content/templates/README.md
+        sections:
+          - file: content/templates/runbook.md
+
+      # Doc contribution
+      - file: CONTRIBUTING.md
