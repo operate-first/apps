@@ -23,3 +23,15 @@ subjects:
   - kind: Group
     apiGroup: rbac.authorization.k8s.io
     name: prometheus-ai
+  - kind: ServiceAccount
+    name: remote-write-emea-balrog
+    namespace: opf-observatorium
+  - kind: ServiceAccount
+    name: remote-write-emea-rick
+    namespace: opf-observatorium
+  - kind: ServiceAccount
+    name: remote-write-moc-infra
+    namespace: opf-observatorium
+  - kind: ServiceAccount
+    name: remote-write-moc-smaug
+    namespace: opf-observatorium
