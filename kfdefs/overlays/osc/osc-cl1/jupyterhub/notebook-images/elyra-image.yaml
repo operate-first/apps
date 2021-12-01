@@ -2,12 +2,12 @@
 kind: ImageStream
 apiVersion: image.openshift.io/v1
 metadata:
-  name: elyra-notebook-image
+  name: custom-elyra-notebook-image
   annotations:
     opendatahub.io/notebook-image-url:
       "https://github.com/thoth-station/s2i-lab-elyra"
     opendatahub.io/notebook-image-name:
-      "Elyra Notebook Image"
+      "Custom Elyra Notebook Image"
     opendatahub.io/notebook-image-desc:
       "Jupyter notebook image with Elyra-AI installed."
   labels:
