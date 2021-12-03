@@ -5,7 +5,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Request Thanos Query API Access &#8212; GitOps Docs</title>
+    <title>Thanos Query API &#8212; GitOps Docs</title>
     
   <link href="../../../_static/css/theme.css" rel="stylesheet">
   <link href="../../../_static/css/index.ff1ffe594081f20da1ef19478df9384b.css" rel="stylesheet">
@@ -346,7 +346,7 @@
    </li>
    <li class="toctree-l2 current active">
     <a class="current reference internal" href="#">
-     Request Thanos Query API Access
+     Thanos Query API
     </a>
    </li>
    <li class="toctree-l2">
@@ -654,6 +654,19 @@
         <!-- Table of contents -->
         <div class="d-none d-md-block col-md-2 bd-toc show">
             
+            <div class="tocsection onthispage pt-5 pb-3">
+                <i class="fas fa-list"></i> Contents
+            </div>
+            <nav id="bd-toc-nav" aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#steps-to-follow">
+   Steps to follow
+  </a>
+ </li>
+</ul>
+
+            </nav>
         </div>
     </div>
 </div>
@@ -662,15 +675,29 @@
         
               <div>
                 
-  <div class="tex2jax_ignore mathjax_ignore section" id="request-thanos-query-api-access">
-<h1>Request Thanos Query API Access<a class="headerlink" href="#request-thanos-query-api-access" title="Permalink to this headline">¶</a></h1>
-<p>To be able to query metrics directly from the Thanos Query API, you will need specific permissions.</p>
-<p>Steps to follow:</p>
+  <div class="tex2jax_ignore mathjax_ignore section" id="thanos-query-api">
+<h1>Thanos Query API<a class="headerlink" href="#thanos-query-api" title="Permalink to this headline">¶</a></h1>
+<p>With Thanos Query access, you will be able to:</p>
 <ol class="simple">
-<li><p>Onboard your project/group to Operate First (<a class="reference external" href="https://github.com/operate-first/hitchhikers-guide/blob/main/pages/onboarding_project.ipynb">guide</a>).</p></li>
-<li><p>Once your group has been onboarded, add your group to <a class="reference external" href="https://github.com/operate-first/apps/blob/master/observatorium/overlays/moc/smaug/thanos/rolebindings/opf-observatorium-view.yaml#L10">this list</a> and create a PR (Pull Request).</p></li>
-<li><p>After your PR is reviewed/merged, you should have access to the Thanos Query Console and API.</p></li>
+<li><p>Access the <a class="reference external" href="https://thanos-query-frontend-opf-observatorium.apps.smaug.na.operate-first.cloud/">Thanos Query Frontend UI</a></p></li>
+<li><p>Access the Thanos metrics programmatically using your OpenShift personal token (<a class="reference internal" href="thanos_programmatic_access.html"><span class="doc std std-doc">instructions</span></a>)</p></li>
 </ol>
+<div class="section" id="steps-to-follow">
+<h2>Steps to follow<a class="headerlink" href="#steps-to-follow" title="Permalink to this headline">¶</a></h2>
+<p>To get the specific permissions needed query metrics directly from the Thanos Query API, please follow these steps:</p>
+<ol>
+<li><p>Onboard your project/group to Operate First (<a class="reference external" href="https://github.com/operate-first/hitchhikers-guide/blob/main/pages/onboarding_project.ipynb">guide</a>)</p></li>
+<li><p>Once your group has been onboarded, add your group to <a class="reference external" href="https://github.com/operate-first/apps/blob/master/observatorium/overlays/moc/smaug/thanos/rolebindings/opf-observatorium-view.yaml#L10">this list</a> in a new line as: <br></p>
+<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span> <span class="p p-Indicator">-</span> <span class="nt">kind</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">Group</span>
+   <span class="nt">apiGroup</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">rbac.authorization.k8s.io</span>
+   <span class="nt">name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">MY_GROUP_NAME</span>
+</pre></div>
+</div>
+<p>and create a PR (Pull Request). You can see an example Pull Request <a class="reference external" href="https://github.com/operate-first/apps/pull/1378">here</a></p>
+</li>
+<li><p>After your PR is reviewed/merged, you should have access to the Thanos Query Console and API</p></li>
+</ol>
+</div>
 </div>
 
     <script type="text/x-thebe-config">

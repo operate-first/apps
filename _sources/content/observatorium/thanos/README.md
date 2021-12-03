@@ -3,13 +3,26 @@
 [Thanos](https://github.com/thanos-io/thanos) is a set of components that can be composed into a highly available metric system with unlimited storage capacity, which can be added seamlessly on top of existing Prometheus deployments.
 
 An instance of Thanos is available for use in Operate First.
+## Requesting Thanos access
 
-The Query API/Console can be accessed at:
+Thanos metrics can be accessed in two different ways:
+
+1. Using the Grafana Console
+2. Using the Thanos Console/Query-API
+
+### Grafana Console access
+The Operate First Grafana console can be accessed at: https://grafana.operate-first.cloud/
+
+To request access to the Grafana Console, read the [following guide](request_grafana_access.md).
+
+### Thanos Query API/Console access
+The Thanos Query API/Console can be accessed at:
 
 https://thanos-query-frontend-opf-observatorium.apps.smaug.na.operate-first.cloud/
 
 To request access to the Thanos Query API, read the [following guide](request_thanos_access.md).
 
+## Thanos Metrics Retention
 In this instance of Thanos, metric data will be stored as following:
 
 | Resolution  | Duration    |

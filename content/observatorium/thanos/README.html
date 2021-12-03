@@ -52,7 +52,7 @@
     <link rel="shortcut icon" href="../../../_static/favicon.png"/>
     <link rel="index" title="Index" href="../../../genindex.html" />
     <link rel="search" title="Search" href="../../../search.html" />
-    <link rel="next" title="Request Thanos Query API Access" href="request_thanos_access.html" />
+    <link rel="next" title="Thanos Query API" href="request_thanos_access.html" />
     <link rel="prev" title="Loki Access" href="../loki/README.html" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="None">
@@ -346,7 +346,7 @@
    </li>
    <li class="toctree-l2">
     <a class="reference internal" href="request_thanos_access.html">
-     Request Thanos Query API Access
+     Thanos Query API
     </a>
    </li>
    <li class="toctree-l2">
@@ -660,6 +660,28 @@
             <nav id="bd-toc-nav" aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
  <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#requesting-thanos-access">
+   Requesting Thanos access
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#grafana-console-access">
+     Grafana Console access
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#thanos-query-api-console-access">
+     Thanos Query API/Console access
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#thanos-metrics-retention">
+   Thanos Metrics Retention
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#adding-new-metrics-to-thanos">
    Adding new metrics to Thanos
   </a>
@@ -679,9 +701,27 @@
 <h1>Thanos Access<a class="headerlink" href="#thanos-access" title="Permalink to this headline">¶</a></h1>
 <p><a class="reference external" href="https://github.com/thanos-io/thanos">Thanos</a> is a set of components that can be composed into a highly available metric system with unlimited storage capacity, which can be added seamlessly on top of existing Prometheus deployments.</p>
 <p>An instance of Thanos is available for use in Operate First.</p>
-<p>The Query API/Console can be accessed at:</p>
+<div class="section" id="requesting-thanos-access">
+<h2>Requesting Thanos access<a class="headerlink" href="#requesting-thanos-access" title="Permalink to this headline">¶</a></h2>
+<p>Thanos metrics can be accessed in two different ways:</p>
+<ol class="simple">
+<li><p>Using the Grafana Console</p></li>
+<li><p>Using the Thanos Console/Query-API</p></li>
+</ol>
+<div class="section" id="grafana-console-access">
+<h3>Grafana Console access<a class="headerlink" href="#grafana-console-access" title="Permalink to this headline">¶</a></h3>
+<p>The Operate First Grafana console can be accessed at: <a class="reference external" href="https://grafana.operate-first.cloud/">https://grafana.operate-first.cloud/</a></p>
+<p>To request access to the Grafana Console, read the <a class="reference internal" href="request_grafana_access.html"><span class="doc std std-doc">following guide</span></a>.</p>
+</div>
+<div class="section" id="thanos-query-api-console-access">
+<h3>Thanos Query API/Console access<a class="headerlink" href="#thanos-query-api-console-access" title="Permalink to this headline">¶</a></h3>
+<p>The Thanos Query API/Console can be accessed at:</p>
 <p><a class="reference external" href="https://thanos-query-frontend-opf-observatorium.apps.smaug.na.operate-first.cloud/">https://thanos-query-frontend-opf-observatorium.apps.smaug.na.operate-first.cloud/</a></p>
 <p>To request access to the Thanos Query API, read the <a class="reference internal" href="request_thanos_access.html"><span class="doc std std-doc">following guide</span></a>.</p>
+</div>
+</div>
+<div class="section" id="thanos-metrics-retention">
+<h2>Thanos Metrics Retention<a class="headerlink" href="#thanos-metrics-retention" title="Permalink to this headline">¶</a></h2>
 <p>In this instance of Thanos, metric data will be stored as following:</p>
 <table class="colwidths-auto table">
 <thead>
@@ -704,6 +744,7 @@
 <p>Here the <code class="docutils literal notranslate"><span class="pre">Original/Raw</span></code> resolution means the resolution at which metrics were collected.</p>
 <p>More information on how this retention of metric data can be found <a class="reference external" href="https://github.com/thanos-io/thanos/blob/main/docs/components/compact.md#enforcing-retention-of-data">here</a>.</p>
 <p><em>Note: the resolution and duration of the stored metric data might change in the future</em></p>
+</div>
 <div class="section" id="adding-new-metrics-to-thanos">
 <h2>Adding new metrics to Thanos<a class="headerlink" href="#adding-new-metrics-to-thanos" title="Permalink to this headline">¶</a></h2>
 <p>All of Thanos metric data is pushed in by the Openshift Monitoring Prometheus instances from various Operate First clusters.</p>
@@ -745,7 +786,7 @@
     <a class='right-next' id="next-link" href="request_thanos_access.html" title="next page">
     <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title">Request Thanos Query API Access</p>
+        <p class="prev-next-title">Thanos Query API</p>
     </div>
     <i class="fas fa-angle-right"></i>
     </a>
