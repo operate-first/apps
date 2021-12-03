@@ -6,3 +6,5 @@ namespace: openshift-logging
 
 resources:
   - clusterlogging.yaml
+  - rolebindings
+  - roles
