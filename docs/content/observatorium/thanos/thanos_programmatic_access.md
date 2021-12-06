@@ -4,7 +4,7 @@ The Thanos metrics can be queried using the [this](https://prometheus-api-client
 You can install the latest version with `pip install prometheus-api-client`.
 You will need to extract the OpenShift bearer token for the client library to authenticate the [thanos](https://thanos-query-frontend-opf-observatorium.apps.smaug.na.operate-first.cloud/) instance.
 
-### Personal token
+## Personal token
 
 You can use your personal token for testing and ad-hoc scripts, but it will expire in ~24 hours.
 
