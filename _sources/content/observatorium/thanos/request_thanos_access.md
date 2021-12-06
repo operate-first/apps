@@ -4,7 +4,7 @@ With Thanos Query access, you will be able to:
 1. Access the [Thanos Query Frontend UI](https://thanos-query-frontend-opf-observatorium.apps.smaug.na.operate-first.cloud/)
 2. Access the Thanos metrics programmatically using your OpenShift personal token ([instructions](thanos_programmatic_access.md))
 
-### Steps to follow
+## Steps to follow
 To get the specific permissions needed query metrics directly from the Thanos Query API, please follow these steps:
 
 1. Onboard your project/group to Operate First ([guide](https://github.com/operate-first/hitchhikers-guide/blob/main/pages/onboarding_project.ipynb))

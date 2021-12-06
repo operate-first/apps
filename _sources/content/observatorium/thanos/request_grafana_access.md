@@ -5,7 +5,7 @@ With Grafana access, you will be able to:
 2. View saved metric visualization dashboards in Operate First Grafana instance
 3. Edit/Create new metric visualization dashboards in the Operate First Grafana instance
 
-### Supported Roles
+## Supported Roles
 We support three different roles for accessing the Operate First Grafana instance:
 * **Viewer**: User has view access to all the dashboards and metric/log datasources.
 * **Editor**: In addition to *Viewer* permissions, user can edit/create new visualization dashboards.
@@ -14,7 +14,7 @@ We support three different roles for accessing the Operate First Grafana instanc
 More information about these roles is available [here](https://grafana.com/docs/grafana/latest/permissions/organization_roles/#compare-roles).
 
 
-### Steps to follow
+## Steps to follow
 To get the specific permissions needed to get Grafana access, please follow these steps:
 
 1. Onboard your project/group to Operate First ([guide](https://github.com/operate-first/hitchhikers-guide/blob/main/pages/onboarding_project.ipynb)).
