@@ -4,12 +4,12 @@ This onboarding guide will help you set up your application's secrets in a way t
 
 ## Prerequisites
 
-1. Install GPG and [SOPS](https://github.com/mozilla/sops)
+1. Install GPG and [SOPS][sops]
 2. Have ready your own/team-owned secret GPG key that you want to access the encrypted data with
 
 ## Obtain OperateFirst GPG public key
 
-Fetch [`0508677DD04952D06A943D5B4DC4116D360E3276` GPG key](http://keys.gnupg.net/pks/lookup?op=vindex&fingerprint=on&search=0x4DC4116D360E3276):
+Fetch [`0508677DD04952D06A943D5B4DC4116D360E3276` GPG key][gpgkey]:
 
 ```sh
 gpg --keyserver keys.gnupg.net --recv 0508677DD04952D06A943D5B4DC4116D360E3276
@@ -30,7 +30,7 @@ This creation rule specifies:
 - `encrypted_regex` instructs SOPS to (by default) encrypt only the `data` or `stringData` properties of resources
 - `pgp` specifies which GPG keys to be used for the encryption. Multiple key fingerprints can be specified here separated by a comma. Each of the private GPG key holders to fingerprints specified in this list will be able to decrypt and re-encrypt the resource.
 
-For more details on the SOPS configuration, please consult the [SOPS documentation](https://github.com/mozilla/sops).
+For more details on the SOPS configuration, please consult the [SOPS documentation][sops].
 
 ## Encrypting a resource
 
@@ -60,5 +60,10 @@ sops path/to/resource.enc.yaml
 
 Based on the toolkit you use to structure your manifests with, please follow these guides:
 
-1. For Kustomize manifests, please use `ksops`. Please follow [the upstream documentation for ksops](https://github.com/viaduct-ai/kustomize-sops).
-2. For Helm manifests, please use `helm-secrets`. Please follow [the upstream documentation for helm-secrets](https://github.com/jkroepke/helm-secrets).
+1. For Kustomize manifests, please use `ksops`. Please follow [the upstream documentation for ksops][ksops].
+2. For Helm manifests, please use `helm-secrets`. Please follow [the upstream documentation for helm-secrets][hsecrets].
+
+[sops]: https://github.com/mozilla/sops
+[gpgkey]: https://keys.openpgp.org/search?q=aicoe-operate-first%40redhat.com
+[ksops]: https://github.com/viaduct-ai/kustomize-sops
+[hsecrets]: https://github.com/jkroepke/helm-secrets

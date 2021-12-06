@@ -6,22 +6,22 @@ The purpose of this document is to list out all the steps to be followed while i
 
 The following are the pre-requisites needed before you can start interacting with Trino and Superset:
 
-* Access to [CloudBeaver](http://cloudbeaver-opf-trino.apps.smaug.na.operate-first.cloud)
+* Access to [CloudBeaver][1]
     * Reach out to Operate First team for credentials (only `admin` account is available now, user authentication is a WIP)
-* Access to [Trino](https://trino.operate-first.cloud)
+* Access to [Trino][2]
     * Login with `trino` via OCP
-* Access to [Superset](https://superset.operate-first.cloud)
-    * Follow instructions [here](../superset/add_superset_users.md).
+* Access to [Superset][3]
+    * Follow instructions [here][4].
 * Data is stored in an S3 bucket hosted on Operate First and the bucket is configured with Trino i.e. Trino has the correct credentials and permission to read the bucket
-    * Follow [this document](https://www.operate-first.cloud/users/support/docs/claiming_object_store.md) for provisioning an S3 bucket.
-* Data in S3 bucket is contained within directories/folders for it to be exported as a table in Trino and is of the supported data types mentioned [here](https://trino.io/docs/current/connector/hive.html#supported-file-types)
+    * Follow [this document][5] for provisioning an S3 bucket.
+* Data in S3 bucket is contained within directories/folders for it to be exported as a table in Trino and is of the supported data types mentioned [here][6]
 
 
 ## Ceph (S3) to Trino via CloudBeaver
 
-* **Trino** - [Trino](https://trino.io/) is a distributed SQL query engine designed to query large data sets distributed over one or more heterogeneous data sources. Since our data is stored in Ceph, **the Operate First Trino is currently configured to use the** ``opf-datacatalog-bucket`` **S3 bucket**.
+* **Trino** - [Trino][7] is a distributed SQL query engine designed to query large data sets distributed over one or more heterogeneous data sources. Since our data is stored in Ceph, **the Operate First Trino is currently configured to use the** ``opf-datacatalog-bucket`` **S3 bucket**.
 
-* **CloudBeaver** - [CloudBeaver](https://cloudbeaver.io/) is a popular web application which provides a rich UI for working and interacting with SQL databases.
+* **CloudBeaver** - [CloudBeaver][8] is a popular web application which provides a rich UI for working and interacting with SQL databases.
 
 Data in Ceph needs to be contained within a directory/folder in order to be exported as a table in Trino. A folder in Ceph (S3) maps to a table in Trino. If you put multiple files in a S3 folder, all of them will be treated as data for the same table. For example, in your S3 bucket, you can create a folder `datasets` and within this folder you can either create sub-directories like `animal-datasets`, `flower-datasets`, etc or have all your individual data files within this folder alone. While creating a table, specify the appropriate directory path containing the data files you want to populate your table with, such as:
 
@@ -29,7 +29,7 @@ Data in Ceph needs to be contained within a directory/folder in order to be expo
 
 ### Login to CloudBeaver
 
-In order to create the tables in Trino, we will use [CloudBeaver](https://github.com/dbeaver/cloudbeaver).
+In order to create the tables in Trino, we will use [CloudBeaver][9].
 
 * **Login to CloudBeaver at**: http://cloudbeaver-opf-trino.apps.smaug.na.operate-first.cloud
 
@@ -43,7 +43,7 @@ Each database has the following structure:
 
 **Database -> Catalog -> Schema -> Tables**
 
-For eg: In the `Operate First Trino` db, we have 2 [catalogs](https://trino.io/docs/current/overview/concepts.html#catalog) (data sources) i.e. ‘hive’ and ‘system’. In the `hive` catalog we have the different schemas such as `default`, `ocp` etc. Under each of these schemas, we have different tables created.
+For eg: In the `Operate First Trino` db, we have 2 [catalogs][10] (data sources) i.e. ‘hive’ and ‘system’. In the `hive` catalog we have the different schemas such as `default`, `ocp` etc. Under each of these schemas, we have different tables created.
 
 <img src="assets/images/cloudbeaver-table-view.png" width="200">
 
@@ -80,10 +80,10 @@ WITH (
 **Note: Ensure that the table column names are the same as the column names mentioned in your data set.**
 
 Reference documents, if the result differs from the desired one:
-* [SQL Syntax](https://trino.io/docs/current/sql.html)
-* [Supported file types](https://trino.io/docs/current/connector/hive.html#supported-file-types)
-* [Supported data types](https://trino.io/docs/current/language/types.html)
-* [Create table statement](https://trino.io/docs/current/sql/create-table.html)
+* [SQL Syntax][11]
+* [Supported file types][6]
+* [Supported data types][12]
+* [Create table statement][13]
 
 ### Trino
 
@@ -102,7 +102,7 @@ You can click on a particular query ID to view its logs like so:
 
 ## Trino to Superset
 
-Now that we have the tables created in Trino, we can start creating our dashboards in Superset. [Apache Superset](https://superset.apache.org/) is an open source visualization tool that allows users to create interactive dashboards. Superset is very simple to use and requires no coding knowledge.
+Now that we have the tables created in Trino, we can start creating our dashboards in Superset. [Apache Superset][14] is an open source visualization tool that allows users to create interactive dashboards. Superset is very simple to use and requires no coding knowledge.
 
 **The Operate First Superset is already configured to use Trino as the database**.
 
@@ -173,3 +173,18 @@ Hover under the “**Actions**” column next to the dashboard name you are inte
 Another useful feature of Superset is the ability to quickly export dashboards. To export a dashboard first go to the “**Dashboards**” tab of the top bar.  Next, hover under the “**Actions**” column next to the dashboard you would like to export. Finally, click on the **arrow icon** to export the dashboard and a JSON file download should start. Make sure that you have pop-ups enabled for this page or the download might not run.
 
 <img src="assets/images/superset-export-dashboard.png" width="800" height="250">
+
+[1]: http://cloudbeaver-opf-trino.apps.smaug.na.operate-first.cloud
+[2]: https://trino.operate-first.cloud
+[3]: https://superset.operate-first.cloud
+[4]: ../superset/add_superset_users.md
+[5]: ../../ocs/claiming_object_store.md
+[6]: https://trino.io/docs/current/connector/hive.html#supported-file-types
+[7]: https://trino.io/
+[8]: https://cloudbeaver.io/
+[9]: https://github.com/dbeaver/cloudbeaver
+[10]: https://trino.io/docs/current/overview/concepts.html#catalog
+[11]: https://trino.io/docs/current/sql.html
+[12]: https://trino.io/docs/current/language/types.html
+[13]: https://trino.io/docs/current/sql/create-table.html
+[14]: https://superset.apache.org/

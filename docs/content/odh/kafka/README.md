@@ -15,8 +15,11 @@ Credentials/certs are generated per `KafkaUser` bases.
 
 ## Adding Kafka topics
 
-To add Kafka topics follow the instructions [here](add_kafka_topics.md).
+To add Kafka topics follow the instructions [here][1].
 
 ## Adding Kafka users
 
-To add Kafka users follow the instructions [here](add_kafka_users.md).
+To add Kafka users follow the instructions [here][2].
+
+[1]: add_kafka_topics.md
+[2]: add_kafka_users.md

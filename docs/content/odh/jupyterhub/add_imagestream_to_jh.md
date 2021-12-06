@@ -4,7 +4,7 @@ This doc provides instructions on adding a new imagestream so that it may be ava
 
 ## Steps
 
-- Please fork/clone the [operate-first/apps](https://github.com/operate-first/apps) repository
+- Please fork/clone the [operate-first/apps][1] repository
 - Navigate to: `kfdefs/base/jupyterhub/notebook-images` , this is where all our imagestreams reside
 - Create a new imagestream, use the template below:
 
@@ -45,3 +45,5 @@ spec:
 * Add this filename to the `kustomization.yaml` to `kfdefs/base/jupyterhub/notebook-images/kustomization.yaml`
 
 Commit your changes and make a PR. Once merged, the imagestream will be deployed by ArgoCD and show up on the JupyterHub spawner UI.
+
+[1]: https://github.com/operate-first/apps

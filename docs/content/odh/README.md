@@ -12,13 +12,13 @@ Below is a list of all the components deployed, and relevant links to their UI.
 
 UI: https://jupyterhub-opf-jupyterhub.apps.smaug.na.operate-first.cloud
 
-Docs can be found [here](https://github.com/operate-first/apps/tree/master/docs/odh/jupyterhub).
+Docs can be found [here][1].
 
 ### [Kafka][7]
 
 Kafka broker URL: https://odh-message-bus-kafka-bootstrap-opf-kafka.apps.smaug.na.operate-first.cloud
 
-Docs can be found [here](kafka/README.md).
+Docs can be found [here][2].
 
 ### [ODH Dashboard][8]
 
@@ -28,18 +28,22 @@ UI: https://odh.operate-first.cloud/
 
 UI: https://trino.operate-first.cloud
 
-Docs can be found [here](https://github.com/operate-first/apps/tree/master/docs/odh/trino).
+Docs can be found [here][3].
 
 ### [Superset][12]
 
 UI: https://superset.operate-first.cloud
 
-Docs can be found [here](https://github.com/operate-first/apps/tree/master/docs/odh/superset).
+Docs can be found [here][4].
 
 #### Components not deployed
 
 If you require any components offered by ODH that are not currently managed, please submit a request [here][2].
 
+[1]: jupyterhub/README.md
+[2]: kafka/README.md
+[3]: trino/README.md
+[4]: superset/README.md
 [6]: https://jupyter.org/hub
 [7]: https://kafka.apache.org/
 [8]: https://github.com/opendatahub-io/odh-dashboard
