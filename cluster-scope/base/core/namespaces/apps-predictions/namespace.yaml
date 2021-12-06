@@ -1,0 +1,7 @@
+apiVersion: v1
+kind: Namespace
+metadata:
+    name: apps-predictions
+    annotations:
+        openshift.io/display-name: apps-predictions
+        openshift.io/requester: apps-predictions
