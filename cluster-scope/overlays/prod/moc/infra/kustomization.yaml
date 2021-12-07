@@ -21,6 +21,7 @@ resources:
   - ../../../../base/operators.coreos.com/operatorgroups/openshift-nmstate
   - ../../../../base/operators.coreos.com/operatorgroups/operator-acm-group
   - ../../../../base/operators.coreos.com/subscriptions/acm-operator-subscription
+  - ../../../../base/operators.coreos.com/subscriptions/cert-manager
   - ../../../../base/operators.coreos.com/subscriptions/cluster-logging
   - ../../../../base/operators.coreos.com/subscriptions/kubernetes-nmstate-operator
   - ../../../../base/operators.coreos.com/subscriptions/rhsso-operator
@@ -35,7 +36,7 @@ resources:
   - ../../../../base/storage.k8s.io/csidrivers/org.democratic-csi.nfs
   - ../../../../base/storage.k8s.io/storageclasses/moc-nfs-csi
   - ../../../../base/user.openshift.io/groups/cluster-admins
-
+  - apiserver/api_server_cert.yaml
   - clusterversion.yaml
   - nodenetworkconfigurationpolicies/crc-provisioning-vlan.yaml
   - kubeletconfigs/increase-worker-system-reserved-memory.yaml

@@ -1,0 +1,24 @@
+apiVersion: cert-manager.io/v1
+kind: Issuer
+metadata:
+  name: ingress-letsencrypt
+  namespace: openshift-config
+spec:
+  acme:
+    email: ops-team@operate-first.cloud
+    server: https://acme-v02.api.letsencrypt.org/directory
+    privateKeySecretRef:
+      name: letsencrypt-key
+    solvers:
+      - dns01:
+          cnameStrategy: Follow
+          selector:
+            dnsZones:
+              - moc-infra.massopen.cloud
+          route53:
+            region: us-east-1
+            accessKeyID: AKIAYLUGMT7YHWIC6R62
+            hostedZoneID: Z04486682XFINHTESP6B9
+            secretAccessKeySecretRef:
+              name: aws-route53-credentials
+              key: aws_secret_access_key

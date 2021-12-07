@@ -1,0 +1,13 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: cert-manager
+spec:
+  destination:
+    name: moc-infra
+    namespace: openshift-ingress
+  project: cluster-management
+  source:
+    repoURL: https://github.com/operate-first/apps.git
+    path: cert-manager/overlays/moc/infra
+    targetRevision: HEAD
