@@ -3,7 +3,6 @@ kind: ClusterRole
 metadata:
   annotations:
     rbac.authorization.kubernetes.io/autoupdate: "true"
-  creationTimestamp: null
   labels:
     kubernetes.io/bootstrapping: rbac-defaults
   name: opendatahub-operator
