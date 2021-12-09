@@ -1,0 +1,16 @@
+apiVersion: monitoring.coreos.com/v1
+kind: ServiceMonitor
+metadata:
+  labels:
+    prometheus: app-sre
+  name: observatorium-thanos-store-bucket-cache-memcached
+spec:
+  endpoints:
+  - port: metrics
+  namespaceSelector:
+    matchNames:
+      - opf-observatorium
+  selector:
+    matchLabels:
+      app.kubernetes.io/component: store-bucket-cache
+      app.kubernetes.io/part-of: observatorium
