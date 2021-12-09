@@ -21,4 +21,4 @@ spec:
     kind: Deployment
     name: trino-worker
   updatePolicy:
-    updateMode: "Off"
+    updateMode: "Auto"
