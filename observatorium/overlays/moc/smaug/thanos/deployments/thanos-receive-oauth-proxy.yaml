@@ -7,7 +7,7 @@ spec:
   selector:
     matchLabels:
       app: thanos-receive-oauth-proxy
-  replicas: 1
+  replicas: 3
   template:
     metadata:
       labels:
@@ -40,11 +40,11 @@ spec:
               name: oauth-proxy
           resources:
             limits:
-              cpu: 200m
+              cpu: 600m
               memory: 400Mi
             requests:
-              cpu: 100m
-              memory: 200Mi
+              cpu: 500m
+              memory: 300Mi
           volumeMounts:
           -   mountPath: /etc/tls/private
               name: thanos-receive-tls

@@ -1,0 +1,19 @@
+---
+kind: HorizontalPodAutoscaler
+apiVersion: autoscaling/v2beta2
+metadata:
+  name: observatorium-thanos-receive-default
+spec:
+  scaleTargetRef:
+    kind: StatefulSet
+    name: observatorium-thanos-receive-default
+    apiVersion: apps/v1
+  minReplicas: 5
+  maxReplicas: 10
+  metrics:
+    - type: Resource
+      resource:
+        name: cpu
+        target:
+          type: Utilization
+          averageUtilization: 80

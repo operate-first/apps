@@ -8,6 +8,7 @@ commonLabels:
 resources:
   - ../../../../base/instance/thanos
   - deployments
+  - horizontalpodautoscalers
   - rolebindings
   - roles
   - routes

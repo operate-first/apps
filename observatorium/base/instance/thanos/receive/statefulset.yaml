@@ -27,14 +27,14 @@ spec:
         - --grpc-address=0.0.0.0:10901
         - --http-address=0.0.0.0:10902
         - --remote-write.address=0.0.0.0:19291
-        - --receive.replication-factor=1
+        - --receive.replication-factor=2
         - --objstore.config-file=/var/lib/thanos-objectstorage/thanos.yaml
         - --tsdb.path=/var/thanos/receive
-        - --tsdb.retention=4d
+        - --tsdb.retention=2h
         - --receive.local-endpoint=$(NAME).observatorium-thanos-receive-default.$(NAMESPACE).svc.cluster.local:10901
         - --label=replica="$(NAME)"
-        - --label=receive="true"
         - --receive.hashrings-file=/var/lib/thanos-receive/hashrings.json
+        - --receive.hashrings-file-refresh-interval=1m
         - --receive.default-tenant-id=moc.smaug
         env:
         - name: NAME
@@ -74,10 +74,10 @@ spec:
           periodSeconds: 5
         resources:
           limits:
-            cpu: "2"
-            memory: 32Gi
+            cpu: "8"
+            memory: 24Gi
           requests:
-            cpu: "1"
+            cpu: "6"
             memory: 16Gi
         terminationMessagePolicy: FallbackToLogsOnError
         volumeMounts:
