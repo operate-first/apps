@@ -12,9 +12,6 @@ spec:
     solvers:
       - dns01:
           cnameStrategy: Follow
-          selector:
-            dnsZones:
-              - moc-infra.massopen.cloud
           route53:
             region: us-east-1
             accessKeyID: AKIAYLUGMT7YHWIC6R62
@@ -22,3 +19,6 @@ spec:
             secretAccessKeySecretRef:
               name: aws-route53-credentials
               key: aws_secret_access_key
+        selector:
+          dnsZones:
+            - moc-infra.massopen.cloud
