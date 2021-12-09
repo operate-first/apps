@@ -3,4 +3,7 @@ kind: Group
 metadata:
   name: ai-services
 users:
+  - anishasthana
+  - gmfrasca
+  - rimolive
   - jooho
