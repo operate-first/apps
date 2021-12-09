@@ -4,7 +4,7 @@ kind: Kustomization
 
 components:
 - ../../../../components/project-admin-rolebindings/ai-services
-- ../../../../components/resourcequotas/x-small
+- ../../../../components/resourcequotas/small
 - ../../../../components/limitranges/default
 
 namespace: ai-services-thanos-grpc
