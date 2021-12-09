@@ -1,0 +1,135 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  labels:
+    app: kyverno
+    app.kubernetes.io/component: kyverno
+    app.kubernetes.io/instance: kyverno
+    app.kubernetes.io/managed-by: Kustomize
+    app.kubernetes.io/name: kyverno
+    app.kubernetes.io/part-of: kyverno
+    app.kubernetes.io/version: v1.5.2-rc2
+  name: kyverno
+  namespace: kyverno
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: kyverno
+      app.kubernetes.io/name: kyverno
+  strategy:
+    rollingUpdate:
+      maxSurge: 1
+      maxUnavailable: 40%
+    type: RollingUpdate
+  template:
+    metadata:
+      labels:
+        app: kyverno
+        app.kubernetes.io/component: kyverno
+        app.kubernetes.io/instance: kyverno
+        app.kubernetes.io/managed-by: Kustomize
+        app.kubernetes.io/name: kyverno
+        app.kubernetes.io/part-of: kyverno
+        app.kubernetes.io/version: v1.5.2-rc2
+    spec:
+      affinity:
+        podAntiAffinity:
+          preferredDuringSchedulingIgnoredDuringExecution:
+            - podAffinityTerm:
+                labelSelector:
+                  matchExpressions:
+                    - key: app.kubernetes.io/name
+                      operator: In
+                      values:
+                        - kyverno
+                topologyKey: kubernetes.io/hostname
+              weight: 1
+      containers:
+        - args:
+            - --filterK8sResources=[Event,*,*][*,kube-system,*][*,kube-public,*][*,kube-node-lease,*][Node,*,*][APIService,*,*][TokenReview,*,*][SubjectAccessReview,*,*][*,kyverno,*][Binding,*,*][ReplicaSet,*,*][ReportChangeRequest,*,*][ClusterReportChangeRequest,*,*][PolicyReport,*,*][ClusterPolicyReport,*,*]
+            - -v=2
+          env:
+            - name: INIT_CONFIG
+              value: init-config
+            - name: METRICS_CONFIG
+              value: kyverno-metrics
+            - name: KYVERNO_NAMESPACE
+              valueFrom:
+                fieldRef:
+                  fieldPath: metadata.namespace
+            - name: KYVERNO_SVC
+              value: kyverno-svc
+          image: ghcr.io/kyverno/kyverno:v1.5.2-rc2
+          imagePullPolicy: IfNotPresent
+          livenessProbe:
+            failureThreshold: 2
+            httpGet:
+              path: /health/liveness
+              port: 9443
+              scheme: HTTPS
+            initialDelaySeconds: 15
+            periodSeconds: 30
+            successThreshold: 1
+            timeoutSeconds: 5
+          name: kyverno
+          ports:
+            - containerPort: 9443
+              name: https
+              protocol: TCP
+            - containerPort: 8000
+              name: metrics-port
+              protocol: TCP
+          readinessProbe:
+            failureThreshold: 4
+            httpGet:
+              path: /health/readiness
+              port: 9443
+              scheme: HTTPS
+            initialDelaySeconds: 5
+            periodSeconds: 10
+            successThreshold: 1
+            timeoutSeconds: 5
+          resources:
+            limits:
+              memory: 256Mi
+            requests:
+              cpu: 100m
+              memory: 50Mi
+          securityContext:
+            allowPrivilegeEscalation: false
+            capabilities:
+              drop:
+                - all
+            privileged: false
+            readOnlyRootFilesystem: true
+            runAsNonRoot: true
+      initContainers:
+        - env:
+            - name: METRICS_CONFIG
+              value: kyverno-metrics
+            - name: KYVERNO_NAMESPACE
+              valueFrom:
+                fieldRef:
+                  fieldPath: metadata.namespace
+          image: ghcr.io/kyverno/kyvernopre:v1.5.2-rc2
+          imagePullPolicy: IfNotPresent
+          name: kyverno-pre
+          resources:
+            limits:
+              cpu: 100m
+              memory: 256Mi
+            requests:
+              cpu: 10m
+              memory: 64Mi
+          securityContext:
+            allowPrivilegeEscalation: false
+            capabilities:
+              drop:
+                - all
+            privileged: false
+            readOnlyRootFilesystem: true
+            runAsNonRoot: true
+      securityContext:
+        runAsNonRoot: true
+      serviceAccountName: kyverno-service-account
