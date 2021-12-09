@@ -33,7 +33,7 @@ spec:
       requiredDuringSchedulingIgnoredDuringExecution:
         nodeSelectorTerms:
         - matchExpressions:
-          - key: name
+          - key: kubernetes.io/hostname
             operator: In
             values:
             - oct-03-31-compute
