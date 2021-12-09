@@ -7,3 +7,4 @@ resources:
   - observatorium-thanos-query-frontend.yaml
   - observatorium-thanos-receive.yaml
   - observatorium-thanos-receive-controller.yaml
+  - observatorium-thanos-store-shard.yaml
