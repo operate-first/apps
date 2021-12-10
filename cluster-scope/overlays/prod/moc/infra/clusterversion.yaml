@@ -4,7 +4,7 @@ metadata:
   name: version
 spec:
   channel: stable-4.8
-  clusterID: infra
+  clusterID: 91976abd-8b8e-47b9-82d3-e84793396ed7
   upstream: https://api.openshift.com/api/upgrades_info/v1/graph
   desiredUpdate:
     image: quay.io/openshift-release-dev/ocp-release@sha256:5d396ad7d5f3cb527580c735e87dfd3b853bbb531e7f03e3a184d0accc223cdf
