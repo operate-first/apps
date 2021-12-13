@@ -10,7 +10,8 @@ configMapGenerator:
       - GF_AUTH_GENERIC_OAUTH_ROLE_ATTRIBUTE_STRICT=true
 resources:
   - ../../../base
-  - ./dashboards/
+  - dashboards
+  - datasources
 
 patchesStrategicMerge:
   - ./grafana-oauth.yaml
