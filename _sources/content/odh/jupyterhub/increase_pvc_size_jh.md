@@ -28,4 +28,6 @@ spec:
 
 Add this filename to the `kustomization.yaml` located at: `kfdefs/overlays/moc/smaug/opf-jupyterhub/pvcs/kustomization.yaml`
 
-Commit your changes and make a PR, once merged ArgoCD will deploy the changes and you should then see an increase in your storage. You can verify your changes by following the instructions [here](analyze_storage.md).
+Commit your changes and make a PR, once merged ArgoCD will deploy the changes and you should then see an increase in your storage. You can verify your changes by following the instructions [here][1].
+
+[1]: analyze_storage.md

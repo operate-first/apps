@@ -26,7 +26,7 @@ supersetdb=# UPDATE public.dbs SET password = null;
 supersetdb=# UPDATE public.dbs SET encrypted_extra = null;
 ```
 
-Explained more [here](https://github.com/operate-first/SRE/issues/408)
+Explained more [here][1]
 
 ### Duplicate key value violates unique constraint
 
@@ -48,3 +48,4 @@ If it reports an error, try adding in the password again where it says `XXX..` a
 [oauth-mapping]: https://github.com/operate-first/apps/blob/master/odh-manifests/smaug/superset/base/secret.yaml#L29
 [superset]: https://superset.operate-first.cloud
 [repo]: https://github.com/operate-first/apps/tree/master/kfdefs/overlays/moc/smaug/opf-superset
+[1]: https://github.com/operate-first/SRE/issues/408

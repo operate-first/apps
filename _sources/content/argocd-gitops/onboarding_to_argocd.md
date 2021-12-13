@@ -164,14 +164,14 @@ these namespaces using ArgoCD Applications that are part of the `thoth` project.
 [2]: https://argoproj.github.io/argo-cd/user-guide/projects/
 [3]: https://github.com/operate-first/apps/tree/master/argocd/overlays/moc-infra/projects
 [4]: https://github.com/operate-first/apps/blob/master/argocd/overlays/moc-infra/projects/global_project.yaml
-[5]: https://github.com/operate-first/hitchhikers-guide/blob/main/pages/onboarding_project.ipynb
+[5]: ../cluster-scope/onboarding_to_cluster.md
 [6]: https://github.com/operate-first/apps
 [7]: https://argoproj.github.io/argo-cd/operator-manual/declarative-setup/#applications
 [8]: https://github.com/operate-first/apps/tree/master/argocd/overlays/moc-infra/applications/envs
-[9]: https://github.com/operate-first/apps/blob/master/docs/argocd/add_application.md
+[9]: add_application.md
 [10]: https://github.com/operate-first/apps/tree/master/argocd/overlays/moc-infra/secrets/clusters
 [11]: https://github.com/operate-first/apps/blob/master/argocd/overlays/moc-infra/projects/kustomization.yaml
-[12]: https://argocd-server-argocd.apps.moc-infra.massopen.cloud
+[12]: https://argocd.operate-first.cloud
 [13]: https://github.com/operate-first/apps/blob/master/argocd/overlays/moc-infra/configs/argo_cm/dex.config#L11
 [14]: https://github.com/operate-first/apps/blob/master/argocd/overlays/moc-infra/configs/argo_rbac_cm/policy.csv
 [15]: https://argoproj.github.io/argo-cd/operator-manual/declarative-setup/

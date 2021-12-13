@@ -692,12 +692,17 @@
                 
   <div class="tex2jax_ignore mathjax_ignore section" id="how-to-encrypt-apps-in-this-repo">
 <h1>How to encrypt apps in this repo<a class="headerlink" href="#how-to-encrypt-apps-in-this-repo" title="Permalink to this headline">¶</a></h1>
-<p>We use SOPS to encrypt our secrets and other k8s/openshift resources in vcs. We use a Kustomize plugin called KSOPs to allow us to use sops with kustomize builds. We include KSOPs with ArgoCD and import our keys so that we can also have ArgoCD deploy manifests that are encrypted via sops in vcs. Read more about how to install and use KSOPs and SOPS <a class="reference external" href="https://github.com/operate-first/continuous-deployment/blob/master/docs/manage_your_app_secrets.md">here</a></p>
+<p>We use SOPS to encrypt our secrets and other k8s/openshift resources in vcs. We use a Kustomize plugin called KSOPs to
+allow us to use Sops with kustomize builds. We include KSOPs with ArgoCD and import our keys so that we can also have
+ArgoCD deploy manifests that are encrypted via sops in vcs. Read more about how to install and use KSOPs and SOPS
+<a class="reference external" href="https://github.com/viaduct-ai/kustomize-sops#installation">here</a></p>
 </div>
 <div class="tex2jax_ignore mathjax_ignore section" id="gpg-key">
 <h1>GPG Key<a class="headerlink" href="#gpg-key" title="Permalink to this headline">¶</a></h1>
-<p>In the link above you will require a public fingerprint to include in your sops.yaml, this comes from a gpg key we use for all our apps in this repo and can be found <a class="reference external" href="https://keys.openpgp.org/search?q=aicoe-operate-first%40redhat.com">here</a>.</p>
-<p>If you are an active contributor and require the private key, please make an issue or reach out to another active contributor/maintainer for it. Be prepared to provide your own public key so that we may send it to you securely.</p>
+<p>In the link above you will require a public fingerprint to include in your sops.yaml, this comes from a gpg key we use
+for all our apps in this repo and can be found <a class="reference external" href="https://keys.openpgp.org/search?q=aicoe-operate-first%40redhat.com">here</a>.</p>
+<p>If you are an active contributor and require the private key, please make an issue or reach out to another active
+contributor/maintainer for it. Be prepared to provide your own public key so that we may send it to you securely.</p>
 </div>
 
     <script type="text/x-thebe-config">

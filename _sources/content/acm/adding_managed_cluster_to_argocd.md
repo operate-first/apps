@@ -16,5 +16,4 @@ metadata:
 
 Add this file to the `kustomization.yaml` found [here][kustomization].
 
-
 [kustomization]: https://github.com/operate-first/apps/blob/master/acm/overlays/moc/infra/managedclusters/kustomization.yaml

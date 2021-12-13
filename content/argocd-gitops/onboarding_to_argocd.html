@@ -744,7 +744,7 @@ their ArgoCD <code class="docutils literal notranslate"><span class="pre">Projec
 </div></blockquote>
 <div class="section" id="pre-requisites">
 <h2>Pre-requisites<a class="headerlink" href="#pre-requisites" title="Permalink to this headline">¶</a></h2>
-<p>Team requesting ArgoCD access must have been onboarded to the cluster. See <a class="reference external" href="https://github.com/operate-first/hitchhikers-guide/blob/main/pages/onboarding_project.ipynb">here</a>.</p>
+<p>Team requesting ArgoCD access must have been onboarded to the cluster. See <a class="reference internal" href="../cluster-scope/onboarding_to_cluster.html"><span class="doc std std-doc">here</span></a>.</p>
 <p>Please fork/clone the <a class="reference external" href="https://github.com/operate-first/apps">operate-first/apps</a>.</p>
 <p><strong>During this whole setup, we’ll be working within this repository.</strong></p>
 </div>
@@ -753,7 +753,7 @@ their ArgoCD <code class="docutils literal notranslate"><span class="pre">Projec
 <p>To add multi-tenancy support, we require the team to have an OpenShift group on the Infra cluster on which our ArgoCD
 instance resides. This OpenShift group should include all the people belonging to the team that will need write-level
 access to applications belonging to the team’s ArgoCD Project (explained later). The team being onboarded to ArgoCD
-should have had a group already created during cluster onboarding, as described <a class="reference external" href="https://github.com/operate-first/hitchhikers-guide/blob/main/pages/onboarding_project.ipynb">here</a>.</p>
+should have had a group already created during cluster onboarding, as described <a class="reference internal" href="../cluster-scope/onboarding_to_cluster.html"><span class="doc std std-doc">here</span></a>.</p>
 <blockquote>
 <div><p>Note: We use teams/project names interchangeably throughout this doc as all ArgoCD projects (for end-users) are named
 after their team names picked during the cluster onboarding process.</p>
@@ -765,7 +765,7 @@ after their team names picked during the cluster onboarding process.</p>
 <code class="docutils literal notranslate"><span class="pre">apps/argocd/overlays/moc-infra/applications/envs/&lt;env&gt;/&lt;cluster&gt;/</span></code>, where <code class="docutils literal notranslate"><span class="pre">&lt;env&gt;</span></code> and <code class="docutils literal notranslate"><span class="pre">&lt;cluster&gt;</span></code> correspond to the
 cluster you intend to deploy manifests to via ArgoCD. For example if deploying to <code class="docutils literal notranslate"><span class="pre">Smaug</span></code> cluster, you will navigate to
 <code class="docutils literal notranslate"><span class="pre">apps/argocd/overlays/moc-infra/applications/envs/moc/smaug/</span></code>. Now create a folder here named after your <code class="docutils literal notranslate"><span class="pre">&lt;team-name&gt;</span></code>.</p>
-<p>Teams should be directed <a class="reference external" href="https://github.com/operate-first/apps/blob/master/docs/argocd/add_application.md">here</a> for instructions on where to create their ArgoCD Applications. All Applications
+<p>Teams should be directed <a class="reference internal" href="add_application.html"><span class="doc std std-doc">here</span></a> for instructions on where to create their ArgoCD Applications. All Applications
 should be pointed to the team’s <a class="reference external" href="https://github.com/operate-first/apps/tree/master/argocd/overlays/moc-infra/projects">ArgoCD Project</a> (i.e. the <code class="docutils literal notranslate"><span class="pre">project</span></code> field in the ArgoCD <a class="reference external" href="https://argoproj.github.io/argo-cd/operator-manual/declarative-setup/#applications">Application</a> manifest),
 see below for instructions on adding an ArgoCD Project.</p>
 </div>
@@ -826,7 +826,7 @@ full list).</p></li>
 </div>
 <div class="section" id="enable-openshift-auth-to-argocd-console">
 <h2>Enable OpenShift auth to ArgoCD Console<a class="headerlink" href="#enable-openshift-auth-to-argocd-console" title="Permalink to this headline">¶</a></h2>
-<p>By default, all users should be able to see the <a class="reference external" href="https://argocd-server-argocd.apps.moc-infra.massopen.cloud">ArgoCD console</a>. To be able to make changes to applications
+<p>By default, all users should be able to see the <a class="reference external" href="https://argocd.operate-first.cloud">ArgoCD console</a>. To be able to make changes to applications
 belonging to the team’s ArgoCD Project (via the cli or ui), the team will need to be able to log into the console with
 appropriate access. This is accomplished by adding the team’s OpenShift group mentioned in the beginning under the dex
 config <a class="reference external" href="https://github.com/operate-first/apps/blob/master/argocd/overlays/moc-infra/configs/argo_cm/dex.config#L11">here</a>. You can find your OpenShift group within this list <a class="reference external" href="https://github.com/operate-first/apps/tree/master/cluster-scope/base/user.openshift.io/groups">here</a>.</p>
