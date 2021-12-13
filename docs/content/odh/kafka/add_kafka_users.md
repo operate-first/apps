@@ -1,6 +1,6 @@
 # Add Kafka Users
 
-We manage access to Kafka Topics in our Kafka instance using the [`KafkaUser` resource](https://strimzi.io/docs/operators/0.22.1/using.html#type-KafkaUser-reference).
+We manage access to Kafka Topics in our Kafka instance using the [`KafkaUser` resource][1].
 
 To add a new `KafkaUser`, create a new `KafkaUser` resource within the `odh-manifests/smaug/kafka/overlays/users` sub directory.
 
@@ -46,7 +46,7 @@ spec:
     type: simple
 ```
 You need a group id that has access to your topic to be able to consume from it, so make sure that you have at least one group with access to your topics.
-To learn more about how consumer groups work [here](https://www.tutorialspoint.com/apache_kafka/apache_kafka_consumer_group_example.htm) is a tutorial.
+To learn more about how consumer groups work [here][2] is a tutorial.
 
 The label `strimzi.io/cluster` should have the value `odh-message-bus`.
 
@@ -62,3 +62,6 @@ $ kustomize edit add resource my-user.yaml
 ```
 
 If you don't have `kustomize` then simply add this file manually.
+
+[1]: https://strimzi.io/docs/operators/0.22.1/using.html#type-KafkaUser-reference
+[2]: https://www.tutorialspoint.com/apache_kafka/apache_kafka_consumer_group_example.htm

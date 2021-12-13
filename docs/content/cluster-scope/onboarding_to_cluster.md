@@ -1,10 +1,10 @@
 # Onboarding to a cluster
 
-This document serves as a guide for adding cluster scoped resources of `Namespace` and `Group` kinds. Following steps in this guide should result in a PR against the [operate-first/apps](https://github.com/operate-first/apps) repository.
+This document serves as a guide for adding cluster scoped resources of `Namespace` and `Group` kinds. Following steps in this guide should result in a PR against the [operate-first/apps][1] repository.
 
 Currently we support 2 ways to request/perform onboarding to any supported clusters:
 
-1. Make an Onboarding issue request. Use the **Onboarding to Cluster** issue template in [operate-first/support](https://github.com/operate-first/support) repository.
+1. Make an Onboarding issue request. Use the **Onboarding to Cluster** issue template in [operate-first/support][2] repository.
 2. Opening a PR with the desired changes. The rest of this doc focuses on this second option. We'd gladly welcome your contributions.
 
 > NOTE: Choosing option 2 requires a PR to be made for onboarding after completing the steps outlined below. The actual
@@ -14,29 +14,29 @@ Currently we support 2 ways to request/perform onboarding to any supported clust
 
 You will need pre-requisite tools to follow along with this doc, please do one of the following:
 
-- Install our [toolbox](https://github.com/operate-first/toolbox) to have the developer setup ready automatically for you.
-- Install the tools manually. You'll need [kustomize](https://kustomize.io/), [sops](https://github.com/mozilla/sops) and [ksops](https://github.com/viaduct-ai/kustomize-sops).
+- Install our [toolbox][3] to have the developer setup ready automatically for you.
+- Install the tools manually. You'll need [kustomize][4], [sops][5] and [ksops][6].
 
-You will also need the `opfcli` install the latest version from [here](https://github.com/operate-first/opfcli/releases).
+You will also need the `opfcli` install the latest version from [here][7].
 
-Please fork/clone the [operate-first/apps](https://github.com/operate-first/apps) repository. **During this whole setup, we'll be working within this repository.**
+Please fork/clone the [operate-first/apps][1] repository. **During this whole setup, we'll be working within this repository.**
 
 For successful completion of this guide you need to understand what the aim is. Please have prepared following data:
 
 - Name of the onboarded team.
-- Desired namespace name. Please use your team name as a prefix. This will make it easier for you to [onboard to ArgoCD](../argocd-gitops/onboarding_to_argocd.md) later on.
+- Desired namespace name. Please use your team name as a prefix. This will make it easier for you to [onboard to ArgoCD][8] later on.
 - List of users you'd like to add to your team.
 - An optional team GPG key, in case you would like to modify the encrypted list of users of your team later on.
 
 ## Recipe
 
-If you want to know more about the overall design please consult the ADR documentation at [operate-first/blueprint](https://github.com/operate-first/blueprint).
+If you want to know more about the overall design please consult the ADR documentation at [operate-first/blueprint][9].
 
 In general we store all the cluster-scoped resources in a `cluster-scope` kustomize application within this repository.
 
 ## Adding namespaces
 
-For easier [onboard to ArgoCD](../argocd-gitops/onboarding_to_argocd.md) later on, we prefer to follow a name pattern for all our namespaces. Please use your team name as a prefix to the namespace name like so: `$OWNER_TEAM-example-project`.
+For easier [onboard to ArgoCD][8] later on, we prefer to follow a name pattern for all our namespaces. Please use your team name as a prefix to the namespace name like so: `$OWNER_TEAM-example-project`.
 
 ### Base resources
 
@@ -76,7 +76,7 @@ resources:
 ### Authenticate via OpenShift
 Users are automatically created upon login to the appropriate cluster. This is done by logging in via your GitHub account.
 
-Follow the link on the website at [operate-first.cloud](https://www.operate-first.cloud/), and click the grid icon at the top right, you will see a list of clusters. Clicking a cluster will redirect you to a login page, select `operate-first` and login using your GitHub account.
+Follow the link on the website at [operate-first.cloud][10], and click the grid icon at the top right, you will see a list of clusters. Clicking a cluster will redirect you to a login page, select `operate-first` and login using your GitHub account.
 
 With the user now created, we will need to provide them with appropriate rbac access to this namespace.
 
@@ -105,7 +105,7 @@ users:
 
 > Note that the USER_n value is the email used to login via SSO in the preceeding steps.
 
-Encrypt the file with sops. You can find the key to import from [here](https://github.com/operate-first/apps/tree/master/cluster-scope/overlays/prod/moc#secret-management):
+Encrypt the file with sops. You can find the key to import from [here][11]:
 
 ```sh
 $ sops --encrypt --encrypted-regex="^users$" --pgp="0508677DD04952D06A943D5B4DC4116D360E3276" groups/GROUP_NAME.yaml > groups/GROUP_NAME.enc.yaml
@@ -125,7 +125,7 @@ $ grep "fp: " groups/GROUP_NAME.enc.yaml
 Explanation to the `sops` command:
 
 - `encrypt` flag encrypts a resource
-- `encrypted-regex` value maps to the XPath-like regex to specifies which parts of the file should be encrypted. The rest of the file is left as a plaintext for easier management. In this case we want to encrypt only the `users` property in the file. See the docs [here](https://github.com/mozilla/sops#encrypting-only-parts-of-a-file).
+- `encrypted-regex` value maps to the XPath-like regex to specifies which parts of the file should be encrypted. The rest of the file is left as a plaintext for easier management. In this case we want to encrypt only the `users` property in the file. See the docs [here][12].
 - `pgp` list all the GPG keys which will be used to encrypt this file.
 
 Don't forget to remove the plaintext variant of the resource before staging for a commit:
@@ -155,8 +155,21 @@ Then simply append the list of users with the new users that need to be added.
 
 ## Finalize
 
-Please stage your changes and send them as a PR against the [operate-first/apps](https://github.com/operate-first/apps) repository. Make sure:
+Please stage your changes and send them as a PR against the [operate-first/apps][1] repository. Make sure:
 
 - Change set includes only your modifications within the `cluster-scope` application.
 - Change set may include your optional changes to the `.sops.yaml` file.
 - Your commit **doesn't include any sensitive data such as an unencrypted resource**, such resources should be included only as encrypted.
+
+[1]: https://github.com/operate-first/apps
+[2]: https://github.com/operate-first/support
+[3]: https://github.com/operate-first/toolbox
+[4]: https://kustomize.io/
+[5]: https://github.com/mozilla/sops
+[6]: https://github.com/viaduct-ai/kustomize-sops
+[7]: https://github.com/operate-first/opfcli/releases
+[8]: ../argocd-gitops/onboarding_to_argocd.md
+[9]: https://github.com/operate-first/blueprint
+[10]: https://www.operate-first.cloud/
+[11]: https://github.com/operate-first/apps/tree/master/cluster-scope/overlays/prod/moc#secret-management
+[12]: https://github.com/mozilla/sops#encrypting-only-parts-of-a-file

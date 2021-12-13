@@ -79,7 +79,7 @@ Operate First manages various applications and services in the environments list
 [10]: https://github.com/operate-first/support/issues/new?assignees=first-operator&labels=kind%2Fonboarding%2Carea%2Fbucket&template=ceph_bucket_request.yaml&title=BUCKET%3A+%3Cname%3E
 [11]: https://github.com/operate-first/apps/tree/master/dex
 [12]: https://rook.io/
-[13]: https://www.operate-first.cloud/users/support/docs/claiming_object_store.md
+[13]: ocs/claiming_object_store.md
 [14]: https://massopen.cloud/
 [15]: https://opendatahub.io/
 [17]: https://argoproj.github.io/argo-cd/
@@ -88,11 +88,9 @@ Operate First manages various applications and services in the environments list
 [21]: https://github.com/dexidp/dex
 [23]: https://www.hetzner.com/
 [24]: https://github.com/os-climate/os_c_data_commons
-
 [smaug]: https://console-openshift-console.apps.smaug.na.operate-first.cloud/
 [infra]: https://console-openshift-console.apps.moc-infra.massopen.cloud/
 [rick]: https://console-openshift-console.apps.rick.emea.operate-first.cloud/
 [osc-cl]: https://console-openshift-console.apps.odh-cl1.apps.os-climate.org/dashboards
-
-[odh1]: https://github.com/operate-first/apps/tree/master/docs/odh
+[odh1]: odh/README.md
 [odh2]: https://odh.operate-first.cloud/

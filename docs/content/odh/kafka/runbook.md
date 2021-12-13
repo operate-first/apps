@@ -4,7 +4,7 @@
 
 | Env                                    | Namespace                                                    | GitHub Repo                        |
 |----------------------------------------|-----------------------------------------------------------------------------------------------------------|-------------------------------|
-| MOC-Smaug Prod                   | [opf-kafka](https://console-openshift-console.apps.smaug.na.operate-first.cloud/k8s/ns/opf-kafka/) | - [kfdef app](https://github.com/operate-first/apps/tree/master/kfdefs/overlays/moc/smaug/opf-kafka)<br />- [odh overrides](https://github.com/operate-first/apps/tree/master/odh-manifests/smaug/kafka) |
+| MOC-Smaug Prod                   | [opf-kafka][1] | - [kfdef app][2]<br />- [odh overrides][3] |
 
 ## Contact for Additional Help
 
@@ -17,7 +17,7 @@ Links to the monitoring dashboards for this service.
 
 | Dashboard Description                     | Dashboard URL     |
 | ------------------------------------------- | ------------ |
-| Kafka Overview                       | N/A - [pending](https://github.com/operate-first/SRE/issues/382) |
+| Kafka Overview                       | N/A - [pending][4] |
 
 Some items to take note of:
 
@@ -42,7 +42,7 @@ They are as follows:
 
 | Pods | Description |
 | --------- | ----------- |
-| [Strimzi cluster operator](https://console-openshift-console.apps.smaug.na.operate-first.cloud/k8s/ns/openshift-operators/pods) | This is the main Strimzi operator pod. It orchestrates all other pods and resides in the `openshift-operators` namespace. |
+| [Strimzi cluster operator][5] | This is the main Strimzi operator pod. It orchestrates all other pods and resides in the `openshift-operators` namespace. |
 | Zookeeper | Zookeper performs controller election, cluster membership and maintain a list of all topics and configurations for the kafka brokers. |
 | Kafka Brokers| Kafka brokers handle and store the topic log partitions and services the consumers and producers. These are deployed and managed by the Strimzi Operator. |
 | Kafka Connect | Kafka connect utilizes various connectors to connect the Kafka cluster to a variety of data sources and streams. These are deployed and managed by the Strimzi Operator. |
@@ -142,3 +142,9 @@ allocation seems sane, then to apply it, run:
 ```
 
 You may also need to do this to decrease the replication factor.
+
+[1]: https://console-openshift-console.apps.smaug.na.operate-first.cloud/k8s/ns/opf-kafka/
+[2]: https://github.com/operate-first/apps/tree/master/kfdefs/overlays/moc/smaug/opf-kafka
+[3]: https://github.com/operate-first/apps/tree/master/odh-manifests/smaug/kafka
+[4]: https://github.com/operate-first/SRE/issues/382
+[5]: https://console-openshift-console.apps.smaug.na.operate-first.cloud/k8s/ns/openshift-operators/pods

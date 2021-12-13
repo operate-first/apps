@@ -23,7 +23,7 @@ In this template, all you need to do is update:
 1. `metadata.name` - the dashboard name
 2. `spec.url` - the URL pointing to the location of your dashboard JSON file
 
-Pick a suitable `metadata.name`, ensure that its unique in the [`grafana/base/dashboards`](https://github.com/operate-first/apps/tree/master/grafana/base/dashboards) folder.
+Pick a suitable `metadata.name`, ensure that its unique in the [`grafana/base/dashboards`][1] folder.
 
 Save this file under `grafana/base/dashboards/${DASHBOARD_FOLDER}/grafana-dashboard-example.yaml`.
 
@@ -33,3 +33,5 @@ Then add it to `grafana/base/dashboards/kustomization.yaml` by running the follo
 $ cd grafana/base/dashboards
 $ kustomize edit add resource grafana-dashboard-example.yaml
 ```
+
+[1]: https://github.com/operate-first/apps/tree/master/grafana/base/dashboards

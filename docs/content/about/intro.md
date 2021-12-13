@@ -31,7 +31,7 @@ Next step is bringing the discussion to the “Operate First Project Coordinatio
 
 There is another bi-weekly meeting an the alternate Wednesdays at 8:30 AM US Eastern time, called “MOC/ODH sprint planning” and it is primarily focused on the Ops team planning. (Odd numbered weeks for 2021) Meeting url: https://meet.google.com/oki-drge-wuc?authuser=0&hs=122
 
-More detailed information on onboarding to a cluster can be found here: https://www.operate-first.cloud/users/support/docs/onboarding_to_cluster.md
+More detailed information on onboarding to a cluster can be found here: https://www.operate-first.cloud/apps/content/cluster-scope/onboarding_to_cluster.html
 
 
 ## Understanding the environment

@@ -1,6 +1,6 @@
 # Kubeflow
 
-> Note: Currently our Kubeflow deployments are no longer active, see [this discussion](https://github.com/operate-first/support/issues/435) for details.
+> Note: Currently our Kubeflow deployments are no longer active, see [this discussion][4] for details.
 
 The Operate First managed Kubeflow deployment on the MOC cluster is available for the public to experience.
 
@@ -25,3 +25,4 @@ Link to UI: http://tekton-dashboard-tekton-pipelines.apps.zero.massopen.cloud/
 [1]: https://www.kubeflow.org/docs/components/central-dash/overview/
 [2]: https://www.kubeflow.org/docs/components/pipelines/
 [3]: https://github.com/tektoncd/pipeline
+[4]: https://github.com/operate-first/support/issues/435

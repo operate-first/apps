@@ -50,3 +50,5 @@ stringData:
 ```
 
 Commit changes, make a pr.
+
+[kfdefs]: https://github.com/operate-first/apps/tree/master/kfdefs/overlays
