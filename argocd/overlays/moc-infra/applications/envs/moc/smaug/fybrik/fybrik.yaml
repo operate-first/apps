@@ -8,7 +8,7 @@ spec:
     namespace: fybrik-system
   source:
     path: charts/fybrik
-    repoURL: 'https://github.com/fybrik/fybrik'
+    repoURL: 'https://github.com/fybrik/charts'
     targetRevision: HEAD
     helm:
       parameters:
