@@ -16,3 +16,4 @@ spec:
     syncOptions:
     - Validate=false
     - ApplyOutOfSyncOnly=true
+    - Prune=true
