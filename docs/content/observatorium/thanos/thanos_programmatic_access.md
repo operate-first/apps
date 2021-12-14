@@ -12,7 +12,7 @@ You can use your personal token for testing and ad-hoc scripts, but it will expi
 2. Copy the token from the User dropdown menu
 3. Use this token as your oauth bearer token when connecting to Thanos via the client library
    * Eg:
-   ```python
+   ```
    prometheus_api_client.prometheus_connect.PrometheusConnect(
      url='https://thanos-query-frontend-opf-observatorium.apps.smaug.na.operate-first.cloud',
      headers= {“Authorization”: “Bearer my_oauth_token_to_the_host”},
