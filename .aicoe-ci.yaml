@@ -1,2 +1,15 @@
 ---
-check: []
+check:
+  - overlays-build
+overlays_dir: docs/content
+overlays:
+  - name: notebook
+    build:
+      build-stratergy: Source
+      build-source-script: "image:///opt/app-root/builder"
+      base-image: quay.io/operate-first/s2i-sre-notebook:latest
+      custom-tag: latest
+      registry: quay.io
+      registry-org: operate-first
+      registry-project: op1st-gitops-books
+      registry-secret: operate-first-pusher-secret
