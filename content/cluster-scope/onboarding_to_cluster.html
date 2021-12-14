@@ -5,7 +5,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Onboarding to a cluster &#8212; GitOps Docs</title>
+    <title>Onboard Project &#8212; GitOps Docs</title>
     
   <link href="../../_static/css/theme.css" rel="stylesheet">
   <link href="../../_static/css/index.ff1ffe594081f20da1ef19478df9384b.css" rel="stylesheet">
@@ -243,7 +243,7 @@
    </li>
    <li class="toctree-l2 current active">
     <a class="current reference internal" href="#">
-     Onboarding to a cluster
+     Onboard Project
     </a>
    </li>
    <li class="toctree-l2">
@@ -561,11 +561,38 @@
   </ul>
  </li>
  <li class="toctree-l1 has-children">
-  <a class="reference internal" href="../templates/README.html">
-   Templates
+  <a class="reference internal" href="../notebooks/README.html">
+   Notebooks
   </a>
   <input class="toctree-checkbox" id="toctree-checkbox-17" name="toctree-checkbox-17" type="checkbox"/>
   <label for="toctree-checkbox-17">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../notebooks/increase_pvc_size.html">
+     Increase size of a PVC in JupyterHub
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../notebooks/onboarding_new_cluster.html">
+     How to add a new cluster to Operate First
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../notebooks/onboarding_project.html">
+     How to onboard a new project to a cluster on Operate First Cloud
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../templates/README.html">
+   Templates
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-18" name="toctree-checkbox-18" type="checkbox"/>
+  <label for="toctree-checkbox-18">
    <i class="fas fa-chevron-down">
    </i>
   </label>
@@ -664,56 +691,6 @@
         <!-- Table of contents -->
         <div class="d-none d-md-block col-md-2 bd-toc show">
             
-            <div class="tocsection onthispage pt-5 pb-3">
-                <i class="fas fa-list"></i> Contents
-            </div>
-            <nav id="bd-toc-nav" aria-label="Page">
-                <ul class="visible nav section-nav flex-column">
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#prerequisites">
-   Prerequisites
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#recipe">
-   Recipe
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#adding-namespaces">
-   Adding namespaces
-  </a>
-  <ul class="nav section-nav flex-column">
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#base-resources">
-     Base resources
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#enabling-namespace-deployment-to-target-cluster">
-     Enabling namespace deployment to target cluster
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#authenticate-via-openshift">
-     Authenticate via OpenShift
-    </a>
-   </li>
-  </ul>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#giving-users-rbac-permissions">
-   Giving Users Rbac Permissions
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#finalize">
-   Finalize
-  </a>
- </li>
-</ul>
-
-            </nav>
         </div>
     </div>
 </div>
@@ -722,152 +699,15 @@
         
               <div>
                 
-  <div class="tex2jax_ignore mathjax_ignore section" id="onboarding-to-a-cluster">
-<h1>Onboarding to a cluster<a class="headerlink" href="#onboarding-to-a-cluster" title="Permalink to this headline">¶</a></h1>
-<p>This document serves as a guide for adding cluster scoped resources of <code class="docutils literal notranslate"><span class="pre">Namespace</span></code> and <code class="docutils literal notranslate"><span class="pre">Group</span></code> kinds. Following steps in this guide should result in a PR against the <a class="reference external" href="https://github.com/operate-first/apps">operate-first/apps</a> repository.</p>
-<p>Currently we support 2 ways to request/perform onboarding to any supported clusters:</p>
-<ol class="simple">
-<li><p>Make an Onboarding issue request. Use the <strong>Onboarding to Cluster</strong> issue template in <a class="reference external" href="https://github.com/operate-first/support">operate-first/support</a> repository.</p></li>
-<li><p>Opening a PR with the desired changes. The rest of this doc focuses on this second option. We’d gladly welcome your contributions.</p></li>
-</ol>
-<blockquote>
-<div><p>NOTE: Choosing option 2 requires a PR to be made for onboarding after completing the steps outlined below. The actual
-changes will NOT take affect until after this PR is merged.</p>
-</div></blockquote>
-<div class="section" id="prerequisites">
-<h2>Prerequisites<a class="headerlink" href="#prerequisites" title="Permalink to this headline">¶</a></h2>
-<p>You will need pre-requisite tools to follow along with this doc, please do one of the following:</p>
-<ul class="simple">
-<li><p>Install our <a class="reference external" href="https://github.com/operate-first/toolbox">toolbox</a> to have the developer setup ready automatically for you.</p></li>
-<li><p>Install the tools manually. You’ll need <a class="reference external" href="https://kustomize.io/">kustomize</a>, <a class="reference external" href="https://github.com/mozilla/sops">sops</a> and <a class="reference external" href="https://github.com/viaduct-ai/kustomize-sops">ksops</a>.</p></li>
-</ul>
-<p>You will also need the <code class="docutils literal notranslate"><span class="pre">opfcli</span></code> install the latest version from <a class="reference external" href="https://github.com/operate-first/opfcli/releases">here</a>.</p>
-<p>Please fork/clone the <a class="reference external" href="https://github.com/operate-first/apps">operate-first/apps</a> repository. <strong>During this whole setup, we’ll be working within this repository.</strong></p>
-<p>For successful completion of this guide you need to understand what the aim is. Please have prepared following data:</p>
-<ul class="simple">
-<li><p>Name of the onboarded team.</p></li>
-<li><p>Desired namespace name. Please use your team name as a prefix. This will make it easier for you to <a class="reference internal" href="../argocd-gitops/onboarding_to_argocd.html"><span class="doc std std-doc">onboard to ArgoCD</span></a> later on.</p></li>
-<li><p>List of users you’d like to add to your team.</p></li>
-<li><p>An optional team GPG key, in case you would like to modify the encrypted list of users of your team later on.</p></li>
-</ul>
-</div>
-<div class="section" id="recipe">
-<h2>Recipe<a class="headerlink" href="#recipe" title="Permalink to this headline">¶</a></h2>
-<p>If you want to know more about the overall design please consult the ADR documentation at <a class="reference external" href="https://github.com/operate-first/blueprint">operate-first/blueprint</a>.</p>
-<p>In general we store all the cluster-scoped resources in a <code class="docutils literal notranslate"><span class="pre">cluster-scope</span></code> kustomize application within this repository.</p>
-</div>
-<div class="section" id="adding-namespaces">
-<h2>Adding namespaces<a class="headerlink" href="#adding-namespaces" title="Permalink to this headline">¶</a></h2>
-<p>For easier <a class="reference internal" href="../argocd-gitops/onboarding_to_argocd.html"><span class="doc std std-doc">onboard to ArgoCD</span></a> later on, we prefer to follow a name pattern for all our namespaces. Please use your team name as a prefix to the namespace name like so: <code class="docutils literal notranslate"><span class="pre">$OWNER_TEAM-example-project</span></code>.</p>
-<div class="section" id="base-resources">
-<h3>Base resources<a class="headerlink" href="#base-resources" title="Permalink to this headline">¶</a></h3>
-<p>Please run:</p>
-<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>opfcli create-project <span class="nv">$NAMESPACE_NAME</span> <span class="nv">$OWNER_TEAM</span> -d <span class="nv">$OPTIONAL_PROJECT_DESCRIPTION</span>
-</pre></div>
-</div>
-<p>This command will create:</p>
-<ul class="simple">
-<li><p>A namespace in <code class="docutils literal notranslate"><span class="pre">cluster-scope/base/core/namespaces/$NAMESPACE_NAME</span></code></p></li>
-<li><p>A blank user group for the <code class="docutils literal notranslate"><span class="pre">$OWNER_TEAM</span></code> if it does not exist yet in the <code class="docutils literal notranslate"><span class="pre">cluster-scope/base/user.openshift.io/groups/$OWNER_TEAM</span></code></p></li>
-<li><p>An RBAC component for the project admin role <code class="docutils literal notranslate"><span class="pre">RoleBinding</span></code> in <code class="docutils literal notranslate"><span class="pre">cluster-scope/components/namespace-admin-rolebinding/$OWNER_TEAM</span></code> and maps it to the newly added namespace.</p></li>
-</ul>
-</div>
-<div class="section" id="enabling-namespace-deployment-to-target-cluster">
-<h3>Enabling namespace deployment to target cluster<a class="headerlink" href="#enabling-namespace-deployment-to-target-cluster" title="Permalink to this headline">¶</a></h3>
-<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span><span class="nb">cd</span> cluster-scope/overlays/prod/<span class="nv">$ENV</span>/<span class="nv">$TARGET_CLUSTER</span>
-</pre></div>
-</div>
-<p>Open the <code class="docutils literal notranslate"><span class="pre">kustomization.yaml</span></code> file in this folder and add <code class="docutils literal notranslate"><span class="pre">../../base/core/namespaces/$NAMESPACE</span></code> to the <code class="docutils literal notranslate"><span class="pre">resources</span></code> field.
-We aim to keep this field alphabetically sorted for better human readability:</p>
-<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="nn">---</span>
-<span class="nt">apiVersion</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">kustomize.config.k8s.io/v1beta1</span>
-<span class="nt">kind</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">Kustomization</span>
-
-<span class="nt">resources</span><span class="p">:</span>
-<span class="nn">...</span>
-<span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">../../base/core/namespaces/$NAMESPACE</span>
-<span class="nn">...</span>
-</pre></div>
-</div>
-</div>
-<div class="section" id="authenticate-via-openshift">
-<h3>Authenticate via OpenShift<a class="headerlink" href="#authenticate-via-openshift" title="Permalink to this headline">¶</a></h3>
-<p>Users are automatically created upon login to the appropriate cluster. This is done by logging in via your GitHub account.</p>
-<p>Follow the link on the website at <a class="reference external" href="https://www.operate-first.cloud/">operate-first.cloud</a>, and click the grid icon at the top right, you will see a list of clusters. Clicking a cluster will redirect you to a login page, select <code class="docutils literal notranslate"><span class="pre">operate-first</span></code> and login using your GitHub account.</p>
-<p>With the user now created, we will need to provide them with appropriate rbac access to this namespace.</p>
-</div>
-</div>
-<div class="section" id="giving-users-rbac-permissions">
-<h2>Giving Users Rbac Permissions<a class="headerlink" href="#giving-users-rbac-permissions" title="Permalink to this headline">¶</a></h2>
-<p>The following steps enable users to access designated cluster/namespaces. This consists of adding users to the appropriate OpenShift groups.</p>
-<p>Navigate to <code class="docutils literal notranslate"><span class="pre">cluster-scope/overlays/prod/$ENV/$TARGET_CLUSTER</span></code>.</p>
-<blockquote>
-<div><p>Note for moc/zero or moc/infra navigate to <code class="docutils literal notranslate"><span class="pre">cluster-scope/overlays/prod/moc/common</span></code> instead</p>
-</div></blockquote>
-<p>Create the following resource describing the users in your group:</p>
-<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="c1"># groups/GROUP_NAME.yaml</span>
-<span class="nt">apiVersion</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">user.openshift.io/v1</span>
-<span class="nt">kind</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">Group</span>
-<span class="nt">metadata</span><span class="p">:</span>
-  <span class="nt">name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">GROUP_NAME</span>
-  <span class="nt">annotations</span><span class="p">:</span>
-    <span class="nt">kustomize.config.k8s.io/behavior</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">replace</span>
-<span class="nt">users</span><span class="p">:</span>
-  <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">USER_1</span>
-  <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">USER_2</span>
-</pre></div>
-</div>
-<blockquote>
-<div><p>Note that the USER_n value is the email used to login via SSO in the preceeding steps.</p>
-</div></blockquote>
-<p>Encrypt the file with sops. You can find the key to import from <a class="reference external" href="https://github.com/operate-first/apps/tree/master/cluster-scope/overlays/prod/moc#secret-management">here</a>:</p>
-<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>$ sops --encrypt --encrypted-regex<span class="o">=</span><span class="s2">&quot;^users</span>$<span class="s2">&quot;</span> --pgp<span class="o">=</span><span class="s2">&quot;0508677DD04952D06A943D5B4DC4116D360E3276&quot;</span> groups/GROUP_NAME.yaml &gt; groups/GROUP_NAME.enc.yaml
-$ grep <span class="s2">&quot;fp: &quot;</span> groups/GROUP_NAME.enc.yaml
-        fp: 0508677DD04952D06A943D5B4DC4116D360E3276
-</pre></div>
-</div>
-<p>If you or your team needs the ability to decrypt this file, you may include additional PGP key fingerprints in the sops command:</p>
-<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>$ sops --encrypt --encrypted-regex<span class="o">=</span><span class="s2">&quot;^users</span>$<span class="s2">&quot;</span> --pgp<span class="o">=</span><span class="s2">&quot;0508677DD04952D06A943D5B4DC4116D360E3276, YOUR_GPG_KEY_FINGERPRINT&quot;</span> groups/GROUP_NAME.yaml &gt; groups/GROUP_NAME.enc.yaml
-$ grep <span class="s2">&quot;fp: &quot;</span> groups/GROUP_NAME.enc.yaml
-        fp: 0508677DD04952D06A943D5B4DC4116D360E3276
-        fp: YOUR_GPG_KEY_FINGERPRINT
-</pre></div>
-</div>
-<p>Explanation to the <code class="docutils literal notranslate"><span class="pre">sops</span></code> command:</p>
-<ul class="simple">
-<li><p><code class="docutils literal notranslate"><span class="pre">encrypt</span></code> flag encrypts a resource</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">encrypted-regex</span></code> value maps to the XPath-like regex to specifies which parts of the file should be encrypted. The rest of the file is left as a plaintext for easier management. In this case we want to encrypt only the <code class="docutils literal notranslate"><span class="pre">users</span></code> property in the file. See the docs <a class="reference external" href="https://github.com/mozilla/sops#encrypting-only-parts-of-a-file">here</a>.</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">pgp</span></code> list all the GPG keys which will be used to encrypt this file.</p></li>
-</ul>
-<p>Don’t forget to remove the plaintext variant of the resource before staging for a commit:</p>
-<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>rm groups/GROUP_NAME.yaml
-</pre></div>
-</div>
-<p>And list the sops encrypted file in the secret generator file:</p>
-<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="c1"># secret-generator.yaml</span>
-<span class="nt">files</span><span class="p">:</span>
-<span class="nn">---</span>
-<span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">groups/GROUP_NAME.enc.yaml</span>
-</pre></div>
-</div>
-<p>Use sops to edit the encrypted group resource patch as:</p>
-<blockquote>
-<div><p>Note you can only do this if you included your pgp key in the step above, otherwise ensure all users are added before first encrypting the file.</p>
-</div></blockquote>
-<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>sops groups/GROUP_NAME.enc.yaml
-</pre></div>
-</div>
-<p>Then simply append the list of users with the new users that need to be added.</p>
-</div>
-<div class="section" id="finalize">
-<h2>Finalize<a class="headerlink" href="#finalize" title="Permalink to this headline">¶</a></h2>
-<p>Please stage your changes and send them as a PR against the <a class="reference external" href="https://github.com/operate-first/apps">operate-first/apps</a> repository. Make sure:</p>
-<ul class="simple">
-<li><p>Change set includes only your modifications within the <code class="docutils literal notranslate"><span class="pre">cluster-scope</span></code> application.</p></li>
-<li><p>Change set may include your optional changes to the <code class="docutils literal notranslate"><span class="pre">.sops.yaml</span></code> file.</p></li>
-<li><p>Your commit <strong>doesn’t include any sensitive data such as an unencrypted resource</strong>, such resources should be included only as encrypted.</p></li>
-</ul>
-</div>
+  <div class="tex2jax_ignore mathjax_ignore section" id="onboard-project">
+<h1>Onboard Project<a class="headerlink" href="#onboard-project" title="Permalink to this headline">¶</a></h1>
+<p>Onboarding a Project to GitHub requires creating various OpenShift resources to create namespaces, groups, etc. Luckily
+we have a Jupyter Notebook that automates most of this process.</p>
+<p>If you are not familiar with Jupypter Notebooks, then you can check out an overview <a class="reference internal" href="../notebooks/README.html"><span class="doc std std-doc">here</span></a>.</p>
+<p>The notebook can be found <a class="reference internal" href="../notebooks/onboarding_project.html"><span class="doc std std-doc">here</span></a>. You can use the Operate First JupyterHub instance to run this notebook.
+The notebook is already made available under the “HitchHiker’s Guide” image. So simply select this from the JH spawner.
+Be sure to use a container size bigger than the ‘small’ offering. If you’re runbook feels slow, try using a bigger
+container size.</p>
 </div>
 
     <script type="text/x-thebe-config">

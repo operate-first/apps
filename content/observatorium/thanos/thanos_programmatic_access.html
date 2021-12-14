@@ -243,7 +243,7 @@
    </li>
    <li class="toctree-l2">
     <a class="reference internal" href="../../cluster-scope/onboarding_to_cluster.html">
-     Onboarding to a cluster
+     Onboard Project
     </a>
    </li>
    <li class="toctree-l2">
@@ -561,11 +561,38 @@
   </ul>
  </li>
  <li class="toctree-l1 has-children">
-  <a class="reference internal" href="../../templates/README.html">
-   Templates
+  <a class="reference internal" href="../../notebooks/README.html">
+   Notebooks
   </a>
   <input class="toctree-checkbox" id="toctree-checkbox-17" name="toctree-checkbox-17" type="checkbox"/>
   <label for="toctree-checkbox-17">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../notebooks/increase_pvc_size.html">
+     Increase size of a PVC in JupyterHub
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../notebooks/onboarding_new_cluster.html">
+     How to add a new cluster to Operate First
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../notebooks/onboarding_project.html">
+     How to onboard a new project to a cluster on Operate First Cloud
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../../templates/README.html">
+   Templates
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-18" name="toctree-checkbox-18" type="checkbox"/>
+  <label for="toctree-checkbox-18">
    <i class="fas fa-chevron-down">
    </i>
   </label>
@@ -700,7 +727,7 @@ You will need to extract the OpenShift bearer token for the client library to au
 <ul class="simple">
 <li><p>Eg:</p></li>
 </ul>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span>prometheus_api_client.prometheus_connect.PrometheusConnect(
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>prometheus_api_client.prometheus_connect.PrometheusConnect(
   url=&#39;https://thanos-query-frontend-opf-observatorium.apps.smaug.na.operate-first.cloud&#39;,
   headers= {“Authorization”: “Bearer my_oauth_token_to_the_host”},
   disable_ssl=False

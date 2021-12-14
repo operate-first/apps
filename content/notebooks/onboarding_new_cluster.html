@@ -1,0 +1,1577 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>How to add a new cluster to Operate First &#8212; GitOps Docs</title>
+    
+  <link href="../../_static/css/theme.css" rel="stylesheet">
+  <link href="../../_static/css/index.ff1ffe594081f20da1ef19478df9384b.css" rel="stylesheet">
+
+    
+  <link rel="stylesheet"
+    href="../../_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    
+      
+
+    
+    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-book-theme.css?digest=c3fdc42140077d1ad13ad2f1588a4309" />
+    <link rel="stylesheet" type="text/css" href="../../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
+    
+  <link rel="preload" as="script" href="../../_static/js/index.be7d3bbb2ef33a8344ce.js">
+
+    <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
+    <script src="../../_static/jquery.js"></script>
+    <script src="../../_static/underscore.js"></script>
+    <script src="../../_static/doctools.js"></script>
+    <script src="../../_static/togglebutton.js"></script>
+    <script src="../../_static/clipboard.min.js"></script>
+    <script src="../../_static/copybutton.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="../../_static/sphinx-book-theme.12a9622fbb08dcb3a2a40b2c02b83a57.js"></script>
+    <script async="async" src="https://unpkg.com/thebe@0.5.1/lib/index.js"></script>
+    <script>
+        const thebe_selector = ".thebe"
+        const thebe_selector_input = "pre"
+        const thebe_selector_output = ".output"
+    </script>
+    <script async="async" src="../../_static/sphinx-thebe.js"></script>
+    <link rel="shortcut icon" href="../../_static/favicon.png"/>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="How to onboard a new project to a cluster on Operate First Cloud" href="onboarding_project.html" />
+    <link rel="prev" title="Increase size of a PVC in JupyterHub" href="increase_pvc_size.html" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="None">
+    
+
+    <!-- Google Analytics -->
+    
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+    <div class="container-fluid" id="banner"></div>
+
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
+    
+        <div class="navbar-brand-box">
+    <a class="navbar-brand text-wrap" href="../../index.html">
+      
+        <!-- `logo` is deprecated in Sphinx 4.0, so remove this when we stop supporting 3 -->
+        
+      
+      
+      <img src="../../_static/icon.png" class="logo" alt="logo">
+      
+      
+      <h1 class="site-logo" id="site-title">GitOps Docs</h1>
+      
+    </a>
+</div><form class="bd-search d-flex align-items-center" action="../../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item active">
+        <ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../README.html">
+   GitOps Documentation
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  GitOps
+ </span>
+</p>
+<ul class="current nav bd-sidenav">
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../about/README.html">
+   About
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/>
+  <label for="toctree-checkbox-1">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../about/intro.html">
+     Getting started with Operate First
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../acm/README.html">
+   ACM
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/>
+  <label for="toctree-checkbox-2">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../acm/adding_managed_cluster_to_argocd.html">
+     Adding Managed Cluster to ArgoCD
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../acm/adding_users_to_acm.html">
+     Adding users to ACM
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../acme/README.html">
+   ACME
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"/>
+  <label for="toctree-checkbox-3">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../acme/issuing_certificates.html">
+     Issuing certificates
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../argocd-gitops/README.html">
+   ArgoCD
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" type="checkbox"/>
+  <label for="toctree-checkbox-4">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../argocd-gitops/add_application.html">
+     Adding ArgoCD Applications
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../argocd-gitops/add_permissions_to_project.html">
+     Requesting more permissions for an ArgoCD Project (MOC)
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../argocd-gitops/encrypting_applications.html">
+     How to encrypt apps in this repo
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../argocd-gitops/get_access_to_argocd.html">
+     Get access to ArgoCD
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../argocd-gitops/import_dev_gpg.html">
+     Import Development GPG Key
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../argocd-gitops/onboarding_to_argocd.html">
+     ArgoCD onboarding procedure
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../argocd-gitops/secret_management.html">
+     Secret management for applications
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../argocd-gitops/setup_argocd_dev_environment.html">
+     Deploying a development environment
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../argocd-gitops/update_argocd.html">
+     Steps for Upgrading ArgoCD
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../argocd-gitops/update_gpg_key.html">
+     Update gpg key
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../cluster-scope/README.html">
+   Cluster Management
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-5" name="toctree-checkbox-5" type="checkbox"/>
+  <label for="toctree-checkbox-5">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../cluster-scope/add_resource_quotas.html">
+     Adding Resource Quotas
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../cluster-scope/add_user_to_group.html">
+     Adding User to an OCP team
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../cluster-scope/onboarding_to_cluster.html">
+     Onboard Project
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../cluster-scope/quotas.html">
+     Resource Quota Tiers
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../development/README.html">
+   Development
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-6" name="toctree-checkbox-6" type="checkbox"/>
+  <label for="toctree-checkbox-6">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../development/crc-disk-size.html">
+     Increasing CRC disk space
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../development/setup_quicklab.html">
+     Quicklab
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../grafana/README.html">
+   Grafana
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-7" name="toctree-checkbox-7" type="checkbox"/>
+  <label for="toctree-checkbox-7">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../grafana/add_grafana_dashboard.html">
+     Add a Grafana dashboard to OperateFirst Grafana
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../grafana/map_groups_to_roles.html">
+     Adding permissions in Grafana
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../kubeflow/README.html">
+   Kubeflow
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-8" name="toctree-checkbox-8" type="checkbox"/>
+  <label for="toctree-checkbox-8">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../kubeflow/kubeflow-dashboard/README.html">
+     Kubeflow Access
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../kubeflow/kubeflow-pipelines/README.html">
+     Kubeflow-Pipelines Access
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../observatorium/README.html">
+   Observatorium
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-9" name="toctree-checkbox-9" type="checkbox"/>
+  <label for="toctree-checkbox-9">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../observatorium/loki/add_loki_grafana_datasource.html">
+     Add a Loki Data Source in OperateFirst Grafana
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../observatorium/loki/README.html">
+     Loki Access
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../observatorium/thanos/README.html">
+     Thanos Access
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../observatorium/thanos/request_grafana_access.html">
+     Grafana
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../observatorium/thanos/request_thanos_access.html">
+     Thanos Query API
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../observatorium/thanos/thanos_programmatic_access.html">
+     Thanos Programmatic Access
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../observatorium/vector/README.html">
+     Vector on Operate First
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../ocs/README.html">
+   OpenShift Container Storage
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-10" name="toctree-checkbox-10" type="checkbox"/>
+  <label for="toctree-checkbox-10">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../ocs/buckets-external-access.html">
+     Accessing buckets from outside the cluster
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../ocs/claiming_object_store.html">
+     Claiming S3-compatible object store buckets
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../ocs/runbook.html">
+     OpenShift Container Storage (OCS) Runbook
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../odh/README.html">
+   Open Data Hub (ODH)
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-11" name="toctree-checkbox-11" type="checkbox"/>
+  <label for="toctree-checkbox-11">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2 has-children">
+    <a class="reference internal" href="../odh/jupyterhub/README.html">
+     JupyterHub
+    </a>
+    <input class="toctree-checkbox" id="toctree-checkbox-12" name="toctree-checkbox-12" type="checkbox"/>
+    <label for="toctree-checkbox-12">
+     <i class="fas fa-chevron-down">
+     </i>
+    </label>
+    <ul>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../odh/jupyterhub/access_jupyterhub.html">
+       Access JupyterHub
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../odh/jupyterhub/add_imagestream_to_jh.html">
+       Provision a new ImageStream
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../odh/jupyterhub/analyze_storage.html">
+       Analyze Storage for a Notebook
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../odh/jupyterhub/increase_pvc_size_jh.html">
+       Increase PVC size for JupyterHub
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../odh/jupyterhub/reinstall_kernel.html">
+       How to restart a Notebook Kernel
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../odh/jupyterhub/runbook.html">
+       JupyterHub Runbook
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../odh/jupyterhub/user_profiles.html">
+       Managing user profiles
+      </a>
+     </li>
+    </ul>
+   </li>
+   <li class="toctree-l2 has-children">
+    <a class="reference internal" href="../odh/kafka/README.html">
+     Kafka
+    </a>
+    <input class="toctree-checkbox" id="toctree-checkbox-13" name="toctree-checkbox-13" type="checkbox"/>
+    <label for="toctree-checkbox-13">
+     <i class="fas fa-chevron-down">
+     </i>
+    </label>
+    <ul>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../odh/kafka/add_kafka_topics.html">
+       Add Kafka Topics
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../odh/kafka/add_kafka_users.html">
+       Add Kafka Users
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../odh/kafka/runbook.html">
+       Kafka Runbook
+      </a>
+     </li>
+    </ul>
+   </li>
+   <li class="toctree-l2 has-children">
+    <a class="reference internal" href="../odh/superset/README.html">
+     Superset
+    </a>
+    <input class="toctree-checkbox" id="toctree-checkbox-14" name="toctree-checkbox-14" type="checkbox"/>
+    <label for="toctree-checkbox-14">
+     <i class="fas fa-chevron-down">
+     </i>
+    </label>
+    <ul>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../odh/superset/add_superset_users.html">
+       Provision Superset Access
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../odh/superset/map_groups_to_roles.html">
+       Map OCP Group to Superset Role
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../odh/superset/runbook.html">
+       Superset Runbook
+      </a>
+     </li>
+    </ul>
+   </li>
+   <li class="toctree-l2 has-children">
+    <a class="reference internal" href="../odh/trino/README.html">
+     Trino
+    </a>
+    <input class="toctree-checkbox" id="toctree-checkbox-15" name="toctree-checkbox-15" type="checkbox"/>
+    <label for="toctree-checkbox-15">
+     <i class="fas fa-chevron-down">
+     </i>
+    </label>
+    <ul>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../odh/trino/access_public_bucket.html">
+       Operate-First Public Bucket
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../odh/trino/add_more_buckets.html">
+       Adding buckets to Trino
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../odh/trino/add_more_postgress_catalogs.html">
+       Adding additional Postgres catalogs to Trino
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../odh/trino/trino_superset_user_guide.html">
+       How To Guide: Ceph -&gt; Trino -&gt; Superset
+      </a>
+     </li>
+    </ul>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../odh/adding_kfdefs.html">
+     Add a new Kfdef
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../uwm/README.html">
+   User WorkLoad Monitoring
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-16" name="toctree-checkbox-16" type="checkbox"/>
+  <label for="toctree-checkbox-16">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../uwm/overview.html">
+     Overview
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 current active has-children">
+  <a class="reference internal" href="README.html">
+   Notebooks
+  </a>
+  <input checked="" class="toctree-checkbox" id="toctree-checkbox-17" name="toctree-checkbox-17" type="checkbox"/>
+  <label for="toctree-checkbox-17">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul class="current">
+   <li class="toctree-l2">
+    <a class="reference internal" href="increase_pvc_size.html">
+     Increase size of a PVC in JupyterHub
+    </a>
+   </li>
+   <li class="toctree-l2 current active">
+    <a class="current reference internal" href="#">
+     How to add a new cluster to Operate First
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="onboarding_project.html">
+     How to onboard a new project to a cluster on Operate First Cloud
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../templates/README.html">
+   Templates
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-18" name="toctree-checkbox-18" type="checkbox"/>
+  <label for="toctree-checkbox-18">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../templates/runbook.html">
+     &lt;Application/Service Name&gt; Runbook
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../CONTRIBUTING.html">
+   Contributing to GitOps Docs
+  </a>
+ </li>
+</ul>
+
+    </div>
+</nav> <!-- To handle the deprecated key -->
+
+<div class="navbar_extra_footer">
+  Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+</div>
+
+</div>
+
+
+          
+
+
+          
+<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
+    
+    <div class="topbar container-xl fixed-top">
+    <div class="topbar-contents row">
+        <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show"></div>
+        <div class="col pl-md-4 topbar-main">
+            
+            <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
+                data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
+                aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
+                title="Toggle navigation" data-toggle="tooltip" data-placement="left">
+                <i class="fas fa-bars"></i>
+                <i class="fas fa-arrow-left"></i>
+                <i class="fas fa-arrow-up"></i>
+            </button>
+            
+            
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
+            class="fas fa-download"></i></button>
+
+    <div class="dropdown-buttons">
+        <!-- ipynb file if we had a myst markdown file -->
+        
+        <!-- Download raw file -->
+        <a class="dropdown-buttons" href="../../_sources/content/notebooks/onboarding_new_cluster.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
+                data-placement="left">.ipynb</button></a>
+        <!-- Download PDF via print -->
+        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
+            onClick="window.print()" data-toggle="tooltip" data-placement="left">.pdf</button>
+    </div>
+</div>
+
+            <!-- Source interaction buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Connect with source repository"><i class="fab fa-github"></i></button>
+    <div class="dropdown-buttons sourcebuttons">
+        <a class="repository-button"
+            href="https://github.com/operate-first/apps"><button type="button" class="btn btn-secondary topbarbtn"
+                data-toggle="tooltip" data-placement="left" title="Source repository"><i
+                    class="fab fa-github"></i>repository</button></a>
+        <a class="issues-button"
+            href="https://github.com/operate-first/apps/issues/new?title=Issue%20on%20page%20%2Fcontent/notebooks/onboarding_new_cluster.html&body=Your%20issue%20content%20here."><button
+                type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
+                title="Open an issue"><i class="fas fa-lightbulb"></i>open issue</button></a>
+        
+    </div>
+</div>
+
+            <!-- Full screen (wrap in <a> to have style consistency -->
+
+<a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
+        data-placement="bottom" onclick="toggleFullScreen()" aria-label="Fullscreen mode"
+        title="Fullscreen mode"><i
+            class="fas fa-expand"></i></button></a>
+
+            <!-- Launch buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Launch interactive content"><i class="fas fa-rocket"></i></button>
+    <div class="dropdown-buttons">
+        
+        <a class="binder-button" href="https://mybinder.org/v2/gh/operate-first/apps/master?urlpath=tree/docs/content/notebooks/onboarding_new_cluster.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Launch Binder" data-toggle="tooltip"
+                data-placement="left"><img class="binder-button-logo"
+                    src="../../_static/images/logo_binder.svg"
+                    alt="Interact on binder">Binder</button></a>
+        
+        
+        
+        
+    </div>
+</div>
+
+        </div>
+
+        <!-- Table of contents -->
+        <div class="d-none d-md-block col-md-2 bd-toc show">
+            
+            <div class="tocsection onthispage pt-5 pb-3">
+                <i class="fas fa-list"></i> Contents
+            </div>
+            <nav id="bd-toc-nav" aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#prerequisites">
+   Prerequisites
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#outcomes">
+   Outcomes
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#introduction">
+   Introduction
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#steps">
+   Steps
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#define-important-variables">
+     1. Define important variables
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#fork-and-clone-the-apps-repository">
+     2. Fork and clone the apps repository
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#enable-argocd-management-in-acm">
+     3. Enable ArgoCD management in ACM
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#enable-sso-login">
+     4. Enable SSO login
+    </a>
+    <ul class="nav section-nav flex-column">
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#configure-sso-server">
+       1. Configure SSO server
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#configure-sso-as-identity-provider-for-the-cluster">
+       2. Configure SSO as identity provider for the cluster
+      </a>
+     </li>
+    </ul>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#create-a-cluster-admins-group">
+     5. Create a cluster admins group
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#stitch-things-together-via-kustomize">
+     6. Stitch things together via Kustomize
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#enable-monitoring-and-alerting">
+     7. Enable monitoring and alerting
+    </a>
+    <ul class="nav section-nav flex-column">
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#enable-user-workload-monitoring">
+       1. Enable User Workload Monitoring
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#deploy-alert-receiver-for-github">
+       2. Deploy alert receiver for Github
+      </a>
+     </li>
+    </ul>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#create-argocd-apps-for-this-cluster">
+     8. Create ArgoCD apps for this cluster
+    </a>
+    <ul class="nav section-nav flex-column">
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#create-the-app-of-apps">
+       1. Create the App-of-apps
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#application-for-privileged-resource">
+       2. Application for privileged resource
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#application-for-alert-receiver">
+       3. Application for alert receiver
+      </a>
+     </li>
+    </ul>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#finalize">
+   Finalize
+  </a>
+ </li>
+</ul>
+
+            </nav>
+        </div>
+    </div>
+</div>
+    <div id="main-content" class="row">
+        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
+        
+              <div>
+                
+  <div class="tex2jax_ignore mathjax_ignore section" id="how-to-add-a-new-cluster-to-operate-first">
+<h1>How to add a new cluster to Operate First<a class="headerlink" href="#how-to-add-a-new-cluster-to-operate-first" title="Permalink to this headline">¶</a></h1>
+<p>In this guide we will explore how to onboard a cluster to the Operate First community. This document covers a journey from a standalone cluster to cluster which is centrally managed by the Operate First Ops team via GitOps.</p>
+<div class="section" id="prerequisites">
+<h2>Prerequisites<a class="headerlink" href="#prerequisites" title="Permalink to this headline">¶</a></h2>
+<ul class="contains-task-list simple">
+<li class="task-list-item"><p><input class="task-list-item-checkbox" checked="checked" disabled="disabled" type="checkbox"> The cluster which is being onboarded must already exist and run OpenShift.</p></li>
+<li class="task-list-item"><p><input class="task-list-item-checkbox" checked="checked" disabled="disabled" type="checkbox"> The cluster is imported to the Operate First’s Advanced cluster management (ACM).</p></li>
+</ul>
+<p>If you need help to fulfill either of the prerequisites, please raise an issue in the support repository <a class="reference external" href="https://github.com/operate-first/support/issues">here</a>.</p>
+</div>
+<div class="section" id="outcomes">
+<h2>Outcomes<a class="headerlink" href="#outcomes" title="Permalink to this headline">¶</a></h2>
+<ul class="contains-task-list simple">
+<li class="task-list-item"><p><input class="task-list-item-checkbox" disabled="disabled" type="checkbox"> A pull request against the <code class="docutils literal notranslate"><span class="pre">operate-first/apps</span></code> repository.</p></li>
+</ul>
+<p>The PR enables the Operate First to:</p>
+<ul class="contains-task-list simple">
+<li class="task-list-item"><p><input class="task-list-item-checkbox" disabled="disabled" type="checkbox"> Operate First’s ArgoCD can manage the cluster.</p></li>
+<li class="task-list-item"><p><input class="task-list-item-checkbox" disabled="disabled" type="checkbox"> Operate First’s SSO is used as identity provider by OpenShift.</p></li>
+<li class="task-list-item"><p><input class="task-list-item-checkbox" disabled="disabled" type="checkbox"> Operate First’s integrated metrics and alerting federation is deployed to the cluster.</p></li>
+</ul>
+</div>
+<div class="section" id="introduction">
+<h2>Introduction<a class="headerlink" href="#introduction" title="Permalink to this headline">¶</a></h2>
+<p>All manifests for all the workloads owned by Operate First Ops team are maintained in the <code class="docutils literal notranslate"><span class="pre">operate-first/apps</span></code> repository following the <a class="reference external" href="https://kubernetes.io/docs/tasks/manage-kubernetes-objects/kustomization/">Kustomize best practices</a>.</p>
+<p>The <code class="docutils literal notranslate"><span class="pre">cluster-scope</span></code> folder in this repo stores all privileged resources that are usually not allowed to be deployed by regular project admin and requires elevated access like cluster-admin role.</p>
+<p>If you want to know more about the overall design please consult Operate First’s <a class="reference external" href="https://www.operate-first.cloud/blueprints/blueprint/#architectural-decisions">Architectural Decision Records (ADR) archive</a>.</p>
+<p>For each cluster we have a separate overlay in the <code class="docutils literal notranslate"><span class="pre">cluster-scope</span></code> folder. Clusters are grouped grouped by region. For more information on this topic, see <a class="reference external" href="https://www.operate-first.cloud/blueprints/blueprint/docs/adr/0009-cluster-resources.md">ADR-0009 - Declarative Definitions for Cluster Scoped Resources</a>.</p>
+</div>
+<div class="section" id="steps">
+<h2>Steps<a class="headerlink" href="#steps" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="define-important-variables">
+<h3>1. Define important variables<a class="headerlink" href="#define-important-variables" title="Permalink to this headline">¶</a></h3>
+<p>In this guide we will use a couple of facts about the cluster. To make it easier to follow this guide, let’s define these valued beforehand.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">uuid</span>
+<span class="kn">import</span> <span class="nn">json</span>
+<span class="kn">import</span> <span class="nn">os</span>
+
+<span class="c1"># User variables</span>
+<span class="n">GITHUB_USERNAME</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">getenv</span><span class="p">(</span><span class="s2">&quot;JUPYTERHUB_USER&quot;</span><span class="p">)</span>  <span class="c1"># If this notebook is executed within Jupyter Hub on Operate First, you can use the `JUPYTERHUB_USER` variables instead</span>
+
+<span class="c1"># Cluster specific variables</span>
+<span class="n">CLUSTER_NAME</span> <span class="o">=</span> <span class="s2">&quot;my-cluster&quot;</span>
+<span class="n">CLUSTER_DESCRIPTION</span> <span class="o">=</span> <span class="s2">&quot;Description of cluster&quot;</span>
+<span class="n">CLUSTER_REGION</span> <span class="o">=</span> <span class="s2">&quot;emea&quot;</span>
+<span class="n">DNS_LOCATION</span> <span class="o">=</span> <span class="s2">&quot;aws&quot;</span>
+<span class="n">CLUSTER_ADMINS_LST</span> <span class="o">=</span> <span class="p">[</span><span class="n">GITHUB_USERNAME</span><span class="p">,]</span> <span class="c1"># list of LOWERCASE github usernames of the cluster admins</span>
+
+<span class="n">UUID</span><span class="o">=</span><span class="n">uuid</span><span class="o">.</span><span class="n">uuid4</span><span class="p">()</span>
+<span class="n">CLUSTER_ADMINS</span><span class="o">=</span><span class="n">json</span><span class="o">.</span><span class="n">dumps</span><span class="p">([</span><span class="n">u</span><span class="o">.</span><span class="n">lower</span><span class="p">()</span> <span class="k">for</span> <span class="n">u</span> <span class="ow">in</span> <span class="n">CLUSTER_ADMINS_LST</span><span class="p">])</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\&quot;</span><span class="s2">&quot;</span><span class="p">,</span> <span class="s2">&quot;</span><span class="se">\\\&quot;</span><span class="s2">&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="fork-and-clone-the-apps-repository">
+<h3>2. Fork and clone the apps repository<a class="headerlink" href="#fork-and-clone-the-apps-repository" title="Permalink to this headline">¶</a></h3>
+<p>Please fork/clone the <a class="reference external" href="https://github.com/operate-first/apps">operate-first/apps</a> repository. We’ll be working within this repository only.</p>
+<ol class="simple">
+<li><p>Go to <a class="reference external" href="https://github.com/operate-first/apps">operate-first/apps</a>.</p></li>
+<li><p>Click on a fork button.</p></li>
+<li><p>When a fork is created click on the code button and copy an address of your forked repository.</p></li>
+<li><p>Run following command using copied address:</p></li>
+</ol>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">!</span>git clone https://github.com/<span class="o">{</span>GITHUB_USERNAME<span class="o">}</span>/apps.git
+<span class="o">%</span><span class="k">cd</span> apps
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Cloning into &#39;apps&#39;...
+remote: Enumerating objects: 12876, done.
+remote: Counting objects: 100% (1567/1567), done.
+remote: Compressing objects: 100% (852/852), done.
+remote: Total 12876 (delta 701), reused 1449 (delta 633), pack-reused 11309
+Receiving objects: 100% (12876/12876), 2.83 MiB | 4.71 MiB/s, done.
+Resolving deltas: 100% (6290/6290), done.
+/home/tcoufal/Programming/AI-CoE/operate-first/hitchhikers-guide/pages/apps
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="enable-argocd-management-in-acm">
+<h3>3. Enable ArgoCD management in ACM<a class="headerlink" href="#enable-argocd-management-in-acm" title="Permalink to this headline">¶</a></h3>
+<p>The onboarded cluster is already being managed by ACM. Since Operate First manages its applications through ArgoCD and ACM can integrate with ArgoCD, we will use that. In the next cell we will let ACM setup a connection to the new cluster from our ArgoCD instance. Since ACM 2.3 this is achieved by declaring the cluster to be managed via a ArgoCD-enabled ClusterSet.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">text_input</span><span class="o">=</span><span class="s2">&quot;&quot;&quot;</span><span class="se">\</span>
+<span class="s2">apiVersion: cluster.open-cluster-management.io/v1</span>
+<span class="s2">kind: ManagedCluster</span>
+<span class="s2">metadata:</span>
+<span class="s2">  name: </span><span class="si">%s</span><span class="s2"></span>
+<span class="s2">  labels:</span>
+<span class="s2">    cluster.open-cluster-management.io/clusterset: argocd-managed</span>
+<span class="s2">&quot;&quot;&quot;</span> <span class="o">%</span> <span class="p">(</span><span class="n">CLUSTER_NAME</span><span class="p">)</span>
+
+<span class="o">%</span><span class="k">store</span> text_input &gt;acm/overlays/moc/infra/managedclusters/{CLUSTER_NAME}.yaml
+
+<span class="o">!</span><span class="nb">cd</span> acm/overlays/moc/infra/managedclusters <span class="o">&amp;&amp;</span> kustomize edit add resource <span class="o">{</span>CLUSTER_NAME<span class="o">}</span>.yaml
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Writing &#39;text_input&#39; (str) to file &#39;acm/overlays/moc/infra/managedclusters/demo.yaml&#39;.
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="enable-sso-login">
+<h3>4. Enable SSO login<a class="headerlink" href="#enable-sso-login" title="Permalink to this headline">¶</a></h3>
+<p>Next on the list of tasks that need to happen is to enable SSO for this cluster. Operate First SSO provides users a unified and seamless experience when accessing the cluster. To enable it, we need to setup 2 things:</p>
+<ol class="simple">
+<li><p>We need to inform the SSO server - a Keycloak instance, that this new cluster exists and that it is indeed a valid client.</p></li>
+<li><p>Configure cluster’s oauth controller to query our SSO for user identity.</p></li>
+</ol>
+<div class="section" id="configure-sso-server">
+<h4>1. Configure SSO server<a class="headerlink" href="#configure-sso-server" title="Permalink to this headline">¶</a></h4>
+<p>The cell below will create a Keycloak client definition for the new cluster. SSO server is managed via <code class="docutils literal notranslate"><span class="pre">keycloak</span></code> folder in this repo, hence this cell creates a file at <code class="docutils literal notranslate"><span class="pre">keycloak/overlays/moc/infra/clients/$CLUSTER_NAME.yaml</span></code> and then encrypts it with sops. You can find the key to import from <a class="reference external" href="https://github.com/operate-first/apps/tree/master/cluster-scope/overlays/prod/moc#secret-management">here</a>:</p>
+<p>The <code class="docutils literal notranslate"><span class="pre">KeycloakClient</span></code> resource makes our SSO aware of the cluster’s presence - it configures and enables the cluster to a client to the SSO.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">!</span>gpg --keyserver keys.openpgp.org --recv 0508677DD04952D06A943D5B4DC4116D360E3276
+
+<span class="n">text_input</span><span class="o">=</span><span class="s2">&quot;&quot;&quot;</span><span class="se">\</span>
+<span class="s2">apiVersion: keycloak.org/v1alpha1</span>
+<span class="s2">kind: KeycloakClient</span>
+<span class="s2">metadata:</span>
+<span class="s2">    name: </span><span class="si">%s</span><span class="s2"></span>
+<span class="s2">    labels:</span>
+<span class="s2">        client: </span><span class="si">%s</span><span class="s2"></span>
+<span class="s2">spec:</span>
+<span class="s2">    client:</span>
+<span class="s2">        clientId: </span><span class="si">%s</span><span class="s2"></span>
+<span class="s2">        defaultClientScopes:</span>
+<span class="s2">            - profile</span>
+<span class="s2">        description: </span><span class="si">%s</span><span class="s2"></span>
+<span class="s2">        name: </span><span class="si">%s</span><span class="s2"> cluster</span>
+<span class="s2">        protocol: openid-connect</span>
+<span class="s2">        secret: </span><span class="si">%s</span><span class="s2"></span>
+<span class="s2">        standardFlowEnabled: true</span>
+<span class="s2">        redirectUris:</span>
+<span class="s2">            - https://oauth-openshift.apps.</span><span class="si">%s</span><span class="s2">.</span><span class="si">%s</span><span class="s2">.operate-first.cloud/oauth2callback/operate-first</span>
+<span class="s2">    realmSelector:</span>
+<span class="s2">        matchLabels:</span>
+<span class="s2">            realm: operate-first</span>
+
+<span class="s2">&quot;&quot;&quot;</span> <span class="o">%</span><span class="p">(</span><span class="n">CLUSTER_NAME</span><span class="p">,</span> <span class="n">CLUSTER_NAME</span><span class="p">,</span> <span class="n">CLUSTER_NAME</span><span class="p">,</span> <span class="n">CLUSTER_DESCRIPTION</span><span class="p">,</span> <span class="n">CLUSTER_NAME</span><span class="p">,</span> <span class="n">UUID</span><span class="p">,</span> <span class="n">CLUSTER_NAME</span><span class="p">,</span> <span class="n">DNS_LOCATION</span><span class="p">)</span>
+
+<span class="o">%</span><span class="k">store</span> text_input &gt;keycloak/overlays/moc/infra/clients/{CLUSTER_NAME}.yaml
+
+<span class="o">!</span>sops --encrypt --encrypted-regex<span class="o">=</span><span class="s2">&quot;^secret</span>$<span class="s2">&quot;</span> --pgp<span class="o">=</span><span class="s2">&quot;0508677DD04952D06A943D5B4DC4116D360E3276&quot;</span> keycloak/overlays/moc/infra/clients/<span class="o">{</span>CLUSTER_NAME<span class="o">}</span>.yaml &gt;keycloak/overlays/moc/infra/clients/<span class="o">{</span>CLUSTER_NAME<span class="o">}</span>.enc.yaml
+
+<span class="o">!</span>rm keycloak/overlays/moc/infra/clients/<span class="o">{</span>CLUSTER_NAME<span class="o">}</span>.yaml
+
+<span class="o">!</span>yq e -i <span class="s2">&quot;.files += [\&quot;clients/{CLUSTER_NAME}.enc.yaml\&quot;]&quot;</span> keycloak/overlays/moc/infra/secret-generator.yaml
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>gpg: key 4DC4116D360E3276: &quot;Operate-First &lt;aicoe-operate-first@redhat.com&gt;&quot; not changed
+gpg: Total number processed: 1
+gpg:              unchanged: 1
+Writing &#39;text_input&#39; (str) to file &#39;keycloak/overlays/moc/infra/clients/demo.yaml&#39;.
+[PGP]	 <span class=" -Color -Color-Yellow">WARN</span>[0000] Deprecation Warning: GPG key fetching from a keyserver within sops will be removed in a future version of sops. See https://github.com/mozilla/sops/issues/727 for more information. 
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="configure-sso-as-identity-provider-for-the-cluster">
+<h4>2. Configure SSO as identity provider for the cluster<a class="headerlink" href="#configure-sso-as-identity-provider-for-the-cluster" title="Permalink to this headline">¶</a></h4>
+<p>Now we need to configure the cluster’s OAuth controller so it uses Opereate First SSO as an identity provider.</p>
+<p>Below we will create a <code class="docutils literal notranslate"><span class="pre">operate-first-sso-secret</span></code> secret resource and encrypt it with sops. This secret contains cluster’s SSO credentials which matches the SSO server configuration above.</p>
+<p>Then we reference this secret in the OAuth configuration for OpenShift. The <code class="docutils literal notranslate"><span class="pre">OAuth</span></code> resource defines identity providers available to users when authenticating to the cluster.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">!</span>mkdir -p cluster-scope/overlays/prod/<span class="o">{</span>CLUSTER_REGION<span class="o">}</span>/<span class="o">{</span>CLUSTER_NAME<span class="o">}</span>/oauths/
+
+<span class="n">text_input</span><span class="o">=</span><span class="s2">&quot;&quot;&quot;</span><span class="se">\</span>
+<span class="s2">apiVersion: v1</span>
+<span class="s2">kind: Secret</span>
+<span class="s2">metadata:</span>
+<span class="s2">    name: operate-first-sso-secret</span>
+<span class="s2">    namespace: openshift-config</span>
+<span class="s2">    annotations:</span>
+<span class="s2">        argocd.argoproj.io/compare-options: IgnoreExtraneous</span>
+<span class="s2">        argocd.argoproj.io/sync-options: Prune=false</span>
+<span class="s2">type: Opaque</span>
+<span class="s2">stringData:</span>
+<span class="s2">    clientSecret: </span><span class="si">%s</span><span class="s2"></span>
+<span class="s2">&quot;&quot;&quot;</span> <span class="o">%</span> <span class="p">(</span><span class="n">UUID</span><span class="p">)</span>
+
+<span class="o">%</span><span class="k">store</span> text_input &gt;cluster-scope/overlays/prod/{CLUSTER_REGION}/{CLUSTER_NAME}/oauths/operate-first-sso-secret.yaml
+
+<span class="o">!</span>sops --encrypt --encrypted-regex<span class="o">=</span><span class="s2">&quot;^(data|stringData)</span>$<span class="s2">&quot;</span> --pgp<span class="o">=</span><span class="s2">&quot;0508677DD04952D06A943D5B4DC4116D360E3276&quot;</span> cluster-scope/overlays/prod/<span class="o">{</span>CLUSTER_REGION<span class="o">}</span>/<span class="o">{</span>CLUSTER_NAME<span class="o">}</span>/oauths/operate-first-sso-secret.yaml &gt;cluster-scope/overlays/prod/<span class="o">{</span>CLUSTER_REGION<span class="o">}</span>/<span class="o">{</span>CLUSTER_NAME<span class="o">}</span>/oauths/operate-first-sso-secret.enc.yaml
+
+<span class="o">!</span>rm cluster-scope/overlays/prod/<span class="o">{</span>CLUSTER_REGION<span class="o">}</span>/<span class="o">{</span>CLUSTER_NAME<span class="o">}</span>/oauths/operate-first-sso-secret.yaml
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Writing &#39;text_input&#39; (str) to file &#39;cluster-scope/overlays/prod/emea/demo/oauths/operate-first-sso-secret.yaml&#39;.
+[PGP]	 <span class=" -Color -Color-Yellow">WARN</span>[0000] Deprecation Warning: GPG key fetching from a keyserver within sops will be removed in a future version of sops. See https://github.com/mozilla/sops/issues/727 for more information. 
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">text_input</span><span class="o">=</span><span class="s2">&quot;&quot;&quot;</span><span class="se">\</span>
+<span class="s2">---</span>
+<span class="s2">apiVersion: viaduct.ai/v1</span>
+<span class="s2">kind: ksops</span>
+<span class="s2">metadata:</span>
+<span class="s2">  name: secret-generator</span>
+<span class="s2">files:</span>
+<span class="s2">  - oauths/operate-first-sso-secret.enc.yaml</span>
+<span class="s2">&quot;&quot;&quot;</span>
+
+<span class="o">%</span><span class="k">store</span> text_input &gt;cluster-scope/overlays/prod/{CLUSTER_REGION}/{CLUSTER_NAME}/secret-generator.yaml
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Writing &#39;text_input&#39; (str) to file &#39;cluster-scope/overlays/prod/emea/demo/secret-generator.yaml&#39;.
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">text_input</span><span class="o">=</span><span class="s2">&quot;&quot;&quot;</span><span class="se">\</span>
+<span class="s2">---</span>
+<span class="s2">apiVersion: config.openshift.io/v1</span>
+<span class="s2">kind: OAuth</span>
+<span class="s2">metadata:</span>
+<span class="s2">  name: cluster</span>
+<span class="s2">spec:</span>
+<span class="s2">  identityProviders:</span>
+<span class="s2">    - mappingMethod: claim</span>
+<span class="s2">      name: operate-first</span>
+<span class="s2">      openID:</span>
+<span class="s2">        claims:</span>
+<span class="s2">          email:</span>
+<span class="s2">            - email</span>
+<span class="s2">          name:</span>
+<span class="s2">            - name</span>
+<span class="s2">          preferredUsername:</span>
+<span class="s2">            - preferred_username</span>
+<span class="s2">        clientID: </span><span class="si">%s</span><span class="s2"></span>
+<span class="s2">        clientSecret:</span>
+<span class="s2">          name: operate-first-sso-secret</span>
+<span class="s2">        extraScopes: []</span>
+<span class="s2">        issuer: https://keycloak-keycloak.apps.moc-infra.massopen.cloud/auth/realms/operate-first</span>
+<span class="s2">      type: OpenID</span>
+<span class="s2">&quot;&quot;&quot;</span> <span class="o">%</span> <span class="p">(</span><span class="n">CLUSTER_NAME</span><span class="p">)</span>
+
+<span class="o">%</span><span class="k">store</span> text_input &gt;cluster-scope/overlays/prod/{CLUSTER_REGION}/{CLUSTER_NAME}/oauths/cluster_patch.yaml
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Writing &#39;text_input&#39; (str) to file &#39;cluster-scope/overlays/prod/emea/demo/oauths/cluster_patch.yaml&#39;.
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="create-a-cluster-admins-group">
+<h3>5. Create a cluster admins group<a class="headerlink" href="#create-a-cluster-admins-group" title="Permalink to this headline">¶</a></h3>
+<p>Now we can assume we have Operate First SSO enabled on the cluster, hence we can start using GitHub accounts as user names on the cluster. Let’s use that to declare cluster admins for this particular cluster. While cluster admins have full access to the cluster, all changes should always be done via GitOps. In general, we think of cluster admins as an emergency break in case we need to investigate or act quickly.</p>
+<p>Please be advised that Keycloak converts all usernames to lowercase and OpenShift RBAC is case sensitive, hence we convert all GitHub usernames to lowercase and reference them in OpenShift as such.</p>
+<p>By executing the following cell you will create a file <code class="docutils literal notranslate"><span class="pre">cluster-scope/overlays/prod/$CLUSTER_REGION/$CLUSTER_NAME/groups/cluster-admins.yaml</span></code>.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">!</span>mkdir -p cluster-scope/overlays/prod/<span class="o">{</span>CLUSTER_REGION<span class="o">}</span>/<span class="o">{</span>CLUSTER_NAME<span class="o">}</span>/groups
+<span class="n">input_text</span><span class="o">=</span><span class="s2">&quot;&quot;&quot;</span><span class="se">\</span>
+<span class="s2">apiVersion: user.openshift.io/v1</span>
+<span class="s2">kind: Group</span>
+<span class="s2">metadata:</span>
+<span class="s2">    name: cluster-admins</span>
+<span class="s2">&quot;&quot;&quot;</span>
+<span class="o">%</span><span class="k">store</span> input_text  &gt;cluster-scope/overlays/prod/{CLUSTER_REGION}/{CLUSTER_NAME}/groups/cluster-admins.yaml
+<span class="o">!</span>yq e -i <span class="s2">&quot;.users = {CLUSTER_ADMINS}&quot;</span> cluster-scope/overlays/prod/<span class="o">{</span>CLUSTER_REGION<span class="o">}</span>/<span class="o">{</span>CLUSTER_NAME<span class="o">}</span>/groups/cluster-admins.yaml
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Writing &#39;input_text&#39; (str) to file &#39;cluster-scope/overlays/prod/emea/demo/groups/cluster-admins.yaml&#39;.
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="stitch-things-together-via-kustomize">
+<span id="content-references-stich-kustomize"></span><h3>6. Stitch things together via Kustomize<a class="headerlink" href="#stitch-things-together-via-kustomize" title="Permalink to this headline">¶</a></h3>
+<p>Now we have many different isolated bits and pieces of configuration defined and modified for our cluster. In order to apply those changes we need to render all those manifests together and instruct ArgoCD to deploy it. First things first, let’s combine those manifests now.</p>
+<p>We use Kustomize to compose manifests. This tool requires a <code class="docutils literal notranslate"><span class="pre">kustomization.yaml</span></code> file as the base manifest. This file instructs Kustomize which resource files to pull and how to overlay and render them together. In this particular case it serves us as the single source of truth for what gets configured on each cluster when it comes to the privileged resources.</p>
+<p>The following cell will create a <code class="docutils literal notranslate"><span class="pre">kustomization.yaml</span></code> file in <code class="docutils literal notranslate"><span class="pre">cluster-scope/overlays/prod/$CLUSTER_REGION/$CLUSTER_NAME</span></code> and bootstraps it with:</p>
+<ol class="simple">
+<li><p>All the common configuration specific to given region - this is specified in <code class="docutils literal notranslate"><span class="pre">../common</span></code> folder.</p></li>
+<li><p>Adds OAuth configuration to enable SSO.</p></li>
+<li><p>Patches the <code class="docutils literal notranslate"><span class="pre">cluster-admins</span></code> user group replacing the users object with those users we’ve specified via the variable above.</p></li>
+</ol>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">text_input</span><span class="o">=</span><span class="s2">&quot;&quot;&quot;</span><span class="se">\</span>
+<span class="s2">---</span>
+<span class="s2">apiVersion: kustomize.config.k8s.io/v1beta1</span>
+<span class="s2">kind: Kustomization</span>
+
+<span class="s2">resources:</span>
+<span class="s2">  - ../common</span>
+<span class="s2">  - ../../../../base/config.openshift.io/oauths/cluster</span>
+<span class="s2">  - ../../../../base/user.openshift.io/groups/cluster-admins</span>
+
+<span class="s2">patchesStrategicMerge:</span>
+<span class="s2">  - groups/cluster-admins.yaml</span>
+<span class="s2">  - oauths/cluster_patch.yaml</span>
+
+<span class="s2">generators:</span>
+<span class="s2">  - secret-generator.yaml</span>
+<span class="s2">&quot;&quot;&quot;</span>
+
+<span class="o">%</span><span class="k">store</span> text_input  &gt;cluster-scope/overlays/prod/{CLUSTER_REGION}/{CLUSTER_NAME}/kustomization.yaml
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Writing &#39;text_input&#39; (str) to file &#39;cluster-scope/overlays/prod/emea/demo/kustomization.yaml&#39;.
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="enable-monitoring-and-alerting">
+<span id="content-references-enable-monitoring"></span><h3>7. Enable monitoring and alerting<a class="headerlink" href="#enable-monitoring-and-alerting" title="Permalink to this headline">¶</a></h3>
+<p>We follow the recommended practices by OpenShift upstream, that means we support User Workload Monitoring on our clusters. And since Operate First is a community cloud, we are aiming to be transparent about alerts fired by the cluster itself. In this step we will enable User Workload Monitoring, then we’ll bring in an alert receiver for GitHub that funnels alerts from the cluster and files them as GitHub Issues.</p>
+<div class="section" id="enable-user-workload-monitoring">
+<h4>1. Enable User Workload Monitoring<a class="headerlink" href="#enable-user-workload-monitoring" title="Permalink to this headline">¶</a></h4>
+<p>User Workload Monitoring can be enabled via a simple configuration change in the <code class="docutils literal notranslate"><span class="pre">cluster-monitoring-config</span></code> ConfigMap in the <code class="docutils literal notranslate"><span class="pre">openshift-monitoring</span></code> namespace. Since we apply this change to most of the clusters, we host it in the <code class="docutils literal notranslate"><span class="pre">cluster-scope/base</span></code>. To apply this change to the new cluster, all we have to do is to pull the resource in to the overlay we created in previous step.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">!</span><span class="nb">cd</span> cluster-scope/overlays/prod/<span class="o">{</span>CLUSTER_REGION<span class="o">}</span>/<span class="o">{</span>CLUSTER_NAME<span class="o">}</span> <span class="o">&amp;&amp;</span> kustomize edit add resource ../../../../base/core/configmaps/cluster-monitoring-config
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="deploy-alert-receiver-for-github">
+<h4>2. Deploy alert receiver for Github<a class="headerlink" href="#deploy-alert-receiver-for-github" title="Permalink to this headline">¶</a></h4>
+<p>Alert receiver configuration is also well known and already defined. However since this is a standalone application, we need a separate overlay for it in folder which belongs to this application - <code class="docutils literal notranslate"><span class="pre">alertreceiver</span></code> folder. In the next cell we will create a new overlay in there (patching the static labels assigned to each alert originating from this cluster). Then we’ll update the <code class="docutils literal notranslate"><span class="pre">cluster-scope</span></code> overlay we’ve created in the step <a class="reference internal" href="#content-references-stich-kustomize"><span class="std std-ref">6. Stitch things together via Kustomize</span></a> of this guide by requesting a namespace for the alert receiver to be created.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">!</span>mkdir -p alertreceiver/overlays/<span class="o">{</span>CLUSTER_REGION<span class="o">}</span>/<span class="o">{</span>CLUSTER_NAME<span class="o">}</span>
+
+<span class="n">text_input</span><span class="o">=</span><span class="s2">&quot;&quot;&quot;</span><span class="se">\</span>
+<span class="s2">---</span>
+<span class="s2">apiVersion: kustomize.config.k8s.io/v1beta1</span>
+<span class="s2">kind: Kustomization</span>
+
+<span class="s2">resources:</span>
+<span class="s2">  - ../../common</span>
+
+<span class="s2">patchesJson6902:</span>
+<span class="s2">  - patch: |</span>
+<span class="s2">      - op: replace</span>
+<span class="s2">        path: /spec/template/spec/containers/0/args/0</span>
+<span class="s2">        value: --label=environment/</span><span class="si">%s</span><span class="s2">/</span><span class="si">%s</span><span class="s2"></span>
+<span class="s2">    target:</span>
+<span class="s2">      group: apps</span>
+<span class="s2">      kind: Deployment</span>
+<span class="s2">      name: github-receiver</span>
+<span class="s2">      version: v1</span>
+<span class="s2">&quot;&quot;&quot;</span> <span class="o">%</span> <span class="p">(</span><span class="n">CLUSTER_REGION</span><span class="p">,</span> <span class="n">CLUSTER_NAME</span><span class="p">)</span>
+
+<span class="o">%</span><span class="k">store</span> text_input  &gt;alertreceiver/overlays/{CLUSTER_REGION}/{CLUSTER_NAME}/kustomization.yaml
+
+<span class="o">!</span><span class="nb">cd</span> cluster-scope/overlays/prod/<span class="o">{</span>CLUSTER_REGION<span class="o">}</span>/<span class="o">{</span>CLUSTER_NAME<span class="o">}</span> <span class="o">&amp;&amp;</span> kustomize edit add resource ../../../../base/core/namespaces/opf-alertreceiver
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Writing &#39;text_input&#39; (str) to file &#39;alertreceiver/overlays/emea/demo/kustomization.yaml&#39;.
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="create-argocd-apps-for-this-cluster">
+<h3>8. Create ArgoCD apps for this cluster<a class="headerlink" href="#create-argocd-apps-for-this-cluster" title="Permalink to this headline">¶</a></h3>
+<p>At this point we have created, modified and updated all necessary manifests that are needed for a cluster to be properly managed. The remaining step now is to make ArgoCD aware that those manifests exists and how it can deploy and monitor them for us.</p>
+<p>In this step we will create:</p>
+<ol class="simple">
+<li><p>An “App-of-apps” application which deploys other (future) applications to this cluster.</p></li>
+<li><p>An application which deploys the cluster management related manifests (from the <code class="docutils literal notranslate"><span class="pre">cluster-scope</span></code> folder).</p></li>
+<li><p>An application which deploys the alertreceiver (from the <code class="docutils literal notranslate"><span class="pre">alertreceiver</span></code> folder).</p></li>
+<li><p>We will enable this cluster to be targeted by ArgoCD project for Operate First management applications.</p></li>
+</ol>
+<div class="section" id="create-the-app-of-apps">
+<h4>1. Create the App-of-apps<a class="headerlink" href="#create-the-app-of-apps" title="Permalink to this headline">¶</a></h4>
+<p>First we will create the app-of-apps application for this cluster. It’s an application which points to other application manifests. This pattern allows us to automate deployment of future ArgoCD applications that we will want to deploy to this cluster.</p>
+<p>Since we assume ArgoCD to be yet another regular application we host manifests which helps to configure it in the <code class="docutils literal notranslate"><span class="pre">argocd</span></code> folder. We host a single instance of it, so we’ll be working within the <code class="docutils literal notranslate"><span class="pre">argocd/overlays/moc-infra/</span></code></p>
+<p>In this step we will create an <code class="docutils literal notranslate"><span class="pre">Application</span></code> resource which points to <code class="docutils literal notranslate"><span class="pre">argocd/overlays/moc-infra/applications/envs/$CLUSTER_REGION/$CLUSTER_NAME</span></code>. That is exactly where we will keep all other <code class="docutils literal notranslate"><span class="pre">Application</span></code> resources for this cluster. Once the app-of-apps resource manifest is created, we’ll add it to the Kustomization at <code class="docutils literal notranslate"><span class="pre">argocd/overlays/moc-infra/applications/app-of-apps/kustomization.yaml</span></code>.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">text_input</span><span class="o">=</span><span class="s2">&quot;&quot;&quot;</span><span class="se">\</span>
+<span class="s2">apiVersion: argoproj.io/v1alpha1</span>
+<span class="s2">kind: Application</span>
+<span class="s2">metadata:</span>
+<span class="s2">  name: opf-app-of-apps-</span><span class="si">%s</span><span class="s2"></span>
+<span class="s2">spec:</span>
+<span class="s2">  destination:</span>
+<span class="s2">    namespace: argocd</span>
+<span class="s2">    name: moc-infra</span>
+<span class="s2">  project: operate-first</span>
+<span class="s2">  source:</span>
+<span class="s2">    path: argocd/overlays/moc-infra/applications/envs/</span><span class="si">%s</span><span class="s2">/</span><span class="si">%s</span><span class="s2"></span>
+<span class="s2">    repoURL: https://github.com/operate-first/apps.git</span>
+<span class="s2">    targetRevision: HEAD</span>
+<span class="s2">  syncPolicy:</span>
+<span class="s2">    automated:</span>
+<span class="s2">      prune: true</span>
+<span class="s2">      selfHeal: true</span>
+<span class="s2">    syncOptions:</span>
+<span class="s2">    - Validate=false</span>
+<span class="s2">    - ApplyOutOfSyncOnly=true</span>
+<span class="s2">&quot;&quot;&quot;</span> <span class="o">%</span> <span class="p">(</span><span class="n">CLUSTER_NAME</span><span class="p">,</span> <span class="n">CLUSTER_REGION</span><span class="p">,</span> <span class="n">CLUSTER_NAME</span><span class="p">)</span>
+
+<span class="o">%</span><span class="k">store</span> text_input &gt;argocd/overlays/moc-infra/applications/app-of-apps/app-of-apps-{CLUSTER_NAME}.yaml
+
+<span class="o">!</span><span class="nb">cd</span> argocd/overlays/moc-infra/applications/app-of-apps <span class="o">&amp;&amp;</span> kustomize edit add resource app-of-apps-<span class="o">{</span>CLUSTER_NAME<span class="o">}</span>.yaml
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Writing &#39;text_input&#39; (str) to file &#39;argocd/overlays/moc-infra/applications/app-of-apps/app-of-apps-demo.yaml&#39;.
+</pre></div>
+</div>
+</div>
+</div>
+<p>As you can see we’ve pointed ArgoCD to a folder within <code class="docutils literal notranslate"><span class="pre">argocd/overlays/moc-infra/applications/envs</span></code> which does not exist yet. Now is the time to create it.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">!</span>mkdir  -p argocd/overlays/moc-infra/applications/envs/<span class="o">{</span>CLUSTER_REGION<span class="o">}</span>/<span class="o">{</span>CLUSTER_NAME<span class="o">}</span>
+
+<span class="o">!</span><span class="nb">cd</span> argocd/overlays/moc-infra/applications/envs/<span class="o">{</span>CLUSTER_REGION<span class="o">}</span>/<span class="o">{</span>CLUSTER_NAME<span class="o">}</span> <span class="o">&amp;&amp;</span> kustomize init --namespace argocd --namesuffix -<span class="o">{</span>CLUSTER_NAME<span class="o">}</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="application-for-privileged-resource">
+<h4>2. Application for privileged resource<a class="headerlink" href="#application-for-privileged-resource" title="Permalink to this headline">¶</a></h4>
+<p>Now let’s add our first application to this folder. This application should source the overlay in the <code class="docutils literal notranslate"><span class="pre">cluster-scope</span></code> folder, which we’ve created at <a class="reference internal" href="#content-references-stich-kustomize"><span class="std std-ref">6. Stitch things together via Kustomize</span></a> step.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">!</span>mkdir -p argocd/overlays/moc-infra/applications/envs/<span class="o">{</span>CLUSTER_REGION<span class="o">}</span>/<span class="o">{</span>CLUSTER_NAME<span class="o">}</span>/cluster-management
+
+<span class="n">text_input</span><span class="o">=</span><span class="s2">&quot;&quot;&quot;</span><span class="se">\</span>
+<span class="s2">apiVersion: argoproj.io/v1alpha1</span>
+<span class="s2">kind: Application</span>
+<span class="s2">metadata:</span>
+<span class="s2">  name: cluster-resources</span>
+<span class="s2">spec:</span>
+<span class="s2">  destination:</span>
+<span class="s2">    name: </span><span class="si">%s</span><span class="s2"></span>
+<span class="s2">    namespace: open-cluster-management-agent</span>
+<span class="s2">  ignoreDifferences:</span>
+<span class="s2">    - group: imageregistry.operator.openshift.io</span>
+<span class="s2">      jsonPointers:</span>
+<span class="s2">        - /spec/defaultRoute</span>
+<span class="s2">        - /spec/httpSecret</span>
+<span class="s2">        - /spec/proxy</span>
+<span class="s2">        - /spec/requests</span>
+<span class="s2">        - /spec/rolloutStrategy</span>
+<span class="s2">      kind: Config</span>
+<span class="s2">      name: cluster</span>
+<span class="s2">  project: cluster-management</span>
+<span class="s2">  source:</span>
+<span class="s2">    path: cluster-scope/overlays/prod/</span><span class="si">%s</span><span class="s2">/</span><span class="si">%s</span><span class="s2"></span>
+<span class="s2">    repoURL: https://github.com/operate-first/apps.git</span>
+<span class="s2">    targetRevision: HEAD</span>
+<span class="s2">  syncPolicy:</span>
+<span class="s2">    automated:</span>
+<span class="s2">      prune: true</span>
+<span class="s2">      selfHeal: true</span>
+<span class="s2">    syncOptions:</span>
+<span class="s2">    - Validate=false</span>
+<span class="s2">    - ApplyOutOfSyncOnly=true</span>
+<span class="s2">&quot;&quot;&quot;</span> <span class="o">%</span> <span class="p">(</span><span class="n">CLUSTER_NAME</span><span class="p">,</span> <span class="n">CLUSTER_REGION</span><span class="p">,</span> <span class="n">CLUSTER_NAME</span><span class="p">)</span>
+
+<span class="o">%</span><span class="k">store</span> text_input &gt;argocd/overlays/moc-infra/applications/envs/{CLUSTER_REGION}/{CLUSTER_NAME}/cluster-management/cluster-resources.yaml
+
+<span class="o">!</span><span class="nb">cd</span> argocd/overlays/moc-infra/applications/envs/<span class="o">{</span>CLUSTER_REGION<span class="o">}</span>/<span class="o">{</span>CLUSTER_NAME<span class="o">}</span>/cluster-management <span class="o">&amp;&amp;</span> kustomize init --resources cluster-resources.yaml
+
+<span class="o">!</span><span class="nb">cd</span> argocd/overlays/moc-infra/applications/envs/<span class="o">{</span>CLUSTER_REGION<span class="o">}</span>/<span class="o">{</span>CLUSTER_NAME<span class="o">}</span> <span class="o">&amp;&amp;</span> kustomize edit add resource cluster-management
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Writing &#39;text_input&#39; (str) to file &#39;argocd/overlays/moc-infra/applications/envs/emea/demo/cluster-management/cluster-resources.yaml&#39;.
+Error: kustomization file already exists
+Usage:
+  kustomize create [flags]
+
+Aliases:
+  create, init
+
+Examples:
+
+	# Create a new overlay from the base &#39;../base&quot;.
+	kustomize create --resources ../base
+
+	# Create a new kustomization detecting resources in the current directory.
+	kustomize create --autodetect
+
+	# Create a new kustomization with multiple resources and fields set.
+	kustomize create --resources deployment.yaml,service.yaml,../base --namespace staging --nameprefix acme-
+
+
+Flags:
+      --annotations string   Add one or more common annotations.
+      --autodetect           Search for kubernetes resources in the current directory to be added to the kustomization file.
+  -h, --help                 help for create
+      --labels string        Add one or more common labels.
+      --nameprefix string    Sets the value of the namePrefix field in the kustomization file.
+      --namespace string     Set the value of the namespace field in the customization file.
+      --namesuffix string    Sets the value of the nameSuffix field in the kustomization file.
+      --recursive            Enable recursive directory searching for resource auto-detection.
+      --resources string     Name of a file containing a file to add to the kustomization file.
+
+Global Flags:
+      --stack-trace   print a stack-trace on error
+
+2021/09/30 18:08:50 resource cluster-management already in kustomization file
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="application-for-alert-receiver">
+<h4>3. Application for alert receiver<a class="headerlink" href="#application-for-alert-receiver" title="Permalink to this headline">¶</a></h4>
+<p>Next up is the alert receiver. We need to create an Application resource for it as well. It will point to the <code class="docutils literal notranslate"><span class="pre">alertreceiver</span></code> overlay we’ve created in the step <a class="reference internal" href="#content-references-enable-monitoring"><span class="std std-ref">7. Enable monitoring and alerting</span></a>.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">text_input</span> <span class="o">=</span> <span class="s2">&quot;&quot;&quot;</span><span class="se">\</span>
+<span class="s2">apiVersion: argoproj.io/v1alpha1</span>
+<span class="s2">kind: Application</span>
+<span class="s2">metadata:</span>
+<span class="s2">  name: alertreceiver</span>
+<span class="s2">spec:</span>
+<span class="s2">  destination:</span>
+<span class="s2">    name: </span><span class="si">%s</span><span class="s2"></span>
+<span class="s2">    namespace: opf-alertreceiver</span>
+<span class="s2">  project: cluster-management</span>
+<span class="s2">  source:</span>
+<span class="s2">    path: alertreceiver/overlays/</span><span class="si">%s</span><span class="s2">/</span><span class="si">%s</span><span class="s2"></span>
+<span class="s2">    repoURL: https://github.com/operate-first/apps.git</span>
+<span class="s2">    targetRevision: HEAD</span>
+<span class="s2">  syncPolicy:</span>
+<span class="s2">    automated:</span>
+<span class="s2">      prune: true</span>
+<span class="s2">      selfHeal: true</span>
+<span class="s2">    syncOptions:</span>
+<span class="s2">      - Validate=false</span>
+<span class="s2">&quot;&quot;&quot;</span> <span class="o">%</span> <span class="p">(</span><span class="n">CLUSTER_NAME</span><span class="p">,</span> <span class="n">CLUSTER_REGION</span><span class="p">,</span> <span class="n">CLUSTER_NAME</span><span class="p">)</span>
+
+<span class="o">%</span><span class="k">store</span> text_input &gt;argocd/overlays/moc-infra/applications/envs/{CLUSTER_REGION}/{CLUSTER_NAME}/cluster-management/alertreceiver.yaml
+
+<span class="o">!</span><span class="nb">cd</span> argocd/overlays/moc-infra/applications/envs/<span class="o">{</span>CLUSTER_REGION<span class="o">}</span>/<span class="o">{</span>CLUSTER_NAME<span class="o">}</span>/cluster-management <span class="o">&amp;&amp;</span> kustomize edit add resource alertreceiver.yaml
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Writing &#39;text_input&#39; (str) to file &#39;argocd/overlays/moc-infra/applications/envs/emea/demo/cluster-management/alertreceiver.yaml&#39;.
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="finalize">
+<h2>Finalize<a class="headerlink" href="#finalize" title="Permalink to this headline">¶</a></h2>
+<p>Please stage your changes and send them as a PR against the <a class="reference external" href="https://github.com/operate-first/apps">operate-first/apps</a> repository.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Make sure that following files/ have been modified/added:</p>
+<ul class="contains-task-list simple">
+<li class="task-list-item"><p><input class="task-list-item-checkbox" disabled="disabled" type="checkbox"> Modified <code class="docutils literal notranslate"><span class="pre">acm/overlays/moc/infra/managedclusters/kustomization.yaml</span></code></p></li>
+<li class="task-list-item"><p><input class="task-list-item-checkbox" disabled="disabled" type="checkbox"> Added <code class="docutils literal notranslate"><span class="pre">acm/overlays/moc/infra/managedclusters/$CLUSTER_NAME.yaml</span></code></p></li>
+<li class="task-list-item"><p><input class="task-list-item-checkbox" disabled="disabled" type="checkbox"> Added <code class="docutils literal notranslate"><span class="pre">alertreceiver/overlays/moc/$CLUSTER_NAME/kustomization.yaml</span></code></p></li>
+<li class="task-list-item"><p><input class="task-list-item-checkbox" disabled="disabled" type="checkbox"> Added <code class="docutils literal notranslate"><span class="pre">argocd/overlays/moc-infra/applications/app-of-apps/app-of-apps-$CLUSTER_NAME.yaml</span></code></p></li>
+<li class="task-list-item"><p><input class="task-list-item-checkbox" disabled="disabled" type="checkbox"> Modified <code class="docutils literal notranslate"><span class="pre">argocd/overlays/moc-infra/applications/app-of-apps/kustomization.yaml</span></code></p></li>
+<li class="task-list-item"><p><input class="task-list-item-checkbox" disabled="disabled" type="checkbox"> Added <code class="docutils literal notranslate"><span class="pre">argocd/overlays/moc-infra/applications/envs/$CLUSTER_REGION/$CLUSTER_NAME/cluster-management/alertreceiver.yaml</span></code></p></li>
+<li class="task-list-item"><p><input class="task-list-item-checkbox" disabled="disabled" type="checkbox"> Added <code class="docutils literal notranslate"><span class="pre">argocd/overlays/moc-infra/applications/envs/$CLUSTER_REGION/$CLUSTER_NAME/cluster-management/cluster-resources.yaml</span></code></p></li>
+<li class="task-list-item"><p><input class="task-list-item-checkbox" disabled="disabled" type="checkbox"> Added <code class="docutils literal notranslate"><span class="pre">argocd/overlays/moc-infra/applications/envs/$CLUSTER_REGION/$CLUSTER_NAME/cluster-management/kustomization.yaml</span></code></p></li>
+<li class="task-list-item"><p><input class="task-list-item-checkbox" disabled="disabled" type="checkbox"> Added <code class="docutils literal notranslate"><span class="pre">argocd/overlays/moc-infra/applications/envs/$CLUSTER_REGION/$CLUSTER_NAME/kustomization.yaml</span></code></p></li>
+<li class="task-list-item"><p><input class="task-list-item-checkbox" disabled="disabled" type="checkbox"> Added <code class="docutils literal notranslate"><span class="pre">cluster-scope/overlays/prod/$CLUSTER_REGION/$CLUSTER_NAME/groups/cluster-admins.yaml</span></code></p></li>
+<li class="task-list-item"><p><input class="task-list-item-checkbox" disabled="disabled" type="checkbox"> Added <code class="docutils literal notranslate"><span class="pre">cluster-scope/overlays/prod/$CLUSTER_REGION/$CLUSTER_NAME/kustomization.yaml</span></code></p></li>
+<li class="task-list-item"><p><input class="task-list-item-checkbox" disabled="disabled" type="checkbox"> Added <code class="docutils literal notranslate"><span class="pre">cluster-scope/overlays/prod/$CLUSTER_REGION/$CLUSTER_NAME/oauths/cluster_patch.yaml</span></code></p></li>
+<li class="task-list-item"><p><input class="task-list-item-checkbox" disabled="disabled" type="checkbox"> Added <code class="docutils literal notranslate"><span class="pre">cluster-scope/overlays/prod/$CLUSTER_REGION/$CLUSTER_NAME/oauths/operate-first-sso-secret.enc.yaml</span></code></p></li>
+<li class="task-list-item"><p><input class="task-list-item-checkbox" disabled="disabled" type="checkbox"> Added <code class="docutils literal notranslate"><span class="pre">cluster-scope/overlays/prod/$CLUSTER_REGION/$CLUSTER_NAME/secret-generator.yaml</span></code></p></li>
+<li class="task-list-item"><p><input class="task-list-item-checkbox" disabled="disabled" type="checkbox"> Added <code class="docutils literal notranslate"><span class="pre">keycloak/overlays/moc/infra/clients/$CLUSTER_NAME.enc.yaml</span></code></p></li>
+<li class="task-list-item"><p><input class="task-list-item-checkbox" disabled="disabled" type="checkbox"> Modified <code class="docutils literal notranslate"><span class="pre">keycloak/overlays/moc/infra/secret-generator.yaml</span></code></p></li>
+</ul>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">!</span>git status
+<span class="o">!</span>git add .
+<span class="o">!</span>git commit -m <span class="s2">&quot;feat(onboarding): Add cluster {CLUSTER_NAME}&quot;</span>
+<span class="o">!</span>git push
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>On branch master
+Your branch is behind &#39;origin/master&#39; by 1 commit, and can be fast-forwarded.
+  (use &quot;git pull&quot; to update your local branch)
+
+Changes not staged for commit:
+  (use &quot;git add &lt;file&gt;...&quot; to update what will be committed)
+  (use &quot;git restore &lt;file&gt;...&quot; to discard changes in working directory)
+	<span class=" -Color -Color-Red">modified:   acm/overlays/moc/infra/managedclusters/kustomization.yaml</span>
+	<span class=" -Color -Color-Red">modified:   argocd/overlays/moc-infra/applications/app-of-apps/kustomization.yaml</span>
+	<span class=" -Color -Color-Red">modified:   keycloak/overlays/moc/infra/secret-generator.yaml</span>
+
+Untracked files:
+  (use &quot;git add &lt;file&gt;...&quot; to include in what will be committed)
+	<span class=" -Color -Color-Red">acm/overlays/moc/infra/managedclusters/demo.yaml</span>
+	<span class=" -Color -Color-Red">alertreceiver/overlays/emea/demo/</span>
+	<span class=" -Color -Color-Red">argocd/overlays/moc-infra/applications/app-of-apps/app-of-apps-demo.yaml</span>
+	<span class=" -Color -Color-Red">argocd/overlays/moc-infra/applications/envs/emea/demo/</span>
+	<span class=" -Color -Color-Red">cluster-scope/overlays/prod/emea/demo/</span>
+	<span class=" -Color -Color-Red">keycloak/overlays/moc/infra/clients/demo.enc.yaml</span>
+
+no changes added to commit (use &quot;git add&quot; and/or &quot;git commit -a&quot;)
+[master 58d7129] feat(onboarding): Add cluster demo
+ 16 files changed, 252 insertions(+)
+ create mode 100644 acm/overlays/moc/infra/managedclusters/demo.yaml
+ create mode 100644 alertreceiver/overlays/emea/demo/kustomization.yaml
+ create mode 100644 argocd/overlays/moc-infra/applications/app-of-apps/app-of-apps-demo.yaml
+ create mode 100644 argocd/overlays/moc-infra/applications/envs/emea/demo/cluster-management/alertreceiver.yaml
+ create mode 100644 argocd/overlays/moc-infra/applications/envs/emea/demo/cluster-management/cluster-resources.yaml
+ create mode 100644 argocd/overlays/moc-infra/applications/envs/emea/demo/cluster-management/kustomization.yaml
+ create mode 100644 argocd/overlays/moc-infra/applications/envs/emea/demo/kustomization.yaml
+ create mode 100644 cluster-scope/overlays/prod/emea/demo/groups/cluster-admins.yaml
+ create mode 100644 cluster-scope/overlays/prod/emea/demo/kustomization.yaml
+ create mode 100644 cluster-scope/overlays/prod/emea/demo/oauths/cluster_patch.yaml
+ create mode 100644 cluster-scope/overlays/prod/emea/demo/oauths/operate-first-sso-secret.enc.yaml
+ create mode 100644 cluster-scope/overlays/prod/emea/demo/secret-generator.yaml
+ create mode 100644 keycloak/overlays/moc/infra/clients/demo.enc.yaml
+qt.qpa.xcb: QXcbConnection: XCB error: 3 (BadWindow), sequence: 813, resource id: 15545424, major code: 40 (TranslateCoords), minor code: 0
+Enumerating objects: 73, done.
+Counting objects: 100% (73/73), done.
+Delta compression using up to 8 threads
+Compressing objects: 100% (42/42), done.
+Writing objects: 100% (48/48), 8.44 KiB | 2.11 MiB/s, done.
+Total 48 (delta 14), reused 1 (delta 0), pack-reused 0
+remote: Resolving deltas: 100% (14/14), completed with 11 local objects.
+To https://github.com/tumido/apps.git
+   de2f47a..58d7129  master -&gt; master
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python3",
+            path: "./content/notebooks"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+              </div>
+              
+        
+            <!-- Previous / next buttons -->
+<div class='prev-next-area'> 
+    <a class='left-prev' id="prev-link" href="increase_pvc_size.html" title="previous page">
+        <i class="fas fa-angle-left"></i>
+        <div class="prev-next-info">
+            <p class="prev-next-subtitle">previous</p>
+            <p class="prev-next-title">Increase size of a PVC in JupyterHub</p>
+        </div>
+    </a>
+    <a class='right-next' id="next-link" href="onboarding_project.html" title="next page">
+    <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">How to onboard a new project to a cluster on Operate First Cloud</p>
+    </div>
+    <i class="fas fa-angle-right"></i>
+    </a>
+</div>
+        
+        </div>
+    </div>
+    <footer class="footer">
+    <div class="container">
+      <p>
+        
+          By Operate First Authors<br/>
+        
+            &copy; Copyright 2021.<br/>
+      </p>
+    </div>
+  </footer>
+</main>
+
+
+      </div>
+    </div>
+  
+  <script src="../../_static/js/index.be7d3bbb2ef33a8344ce.js"></script>
+
+  </body>
+</html>
