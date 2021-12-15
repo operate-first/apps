@@ -8,12 +8,18 @@ spec:
     kind: StatefulSet
     name: observatorium-thanos-receive-default
     apiVersion: apps/v1
-  minReplicas: 5
-  maxReplicas: 10
+  minReplicas: 7
+  maxReplicas: 12
   metrics:
+    - type: Resource
+      resource:
+        name: memory
+        target:
+          type: Utilization
+          averageUtilization: 80
     - type: Resource
       resource:
         name: cpu
         target:
           type: Utilization
-          averageUtilization: 80
+          averageUtilization: 60
