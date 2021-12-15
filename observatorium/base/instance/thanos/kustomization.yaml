@@ -10,3 +10,6 @@ resources:
   - query-frontend
   - receive
   - receive-controller
+  - store
+  - store-bucket-cache
+  - store-index-cache
