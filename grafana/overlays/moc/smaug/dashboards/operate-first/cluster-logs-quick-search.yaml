@@ -17,6 +17,12 @@ spec:
             "hide": true,
             "iconColor": "rgba(0, 211, 255, 1)",
             "name": "Annotations & Alerts",
+            "target": {
+              "limit": 100,
+              "matchAny": false,
+              "tags": [],
+              "type": "dashboard"
+            },
             "type": "dashboard"
           }
         ]
@@ -25,8 +31,8 @@ spec:
       "editable": true,
       "gnetId": 12019,
       "graphTooltip": 0,
-      "id": 24,
-      "iteration": 1622679633707,
+      "id": 36,
+      "iteration": 1639407240211,
       "links": [],
       "panels": [
         {
@@ -37,7 +43,6 @@ spec:
           "datasource": "$log_datasource",
           "fieldConfig": {
             "defaults": {
-              "custom": {},
               "links": []
             },
             "overrides": []
@@ -65,27 +70,23 @@ spec:
           "linewidth": 1,
           "maxPerRow": 2,
           "nullPointMode": "null",
-          "percentage": false,
-          "pluginVersion": "7.1.1",
-          "pointradius": 2,
-          "points": false,
-          "renderer": "flot",
-          "repeat": "pod",
-          "repeatDirection": "v",
-          "scopedVars": {
-            "pod": {
-              "selected": true,
-              "text": "jupyterhub-125-hhfml",
-              "value": "jupyterhub-125-hhfml"
-            }
+          "options": {
+            "alertThreshold": true
           },
+          "percentage": false,
+          "pluginVersion": "8.1.1",
+          "pointradius": 2,
+          "points": true,
+          "renderer": "flot",
+          "repeat": "container",
+          "repeatDirection": "v",
           "seriesOverrides": [],
           "spaceLength": 10,
-          "stack": false,
+          "stack": true,
           "steppedLine": false,
           "targets": [
             {
-              "expr": "sum(count_over_time({k8s_namespace_name=\"$namespace\"} | json | kubernetes_pod_name=~\"$pod\"[$__interval]))",
+              "expr": "sum(count_over_time({openshift_cluster=\"$cluster\", k8s_namespace_name=\"$namespace\"} | json | kubernetes_pod_name=~\"$pod\"[$__interval]))",
               "legendFormat": "",
               "refId": "A"
             }
@@ -94,7 +95,7 @@ spec:
           "timeFrom": null,
           "timeRegions": [],
           "timeShift": null,
-          "title": "Log Frequency Pod: $pod",
+          "title": "Log Frequency Pod: $pod, Container: $container",
           "tooltip": {
             "shared": true,
             "sort": 0,
@@ -133,12 +134,6 @@ spec:
         },
         {
           "datasource": "$log_datasource",
-          "fieldConfig": {
-            "defaults": {
-              "custom": {}
-            },
-            "overrides": []
-          },
           "gridPos": {
             "h": 25,
             "w": 24,
@@ -149,34 +144,31 @@ spec:
           "maxDataPoints": "",
           "maxPerRow": 2,
           "options": {
+            "dedupStrategy": "none",
+            "enableLogDetails": true,
+            "prettifyLogMessage": false,
+            "showCommonLabels": false,
             "showLabels": false,
             "showTime": true,
             "sortOrder": "Descending",
-            "wrapLogMessage": true
+            "wrapLogMessage": false
           },
-          "repeat": "pod",
+          "repeat": "container",
           "repeatDirection": "h",
-          "scopedVars": {
-            "pod": {
-              "selected": true,
-              "text": "jupyterhub-125-hhfml",
-              "value": "jupyterhub-125-hhfml"
-            }
-          },
           "targets": [
             {
-              "expr": "{k8s_namespace_name=\"$namespace\"} | json | kubernetes_pod_name=~\"$pod\" | line_format \"{{.message}}\"",
+              "expr": "{openshift_cluster=\"$cluster\", k8s_namespace_name=\"$namespace\"} | json | kubernetes_pod_name=~\"$pod\" | kubernetes_container_name=\"$container\" | line_format \"{{.message}}\"",
               "legendFormat": "",
               "refId": "A"
             }
           ],
           "timeFrom": null,
           "timeShift": null,
-          "title": "Logs Pod: $pod",
+          "title": "Logs Pod: $pod, Container: $container",
           "type": "logs"
         }
       ],
-      "schemaVersion": 26,
+      "schemaVersion": 30,
       "style": "dark",
       "tags": [
         "logs"
@@ -186,9 +178,11 @@ spec:
           {
             "current": {
               "selected": false,
-              "text": "cluster-smaug-app-logs",
-              "value": "cluster-smaug-app-logs"
+              "text": "app-logs",
+              "value": "app-logs"
             },
+            "description": null,
+            "error": null,
             "hide": 0,
             "includeAll": false,
             "label": null,
@@ -204,10 +198,12 @@ spec:
           },
           {
             "current": {
-              "selected": false,
-              "text": "opf-prometheus",
-              "value": "opf-prometheus"
+              "selected": true,
+              "text": "moc-smaug",
+              "value": "moc-smaug"
             },
+            "description": null,
+            "error": null,
             "hide": 0,
             "includeAll": false,
             "label": null,
@@ -217,7 +213,7 @@ spec:
             "query": "prometheus",
             "queryValue": "",
             "refresh": 1,
-            "regex": "opf-.*",
+            "regex": "",
             "skipUrlSync": false,
             "type": "datasource"
           },
@@ -225,24 +221,79 @@ spec:
             "allValue": null,
             "current": {
               "selected": false,
-              "text": "opf-jupyterhub",
-              "value": "opf-jupyterhub"
+              "text": "moc/smaug",
+              "value": "moc/smaug"
+            },
+            "datasource": "${log_datasource}",
+            "definition": "label_values({}, openshift_cluster)",
+            "description": null,
+            "error": null,
+            "hide": 0,
+            "includeAll": false,
+            "label": null,
+            "multi": false,
+            "name": "cluster",
+            "options": [],
+            "query": "label_values({}, openshift_cluster)",
+            "refresh": 2,
+            "regex": "",
+            "skipUrlSync": false,
+            "sort": 1,
+            "type": "query"
+          },
+          {
+            "allValue": null,
+            "current": {
+              "selected": false,
+              "text": "opf-jupyterhub-stage",
+              "value": "opf-jupyterhub-stage"
             },
             "datasource": "$log_datasource",
-            "definition": "label_values({openshift_cluster=\"moc/smaug\"}, k8s_namespace_name)",
+            "definition": "label_values({openshift_cluster=\"$cluster\"}, k8s_namespace_name)",
+            "description": null,
+            "error": null,
             "hide": 0,
             "includeAll": false,
             "label": null,
             "multi": false,
             "name": "namespace",
             "options": [],
-            "query": "label_values({openshift_cluster=\"moc/smaug\"}, k8s_namespace_name)",
+            "query": "label_values({openshift_cluster=\"$cluster\"}, k8s_namespace_name)",
             "refresh": 2,
             "regex": "",
             "skipUrlSync": false,
             "sort": 0,
             "tagValuesQuery": "",
-            "tags": [],
+            "tagsQuery": "",
+            "type": "query",
+            "useTags": false
+          },
+          {
+            "allValue": ".*",
+            "current": {
+              "selected": false,
+              "text": "jupyterhub-1-vmmxh",
+              "value": "jupyterhub-1-vmmxh"
+            },
+            "datasource": "$metric_datasource",
+            "definition": "label_values(kube_pod_container_info{namespace=~\"$namespace\"},pod)",
+            "description": null,
+            "error": null,
+            "hide": 0,
+            "includeAll": false,
+            "label": null,
+            "multi": false,
+            "name": "pod",
+            "options": [],
+            "query": {
+              "query": "label_values(kube_pod_container_info{namespace=~\"$namespace\"},pod)",
+              "refId": "StandardVariableQuery"
+            },
+            "refresh": 2,
+            "regex": "",
+            "skipUrlSync": false,
+            "sort": 1,
+            "tagValuesQuery": "",
             "tagsQuery": "",
             "type": "query",
             "useTags": false
@@ -251,34 +302,37 @@ spec:
             "allValue": ".*",
             "current": {
               "selected": true,
-              "text": "jupyterhub-125-hhfml",
+              "text": [
+                "All"
+              ],
               "value": [
-                "jupyterhub-125-hhfml"
+                "$__all"
               ]
             },
-            "datasource": "$metric_datasource",
-            "definition": "label_values(container_network_receive_bytes_total{namespace=~\"$namespace\"},pod)",
+            "datasource": "${metric_datasource}",
+            "definition": "label_values(kube_pod_container_info{namespace=~\"$namespace\", pod=\"$pod\"}, container)",
+            "description": null,
+            "error": null,
             "hide": 0,
-            "includeAll": false,
+            "includeAll": true,
             "label": null,
             "multi": true,
-            "name": "pod",
+            "name": "container",
             "options": [],
-            "query": "label_values(container_network_receive_bytes_total{namespace=~\"$namespace\"},pod)",
+            "query": {
+              "query": "label_values(kube_pod_container_info{namespace=~\"$namespace\", pod=\"$pod\"}, container)",
+              "refId": "StandardVariableQuery"
+            },
             "refresh": 2,
             "regex": "",
             "skipUrlSync": false,
             "sort": 0,
-            "tagValuesQuery": "",
-            "tags": [],
-            "tagsQuery": "",
-            "type": "query",
-            "useTags": false
+            "type": "query"
           }
         ]
       },
       "time": {
-        "from": "now-1h",
+        "from": "now-5m",
         "to": "now"
       },
       "timepicker": {
@@ -296,5 +350,5 @@ spec:
       "timezone": "utc",
       "title": "Cluster logs quick search",
       "uid": "liz0yRCZz",
-      "version": 11
+      "version": 4
     }
