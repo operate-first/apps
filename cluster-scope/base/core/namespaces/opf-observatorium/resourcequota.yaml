@@ -4,9 +4,9 @@ metadata:
   name: opf-observatorium-custom
 spec:
   hard:
-    limits.cpu: '64'
-    limits.memory: 256Gi
-    requests.cpu: '32'
-    requests.memory: 128Gi
-    requests.storage: 1000Gi
+    limits.cpu: '150'
+    limits.memory: 374Gi
+    requests.cpu: '100'
+    requests.memory: 196Gi
+    requests.storage: 2000Gi
     count/objectbucketclaims.objectbucket.io: 2
