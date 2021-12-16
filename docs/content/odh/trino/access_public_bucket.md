@@ -5,8 +5,8 @@ and other information for this bucket below:
 
 * Endpoint: https://s3-openshift-storage.apps.smaug.na.operate-first.cloud
 * Bucket Name: opf-datacatalog
-* Access Key: LLEzCoxu7pvjzO4inoL8
-* Secret Key: 1HnDVoIS2jt3h3xEpgeQlCX5+FeOUH0wOrvWVvZP
+* Access Key: INDuwCuYntikCsRQioSk
+* Secret Key: YjLeEDP+Lj30BJTbzgy84b3pzXPpWtlYnRcMYW2/
 * Total Size: 15G
 
 Some things to note:
