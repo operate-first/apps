@@ -28,3 +28,4 @@ g, lab-cicd, role:standard-user
 g, apicurio, role:standard-user
 g, sre, role:standard-user
 g, fybrik, role:standard-user
+g, tremor-demo, role:standard-user
