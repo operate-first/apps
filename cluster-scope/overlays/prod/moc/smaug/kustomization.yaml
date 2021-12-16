@@ -144,6 +144,7 @@ resources:
 - ../../../../base/storage.k8s.io/storageclasses/ocs-external-storagecluster-ceph-rbd
 - ../../../../base/user.openshift.io/groups/cluster-admins
 - ../common
+- clusterversion.yaml
 - ingresscontrollers/default.yaml
 - nodenetworkconfigurationpolicies/vlan-210-nfs.yaml
 - nodenetworkconfigurationpolicies/vlan-211-nese.yaml
