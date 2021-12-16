@@ -7,5 +7,6 @@ resources:
   - secure-route.yaml
   - secrets
   - hive-metastores
+  - configs
 generatorOptions:
   disableNameSuffixHash: true
