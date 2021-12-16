@@ -12,4 +12,5 @@ resources:
   - operate-first.yaml
   - rekor.yaml
   - thoth.yaml
+  - tremor-demo.yaml
   - workshops.yaml
