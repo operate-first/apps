@@ -35,5 +35,6 @@ spec:
         contains(groups[*], 'data-science')   && 'Viewer' ||
         contains(groups[*], 'curator')        && 'Editor' ||
         contains(groups[*], 'prometheus-anomaly-detector') && 'Editor' ||
+        contains(groups[*], 'thoth')          && 'Editor' ||
         'Deny'
       role_attribute_strict: true
