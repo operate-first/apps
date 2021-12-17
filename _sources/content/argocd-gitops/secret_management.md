@@ -7,12 +7,14 @@ This onboarding guide will help you set up your application's secrets in a way t
 1. Install GPG and [SOPS][sops]
 2. Have ready your own/team-owned secret GPG key that you want to access the encrypted data with
 
+Or use the [toolbox](https://github.com/operate-first/toolbox).
+
 ## Obtain OperateFirst GPG public key
 
-Fetch [`0508677DD04952D06A943D5B4DC4116D360E3276` GPG key][gpgkey]:
+Fetch [`0508677DD04952D06A943D5B4DC4116D360E3276` GPG key](https://keys.openpgp.org/search?q=0508677DD04952D06A943D5B4DC4116D360E3276):
 
 ```sh
-gpg --keyserver keys.gnupg.net --recv 0508677DD04952D06A943D5B4DC4116D360E3276
+gpg --keyserver keys.openpgp.org --recv 0508677DD04952D06A943D5B4DC4116D360E3276
 ```
 
 ## Create sops file

@@ -702,7 +702,7 @@
   <div class="tex2jax_ignore mathjax_ignore section" id="import-development-gpg-key">
 <h1>Import Development GPG Key<a class="headerlink" href="#import-development-gpg-key" title="Permalink to this headline">¶</a></h1>
 <p>If you would like to import the GPG key used for dev purposes in our ArgoCD dev deployment, you can find it under: <code class="docutils literal notranslate"><span class="pre">apps/docs/argocd-gitops/key.asc</span></code>. To import it simply run:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ base64 -d &lt; apps/docs/argocd/key.asc | gpg --import
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ base64 -d &lt; apps/docs/content/argocd-gitops/key.asc | gpg --import
 </pre></div>
 </div>
 <p>You will need to import this key to be able to decrypt the contents of the secrets using sops.</p>
