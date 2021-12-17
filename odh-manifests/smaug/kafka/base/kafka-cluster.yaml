@@ -43,7 +43,6 @@ spec:
     storage:
       type: persistent-claim
       size: 40Gi
-      class: moc-nfs-csi
       deleteClaim: false
     metricsConfig:
       type: jmxPrometheusExporter
@@ -63,7 +62,6 @@ spec:
     storage:
       type: persistent-claim
       size: 2Gi
-      class: moc-nfs-csi
       deleteClaim: false
     metricsConfig:
       type: jmxPrometheusExporter
