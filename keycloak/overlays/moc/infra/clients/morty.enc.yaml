@@ -1,0 +1,52 @@
+apiVersion: keycloak.org/v1alpha1
+kind: KeycloakClient
+metadata:
+    name: morty
+    labels:
+        client: morty
+spec:
+    client:
+        clientId: morty
+        defaultClientScopes:
+        - profile
+        description: Morty Cluster
+        name: morty cluster
+        protocol: openid-connect
+        secret: ENC[AES256_GCM,data:KOOvVAX0xo9NYpb3USSFuFB4GTCjmrDmz/ayg9+9YpjHhGo2,iv:kz9FYsuyt8ua2rTw+UD69ORky/aC80s3rmmfzGswVdk=,tag:6OfX2f+DOQdwAR1moB4VPQ==,type:str]
+        standardFlowEnabled: true
+        redirectUris:
+        - https://oauth-openshift.apps.morty.emea.operate-first.cloud/oauth2callback/operate-first
+    realmSelector:
+        matchLabels:
+            realm: operate-first
+sops:
+    kms: []
+    gcp_kms: []
+    azure_kv: []
+    hc_vault: []
+    lastmodified: '2021-12-17T21:23:52Z'
+    mac: ENC[AES256_GCM,data:XB+8042NSIX0aM3JJH5R/8NQwfv61nEge6d4xag65gzkb5Oicxx2U3Q21lF/fB18vUmfTG4NS/ScaeZR3CP1616TRBqOcVqkrl2IXAoHoMXXRybhRuaN+jBYyTX7SDy+Ysb23Qm00E0wA+jpjDloduFtdFeoRGdC5UIgKprSnuQ=,iv:pcWIr1DBKWJ96g04CjJ/TjgGoxiPq+j6Wgg4NwhhVYE=,tag:OWSPUpYvp5mbtzmMLEHrfg==,type:str]
+    pgp:
+    -   created_at: '2021-12-17T21:23:52Z'
+        enc: |-
+            -----BEGIN PGP MESSAGE-----
+
+            wcFMA9aKBcudqifiARAAYDRcVlfCmMj+LafAV+0N0exaaYddheCmkgLhR/dgps0h
+            Tz0UZrail6qwKHqodLSnskjb1txCwNxy1qKrFzW38Z5nRgPOuJn3kOtC0tekUYfT
+            dNP8vezWE6FeGyVuszwnP//WCxQIiIrkEoWSyngEYR27o5bRsSwsOj9KNSJ6UUHl
+            i2j52V8IxDssZxVK1yOakmlzvadIGoTB6zwOFR4xRhIVhJDmi6ZvexZrbuMSFH2o
+            GSoI9jZifSLWrBSIwzny1Qz4vg2M4eBrOJiGkBOxzHy3AD/GkpNQG70g2tg1R8FQ
+            XmobuQk3GcCpmbEkFVpFr7IJViTlwuSC4FsB/SQRXpMR0g8YpdrIyg76gPO2Si9s
+            ZUcS6VvWahfit2yoMAmo8j/hJB6KifSK10tmLiM2sFZAr78zTIoqtcC9M0qwYH/U
+            j/jxwB0Uo9sHrbrZgkXPV36BEMeOitDBd33bUHitxJwUYD4Ze4BZ5Xc4SZ67tbCP
+            +fzk1mKYHWcLxihxvXt9qBqsaFrUo8ItWy0z4Wj1E88ovveM0zmhjZ3ewhXOxwdc
+            p+5PoMcUgXsIEKOgyqSC1WeEuQSe8pAbuJyfDoFpeTfjLHJUKlTN0p1WrwBoLqm1
+            O30Y+bF0f+3+3iO5N/PFXfsMQMIkqzGzyw9Leo8C5MCkW/amUPzZkcMTzHEYpR/S
+            4AHkIKl24dIYvMLkJDG33QQd+OHAueCQ4IDhMhPgduKPyF3n4HLlGVZ0hxjb/N3u
+            +pwmR3KrLzqpPsPM+A2mrXo+Ok2zKOjgWeRTnMKz5DIczL1yw93VJL4l4h+laW/h
+            7eEA
+            =4g2Q
+            -----END PGP MESSAGE-----
+        fp: 0508677DD04952D06A943D5B4DC4116D360E3276
+    encrypted_regex: ^secret$
+    version: 3.6.1
