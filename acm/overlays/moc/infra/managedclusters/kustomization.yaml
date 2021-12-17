@@ -3,6 +3,7 @@ kind: Kustomization
 resources:
 - balrog.yaml
 - curator.yaml
+- morty.yaml
 - ocp-prod.yaml
 - ocp-staging.yaml
 - osc-cl1.yaml
