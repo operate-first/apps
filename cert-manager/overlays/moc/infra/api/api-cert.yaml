@@ -10,4 +10,4 @@ spec:
   duration: 2160h0m0s
   renewBefore: 360h0m0s
   dnsNames:
-    - "*.api.moc-infra.massopen.cloud"
+    - "api.moc-infra.massopen.cloud"
