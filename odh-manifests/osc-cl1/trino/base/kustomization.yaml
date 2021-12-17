@@ -13,8 +13,6 @@ resources:
 - hadoop-config.yaml
 - hive-config.yaml
 - hive-jmx-config.yaml
-- trino-config-secret.yaml
-- trino-catalog-secret.yaml
 - trino-coordinator-dc.yaml
 - trino-service.yaml
 - trino-route.yaml
