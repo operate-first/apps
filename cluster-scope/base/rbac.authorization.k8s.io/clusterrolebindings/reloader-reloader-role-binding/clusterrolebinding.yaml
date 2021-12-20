@@ -1,0 +1,14 @@
+apiVersion: rbac.authorization.k8s.io/v1
+kind: ClusterRoleBinding
+metadata:
+  labels:
+    app: reloader-reloader
+  name: reloader-reloader-role-binding
+roleRef:
+  apiGroup: rbac.authorization.k8s.io
+  kind: ClusterRole
+  name: reloader-reloader-role
+subjects:
+  - kind: ServiceAccount
+    name: reloader-reloader
+    namespace: reloader

@@ -1,0 +1,19 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: reloader
+spec:
+  project: operate-first
+  source:
+    repoURL: https://github.com/operate-first/apps.git
+    targetRevision: HEAD
+    path: reloader/overlays/moc/smaug
+  destination:
+    name: smaug
+    namespace: reloader
+  syncPolicy:
+    automated:
+      prune: true
+      selfHeal: true
+    syncOptions:
+      - Validate=false
