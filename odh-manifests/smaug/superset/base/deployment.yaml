@@ -8,7 +8,7 @@ spec:
   replicas: 1
   selector:
     matchLabels:
-    deployment: superset
+      deployment: superset
   template:
     metadata:
       labels:
@@ -17,24 +17,65 @@ spec:
     spec:
       initContainers:
       - name: superset-init
-        image: $(SUPERSET_IMAGE)
-        command: ['sh', '-c', "sleep 30; superset-init --username $(SUPERSET_ADMIN_USER) --firstname $(SUPERSET_ADMIN_FNAME) --lastname $(SUPERSET_ADMIN_LNAME) --email $(SUPERSET_ADMIN_EMAIL) --password $(SUPERSET_ADMIN_PASSWORD)"]
-        imagePullPolicy: Always
+        env:
+        - name: SUPERSET_CONFIG_PATH
+          value: /etc/superset/superset_config.py
+        - name: POSTGRESQL_USERNAME
+          valueFrom:
+            secretKeyRef:
+              key: database-user
+              name: $(superset_db_secret)
+        - name: POSTGRESQL_PASSWORD
+          valueFrom:
+            secretKeyRef:
+              key: database-password
+              name: $(superset_db_secret)
+        - name: POSTGRESQL_DATABASE
+          valueFrom:
+            secretKeyRef:
+              key: database-name
+              name: $(superset_db_secret)
+        envFrom:
+          - secretRef:
+              name: oauth-client-secret
+          - secretRef:
+              name: $(superset_secret)
+        image: superset
+        command: ['sh', '-c', "sleep 30; superset-init --username $SUPERSET_ADMIN_USER --firstname $SUPERSET_ADMIN_FNAME --lastname $SUPERSET_ADMIN_LNAME --email $SUPERSET_ADMIN_EMAIL --password $SUPERSET_ADMIN_PASSWORD"]
         volumeMounts:
           - mountPath: /etc/superset
             name: superset-config
-        envFrom:
-          - secretRef:
-              name: superset-oidc
       containers:
       - name: superset
+        env:
+        - name: SUPERSET_SECRET_KEY
+          valueFrom:
+            secretKeyRef:
+              key: SUPERSET_SECRET_KEY
+              name: $(superset_secret)
+        - name: POSTGRESQL_USERNAME
+          valueFrom:
+            secretKeyRef:
+              key: database-user
+              name: $(superset_db_secret)
+        - name: POSTGRESQL_PASSWORD
+          valueFrom:
+            secretKeyRef:
+              key: database-password
+              name: $(superset_db_secret)
+        - name: POSTGRESQL_DATABASE
+          valueFrom:
+            secretKeyRef:
+              key: database-name
+              name: $(superset_db_secret)
+        - name: SUPERSET_CONFIG_PATH
+          value: /etc/superset/superset_config.py
         envFrom:
           - secretRef:
               name: superset
           - secretRef:
               name: oauth-client-secret
-        image: $(SUPERSET_IMAGE)
-        imagePullPolicy: Always
+        image: superset
         ports:
           - containerPort: 8088
             protocol: TCP
@@ -43,11 +84,11 @@ spec:
             name: superset-config
         resources:
           requests:
-            cpu: $(SUPERSET_CPU_REQUESTS)
-            memory: $(SUPERSET_MEMORY_REQUESTS)
+            cpu: $(superset_cpu_requests)
+            memory: $(superset_memory_requests)
           limits:
-            cpu: $(SUPERSET_CPU_LIMITS)
-            memory: $(SUPERSET_MEMORY_LIMITS)
+            cpu: $(superset_cpu_limits)
+            memory: $(superset_memory_limits)
       volumes:
         - name: superset-config
           secret:
