@@ -11,6 +11,8 @@ data:
   jupyterhub_admins: "admin"
   gpu_mode: ""
   singleuser_pvc_size: 2Gi
+  notebook_destination: "$(notebook_destination)"
+
 ---
 apiVersion: v1
 kind: ConfigMap
