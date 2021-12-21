@@ -120,6 +120,7 @@ resources:
 - ../../../../base/rbac.authorization.k8s.io/clusterrolebindings/curator-manager-rb
 - ../../../../base/rbac.authorization.k8s.io/clusterrolebindings/curator-oauth-proxy-rb
 - ../../../../base/rbac.authorization.k8s.io/clusterrolebindings/fybrik-admin-rb
+- ../../../../base/rbac.authorization.k8s.io/clusterrolebindings/jupyterhub-cluster
 - ../../../../base/rbac.authorization.k8s.io/clusterrolebindings/moc-nfs-democratic-csi-controller-rb
 - ../../../../base/rbac.authorization.k8s.io/clusterrolebindings/moc-nfs-democratic-csi-node-rb
 - ../../../../base/rbac.authorization.k8s.io/clusterrolebindings/node-labeler
