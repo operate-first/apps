@@ -23,8 +23,6 @@ patchesJson6902:
                 value: "4"
               - name: trino_cpu_limit
                 value: "8"
-              - name: trino_image
-                value: quay.io/opendatahub/trino:362
             repoRef:
               name: opf
               path: odh-manifests/smaug/trino
