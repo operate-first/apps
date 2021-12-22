@@ -54,6 +54,11 @@ spec:
             - name: trino-catalogs-volume
               mountPath: /etc/trino/catalog
           image: trino
+          envFrom:
+            - secretRef:
+                name: s3buckets
+            - secretRef:
+                name: postgres-dbs
           args:
             - --config=/etc/trino/config-worker.properties
             - --jvm-config=/etc/trino/jvm-worker.config
