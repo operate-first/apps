@@ -14,12 +14,14 @@ patchesJson6902:
         value:
           kustomizeConfig:
             parameters:
-              - name: SUPERSET_IMAGE
-                value: quay.io/opendatahub/superset:1.1.0
-              - name: SUPERSET_MEMORY_REQUESTS
+              - name: superset_memory_requests
                 value: "6Gi"
-              - name: SUPERSET_MEMORY_LIMITS
+              - name: superset_memory_limits
                 value: "8Gi"
+              - name: superset_secret
+                value: "superset-custom"
+              - name: superset_db_secret
+                value: "superset-db-custom"
             repoRef:
               name: opf
               path: odh-manifests/smaug/superset
