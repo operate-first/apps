@@ -61,7 +61,7 @@ spec:
               mountPath: /etc/trino/prometheus
             - name: trino-catalogs-volume
               mountPath: /etc/trino/catalog
-          image: $(trino_image)
+          image: trino
           envFrom:
             - secretRef:
                 name: trino-oauth
