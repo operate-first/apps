@@ -49,6 +49,7 @@ resources:
     - ../../../base/user.openshift.io/groups/thoth-devops
     - ../../../base/user.openshift.io/groups/tremor-demo
     - ../../../base/user.openshift.io/groups/uky-redhat
+    - ../../../base/user.openshift.io/groups/octo-training-model
     - ../../../base/user.openshift.io/groups/octo-ushift-dev
     - ../../../base/user.openshift.io/groups/octo-otel-dev
     - ../../../base/user.openshift.io/groups/workshops
