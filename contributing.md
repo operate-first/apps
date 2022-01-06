@@ -76,7 +76,7 @@ When creating a pull request (PR) please use the following checklist:
 - If updating a kustomization build, ensure that the `kustomize build` on that path still works.
 - Ensure that all confidential information has been encrypted via [sops](https://github.com/mozilla/sops) and [ksops](https://github.com/viaduct-ai/kustomize-sops), before making the PR.
 - If the PR is a work-in-progress, you need to prevent our CI bot from merging it until it's ready. To do so, please create a `Draft` PR or add the WIP prefix to your PR title.
-   - An example of a WIP-prefixed title could be "WIP: Added new namespace to zero cluster."
+   - An example of a WIP-prefixed title could be "WIP: Added new namespace to Smaug cluster."
    - When the PR is ready to be merged, you can simply remove the WIP prefix from the title.
 
 ## Resources

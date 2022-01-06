@@ -1,9 +1,0 @@
----
-apiVersion: operators.coreos.com/v1alpha1
-kind: Subscription
-metadata:
-  name: ocs-operator
-  namespace: openshift-storage
-spec:
-  # As of 2021-03-01 it seems the latest OCS version released is 4.6, it's confusing though.
-  channel: "stable-4.6"
