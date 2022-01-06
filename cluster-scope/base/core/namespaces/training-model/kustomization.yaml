@@ -6,4 +6,4 @@ components:
     - ../../../../components/project-admin-rolebindings/octo-training-model
     - ../../../../components/limitranges/default
     - ../../../../components/resourcequotas/large
-namespace: ushift-dev
+namespace: training-model
