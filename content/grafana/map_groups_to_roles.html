@@ -41,7 +41,7 @@
     <script src="../../_static/clipboard.min.js"></script>
     <script src="../../_static/copybutton.js"></script>
     <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
-    <script src="../../_static/sphinx-book-theme.12a9622fbb08dcb3a2a40b2c02b83a57.js"></script>
+    <script src="../../_static/sphinx-book-theme.d59cb220de22ca1c485ebbdc042f0030.js"></script>
     <script async="async" src="https://unpkg.com/thebe@0.5.1/lib/index.js"></script>
     <script>
         const thebe_selector = ".thebe"
@@ -655,7 +655,7 @@
                 data-placement="left">.md</button></a>
         <!-- Download PDF via print -->
         <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
-            onClick="window.print()" data-toggle="tooltip" data-placement="left">.pdf</button>
+                onclick="printPdf(this)" data-toggle="tooltip" data-placement="left">.pdf</button>
     </div>
 </div>
 
@@ -689,7 +689,7 @@
         </div>
 
         <!-- Table of contents -->
-        <div class="d-none d-md-block col-md-2 bd-toc show">
+        <div class="d-none d-md-block col-md-2 bd-toc show noprint">
             
             <div class="tocsection onthispage pt-5 pb-3">
                 <i class="fas fa-list"></i> Contents
@@ -714,7 +714,35 @@
 </div>
     <div id="main-content" class="row">
         <div class="col-12 col-md-9 pl-md-3 pr-md-0">
-        
+            <!-- Table of contents that is only displayed when printing the page -->
+            <div id="jb-print-docs-body" class="onlyprint">
+                <h1>Adding permissions in Grafana</h1>
+                <!-- Table of contents -->
+                <div id="print-main-content">
+                    <div id="jb-print-toc">
+                        
+                        <div>
+                            <h2> Contents </h2>
+                        </div>
+                        <nav aria-label="Page">
+                            <ul class="visible nav section-nav flex-column">
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#">
+   Adding permissions in Grafana
+  </a>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#give-ocp-group-grafana-role">
+   Give OCP group Grafana role
+  </a>
+ </li>
+</ul>
+
+                        </nav>
+                    </div>
+                </div>
+            </div>
+            
               <div>
                 
   <div class="tex2jax_ignore mathjax_ignore section" id="adding-permissions-in-grafana">
@@ -728,19 +756,19 @@ the Grafana CR.</p>
 <p>Navigate to the Grafana CR, for the Grafana instance on the MOC environment <a class="reference external" href="https://github.com/operate-first/apps/blob/master/grafana/overlays/moc/smaug/grafana-oauth.yaml">here</a>.
 Find the attribute: <code class="docutils literal notranslate"><span class="pre">role_attribute_path</span></code> under <code class="docutils literal notranslate"><span class="pre">spec.config.auth.generic_oauth</span></code></p>
 <p>You will see something like the following:</p>
-<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span>  <span class="nt">role_attribute_path</span><span class="p">:</span> <span class="p p-Indicator">|</span>
-    <span class="no">contains(groups[*], &#39;operate-first&#39;) &amp;&amp; &#39;Admin&#39; ||</span>
-    <span class="no">contains(groups[*], &#39;data-science&#39;) &amp;&amp; &#39;Viewer&#39; ||</span>
-    <span class="no">&#39;Deny&#39;</span>
+<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="w">  </span><span class="nt">role_attribute_path</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">|</span><span class="w"></span>
+<span class="w">    </span><span class="no">contains(groups[*], &#39;operate-first&#39;) &amp;&amp; &#39;Admin&#39; ||</span><span class="w"></span>
+<span class="w">    </span><span class="no">contains(groups[*], &#39;data-science&#39;) &amp;&amp; &#39;Viewer&#39; ||</span><span class="w"></span>
+<span class="w">    </span><span class="no">&#39;Deny&#39;</span><span class="w"></span>
 </pre></div>
 </div>
 <p>Add a line before <code class="docutils literal notranslate"><span class="pre">Deny</span></code> in the form of <code class="docutils literal notranslate"><span class="pre">contains(groups[*],</span> <span class="pre">'&lt;YOUR_OCP_GROUP&gt;')</span> <span class="pre">&amp;&amp;</span> <span class="pre">'&lt;GRAFANA_ROLE&gt;'</span> <span class="pre">||</span></code>.
 For example if we wanted to give the OCP group “my-team” the “Editor” Grafana role, we would update the field like so:</p>
-<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span>  <span class="nt">role_attribute_path</span><span class="p">:</span> <span class="p p-Indicator">|</span>
-    <span class="no">contains(groups[*], &#39;operate-first&#39;) &amp;&amp; &#39;Admin&#39; ||</span>
-    <span class="no">contains(groups[*], &#39;data-science&#39;) &amp;&amp; &#39;Viewer&#39; ||</span>
-    <span class="no">contains(groups[*], &#39;my-team&#39;) &amp;&amp; &#39;Editor&#39; ||</span>
-    <span class="no">&#39;Deny&#39;</span>
+<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="w">  </span><span class="nt">role_attribute_path</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">|</span><span class="w"></span>
+<span class="w">    </span><span class="no">contains(groups[*], &#39;operate-first&#39;) &amp;&amp; &#39;Admin&#39; ||</span><span class="w"></span>
+<span class="w">    </span><span class="no">contains(groups[*], &#39;data-science&#39;) &amp;&amp; &#39;Viewer&#39; ||</span><span class="w"></span>
+<span class="w">    </span><span class="no">contains(groups[*], &#39;my-team&#39;) &amp;&amp; &#39;Editor&#39; ||</span><span class="w"></span>
+<span class="w">    </span><span class="no">&#39;Deny&#39;</span><span class="w"></span>
 </pre></div>
 </div>
 <p>Submit a PR with the changes.</p>
@@ -768,8 +796,8 @@ For example if we wanted to give the OCP group “my-team” the “Editor” Gr
 
               </div>
               
-        
-            <!-- Previous / next buttons -->
+            
+                <!-- Previous / next buttons -->
 <div class='prev-next-area'> 
     <a class='left-prev' id="prev-link" href="add_grafana_dashboard.html" title="previous page">
         <i class="fas fa-angle-left"></i>
@@ -786,19 +814,17 @@ For example if we wanted to give the OCP group “my-team” the “Editor” Gr
     <i class="fas fa-angle-right"></i>
     </a>
 </div>
-        
+            
         </div>
     </div>
     <footer class="footer">
-    <div class="container">
-      <p>
-        
-          By Operate First Authors<br/>
-        
-            &copy; Copyright 2021.<br/>
-      </p>
-    </div>
-  </footer>
+  <p>
+    
+      By Operate First Authors<br/>
+    
+        &copy; Copyright 2021.<br/>
+  </p>
+</footer>
 </main>
 
 

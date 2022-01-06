@@ -41,7 +41,7 @@
     <script src="../../_static/clipboard.min.js"></script>
     <script src="../../_static/copybutton.js"></script>
     <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
-    <script src="../../_static/sphinx-book-theme.12a9622fbb08dcb3a2a40b2c02b83a57.js"></script>
+    <script src="../../_static/sphinx-book-theme.d59cb220de22ca1c485ebbdc042f0030.js"></script>
     <script async="async" src="https://unpkg.com/thebe@0.5.1/lib/index.js"></script>
     <script>
         const thebe_selector = ".thebe"
@@ -655,7 +655,7 @@
                 data-placement="left">.md</button></a>
         <!-- Download PDF via print -->
         <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
-            onClick="window.print()" data-toggle="tooltip" data-placement="left">.pdf</button>
+                onclick="printPdf(this)" data-toggle="tooltip" data-placement="left">.pdf</button>
     </div>
 </div>
 
@@ -689,7 +689,7 @@
         </div>
 
         <!-- Table of contents -->
-        <div class="d-none d-md-block col-md-2 bd-toc show">
+        <div class="d-none d-md-block col-md-2 bd-toc show noprint">
             
             <div class="tocsection onthispage pt-5 pb-3">
                 <i class="fas fa-list"></i> Contents
@@ -751,7 +751,72 @@
 </div>
     <div id="main-content" class="row">
         <div class="col-12 col-md-9 pl-md-3 pr-md-0">
-        
+            <!-- Table of contents that is only displayed when printing the page -->
+            <div id="jb-print-docs-body" class="onlyprint">
+                <h1>ArgoCD onboarding procedure</h1>
+                <!-- Table of contents -->
+                <div id="print-main-content">
+                    <div id="jb-print-toc">
+                        
+                        <div>
+                            <h2> Contents </h2>
+                        </div>
+                        <nav aria-label="Page">
+                            <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#pre-requisites">
+   Pre-requisites
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#openshift-group">
+   OpenShift Group
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#create-project-directories-for-this-repository">
+   Create project directories for this repository
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#create-the-argocd-project">
+   Create the ArgoCD Project
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#enable-openshift-auth-to-argocd-console">
+   Enable OpenShift auth to ArgoCD Console
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#give-team-read-access-to-non-app-argocd-resources">
+   Give team read access to non-app ArgoCD resources
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#additional-notes">
+   Additional Notes:
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#namespace-prefix">
+     Namespace Prefix
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#resources">
+     Resources:
+    </a>
+   </li>
+  </ul>
+ </li>
+</ul>
+
+                        </nav>
+                    </div>
+                </div>
+            </div>
+            
               <div>
                 
   <div class="tex2jax_ignore mathjax_ignore section" id="argocd-onboarding-procedure">
@@ -801,39 +866,39 @@ see below for instructions on adding an ArgoCD Project.</p>
 <p>The team will need a dedicated <a class="reference external" href="https://argoproj.github.io/argo-cd/user-guide/projects/">ArgoCD Project</a> for their <a class="reference external" href="https://argoproj.github.io/argo-cd/operator-manual/declarative-setup/#applications">ArgoCD Applications</a>. The ArgoCD project should be
 added <a class="reference external" href="https://github.com/operate-first/apps/tree/master/argocd/overlays/moc-infra/projects">here</a>.</p>
 <p>A typical project will look like the following:</p>
-<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="nt">apiVersion</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">argoproj.io/v1alpha1</span>
-<span class="nt">kind</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">AppProject</span>
-<span class="nt">metadata</span><span class="p">:</span>
-  <span class="nt">name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">&lt;team-name&gt;</span>
-  <span class="nt">labels</span><span class="p">:</span>
-    <span class="nt">project-template</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">global</span>
-<span class="nt">spec</span><span class="p">:</span>
-  <span class="nt">destinations</span><span class="p">:</span>
-    <span class="p p-Indicator">-</span> <span class="nt">namespace</span><span class="p">:</span> <span class="s">&#39;&lt;team-namespace-prefix&gt;-*&#39;</span>
-      <span class="nt">name</span><span class="p">:</span> <span class="s">&#39;&lt;cluster-name&gt;&#39;</span>
-    <span class="p p-Indicator">-</span> <span class="nt">namespace</span><span class="p">:</span> <span class="s">&#39;&lt;namespace-name&gt;&#39;</span> <span class="c1"># if there is no generic team name prefix, then specify namespaces individually</span>
-      <span class="nt">name</span><span class="p">:</span> <span class="s">&#39;&lt;cluster-name&gt;&#39;</span>
-  <span class="nt">sourceRepos</span><span class="p">:</span>
-    <span class="p p-Indicator">-</span> <span class="s">&#39;*&#39;</span>
-  <span class="nt">roles</span><span class="p">:</span>
-    <span class="p p-Indicator">-</span> <span class="nt">name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">project-admin</span>
-      <span class="nt">description</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">Read/Write access to this project only</span>
-      <span class="nt">policies</span><span class="p">:</span>
-        <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">p, proj:&lt;team-name&gt;:project-admin, applications, get, &lt;team-name&gt;/*, allow</span>
-        <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">p, proj:&lt;team-name&gt;:project-admin, applications, create, &lt;team-name&gt;/*, allow</span>
-        <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">p, proj:&lt;team-name&gt;:project-admin, applications, update, &lt;team-name&gt;/*, allow</span>
-        <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">p, proj:&lt;team-name&gt;:project-admin, applications, delete, &lt;team-name&gt;/*, allow</span>
-        <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">p, proj:&lt;team-name&gt;:project-admin, applications, sync, &lt;team-name&gt;/*, allow</span>
-        <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">p, proj:&lt;team-name&gt;:project-admin, applications, override, &lt;team-name&gt;/*, allow</span>
-        <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">p, proj:&lt;team-name&gt;:project-admin, applications, action/*, &lt;team-name&gt;/*, allow</span>
-      <span class="nt">groups</span><span class="p">:</span>
-        <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">&lt;team-openshift-group&gt;</span>
-        <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">operate-first</span>
-  <span class="nt">clusterResourceWhitelist</span><span class="p">:</span>
-    <span class="p p-Indicator">-</span> <span class="nt">group</span><span class="p">:</span> <span class="s">&#39;&#39;</span>
-      <span class="nt">kind</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">Namespace</span>
-  <span class="nt">namespaceResourceWhitelist</span><span class="p">:</span>
-  <span class="l l-Scalar l-Scalar-Plain">....</span>
+<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="nt">apiVersion</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">argoproj.io/v1alpha1</span><span class="w"></span>
+<span class="nt">kind</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">AppProject</span><span class="w"></span>
+<span class="nt">metadata</span><span class="p">:</span><span class="w"></span>
+<span class="w">  </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">&lt;team-name&gt;</span><span class="w"></span>
+<span class="w">  </span><span class="nt">labels</span><span class="p">:</span><span class="w"></span>
+<span class="w">    </span><span class="nt">project-template</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">global</span><span class="w"></span>
+<span class="nt">spec</span><span class="p">:</span><span class="w"></span>
+<span class="w">  </span><span class="nt">destinations</span><span class="p">:</span><span class="w"></span>
+<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">namespace</span><span class="p">:</span><span class="w"> </span><span class="s">&#39;&lt;team-namespace-prefix&gt;-*&#39;</span><span class="w"></span>
+<span class="w">      </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="s">&#39;&lt;cluster-name&gt;&#39;</span><span class="w"></span>
+<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">namespace</span><span class="p">:</span><span class="w"> </span><span class="s">&#39;&lt;namespace-name&gt;&#39;</span><span class="w"> </span><span class="c1"># if there is no generic team name prefix, then specify namespaces individually</span><span class="w"></span>
+<span class="w">      </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="s">&#39;&lt;cluster-name&gt;&#39;</span><span class="w"></span>
+<span class="w">  </span><span class="nt">sourceRepos</span><span class="p">:</span><span class="w"></span>
+<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="s">&#39;*&#39;</span><span class="w"></span>
+<span class="w">  </span><span class="nt">roles</span><span class="p">:</span><span class="w"></span>
+<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">project-admin</span><span class="w"></span>
+<span class="w">      </span><span class="nt">description</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Read/Write access to this project only</span><span class="w"></span>
+<span class="w">      </span><span class="nt">policies</span><span class="p">:</span><span class="w"></span>
+<span class="w">        </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">p, proj:&lt;team-name&gt;:project-admin, applications, get, &lt;team-name&gt;/*, allow</span><span class="w"></span>
+<span class="w">        </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">p, proj:&lt;team-name&gt;:project-admin, applications, create, &lt;team-name&gt;/*, allow</span><span class="w"></span>
+<span class="w">        </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">p, proj:&lt;team-name&gt;:project-admin, applications, update, &lt;team-name&gt;/*, allow</span><span class="w"></span>
+<span class="w">        </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">p, proj:&lt;team-name&gt;:project-admin, applications, delete, &lt;team-name&gt;/*, allow</span><span class="w"></span>
+<span class="w">        </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">p, proj:&lt;team-name&gt;:project-admin, applications, sync, &lt;team-name&gt;/*, allow</span><span class="w"></span>
+<span class="w">        </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">p, proj:&lt;team-name&gt;:project-admin, applications, override, &lt;team-name&gt;/*, allow</span><span class="w"></span>
+<span class="w">        </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">p, proj:&lt;team-name&gt;:project-admin, applications, action/*, &lt;team-name&gt;/*, allow</span><span class="w"></span>
+<span class="w">      </span><span class="nt">groups</span><span class="p">:</span><span class="w"></span>
+<span class="w">        </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">&lt;team-openshift-group&gt;</span><span class="w"></span>
+<span class="w">        </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">operate-first</span><span class="w"></span>
+<span class="w">  </span><span class="nt">clusterResourceWhitelist</span><span class="p">:</span><span class="w"></span>
+<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">group</span><span class="p">:</span><span class="w"> </span><span class="s">&#39;&#39;</span><span class="w"></span>
+<span class="w">      </span><span class="nt">kind</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Namespace</span><span class="w"></span>
+<span class="w">  </span><span class="nt">namespaceResourceWhitelist</span><span class="p">:</span><span class="w"></span>
+<span class="w">  </span><span class="l l-Scalar l-Scalar-Plain">....</span><span class="w"></span>
 </pre></div>
 </div>
 <p>Some notes:</p>
@@ -862,7 +927,7 @@ config <a class="reference external" href="https://github.com/operate-first/apps
 <h2>Give team read access to non-app ArgoCD resources<a class="headerlink" href="#give-team-read-access-to-non-app-argocd-resources" title="Permalink to this headline">¶</a></h2>
 <p>Append this <a class="reference external" href="https://github.com/operate-first/apps/blob/master/argocd/overlays/moc-infra/configs/argo_rbac_cm/policy.csv">list</a> and give the team the <code class="docutils literal notranslate"><span class="pre">standard-user</span></code> role. The group will correspond to the team’s OCP group.
 For example if onboarding the team <code class="docutils literal notranslate"><span class="pre">someteam</span></code> you would append the following to this file:</p>
-<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="l l-Scalar l-Scalar-Plain">g, someteam, role:standard-user</span>
+<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="l l-Scalar l-Scalar-Plain">g, someteam, role:standard-user</span><span class="w"></span>
 </pre></div>
 </div>
 </div>
@@ -873,26 +938,26 @@ For example if onboarding the team <code class="docutils literal notranslate"><s
 <p>An ArgoCD project allows us to ensure that a team cannot deploy applications onto another team’s namespace via ArgoCD.</p>
 <p>We accomplish this by allowing teams to add the namespaces that they will be deploying to in their ArgoCD Project CR
 under the <code class="docutils literal notranslate"><span class="pre">spec.destinations.</span></code> field. Example:</p>
-<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="nt">apiVersion</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">argoproj.io/v1alpha1</span>
-<span class="nt">kind</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">AppProject</span>
-<span class="nt">metadata</span><span class="p">:</span>
-  <span class="nt">name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">example-project</span>
-  <span class="nt">namespace</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">argocd</span>
-<span class="nt">spec</span><span class="p">:</span>
-  <span class="nt">destinations</span><span class="p">:</span>
-  <span class="p p-Indicator">-</span> <span class="nt">namespace</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">guestbook</span>
-    <span class="nt">server</span><span class="p">:</span> <span class="s">&#39;https://kubernetes.default.svc&#39;</span>
-<span class="nn">...</span>
+<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="nt">apiVersion</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">argoproj.io/v1alpha1</span><span class="w"></span>
+<span class="nt">kind</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">AppProject</span><span class="w"></span>
+<span class="nt">metadata</span><span class="p">:</span><span class="w"></span>
+<span class="w">  </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">example-project</span><span class="w"></span>
+<span class="w">  </span><span class="nt">namespace</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">argocd</span><span class="w"></span>
+<span class="nt">spec</span><span class="p">:</span><span class="w"></span>
+<span class="w">  </span><span class="nt">destinations</span><span class="p">:</span><span class="w"></span>
+<span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">namespace</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">guestbook</span><span class="w"></span>
+<span class="w">    </span><span class="nt">server</span><span class="p">:</span><span class="w"> </span><span class="s">&#39;https://kubernetes.default.svc&#39;</span><span class="w"></span>
+<span class="nn">...</span><span class="w"></span>
 </pre></div>
 </div>
 <p>The project above can only deploy into the <code class="docutils literal notranslate"><span class="pre">guestbook</span></code> namespace in the host cluster.</p>
 <p>It can get bit tedious having to always require a team to submit a pr updating the <code class="docutils literal notranslate"><span class="pre">spec.destinations</span></code> to include new
 namespaces their project applications can deploy onto, so we can use wildcards to include a set of namespaces that begin
 with a prefix. For example, the <code class="docutils literal notranslate"><span class="pre">thoth</span></code> team has the following prefix in their <code class="docutils literal notranslate"><span class="pre">spec.destinations</span></code>:</p>
-<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="nt">spec</span><span class="p">:</span>
-  <span class="nt">destinations</span><span class="p">:</span>
-    <span class="p p-Indicator">-</span> <span class="nt">namespace</span><span class="p">:</span> <span class="s">&#39;thoth-*&#39;</span>
-      <span class="nt">server</span><span class="p">:</span> <span class="s">&#39;https://kubernetes.default.svc&#39;</span>
+<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="nt">spec</span><span class="p">:</span><span class="w"></span>
+<span class="w">  </span><span class="nt">destinations</span><span class="p">:</span><span class="w"></span>
+<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">namespace</span><span class="p">:</span><span class="w"> </span><span class="s">&#39;thoth-*&#39;</span><span class="w"></span>
+<span class="w">      </span><span class="nt">server</span><span class="p">:</span><span class="w"> </span><span class="s">&#39;https://kubernetes.default.svc&#39;</span><span class="w"></span>
 </pre></div>
 </div>
 <p>Now, as long as all thoth team’s namespaces have <code class="docutils literal notranslate"><span class="pre">metadata.name</span></code> beginning with a <code class="docutils literal notranslate"><span class="pre">thoth-</span></code> prefix, they can deploy into
@@ -932,8 +997,8 @@ these namespaces using ArgoCD Applications that are part of the <code class="doc
 
               </div>
               
-        
-            <!-- Previous / next buttons -->
+            
+                <!-- Previous / next buttons -->
 <div class='prev-next-area'> 
     <a class='left-prev' id="prev-link" href="import_dev_gpg.html" title="previous page">
         <i class="fas fa-angle-left"></i>
@@ -950,19 +1015,17 @@ these namespaces using ArgoCD Applications that are part of the <code class="doc
     <i class="fas fa-angle-right"></i>
     </a>
 </div>
-        
+            
         </div>
     </div>
     <footer class="footer">
-    <div class="container">
-      <p>
-        
-          By Operate First Authors<br/>
-        
-            &copy; Copyright 2021.<br/>
-      </p>
-    </div>
-  </footer>
+  <p>
+    
+      By Operate First Authors<br/>
+    
+        &copy; Copyright 2021.<br/>
+  </p>
+</footer>
 </main>
 
 

@@ -41,7 +41,7 @@
     <script src="../../_static/clipboard.min.js"></script>
     <script src="../../_static/copybutton.js"></script>
     <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
-    <script src="../../_static/sphinx-book-theme.12a9622fbb08dcb3a2a40b2c02b83a57.js"></script>
+    <script src="../../_static/sphinx-book-theme.d59cb220de22ca1c485ebbdc042f0030.js"></script>
     <script async="async" src="https://unpkg.com/thebe@0.5.1/lib/index.js"></script>
     <script>
         const thebe_selector = ".thebe"
@@ -655,7 +655,7 @@
                 data-placement="left">.md</button></a>
         <!-- Download PDF via print -->
         <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
-            onClick="window.print()" data-toggle="tooltip" data-placement="left">.pdf</button>
+                onclick="printPdf(this)" data-toggle="tooltip" data-placement="left">.pdf</button>
     </div>
 </div>
 
@@ -689,7 +689,7 @@
         </div>
 
         <!-- Table of contents -->
-        <div class="d-none d-md-block col-md-2 bd-toc show">
+        <div class="d-none d-md-block col-md-2 bd-toc show noprint">
             
             <div class="tocsection onthispage pt-5 pb-3">
                 <i class="fas fa-list"></i> Contents
@@ -758,7 +758,79 @@
 </div>
     <div id="main-content" class="row">
         <div class="col-12 col-md-9 pl-md-3 pr-md-0">
-        
+            <!-- Table of contents that is only displayed when printing the page -->
+            <div id="jb-print-docs-body" class="onlyprint">
+                <h1>Steps for Upgrading ArgoCD</h1>
+                <!-- Table of contents -->
+                <div id="print-main-content">
+                    <div id="jb-print-toc">
+                        
+                        <div>
+                            <h2> Contents </h2>
+                        </div>
+                        <nav aria-label="Page">
+                            <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#changes-to-operate-first-continuous-deployment">
+   Changes to operate-first/continuous-deployment
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#determine-version-number">
+     Determine version Number
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#update-dockerfile">
+     Update Dockerfile
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#create-tag-release">
+     Create tag release
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#changes-to-operate-first-apps">
+   Changes to operate-first/apps
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#updating-redis-image">
+     Updating Redis image
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#update-argocd-manifests">
+     Update ArgoCD Manifests
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#update-container-images">
+     Update Container Images
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#changes-to-operate-first-toolbox">
+   Changes to operate-first/toolbox
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#update-docs">
+   Update Docs
+  </a>
+ </li>
+</ul>
+
+                        </nav>
+                    </div>
+                </div>
+            </div>
+            
               <div>
                 
   <div class="tex2jax_ignore mathjax_ignore section" id="steps-for-upgrading-argocd">
@@ -803,9 +875,9 @@ $ podman push redis:5.0.10-alpine quay.io/operate-first/redis:5.0.10-alpine
 </pre></div>
 </div>
 <p>Next, under the <code class="docutils literal notranslate"><span class="pre">images</span></code> section <a class="reference external" href="https://github.com/operate-first/apps/blob/master/argocd/base/kustomization.yaml">here</a> update the <code class="docutils literal notranslate"><span class="pre">newTag</span></code> field for the <code class="docutils literal notranslate"><span class="pre">redis</span></code> image accordingly. Folowing from our example above, we would have the following new image in our <code class="docutils literal notranslate"><span class="pre">Kustomization</span></code>:</p>
-<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span>  <span class="p p-Indicator">-</span> <span class="nt">name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">redis</span>
-    <span class="nt">newName</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">quay.io/operate-first/redis</span>
-    <span class="nt">newTag</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">5.0.10-alpine</span>
+<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">redis</span><span class="w"></span>
+<span class="w">    </span><span class="nt">newName</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">quay.io/operate-first/redis</span><span class="w"></span>
+<span class="w">    </span><span class="nt">newTag</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">5.0.10-alpine</span><span class="w"></span>
 </pre></div>
 </div>
 </div>
@@ -827,9 +899,9 @@ $ ./scripts/argocd/update_cluster_resources.sh <span class="si">${</span><span c
 <div class="section" id="update-container-images">
 <h3>Update Container Images<a class="headerlink" href="#update-container-images" title="Permalink to this headline">¶</a></h3>
 <p>Under the <code class="docutils literal notranslate"><span class="pre">images</span></code> section <a class="reference external" href="https://github.com/operate-first/apps/blob/master/argocd/base/kustomization.yaml#L16">here</a>, update the <code class="docutils literal notranslate"><span class="pre">operate-first/argocd</span></code> tag to <code class="docutils literal notranslate"><span class="pre">vX.X.X-Y</span></code>. For example, if updating to <code class="docutils literal notranslate"><span class="pre">v1.8.1-2</span></code> we would have the following new image in our <code class="docutils literal notranslate"><span class="pre">Kustomization</span></code>:</p>
-<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span>  <span class="p p-Indicator">-</span> <span class="nt">name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">argoproj/argocd</span>
-    <span class="nt">newName</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">quay.io/operate-first/argocd</span>
-    <span class="nt">newTag</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">v1.8.1-2</span>
+<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">argoproj/argocd</span><span class="w"></span>
+<span class="w">    </span><span class="nt">newName</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">quay.io/operate-first/argocd</span><span class="w"></span>
+<span class="w">    </span><span class="nt">newTag</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">v1.8.1-2</span><span class="w"></span>
 </pre></div>
 </div>
 <p>Run a manual <code class="docutils literal notranslate"><span class="pre">kustomize</span> <span class="pre">build</span></code> for the <code class="docutils literal notranslate"><span class="pre">argocd</span></code> overlay, and ensure that the images are updated in the deployment specs as intended.</p>
@@ -868,8 +940,8 @@ $ ./scripts/argocd/update_cluster_resources.sh <span class="si">${</span><span c
 
               </div>
               
-        
-            <!-- Previous / next buttons -->
+            
+                <!-- Previous / next buttons -->
 <div class='prev-next-area'> 
     <a class='left-prev' id="prev-link" href="setup_argocd_dev_environment.html" title="previous page">
         <i class="fas fa-angle-left"></i>
@@ -886,19 +958,17 @@ $ ./scripts/argocd/update_cluster_resources.sh <span class="si">${</span><span c
     <i class="fas fa-angle-right"></i>
     </a>
 </div>
-        
+            
         </div>
     </div>
     <footer class="footer">
-    <div class="container">
-      <p>
-        
-          By Operate First Authors<br/>
-        
-            &copy; Copyright 2021.<br/>
-      </p>
-    </div>
-  </footer>
+  <p>
+    
+      By Operate First Authors<br/>
+    
+        &copy; Copyright 2021.<br/>
+  </p>
+</footer>
 </main>
 
 

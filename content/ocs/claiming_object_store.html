@@ -41,7 +41,7 @@
     <script src="../../_static/clipboard.min.js"></script>
     <script src="../../_static/copybutton.js"></script>
     <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
-    <script src="../../_static/sphinx-book-theme.12a9622fbb08dcb3a2a40b2c02b83a57.js"></script>
+    <script src="../../_static/sphinx-book-theme.d59cb220de22ca1c485ebbdc042f0030.js"></script>
     <script async="async" src="https://unpkg.com/thebe@0.5.1/lib/index.js"></script>
     <script>
         const thebe_selector = ".thebe"
@@ -655,7 +655,7 @@
                 data-placement="left">.md</button></a>
         <!-- Download PDF via print -->
         <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
-            onClick="window.print()" data-toggle="tooltip" data-placement="left">.pdf</button>
+                onclick="printPdf(this)" data-toggle="tooltip" data-placement="left">.pdf</button>
     </div>
 </div>
 
@@ -689,7 +689,7 @@
         </div>
 
         <!-- Table of contents -->
-        <div class="d-none d-md-block col-md-2 bd-toc show">
+        <div class="d-none d-md-block col-md-2 bd-toc show noprint">
             
             <div class="tocsection onthispage pt-5 pb-3">
                 <i class="fas fa-list"></i> Contents
@@ -736,7 +736,57 @@
 </div>
     <div id="main-content" class="row">
         <div class="col-12 col-md-9 pl-md-3 pr-md-0">
-        
+            <!-- Table of contents that is only displayed when printing the page -->
+            <div id="jb-print-docs-body" class="onlyprint">
+                <h1>Claiming S3-compatible object store buckets</h1>
+                <!-- Table of contents -->
+                <div id="print-main-content">
+                    <div id="jb-print-toc">
+                        
+                        <div>
+                            <h2> Contents </h2>
+                        </div>
+                        <nav aria-label="Page">
+                            <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#claim-a-new-bucket">
+   Claim a new bucket
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#secret">
+     Secret
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#configmap">
+     ConfigMap
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#usage-in-deployment">
+     Usage in deployment
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#external-access">
+   External access
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#resources-and-links">
+   Resources and links
+  </a>
+ </li>
+</ul>
+
+                        </nav>
+                    </div>
+                </div>
+            </div>
+            
               <div>
                 
   <div class="tex2jax_ignore mathjax_ignore section" id="claiming-s3-compatible-object-store-buckets">
@@ -745,16 +795,16 @@
 <div class="section" id="claim-a-new-bucket">
 <h2>Claim a new bucket<a class="headerlink" href="#claim-a-new-bucket" title="Permalink to this headline">¶</a></h2>
 <p>Deploying a following resource within your application will grant you a bucket:</p>
-<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="nt">apiVersion</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">objectbucket.io/v1alpha1</span>
-<span class="nt">kind</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">ObjectBucketClaim</span>
-<span class="nt">metadata</span><span class="p">:</span>
-  <span class="nt">name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">CLAIM_NAME</span> <span class="c1"># Must be unique: you can&#39;t name it the same as any of your secrets or configmap. More details below</span>
-<span class="nt">spec</span><span class="p">:</span>
-  <span class="nt">generateBucketName</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">CLAIM_NAME-</span>
-  <span class="nt">storageClassName</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">openshift-storage.noobaa.io</span>
-  <span class="nt">additionalConfig</span><span class="p">:</span>
-    <span class="nt">maxObjects</span><span class="p">:</span> <span class="s">&quot;1000&quot;</span>
-    <span class="nt">maxSize</span><span class="p">:</span> <span class="s">&quot;2G&quot;</span>
+<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="nt">apiVersion</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">objectbucket.io/v1alpha1</span><span class="w"></span>
+<span class="nt">kind</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">ObjectBucketClaim</span><span class="w"></span>
+<span class="nt">metadata</span><span class="p">:</span><span class="w"></span>
+<span class="w">  </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">CLAIM_NAME</span><span class="w"> </span><span class="c1"># Must be unique: you can&#39;t name it the same as any of your secrets or configmap. More details below</span><span class="w"></span>
+<span class="nt">spec</span><span class="p">:</span><span class="w"></span>
+<span class="w">  </span><span class="nt">generateBucketName</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">CLAIM_NAME-</span><span class="w"></span>
+<span class="w">  </span><span class="nt">storageClassName</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">openshift-storage.noobaa.io</span><span class="w"></span>
+<span class="w">  </span><span class="nt">additionalConfig</span><span class="p">:</span><span class="w"></span>
+<span class="w">    </span><span class="nt">maxObjects</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;1000&quot;</span><span class="w"></span>
+<span class="w">    </span><span class="nt">maxSize</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;2G&quot;</span><span class="w"></span>
 </pre></div>
 </div>
 <p>You can use <code class="docutils literal notranslate"><span class="pre">bucketName</span></code> property instead of a <code class="docutils literal notranslate"><span class="pre">generateBucketName</span></code> if you wish to set a fixed bucket name. Please be advised that a bucket name must be remain unique in the whole cluster, therefore we would prefer if users either used unique prefixes for the bucket names or refrained from using <code class="docutils literal notranslate"><span class="pre">bucketName</span></code> property (use the <code class="docutils literal notranslate"><span class="pre">generateBucketName</span></code> instead please).</p>
@@ -781,16 +831,16 @@
 <div class="section" id="usage-in-deployment">
 <h3>Usage in deployment<a class="headerlink" href="#usage-in-deployment" title="Permalink to this headline">¶</a></h3>
 <p>In order to use the bucket within your deployment, you can import the information from the <code class="docutils literal notranslate"><span class="pre">Secret</span></code> and <code class="docutils literal notranslate"><span class="pre">ConfigMap</span></code> as environment variables:</p>
-<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="nn">...</span>
-<span class="nt">spec</span><span class="p">:</span>
-  <span class="nt">containers</span><span class="p">:</span>
-    <span class="p p-Indicator">-</span> <span class="nt">name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">mycontainer</span>
-      <span class="l l-Scalar l-Scalar-Plain">...</span>
-      <span class="nt">envFrom</span><span class="p">:</span>
-        <span class="p p-Indicator">-</span> <span class="nt">configMapRef</span><span class="p">:</span>
-            <span class="nt">name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">CLAIM_NAME</span>
-        <span class="p p-Indicator">-</span> <span class="nt">secretRef</span><span class="p">:</span>
-            <span class="nt">name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">CLAIM_NAME</span>
+<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="nn">...</span><span class="w"></span>
+<span class="nt">spec</span><span class="p">:</span><span class="w"></span>
+<span class="w">  </span><span class="nt">containers</span><span class="p">:</span><span class="w"></span>
+<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">mycontainer</span><span class="w"></span>
+<span class="w">      </span><span class="l l-Scalar l-Scalar-Plain">...</span><span class="w"></span>
+<span class="w">      </span><span class="nt">envFrom</span><span class="p">:</span><span class="w"></span>
+<span class="w">        </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">configMapRef</span><span class="p">:</span><span class="w"></span>
+<span class="w">            </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">CLAIM_NAME</span><span class="w"></span>
+<span class="w">        </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">secretRef</span><span class="p">:</span><span class="w"></span>
+<span class="w">            </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">CLAIM_NAME</span><span class="w"></span>
 </pre></div>
 </div>
 <p>Alternately, you could expose these values as files on the filesystem
@@ -838,8 +888,8 @@ s3-openshift-storage.apps.smaug.na.operate-first.cloud
 
               </div>
               
-        
-            <!-- Previous / next buttons -->
+            
+                <!-- Previous / next buttons -->
 <div class='prev-next-area'> 
     <a class='left-prev' id="prev-link" href="buckets-external-access.html" title="previous page">
         <i class="fas fa-angle-left"></i>
@@ -856,19 +906,17 @@ s3-openshift-storage.apps.smaug.na.operate-first.cloud
     <i class="fas fa-angle-right"></i>
     </a>
 </div>
-        
+            
         </div>
     </div>
     <footer class="footer">
-    <div class="container">
-      <p>
-        
-          By Operate First Authors<br/>
-        
-            &copy; Copyright 2021.<br/>
-      </p>
-    </div>
-  </footer>
+  <p>
+    
+      By Operate First Authors<br/>
+    
+        &copy; Copyright 2021.<br/>
+  </p>
+</footer>
 </main>
 
 

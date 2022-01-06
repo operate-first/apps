@@ -41,7 +41,7 @@
     <script src="../../../_static/clipboard.min.js"></script>
     <script src="../../../_static/copybutton.js"></script>
     <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
-    <script src="../../../_static/sphinx-book-theme.12a9622fbb08dcb3a2a40b2c02b83a57.js"></script>
+    <script src="../../../_static/sphinx-book-theme.d59cb220de22ca1c485ebbdc042f0030.js"></script>
     <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
     <script async="async" src="https://unpkg.com/thebe@0.5.1/lib/index.js"></script>
@@ -657,7 +657,7 @@
                 data-placement="left">.md</button></a>
         <!-- Download PDF via print -->
         <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
-            onClick="window.print()" data-toggle="tooltip" data-placement="left">.pdf</button>
+                onclick="printPdf(this)" data-toggle="tooltip" data-placement="left">.pdf</button>
     </div>
 </div>
 
@@ -691,7 +691,7 @@
         </div>
 
         <!-- Table of contents -->
-        <div class="d-none d-md-block col-md-2 bd-toc show">
+        <div class="d-none d-md-block col-md-2 bd-toc show noprint">
             
             <div class="tocsection onthispage pt-5 pb-3">
                 <i class="fas fa-list"></i> Contents
@@ -716,7 +716,35 @@
 </div>
     <div id="main-content" class="row">
         <div class="col-12 col-md-9 pl-md-3 pr-md-0">
-        
+            <!-- Table of contents that is only displayed when printing the page -->
+            <div id="jb-print-docs-body" class="onlyprint">
+                <h1>Adding additional Postgres catalogs to Trino</h1>
+                <!-- Table of contents -->
+                <div id="print-main-content">
+                    <div id="jb-print-toc">
+                        
+                        <div>
+                            <h2> Contents </h2>
+                        </div>
+                        <nav aria-label="Page">
+                            <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#prerequisites">
+   Prerequisites
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#steps">
+   Steps
+  </a>
+ </li>
+</ul>
+
+                        </nav>
+                    </div>
+                </div>
+            </div>
+            
               <div>
                 
   <div class="tex2jax_ignore mathjax_ignore section" id="adding-additional-postgres-catalogs-to-trino">
@@ -738,18 +766,18 @@
 Please explore <a class="reference external" href="https://github.com/operate-first/apps/tree/master/kfdefs/overlays">kfdefs</a> overlays folder to identify the values for these variables.</p>
 </div></blockquote>
 <p>Replace all instance of <code class="docutils literal notranslate"><span class="pre">&lt;catalog_name_upercase&gt;</span></code> with your catalog name in upper case and underscores instead of dash/spaces.</p>
-<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="nt">kind</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">Secret</span>
-<span class="nt">apiVersion</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">v1</span>
-<span class="nt">metadata</span><span class="p">:</span>
-    <span class="nt">name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">postgres-dbs</span>
-<span class="nt">stringData</span><span class="p">:</span>
-    <span class="l l-Scalar l-Scalar-Plain">...</span>
-    <span class="l l-Scalar l-Scalar-Plain"># Fill these values out accordingly</span>
-    <span class="l l-Scalar l-Scalar-Plain">&lt;catalog_name_upercase&gt;_POSTGRESQL_USER</span><span class="p p-Indicator">:</span>
-    <span class="nt">&lt;catalog_name_upercase&gt;_POSTGRESQL_PASSWORD</span><span class="p">:</span>
-    <span class="nt">&lt;catalog_name_upercase&gt;_POSTGRESQL_DATABASE</span><span class="p">:</span>
-    <span class="nt">&lt;catalog_name_upercase&gt;_POSTGRESQL_URL</span><span class="p">:</span>
-<span class="nt">type</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">Opaque</span>
+<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="nt">kind</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Secret</span><span class="w"></span>
+<span class="nt">apiVersion</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">v1</span><span class="w"></span>
+<span class="nt">metadata</span><span class="p">:</span><span class="w"></span>
+<span class="w">    </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">postgres-dbs</span><span class="w"></span>
+<span class="nt">stringData</span><span class="p">:</span><span class="w"></span>
+<span class="w">    </span><span class="l l-Scalar l-Scalar-Plain">...</span><span class="w"></span>
+<span class="w">    </span><span class="l l-Scalar l-Scalar-Plain"># Fill these values out accordingly</span><span class="w"></span>
+<span class="w">    </span><span class="l l-Scalar l-Scalar-Plain">&lt;catalog_name_upercase&gt;_POSTGRESQL_USER</span><span class="p p-Indicator">:</span><span class="w"></span>
+<span class="w">    </span><span class="nt">&lt;catalog_name_upercase&gt;_POSTGRESQL_PASSWORD</span><span class="p">:</span><span class="w"></span>
+<span class="w">    </span><span class="nt">&lt;catalog_name_upercase&gt;_POSTGRESQL_DATABASE</span><span class="p">:</span><span class="w"></span>
+<span class="w">    </span><span class="nt">&lt;catalog_name_upercase&gt;_POSTGRESQL_URL</span><span class="p">:</span><span class="w"></span>
+<span class="nt">type</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Opaque</span><span class="w"></span>
 </pre></div>
 </div>
 <blockquote>
@@ -759,18 +787,18 @@ Please explore <a class="reference external" href="https://github.com/operate-fi
 <li><p>Navigate to: <code class="docutils literal notranslate"><span class="pre">odh-manifests/$CLUSTER/$TRINO_FOLDER/base</span></code>, open the file called <code class="docutils literal notranslate"><span class="pre">trino-catalog-secret.yaml</span></code>. Append the following
 entry to <code class="docutils literal notranslate"><span class="pre">stringData</span></code>, replacing all <code class="docutils literal notranslate"><span class="pre">&lt;*&gt;</span></code> values same as above:</p></li>
 </ol>
-<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="nt">apiVersion</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">v1</span>
-<span class="nt">kind</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">Secret</span>
-<span class="nt">metadata</span><span class="p">:</span>
-  <span class="nt">name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">trino-catalog</span>
-<span class="nt">stringData</span><span class="p">:</span>
-    <span class="l l-Scalar l-Scalar-Plain">.....</span>
-  <span class="l l-Scalar l-Scalar-Plain"># your catalog name, but replace any spaces/dashes with underscores</span>
-  <span class="l l-Scalar l-Scalar-Plain">&lt;catalog_name_underscored&gt;.properties</span><span class="p p-Indicator">:</span> <span class="p p-Indicator">|</span>
-    <span class="l l-Scalar l-Scalar-Plain">connector.name=postgresql</span>
-    <span class="l l-Scalar l-Scalar-Plain">connection-url=${ENV:&lt;catalog_name_upercase&gt;_POSTGRESQL_URL}/${ENV:&lt;catalog_name_upercase&gt;_POSTGRESQL_DATABASE}</span>
-    <span class="l l-Scalar l-Scalar-Plain">connection-user=${ENV:&lt;catalog_name_upercase&gt;_POSTGRESQL_USER}</span>
-    <span class="l l-Scalar l-Scalar-Plain">connection-password=${ENV:&lt;catalog_name_upercase&gt;_POSTGRESQL_PASSWORD}</span>
+<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="nt">apiVersion</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">v1</span><span class="w"></span>
+<span class="nt">kind</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Secret</span><span class="w"></span>
+<span class="nt">metadata</span><span class="p">:</span><span class="w"></span>
+<span class="w">  </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">trino-catalog</span><span class="w"></span>
+<span class="nt">stringData</span><span class="p">:</span><span class="w"></span>
+<span class="w">    </span><span class="l l-Scalar l-Scalar-Plain">.....</span><span class="w"></span>
+<span class="w">  </span><span class="l l-Scalar l-Scalar-Plain"># your catalog name, but replace any spaces/dashes with underscores</span><span class="w"></span>
+<span class="w">  </span><span class="l l-Scalar l-Scalar-Plain">&lt;catalog_name_underscored&gt;.properties</span><span class="p p-Indicator">:</span><span class="w"> </span><span class="p p-Indicator">|</span><span class="w"></span>
+<span class="w">    </span><span class="l l-Scalar l-Scalar-Plain">connector.name=postgresql</span><span class="w"></span>
+<span class="w">    </span><span class="l l-Scalar l-Scalar-Plain">connection-url=${ENV:&lt;catalog_name_upercase&gt;_POSTGRESQL_URL}/${ENV:&lt;catalog_name_upercase&gt;_POSTGRESQL_DATABASE}</span><span class="w"></span>
+<span class="w">    </span><span class="l l-Scalar l-Scalar-Plain">connection-user=${ENV:&lt;catalog_name_upercase&gt;_POSTGRESQL_USER}</span><span class="w"></span>
+<span class="w">    </span><span class="l l-Scalar l-Scalar-Plain">connection-password=${ENV:&lt;catalog_name_upercase&gt;_POSTGRESQL_PASSWORD}</span><span class="w"></span>
 </pre></div>
 </div>
 <p>Commit changes, make a pr.</p>
@@ -799,8 +827,8 @@ entry to <code class="docutils literal notranslate"><span class="pre">stringData
 
               </div>
               
-        
-            <!-- Previous / next buttons -->
+            
+                <!-- Previous / next buttons -->
 <div class='prev-next-area'> 
     <a class='left-prev' id="prev-link" href="add_more_buckets.html" title="previous page">
         <i class="fas fa-angle-left"></i>
@@ -817,19 +845,17 @@ entry to <code class="docutils literal notranslate"><span class="pre">stringData
     <i class="fas fa-angle-right"></i>
     </a>
 </div>
-        
+            
         </div>
     </div>
     <footer class="footer">
-    <div class="container">
-      <p>
-        
-          By Operate First Authors<br/>
-        
-            &copy; Copyright 2021.<br/>
-      </p>
-    </div>
-  </footer>
+  <p>
+    
+      By Operate First Authors<br/>
+    
+        &copy; Copyright 2021.<br/>
+  </p>
+</footer>
 </main>
 
 

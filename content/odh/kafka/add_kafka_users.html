@@ -41,7 +41,7 @@
     <script src="../../../_static/clipboard.min.js"></script>
     <script src="../../../_static/copybutton.js"></script>
     <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
-    <script src="../../../_static/sphinx-book-theme.12a9622fbb08dcb3a2a40b2c02b83a57.js"></script>
+    <script src="../../../_static/sphinx-book-theme.d59cb220de22ca1c485ebbdc042f0030.js"></script>
     <script async="async" src="https://unpkg.com/thebe@0.5.1/lib/index.js"></script>
     <script>
         const thebe_selector = ".thebe"
@@ -655,7 +655,7 @@
                 data-placement="left">.md</button></a>
         <!-- Download PDF via print -->
         <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
-            onClick="window.print()" data-toggle="tooltip" data-placement="left">.pdf</button>
+                onclick="printPdf(this)" data-toggle="tooltip" data-placement="left">.pdf</button>
     </div>
 </div>
 
@@ -689,14 +689,24 @@
         </div>
 
         <!-- Table of contents -->
-        <div class="d-none d-md-block col-md-2 bd-toc show">
+        <div class="d-none d-md-block col-md-2 bd-toc show noprint">
             
         </div>
     </div>
 </div>
     <div id="main-content" class="row">
         <div class="col-12 col-md-9 pl-md-3 pr-md-0">
-        
+            <!-- Table of contents that is only displayed when printing the page -->
+            <div id="jb-print-docs-body" class="onlyprint">
+                <h1>Add Kafka Users</h1>
+                <!-- Table of contents -->
+                <div id="print-main-content">
+                    <div id="jb-print-toc">
+                        
+                    </div>
+                </div>
+            </div>
+            
               <div>
                 
   <div class="tex2jax_ignore mathjax_ignore section" id="add-kafka-users">
@@ -704,43 +714,43 @@
 <p>We manage access to Kafka Topics in our Kafka instance using the <a class="reference external" href="https://strimzi.io/docs/operators/0.22.1/using.html#type-KafkaUser-reference"><code class="docutils literal notranslate"><span class="pre">KafkaUser</span></code> resource</a>.</p>
 <p>To add a new <code class="docutils literal notranslate"><span class="pre">KafkaUser</span></code>, create a new <code class="docutils literal notranslate"><span class="pre">KafkaUser</span></code> resource within the <code class="docutils literal notranslate"><span class="pre">odh-manifests/smaug/kafka/overlays/users</span></code> sub directory.</p>
 <p>Replace <code class="docutils literal notranslate"><span class="pre">my-user</span></code> with a preferred name.</p>
-<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="c1"># my-user.yaml</span>
-<span class="nt">apiVersion</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">kafka.strimzi.io/v1beta2</span>
-<span class="nt">kind</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">KafkaUser</span>
-<span class="nt">metadata</span><span class="p">:</span>
-  <span class="nt">name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">my-user</span>
-<span class="nt">spec</span><span class="p">:</span>
-  <span class="nt">authentication</span><span class="p">:</span>
-    <span class="nt">type</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">tls</span>
-  <span class="nt">authorization</span><span class="p">:</span>
-    <span class="nt">acls</span><span class="p">:</span>
-      <span class="c1"># Using a topic name prefix</span>
-      <span class="p p-Indicator">-</span> <span class="nt">host</span><span class="p">:</span> <span class="s">&#39;*&#39;</span>
-        <span class="nt">operation</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">All</span>
-        <span class="nt">resource</span><span class="p">:</span>
-          <span class="c1"># this will give user access to all topics with the &quot;my-topic.&quot; prefix</span>
-          <span class="nt">name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">my-topic.</span>
-          <span class="nt">patternType</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">prefix</span>
-          <span class="nt">type</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">topic</span>
-        <span class="nt">type</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">allow</span>
-      <span class="c1"># Using a topic name literal</span>
-      <span class="p p-Indicator">-</span> <span class="nt">host</span><span class="p">:</span> <span class="s">&#39;*&#39;</span>
-        <span class="nt">operation</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">All</span>
-        <span class="nt">resource</span><span class="p">:</span>
-          <span class="c1"># this will give user access to only the topic named &quot;my-topic.1&quot;</span>
-          <span class="nt">name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">my-topic.1</span>
-          <span class="nt">patternType</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">literal</span>
-          <span class="nt">type</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">topic</span>
-        <span class="nt">type</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">allow</span>
-      <span class="c1"># Only clients using group ids with &quot;my-group.&quot; prefix will have access to the topics</span>
-      <span class="p p-Indicator">-</span> <span class="nt">host</span><span class="p">:</span> <span class="s">&#39;*&#39;</span>
-        <span class="nt">operation</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">All</span>
-        <span class="nt">resource</span><span class="p">:</span>
-          <span class="nt">name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">my-group.</span>
-          <span class="nt">patternType</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">prefix</span>
-          <span class="nt">type</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">group</span>
-        <span class="nt">type</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">allow</span>
-    <span class="nt">type</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">simple</span>
+<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="c1"># my-user.yaml</span><span class="w"></span>
+<span class="nt">apiVersion</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">kafka.strimzi.io/v1beta2</span><span class="w"></span>
+<span class="nt">kind</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">KafkaUser</span><span class="w"></span>
+<span class="nt">metadata</span><span class="p">:</span><span class="w"></span>
+<span class="w">  </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">my-user</span><span class="w"></span>
+<span class="nt">spec</span><span class="p">:</span><span class="w"></span>
+<span class="w">  </span><span class="nt">authentication</span><span class="p">:</span><span class="w"></span>
+<span class="w">    </span><span class="nt">type</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">tls</span><span class="w"></span>
+<span class="w">  </span><span class="nt">authorization</span><span class="p">:</span><span class="w"></span>
+<span class="w">    </span><span class="nt">acls</span><span class="p">:</span><span class="w"></span>
+<span class="w">      </span><span class="c1"># Using a topic name prefix</span><span class="w"></span>
+<span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">host</span><span class="p">:</span><span class="w"> </span><span class="s">&#39;*&#39;</span><span class="w"></span>
+<span class="w">        </span><span class="nt">operation</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">All</span><span class="w"></span>
+<span class="w">        </span><span class="nt">resource</span><span class="p">:</span><span class="w"></span>
+<span class="w">          </span><span class="c1"># this will give user access to all topics with the &quot;my-topic.&quot; prefix</span><span class="w"></span>
+<span class="w">          </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">my-topic.</span><span class="w"></span>
+<span class="w">          </span><span class="nt">patternType</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">prefix</span><span class="w"></span>
+<span class="w">          </span><span class="nt">type</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">topic</span><span class="w"></span>
+<span class="w">        </span><span class="nt">type</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">allow</span><span class="w"></span>
+<span class="w">      </span><span class="c1"># Using a topic name literal</span><span class="w"></span>
+<span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">host</span><span class="p">:</span><span class="w"> </span><span class="s">&#39;*&#39;</span><span class="w"></span>
+<span class="w">        </span><span class="nt">operation</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">All</span><span class="w"></span>
+<span class="w">        </span><span class="nt">resource</span><span class="p">:</span><span class="w"></span>
+<span class="w">          </span><span class="c1"># this will give user access to only the topic named &quot;my-topic.1&quot;</span><span class="w"></span>
+<span class="w">          </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">my-topic.1</span><span class="w"></span>
+<span class="w">          </span><span class="nt">patternType</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">literal</span><span class="w"></span>
+<span class="w">          </span><span class="nt">type</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">topic</span><span class="w"></span>
+<span class="w">        </span><span class="nt">type</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">allow</span><span class="w"></span>
+<span class="w">      </span><span class="c1"># Only clients using group ids with &quot;my-group.&quot; prefix will have access to the topics</span><span class="w"></span>
+<span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">host</span><span class="p">:</span><span class="w"> </span><span class="s">&#39;*&#39;</span><span class="w"></span>
+<span class="w">        </span><span class="nt">operation</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">All</span><span class="w"></span>
+<span class="w">        </span><span class="nt">resource</span><span class="p">:</span><span class="w"></span>
+<span class="w">          </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">my-group.</span><span class="w"></span>
+<span class="w">          </span><span class="nt">patternType</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">prefix</span><span class="w"></span>
+<span class="w">          </span><span class="nt">type</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">group</span><span class="w"></span>
+<span class="w">        </span><span class="nt">type</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">allow</span><span class="w"></span>
+<span class="w">    </span><span class="nt">type</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">simple</span><span class="w"></span>
 </pre></div>
 </div>
 <p>You need a group id that has access to your topic to be able to consume from it, so make sure that you have at least one group with access to your topics.
@@ -778,8 +788,8 @@ $ kustomize edit add resource my-user.yaml
 
               </div>
               
-        
-            <!-- Previous / next buttons -->
+            
+                <!-- Previous / next buttons -->
 <div class='prev-next-area'> 
     <a class='left-prev' id="prev-link" href="add_kafka_topics.html" title="previous page">
         <i class="fas fa-angle-left"></i>
@@ -796,19 +806,17 @@ $ kustomize edit add resource my-user.yaml
     <i class="fas fa-angle-right"></i>
     </a>
 </div>
-        
+            
         </div>
     </div>
     <footer class="footer">
-    <div class="container">
-      <p>
-        
-          By Operate First Authors<br/>
-        
-            &copy; Copyright 2021.<br/>
-      </p>
-    </div>
-  </footer>
+  <p>
+    
+      By Operate First Authors<br/>
+    
+        &copy; Copyright 2021.<br/>
+  </p>
+</footer>
 </main>
 
 
