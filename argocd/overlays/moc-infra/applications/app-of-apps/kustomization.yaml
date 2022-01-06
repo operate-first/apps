@@ -11,6 +11,4 @@ resources:
 - app-of-apps-rick.yaml
 - app-of-apps-smaug.yaml
 - workshops-app-of-apps.yaml
-
-# Used for demo clusters
-# - app-of-apps-demo.yaml
+- app-of-apps-morty.yaml
