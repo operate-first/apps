@@ -7,24 +7,24 @@ spec:
     name: morty
     namespace: open-cluster-management-agent
   ignoreDifferences:
-    - group: imageregistry.operator.openshift.io
-      jsonPointers:
-        - /spec/defaultRoute
-        - /spec/httpSecret
-        - /spec/proxy
-        - /spec/requests
-        - /spec/rolloutStrategy
-      kind: Config
-      name: cluster
+  - group: imageregistry.operator.openshift.io
+    jsonPointers:
+    - /spec/defaultRoute
+    - /spec/httpSecret
+    - /spec/proxy
+    - /spec/requests
+    - /spec/rolloutStrategy
+    kind: Config
+    name: cluster
   project: cluster-management
   source:
     path: cluster-scope/overlays/prod/emea/morty
     repoURL: https://github.com/operate-first/apps.git
     targetRevision: HEAD
   syncPolicy:
-    automated:
-      prune: true
-      selfHeal: true
+    # automated:
+    #   prune: true
+    #   selfHeal: true
     syncOptions:
     - Validate=false
     - ApplyOutOfSyncOnly=true
