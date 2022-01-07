@@ -2,15 +2,61 @@ apiVersion: kustomize.config.k8s.io/v1beta1
 kind: Kustomization
 
 resources:
-- ../common
-- ../../../../base/config.openshift.io/oauths/cluster
-- ../../../../base/user.openshift.io/groups/cluster-admins
-- ../../../../base/core/configmaps/cluster-monitoring-config
-- ../../../../base/core/namespaces/opf-alertreceiver
-
-patchesStrategicMerge:
-- groups/cluster-admins.yaml
-- oauths/cluster_patch.yaml
+    - ../common
+    # - ../../../../base/apiextensions.k8s.io/customresourcedefinitions/workflow.argoproj.io
+    # - ../../../../base/apiextensions.k8s.io/customresourcedefinitions/workflowtemplate.argoproj.io
+    - ../../../../base/config.openshift.io/oauths/cluster
+    - ../../../../base/core/configmaps/cluster-monitoring-config
+    # - ../../../../base/core/configmaps/user-workload-monitoring-config
+    # - ../../../../base/core/namespaces/acme-operator
+    # - ../../../../base/core/namespaces/openshift-cnv
+    # - ../../../../base/core/namespaces/openshift-insights
+    # - ../../../../base/core/namespaces/openshift-logging
+    # - ../../../../base/core/namespaces/openshift-monitoring
+    # - ../../../../base/core/namespaces/openshift-nfd
+    # - ../../../../base/core/namespaces/openshift-operators
+    # - ../../../../base/core/namespaces/openshift-storage
+    - ../../../../base/core/namespaces/opf-alertreceiver
+    # - ../../../../base/core/namespaces/opf-monitoring
+    # - ../../../../base/core/namespaces/opf-kafka
+    # - ../../../../base/core/namespaces/thoth-website-prod
+    # - ../../../../base/core/namespaces/thoth-test-core
+    # - ../../../../base/core/namespaces/ushift-dev
+    # - ../../../../base/core/persistentvolumeclaims/image-registry-storage
+    # - ../../../../base/imageregistry.operator.openshift.io/configs/cluster
+    # - ../../../../base/operators.coreos.com/operatorgroups/openshift-cnv-rn5jf
+    # - ../../../../base/operators.coreos.com/operatorgroups/openshift-local-storage-zj22x
+    # - ../../../../base/operators.coreos.com/operatorgroups/openshift-nfd
+    # - ../../../../base/operators.coreos.com/operatorgroups/openshift-storage-24n7x
+    # - ../../../../base/operators.coreos.com/operatorgroups/opf-monitoring
+    # - ../../../../base/operators.coreos.com/operatorgroups/opf-kafka
+    # - ../../../../base/operators.coreos.com/subscriptions/cluster-logging
+    # - ../../../../base/operators.coreos.com/subscriptions/kubevirt-hyperconverged
+    # - ../../../../base/operators.coreos.com/subscriptions/openshift-local-storage-operator
+    # - ../../../../base/operators.coreos.com/subscriptions/ocs-operator
+    # - ../../../../base/operators.coreos.com/subscriptions/openshift-pipelines-operator-rh
+    # - ../../../../base/operators.coreos.com/subscriptions/nfd
+    # - ../../../../base/operators.coreos.com/subscriptions/prometheus-operator
+    # - ../../../../base/rbac.authorization.k8s.io/clusterrolebindings/acme-operator
+    # - ../../../../base/operators.coreos.com/subscriptions/strimzi
+    # - ../../../../base/rbac.authorization.k8s.io/clusterrolebindings/opf-cluster-metrics-federation
+    # - ../../../../base/rbac.authorization.k8s.io/clusterrolebindings/oauth-token-access-review-opf-monitoring
+    # - ../../../../base/rbac.authorization.k8s.io/clusterroles/acme-operator
+    # - ../../../../base/rbac.authorization.k8s.io/clusterroles/oauth-token-access-review
+    - ../../../../base/user.openshift.io/groups/cluster-admins
+    # - ../../../../base/storage.k8s.io/storageclasses/ocs-storagecluster-cephfs
 
 generators:
-- secret-generator.yaml
+    - secret-generator.yaml
+
+patchesStrategicMerge:
+    - oauths/cluster_patch.yaml
+    - groups/cluster-admins.yaml
+    # - storageclasses/ocs-storagecluster-cephfs_patch.yaml
+    # - subscriptions/cluster-logging-operator_patch.yaml
+    # - subscriptions/local-storage-operator_patch.yaml
+    # - subscriptions/nfd_patch.yaml
+    # - subscriptions/ocs-operator_patch.yaml
+    # - subscriptions/openshift-pipelines-operator-rh_patch.yaml
+    # - subscriptions/prometheus-operator_patch.yaml
+    # - subscriptions/kubevirt-hyperconverged_patch.yaml
