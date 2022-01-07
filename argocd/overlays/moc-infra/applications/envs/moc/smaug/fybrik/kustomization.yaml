@@ -3,4 +3,3 @@ kind: Kustomization
 resources:
   - fybrik.yaml
   - vault.yaml
-  - arrow-flight-module.yaml
