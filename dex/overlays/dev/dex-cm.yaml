@@ -5,7 +5,7 @@ metadata:
   name: dex
 data:
   config.yaml: |
-    issuer: http://dex-opf-auth.apps-crc.testing/api/dex
+    issuer: http://$DEX_ROUTE/api/dex
 
     storage:
       type: memory
@@ -23,30 +23,23 @@ data:
       skipApprovalScreen: true
 
     staticClients:
-      - id: argo
-        name: Argo
+      - id: superset
+        name: Superset
         redirectURIs:
-          - http://argo-server-opf-argo.apps-crc.testing/oauth2/callback
-        secretEnv: ARGO_SECRET
+          - $SUPERSET_URI
+        secretEnv: SUPERSET_SECRET
+
+      - id: trino
+        name: Trino
+        redirectURIs:
+          - $TRINO_URI
+        secretEnv: TRINO_SECRET
 
       - id: grafana
         name: Grafana
         redirectURIs:
-          - https://grafana-opf-monitoring.apps.zero.massopen.cloud/login/generic_oauth
+          - $GRAFANA_URI
         secretEnv: GRAFANA_SECRET
-
-      - id: grafana-observatorium
-        name: Grafana Observatorium
-        redirectURIs:
-          - https://grafana-opf-observatorium.apps.zero.massopen.cloud/login/generic_oauth
-        secretEnv: GRAFANA_SECRET
-
-      - id: hue
-        name: Hue
-        redirectURIs:
-          - https://hue-opf-datacatalog.apps-crc.testing/oidc/callback
-          - https://hue-opf-datacatalog.apps-crc.testing/hue/oidc_failed
-        secretEnv: HUE_SECRET
 
     connectors:
       - type: openshift
@@ -56,6 +49,6 @@ data:
           issuer: https://kubernetes.default.svc
           clientID: system:serviceaccount:opf-auth:dex
           clientSecret: $OPENSHIFT_CLIENT_SECRET
-          redirectURI: http://dex-opf-auth.apps-crc.testing/api/dex/callback
+          redirectURI: $OCP_REDIRECTURI
           groups:
             - system:authenticated

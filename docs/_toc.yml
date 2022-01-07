@@ -54,12 +54,6 @@ parts:
           - file: content/grafana/add_grafana_dashboard.md
           - file: content/grafana/map_groups_to_roles.md
 
-      # Kubeflow
-      - file: content/kubeflow/README.md
-        sections:
-          - file: content/kubeflow/kubeflow-dashboard/README.md
-          - file: content/kubeflow/kubeflow-pipelines/README.md
-
       # Observatorium
       - file: content/observatorium/README.md
         sections:

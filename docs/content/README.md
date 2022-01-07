@@ -57,7 +57,7 @@ Operate First manages various applications and services in the environments list
         * Anyone can enable their applications deployed on the Smaug cluster to be monitored by this Prometheus instance
         * To do so, follow the instructions [here][8] and make a pull request against this repo
     * Loki is used to query logs; click [here][9] to learn more about sending or retrieving logs using Loki
-    * Thanos: http://thanos-query-frontend-opf-observatorium.apps.zero.massopen.cloud
+    * Thanos: https://thanos-querier-openshift-monitoring.apps.smaug.na.operate-first.cloud
 
 * [OpenShift Data Foundation][20]
     * We deploy the OpenShift Data Foundation (ODF) operator on the Smaug cluster

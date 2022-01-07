@@ -5,6 +5,6 @@ metadata:
   name: odh-monitoring
   namespace: opf-monitoring
 spec:
-  externalUrl: "http://alert-manager-opf-monitoring.apps.zero.massopen.cloud/"
+  externalUrl: ""
   replicas: 1
   securityContext: {}

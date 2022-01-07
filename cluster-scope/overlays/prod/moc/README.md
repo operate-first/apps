@@ -8,8 +8,6 @@ The following clusters are managed by the overlays in this directory
   - [Openshift Console](https://console-openshift-console.apps.moc-infra.massopen.cloud/)
   - [ArgoCD](https://argocd-server-argocd.apps.moc-infra.massopen.cloud/)
   - [Advanced Cluster Management for Kubernetes - Multicloud Console](https://multicloud-console.apps.moc-infra.massopen.cloud/)
-- [Zero](zero) - Experimental cluster
-  - [OpenShift Console](https://console-openshift-console.apps.zero.massopen.cloud/)
 - [Curator](curator) - Cluster for the Curator project
   - [Openshift Console](https://console-openshift-console.apps.curator.massopen.cloud/)
 
