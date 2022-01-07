@@ -20,12 +20,12 @@ spec:
     spec:
       volumes:
         - name: trino-config-volume
-          secret:
-            secretName: trino-config
+          configMap:
+            name: trino-configfiles
             defaultMode: 420
         - name: trino-catalogs-volume
-          secret:
-            secretName: trino-catalog
+          configMap:
+            name: trino-catalog
             defaultMode: 420
       containers:
         - resources:

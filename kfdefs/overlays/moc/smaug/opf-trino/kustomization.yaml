@@ -4,10 +4,13 @@ kind: Kustomization
 namespace: opf-trino
 resources:
   - ../../../../base/trino
+  - configs
   - hive-metastores
   - obcs
   - secrets
   - vpa
+generatorOptions:
+  disableNameSuffixHash: true
 patchesJson6902:
   - patch: |
       - op: add
