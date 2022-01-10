@@ -6,4 +6,3 @@ resources:
     - ../../../base
     - localvolumeset.yaml
     - localvolumediscovery.yaml
-

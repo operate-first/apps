@@ -9,4 +9,3 @@ spec:
   kind: storagecluster.ocs.openshift.io/v1
   name: ocs-storagecluster
   namespace: openshift-storage
-
