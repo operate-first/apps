@@ -5,7 +5,7 @@ metadata:
 spec:
   project: fybrik
   source:
-    repoURL: 'https://github.com/fybrik/fybrik'
+    repoURL: 'https://github.com/fybrik/charts'
     path: charts/vault
     targetRevision: HEAD
     helm:
