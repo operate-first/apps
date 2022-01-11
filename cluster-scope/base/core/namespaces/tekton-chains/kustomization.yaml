@@ -6,5 +6,6 @@ components:
   - ../../../../components/project-admin-rolebindings/operate-first
   - ../../../../components/monitoring-rbac
   - ../../../../components/resourcequotas/small
+  - ../../../../components/limitranges/default
 resources:
 - namespace.yaml
