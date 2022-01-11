@@ -7,10 +7,19 @@ resources:
 - ../../../../base/user.openshift.io/groups/cluster-admins
 - ../../../../base/core/configmaps/cluster-monitoring-config
 - ../../../../base/core/namespaces/opf-alertreceiver
+- ../../../../base/core/namespaces/openshift-storage
+- ../../../../base/core/namespaces/openshift-local-storage
+- ../../../../base/operators.coreos.com/operatorgroups/openshift-local-storage
+- ../../../../base/operators.coreos.com/operatorgroups/openshift-storage
+- ../../../../base/operators.coreos.com/subscriptions/openshift-local-storage-operator
+- ../../../../base/operators.coreos.com/subscriptions/odf-operator
+
 
 patchesStrategicMerge:
 - groups/cluster-admins.yaml
 - oauths/cluster_patch.yaml
+- subscriptions/local-storage-operator_patch.yaml
+- subscriptions/odf-operator_patch.yaml
 
 generators:
 - secret-generator.yaml
