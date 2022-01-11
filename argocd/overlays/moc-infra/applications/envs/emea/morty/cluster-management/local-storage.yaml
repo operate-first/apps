@@ -6,7 +6,7 @@ metadata:
 spec:
   destination:
     name: morty
-    namespace: argocd
+    namespace: openshift-local-storage
   project: cluster-management
   source:
     path: local-storage/overlays/emea/morty
