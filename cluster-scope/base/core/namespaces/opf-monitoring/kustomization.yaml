@@ -3,6 +3,7 @@ components:
 - ../../../../components/project-admin-rolebindings/operate-first
 - ../../../../components/project-admin-rolebindings/odh-admin
 - ../../../../components/project-view-rolebindings/data-science
+- ../../../../components/project-view-rolebindings/thoth
 - ../../../../components/monitoring-rbac
 - ../../../../components/limitranges/default
 kind: Kustomization
