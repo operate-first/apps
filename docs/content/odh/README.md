@@ -36,6 +36,10 @@ UI: https://superset.operate-first.cloud
 
 Docs can be found [here][4].
 
+### [Cloudbeaver][13]
+
+UI: http://cloudbeaver-opf-trino.apps.smaug.na.operate-first.cloud
+
 #### Components not deployed
 
 If you require any components offered by ODH that are not currently managed, please submit a request [here][2].
@@ -49,3 +53,4 @@ If you require any components offered by ODH that are not currently managed, ple
 [8]: https://github.com/opendatahub-io/odh-dashboard
 [11]: https://trino.io/
 [12]: https://superset.apache.org/
+[13]: https://cloudbeaver.io/
