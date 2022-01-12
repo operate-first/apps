@@ -1,0 +1,11 @@
+apiVersion: v1
+kind: ResourceQuota
+metadata:
+  name: training-model-custom
+spec:
+  hard:
+    limits.cpu: '28'
+    limits.memory: 32Gi
+    requests.cpu: '28'
+    requests.memory: 32Gi
+    requests.storage: 100Gi
