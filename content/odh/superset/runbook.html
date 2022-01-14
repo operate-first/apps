@@ -699,6 +699,11 @@
      Trino Error in Superset
     </a>
    </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#can-t-find-user-when-adding-them-to-a-chart">
+     Can’t find user when adding them to a Chart
+    </a>
+   </li>
   </ul>
  </li>
 </ul>
@@ -744,6 +749,11 @@
    <li class="toc-h3 nav-item toc-entry">
     <a class="reference internal nav-link" href="#trino-error-in-superset">
      Trino Error in Superset
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#can-t-find-user-when-adding-them-to-a-chart">
+     Can’t find user when adding them to a Chart
     </a>
    </li>
   </ul>
@@ -810,6 +820,21 @@ try to add the user twice, but run in to a conflict. Ensure that this is not the
 </div>
 <p>Try going to <code class="docutils literal notranslate"><span class="pre">Data</span> <span class="pre">&gt;</span> <span class="pre">Databases</span></code> at the top, open edit panel for <code class="docutils literal notranslate"><span class="pre">opf-trino</span></code> database. Test the connection.
 If it reports an error, try adding in the password again where it says <code class="docutils literal notranslate"><span class="pre">XXX..</span></code> and see if that works.</p>
+</div>
+<div class="section" id="can-t-find-user-when-adding-them-to-a-chart">
+<h3>Can’t find user when adding them to a Chart<a class="headerlink" href="#can-t-find-user-when-adding-them-to-a-chart" title="Permalink to this headline">¶</a></h3>
+<p>When adding a user to a chart, you may not be able to see the user.</p>
+<p><img alt="" src="../../../_images/nouser.png" /></p>
+<p>In this example a user by the name of “Karan” could not be found.</p>
+<ol class="simple">
+<li><p>First ensure that the user has logged into Superset at least once (so that the user is created within Superset)</p></li>
+<li><p>When adding users to charts, you may see a lot of <em>blank</em> lines in the user list dropdown, these empty lines
+represent users that have not updated their First/Last name within Superset.</p></li>
+</ol>
+<p>Have the user go to <code class="docutils literal notranslate"><span class="pre">settings</span></code> (top right) &gt; <code class="docutils literal notranslate"><span class="pre">info</span></code> &gt; <code class="docutils literal notranslate"><span class="pre">edit</span> <span class="pre">user</span></code>. If the user does not have permissions to do this
+reach out to an ODH admin, anyone from this list <a class="reference external" href="https://github.com/operate-first/apps/blob/master/cluster-scope/base/user.openshift.io/groups/odh-admin/group.yaml#L5">here</a> will have the appropriate permissions. Have them
+edit this user’s name accordingly.</p>
+<p>The user should now show up in the drop down list when searched for by First/Last name.</p>
 </div>
 </div>
 </div>
