@@ -33,6 +33,7 @@ parts:
           - file: content/argocd-gitops/setup_argocd_dev_environment.md
           - file: content/argocd-gitops/update_argocd.md
           - file: content/argocd-gitops/update_gpg_key.md
+          - file: content/argocd-gitops/argocd_notifications.md
 
       # Cluster Scope
       - file: content/cluster-scope/README.md
