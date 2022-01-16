@@ -19,11 +19,11 @@ spec:
     local: true
   tags:
     - annotations:
-        openshift.io/imported-from: docker.io/jappavoo/bu-cs-book-dev
+        openshift.io/imported-from: quay.io/jappavoo/bu-cs-book-dev
       name: latest
       from:
         kind: DockerImage
-        name: 'docker.io/jappavoo/bu-cs-book-dev:latest'
+        name: 'quay.io/jappavoo/bu-cs-book-dev:latest'
       importPolicy:
         scheduled: true
       referencePolicy:
