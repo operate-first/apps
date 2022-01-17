@@ -28,8 +28,9 @@ Please fork/clone the [operate-first/apps][6].
 
 To add multi-tenancy support, we require the team to have an OpenShift group on the Infra cluster on which our ArgoCD
 instance resides. This OpenShift group should include all the people belonging to the team that will need write-level
-access to applications belonging to the team's ArgoCD Project (explained later). The team being onboarded to ArgoCD
-should have had a group already created during cluster onboarding, as described [here][5].
+access to applications belonging to the team's ArgoCD Project (explained later). Existing OCP groups and their
+membership can be found [here][19]. If you do not have a group to which you belong, you can create a new one and add
+yourself and associated members by following the instructions [here][20].
 
 > Note: We use teams/project names interchangeably throughout this doc as all ArgoCD projects (for end-users) are named
 > after their team names picked during the cluster onboarding process.
@@ -179,3 +180,4 @@ these namespaces using ArgoCD Applications that are part of the `thoth` project.
 [17]: https://kubernetes.io/docs/tasks/manage-kubernetes-objects/kustomization/#bases-and-overlays
 [18]: https://github.com/operate-first/apps/tree/master/argocd/overlays/moc-infra/applications
 [19]: https://github.com/operate-first/apps/tree/master/cluster-scope/base/user.openshift.io/groups
+[20]: ../cluster-scope/create_ocp_group.md

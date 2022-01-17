@@ -38,6 +38,7 @@ parts:
       - file: content/cluster-scope/README.md
         sections:
           - file: content/cluster-scope/add_resource_quotas.md
+          - file: content/cluster-scope/create_ocp_group.md
           - file: content/cluster-scope/add_user_to_group.md
           - file: content/cluster-scope/onboarding_to_cluster.md
           - file: content/cluster-scope/quotas.md
