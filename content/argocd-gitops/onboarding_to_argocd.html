@@ -237,6 +237,11 @@
     </a>
    </li>
    <li class="toctree-l2">
+    <a class="reference internal" href="../cluster-scope/create_ocp_group.html">
+     Adding an OCP group to Operate First Cloud
+    </a>
+   </li>
+   <li class="toctree-l2">
     <a class="reference internal" href="../cluster-scope/add_user_to_group.html">
      Adding User to an OCP team
     </a>
@@ -822,8 +827,9 @@ their ArgoCD <code class="docutils literal notranslate"><span class="pre">Projec
 <h2>OpenShift Group<a class="headerlink" href="#openshift-group" title="Permalink to this headline">¶</a></h2>
 <p>To add multi-tenancy support, we require the team to have an OpenShift group on the Infra cluster on which our ArgoCD
 instance resides. This OpenShift group should include all the people belonging to the team that will need write-level
-access to applications belonging to the team’s ArgoCD Project (explained later). The team being onboarded to ArgoCD
-should have had a group already created during cluster onboarding, as described <a class="reference internal" href="../cluster-scope/onboarding_to_cluster.html"><span class="doc std std-doc">here</span></a>.</p>
+access to applications belonging to the team’s ArgoCD Project (explained later). Existing OCP groups and their
+membership can be found <a class="reference external" href="https://github.com/operate-first/apps/tree/master/cluster-scope/base/user.openshift.io/groups">here</a>. If you do not have a group to which you belong, you can create a new one and add
+yourself and associated members by following the instructions <a class="reference internal" href="../cluster-scope/create_ocp_group.html"><span class="doc std std-doc">here</span></a>.</p>
 <blockquote>
 <div><p>Note: We use teams/project names interchangeably throughout this doc as all ArgoCD projects (for end-users) are named
 after their team names picked during the cluster onboarding process.</p>

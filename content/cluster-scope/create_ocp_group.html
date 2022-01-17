@@ -5,55 +5,55 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Increase PVC size for JupyterHub &#8212; GitOps Docs</title>
+    <title>Adding an OCP group to Operate First Cloud &#8212; GitOps Docs</title>
     
-  <link href="../../../_static/css/theme.css" rel="stylesheet">
-  <link href="../../../_static/css/index.ff1ffe594081f20da1ef19478df9384b.css" rel="stylesheet">
+  <link href="../../_static/css/theme.css" rel="stylesheet">
+  <link href="../../_static/css/index.ff1ffe594081f20da1ef19478df9384b.css" rel="stylesheet">
 
     
   <link rel="stylesheet"
-    href="../../../_static/vendor/fontawesome/5.13.0/css/all.min.css">
+    href="../../_static/vendor/fontawesome/5.13.0/css/all.min.css">
   <link rel="preload" as="font" type="font/woff2" crossorigin
-    href="../../../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+    href="../../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
   <link rel="preload" as="font" type="font/woff2" crossorigin
-    href="../../../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+    href="../../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
 
     
       
 
     
-    <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css" />
-    <link rel="stylesheet" type="text/css" href="../../../_static/sphinx-book-theme.css?digest=c3fdc42140077d1ad13ad2f1588a4309" />
-    <link rel="stylesheet" type="text/css" href="../../../_static/togglebutton.css" />
-    <link rel="stylesheet" type="text/css" href="../../../_static/copybutton.css" />
-    <link rel="stylesheet" type="text/css" href="../../../_static/mystnb.css" />
-    <link rel="stylesheet" type="text/css" href="../../../_static/sphinx-thebe.css" />
-    <link rel="stylesheet" type="text/css" href="../../../_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
-    <link rel="stylesheet" type="text/css" href="../../../_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-book-theme.css?digest=c3fdc42140077d1ad13ad2f1588a4309" />
+    <link rel="stylesheet" type="text/css" href="../../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
     
-  <link rel="preload" as="script" href="../../../_static/js/index.be7d3bbb2ef33a8344ce.js">
+  <link rel="preload" as="script" href="../../_static/js/index.be7d3bbb2ef33a8344ce.js">
 
-    <script data-url_root="../../../" id="documentation_options" src="../../../_static/documentation_options.js"></script>
-    <script src="../../../_static/jquery.js"></script>
-    <script src="../../../_static/underscore.js"></script>
-    <script src="../../../_static/doctools.js"></script>
-    <script src="../../../_static/togglebutton.js"></script>
-    <script src="../../../_static/clipboard.min.js"></script>
-    <script src="../../../_static/copybutton.js"></script>
+    <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
+    <script src="../../_static/jquery.js"></script>
+    <script src="../../_static/underscore.js"></script>
+    <script src="../../_static/doctools.js"></script>
+    <script src="../../_static/togglebutton.js"></script>
+    <script src="../../_static/clipboard.min.js"></script>
+    <script src="../../_static/copybutton.js"></script>
     <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
-    <script src="../../../_static/sphinx-book-theme.d59cb220de22ca1c485ebbdc042f0030.js"></script>
+    <script src="../../_static/sphinx-book-theme.d59cb220de22ca1c485ebbdc042f0030.js"></script>
     <script async="async" src="https://unpkg.com/thebe@0.5.1/lib/index.js"></script>
     <script>
         const thebe_selector = ".thebe"
         const thebe_selector_input = "pre"
         const thebe_selector_output = ".output"
     </script>
-    <script async="async" src="../../../_static/sphinx-thebe.js"></script>
-    <link rel="shortcut icon" href="../../../_static/favicon.png"/>
-    <link rel="index" title="Index" href="../../../genindex.html" />
-    <link rel="search" title="Search" href="../../../search.html" />
-    <link rel="next" title="How to restart a Notebook Kernel" href="reinstall_kernel.html" />
-    <link rel="prev" title="Analyze Storage for a Notebook" href="analyze_storage.html" />
+    <script async="async" src="../../_static/sphinx-thebe.js"></script>
+    <link rel="shortcut icon" href="../../_static/favicon.png"/>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="Adding User to an OCP team" href="add_user_to_group.html" />
+    <link rel="prev" title="Adding Resource Quotas" href="add_resource_quotas.html" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="None">
     
@@ -73,26 +73,26 @@
 <div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
     
         <div class="navbar-brand-box">
-    <a class="navbar-brand text-wrap" href="../../../index.html">
+    <a class="navbar-brand text-wrap" href="../../index.html">
       
         <!-- `logo` is deprecated in Sphinx 4.0, so remove this when we stop supporting 3 -->
         
       
       
-      <img src="../../../_static/icon.png" class="logo" alt="logo">
+      <img src="../../_static/icon.png" class="logo" alt="logo">
       
       
       <h1 class="site-logo" id="site-title">GitOps Docs</h1>
       
     </a>
-</div><form class="bd-search d-flex align-items-center" action="../../../search.html" method="get">
+</div><form class="bd-search d-flex align-items-center" action="../../search.html" method="get">
   <i class="icon fas fa-search"></i>
   <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
 </form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
     <div class="bd-toc-item active">
         <ul class="nav bd-sidenav">
  <li class="toctree-l1">
-  <a class="reference internal" href="../../README.html">
+  <a class="reference internal" href="../README.html">
    GitOps Documentation
   </a>
  </li>
@@ -104,7 +104,7 @@
 </p>
 <ul class="current nav bd-sidenav">
  <li class="toctree-l1 has-children">
-  <a class="reference internal" href="../../about/README.html">
+  <a class="reference internal" href="../about/README.html">
    About
   </a>
   <input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/>
@@ -114,14 +114,14 @@
   </label>
   <ul>
    <li class="toctree-l2">
-    <a class="reference internal" href="../../about/intro.html">
+    <a class="reference internal" href="../about/intro.html">
      Getting started with Operate First
     </a>
    </li>
   </ul>
  </li>
  <li class="toctree-l1 has-children">
-  <a class="reference internal" href="../../acm/README.html">
+  <a class="reference internal" href="../acm/README.html">
    ACM
   </a>
   <input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/>
@@ -131,19 +131,19 @@
   </label>
   <ul>
    <li class="toctree-l2">
-    <a class="reference internal" href="../../acm/adding_managed_cluster_to_argocd.html">
+    <a class="reference internal" href="../acm/adding_managed_cluster_to_argocd.html">
      Adding Managed Cluster to ArgoCD
     </a>
    </li>
    <li class="toctree-l2">
-    <a class="reference internal" href="../../acm/adding_users_to_acm.html">
+    <a class="reference internal" href="../acm/adding_users_to_acm.html">
      Adding users to ACM
     </a>
    </li>
   </ul>
  </li>
  <li class="toctree-l1 has-children">
-  <a class="reference internal" href="../../acme/README.html">
+  <a class="reference internal" href="../acme/README.html">
    ACME
   </a>
   <input class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"/>
@@ -153,14 +153,14 @@
   </label>
   <ul>
    <li class="toctree-l2">
-    <a class="reference internal" href="../../acme/issuing_certificates.html">
+    <a class="reference internal" href="../acme/issuing_certificates.html">
      Issuing certificates
     </a>
    </li>
   </ul>
  </li>
  <li class="toctree-l1 has-children">
-  <a class="reference internal" href="../../argocd-gitops/README.html">
+  <a class="reference internal" href="../argocd-gitops/README.html">
    ArgoCD
   </a>
   <input class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" type="checkbox"/>
@@ -170,96 +170,96 @@
   </label>
   <ul>
    <li class="toctree-l2">
-    <a class="reference internal" href="../../argocd-gitops/add_application.html">
+    <a class="reference internal" href="../argocd-gitops/add_application.html">
      Adding ArgoCD Applications
     </a>
    </li>
    <li class="toctree-l2">
-    <a class="reference internal" href="../../argocd-gitops/add_permissions_to_project.html">
+    <a class="reference internal" href="../argocd-gitops/add_permissions_to_project.html">
      Requesting more permissions for an ArgoCD Project (MOC)
     </a>
    </li>
    <li class="toctree-l2">
-    <a class="reference internal" href="../../argocd-gitops/encrypting_applications.html">
+    <a class="reference internal" href="../argocd-gitops/encrypting_applications.html">
      How to encrypt apps in this repo
     </a>
    </li>
    <li class="toctree-l2">
-    <a class="reference internal" href="../../argocd-gitops/get_access_to_argocd.html">
+    <a class="reference internal" href="../argocd-gitops/get_access_to_argocd.html">
      Get access to ArgoCD
     </a>
    </li>
    <li class="toctree-l2">
-    <a class="reference internal" href="../../argocd-gitops/import_dev_gpg.html">
+    <a class="reference internal" href="../argocd-gitops/import_dev_gpg.html">
      Import Development GPG Key
     </a>
    </li>
    <li class="toctree-l2">
-    <a class="reference internal" href="../../argocd-gitops/onboarding_to_argocd.html">
+    <a class="reference internal" href="../argocd-gitops/onboarding_to_argocd.html">
      ArgoCD onboarding procedure
     </a>
    </li>
    <li class="toctree-l2">
-    <a class="reference internal" href="../../argocd-gitops/secret_management.html">
+    <a class="reference internal" href="../argocd-gitops/secret_management.html">
      Secret management for applications
     </a>
    </li>
    <li class="toctree-l2">
-    <a class="reference internal" href="../../argocd-gitops/setup_argocd_dev_environment.html">
+    <a class="reference internal" href="../argocd-gitops/setup_argocd_dev_environment.html">
      Deploying a development environment
     </a>
    </li>
    <li class="toctree-l2">
-    <a class="reference internal" href="../../argocd-gitops/update_argocd.html">
+    <a class="reference internal" href="../argocd-gitops/update_argocd.html">
      Steps for Upgrading ArgoCD
     </a>
    </li>
    <li class="toctree-l2">
-    <a class="reference internal" href="../../argocd-gitops/update_gpg_key.html">
+    <a class="reference internal" href="../argocd-gitops/update_gpg_key.html">
      Update gpg key
     </a>
    </li>
   </ul>
  </li>
- <li class="toctree-l1 has-children">
-  <a class="reference internal" href="../../cluster-scope/README.html">
+ <li class="toctree-l1 current active has-children">
+  <a class="reference internal" href="README.html">
    Cluster Management
   </a>
-  <input class="toctree-checkbox" id="toctree-checkbox-5" name="toctree-checkbox-5" type="checkbox"/>
+  <input checked="" class="toctree-checkbox" id="toctree-checkbox-5" name="toctree-checkbox-5" type="checkbox"/>
   <label for="toctree-checkbox-5">
    <i class="fas fa-chevron-down">
    </i>
   </label>
-  <ul>
+  <ul class="current">
    <li class="toctree-l2">
-    <a class="reference internal" href="../../cluster-scope/add_resource_quotas.html">
+    <a class="reference internal" href="add_resource_quotas.html">
      Adding Resource Quotas
     </a>
    </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="../../cluster-scope/create_ocp_group.html">
+   <li class="toctree-l2 current active">
+    <a class="current reference internal" href="#">
      Adding an OCP group to Operate First Cloud
     </a>
    </li>
    <li class="toctree-l2">
-    <a class="reference internal" href="../../cluster-scope/add_user_to_group.html">
+    <a class="reference internal" href="add_user_to_group.html">
      Adding User to an OCP team
     </a>
    </li>
    <li class="toctree-l2">
-    <a class="reference internal" href="../../cluster-scope/onboarding_to_cluster.html">
+    <a class="reference internal" href="onboarding_to_cluster.html">
      Onboard Project
     </a>
    </li>
    <li class="toctree-l2">
-    <a class="reference internal" href="../../cluster-scope/quotas.html">
+    <a class="reference internal" href="quotas.html">
      Resource Quota Tiers
     </a>
    </li>
   </ul>
  </li>
  <li class="toctree-l1 has-children">
-  <a class="reference internal" href="../../development/README.html">
+  <a class="reference internal" href="../development/README.html">
    Development
   </a>
   <input class="toctree-checkbox" id="toctree-checkbox-6" name="toctree-checkbox-6" type="checkbox"/>
@@ -269,19 +269,19 @@
   </label>
   <ul>
    <li class="toctree-l2">
-    <a class="reference internal" href="../../development/crc-disk-size.html">
+    <a class="reference internal" href="../development/crc-disk-size.html">
      Increasing CRC disk space
     </a>
    </li>
    <li class="toctree-l2">
-    <a class="reference internal" href="../../development/setup_quicklab.html">
+    <a class="reference internal" href="../development/setup_quicklab.html">
      Quicklab
     </a>
    </li>
   </ul>
  </li>
  <li class="toctree-l1 has-children">
-  <a class="reference internal" href="../../grafana/README.html">
+  <a class="reference internal" href="../grafana/README.html">
    Grafana
   </a>
   <input class="toctree-checkbox" id="toctree-checkbox-7" name="toctree-checkbox-7" type="checkbox"/>
@@ -291,19 +291,19 @@
   </label>
   <ul>
    <li class="toctree-l2">
-    <a class="reference internal" href="../../grafana/add_grafana_dashboard.html">
+    <a class="reference internal" href="../grafana/add_grafana_dashboard.html">
      Add a Grafana dashboard to OperateFirst Grafana
     </a>
    </li>
    <li class="toctree-l2">
-    <a class="reference internal" href="../../grafana/map_groups_to_roles.html">
+    <a class="reference internal" href="../grafana/map_groups_to_roles.html">
      Adding permissions in Grafana
     </a>
    </li>
   </ul>
  </li>
  <li class="toctree-l1 has-children">
-  <a class="reference internal" href="../../observatorium/README.html">
+  <a class="reference internal" href="../observatorium/README.html">
    Observatorium
   </a>
   <input class="toctree-checkbox" id="toctree-checkbox-8" name="toctree-checkbox-8" type="checkbox"/>
@@ -313,44 +313,44 @@
   </label>
   <ul>
    <li class="toctree-l2">
-    <a class="reference internal" href="../../observatorium/loki/add_loki_grafana_datasource.html">
+    <a class="reference internal" href="../observatorium/loki/add_loki_grafana_datasource.html">
      Add a Loki Data Source in OperateFirst Grafana
     </a>
    </li>
    <li class="toctree-l2">
-    <a class="reference internal" href="../../observatorium/loki/README.html">
+    <a class="reference internal" href="../observatorium/loki/README.html">
      Loki Access
     </a>
    </li>
    <li class="toctree-l2">
-    <a class="reference internal" href="../../observatorium/thanos/README.html">
+    <a class="reference internal" href="../observatorium/thanos/README.html">
      Thanos Access
     </a>
    </li>
    <li class="toctree-l2">
-    <a class="reference internal" href="../../observatorium/thanos/request_grafana_access.html">
+    <a class="reference internal" href="../observatorium/thanos/request_grafana_access.html">
      Grafana
     </a>
    </li>
    <li class="toctree-l2">
-    <a class="reference internal" href="../../observatorium/thanos/request_thanos_access.html">
+    <a class="reference internal" href="../observatorium/thanos/request_thanos_access.html">
      Thanos Query API
     </a>
    </li>
    <li class="toctree-l2">
-    <a class="reference internal" href="../../observatorium/thanos/thanos_programmatic_access.html">
+    <a class="reference internal" href="../observatorium/thanos/thanos_programmatic_access.html">
      Thanos Programmatic Access
     </a>
    </li>
    <li class="toctree-l2">
-    <a class="reference internal" href="../../observatorium/vector/README.html">
+    <a class="reference internal" href="../observatorium/vector/README.html">
      Vector on Operate First
     </a>
    </li>
   </ul>
  </li>
  <li class="toctree-l1 has-children">
-  <a class="reference internal" href="../../ocs/README.html">
+  <a class="reference internal" href="../ocs/README.html">
    OpenShift Container Storage
   </a>
   <input class="toctree-checkbox" id="toctree-checkbox-9" name="toctree-checkbox-9" type="checkbox"/>
@@ -360,81 +360,81 @@
   </label>
   <ul>
    <li class="toctree-l2">
-    <a class="reference internal" href="../../ocs/buckets-external-access.html">
+    <a class="reference internal" href="../ocs/buckets-external-access.html">
      Accessing buckets from outside the cluster
     </a>
    </li>
    <li class="toctree-l2">
-    <a class="reference internal" href="../../ocs/claiming_object_store.html">
+    <a class="reference internal" href="../ocs/claiming_object_store.html">
      Claiming S3-compatible object store buckets
     </a>
    </li>
    <li class="toctree-l2">
-    <a class="reference internal" href="../../ocs/runbook.html">
+    <a class="reference internal" href="../ocs/runbook.html">
      OpenShift Container Storage (OCS) Runbook
     </a>
    </li>
   </ul>
  </li>
- <li class="toctree-l1 current active has-children">
-  <a class="reference internal" href="../README.html">
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../odh/README.html">
    Open Data Hub (ODH)
   </a>
-  <input checked="" class="toctree-checkbox" id="toctree-checkbox-10" name="toctree-checkbox-10" type="checkbox"/>
+  <input class="toctree-checkbox" id="toctree-checkbox-10" name="toctree-checkbox-10" type="checkbox"/>
   <label for="toctree-checkbox-10">
    <i class="fas fa-chevron-down">
    </i>
   </label>
-  <ul class="current">
-   <li class="toctree-l2 current active has-children">
-    <a class="reference internal" href="README.html">
+  <ul>
+   <li class="toctree-l2 has-children">
+    <a class="reference internal" href="../odh/jupyterhub/README.html">
      JupyterHub
     </a>
-    <input checked="" class="toctree-checkbox" id="toctree-checkbox-11" name="toctree-checkbox-11" type="checkbox"/>
+    <input class="toctree-checkbox" id="toctree-checkbox-11" name="toctree-checkbox-11" type="checkbox"/>
     <label for="toctree-checkbox-11">
      <i class="fas fa-chevron-down">
      </i>
     </label>
-    <ul class="current">
+    <ul>
      <li class="toctree-l3">
-      <a class="reference internal" href="access_jupyterhub.html">
+      <a class="reference internal" href="../odh/jupyterhub/access_jupyterhub.html">
        Access JupyterHub
       </a>
      </li>
      <li class="toctree-l3">
-      <a class="reference internal" href="add_imagestream_to_jh.html">
+      <a class="reference internal" href="../odh/jupyterhub/add_imagestream_to_jh.html">
        Provision a new ImageStream
       </a>
      </li>
      <li class="toctree-l3">
-      <a class="reference internal" href="analyze_storage.html">
+      <a class="reference internal" href="../odh/jupyterhub/analyze_storage.html">
        Analyze Storage for a Notebook
       </a>
      </li>
-     <li class="toctree-l3 current active">
-      <a class="current reference internal" href="#">
+     <li class="toctree-l3">
+      <a class="reference internal" href="../odh/jupyterhub/increase_pvc_size_jh.html">
        Increase PVC size for JupyterHub
       </a>
      </li>
      <li class="toctree-l3">
-      <a class="reference internal" href="reinstall_kernel.html">
+      <a class="reference internal" href="../odh/jupyterhub/reinstall_kernel.html">
        How to restart a Notebook Kernel
       </a>
      </li>
      <li class="toctree-l3">
-      <a class="reference internal" href="runbook.html">
+      <a class="reference internal" href="../odh/jupyterhub/runbook.html">
        JupyterHub Runbook
       </a>
      </li>
      <li class="toctree-l3">
-      <a class="reference internal" href="user_profiles.html">
+      <a class="reference internal" href="../odh/jupyterhub/user_profiles.html">
        Managing user profiles
       </a>
      </li>
     </ul>
    </li>
    <li class="toctree-l2 has-children">
-    <a class="reference internal" href="../kafka/README.html">
+    <a class="reference internal" href="../odh/kafka/README.html">
      Kafka
     </a>
     <input class="toctree-checkbox" id="toctree-checkbox-12" name="toctree-checkbox-12" type="checkbox"/>
@@ -444,24 +444,24 @@
     </label>
     <ul>
      <li class="toctree-l3">
-      <a class="reference internal" href="../kafka/add_kafka_topics.html">
+      <a class="reference internal" href="../odh/kafka/add_kafka_topics.html">
        Add Kafka Topics
       </a>
      </li>
      <li class="toctree-l3">
-      <a class="reference internal" href="../kafka/add_kafka_users.html">
+      <a class="reference internal" href="../odh/kafka/add_kafka_users.html">
        Add Kafka Users
       </a>
      </li>
      <li class="toctree-l3">
-      <a class="reference internal" href="../kafka/runbook.html">
+      <a class="reference internal" href="../odh/kafka/runbook.html">
        Kafka Runbook
       </a>
      </li>
     </ul>
    </li>
    <li class="toctree-l2 has-children">
-    <a class="reference internal" href="../superset/README.html">
+    <a class="reference internal" href="../odh/superset/README.html">
      Superset
     </a>
     <input class="toctree-checkbox" id="toctree-checkbox-13" name="toctree-checkbox-13" type="checkbox"/>
@@ -471,24 +471,24 @@
     </label>
     <ul>
      <li class="toctree-l3">
-      <a class="reference internal" href="../superset/add_superset_users.html">
+      <a class="reference internal" href="../odh/superset/add_superset_users.html">
        Provision Superset Access
       </a>
      </li>
      <li class="toctree-l3">
-      <a class="reference internal" href="../superset/map_groups_to_roles.html">
+      <a class="reference internal" href="../odh/superset/map_groups_to_roles.html">
        Map OCP Group to Superset Role
       </a>
      </li>
      <li class="toctree-l3">
-      <a class="reference internal" href="../superset/runbook.html">
+      <a class="reference internal" href="../odh/superset/runbook.html">
        Superset Runbook
       </a>
      </li>
     </ul>
    </li>
    <li class="toctree-l2 has-children">
-    <a class="reference internal" href="../trino/README.html">
+    <a class="reference internal" href="../odh/trino/README.html">
      Trino
     </a>
     <input class="toctree-checkbox" id="toctree-checkbox-14" name="toctree-checkbox-14" type="checkbox"/>
@@ -498,36 +498,36 @@
     </label>
     <ul>
      <li class="toctree-l3">
-      <a class="reference internal" href="../trino/access_public_bucket.html">
+      <a class="reference internal" href="../odh/trino/access_public_bucket.html">
        Operate-First Public Bucket
       </a>
      </li>
      <li class="toctree-l3">
-      <a class="reference internal" href="../trino/add_more_buckets.html">
+      <a class="reference internal" href="../odh/trino/add_more_buckets.html">
        Adding buckets to Trino
       </a>
      </li>
      <li class="toctree-l3">
-      <a class="reference internal" href="../trino/add_more_postgress_catalogs.html">
+      <a class="reference internal" href="../odh/trino/add_more_postgress_catalogs.html">
        Adding additional Postgres catalogs to Trino
       </a>
      </li>
      <li class="toctree-l3">
-      <a class="reference internal" href="../trino/trino_superset_user_guide.html">
+      <a class="reference internal" href="../odh/trino/trino_superset_user_guide.html">
        How To Guide: Ceph -&gt; Trino -&gt; Superset
       </a>
      </li>
     </ul>
    </li>
    <li class="toctree-l2">
-    <a class="reference internal" href="../adding_kfdefs.html">
+    <a class="reference internal" href="../odh/adding_kfdefs.html">
      Add a new Kfdef
     </a>
    </li>
   </ul>
  </li>
  <li class="toctree-l1 has-children">
-  <a class="reference internal" href="../../uwm/README.html">
+  <a class="reference internal" href="../uwm/README.html">
    User WorkLoad Monitoring
   </a>
   <input class="toctree-checkbox" id="toctree-checkbox-15" name="toctree-checkbox-15" type="checkbox"/>
@@ -537,14 +537,14 @@
   </label>
   <ul>
    <li class="toctree-l2">
-    <a class="reference internal" href="../../uwm/overview.html">
+    <a class="reference internal" href="../uwm/overview.html">
      Overview
     </a>
    </li>
   </ul>
  </li>
  <li class="toctree-l1 has-children">
-  <a class="reference internal" href="../../notebooks/README.html">
+  <a class="reference internal" href="../notebooks/README.html">
    Notebooks
   </a>
   <input class="toctree-checkbox" id="toctree-checkbox-16" name="toctree-checkbox-16" type="checkbox"/>
@@ -554,24 +554,24 @@
   </label>
   <ul>
    <li class="toctree-l2">
-    <a class="reference internal" href="../../notebooks/increase_pvc_size.html">
+    <a class="reference internal" href="../notebooks/increase_pvc_size.html">
      Increase size of a PVC in JupyterHub
     </a>
    </li>
    <li class="toctree-l2">
-    <a class="reference internal" href="../../notebooks/onboarding_new_cluster.html">
+    <a class="reference internal" href="../notebooks/onboarding_new_cluster.html">
      How to add a new cluster to Operate First
     </a>
    </li>
    <li class="toctree-l2">
-    <a class="reference internal" href="../../notebooks/onboarding_project.html">
+    <a class="reference internal" href="../notebooks/onboarding_project.html">
      How to onboard a new project to a cluster on Operate First Cloud
     </a>
    </li>
   </ul>
  </li>
  <li class="toctree-l1 has-children">
-  <a class="reference internal" href="../../templates/README.html">
+  <a class="reference internal" href="../templates/README.html">
    Templates
   </a>
   <input class="toctree-checkbox" id="toctree-checkbox-17" name="toctree-checkbox-17" type="checkbox"/>
@@ -581,14 +581,14 @@
   </label>
   <ul>
    <li class="toctree-l2">
-    <a class="reference internal" href="../../templates/runbook.html">
+    <a class="reference internal" href="../templates/runbook.html">
      &lt;Application/Service Name&gt; Runbook
     </a>
    </li>
   </ul>
  </li>
  <li class="toctree-l1">
-  <a class="reference internal" href="../../../CONTRIBUTING.html">
+  <a class="reference internal" href="../../CONTRIBUTING.html">
    Contributing to GitOps Docs
   </a>
  </li>
@@ -633,7 +633,7 @@
         <!-- ipynb file if we had a myst markdown file -->
         
         <!-- Download raw file -->
-        <a class="dropdown-buttons" href="../../../_sources/content/odh/jupyterhub/increase_pvc_size_jh.md"><button type="button"
+        <a class="dropdown-buttons" href="../../_sources/content/cluster-scope/create_ocp_group.md"><button type="button"
                 class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
                 data-placement="left">.md</button></a>
         <!-- Download PDF via print -->
@@ -653,7 +653,7 @@
                 data-toggle="tooltip" data-placement="left" title="Source repository"><i
                     class="fab fa-github"></i>repository</button></a>
         <a class="issues-button"
-            href="https://github.com/operate-first/apps/issues/new?title=Issue%20on%20page%20%2Fcontent/odh/jupyterhub/increase_pvc_size_jh.html&body=Your%20issue%20content%20here."><button
+            href="https://github.com/operate-first/apps/issues/new?title=Issue%20on%20page%20%2Fcontent/cluster-scope/create_ocp_group.html&body=Your%20issue%20content%20here."><button
                 type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
                 title="Open an issue"><i class="fas fa-lightbulb"></i>open issue</button></a>
         
@@ -680,8 +680,13 @@
             <nav id="bd-toc-nav" aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#add-pvc-to-github">
-   Add pvc to GitHub
+  <a class="reference internal nav-link" href="#add-groups-manually">
+   Add groups manually
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#use-the-opf-cli">
+   Use the OPF CLI
   </a>
  </li>
 </ul>
@@ -694,7 +699,7 @@
         <div class="col-12 col-md-9 pl-md-3 pr-md-0">
             <!-- Table of contents that is only displayed when printing the page -->
             <div id="jb-print-docs-body" class="onlyprint">
-                <h1>Increase PVC size for JupyterHub</h1>
+                <h1>Adding an OCP group to Operate First Cloud</h1>
                 <!-- Table of contents -->
                 <div id="print-main-content">
                     <div id="jb-print-toc">
@@ -705,8 +710,13 @@
                         <nav aria-label="Page">
                             <ul class="visible nav section-nav flex-column">
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#add-pvc-to-github">
-   Add pvc to GitHub
+  <a class="reference internal nav-link" href="#add-groups-manually">
+   Add groups manually
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#use-the-opf-cli">
+   Use the OPF CLI
   </a>
  </li>
 </ul>
@@ -718,33 +728,80 @@
             
               <div>
                 
-  <div class="tex2jax_ignore mathjax_ignore section" id="increase-pvc-size-for-jupyterhub">
-<h1>Increase PVC size for JupyterHub<a class="headerlink" href="#increase-pvc-size-for-jupyterhub" title="Permalink to this headline">¶</a></h1>
-<p>When you first log in to JupyterHub, a PVC is automatically provisioned for you on the Smaug cluster. This PVC however, is not tracked in git, so we will need to first add it to git, before we increase the size. If your PVC has already been added to git (likely because you have had its size increased before already), then you can skip the creation portion.</p>
-<div class="section" id="add-pvc-to-github">
-<h2>Add pvc to GitHub<a class="headerlink" href="#add-pvc-to-github" title="Permalink to this headline">¶</a></h2>
-<p>Create a PVC in <code class="docutils literal notranslate"><span class="pre">kfdefs/overlays/moc/smaug/opf-jupyterhub/pvcs</span></code>, use the following syntax to name it: <code class="docutils literal notranslate"><span class="pre">&lt;your_github_handle&gt;.yaml</span></code>. Populate this file as follows:</p>
-<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="nn">---</span><span class="w"></span>
-<span class="nt">kind</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">PersistentVolumeClaim</span><span class="w"></span>
-<span class="nt">apiVersion</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">v1</span><span class="w"></span>
-<span class="nt">metadata</span><span class="p">:</span><span class="w"></span>
-<span class="w">  </span><span class="nt">annotations</span><span class="p">:</span><span class="w"></span>
-<span class="w">    </span><span class="nt">hub.jupyter.org/username</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">&lt;YOUR_OCP_USERNAME&gt;</span><span class="w"> </span><span class="c1"># Your github user handle</span><span class="w"></span>
-<span class="w">  </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">name</span><span class="w"></span>
-<span class="w">  </span><span class="nt">labels</span><span class="p">:</span><span class="w"></span>
-<span class="w">    </span><span class="nt">app</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">jupyterhub</span><span class="w"></span>
-<span class="w">    </span><span class="nt">component</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">singleuser-storage</span><span class="w"></span>
-<span class="nt">spec</span><span class="p">:</span><span class="w"></span>
-<span class="w">  </span><span class="nt">resources</span><span class="p">:</span><span class="w"></span>
-<span class="w">    </span><span class="nt">requests</span><span class="p">:</span><span class="w"></span>
-<span class="w">      </span><span class="nt">storage</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">&lt;YOUR_PREFERRED_SIZE&gt;</span><span class="w"> </span><span class="c1"># e.g. 10Gi</span><span class="w"></span>
+  <div class="tex2jax_ignore mathjax_ignore section" id="adding-an-ocp-group-to-operate-first-cloud">
+<h1>Adding an OCP group to Operate First Cloud<a class="headerlink" href="#adding-an-ocp-group-to-operate-first-cloud" title="Permalink to this headline">¶</a></h1>
+<p>Instructions on how to add an OCP group to Operate First Cloud.</p>
+<div class="section" id="add-groups-manually">
+<h2>Add groups manually<a class="headerlink" href="#add-groups-manually" title="Permalink to this headline">¶</a></h2>
+<ol class="simple">
+<li><p>Set your GitHub username, your choice of OCP group, and your workingdir:</p></li>
+</ol>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="nv">OCP_GROUP</span><span class="o">=</span>&lt;enter-your-group-here&gt;
+<span class="nv">GITHUB_USER</span><span class="o">=</span>&lt;your-github-user-handle&gt;
+<span class="nv">WORKING_DIR</span><span class="o">=</span>&lt;path-to-your-working-dir&gt;
 </pre></div>
 </div>
-<blockquote>
-<div><p>Note: if your PVC already exists, simply increase the <code class="docutils literal notranslate"><span class="pre">spec.resources.requests.storage</span></code> value as needed</p>
-</div></blockquote>
-<p>Add this filename to the <code class="docutils literal notranslate"><span class="pre">kustomization.yaml</span></code> located at: <code class="docutils literal notranslate"><span class="pre">kfdefs/overlays/moc/smaug/opf-jupyterhub/pvcs/kustomization.yaml</span></code></p>
-<p>Commit your changes and make a PR, once merged ArgoCD will deploy the changes and you should then see an increase in your storage. You can verify your changes by following the instructions <a class="reference internal" href="analyze_storage.html"><span class="doc std std-doc">here</span></a>.</p>
+<ol class="simple">
+<li><p>Fork/Clone apps repo <a class="reference external" href="https://github.com/operate-first/apps.git:">https://github.com/operate-first/apps.git:</a></p></li>
+</ol>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="c1"># After forking</span>
+$ git clone https://github.com/<span class="nv">$GITHUB_USER</span>/apps.git <span class="nv">$WORKING_DIR</span>
+</pre></div>
+</div>
+<ol class="simple">
+<li><p>Navigate to the <code class="docutils literal notranslate"><span class="pre">base</span></code> OCP <code class="docutils literal notranslate"><span class="pre">groups</span></code> directory:</p></li>
+</ol>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$ <span class="nb">cd</span> <span class="nv">$WORKING_DIR</span>/apps/cluster-scope/base/user.openshift.io/groups/
+</pre></div>
+</div>
+<ol class="simple">
+<li><p>Create your <code class="docutils literal notranslate"><span class="pre">$OCP_GROUP</span></code> folder:</p></li>
+</ol>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$ mkdir <span class="nv">$OCP_GROUP</span>
+$ <span class="nb">cd</span> <span class="nv">$OCP_GROUP</span>
+</pre></div>
+</div>
+<ol class="simple">
+<li><p>Create <code class="docutils literal notranslate"><span class="pre">group.yaml</span></code> in $OCP_GROUP</p></li>
+</ol>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$ cat <span class="s">&lt;&lt;EOF &gt; group.yaml</span>
+<span class="s">apiVersion: user.openshift.io/v1</span>
+<span class="s">kind: Group</span>
+<span class="s">metadata:</span>
+<span class="s">    name: $OCP_GROUP</span>
+<span class="s">users: []</span>
+<span class="s">EOF</span>
+</pre></div>
+</div>
+<p>Add users to the <code class="docutils literal notranslate"><span class="pre">users</span></code> field accordingly.</p>
+<ol class="simple">
+<li><p>Create the <code class="docutils literal notranslate"><span class="pre">kustomization.yaml</span></code></p></li>
+</ol>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$ cat <span class="s">&lt;&lt;EOF &gt; kustomization.yaml</span>
+<span class="s">apiVersion: kustomize.config.k8s.io/v1beta1</span>
+<span class="s">kind: Kustomization</span>
+<span class="s">resources:</span>
+<span class="s">    - group.yaml</span>
+<span class="s">EOF</span>
+</pre></div>
+</div>
+<ol class="simple">
+<li><p>Add the following line to <code class="docutils literal notranslate"><span class="pre">cluster-scope/overlays/prod/common/kustomization.yaml</span></code> alphabetically:</p></li>
+</ol>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>- ../../../base/user.openshift.io/groups/$OCP_GROUP
+</pre></div>
+</div>
+<ol class="simple">
+<li><p>Commit and push your changes. Submit a PR to the upstream repository.</p></li>
+</ol>
+</div>
+<div class="section" id="use-the-opf-cli">
+<h2>Use the OPF CLI<a class="headerlink" href="#use-the-opf-cli" title="Permalink to this headline">¶</a></h2>
+<ol class="simple">
+<li><p>Clone/Fork/Navigate to working directory as shown above</p></li>
+<li><p>Follow instructions here: <a class="reference external" href="https://github.com/operate-first/opfcli#create-group">https://github.com/operate-first/opfcli#create-group</a></p></li>
+<li><p>Commit and push your changes. Submit a PR to the upstream repository.</p></li>
+</ol>
 </div>
 </div>
 
@@ -761,7 +818,7 @@
         },
         kernelOptions: {
             kernelName: "python3",
-            path: "./content/odh/jupyterhub"
+            path: "./content/cluster-scope"
         },
         predefinedOutput: true
     }
@@ -773,17 +830,17 @@
             
                 <!-- Previous / next buttons -->
 <div class='prev-next-area'> 
-    <a class='left-prev' id="prev-link" href="analyze_storage.html" title="previous page">
+    <a class='left-prev' id="prev-link" href="add_resource_quotas.html" title="previous page">
         <i class="fas fa-angle-left"></i>
         <div class="prev-next-info">
             <p class="prev-next-subtitle">previous</p>
-            <p class="prev-next-title">Analyze Storage for a Notebook</p>
+            <p class="prev-next-title">Adding Resource Quotas</p>
         </div>
     </a>
-    <a class='right-next' id="next-link" href="reinstall_kernel.html" title="next page">
+    <a class='right-next' id="next-link" href="add_user_to_group.html" title="next page">
     <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title">How to restart a Notebook Kernel</p>
+        <p class="prev-next-title">Adding User to an OCP team</p>
     </div>
     <i class="fas fa-angle-right"></i>
     </a>
@@ -805,7 +862,7 @@
       </div>
     </div>
   
-  <script src="../../../_static/js/index.be7d3bbb2ef33a8344ce.js"></script>
+  <script src="../../_static/js/index.be7d3bbb2ef33a8344ce.js"></script>
 
   </body>
 </html>
