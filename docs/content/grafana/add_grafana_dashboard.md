@@ -23,15 +23,22 @@ In this template, all you need to do is update:
 1. `metadata.name` - the dashboard name
 2. `spec.url` - the URL pointing to the location of your dashboard JSON file
 
-Pick a suitable `metadata.name`, ensure that its unique in the [`grafana/base/dashboards`][1] folder.
+Pick a suitable `metadata.name`, ensure that its unique in the [`grafana/overlays/moc/smaug/dashboards`][1] folder.
 
-Save this file under `grafana/base/dashboards/${DASHBOARD_FOLDER}/grafana-dashboard-example.yaml`.
+Save this file under `grafana/overlays/moc/smaug/dashboards/${DASHBOARD_FOLDER}/grafana-dashboard-example.yaml`.
 
-Then add it to `grafana/base/dashboards/kustomization.yaml` by running the following:
+Make sure to create a kustomization inside your '${DASHBOARD_FOLDER}'
 
 ```bash
-$ cd grafana/base/dashboards
-$ kustomize edit add resource grafana-dashboard-example.yaml
+$ cd ${DASHBOARD_FOLDER}
+$ kustomize create --autodetect
 ```
 
-[1]: https://github.com/operate-first/apps/tree/master/grafana/base/dashboards
+Then add it to `grafana/overlays/moc/smaug/dashboards/kustomization.yaml` by running the following:
+
+```bash
+$ cd grafana/overlays/moc/smaug/dashboards
+$ kustomize edit add resource ${DASHBOARD_FOLDER}
+```
+
+[1]: https://github.com/operate-first/apps/tree/master/grafana/overlays/moc/smaug/dashboards
