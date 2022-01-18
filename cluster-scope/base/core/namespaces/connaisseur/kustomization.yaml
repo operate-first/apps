@@ -5,3 +5,7 @@ resources:
 - namespace.yaml
 components:
 - ../../../../components/project-admin-rolebindings/operate-first
+- ../../../../components/project-admin-rolebindings/octo-training-model
+- ../../../../components/monitoring-rbac
+- ../../../../components/resourcequotas/small
+- ../../../../components/limitranges/default

@@ -32,6 +32,7 @@ resources:
 - ../../../../base/core/namespaces/ai-services-thanos-grpc
 - ../../../../base/core/namespaces/apicurio-apicurio-registry
 - ../../../../base/core/namespaces/b4mad-racing
+- ../../../../base/core/namespaces/connaisseur/namespace.yaml
 - ../../../../base/core/namespaces/debezium-ui
 - ../../../../base/core/namespaces/democratic-csi
 - ../../../../base/core/namespaces/dex
