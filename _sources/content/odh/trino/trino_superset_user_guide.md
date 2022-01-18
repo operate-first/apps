@@ -37,7 +37,7 @@ In order to create the tables in Trino, we will use [CloudBeaver][9].
 
 After logging in, you should see the `Operate First Trino` database already created like so:
 
-<img src="assets/images/cloudbeaver-db-view.png" width="200" height="250">
+![cloudbeaver-db-view](assets/images/cloudbeaver-db-view.png)
 
 Each database has the following structure:
 
@@ -45,13 +45,13 @@ Each database has the following structure:
 
 For eg: In the `Operate First Trino` db, we have 2 [catalogs][10] (data sources) i.e. ‘hive’ and ‘system’. In the `hive` catalog we have the different schemas such as `default`, `ocp` etc. Under each of these schemas, we have different tables created.
 
-<img src="assets/images/cloudbeaver-table-view.png" width="200">
+![cloudbeaver-table-view](assets/images/cloudbeaver-table-view.png)
 
 ### Create a Schema
 
 In order to start importing our data from s3 into tables, we need to first create a schema. **_Please note that we will always create schemas/tables within the `hive` catalog alone_**. Before we start creating the schemas and tables, **make sure you have selected the “Operate First Trino” database and the “hive” catalog in the upper tab** like so: (next to the “Tools” dropdown)
 
-<img src="assets/images/cloudbeaver-main-tab.png">
+![cloudbeaver-main-tab](assets/images/cloudbeaver-main-tab.png)
 
 Once you have selected the database and the catalog, click on the `SQL` tab to open a SQL script. To create a schema execute the following SQL statement:
 
@@ -94,11 +94,11 @@ https://trino.operate-first.cloud](https://trino.operate-first.cloud).
 
 After logging in you should see a landing page which displays the number of queries running, active workers, queries executed etc:
 
-<img src="assets/images/trino-landing-page.png" width="500">
+![trino-landing-page](assets/images/trino-landing-page.png)
 
 You can click on a particular query ID to view its logs like so:
 
-<img src="assets/images/trino-query-page.png" width="500">
+![trino-query-page](assets/images/trino-query-page.png)
 
 ## Trino to Superset
 
@@ -112,11 +112,11 @@ Now that we have the tables created in Trino, we can start creating our dashboar
 
 We need to select the dataset we would like to use i.e. the tables created in Trino for which we would like to create dashboards. To select click on **`Data` -> `Datasets`** like so:
 
-<img src="assets/images/superset-data-tab.png" width="500">
+![superset-data-tab](assets/images/superset-data-tab.png)
 
 Click on the **‘+’** button in the top right corner to add a new data set, a pop-up should appear like so:
 
-<img src="assets/images/superset-add-dataset.png" width="500">
+![superset-add-dataset](assets/images/superset-add-dataset.png)
 
 * Select the **datasource** as the `trino opf-trino` database
 * Select the **schema** of your interest from the drop-down (you should see all the schemas that have been created under the hive catalog in Trino)
@@ -128,21 +128,21 @@ You should now see the table/dataset created and listed.
 
 Now that we have the required dataset, we can go ahead and start creating our charts and dashboards. To create a chart, click on "**Charts**" tab on top and add a new chart by clicking on the "**+ Chart**" button:
 
-<img src="assets/images/superset-add-chart.png" width="200">
+![superset-add-chart](assets/images/superset-add-chart.png)
 
 Choose the dataset from the dropdown and the type of visualization:
 
-<img src="assets/images/superset-select-chart.png" width="700">
+![superset-select-chart](assets/images/superset-select-chart.png)
 
 There are many different charts/visualizations you can choose from:
 
-<img src="assets/images/superset-visualizations.png" width="500">
+![superset-visualizations](assets/images/superset-visualizations.png)
 
 Based on the chart type you choose, you will have a number of fields to edit and write the appropriate SQL queries for visualizing your data. The fields are mostly self explanatory. “**Metric**” is the key data you are trying to convey (where you write your SQL queries). “**Filters**” allow you to specify which data is used. “**Group by**” combines the data into groups. After the chart has been adjusted as desired, click on the “**Run**” button to create it.
 
 For example, below we have created a bar chart which displays the average test duration per TestGrid dashboard tab. Our query here would be - **AVERAGE(test_duration)**. Since we want to display this per TestGrid dashboard, we can specify this in the “Series” field. Similarly, for every chart type the fields to edit will vary and we can create our visualization as per our needs.
 
-<img src="assets/images/superset-barchart.png" width="800">
+![superset-barchart](assets/images/superset-barchart.png)
 
 Once you have created a chart and are happy with how it looks, you can click “**Save**” and add it to a dashboard.
 
@@ -150,21 +150,21 @@ Once you have created a chart and are happy with how it looks, you can click “
 
 Dashboards are a feature of Superset that allow for multiple charts and queries to be displayed in one place. To add a chart to a dashboard, click the “**Save**” button when viewing the chart and provide a name for it. If adding to a pre-existing dashboard, specify that dashboard’s name, otherwise select to add to a new dashboard.
 
-<img src="assets/images/superset-save-chart.png" width="400">
+![superset-save-chart](assets/images/superset-save-chart.png)
 
 After clicking “**Save & Go To Dashboard**”, you will be able to see the dashboard. Dashboards allow for many different charts and can easily be reorganized by clicking on the pencil icon (edit option) in the top right corner.
 
-<img src="assets/images/superset-dashboard.png" width="700">
+![superset-dashboard](assets/images/superset-dashboard.png)
 
 To save the dashboard, click on the **3 dots** next to the pencil icon on the top right:
 
-<img src="assets/images/superset-save-dashboard.png" width="200">
+![superset-save-dashboard](assets/images/superset-save-dashboard.png)
 
 In order to share your dashboard with others, make sure to click on “**Publish**” next to the dashboard title name and copy the dashboard URL generated.
 
 You can also edit the properties of each dashboard. To do so, click on the “**Dashboards**” tab to view the list of dashboards.
 
-<img src="assets/images/superset-dashboard-properties.png" width="800" height="150">
+![superset-dashboard-properties](assets/images/superset-dashboard-properties.png)
 
 Hover under the “**Actions**” column next to the dashboard name you are interested in. Click on the** pencil icon**, to edit the fields such as adding owners to the dashboard, **creating a readable URL for the dashboard** etc.
 
@@ -172,7 +172,7 @@ Hover under the “**Actions**” column next to the dashboard name you are inte
 
 Another useful feature of Superset is the ability to quickly export dashboards. To export a dashboard first go to the “**Dashboards**” tab of the top bar.  Next, hover under the “**Actions**” column next to the dashboard you would like to export. Finally, click on the **arrow icon** to export the dashboard and a JSON file download should start. Make sure that you have pop-ups enabled for this page or the download might not run.
 
-<img src="assets/images/superset-export-dashboard.png" width="800" height="250">
+![superset-export-dashboard](assets/images/superset-export-dashboard.png)
 
 [1]: http://cloudbeaver-opf-trino.apps.smaug.na.operate-first.cloud
 [2]: https://trino.operate-first.cloud

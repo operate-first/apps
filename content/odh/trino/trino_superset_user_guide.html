@@ -888,16 +888,16 @@
 </ul>
 <p>(<em><strong>Note: User authentication for CloudBeaver is still a WIP. Reach out to the Operate First team for admin credentials</strong></em>)</p>
 <p>After logging in, you should see the <code class="docutils literal notranslate"><span class="pre">Operate</span> <span class="pre">First</span> <span class="pre">Trino</span></code> database already created like so:</p>
-<img src="assets/images/cloudbeaver-db-view.png" width="200" height="250">
+<p><img alt="cloudbeaver-db-view" src="../../../_images/cloudbeaver-db-view.png" /></p>
 <p>Each database has the following structure:</p>
 <p><strong>Database -&gt; Catalog -&gt; Schema -&gt; Tables</strong></p>
 <p>For eg: In the <code class="docutils literal notranslate"><span class="pre">Operate</span> <span class="pre">First</span> <span class="pre">Trino</span></code> db, we have 2 <a class="reference external" href="https://trino.io/docs/current/overview/concepts.html#catalog">catalogs</a> (data sources) i.e. ‘hive’ and ‘system’. In the <code class="docutils literal notranslate"><span class="pre">hive</span></code> catalog we have the different schemas such as <code class="docutils literal notranslate"><span class="pre">default</span></code>, <code class="docutils literal notranslate"><span class="pre">ocp</span></code> etc. Under each of these schemas, we have different tables created.</p>
-<img src="assets/images/cloudbeaver-table-view.png" width="200">
+<p><img alt="cloudbeaver-table-view" src="../../../_images/cloudbeaver-table-view.png" /></p>
 </div>
 <div class="section" id="create-a-schema">
 <h3>Create a Schema<a class="headerlink" href="#create-a-schema" title="Permalink to this headline">¶</a></h3>
 <p>In order to start importing our data from s3 into tables, we need to first create a schema. <strong><em>Please note that we will always create schemas/tables within the <code class="docutils literal notranslate"><span class="pre">hive</span></code> catalog alone</em></strong>. Before we start creating the schemas and tables, <strong>make sure you have selected the “Operate First Trino” database and the “hive” catalog in the upper tab</strong> like so: (next to the “Tools” dropdown)</p>
-<img src="assets/images/cloudbeaver-main-tab.png">
+<p><img alt="cloudbeaver-main-tab" src="../../../_images/cloudbeaver-main-tab.png" /></p>
 <p>Once you have selected the database and the catalog, click on the <code class="docutils literal notranslate"><span class="pre">SQL</span></code> tab to open a SQL script. To create a schema execute the following SQL statement:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">CREATE</span> <span class="n">SCHEMA</span> <span class="n">IF</span> <span class="n">NOT</span> <span class="n">EXISTS</span> <span class="n">hive</span><span class="o">.&lt;</span><span class="n">schema</span> <span class="n">name</span><span class="o">&gt;</span>
 </pre></div>
@@ -937,9 +937,9 @@
 https://trino.operate-first.cloud</a>.</p></li>
 </ul>
 <p>After logging in you should see a landing page which displays the number of queries running, active workers, queries executed etc:</p>
-<img src="assets/images/trino-landing-page.png" width="500">
+<p><img alt="trino-landing-page" src="../../../_images/trino-landing-page.png" /></p>
 <p>You can click on a particular query ID to view its logs like so:</p>
-<img src="assets/images/trino-query-page.png" width="500">
+<p><img alt="trino-query-page" src="../../../_images/trino-query-page.png" /></p>
 </div>
 </div>
 <div class="section" id="trino-to-superset">
@@ -952,9 +952,9 @@ https://trino.operate-first.cloud</a>.</p></li>
 <div class="section" id="configuring-a-dataset">
 <h3>Configuring a Dataset<a class="headerlink" href="#configuring-a-dataset" title="Permalink to this headline">¶</a></h3>
 <p>We need to select the dataset we would like to use i.e. the tables created in Trino for which we would like to create dashboards. To select click on <strong><code class="docutils literal notranslate"><span class="pre">Data</span></code> -&gt; <code class="docutils literal notranslate"><span class="pre">Datasets</span></code></strong> like so:</p>
-<img src="assets/images/superset-data-tab.png" width="500">
+<p><img alt="superset-data-tab" src="../../../_images/superset-data-tab.png" /></p>
 <p>Click on the <strong>‘+’</strong> button in the top right corner to add a new data set, a pop-up should appear like so:</p>
-<img src="assets/images/superset-add-dataset.png" width="500">
+<p><img alt="superset-add-dataset" src="../../../_images/superset-add-dataset.png" /></p>
 <ul class="simple">
 <li><p>Select the <strong>datasource</strong> as the <code class="docutils literal notranslate"><span class="pre">trino</span> <span class="pre">opf-trino</span></code> database</p></li>
 <li><p>Select the <strong>schema</strong> of your interest from the drop-down (you should see all the schemas that have been created under the hive catalog in Trino)</p></li>
@@ -965,33 +965,33 @@ https://trino.operate-first.cloud</a>.</p></li>
 <div class="section" id="creating-charts">
 <h3>Creating Charts<a class="headerlink" href="#creating-charts" title="Permalink to this headline">¶</a></h3>
 <p>Now that we have the required dataset, we can go ahead and start creating our charts and dashboards. To create a chart, click on “<strong>Charts</strong>” tab on top and add a new chart by clicking on the “<strong>+ Chart</strong>” button:</p>
-<img src="assets/images/superset-add-chart.png" width="200">
+<p><img alt="superset-add-chart" src="../../../_images/superset-add-chart.png" /></p>
 <p>Choose the dataset from the dropdown and the type of visualization:</p>
-<img src="assets/images/superset-select-chart.png" width="700">
+<p><img alt="superset-select-chart" src="../../../_images/superset-select-chart.png" /></p>
 <p>There are many different charts/visualizations you can choose from:</p>
-<img src="assets/images/superset-visualizations.png" width="500">
+<p><img alt="superset-visualizations" src="../../../_images/superset-visualizations.png" /></p>
 <p>Based on the chart type you choose, you will have a number of fields to edit and write the appropriate SQL queries for visualizing your data. The fields are mostly self explanatory. “<strong>Metric</strong>” is the key data you are trying to convey (where you write your SQL queries). “<strong>Filters</strong>” allow you to specify which data is used. “<strong>Group by</strong>” combines the data into groups. After the chart has been adjusted as desired, click on the “<strong>Run</strong>” button to create it.</p>
 <p>For example, below we have created a bar chart which displays the average test duration per TestGrid dashboard tab. Our query here would be - <strong>AVERAGE(test_duration)</strong>. Since we want to display this per TestGrid dashboard, we can specify this in the “Series” field. Similarly, for every chart type the fields to edit will vary and we can create our visualization as per our needs.</p>
-<img src="assets/images/superset-barchart.png" width="800">
+<p><img alt="superset-barchart" src="../../../_images/superset-barchart.png" /></p>
 <p>Once you have created a chart and are happy with how it looks, you can click “<strong>Save</strong>” and add it to a dashboard.</p>
 </div>
 <div class="section" id="creating-and-adding-charts-to-dashboards">
 <h3>Creating and Adding Charts to Dashboards<a class="headerlink" href="#creating-and-adding-charts-to-dashboards" title="Permalink to this headline">¶</a></h3>
 <p>Dashboards are a feature of Superset that allow for multiple charts and queries to be displayed in one place. To add a chart to a dashboard, click the “<strong>Save</strong>” button when viewing the chart and provide a name for it. If adding to a pre-existing dashboard, specify that dashboard’s name, otherwise select to add to a new dashboard.</p>
-<img src="assets/images/superset-save-chart.png" width="400">
+<p><img alt="superset-save-chart" src="../../../_images/superset-save-chart.png" /></p>
 <p>After clicking “<strong>Save &amp; Go To Dashboard</strong>”, you will be able to see the dashboard. Dashboards allow for many different charts and can easily be reorganized by clicking on the pencil icon (edit option) in the top right corner.</p>
-<img src="assets/images/superset-dashboard.png" width="700">
+<p><img alt="superset-dashboard" src="../../../_images/superset-dashboard.png" /></p>
 <p>To save the dashboard, click on the <strong>3 dots</strong> next to the pencil icon on the top right:</p>
-<img src="assets/images/superset-save-dashboard.png" width="200">
+<p><img alt="superset-save-dashboard" src="../../../_images/superset-save-dashboard.png" /></p>
 <p>In order to share your dashboard with others, make sure to click on “<strong>Publish</strong>” next to the dashboard title name and copy the dashboard URL generated.</p>
 <p>You can also edit the properties of each dashboard. To do so, click on the “<strong>Dashboards</strong>” tab to view the list of dashboards.</p>
-<img src="assets/images/superset-dashboard-properties.png" width="800" height="150">
+<p><img alt="superset-dashboard-properties" src="../../../_images/superset-dashboard-properties.png" /></p>
 <p>Hover under the “<strong>Actions</strong>” column next to the dashboard name you are interested in. Click on the** pencil icon**, to edit the fields such as adding owners to the dashboard, <strong>creating a readable URL for the dashboard</strong> etc.</p>
 </div>
 <div class="section" id="exporting-dashboards">
 <h3>Exporting Dashboards<a class="headerlink" href="#exporting-dashboards" title="Permalink to this headline">¶</a></h3>
 <p>Another useful feature of Superset is the ability to quickly export dashboards. To export a dashboard first go to the “<strong>Dashboards</strong>” tab of the top bar.  Next, hover under the “<strong>Actions</strong>” column next to the dashboard you would like to export. Finally, click on the <strong>arrow icon</strong> to export the dashboard and a JSON file download should start. Make sure that you have pop-ups enabled for this page or the download might not run.</p>
-<img src="assets/images/superset-export-dashboard.png" width="800" height="250">
+<p><img alt="superset-export-dashboard" src="../../../_images/superset-export-dashboard.png" /></p>
 </div>
 </div>
 </div>
