@@ -4,7 +4,7 @@ Bare Openshift cluster installations, like for example Quicklab's Openshift 4 UP
 
 Please verify that your cluster really lacks `pv`s:
 
-1. Login as a cluster admin
+1. Login as a cluster admin (login details can be found through the `copy login command` at the drop down menu under the username at OpenShift console.)
 2. Lookup available `PersistentVolume` resources:
 
    ```bash
@@ -53,6 +53,7 @@ See automated Ansible playbook bellow for easier-to-use provisioning
     /mnt/nfs/A node1(rw) node2(rw) ...
     ...
    ```
+   where node1, node2 are respective nodes from OpenShift console. It can be accessed by `oc get nodes` command in the terminal. Once you access the names of nodes, you can add there name in the above format in `/etc/exports` file. 
 
 5. Allow NFS in firewall
 
