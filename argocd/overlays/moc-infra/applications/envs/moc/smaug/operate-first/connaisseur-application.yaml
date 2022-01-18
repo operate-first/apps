@@ -1,0 +1,43 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: connaisseur
+spec:
+  destination:
+    namespace: connaisseur
+    name: smaug
+  project: default
+  source:
+    chart: connaisseur
+    helm:
+      parameters:
+      - name: deployment.securityContext.runAsUser
+        value: "null"
+      - name: deployment.securityContext.runAsGroup
+        value: "null"
+      - name: namespacedValidation.mode
+        value: validate
+      - name: namespacedValidation.enabled
+        value: "true"
+      - name: deployment.securityContext.seccompProfile.type
+        value: "null"
+      - name: deployment.securityContext.seccompProfile
+        value: "null"
+      values: |-
+        validators:
+        - name: default
+          type: cosign
+          trust_roots:
+          - name: default
+            key: |
+              -----BEGIN PUBLIC KEY-----
+              MFkwEwYHKoZIzj0CAQYIKoZIzj0DAQcDQgAEMecau+YfMFWYrNmwY3YHMwp8UM51
+              qefyvhYr2qebJXPmXG1WpbljWcg9g1FOhPiey9HsLImh1kWdclw/czCWQw==
+              -----END PUBLIC KEY-----
+    repoURL: https://sse-secure-systems.github.io/connaisseur/charts
+    targetRevision: 1.1.0
+  syncPolicy:
+    automated:
+      prune: true
+      selfHeal: true
+
