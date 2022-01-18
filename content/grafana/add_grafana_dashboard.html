@@ -714,10 +714,10 @@
 <li><p><code class="docutils literal notranslate"><span class="pre">metadata.name</span></code> - the dashboard name</p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">spec.url</span></code> - the URL pointing to the location of your dashboard JSON file</p></li>
 </ol>
-<p>Pick a suitable <code class="docutils literal notranslate"><span class="pre">metadata.name</span></code>, ensure that its unique in the <a class="reference external" href="https://github.com/operate-first/apps/tree/master/grafana/base/dashboards"><code class="docutils literal notranslate"><span class="pre">grafana/base/dashboards</span></code></a> folder.</p>
-<p>Save this file under <code class="docutils literal notranslate"><span class="pre">grafana/base/dashboards/${DASHBOARD_FOLDER}/grafana-dashboard-example.yaml</span></code>.</p>
-<p>Then add it to <code class="docutils literal notranslate"><span class="pre">grafana/base/dashboards/kustomization.yaml</span></code> by running the following:</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$ <span class="nb">cd</span> grafana/base/dashboards
+<p>Pick a suitable <code class="docutils literal notranslate"><span class="pre">metadata.name</span></code>, ensure that its unique in the <a class="reference external" href="https://github.com/operate-first/apps/tree/master/grafana/overlays/moc/smaug/dashboards"><code class="docutils literal notranslate"><span class="pre">grafana/overlays/moc/smaug/dashboards</span></code></a> folder.</p>
+<p>Save this file under <code class="docutils literal notranslate"><span class="pre">grafana/overlays/moc/smaug/dashboards/${DASHBOARD_FOLDER}/grafana-dashboard-example.yaml</span></code>.</p>
+<p>Then add it to <code class="docutils literal notranslate"><span class="pre">grafana/overlays/moc/smaug/dashboards/kustomization.yaml</span></code> by running the following:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$ <span class="nb">cd</span> grafana/overlays/moc/smaug/dashboards
 $ kustomize edit add resource grafana-dashboard-example.yaml
 </pre></div>
 </div>
