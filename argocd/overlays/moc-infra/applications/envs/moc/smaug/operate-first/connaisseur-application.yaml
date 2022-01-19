@@ -6,7 +6,7 @@ spec:
   destination:
     namespace: connaisseur
     name: smaug
-  project: default
+  project: operate-first
   source:
     chart: connaisseur
     helm:
