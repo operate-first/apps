@@ -5,7 +5,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Loki Access &#8212; GitOps Docs</title>
+    <title>Loki Query API &#8212; GitOps Docs</title>
     
   <link href="../../../_static/css/theme.css" rel="stylesheet">
   <link href="../../../_static/css/index.ff1ffe594081f20da1ef19478df9384b.css" rel="stylesheet">
@@ -52,8 +52,6 @@
     <link rel="shortcut icon" href="../../../_static/favicon.png"/>
     <link rel="index" title="Index" href="../../../genindex.html" />
     <link rel="search" title="Search" href="../../../search.html" />
-    <link rel="next" title="Thanos Access" href="../thanos/README.html" />
-    <link rel="prev" title="Add a Loki Data Source in OperateFirst Grafana" href="add_loki_grafana_datasource.html" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="None">
     
@@ -102,7 +100,7 @@
   GitOps
  </span>
 </p>
-<ul class="current nav bd-sidenav">
+<ul class="nav bd-sidenav">
  <li class="toctree-l1 has-children">
   <a class="reference internal" href="../../about/README.html">
    About
@@ -302,23 +300,23 @@
    </li>
   </ul>
  </li>
- <li class="toctree-l1 current active has-children">
+ <li class="toctree-l1 has-children">
   <a class="reference internal" href="../README.html">
    Observatorium
   </a>
-  <input checked="" class="toctree-checkbox" id="toctree-checkbox-8" name="toctree-checkbox-8" type="checkbox"/>
+  <input class="toctree-checkbox" id="toctree-checkbox-8" name="toctree-checkbox-8" type="checkbox"/>
   <label for="toctree-checkbox-8">
    <i class="fas fa-chevron-down">
    </i>
   </label>
-  <ul class="current">
+  <ul>
    <li class="toctree-l2">
     <a class="reference internal" href="add_loki_grafana_datasource.html">
      Add a Loki Data Source in OperateFirst Grafana
     </a>
    </li>
-   <li class="toctree-l2 current active">
-    <a class="current reference internal" href="#">
+   <li class="toctree-l2">
+    <a class="reference internal" href="README.html">
      Loki Access
     </a>
    </li>
@@ -633,7 +631,7 @@
         <!-- ipynb file if we had a myst markdown file -->
         
         <!-- Download raw file -->
-        <a class="dropdown-buttons" href="../../../_sources/content/observatorium/loki/README.md"><button type="button"
+        <a class="dropdown-buttons" href="../../../_sources/content/observatorium/loki/request_loki_access.md"><button type="button"
                 class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
                 data-placement="left">.md</button></a>
         <!-- Download PDF via print -->
@@ -653,7 +651,7 @@
                 data-toggle="tooltip" data-placement="left" title="Source repository"><i
                     class="fab fa-github"></i>repository</button></a>
         <a class="issues-button"
-            href="https://github.com/operate-first/apps/issues/new?title=Issue%20on%20page%20%2Fcontent/observatorium/loki/README.html&body=Your%20issue%20content%20here."><button
+            href="https://github.com/operate-first/apps/issues/new?title=Issue%20on%20page%20%2Fcontent/observatorium/loki/request_loki_access.html&body=Your%20issue%20content%20here."><button
                 type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
                 title="Open an issue"><i class="fas fa-lightbulb"></i>open issue</button></a>
         
@@ -680,18 +678,13 @@
             <nav id="bd-toc-nav" aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#requesting-loki-access">
-   Requesting Loki access
+  <a class="reference internal nav-link" href="#steps-to-follow">
+   Steps to follow
   </a>
   <ul class="nav section-nav flex-column">
    <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#grafana-console-access">
-     Grafana Console access
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#loki-query-api-access">
-     Loki Query API access
+    <a class="reference internal nav-link" href="#example-loki-query-api">
+     Example: Loki Query API
     </a>
    </li>
   </ul>
@@ -706,7 +699,7 @@
         <div class="col-12 col-md-9 pl-md-3 pr-md-0">
             <!-- Table of contents that is only displayed when printing the page -->
             <div id="jb-print-docs-body" class="onlyprint">
-                <h1>Loki Access</h1>
+                <h1>Loki Query API</h1>
                 <!-- Table of contents -->
                 <div id="print-main-content">
                     <div id="jb-print-toc">
@@ -717,18 +710,13 @@
                         <nav aria-label="Page">
                             <ul class="visible nav section-nav flex-column">
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#requesting-loki-access">
-   Requesting Loki access
+  <a class="reference internal nav-link" href="#steps-to-follow">
+   Steps to follow
   </a>
   <ul class="nav section-nav flex-column">
    <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#grafana-console-access">
-     Grafana Console access
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#loki-query-api-access">
-     Loki Query API access
+    <a class="reference internal nav-link" href="#example-loki-query-api">
+     Example: Loki Query API
     </a>
    </li>
   </ul>
@@ -742,31 +730,44 @@
             
               <div>
                 
-  <div class="tex2jax_ignore mathjax_ignore section" id="loki-access">
-<h1>Loki Access<a class="headerlink" href="#loki-access" title="Permalink to this headline">¶</a></h1>
-<p><a class="reference external" href="https://github.com/grafana/loki#loki-like-prometheus-but-for-logs">Loki</a> is a horizontally-scalable, highly-available, multi-tenant log aggregation system.</p>
-<p>An instance of Loki is available for use in Operate First.</p>
-<div class="section" id="requesting-loki-access">
-<h2>Requesting Loki access<a class="headerlink" href="#requesting-loki-access" title="Permalink to this headline">¶</a></h2>
-<p>Logs from Loki can be accessed in two different ways:</p>
+  <div class="tex2jax_ignore mathjax_ignore section" id="loki-query-api">
+<h1>Loki Query API<a class="headerlink" href="#loki-query-api" title="Permalink to this headline">¶</a></h1>
+<p>With Thanos Query access, you will be able to:</p>
 <ol class="simple">
-<li><p>Using the Grafana Console</p></li>
-<li><p>Using the Loki Query-API</p></li>
+<li><p>Access the Loki logs programmatically using your OpenShift personal token</p></li>
 </ol>
-<div class="section" id="grafana-console-access">
-<h3>Grafana Console access<a class="headerlink" href="#grafana-console-access" title="Permalink to this headline">¶</a></h3>
-<p>The Operate First Grafana console can be accessed at: <a class="reference external" href="https://grafana.operate-first.cloud/">https://grafana.operate-first.cloud/</a></p>
-<p>To request access to the Grafana Console, read the <a class="reference internal" href="../thanos/request_grafana_access.html"><span class="doc std std-doc">following guide</span></a>.</p>
+<div class="section" id="steps-to-follow">
+<h2>Steps to follow<a class="headerlink" href="#steps-to-follow" title="Permalink to this headline">¶</a></h2>
+<p>To get the specific permissions needed to query logs directly from the Loki Query API, please follow these steps:</p>
+<ol>
+<li><p>Onboard your project/group to Operate First (<a class="reference external" href="https://github.com/operate-first/hitchhikers-guide/blob/main/pages/onboarding_project.ipynb">guide</a>)</p></li>
+<li><p>Once your group has been onboarded, add your group to <a class="reference external" href="https://github.com/operate-first/apps/blob/master/observatorium/overlays/moc/smaug/thanos/rolebindings/opf-observatorium-view.yaml#L10">this list</a> in a new line as: <br></p>
+<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="w"> </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">kind</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Group</span><span class="w"></span>
+<span class="w">   </span><span class="nt">apiGroup</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">rbac.authorization.k8s.io</span><span class="w"></span>
+<span class="w">   </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">MY_GROUP_NAME</span><span class="w"></span>
+</pre></div>
 </div>
-<div class="section" id="loki-query-api-access">
-<h3>Loki Query API access<a class="headerlink" href="#loki-query-api-access" title="Permalink to this headline">¶</a></h3>
-<p>The Loki Query API can be accessed at:</p>
-<p><a class="reference external" href="https://loki-frontend-opf-observatorium.apps.smaug.na.operate-first.cloud/">https://loki-frontend-opf-observatorium.apps.smaug.na.operate-first.cloud/</a></p>
-<p>To request access to the Loki Query API, read the <a class="reference internal" href="request_loki_access.html"><span class="doc std std-doc">following guide</span></a>.</p>
-<p>Some documentation about the Loki Query API is available <a class="reference external" href="https://grafana.com/docs/loki/latest/api/">here</a>.</p>
-<p>While querying Loki for logs,
-you will need to have a header <code class="docutils literal notranslate"><span class="pre">'X-Scope-OrgID'</span></code> set in your requests.
-This header (OrgID) is used to identify tenants in a multi tenancy setup (<a class="reference external" href="https://grafana.com/docs/loki/latest/operations/multi-tenancy/">more info</a>).</p>
+<p>and create a PR (Pull Request). You can see an example Pull Request <a class="reference external" href="https://github.com/operate-first/apps/pull/1378">here</a></p>
+</li>
+<li><p>After your PR is reviewed/merged, you should have access to the Thanos Query Console and API</p></li>
+</ol>
+<div class="section" id="example-loki-query-api">
+<h3>Example: Loki Query API<a class="headerlink" href="#example-loki-query-api" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li><p>url: <a class="reference external" href="https://loki-frontend-opf-observatorium.apps.smaug.na.operate-first.cloud">https://loki-frontend-opf-observatorium.apps.smaug.na.operate-first.cloud</a></p></li>
+</ul>
+<p>This is the endpoint that can be used to query logs from Loki.</p>
+<p>Example:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>curl -H <span class="s2">&quot;X-Scope-OrgID: opf-example&quot;</span> <span class="se">\</span>
+  -H <span class="s2">&quot;Authorization: Bearer MY_BEARER_TOKEN&quot;</span> <span class="se">\</span>
+  -G -s  <span class="s2">&quot;https://loki-frontend-opf-observatorium.apps.smaug.na.operate-first.cloud/loki/api/v1/query_range&quot;</span> <span class="se">\</span>
+  --data-urlencode <span class="s1">&#39;query={app=&quot;my-app-1&quot;}&#39;</span>
+</pre></div>
+</div>
+<p>This command queries logs from Loki using <code class="docutils literal notranslate"><span class="pre">&quot;app=&quot;my-app-1&quot;</span></code> label as the
+query.
+<em>Notice that we had to provide the same OrgID “opf-example” to be able to query for the logs that we pushed in.</em></p>
+<p>More Info on <a class="reference external" href="https://grafana.com/docs/loki/latest/api/#get-lokiapiv1query_range">/query_range</a></p>
 </div>
 </div>
 </div>
@@ -795,21 +796,7 @@ This header (OrgID) is used to identify tenants in a multi tenancy setup (<a cla
               
             
                 <!-- Previous / next buttons -->
-<div class='prev-next-area'> 
-    <a class='left-prev' id="prev-link" href="add_loki_grafana_datasource.html" title="previous page">
-        <i class="fas fa-angle-left"></i>
-        <div class="prev-next-info">
-            <p class="prev-next-subtitle">previous</p>
-            <p class="prev-next-title">Add a Loki Data Source in OperateFirst Grafana</p>
-        </div>
-    </a>
-    <a class='right-next' id="next-link" href="../thanos/README.html" title="next page">
-    <div class="prev-next-info">
-        <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title">Thanos Access</p>
-    </div>
-    <i class="fas fa-angle-right"></i>
-    </a>
+<div class='prev-next-area'>
 </div>
             
         </div>
