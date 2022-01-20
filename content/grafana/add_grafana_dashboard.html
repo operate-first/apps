@@ -716,9 +716,14 @@
 </ol>
 <p>Pick a suitable <code class="docutils literal notranslate"><span class="pre">metadata.name</span></code>, ensure that its unique in the <a class="reference external" href="https://github.com/operate-first/apps/tree/master/grafana/overlays/moc/smaug/dashboards"><code class="docutils literal notranslate"><span class="pre">grafana/overlays/moc/smaug/dashboards</span></code></a> folder.</p>
 <p>Save this file under <code class="docutils literal notranslate"><span class="pre">grafana/overlays/moc/smaug/dashboards/${DASHBOARD_FOLDER}/grafana-dashboard-example.yaml</span></code>.</p>
+<p>Make sure to create a kustomization inside your ‘${DASHBOARD_FOLDER}’</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$  <span class="nb">cd</span> <span class="si">${</span><span class="nv">DASHBOARD_FOLDER</span><span class="si">}</span>
+$  kustomize create --autodetect
+</pre></div>
+</div>
 <p>Then add it to <code class="docutils literal notranslate"><span class="pre">grafana/overlays/moc/smaug/dashboards/kustomization.yaml</span></code> by running the following:</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$ <span class="nb">cd</span> grafana/overlays/moc/smaug/dashboards
-$ kustomize edit add resource grafana-dashboard-example.yaml
+$ kustomize edit add resource <span class="si">${</span><span class="nv">DASHBOARD_FOLDER</span><span class="si">}</span>
 </pre></div>
 </div>
 </div>

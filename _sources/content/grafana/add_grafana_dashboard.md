@@ -27,11 +27,18 @@ Pick a suitable `metadata.name`, ensure that its unique in the [`grafana/overlay
 
 Save this file under `grafana/overlays/moc/smaug/dashboards/${DASHBOARD_FOLDER}/grafana-dashboard-example.yaml`.
 
+Make sure to create a kustomization inside your '${DASHBOARD_FOLDER}'
+
+```bash
+$  cd ${DASHBOARD_FOLDER}
+$  kustomize create --autodetect
+```
+
 Then add it to `grafana/overlays/moc/smaug/dashboards/kustomization.yaml` by running the following:
 
 ```bash
 $ cd grafana/overlays/moc/smaug/dashboards
-$ kustomize edit add resource grafana-dashboard-example.yaml
+$ kustomize edit add resource ${DASHBOARD_FOLDER}
 ```
 
 [1]: https://github.com/operate-first/apps/tree/master/grafana/overlays/moc/smaug/dashboards
