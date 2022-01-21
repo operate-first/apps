@@ -1648,8 +1648,8 @@ spec:
         ]
       },
       "time": {
-        "from": "2021-11-16T21:13:55.693Z",
-        "to": "2021-11-16T21:23:55.693Z"
+        "from": "now-15m",
+        "to": "now"
       },
       "timepicker": {},
       "timezone": "",
