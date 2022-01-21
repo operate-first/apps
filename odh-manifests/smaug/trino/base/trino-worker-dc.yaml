@@ -1,6 +1,9 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
+  annotations:
+    configmap.reloader.stakater.com/reload: "trino-configfiles, trino-catalog"
+    secret.reloader.stakater.com/reload: "postgres-dbs, s3buckets"
   name: trino-worker
   labels:
     instance: trino
