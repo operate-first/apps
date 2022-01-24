@@ -4,6 +4,7 @@ kind: Kustomization
 namespace: tekton-chains
 components:
   - ../../../../components/project-admin-rolebindings/operate-first
+  - ../../../../components/project-admin-rolebindings/thoth-devops
   - ../../../../components/monitoring-rbac
   - ../../../../components/resourcequotas/small
   - ../../../../components/limitranges/default
