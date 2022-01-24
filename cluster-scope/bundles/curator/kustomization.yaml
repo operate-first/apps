@@ -1,0 +1,10 @@
+apiVersion: kustomize.config.k8s.io/v1beta1
+kind: Kustomization
+
+resources:
+  - ../../base/rbac.authorization.k8s.io/clusterrolebindings/curator-manager-rb
+  - ../../base/rbac.authorization.k8s.io/clusterrolebindings/curator-oauth-proxy-rb
+  - ../../base/rbac.authorization.k8s.io/clusterroles/curator-auth-proxy-role
+  - ../../base/rbac.authorization.k8s.io/clusterroles/curator-report-editor-role
+  - ../../base/rbac.authorization.k8s.io/clusterroles/curator-report-manager-role
+  - ../../base/rbac.authorization.k8s.io/clusterroles/curator-report-viewer-role
