@@ -2,11 +2,14 @@
 
 This repository serves as a centralized source of truth for the Operate First Community Cloud Offering.
 
-In this repository you will find various OCP/K8s manifests that define the desired state of all our clusters and different
+In this repository you will find various [OpenShift][] (OCP)/[Kubernetes][] (k8s) manifests that define the desired state of all our clusters and different
 services deployed on these clusters.
 
-All manifests can be generated using [kustomize][kustomize]. Though some builds may include encrypted data that require
-additional credentials (read more about how we encrypt files [here][encryption_docs]).
+[openshift]: https://www.redhat.com/en/technologies/cloud-computing/openshift
+[kubernetes]: https://kubernetes.io/
+
+All manifests can be generated using [kustomize][kustomize]. Note that builds may include encrypted data that require
+additional credentials. Read more about how we encrypt files [here][encryption_docs].
 
 All manifests found through this repo are deployed by our [ArgoCD][argocd_instance].
 
