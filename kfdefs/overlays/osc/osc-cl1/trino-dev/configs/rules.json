@@ -1,20 +1,36 @@
 {
-  "catalogs": [
-    {
-      "group": "admins",
-      "allow": "all"
-    }
-  ],
-  "schemas": [
-    {
-      "group": "admins",
-      "owner": true
-    }
-  ],
-  "tables": [
-    {
-      "group": "admins",
-      "privileges": ["SELECT", "INSERT", "DELETE", "OWNERSHIP"]
-    }
-  ]
+    "catalogs": [
+        {
+            "group": "admins",
+            "allow": "all"
+        },
+        {
+            "allow": "read-only"
+        }
+    ],
+    "schemas": [
+        {
+            "group": "admins",
+            "owner": true
+        },
+        {
+            "owner": false
+        }
+    ],
+    "tables": [
+        {
+            "group": "admins",
+            "privileges": [
+                "SELECT",
+                "INSERT",
+                "DELETE",
+                "OWNERSHIP"
+            ]
+        },
+        {
+            "privileges": [
+                "SELECT"
+            ]
+        }
+    ]
 }
