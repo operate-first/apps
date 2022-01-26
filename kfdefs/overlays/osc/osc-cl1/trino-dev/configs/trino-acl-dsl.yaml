@@ -1,0 +1,10 @@
+# this is a development only cluster
+admin-groups: [admins]
+
+# all user groups have read privileges
+public-tables: true
+
+# currently no non-admin rules for any ACL granularities
+catalogs: []
+schemas: []
+tables: []

@@ -1,0 +1,104 @@
+# the current OS-Climate data commons trino deployment on the dev cluster
+admin-groups: [admins]
+
+# global default is non-public (no read/select access)
+public-tables: false
+
+catalogs:
+  - catalog: osc_datacommons_dev
+    public-tables: true
+    # setting 'admin' at catalog level does not translate to
+    # admin-like privs at table or schema level: see 'allow'
+    # in trino access control docs
+    admin-groups:
+      - 'corporate_data.*'
+      - 'itr.*'
+      - 'physical_risk.*'
+      - 'aicoe_osc_demo'
+      - 'demo_.*'
+
+  - catalog: osc_datacommons_iceberg_dev
+    public-tables: true
+    # only db 'admins' group has admin privs
+    # I'll put it in again because group list cannot be empty
+    admin-groups: [admins]
+
+schemas:
+  - schema: corporate_data
+    catalog: osc_datacommons_dev
+    admin-groups: ['corporate_data.*']
+    public-tables: true
+
+  - schema: itr
+    catalog: osc_datacommons_dev
+    admin-groups: ['itr.*']
+    public-tables: true
+
+  - schema: physical_risk
+    catalog: osc_datacommons_dev
+    admin-groups: ['physical_risk.*']
+    public-tables: true
+
+  - schema: gleif
+    catalog: osc_datacommons_dev
+    admin-groups: ['entity_matching.*']
+    public-tables: true
+
+  - schema: aicoe_osc_demo
+    catalog: osc_datacommons_dev
+    admin-groups: ['aicoe_osc_demo']
+    public-tables: true
+
+  - schema: urgentem
+    catalog: osc_datacommons_dev
+    admin-groups: ['aicoe_osc_demo']
+    public-tables: true
+
+  - schema: sandbox
+    catalog: osc_datacommons_dev
+    admin-groups: ['.*']
+    public-tables: true
+
+  - schema: demo
+    catalog: osc_datacommons_dev
+    admin-groups: ['.*']
+    public-tables: true
+
+tables:
+  - table: gppd
+    schema: demo
+    catalog: osc_datacommons_dev
+    admin-groups: [demo_dv_dev]
+    public: false
+    row-acl:
+      type: filter
+      filter: "country = 'France'"
+    # hide-columns are cumulative, top to bottom
+    column-acl:
+      - groups: [demo_dv_quant]
+        # quants can see all columns but only have select privs
+        # and row filtering still applies
+        hide-columns: []
+      - groups: [demo_dv_user]
+        hide-columns: [rating]
+
+  - table: demo_dv_backend
+    schema: demo
+    catalog: osc_datacommons_dev
+    admin-groups: [demo_dv_dev]
+    public: false
+
+  - table: demo_dv_userfacing
+    schema: demo
+    catalog: osc_datacommons_dev
+    admin-groups: [demo_dv_dev]
+    public: false
+    row-acl:
+      type: filter
+      filter: "contains(current_groups(), access) or access = 'public'"
+    column-acl:
+      - groups: [demo_dv_quant]
+        hide-columns: [dev1]
+      - groups: [demo_dv_user]
+        # hide-columns are cumulative, top to bottom
+        hide-columns: [quant1]
