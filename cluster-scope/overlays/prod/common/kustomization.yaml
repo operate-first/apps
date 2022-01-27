@@ -1,57 +1,58 @@
 apiVersion: kustomize.config.k8s.io/v1beta1
 kind: Kustomization
 resources:
-    - ../../../base/config.openshift.io/projects/cluster
-    - ../../../base/rbac.authorization.k8s.io/clusterrolebindings/cluster-admins-rb
-    - ../../../base/rbac.authorization.k8s.io/clusterrolebindings/self-provisioners
-    - ../../../base/rbac.authorization.k8s.io/clusterrolebindings/sre
-    - ../../../base/rbac.authorization.k8s.io/clusterroles/events-aggregate-to-edit
-    - ../../../base/user.openshift.io/groups/adoptium
-    - ../../../base/user.openshift.io/groups/ai-services
-    - ../../../base/user.openshift.io/groups/apicurio
-    - ../../../base/user.openshift.io/groups/argocd-admins
-    - ../../../base/user.openshift.io/groups/argocd-readonly
-    - ../../../base/user.openshift.io/groups/b4mad
-    - ../../../base/user.openshift.io/groups/ccx
-    - ../../../base/user.openshift.io/groups/chi-rhug
-    - ../../../base/user.openshift.io/groups/cnv-testing
-    - ../../../base/user.openshift.io/groups/codait-advo
-    - ../../../base/user.openshift.io/groups/curator
-    - ../../../base/user.openshift.io/groups/data-science
-    - ../../../base/user.openshift.io/groups/debezium
-    - ../../../base/user.openshift.io/groups/esi-project
-    - ../../../base/user.openshift.io/groups/enterprise-neurosystem
-    - ../../../base/user.openshift.io/groups/fde
-    - ../../../base/user.openshift.io/groups/fybrik
-    - ../../../base/user.openshift.io/groups/lab-cicd
-    - ../../../base/user.openshift.io/groups/logs-insights
-    - ../../../base/user.openshift.io/groups/mwperf
-    - ../../../base/user.openshift.io/groups/neu-students
-    - ../../../base/user.openshift.io/groups/odh-admin
-    - ../../../base/user.openshift.io/groups/open-aiops
-    - ../../../base/user.openshift.io/groups/ocp-pipelines-sre
-    - ../../../base/user.openshift.io/groups/operate-first
-    - ../../../base/user.openshift.io/groups/osc
-    - ../../../base/user.openshift.io/groups/osc-admins
-    - ../../../base/user.openshift.io/groups/prometheus-anomaly-detector
-    - ../../../base/user.openshift.io/groups/pulp
-    - ../../../base/user.openshift.io/groups/quarkus
-    - ../../../base/user.openshift.io/groups/ray
-    - ../../../base/user.openshift.io/groups/redhat-cto-team
-    - ../../../base/user.openshift.io/groups/rekor
-    - ../../../base/user.openshift.io/groups/sa-dach
-    - ../../../base/user.openshift.io/groups/sdap-mslsp
-    - ../../../base/user.openshift.io/groups/sigstore
-    - ../../../base/user.openshift.io/groups/sre
-    - ../../../base/user.openshift.io/groups/superset-user
-    - ../../../base/user.openshift.io/groups/team-pixel
-    - ../../../base/user.openshift.io/groups/thoth
-    - ../../../base/user.openshift.io/groups/thoth-devops
-    - ../../../base/user.openshift.io/groups/tremor-demo
-    - ../../../base/user.openshift.io/groups/uky-redhat
-    - ../../../base/user.openshift.io/groups/octo-training-model
-    - ../../../base/user.openshift.io/groups/octo-ushift-dev
-    - ../../../base/user.openshift.io/groups/octo-otel-dev
-    - ../../../base/user.openshift.io/groups/workshops
-    - ../../../base/user.openshift.io/groups/prometheus-ai
-    - alertmanager-main-secret.yaml
+- ../../../base/config.openshift.io/projects/cluster
+- ../../../base/rbac.authorization.k8s.io/clusterrolebindings/cluster-admins-rb
+- ../../../base/rbac.authorization.k8s.io/clusterrolebindings/self-provisioners
+- ../../../base/rbac.authorization.k8s.io/clusterrolebindings/sre
+- ../../../base/rbac.authorization.k8s.io/clusterroles/events-aggregate-to-edit
+- ../../../base/user.openshift.io/groups/adoptium
+- ../../../base/user.openshift.io/groups/ai-services
+- ../../../base/user.openshift.io/groups/apicurio
+- ../../../base/user.openshift.io/groups/argocd-admins
+- ../../../base/user.openshift.io/groups/argocd-readonly
+- ../../../base/user.openshift.io/groups/b4mad
+- ../../../base/user.openshift.io/groups/ccx
+- ../../../base/user.openshift.io/groups/chi-rhug
+- ../../../base/user.openshift.io/groups/cnv-testing
+- ../../../base/user.openshift.io/groups/codait-advo
+- ../../../base/user.openshift.io/groups/curator
+- ../../../base/user.openshift.io/groups/data-science
+- ../../../base/user.openshift.io/groups/debezium
+- ../../../base/user.openshift.io/groups/enterprise-neurosystem
+- ../../../base/user.openshift.io/groups/esi-project
+- ../../../base/user.openshift.io/groups/fde
+- ../../../base/user.openshift.io/groups/fybrik
+- ../../../base/user.openshift.io/groups/lab-cicd
+- ../../../base/user.openshift.io/groups/logs-insights
+- ../../../base/user.openshift.io/groups/mwperf
+- ../../../base/user.openshift.io/groups/neu-students
+- ../../../base/user.openshift.io/groups/ocp-pipelines-sre
+- ../../../base/user.openshift.io/groups/octo-otel-dev
+- ../../../base/user.openshift.io/groups/octo-training-model
+- ../../../base/user.openshift.io/groups/octo-ushift-dev
+- ../../../base/user.openshift.io/groups/odh-admin
+- ../../../base/user.openshift.io/groups/open-aiops
+- ../../../base/user.openshift.io/groups/operate-first
+- ../../../base/user.openshift.io/groups/osc
+- ../../../base/user.openshift.io/groups/osc-admins
+- ../../../base/user.openshift.io/groups/prometheus-ai
+- ../../../base/user.openshift.io/groups/prometheus-anomaly-detector
+- ../../../base/user.openshift.io/groups/pulp
+- ../../../base/user.openshift.io/groups/quarkus
+- ../../../base/user.openshift.io/groups/ray
+- ../../../base/user.openshift.io/groups/redhat-cto-team
+- ../../../base/user.openshift.io/groups/rekor
+- ../../../base/user.openshift.io/groups/sa-dach
+- ../../../base/user.openshift.io/groups/sdap-mslsp
+- ../../../base/user.openshift.io/groups/sigstore
+- ../../../base/user.openshift.io/groups/sre
+- ../../../base/user.openshift.io/groups/superset-user
+- ../../../base/user.openshift.io/groups/team-pixel
+- ../../../base/user.openshift.io/groups/thoth
+- ../../../base/user.openshift.io/groups/thoth-devops
+- ../../../base/user.openshift.io/groups/tremor-demo
+- ../../../base/user.openshift.io/groups/uky-redhat
+- ../../../base/user.openshift.io/groups/varangian
+- ../../../base/user.openshift.io/groups/workshops
+- alertmanager-main-secret.yaml

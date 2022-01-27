@@ -1,6 +1,4 @@
 apiVersion: kustomize.config.k8s.io/v1beta1
-generators:
-- secret-generator.yaml
 kind: Kustomization
 patchesStrategicMerge:
 - backingstores/noobaa-default-backing-store_patch.yaml
@@ -28,8 +26,8 @@ resources:
 - ../../../../base/core/configmaps/cluster-monitoring-config
 - ../../../../base/core/configmaps/user-workload-monitoring-config
 - ../../../../base/core/namespaces/acme-operator
-- ../../../../base/core/namespaces/aicoe-meteor
 - ../../../../base/core/namespaces/ai-services-thanos-grpc
+- ../../../../base/core/namespaces/aicoe-meteor
 - ../../../../base/core/namespaces/apicurio-apicurio-registry
 - ../../../../base/core/namespaces/b4mad-racing
 - ../../../../base/core/namespaces/debezium-ui
@@ -85,9 +83,10 @@ resources:
 - ../../../../base/core/namespaces/thoth-graph-prod
 - ../../../../base/core/namespaces/thoth-infra-prod
 - ../../../../base/core/namespaces/thoth-middletier-prod
-- ../../../../base/core/namespaces/tremor-demo
 - ../../../../base/core/namespaces/training-model
+- ../../../../base/core/namespaces/tremor-demo
 - ../../../../base/core/namespaces/ushift-dev
+- ../../../../base/core/namespaces/varangian-test
 - ../../../../base/core/persistentvolumeclaims/image-registry-storage
 - ../../../../base/imageregistry.operator.openshift.io/configs/cluster
 - ../../../../base/noobaa.io/backingstores
