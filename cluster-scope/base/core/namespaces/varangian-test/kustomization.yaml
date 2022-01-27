@@ -5,4 +5,5 @@ resources:
 components:
     - ../../../../components/project-admin-rolebindings/varangian
     - ../../../../components/limitranges/default
+    - ../../../../components/resourcequotas/small
 namespace: varangian-test
