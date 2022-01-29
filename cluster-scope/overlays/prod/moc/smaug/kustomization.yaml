@@ -32,6 +32,7 @@ resources:
 - ../../../../base/core/namespaces/b4mad-racing
 - ../../../../base/core/namespaces/debezium-ui
 - ../../../../base/core/namespaces/democratic-csi
+- ../../../../base/core/namespaces/devconfcz-2022-demo
 - ../../../../base/core/namespaces/dex
 - ../../../../base/core/namespaces/ds-github-labeler
 - ../../../../base/core/namespaces/ds-ml-workflows-ws
