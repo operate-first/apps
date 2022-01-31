@@ -15,6 +15,9 @@ cluster-scope
 │           └── <resource_metadata_name>
 │               ├── kustomization.yaml
 │               └── <resource_kind_singular>.yaml
+├── bundles
+│   └── <operator>
+│       ├── kustomization.yaml
 ├── components
 │   ├── <descriptive_component_name>
 │   └── kustomization.yaml
@@ -33,6 +36,11 @@ The directories and files in this structure fulfill the following purpose:
 - `<resource_metadata_name>` : The name of the resource deployed at cluster scope. It must match the resource `.metadata.name` in `<resource_kind_singular>.yaml`. Since this resource is deployed at the cluster scope, its name has to be unique.
 - `kustomization.yaml` : Kustomization file including a single resource, which is a sibling file within the folder. Can pull in `components` for additional bootstrapping.
 - `<resource_kind_singular>.yaml` : **Single** resource manifest with a `.spec` that can be deployed to all the clusters.
+
+#### bundles/
+Bundled manifests are manifests that are dependent on each other and should be deployed together on the same cluster. You should create a bundle that references all these manifests from a single kustomization.yaml file following the structure above. This bundle can then be easily imported to the target cluster's by adding it to `overlays/<env>/<cluster_name>/kustomization.yaml`. Bundle related resources by including (or removing) a single line in the relevant overlay.
+  - `<bundle-name>` : The resource that is being bundled.
+  - `kustomization.yaml` : The list of the resources that belong to the operator.
 
 #### components/
 Bootstrapping components pulled into `base` (this is different to the standard usage in Kustomize!).
