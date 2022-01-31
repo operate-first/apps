@@ -8,4 +8,6 @@ approvers:
   - durandom
   - harshad16
 
-reviewers: []
+reviewers:
+  - gregory-pereira
+  - dystewart
