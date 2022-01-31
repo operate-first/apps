@@ -1,0 +1,13 @@
+kind: PersistentVolumeClaim
+apiVersion: v1
+metadata:
+    annotations:
+        hub.jupyter.org/username: ofir-shechtman
+    name: jupyterhub-nb-ofir-shechtman-pvc
+    labels:
+        app: jupyterhub
+        component: singleuser-storage
+spec:
+    resources:
+        requests:
+            storage: 32Gi
