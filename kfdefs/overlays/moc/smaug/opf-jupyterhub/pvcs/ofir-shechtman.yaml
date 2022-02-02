@@ -3,7 +3,7 @@ apiVersion: v1
 metadata:
     annotations:
         hub.jupyter.org/username: ofir-shechtman
-    name: jupyterhub-nb-ofir-shechtman-pvc
+    name: jupyterhub-nb-ofir-2dshechtman-pvc
     labels:
         app: jupyterhub
         component: singleuser-storage
