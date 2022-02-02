@@ -38,6 +38,7 @@ resources:
 - ../../../base/user.openshift.io/groups/osc-admins
 - ../../../base/user.openshift.io/groups/prometheus-ai
 - ../../../base/user.openshift.io/groups/prometheus-anomaly-detector
+- ../../../base/user.openshift.io/groups/psse-research
 - ../../../base/user.openshift.io/groups/pulp
 - ../../../base/user.openshift.io/groups/quarkus
 - ../../../base/user.openshift.io/groups/ray

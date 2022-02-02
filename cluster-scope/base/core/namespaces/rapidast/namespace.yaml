@@ -1,0 +1,7 @@
+apiVersion: v1
+kind: Namespace
+metadata:
+    name: rapidast
+    annotations:
+        openshift.io/display-name: RapiDAST
+        openshift.io/requester: psse-research
