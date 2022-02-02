@@ -18,6 +18,7 @@ resources:
 - ../../../../base/apiextensions.k8s.io/customresourcedefinitions/reports.batch.curator.openshift.io
 - ../../../../base/config.openshift.io/oauths/cluster
 - ../../../../base/core/configmaps/cluster-monitoring-config
+- ../../../../base/core/configmaps/openshift-pipelines-feature-flags
 - ../../../../base/core/configmaps/user-workload-monitoring-config
 - ../../../../base/core/namespaces/ai-services-thanos-grpc
 - ../../../../base/core/namespaces/aicoe-meteor
