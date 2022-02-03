@@ -34,7 +34,6 @@ resources:
 - ../../../../base/core/namespaces/neu-cs6620
 - ../../../../base/core/namespaces/openshift-cnv
 - ../../../../base/core/namespaces/openshift-logging
-- ../../../../base/core/namespaces/openshift-nfd
 - ../../../../base/core/namespaces/openshift-operators
 - ../../../../base/core/namespaces/openshift-pipelines
 - ../../../../base/core/namespaces/openshift-vertical-pod-autoscaler
@@ -82,7 +81,6 @@ resources:
 - ../../../../base/operators.coreos.com/operatorgroups/cluster-logging
 - ../../../../base/operators.coreos.com/operatorgroups/koku-metrics-operator
 - ../../../../base/operators.coreos.com/operatorgroups/openshift-cnv-rn5jf
-- ../../../../base/operators.coreos.com/operatorgroups/openshift-nfd
 - ../../../../base/operators.coreos.com/operatorgroups/openshift-vertical-pod-autoscaler
 - ../../../../base/operators.coreos.com/operatorgroups/opf-monitoring
 - ../../../../base/operators.coreos.com/operatorgroups/opf-pulp
@@ -91,7 +89,6 @@ resources:
 - ../../../../base/operators.coreos.com/subscriptions/cluster-logging
 - ../../../../base/operators.coreos.com/subscriptions/koku-metrics-operator
 - ../../../../base/operators.coreos.com/subscriptions/kubevirt-hyperconverged
-- ../../../../base/operators.coreos.com/subscriptions/nfd
 - ../../../../base/operators.coreos.com/subscriptions/openshift-pipelines-operator-rh
 - ../../../../base/operators.coreos.com/subscriptions/opf-grafana
 - ../../../../base/operators.coreos.com/subscriptions/ovms-operator
@@ -121,6 +118,7 @@ resources:
 - ../../../../bundles/fybrik
 - ../../../../bundles/kfp-tekton
 - ../../../../bundles/meteor-operator
+- ../../../../bundles/nfd
 - ../../../../bundles/reloader
 - ../../../../bundles/seraph
 - ../../../../bundles/tekton-chains
