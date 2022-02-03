@@ -7,3 +7,4 @@ spec:
   clusterSets:
     - argocd-managed
     - octo-ushift-dev
+    - osc
