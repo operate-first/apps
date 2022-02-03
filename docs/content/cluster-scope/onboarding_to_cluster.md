@@ -3,7 +3,7 @@
 Onboarding a Project to GitHub requires creating various OpenShift resources to create namespaces, groups, etc. Luckily
 we have a Jupyter Notebook that automates most of this process.
 
-If you are not familiar with Jupypter Notebooks, then you can check out an overview [here][2].
+If you are not familiar with Jupyter Notebooks, then you can check out an overview [here][2].
 
 The notebook can be found [here][1]. You can use the Operate First JupyterHub instance to run this notebook.
 The notebook is already made available under the "HitchHiker's Guide" image. So simply select this from the JH spawner.
