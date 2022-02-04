@@ -1049,18 +1049,14 @@ spec:
         application-crd-id: kubeflow-pipelines
     spec:
       containers:
-      - env:
+      - envFrom:
+          - secretRef:
+              name: mlpipeline-ceph-artifact
+        env:
         - name: POD_NAMESPACE
           valueFrom:
             fieldRef:
               fieldPath: metadata.namespace
-        - name: OBJECTSTORECONFIG_SECURE
-          value: "false"
-        - name: OBJECTSTORECONFIG_BUCKETNAME
-          valueFrom:
-            configMapKeyRef:
-              key: bucketName
-              name: pipeline-install-config
         - name: DBCONFIG_USER
           valueFrom:
             secretKeyRef:
@@ -1086,16 +1082,6 @@ spec:
             configMapKeyRef:
               key: dbPort
               name: pipeline-install-config
-        - name: OBJECTSTORECONFIG_ACCESSKEY
-          valueFrom:
-            secretKeyRef:
-              key: accesskey
-              name: mlpipeline-ceph-artifact
-        - name: OBJECTSTORECONFIG_SECRETACCESSKEY
-          valueFrom:
-            secretKeyRef:
-              key: secretkey
-              name: mlpipeline-ceph-artifact
         - name: PIPELINE_RUNTIME
           value: tekton
         - name: ARTIFACT_BUCKET
@@ -1310,12 +1296,12 @@ spec:
         - name: MINIO_ACCESS_KEY
           valueFrom:
             secretKeyRef:
-              key: accesskey
+              key: OBJECTSTORECONFIG_ACCESSKEY
               name: mlpipeline-ceph-artifact
         - name: MINIO_SECRET_KEY
           valueFrom:
             secretKeyRef:
-              key: secretkey
+              key: OBJECTSTORECONFIG_SECRETACCESSKEY
               name: mlpipeline-ceph-artifact
         - name: ALLOW_CUSTOM_VISUALIZATIONS
           value: "true"
