@@ -13,5 +13,5 @@ patches:
   - path: common-patch.yaml
     target:
       group: integreatly.org
-      version: v1alpha1
+      version: v1
       kind: GrafanaDashboard
