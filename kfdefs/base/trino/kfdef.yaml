@@ -19,5 +19,5 @@ spec:
       name: trino
   repos:
     - name: manifests
-      uri: "https://github.com/opendatahub-io/odh-manifests/tarball/v1.1.1"
-  version: v1.1.1
+      uri: "https://github.com/opendatahub-io/odh-manifests/tarball/v1.1.2"
+  version: v1.1.2
