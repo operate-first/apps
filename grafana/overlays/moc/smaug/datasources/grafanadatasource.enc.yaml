@@ -1,4 +1,4 @@
-apiVersion: integreatly.org/v1alpha1
+apiVersion: integreatly.org/v1
 kind: GrafanaDataSource
 metadata:
     name: datasource
@@ -6,63 +6,62 @@ metadata:
         kustomize.config.k8s.io/behavior: replace
 spec:
     datasources:
-        - editable: false
-          name: thanos-frontend
-          isDefault: true
-          type: prometheus
-          url: http://observatorium-thanos-query-frontend.opf-observatorium.svc.cluster.local:9090
-        - editable: false
-          jsonData:
+    -   editable: false
+        name: thanos-frontend
+        isDefault: true
+        type: prometheus
+        url: http://observatorium-thanos-query-frontend.opf-observatorium.svc.cluster.local:9090
+    -   editable: false
+        jsonData:
             httpHeaderName1: Authorization
             timeInterval: 5s
             tlsSkipVerify: true
-          name: moc-smaug
-          secureJsonData:
+        name: moc-smaug
+        secureJsonData:
             httpHeaderValue1: ENC[AES256_GCM,data:t2BhRl9RNBiHTA1CnKteJK30DrtQaQ8KZ6oIlyXOIfNaBLDUCNjHTATNWX8cYotL2WcwRDeg6LzSyq6hchWsE3gaKeWbtZxtEt/ZshCj7CCo7O2Sq5LVEuGrKBp4W5Ax1BQluxJkwFQ4+8gcemK15syQRIjuA6NoJXUBb211Chy/yFSUhpZlcgcUbNuD/4b4TFUa3C9tJwcCpOFIxxJzDUADs9vp5BDw13o1jqdcT0TIwoFVtCjH8FfdEQUH4Fm5U/4Hv0RzsVpQ4gtr2ToF4XlQf4yBEHo4Xa1nWKc/yz5sR/AqtucGpmTXTdfnNnwZVcqUAFE5aifFD2MrnyiiyWSMWRfJE138DEQ5aiWctgJXfzShwXnb/iTyShH3dpjyGIoX3Dfo6E43ZEbm7Bk1lOFa1jjzchtTXQ5N76DGt84RNoj1krOUiTTYSf0l15ey4PfSY8gvfdNe6ZiZQyfbenys8aRrvJrFzHU1x7ClaVZScel/TT4EzbSNAhKEn+zNUglvtzROGok095sPqvXYG+x6/quKy9jArmR1i8jr5tdXA4L951/EMkaIpiWjfpZVJ1obp3dLCaAGltexcMNscEawAbCwVa7LMduueF2N9ydWzpw656EsWvkNiNYcw5YVqyMf6josIOohgp1Wsep1NyaDUVJJPLtued6hDl3zdkBGOD5tFp7g/DAqsJTAfEZdb4EtQhAFMKkyVCLFHU24P4VCWmwQCTUrisObpdlml6PDDmqXeXKw4RUreJLZijji10z0ybazEadZzVT4Er2T2ieSQ/9tUFy47wEkFpEJ705iZZ8m9V4ENWEk2Rh3U2CkZXIe6U8yxYP9mdDrY2M5Ia34QqFenlqizx+gW2ZCtJfFGwpNNmbHBD5ouP5cp4YngfeuE44kMFwQ8Lzd4hp9X0Imu/PPJtA0Kj+7AdDVmfrlyMXHCSPWQzwnAU4K7lWtposVgryZjczWInYYRkcGHdHFOAVcGLL2OdcSh1JLtzY6dlwvOMG7jE9IQTENnyDLiauWJip32yT15kSZgv3wxynrFk6SCw3Slx8+3sb8Z2lLyrCApzfW4PEvitpMqlO24WV3xk9IS194jzHsd7/T8ic9e6AknZ97lZqzlzOGlRHMTWxPSdwkfhptU6MqKN+EH/Q3Su/iX/OeCURLFS2etF1rOvTWnxYhhTQPfYmwlekdKzQt85jQtuE01rnR4dUd4lshgnH1paP2P4W0mQLQN22eHhMEA1/j28ljR5MoNSpAN6t+GYvaJVzwLo51VHPDHo+xyETvm4OgDhvzKQ/48DAbzsMTXQDKjgtoH8dPkjK6gA7KVtWQ3rCo64EoOcLCz3RsfGEgtX83vHho5IGsgLOxiwSsHtoaTkn313m+wdJcxU4jUuzJ99LNO7kLURd2c6z37NfUckT+2dxn3vaH2iobhIkUD6LzO4en9L8fW0S55h9W4w1Vn2QB/uqAh00IIHyIGZXPT9wUnI5jXuux4IZyQLsFW2nSXQFqdOsKt66B0+L54dtEvibLdfPOOv9L4MBrjtt1iyqkAzmSeVsBtGK2KwcKdr84p0iV2rm3cp78tYquE/gezdYRlYqV2r6H+oFSlu7eGboHs9YDL4brF1MvenqivinfeZAqDRbn3QHb9LAtOFMJlQsqIGyyYZYroCWcZy7v9jdnFPEc1KL6Kf4hInAjy+LksTCwC0pFTkqqAqLxbdFPCbv6C21JM+ymRljRvCmEVM7NYODb2+yYiF+gpNUUmaGShB8AqFUKi0XaDfp5zxR0CDLzRXePT4IZSkT4eTbcaEOHO1tQaUqyAZlV1HvVSweV+eMwwr07ZchTsA18Wr98puoNC5I=,iv:xmApgAHjdx2t9jxZqq6oWlN9SNnn/Cq+N5D7k+qunfI=,tag:IVvp5hq7TXoZP1NOnOjenA==,type:str]
-          type: prometheus
-          url: https://thanos-querier.openshift-monitoring.svc.cluster.local:9091
-        - editable: false
-          jsonData:
+        type: prometheus
+        url: https://thanos-querier.openshift-monitoring.svc.cluster.local:9091
+    -   editable: false
+        jsonData:
             httpHeaderName1: Authorization
             timeInterval: 5s
             tlsSkipVerify: true
-          name: moc-infra
-          secureJsonData:
+        name: moc-infra
+        secureJsonData:
             httpHeaderValue1: ENC[AES256_GCM,data:13XozdzB4MKCKk3g9pojwyGeL42OS5xeSmLPAVR6eS2jQoIhV/Pfx2t5gFqkkyJn/XHIWMP7yw0V75ZSDZrfYQDhTAf0puANvUCxeyaOiw0Mqe8ekMmMGnHBFmjtUeL8FgEYp+xWQMxN+RGyxsZ2s+ZMtAYF7W4HlAEY6BdJ1DCsrKr2EQO3UVOaPmrfg842bZ0DU5B8DpFRn6qDlKR+Vd75A8PkHrGFs/+BV+RRALo9p9KCIvTJwojowfQlznLwt997S9N8ZAip/aqR0NsUk8BW6+DofyVdClJW8SbHv5MRfxtt/2aKOAVEHy6cSA86AOfD6fU2ZaeRQ+cMY6MvY7aUWK68+7hoAyJEwK7MP1J18By7ECUNvpmc58y9KnTZ9zKaRGQ+F1aEOfn00Jrh1xvgEvvnbYCxhFCCqzQpQuAujIy6aDMMMNr2qt5c/ZkZT1RSMF6UaBhVBYwSxgxFHFE9MtmlEbI/VBKStCOzY2i28xEmnAaJ+HD7Z4gM9uMzhLD+mSWo+0RQtZ1n5umyRHjy4a82NeBqZFGRIHoresTT+G3YXyK94r96RG4WpDsVK20ZBvwz+VryyoVRylH+tfBiiG8jaU6hh89xjnyPsh+0+gzllomP+vda8XV2it2s9+7ytEsdJ7j8nvb8cVnm2DGf6e/ELk/4KsWmDPWh06vTnFL+EYdvpl0CWVxa3LQyi70/OvFE+B3X9jlmu/G+OZtygcBrMekSw5rWooFDBd8u7dt2N5aM6Q6X+hbH/1Lc9DTQeAJtK+A9Jm7IByXx0HQ5AjdJD3P/Jq+McjWAEFByCuFKB//+pWeHgnGLl3tfxcALTRcPkkJESdeWNv5xL+GxR9ZybY5033AipSmONoqSeiFLdIsb4ytQ3nOgRKx6k2qDhtoy6h+xOgJHSOxMSYACibfqSv6j2wDIAnS+hf6pJutwx5RJQS73XuAapi7B0T+9jbeD9vkq9QXkxVRglZNJd5PmYnIlbUGviHJvMrXE41aDt9wtnCkS9vlTmJZEblArhUqvQeGoypOzjNYSpzoe81mbOX57NgPTyUu8Md6Ge0KuqNfOyw/fqCbFyhIZFKRlARS2MSe2gwquNa+QmimaphlozP5/eWxegDPlruPTlL9oXUtymXy3ymjnSDfK2WGU9v93I7MOQ5qKRoZ55+2Vn6QEoPUY6+syQLZvyN4CR9wUaVFeeUS+b0zclLRb3eiWx4/RweCLCxWyT2Fu3MUy1JGFX0OJQwHMnhUnoRzGmARkezbcJ7NxwrCHbk9Wh9e3Q2PhGOCoTI6jAqDmeV8=,iv:M/qlfR+ENiepUfHovswt3AR4p30MWgi1a52DXcf95lk=,tag:uxoeqc5ezdxYCPsJcG5wEA==,type:str]
-          type: prometheus
-          url: https://thanos-querier-openshift-monitoring.apps.moc-infra.massopen.cloud/
-        - editable: false
-          jsonData:
+        type: prometheus
+        url: https://thanos-querier-openshift-monitoring.apps.moc-infra.massopen.cloud/
+    -   editable: false
+        jsonData:
             httpHeaderName1: Authorization
             timeInterval: 5s
             tlsSkipVerify: true
-          name: emea-rick
-          secureJsonData:
+        name: emea-rick
+        secureJsonData:
             httpHeaderValue1: ENC[AES256_GCM,data:GYmcXsaoLVgz5DK7B83AjlWJYzEQM0ZOFsOMd0ANSH79qTqSnryQ8irnrpFIri7NuomwgbvgAFCfYoo8qB8SUQ5UtcC5h1/lfW95I/WSwg6VfJzwZBpbXa+s434YWh3XGlMd1jk6Vp+oKgXCQfuX6inB4B2xGysEz8KvM6Hvmk7PHSTVKeg0G7WZr1B1hguAQvlU2AktMgqcfOxOWKGMxqWvBho0yISQ27liK5deVwrwIMPlyCNiaASrUZEHkcS9Qb5LVsVBPtlOYS7NBLjSwu9kTaTKmG+cNw+J+8saMAvJIJ6W3iwlLcAIEcY1poejVzDiIHocgNbeCJ/riwZ8DzhU2FFq25De1Krzf3j3iLAbACc3RVIPZ9x9v387ENdIEF2CEIQ0s78C8OIe4Othx+E9wsec1rRNcQ0MxQOelywr7eelox96GQKrJZ7aVwylGOKiBuYHNovGjPPf+S4QjUisw3+dLoWKJVpsudWojcMar7Jx+mBBDhLDPd+Ixhi26skat9H8pQkiA1TIgivCTp7Z49lV+E2zQDID+vDRZFwdsf+8Tqc76ggudTUHAGAQUNYSlZLyPkzuFhr+unNVqlZG+wjEAAZqE1hBwDVErdzpB1w/AQuhm9ngAjlDKRF8aq2U/h3idNSDFgwPTZagEPgHmBC/whUUVb7osrtrGd505BV3qKf3chn2c7Cy59x+LI/OEIpYaxL2hTyvcoz31kSva/CdebCjgE5KYLWQkvTAqHPkrmAGSgwDQVUiN4s+GlicDlyH+VrJMpYi6Lfvu3Rf0/z5aJOT6N+PjRZrtXpahKwqvCCL2J3es5cxIsk8tmYjGhINI/RXqIMhFDTKNE45yxULN6Iq6sEVJ4dN1SkFzhSO9ezQAQ4vo5Z//xosGAx2mUfAygCqnlMitAIeTEzfkoK5/jCn0ENacCt4MuhDcAo0wqSsvQDZIr+C9qf6S+05mQytqyw1EJhrdxt6h0KDbKgL1HMco1DxOEfrwQ+hQPp7EaDjcsTvMEQkd7dkq+C3LAm4pZrXlyPtjnHOQYZACn7ziCToekOmKDB7RWCAZSNQd8qdUCFOXSlMTlJE9iWsQPl6pB0lpG3DB6BcEcoO43MB36aBjgt+WLbsPgN3nGdmuKfeKYxWRYrwcLdt39IrmdR7tFD6H58zrBtne6IXp0Vpw7icmkN67TGgbfLJw2GjzzXTY/+8nx59jjlosa2TCAUzNQyYbc56S1Hhg7bfggDDskPghmZRAqJVZ8wqiN65ZSjwVyyqcxQqNf30bqyptTKrATllrgTq6AhBo3oFiHVEllOvz31LoYqMAbAaGn51B8Pl,iv:ORChjrGifOgoRMdKS1tDnbT8Rjh//ifbQjuUG3orqPU=,tag:gY3Oq3qFy+CzmzPEkj8ksA==,type:str]
-          type: prometheus
-          url: https://thanos-querier-openshift-monitoring.apps.rick.emea.operate-first.cloud/
-        - editable: false
-          jsonData:
+        type: prometheus
+        url: https://thanos-querier-openshift-monitoring.apps.rick.emea.operate-first.cloud/
+    -   editable: false
+        jsonData:
             httpHeaderName1: Authorization
             timeInterval: 5s
             tlsSkipVerify: true
-          name: aws-balrog
-          secureJsonData:
+        name: aws-balrog
+        secureJsonData:
             httpHeaderValue1: ENC[AES256_GCM,data:oUioVMRwLzgpDMY47Xggh1lkHOEZkQ8Mkbej2TlCpHqnGseIEEqcOSHj6cKeYaNxL6MyX08FAHKo2/GgJgGCettISw0LbadWi6FgeNbuscyTRJ4KttYLlCg+u2p6JoeKOx4YtRJ8PN6hbzrtFqiKgnTyZX/dLCBnP6Xa7si3SwTbRB661KQ0av8bXThxUITmvhI2aWeYqcImTD4g4DXXRG1fMDtRY4cP1gT6TZq9cKmrDRdMB5U0SRZjT2oJRogDNlUGtYbQX96JvaGBe7okBTnBWSgiAxga0e7lS6V+sw/nqG3KHEK4QRS5h8fTKNcavIab0zH2b2Gmlehwfklz3J1HToQnAtJCIIBrKLlGnPB8IRSyxwyqOwlnMEVZ7BenUGwX6C3zLM4uESSKlX81W2YymRray2EZ9pELQa1qnmVutpRyZJVPRTsLz5yWG4obefVHLVDheEp1t59A0hjriYStRnFT+ifPzuhCBhKXWGRsqNUHGaErmaC0Z2/T6JilhxCH+mF9QzUYan8vpKE8evlAMFZ7ZdO6X+660vHlFlAZALBEak2fD/pFZzJfl8o1s6KMClKY1cCSuaWEeGSWNugzv+Spl1o2VkZQYOyx5IXOVw5c+ToaF1wUjVe7MMLLmTq1+KWW3gExdtbQ7CtVCF+YRiX79PD7FIJW5a1mkcX9EJ7WqVIV8HtBlmXt96ud+u9CbMiVP+6wPo0NIb2Xw9bTK2tlPc5v4VZVMZzxsC1ALUwDR+tzB1UJvuHIZ5Q0S3hKJXNgaNw8GP9mtebaFc3ot+9pYnD1KyBVLHsM+dhLXVvxmo3tVEflf4mxDQXidFyJUVEqFUTlEsPMyG1MWaWG51+duk95ivHnmTDXi3j6wyNfRx8i9ZH5hfffwDLlL+SYy4fFTLfjcfewC3hFpSVhyk0KkTURmb32mcW2aJootWz0Zqu09h6Nc7/8dZAsoVB60trP01P6wJljuUADLkPwko8lApBlOr/21b68Hngj2qWrwyAAv8G2/k35Ccsmvxpj/HXBjWeGTM7Xer0TOIDzdBeMbG8dc9S9ZcrT3J2KhWuC/JnfAG4tUjHIl68P+mm9Lk+mJFr3iYa8lZDptPDCBVXCNMe0CHu7b1BvA9FArD8IAOFOP8gUFk93vO8d6CZaofiFLNIwJAo5f476Lez+gACdlmx6nibfeVRPi5A8wP3qq0cv27tn8bHiHWgNQCDI2Wys861qiwf3cyCCi70ENXwO7ZV2ZzN+PRk5vovMcF/9VerKGy1X7qokAuRnb4d6qNmL/AFaRKHQPcGAJ5/ONH4eDbEMJyzZ+ncmBW09sDpaT/gy6tupMKFog1ZLTE/iC/n0u7xpXTue+HqcJAgxAvZ3rxMG5G28bPFkT7vxVD1SFRhCWRsVskdD2qKBgQDKFaXLWLAhf0FgKjGjaKtG9KuJwIxQFlbjLUI1IevcPxdfyIlQL62C0lW1QUhpFrWJPBUJTV+Uu4YNpKOUdaW+C4ylR2HrLXMrgyj4o2/vSoznf8y8ac+adBgu4reOBMz/me3hVYy1IaWW5ge/LI/Be6zwCsv7jaqt6hfTJ6YsSCOMQTxyxkK2j/buLhln7F/3hX424MQHsLQYorxCAUMOcQ4tZH2S2NjbJ0UdLRJS7TLeUHxVJ9Hm8kaU3Hv6ga5Kldrg/ch8k/BrUByvMbNTWPc+GCAPMIRtmq0yg0z3ec5LUHAlXOvpvI7f/wLs93sx1YYxXaHwc6I6NMk5e2G9cY768+N+Cp0y6eJwEo5npe3r5vxqYI7h7/s=,iv:W77HRfI3w+R/uB/1lNwi63mpSj4uGL1+0fdVWNg1748=,tag:uQXg3ywWFMMPPW6uGGm0Mg==,type:str]
-          type: prometheus
-          url: https://thanos-querier-openshift-monitoring.apps.balrog.aws.operate-first.cloud/
+        type: prometheus
+        url: https://thanos-querier-openshift-monitoring.apps.balrog.aws.operate-first.cloud/
     name: prometheus-grafanadatasource.yaml
 sops:
     kms: []
     gcp_kms: []
     azure_kv: []
     hc_vault: []
-    age: []
-    lastmodified: "2021-12-13T15:29:52Z"
-    mac: ENC[AES256_GCM,data:OrWobP+H3nCyho55phGHdJQ/FJht1+hHzXEV2L1KQemDNOVaCF8NE01I5VJQG+jqiv/zxtukZwBiFuIyq7o2KG+VPgAUI+ZZKvRpd52GottWlh07d8/vjjy3HHe8v5IW23NvV56wsLSx0IdHCD5B6xVO/JV0Vb1Kn3tf0yLHxk8=,iv:4p4se1ylYMhiBTi/E0xjc8jwsAq2KCiIKeeDMmGOFt4=,tag:mg2U0B0C9g7r8SenY5WwOg==,type:str]
+    lastmodified: '2022-02-07T19:03:54Z'
+    mac: ENC[AES256_GCM,data:GAbbWgOgY88EsLxbC4e5kqwHNLtsFSOtCqPZT7vPBZ2WYBydfa5ZpR3aJhtGhCn1SpbMONQr/HdabxlLyIGvIaFaLIE6cT2Qubht1LdauQ1vzPSXbiX+J6dYv6iVe2wviSbbagR2MChwtOUe81vcaeXG95SXWaEzKz+YZDhJwn0=,iv:Na5JF80JaYNCsewTwPiZzkuNERhIah4oVzuD/7BAdwg=,tag:8SSeCixCTeB32dGpEPk57Q==,type:str]
     pgp:
-        - created_at: "2021-09-01T16:36:51Z"
-          enc: |-
+    -   created_at: '2021-09-01T16:36:51Z'
+        enc: |-
             -----BEGIN PGP MESSAGE-----
 
             wcFMA9aKBcudqifiARAAY1AD0HzMPQj8CyY5ctcxgTIBugnaQYxoGKVbTm6EHtu9
@@ -80,6 +79,6 @@ sops:
             v/lLY3ojACIgBrhqal6sj5fkbD3CZuOG7vgyHV0EgetqR+KuGrAhAA==
             =uWd6
             -----END PGP MESSAGE-----
-          fp: 0508677DD04952D06A943D5B4DC4116D360E3276
+        fp: 0508677DD04952D06A943D5B4DC4116D360E3276
     encrypted_regex: ^(users|data|stringData|secureJsonData)$
     version: 3.7.1
