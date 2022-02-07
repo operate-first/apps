@@ -12,6 +12,7 @@ resources:
   - ../../../base
   - dashboards
   - datasources
+  - landingpage-dashboard-configmap.yaml
 
 patchesStrategicMerge:
   - ./grafana-oauth.yaml

@@ -12,9 +12,13 @@ spec:
           name: oauth-client-secret
       - configMapRef:
           name: grafana-config-overrides
+  configMaps:
+    - grafana-landing-page
   config:
     server:
       root_url: https://grafana.operate-first.cloud
+    dashboards:
+      default_home_dashboard_path: "/etc/grafana-configmaps/grafana-landing-page/landingpage.json"
     auth.generic_oauth:
       name: Dex
       enabled: true
