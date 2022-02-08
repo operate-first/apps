@@ -123,6 +123,7 @@ resources:
 - ../../../../bundles/seraph
 - ../../../../bundles/tekton-chains
 - ../common
+- apiserver/api_server_cert.yaml
 - clusterversion.yaml
 - ingresscontrollers/default.yaml
 - nodenetworkconfigurationpolicies/vlan-210-nfs.yaml
