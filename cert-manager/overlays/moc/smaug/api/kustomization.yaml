@@ -5,3 +5,4 @@ patchesStrategicMerge:
   - certificate.yaml
 resources:
   - ../../common/api-issuer
+  - ../../common/secrets

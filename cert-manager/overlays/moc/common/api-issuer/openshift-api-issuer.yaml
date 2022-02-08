@@ -2,7 +2,6 @@ apiVersion: cert-manager.io/v1
 kind: Issuer
 metadata:
   name: api-letsencrypt-production
-  namespace: openshift-config
 spec:
   acme:
     email: ops-team@operate-first.cloud
@@ -12,13 +11,12 @@ spec:
     solvers:
       - selector:
           dnsZones:
-            - .na.operate-first.cloud
+            - "na.operate-first.cloud"
         dns01:
           cnameStrategy: Follow
-          route53:
-            region: us-east-1
-            accessKeyID: AKIAYLUGMT7YHWIC6R62
-            hostedZoneID: Z04486682XFINHTESP6B9
-            secretAccessKeySecretRef:
-              name: aws-route53-credentials
-              key: aws_secret_access_key
+          cloudDNS:
+            project: aicoe-prow
+            hostedZoneName: "na-operate-first"
+            serviceAccountSecretRef:
+              key: key.json
+              name: clouddns-dns01-na-svc-acct
