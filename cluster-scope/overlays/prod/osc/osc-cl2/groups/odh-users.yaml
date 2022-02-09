@@ -1,0 +1,13 @@
+apiVersion: user.openshift.io/v1
+kind: Group
+metadata:
+  name: odh-users
+users:
+  - MichaelClifford
+  - oindrillac
+  - Shreyanand
+  - chauhankaranraj
+  - aakankshaduggal
+  - hemajv
+  - MichaelTiemannOSC
+  - guimou
