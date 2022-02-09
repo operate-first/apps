@@ -1,0 +1,15 @@
+# Source: vault/templates/server-route.yaml
+kind: Route
+apiVersion: route.openshift.io/v1
+metadata:
+  name: vault
+spec:
+  host: chart-example.local
+  to:
+    kind: Service
+    name: vault
+    weight: 100
+  port:
+    targetPort: 8200
+  tls:
+    termination: passthrough

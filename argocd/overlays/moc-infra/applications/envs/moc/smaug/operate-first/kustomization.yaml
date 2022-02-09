@@ -20,3 +20,4 @@ resources:
   - slack-first.yaml
   - tekton-chains.yaml
   - triage-party.yaml
+  - vault.yaml

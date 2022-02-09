@@ -1,0 +1,19 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: vault
+spec:
+  project: operate-first
+  source:
+    repoURL: https://github.com/operate-first/apps.git
+    targetRevision: HEAD
+    path: vault/overlays/moc/smaug
+  destination:
+    name: smaug
+    namespace: vault
+  syncPolicy:
+    automated:
+      prune: true
+      selfHeal: true
+    syncOptions:
+      - Validate=false
