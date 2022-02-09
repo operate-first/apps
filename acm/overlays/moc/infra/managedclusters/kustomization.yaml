@@ -6,6 +6,7 @@ resources:
 - ocp-prod.yaml
 - ocp-staging.yaml
 - osc-cl1.yaml
+- osc-cl2.yaml
 - rick.yaml
 - smaug.yaml
 - demo.yaml
