@@ -1,25 +1,22 @@
 apiVersion: kustomize.config.k8s.io/v1beta1
+generators:
+- secret-generator.yaml
 kind: Kustomization
-
-resources:
-- ../common
-- ../../../../base/config.openshift.io/oauths/cluster
-- ../../../../base/user.openshift.io/groups/cluster-admins
-- ../../../../base/core/configmaps/cluster-monitoring-config
-- ../../../../base/core/namespaces/opf-alertreceiver
-- ../../../../base/core/namespaces/openshift-storage
-- ../../../../base/core/namespaces/openshift-local-storage
-- ../../../../base/operators.coreos.com/operatorgroups/openshift-local-storage
-- ../../../../base/operators.coreos.com/operatorgroups/openshift-storage
-- ../../../../base/operators.coreos.com/subscriptions/openshift-local-storage-operator
-- ../../../../base/operators.coreos.com/subscriptions/odf-operator
-
-
 patchesStrategicMerge:
 - groups/cluster-admins.yaml
 - oauths/cluster_patch.yaml
 - subscriptions/local-storage-operator_patch.yaml
 - subscriptions/odf-operator_patch.yaml
-
-generators:
-- secret-generator.yaml
+resources:
+- ../../../../base/config.openshift.io/oauths/cluster
+- ../../../../base/core/configmaps/cluster-monitoring-config
+- ../../../../base/core/namespaces/openshift-local-storage
+- ../../../../base/core/namespaces/openshift-storage
+- ../../../../base/core/namespaces/opf-alertreceiver
+- ../../../../base/core/namespaces/pixel-secrets
+- ../../../../base/operators.coreos.com/operatorgroups/openshift-local-storage
+- ../../../../base/operators.coreos.com/operatorgroups/openshift-storage
+- ../../../../base/operators.coreos.com/subscriptions/odf-operator
+- ../../../../base/operators.coreos.com/subscriptions/openshift-local-storage-operator
+- ../../../../base/user.openshift.io/groups/cluster-admins
+- ../common
