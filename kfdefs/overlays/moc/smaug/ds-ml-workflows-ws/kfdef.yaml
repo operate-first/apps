@@ -15,7 +15,16 @@ spec:
           name: manifests
           path: odhseldon/cluster
       name: odhseldon
+    # TODO: Remove this patch and associated files once this is merged:
+    # https://github.com/opendatahub-io/odh-manifests/pull/521
+    - kustomizeConfig:
+        repoRef:
+          name: opf
+          path: odh-manifests/smaug/odhseldon
+      name: odhseldon
   repos:
     - name: manifests
       uri: https://github.com/opendatahub-io/odh-manifests/tarball/v1.1.1
+    - name: opf
+      uri: https://github.com/operate-first/apps/tarball/master
   version: v1.1.1
