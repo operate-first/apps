@@ -1,0 +1,142 @@
+---
+kind: CustomResourceDefinition
+apiVersion: apiextensions.k8s.io/v1
+metadata:
+  name: sparkclusters.radanalytics.io
+spec:
+  group: radanalytics.io
+  names:
+    kind: SparkCluster
+    listKind: SparkClusterList
+    plural: sparkclusters
+    singular: sparkcluster
+  scope: Namespaced
+  version: v1
+  additionalPrinterColumns:
+  - name: Worker
+    type: string
+    description: The number of workers in the Spark cluster
+    JSONPath: .spec.worker.instances
+  - name: Master
+    type: string
+    description: The number of masters in the Spark cluster
+    JSONPath: .spec.master.instances
+  - name: Age
+    type: date
+    JSONPath: .metadata.creationTimestamp
+  subresources:
+    status: {}
+  versions:
+  - name: v1
+    schema:
+      openAPIV3Schema:
+        description: SparkCluster is the schema for the sparkcluster api
+        properties:
+          apiVersion:
+            description: 'APIVersion defines the versioned schema of this representation
+              of an object. Servers should convert recognized schemas to the latest
+              internal value, and may reject unrecognized values. More info: https://git.k8s.io/community/contributors/devel/api-conventions.md#resources'
+            type: string
+          kind:
+            description: 'Kind is a string value representing the REST resource this
+              object represents. Servers may infer this from the endpoint the client
+              submits requests to. Cannot be updated. In CamelCase. More info: https://git.k8s.io/community/contributors/devel/api-conventions.md#types-kinds'
+            type: string
+          metadata:
+            type: object
+          spec:
+            description: SparkClusterSpec defines the configuration for the deployed spark cluster
+            properties:
+              worker:
+                type: object
+              master:
+                type: object
+            type: object
+        type: object
+    served: true
+    storage: true
+---
+kind: CustomResourceDefinition
+apiVersion: apiextensions.k8s.io/v1
+metadata:
+  name: sparkapplications.radanalytics.io
+spec:
+  group: radanalytics.io
+  names:
+    kind: SparkApplication
+    listKind: SparkApplicationList
+    plural: sparkapplications
+    singular: sparkapplication
+  scope: Namespaced
+  version: v1
+  versions:
+  - name: v1
+    schema:
+      openAPIV3Schema:
+        description: SparkApplications is the schema for the sparkapplication api
+        properties:
+          apiVersion:
+            description: 'APIVersion defines the versioned schema of this representation
+              of an object. Servers should convert recognized schemas to the latest
+              internal value, and may reject unrecognized values. More info: https://git.k8s.io/community/contributors/devel/api-conventions.md#resources'
+            type: string
+          kind:
+            description: 'Kind is a string value representing the REST resource this
+              object represents. Servers may infer this from the endpoint the client
+              submits requests to. Cannot be updated. In CamelCase. More info: https://git.k8s.io/community/contributors/devel/api-conventions.md#types-kinds'
+            type: string
+          metadata:
+            type: object
+          spec:
+            description: SparkApplications defines the configuration for submitting a spark application that will run in an on demand SparkCluster
+            properties:
+              mainApplicationFile:
+                type: string
+              mainClass:
+                type: string
+              driver:
+                type: object
+              executor:
+                type: object
+            type: object
+        type: object
+    served: true
+    storage: true
+---
+kind: CustomResourceDefinition
+apiVersion: apiextensions.k8s.io/v1
+metadata:
+  name: sparkhistoryservers.radanalytics.io
+spec:
+  group: radanalytics.io
+  names:
+    kind: SparkHistoryServer
+    listKind: SparkHistoryServerList
+    plural: sparkhistoryservers
+    singular: sparkhistoryserver
+  scope: Namespaced
+  version: v1
+  versions:
+  - name: v1
+    schema:
+      openAPIV3Schema:
+        description: SparkHistoryServers is the schema for the sparkhistoryserver api
+        properties:
+          apiVersion:
+            description: 'APIVersion defines the versioned schema of this representation
+              of an object. Servers should convert recognized schemas to the latest
+              internal value, and may reject unrecognized values. More info: https://git.k8s.io/community/contributors/devel/api-conventions.md#resources'
+            type: string
+          kind:
+            description: 'Kind is a string value representing the REST resource this
+              object represents. Servers may infer this from the endpoint the client
+              submits requests to. Cannot be updated. In CamelCase. More info: https://git.k8s.io/community/contributors/devel/api-conventions.md#types-kinds'
+            type: string
+          metadata:
+            type: object
+          spec:
+            description: SparkHistoryServer defines the configuration for the spark history server
+            type: object
+        type: object
+    served: true
+    storage: true
