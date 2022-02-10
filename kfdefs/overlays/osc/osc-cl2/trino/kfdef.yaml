@@ -1,0 +1,46 @@
+apiVersion: kfdef.apps.kubeflow.org/v1
+kind: KfDef
+metadata:
+  annotations:
+    kfctl.kubeflow.io/force-delete: "false"
+    kfdef-version: '2'
+  name: opendatahub
+  namespace: odh-trino
+spec:
+  applications:
+    - kustomizeConfig:
+        repoRef:
+          name: manifests
+          path: odh-common
+      name: odh-common
+    - kustomizeConfig:
+        repoRef:
+          name: manifests
+          path: trino
+      name: trino
+    - kustomizeConfig:
+        parameters:
+          - name: s3_endpoint_url
+            value: s3.us-east-1.amazonaws.com
+          - name: s3_credentials_secret
+            value: odh-datacatalog-bucket
+          - name: trino_image
+            value: quay.io/opendatahub/trino:362
+          - name: trino_memory_request
+            value: 8Gi
+          - name: trino_memory_limit
+            value: 10Gi
+          - name: trino_cpu_request
+            value: '2'
+          - name: trino_cpu_limit
+            value: '2'
+        repoRef:
+          name: opf
+          path: odh-manifests/osc/trino
+      name: trino
+  repos:
+    - name: manifests
+      uri: https://github.com/opendatahub-io/odh-manifests/tarball/v1.1.0
+    - name: opf
+      uri: https://github.com/operate-first/apps/tarball/master
+  version: v1.1.0

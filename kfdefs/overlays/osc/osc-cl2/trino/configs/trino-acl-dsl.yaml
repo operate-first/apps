@@ -1,0 +1,11 @@
+# the current OS-Climate data commons trino deployment on the dev cluster
+admin-groups: [admins]
+
+# global default is non-public (no read/select access)
+public-tables: false
+
+catalogs: []
+
+schemas: []
+
+tables: []
