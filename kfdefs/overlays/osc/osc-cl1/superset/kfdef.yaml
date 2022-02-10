@@ -20,7 +20,7 @@ spec:
     - kustomizeConfig:
         repoRef:
           name: opf
-          path: odh-manifests/osc-cl1/superset
+          path: odh-manifests/osc/superset
       name: superset
   repos:
     - name: manifests

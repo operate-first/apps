@@ -28,7 +28,7 @@ spec:
             value: quay.io/opendatahub/trino:362
         repoRef:
           name: opf
-          path: odh-manifests/osc-cl1/trino-dev
+          path: odh-manifests/osc/trino-dev
       name: trino
   repos:
     - name: manifests

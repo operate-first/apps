@@ -36,7 +36,7 @@ spec:
             value: '2'
         repoRef:
           name: opf
-          path: odh-manifests/osc-cl1/trino
+          path: odh-manifests/osc/trino
       name: trino
   repos:
     - name: manifests

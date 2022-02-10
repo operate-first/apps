@@ -35,7 +35,7 @@ spec:
             value: s3.odh.com
         repoRef:
           name: opf
-          path: odh-manifests/osc-cl1/jupyterhub/jupyterhub
+          path: odh-manifests/osc/jupyterhub/jupyterhub
       name: jupyterhub
   repos:
     - name: manifests
