@@ -1,0 +1,36 @@
+apiVersion: v1
+data:
+  apply_tekton_custom_resource: "true"
+  archive_logs: "false"
+  artifact_bucket: kfp-tekton-artifacts
+  artifact_endpoint: s3-openshift-storage.apps.smaug.na.operate-first.cloud
+  artifact_endpoint_scheme: https://
+  artifact_image: quay.io/thoth-station/document-sync-job:v0.1.0
+  artifact_script: |-
+    #!/usr/bin/env sh
+    push_artifact() {
+        if [ -f "$2" ]; then
+            tar -cvzf $1.tgz $2
+            aws s3 --endpoint ${ARTIFACT_ENDPOINT_SCHEME}${ARTIFACT_ENDPOINT} cp $1.tgz s3://$ARTIFACT_BUCKET/artifacts/$PIPELINERUN/$PIPELINETASK/$1.tgz
+        else
+            echo "$2 file does not exist. Skip artifact tracking for $1"
+        fi
+    }
+    push_log() {
+        cat /var/log/containers/$PODNAME*$NAMESPACE*step-main*.log > step-main.log
+        push_artifact main-log step-main.log
+    }
+    strip_eof() {
+        if [ -f "$2" ]; then
+            awk 'NF' $2 | head -c -1 > $1_temp_save && cp $1_temp_save $2
+        fi
+    }
+  inject_default_script: "true"
+  strip_eof: "true"
+  terminate_status: Cancelled
+  track_artifacts: "true"
+kind: ConfigMap
+metadata:
+  labels:
+    application-crd-id: kubeflow-pipelines
+  name: kfp-tekton-config
