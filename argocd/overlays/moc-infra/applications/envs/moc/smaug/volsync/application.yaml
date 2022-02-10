@@ -8,6 +8,7 @@ spec:
   source:
     chart: volsync
     repoURL: https://backube.github.io/helm-charts
+    targetRevision: 0.3.0
     helm:
       releaseName: volsync
   destination:
