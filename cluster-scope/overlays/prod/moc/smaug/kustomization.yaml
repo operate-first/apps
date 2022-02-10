@@ -123,6 +123,7 @@ resources:
 - ../../../../bundles/reloader
 - ../../../../bundles/seraph
 - ../../../../bundles/tekton-chains
+- ../../../../bundles/volsync
 - ../common
 - apiserver/api_server_cert.yaml
 - clusterversion.yaml

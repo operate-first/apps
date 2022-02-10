@@ -1,0 +1,12 @@
+apiVersion: kustomize.config.k8s.io/v1beta1
+kind: Kustomization
+resources:
+  - ../../base/core/namespaces/volsync-system
+  - ../../base/apiextensions.k8s.io/customresourcedefinitions/replicationdestinations.volsync.backube
+  - ../../base/apiextensions.k8s.io/customresourcedefinitions/replicationsources.volsync.backube
+  - ../../base/rbac.authorization.k8s.io/clusterrolebindings/volsync-manager
+  - ../../base/rbac.authorization.k8s.io/clusterrolebindings/volsync-proxy
+  - ../../base/rbac.authorization.k8s.io/clusterroles/volsync-manager
+  - ../../base/rbac.authorization.k8s.io/clusterroles/volsync-metrics-reader
+  - ../../base/rbac.authorization.k8s.io/clusterroles/volsync-proxy
+  - ../../base/security.openshift.io/securitycontextconstraints/volsync-mover
