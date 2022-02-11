@@ -43,3 +43,4 @@ patchesStrategicMerge:
   - groups/odh-users.yaml
   - groups/seldon-admin.yaml
   - operators.coreos.com/patches/nfd-sub-patch.yaml
+  
