@@ -9,7 +9,7 @@ spec:
       type: HTPasswd
       htpasswd:
         fileData:
-         name: htpass-secret
+          name: htpass-secret
     - github:
         clientID: c7a02a23660bfd0cb47f
         clientSecret:
