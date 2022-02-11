@@ -108,6 +108,11 @@ parts:
 
           - file: content/odh/adding_kfdefs.md
 
+      # Reloader
+      - file: content/reloader/README.md
+        sections:
+          - file: content/reloader/monitoring-secrets-configmaps.md
+
       # UWM
       - file: content/uwm/README.md
         sections:
