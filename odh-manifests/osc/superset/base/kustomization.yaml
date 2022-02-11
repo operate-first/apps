@@ -9,9 +9,6 @@ resources:
   - supersetdb-pvc.yaml
   - supersetdb-secret.yaml
   - supersetdb-service.yaml
-  - superset-rbac-viewer-role.yaml
-  - superset-rbac-viewer-rolebinding.yaml
-  - superset-service-account.yaml
 
 commonLabels:
   opendatahub.io/component: "true"
