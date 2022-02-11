@@ -5,7 +5,7 @@ metadata:
   name: dex
 data:
   config.yaml: |
-    issuer: http://dex-dex.apps.odh-cl1.apps.os-climate.org
+    issuer: http://dex-dex.apps.odh-cl2.apps.os-climate.org
 
     storage:
       type: memory

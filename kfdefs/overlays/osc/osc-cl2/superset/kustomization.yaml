@@ -6,5 +6,6 @@ resources:
   - kfdef.yaml
   - secure-route.yaml
   - secrets
+  - configmaps
 generatorOptions:
   disableNameSuffixHash: true

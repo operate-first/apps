@@ -50,11 +50,6 @@ spec:
             memory: $(SUPERSET_MEMORY_LIMITS)
       volumes:
         - name: superset-config
-          secret:
-            secretName: superset-config
+          configMap:
+            name: superset-config-py
             defaultMode: 420
-            items:
-              - key: superset_config.py
-                path: superset_config.py
-              - key: custom_sso_security_manager.py
-                path: custom_sso_security_manager.py
