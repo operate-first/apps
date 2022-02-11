@@ -35,7 +35,7 @@ spec:
       inter.broker.protocol.version: '2.8'
     storage:
       type: persistent-claim
-      size: 40Gi
+      size: 60Gi
       class: ocs-storagecluster-ceph-rbd
       deleteClaim: false
     metricsConfig:
