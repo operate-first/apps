@@ -2,7 +2,7 @@ import os
 from flask_appbuilder.security.manager import AUTH_OAUTH
 
 MAPBOX_API_KEY = os.getenv('MAPBOX_API_KEY', '')
-SQLALCHEMY_DATABASE_URI = 'postgresql://$(SUPERSET_DB_USERNAME):$(SUPERSET_DB_PASSWORD)@supersetdb:5432/supersetdb'
+SQLALCHEMY_DATABASE_URI = "postgresql://{}:{}@supersetdb:5432/{}".format(os.environ['POSTGRESQL_USERNAME'], os.environ['POSTGRESQL_PASSWORD'], os.environ['POSTGRESQL_DATABASE'])
 SQLALCHEMY_TRACK_MODIFICATIONS = True
 SECRET_KEY = os.getenv('SUPERSET_SECRET_KEY', '$(SUPERSET_SECRET_KEY)')
 DATA_DIR = '/var/lib/superset'

@@ -23,11 +23,43 @@ spec:
         volumeMounts:
           - mountPath: /etc/superset
             name: superset-config
+        env:
+          - name: POSTGRESQL_USERNAME
+            valueFrom:
+              secretKeyRef:
+                key: database-user
+                name: supersetdb
+          - name: POSTGRESQL_PASSWORD
+            valueFrom:
+              secretKeyRef:
+                key: database-password
+                name: supersetdb
+          - name: POSTGRESQL_DATABASE
+            valueFrom:
+              secretKeyRef:
+                key: database-name
+                name: supersetdb
         envFrom:
           - secretRef:
               name: superset-oidc
       containers:
       - name: superset
+        env:
+          - name: POSTGRESQL_USERNAME
+            valueFrom:
+              secretKeyRef:
+                key: database-user
+                name: supersetdb
+          - name: POSTGRESQL_PASSWORD
+            valueFrom:
+              secretKeyRef:
+                key: database-password
+                name: supersetdb
+          - name: POSTGRESQL_DATABASE
+            valueFrom:
+              secretKeyRef:
+                key: database-name
+                name: supersetdb
         envFrom:
           - secretRef:
               name: superset
