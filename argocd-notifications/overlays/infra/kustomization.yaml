@@ -13,5 +13,5 @@ patches:
       name: argocd-notifications-cm
     patch: |
       - op: add
-        path: /data/context/argocdUrl
-        value: https://argocd-server-argocd.apps.moc-infra.massopen.cloud/
+        path: /data/context
+        value: "argocdUrl: https://argocd-server-argocd.apps.moc-infra.massopen.cloud/"
