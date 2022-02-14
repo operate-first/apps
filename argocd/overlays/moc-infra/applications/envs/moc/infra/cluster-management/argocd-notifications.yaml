@@ -4,7 +4,7 @@ metadata:
   name: argocd-notifications
 spec:
   destination:
-    server: moc-infra
+    name: moc-infra
     namespace: argocd
   project: cluster-management
   source:
