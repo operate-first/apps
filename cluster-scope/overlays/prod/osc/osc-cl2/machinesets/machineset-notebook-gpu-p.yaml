@@ -19,7 +19,7 @@ spec:
         machine.openshift.io/cluster-api-machine-type: worker
         machine.openshift.io/cluster-api-machineset: odh-cl2-jlxqf-notebook-gpu-p-us-east-1a
     spec:
-      metadata: 
+      metadata:
         labels:
           node-role.kubernetes.io/odh-notebook: ''
       taints:
