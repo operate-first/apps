@@ -3,8 +3,7 @@ kind: ConfigMap
 metadata:
   name: argocd-notifications-cm
 data:
-  context:
-    argocdUrl:
+  context: "argocdUrl:"
   service.slack: |
     token: $slack-token
     icon: ":anchor:"
