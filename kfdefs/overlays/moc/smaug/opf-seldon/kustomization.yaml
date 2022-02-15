@@ -5,3 +5,26 @@ namespace: opf-seldon
 
 resources:
   - ../../../../base/seldon
+
+# TODO: Remove this patch and associated files once this is merged:
+# https://github.com/opendatahub-io/odh-manifests/pull/521
+patchesJson6902:
+  - patch: |
+      - op: add
+        path: /spec/applications/-
+        value:
+          kustomizeConfig:
+            repoRef:
+              name: opf
+              path: odh-manifests/smaug/odhseldon
+          name: odhseldon
+      - op: add
+        path: /spec/repos/-
+        value:
+          name: opf
+          uri: https://github.com/operate-first/apps/tarball/master
+    target:
+      group: kfdef.apps.kubeflow.org
+      kind: KfDef
+      name: opendatahub
+      version: v1
