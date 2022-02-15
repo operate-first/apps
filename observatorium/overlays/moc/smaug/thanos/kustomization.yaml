@@ -15,6 +15,7 @@ resources:
   - serviceaccounts
   - servicemonitors
   - services
+  - obcs
 
 generators:
   - secrets/secrets-generator.yaml
