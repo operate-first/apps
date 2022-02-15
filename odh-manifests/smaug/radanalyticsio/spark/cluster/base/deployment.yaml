@@ -1,0 +1,40 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: spark-operator
+  labels:
+    app: jupyterhub
+    component: spark-operator
+    app.kubernetes.io/name: spark-operator
+    app.kubernetes.io/version: v0.1.5-v1alpha1
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      component: spark-operator
+  strategy:
+    type: Recreate
+  template:
+    metadata:
+      labels:
+        component: spark-operator
+    spec:
+      serviceAccountName: spark-operator
+      containers:
+      - name: spark-operator
+        image: spark-operator
+        env:
+        - name: WATCH_NAMESPACE
+          valueFrom:
+            fieldRef:
+              fieldPath: metadata.annotations['olm.targetNamespaces']
+        - name: CRD
+          value: "true"
+        imagePullPolicy: IfNotPresent
+        resources:
+        limits:
+          cpu: 500m
+          memory: 600Mi
+        requests:
+          cpu: 500m
+          memory: 600Mi
