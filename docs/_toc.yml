@@ -118,6 +118,11 @@ parts:
         sections:
           - file: content/uwm/overview.md
 
+      # Volsync
+      - file: content/volsync/README.md
+        sections:
+          - file: content/volsync/using-volsync.md
+
       # Notebooks
       - file: content/notebooks/README.md
         sections:
