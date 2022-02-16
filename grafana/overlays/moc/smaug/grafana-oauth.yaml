@@ -36,5 +36,6 @@ spec:
         contains(groups[*], 'curator')        && 'Editor' ||
         contains(groups[*], 'prometheus-anomaly-detector') && 'Editor' ||
         contains(groups[*], 'thoth')          && 'Editor' ||
+        contains(groups[*], 'opf-alerting')          && 'Admin' ||
         'Deny'
       role_attribute_strict: true
