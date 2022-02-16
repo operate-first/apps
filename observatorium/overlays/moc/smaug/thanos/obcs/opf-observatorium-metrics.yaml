@@ -1,0 +1,7 @@
+apiVersion: objectbucket.io/v1alpha1
+kind: ObjectBucketClaim
+metadata:
+  name: opf-observatorium-metrics
+spec:
+  bucketName: opf-observatorium-metrics
+  storageClassName: openshift-storage.noobaa.io
