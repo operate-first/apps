@@ -5,6 +5,7 @@
             "allow": "all"
         },
         {
+            "catalog": ".*",
             "allow": "read-only"
         }
     ],
@@ -14,6 +15,8 @@
             "owner": true
         },
         {
+            "catalog": ".*",
+            "schema": ".*",
             "owner": false
         }
     ],
@@ -28,6 +31,9 @@
             ]
         },
         {
+            "catalog": ".*",
+            "schema": ".*",
+            "table": ".*",
             "privileges": [
                 "SELECT"
             ]

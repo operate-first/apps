@@ -15,6 +15,7 @@
             "allow": "all"
         },
         {
+            "catalog": ".*",
             "allow": "read-only"
         }
     ],
@@ -72,6 +73,8 @@
             "owner": true
         },
         {
+            "catalog": ".*",
+            "schema": ".*",
             "owner": false
         }
     ],
@@ -205,6 +208,7 @@
             "group": "corporate_data.*",
             "catalog": "osc_datacommons_dev",
             "schema": "corporate_data",
+            "table": ".*",
             "privileges": [
                 "SELECT",
                 "INSERT",
@@ -215,6 +219,7 @@
         {
             "catalog": "osc_datacommons_dev",
             "schema": "corporate_data",
+            "table": ".*",
             "privileges": [
                 "SELECT"
             ]
@@ -223,6 +228,7 @@
             "group": "itr.*",
             "catalog": "osc_datacommons_dev",
             "schema": "itr",
+            "table": ".*",
             "privileges": [
                 "SELECT",
                 "INSERT",
@@ -233,6 +239,7 @@
         {
             "catalog": "osc_datacommons_dev",
             "schema": "itr",
+            "table": ".*",
             "privileges": [
                 "SELECT"
             ]
@@ -241,6 +248,7 @@
             "group": "physical_risk.*",
             "catalog": "osc_datacommons_dev",
             "schema": "physical_risk",
+            "table": ".*",
             "privileges": [
                 "SELECT",
                 "INSERT",
@@ -251,6 +259,7 @@
         {
             "catalog": "osc_datacommons_dev",
             "schema": "physical_risk",
+            "table": ".*",
             "privileges": [
                 "SELECT"
             ]
@@ -259,6 +268,7 @@
             "group": "entity_matching.*",
             "catalog": "osc_datacommons_dev",
             "schema": "gleif",
+            "table": ".*",
             "privileges": [
                 "SELECT",
                 "INSERT",
@@ -269,6 +279,7 @@
         {
             "catalog": "osc_datacommons_dev",
             "schema": "gleif",
+            "table": ".*",
             "privileges": [
                 "SELECT"
             ]
@@ -277,6 +288,7 @@
             "group": "aicoe_osc_demo",
             "catalog": "osc_datacommons_dev",
             "schema": "aicoe_osc_demo",
+            "table": ".*",
             "privileges": [
                 "SELECT",
                 "INSERT",
@@ -287,6 +299,7 @@
         {
             "catalog": "osc_datacommons_dev",
             "schema": "aicoe_osc_demo",
+            "table": ".*",
             "privileges": [
                 "SELECT"
             ]
@@ -295,6 +308,7 @@
             "group": "aicoe_osc_demo",
             "catalog": "osc_datacommons_dev",
             "schema": "urgentem",
+            "table": ".*",
             "privileges": [
                 "SELECT",
                 "INSERT",
@@ -305,6 +319,7 @@
         {
             "catalog": "osc_datacommons_dev",
             "schema": "urgentem",
+            "table": ".*",
             "privileges": [
                 "SELECT"
             ]
@@ -313,6 +328,7 @@
             "group": ".*",
             "catalog": "osc_datacommons_dev",
             "schema": "sandbox",
+            "table": ".*",
             "privileges": [
                 "SELECT",
                 "INSERT",
@@ -323,6 +339,7 @@
         {
             "catalog": "osc_datacommons_dev",
             "schema": "sandbox",
+            "table": ".*",
             "privileges": [
                 "SELECT"
             ]
@@ -331,6 +348,7 @@
             "group": ".*",
             "catalog": "osc_datacommons_dev",
             "schema": "demo",
+            "table": ".*",
             "privileges": [
                 "SELECT",
                 "INSERT",
@@ -341,23 +359,31 @@
         {
             "catalog": "osc_datacommons_dev",
             "schema": "demo",
+            "table": ".*",
             "privileges": [
                 "SELECT"
             ]
         },
         {
             "catalog": "osc_datacommons_dev",
+            "schema": ".*",
+            "table": ".*",
             "privileges": [
                 "SELECT"
             ]
         },
         {
             "catalog": "osc_datacommons_iceberg_dev",
+            "schema": ".*",
+            "table": ".*",
             "privileges": [
                 "SELECT"
             ]
         },
         {
+            "catalog": ".*",
+            "schema": ".*",
+            "table": ".*",
             "privileges": []
         }
     ]
