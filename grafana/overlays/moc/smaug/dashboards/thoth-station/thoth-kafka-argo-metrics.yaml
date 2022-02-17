@@ -3,8 +3,8 @@ kind: GrafanaDashboard
 metadata:
   name: thoth-kafka-argo-metrics
   labels:
-    version: v5
+    version: v1
     app: grafana
     component: thoth-station
 spec:
-  url: https://raw.githubusercontent.com/thoth-station/thoth-application/master/grafana-dashboard/overlays/moc-prod/thoth-kafka-argo-metrics.json
+  url: https://raw.githubusercontent.com/thoth-station/thoth-application/master/grafana-dashboard/base/thoth-kafka-argo-metrics.json

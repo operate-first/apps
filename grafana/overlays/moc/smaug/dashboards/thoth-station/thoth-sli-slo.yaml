@@ -3,8 +3,8 @@ kind: GrafanaDashboard
 metadata:
   name: thoth-sli-slo
   labels:
-    version: v5
+    version: v1
     app: grafana
     component: thoth-station
 spec:
-  url: https://raw.githubusercontent.com/thoth-station/thoth-application/master/grafana-dashboard/overlays/moc-prod/thoth-sli-slo.json
+  url: https://raw.githubusercontent.com/thoth-station/thoth-application/master/grafana-dashboard/base/thoth-sli-slo.json

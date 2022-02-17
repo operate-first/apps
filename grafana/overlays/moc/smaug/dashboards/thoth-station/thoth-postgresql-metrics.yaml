@@ -3,8 +3,8 @@ kind: GrafanaDashboard
 metadata:
   name: thoth-postgresql-metrics
   labels:
-    version: v4
+    version: v1
     app: grafana
     component: thoth-station
 spec:
-  url: https://raw.githubusercontent.com/thoth-station/thoth-application/master/grafana-dashboard/overlays/moc-prod/thoth-postgresql-metrics.json
+  url: https://raw.githubusercontent.com/thoth-station/thoth-application/master/grafana-dashboard/base/thoth-postgresql-metrics.json
