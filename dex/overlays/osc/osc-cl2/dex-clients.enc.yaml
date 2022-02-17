@@ -7,13 +7,14 @@ metadata:
 stringData:
     SUPERSET_SECRET: ENC[AES256_GCM,data:+SU1scRNu1rFHl+Y5RIjpCHhd+i1WG4/nTo6Aj+xTfQglKPE,iv:Q1N73L3T/fVjSEF3ZY3+wtBLDwH4gV6kCkyJ7pPWdgg=,tag:BQZdMCMTFqQnZoCNs9+Bnw==,type:str]
     TRINO_SECRET: ENC[AES256_GCM,data:RvMhbCU9Wt6gcKWBzjaaCtTx0w6VcA00QlqDYV6OUBHijRJq,iv:AUQKlOLc2fAi60xWgDh2kwdBOMsNoTVD12jqtszaTwk=,tag:tls8HVgC697OZqSZlP6RLQ==,type:str]
+    DAS_SECRET: ENC[AES256_GCM,data:/sPZPs1rBj8SGFB+ap/dkkhueY3WN1+tS3TfdzYY0mpiZn3L,iv:hJOrj0VCFojd4xJg5dNYZxUiAIgGlnJYYjR5KVAd93M=,tag:YmDFeqd1MYEY1ycC9s1DRA==,type:str]
 sops:
     kms: []
     gcp_kms: []
     azure_kv: []
     hc_vault: []
-    lastmodified: '2022-02-10T21:42:48Z'
-    mac: ENC[AES256_GCM,data:OnqUena9aass/Q1nmWMdZ23PypshOwOEpWmdwN0m/QAgxOrTuZ9SOCkXbw2pHMg/MeUWsG1AW+G5wy6NcVaJjUt0uMgIo0VQyHNNLL8dWb+tPqyNhikN1HNpBlrK9cVISkscpg7nYtif3BFcHMwLttnGojevJwDg1d/oh4uTeRc=,iv:KvQgTdZhOX3krmx/DoSO+eCN4lzdcLZtl7caQJDIvc0=,tag:SGHdbfuSv6w8+a23KBy1Ng==,type:str]
+    lastmodified: '2022-02-16T21:43:30Z'
+    mac: ENC[AES256_GCM,data:AFDo0r/IGCrcbntbPyhY3RIpiJjtXXxsK1mx2cf4XZCQtsJUIdSDWeLS8n46Y8avFgeubRze2lJeF50q7EU6ELSy4IW8O4oA/kdBLuvhFt76QHNN59GhBB4XVH4Yl+i42clZeT1lMRUtm+s0i10DqD9gL7fAaQYvtIkAWxmaC5I=,iv:HiIFM1kIGrzOcvJORZ9iQ93f2AGY38eLR/IzZPXqnFQ=,tag:yd1XQsV4tWoY+IfDIR/7qw==,type:str]
     pgp:
     -   created_at: '2022-02-10T21:42:47Z'
         enc: |-

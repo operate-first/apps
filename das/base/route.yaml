@@ -1,0 +1,14 @@
+kind: Route
+apiVersion: route.openshift.io/v1
+metadata:
+  name: das
+  annotations:
+    kubernetes.io/tls-acme: "true"
+  labels:
+    app: das
+spec:
+  to:
+    kind: Service
+    name: das
+  port:
+    targetPort: web
