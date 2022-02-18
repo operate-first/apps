@@ -8,6 +8,9 @@
     - name: Preprocess the PV count per size map to a flat list
       set_fact:
         pv_list: '[{% for size, count in pv_count_per_size.items() %}{% for i in range(count) %}["{{ size }}", {{ i }}],{% endfor %}{% endfor %}]'
+    - name: Install python dependency
+      pip:
+        name: openshift
   tasks:
     - name: Fetch Quicklab certificate
       get_url:
@@ -25,7 +28,7 @@
         ansible_ssh_extra_args: "-o StrictHostKeyChecking=no -o UserKnownHostsFile=/dev/null"
 
     - name: Get available Openshift nodes
-      community.kubernetes.k8s_info:
+      kubernetes.core.k8s_info:
         kind: Node
       register: nodes
 
@@ -95,7 +98,7 @@
         host_ip: "{{ hostvars.quicklab.ansible_default_ipv4.address }}"
   tasks:
     - name: Create PersistentVolume resource
-      community.kubernetes.k8s:
+      kubernetes.core.k8s:
         state: present
         inline: |
           apiVersion: v1
