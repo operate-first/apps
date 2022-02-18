@@ -19,11 +19,54 @@ catalogs:
 
   - catalog: osc_datacommons_iceberg_dev
     public-tables: true
-    # only db 'admins' group has admin privs
-    # I'll put it in again because group list cannot be empty
-    admin-groups: [admins]
+    admin-groups:
+      - 'corporate_data.*'
+      - 'itr.*'
+      - 'physical_risk.*'
+      - 'aicoe_osc_demo'
+      - 'demo_.*'
 
 schemas:
+  - schema: corporate_data
+    catalog: osc_datacommons_iceberg_dev
+    admin-groups: ['corporate_data.*']
+    public-tables: true
+
+  - schema: itr
+    catalog: osc_datacommons_iceberg_dev
+    admin-groups: ['itr.*']
+    public-tables: true
+
+  - schema: physical_risk
+    catalog: osc_datacommons_iceberg_dev
+    admin-groups: ['physical_risk.*']
+    public-tables: true
+
+  - schema: gleif
+    catalog: osc_datacommons_iceberg_dev
+    admin-groups: ['entity_matching.*']
+    public-tables: true
+
+  - schema: aicoe_osc_demo
+    catalog: osc_datacommons_iceberg_dev
+    admin-groups: ['aicoe_osc_demo']
+    public-tables: true
+
+  - schema: urgentem
+    catalog: osc_datacommons_iceberg_dev
+    admin-groups: ['aicoe_osc_demo']
+    public-tables: true
+
+  - schema: sandbox
+    catalog: osc_datacommons_iceberg_dev
+    admin-groups: ['.*']
+    public-tables: true
+
+  - schema: demo
+    catalog: osc_datacommons_iceberg_dev
+    admin-groups: ['.*']
+    public-tables: true
+
   - schema: corporate_data
     catalog: osc_datacommons_dev
     admin-groups: ['corporate_data.*']
