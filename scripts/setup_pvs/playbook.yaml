@@ -8,6 +8,9 @@
     - name: Preprocess the PV count per size map to a flat list
       set_fact:
         pv_list: '[{% for size, count in pv_count_per_size.items() %}{% for i in range(count) %}["{{ size }}", {{ i }}],{% endfor %}{% endfor %}]'
+    - name: Install python dependency
+      pip:
+        name: openshift
   tasks:
     - name: Fetch Quicklab certificate
       get_url:

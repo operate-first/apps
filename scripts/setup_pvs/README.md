@@ -96,30 +96,19 @@ To avoid all the hustle with manual setup, we can use an Ansible playbook [`play
 
 ### Setup
 
-Please install Ansible and some additional collections from Ansible Galaxy needed by this playbook: [ansible.posix](https://galaxy.ansible.com/ansible/posix) for `firewalld` module and [kubernetes.core](https://galaxy.ansible.com/kubernetes/core) for `k8s` module. Also install the underlying python dependency `openshift`.
+Please install Ansible and some additional collections from Ansible Galaxy needed by this playbook: [ansible.posix](https://galaxy.ansible.com/ansible/posix) for `firewalld` module and [kubernetes.core](https://galaxy.ansible.com/kubernetes/core) for `k8s` module using the `requirements.yaml` file.
 
 ```bash
-$ ansible-galaxy collection install ansible.posix
-Starting galaxy collection install process
-Process install dependency map
-Starting collection install process
-Installing 'ansible.posix:1.1.1' to '/home/tcoufal/.ansible/collections/ansible_collections/ansible/posix'
-Downloading https://galaxy.ansible.com/download/ansible-posix-1.1.1.tar.gz to /home/tcoufal/.ansible/tmp/ansible-local-43567u9ge76rl/tmpyttcjmul
-ansible.posix (1.1.1) was installed successfully
-
-$ ansible-galaxy collection install kubernetes.core
+$ ansible-galaxy collection install -r requirements.yaml
 Starting galaxy collection install process
 Process install dependency map
 Starting collection install process
 Installing 'kubernetes.core:2.2.3' to '/home/tcoufal/.ansible/collections/ansible_collections/kubernetes/core'
 Downloading https://galaxy.ansible.com/download/kubernetes-core-2.2.3.tar.gz to /home/tcoufal/.ansible/tmp/ansible-local-4073sl0jhj1j/tmp9x9w4i_0
 kubernetes.core (2.2.3) was installed successfully
-
-$ pip install --user openshift
-...
-Installing collected packages: kubernetes, openshift
-    Running setup.py install for openshift ... done
-Successfully installed kubernetes-11.0.0 openshift-0.11.2
+Installing 'ansible.posix:1.3.0' to '/home/tcoufal/.ansible/collections/ansible_collections/ansible/posix'
+Downloading https://galaxy.ansible.com/download/ansible-posix-1.3.0.tar.gz to /home/tcoufal/.ansible/tmp/ansible-local-4073sl0jhj1j/tmp9x9w4i_0
+ansible.posix (1.3.0) was installed successfully
 ```
 
 Additionally please login to your Quicklab cluster via `oc login` as a cluster admin.
@@ -167,6 +156,9 @@ ok: [localhost]
 
 TASK [Preprocess the PV count per size map to a flat list] **************************************************************
 ok: [localhost]
+
+TASK [Install python dependency] ****************************************************************************************
+changed: [localhost]
 
 TASK [Fetch Quicklab certificate] ***************************************************************************************
 ok: [localhost]
