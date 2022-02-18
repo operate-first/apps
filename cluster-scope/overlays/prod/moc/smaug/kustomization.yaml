@@ -78,6 +78,7 @@ resources:
 - ../../../../base/core/persistentvolumeclaims/image-registry-storage
 - ../../../../base/imageregistry.operator.openshift.io/configs/cluster
 - ../../../../base/noobaa.io/backingstores
+- ../../../../base/operators.coreos.com/catalogsources/operatorhubio-catalog/
 - ../../../../base/operators.coreos.com/operatorgroups/cluster-logging
 - ../../../../base/operators.coreos.com/operatorgroups/koku-metrics-operator
 - ../../../../base/operators.coreos.com/operatorgroups/openshift-cnv-rn5jf
