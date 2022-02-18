@@ -96,7 +96,7 @@ To avoid all the hustle with manual setup, we can use an Ansible playbook [`play
 
 ### Setup
 
-Please install Ansible and some additional collections from Ansible Galaxy needed by this playbook: [ansible.posix](https://galaxy.ansible.com/ansible/posix) for `firewalld` module and [community.kubernetes](https://galaxy.ansible.com/community/kubernetes) for `k8s` module. Also install the underlying python dependency `openshift`.
+Please install Ansible and some additional collections from Ansible Galaxy needed by this playbook: [ansible.posix](https://galaxy.ansible.com/ansible/posix) for `firewalld` module and [kubernetes.core](https://galaxy.ansible.com/kubernetes/core) for `k8s` module. Also install the underlying python dependency `openshift`.
 
 ```bash
 $ ansible-galaxy collection install ansible.posix
@@ -107,13 +107,13 @@ Installing 'ansible.posix:1.1.1' to '/home/tcoufal/.ansible/collections/ansible_
 Downloading https://galaxy.ansible.com/download/ansible-posix-1.1.1.tar.gz to /home/tcoufal/.ansible/tmp/ansible-local-43567u9ge76rl/tmpyttcjmul
 ansible.posix (1.1.1) was installed successfully
 
-$ ansible-galaxy collection install community.kubernetes
+$ ansible-galaxy collection install kubernetes.core
 Starting galaxy collection install process
 Process install dependency map
 Starting collection install process
-Installing 'community.kubernetes:1.0.0' to '/home/tcoufal/.ansible/collections/ansible_collections/community/kubernetes'
-Downloading https://galaxy.ansible.com/download/community-kubernetes-1.0.0.tar.gz to /home/tcoufal/.ansible/tmp/ansible-local-29431yk2zoutk/tmpwgl4xsnb
-community.kubernetes (1.0.0) was installed successfully
+Installing 'kubernetes.core:2.2.3' to '/home/tcoufal/.ansible/collections/ansible_collections/kubernetes/core'
+Downloading https://galaxy.ansible.com/download/kubernetes-core-2.2.3.tar.gz to /home/tcoufal/.ansible/tmp/ansible-local-4073sl0jhj1j/tmp9x9w4i_0
+kubernetes.core (2.2.3) was installed successfully
 
 $ pip install --user openshift
 ...
