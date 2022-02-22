@@ -96,6 +96,7 @@ resources:
 - ../../../../base/operators.coreos.com/subscriptions/pulp-operator
 - ../../../../base/operators.coreos.com/subscriptions/strimzi
 - ../../../../base/operators.coreos.com/subscriptions/vertical-pod-autoscaler
+- ../../../../base/operators.coreos.com/subscriptions/snapscheduler
 - ../../../../base/rbac.authorization.k8s.io/clusterrolebindings/cluster-interceptor-opf-ci-pipelines
 - ../../../../base/rbac.authorization.k8s.io/clusterrolebindings/cluster-monitoring-view
 - ../../../../base/rbac.authorization.k8s.io/clusterrolebindings/jupyterhub-cluster
