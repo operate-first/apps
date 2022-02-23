@@ -22,14 +22,6 @@ patchesJson6902:
               name: opf-manifests
               path: odh-manifests/smaug/jupyterhub
           name: jupyterhub
-      - op: add
-        path: /spec/applications/-
-        value:
-          kustomizeConfig:
-            repoRef:
-              name: opf-manifests
-              path: odh-manifests/smaug/radanalyticsio/spark/cluster
-          name: radanalyticsio-spark-cluster
     target:
       group: kfdef.apps.kubeflow.org
       kind: KfDef
