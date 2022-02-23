@@ -7,4 +7,3 @@ resources:
   - das.yaml
   - dex.yaml
   - kfdefs.yaml
-  - odh-operator.yaml
