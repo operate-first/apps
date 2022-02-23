@@ -5,4 +5,4 @@ metadata:
   namespace: openshift-storage
 spec:
   pvPool:
-    numVolumes: 19
+    numVolumes: 20
