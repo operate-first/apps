@@ -10,3 +10,4 @@ resources:
   - alertmanager-config.yaml
   - ./blackbox-exporter
   - ./thanos-query
+  - superset-blackbox-service-monitor.yaml

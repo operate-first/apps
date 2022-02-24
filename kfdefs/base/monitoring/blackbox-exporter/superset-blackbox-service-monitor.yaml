@@ -1,0 +1,27 @@
+apiVersion: monitoring.coreos.com/v1
+kind: ServiceMonitor
+metadata:
+  name: blackbox-service-monitor
+spec:
+  endpoints:
+    - interval: 30s
+      metricRelabelings:
+        - sourceLabels:
+            - __address__
+          targetLabel: __param_target
+        - sourceLabels:
+            - __param_target
+          targetLabel: instance
+        - replacement: 'https://help.datahub.redhat.com/'
+          targetLabel: target
+      params:
+        module:
+          - http_2xx
+        target:
+          - 'https://help.datahub.redhat.com/'
+      path: /probe
+      targetPort: 9115
+  jobLabel: prometheus.io/joblabel
+  namespaceSelector:
+    matchNames:
+      - opf-jupyterhub
