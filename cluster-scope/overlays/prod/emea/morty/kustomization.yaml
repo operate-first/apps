@@ -14,6 +14,7 @@ resources:
 - ../../../../base/core/namespaces/openshift-storage
 - ../../../../base/core/namespaces/opf-alertreceiver
 - ../../../../base/core/namespaces/pixel-secrets
+- ../../../../base/core/namespaces/thoth-test-core
 - ../../../../base/operators.coreos.com/operatorgroups/openshift-local-storage
 - ../../../../base/operators.coreos.com/operatorgroups/openshift-storage
 - ../../../../base/operators.coreos.com/subscriptions/odf-operator
