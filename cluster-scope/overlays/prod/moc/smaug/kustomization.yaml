@@ -25,6 +25,7 @@ resources:
 - ../../../../base/core/namespaces/apicurio-apicurio-registry
 - ../../../../base/core/namespaces/b4mad-racing
 - ../../../../base/core/namespaces/cosigned
+- ../../../../base/core/namespaces/boatrockers
 - ../../../../base/core/namespaces/debezium-ui
 - ../../../../base/core/namespaces/democratic-csi
 - ../../../../base/core/namespaces/dex
