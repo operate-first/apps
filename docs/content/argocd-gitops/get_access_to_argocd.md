@@ -16,6 +16,8 @@ If you need admin level read access, add your GitHub handle to [this group](http
 
 If you need admin level read/write access, add your GitHub handle to [this group](https://github.com/operate-first/apps/blob/master/cluster-scope/base/user.openshift.io/groups/argocd-admins/group.yaml)
 
+NOTE: All github handles **MUST** be added in lower case to either of these files, or else it will cause issues.
+
 [argocd]: https://argocd.operate-first.cloud
 [dex_cm]: https://github.com/operate-first/apps/blob/master/argocd/overlays/moc-infra/configs/argo_cm/dex.config
 [argocd_onboarding]: onboarding_to_argocd.md
