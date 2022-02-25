@@ -1,0 +1,13 @@
+apiVersion: snapscheduler.backube/v1
+kind: SnapshotSchedule
+metadata:
+    name: daily
+    namespace: openshift-storage
+spec:
+    claimSelector:
+        matchLabels:
+            noobaa-db: postgres
+    retention:
+        maxCount: 7
+    # Note that schedules are in the UTC timezone
+    schedule: “0 0 * * *”
