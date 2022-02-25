@@ -5,6 +5,7 @@ resources:
   - ../../../../base/jupyterhub
   - ./pvcs/
   - alerts.yaml
+  - ./blackbox-exporter
 patchesJson6902:
   - patch: |
       - op: add

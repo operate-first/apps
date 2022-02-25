@@ -1,0 +1,61 @@
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  labels:
+    deployment: blackbox-exporter
+  name: blackbox-exporter
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      deployment: blackbox-exporter
+  template:
+    metadata:
+      labels:
+        deployment: blackbox-exporter
+    spec:
+      volumes:
+      - name: config-volume
+        configMap:
+          name: blackbox
+      containers:
+      - image: quay.io/integreatly/prometheus-blackbox-exporter:v0.19.0
+        name: blackbox-exporter
+        args:
+        - --log.level=debug
+        - --config.file=/tmp/blackbox.yml
+        volumeMounts:
+        - name: config-volume
+          mountPath: /tmp
+        ports:
+        - containerPort: 9115
+          protocol: TCP
+        livenessProbe:
+          httpGet:
+            path: /-/healthy
+            port: 9115
+            scheme: HTTP
+          initialDelaySeconds: 30
+          timeoutSeconds: 1
+          periodSeconds: 5
+          successThreshold: 1
+          failureThreshold: 3
+        readinessProbe:
+          httpGet:
+            path: /-/healthy
+            port: 9115
+            scheme: HTTP
+          initialDelaySeconds: 5
+          timeoutSeconds: 1
+          periodSeconds: 5
+          successThreshold: 1
+          failureThreshold: 3
+        resources:
+          limits:
+            cpu: 50m
+            memory: 50Mi
+          requests:
+            cpu: 50m
+            memory: 50Mi
+      restartPolicy: Always
