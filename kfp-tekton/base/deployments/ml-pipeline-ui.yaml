@@ -30,12 +30,12 @@ spec:
               valueFrom:
                 secretKeyRef:
                   key: OBJECTSTORECONFIG_ACCESSKEY
-                  name: mlpipeline-ceph-artifact
+                  name: $(artifact_secret_name)
             - name: MINIO_SECRET_KEY
               valueFrom:
                 secretKeyRef:
                   key: OBJECTSTORECONFIG_SECRETACCESSKEY
-                  name: mlpipeline-ceph-artifact
+                  name: $(artifact_secret_name)
             - name: ALLOW_CUSTOM_VISUALIZATIONS
               value: "true"
             - name: ARGO_ARCHIVE_LOGS
