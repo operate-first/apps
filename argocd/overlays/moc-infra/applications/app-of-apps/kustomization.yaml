@@ -7,6 +7,7 @@ resources:
 - app-of-apps-infra.yaml
 - app-of-apps-ocp-prod.yaml
 - app-of-apps-ocp-staging.yaml
+- app-of-apps-octo.yaml
 - app-of-apps-osc-cl1.yaml
 - app-of-apps-osc-cl2.yaml
 - app-of-apps-rick.yaml
