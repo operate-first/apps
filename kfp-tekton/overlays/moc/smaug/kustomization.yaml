@@ -6,6 +6,8 @@ namespace: kubeflow
 resources:
   - ../../../base
 
+patchesStrategicMerge:
+  - params.yaml
 generators:
   - secret-generator.yaml
 generatorOptions:
