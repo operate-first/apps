@@ -5,6 +5,7 @@ namespace: opf-jupyterhub-stage
 
 resources:
   - ../../../../base/jupyterhub
+  - ./blackbox-exporter
 
 patchesJson6902:
   - patch: |
