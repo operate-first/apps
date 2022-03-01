@@ -10,7 +10,6 @@ metadata:
     app.kubernetes.io/managed-by: Helm
     control-plane: cosigned-webhook
   name: cosigned-webhook
-  namespace: cosign-system
 spec:
   replicas: 1
   selector:
@@ -49,7 +48,7 @@ spec:
         - name: WEBHOOK_NAME
           value: webhook
         args:
-        - -secret-name=mysecret
+        - -secret-name=cosign-pub-key
         ports:
         - containerPort: 8443
           name: https

@@ -10,7 +10,6 @@ metadata:
     app.kubernetes.io/managed-by: Helm
     control-plane: cosigned-webhook
   name: cosigned-webhook-logging
-  namespace: cosign-system
 data:
   zap-logger-config: |-
     {
