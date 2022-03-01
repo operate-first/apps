@@ -10,7 +10,6 @@ metadata:
     app.kubernetes.io/managed-by: Helm
     control-plane: cosigned-webhook
   name: webhook
-  namespace: cosign-system
 spec:
   type: ClusterIP
   ports:
