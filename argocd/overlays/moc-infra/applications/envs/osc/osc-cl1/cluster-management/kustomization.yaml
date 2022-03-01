@@ -6,4 +6,3 @@ resources:
   - dex.yaml
   - cloudbeaver.yaml
   - kfdefs.yaml
-  - odh-operator.yaml
