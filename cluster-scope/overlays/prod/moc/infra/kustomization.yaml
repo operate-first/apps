@@ -36,6 +36,7 @@ resources:
   - ../../../../base/storage.k8s.io/storageclasses/moc-nfs-csi
   - ../../../../base/user.openshift.io/groups/cluster-admins
   - ../../../../bundles/acme-operator
+  - ../../../../bundles/idp-mgmt-operator
   - apiserver/api_server_cert.yaml
   - clusterversion.yaml
   - nodenetworkconfigurationpolicies/crc-provisioning-vlan.yaml

@@ -1,0 +1,20 @@
+apiVersion: identityconfig.identitatem.io/v1alpha1
+kind: AuthRealm
+metadata:
+  name: primary
+  namespace: idp-mgmt-config
+spec:
+  identityProviders:
+    - github:
+        clientID: b222cb4ccc33667e28bd
+        clientSecret:
+          name: identitatem-github-client-secret
+        organizations:
+          - operate-first
+      mappingMethod: claim
+      name: identitatem-github
+      type: GitHub
+  placementRef:
+    name: primary-auth
+  routeSubDomain: primary
+  type: dex

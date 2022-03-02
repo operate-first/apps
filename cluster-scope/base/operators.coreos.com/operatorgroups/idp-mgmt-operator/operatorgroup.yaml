@@ -1,0 +1,7 @@
+apiVersion: operators.coreos.com/v1
+kind: OperatorGroup
+metadata:
+  name: idp-mgmt-operator
+spec:
+  targetNamespaces:
+    - idp-mgmt-config
