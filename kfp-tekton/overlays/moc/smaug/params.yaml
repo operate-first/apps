@@ -1,0 +1,6 @@
+apiVersion: v1
+data:
+  artifact_secret_name: mlpipeline-ceph-artifact-custom
+kind: ConfigMap
+metadata:
+  name: kfp-tekton-params-config

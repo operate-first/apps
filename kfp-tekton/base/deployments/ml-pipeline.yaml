@@ -21,7 +21,7 @@ spec:
       containers:
         - envFrom:
             - secretRef:
-                name: mlpipeline-ceph-artifact
+                name: $(artifact_secret_name)
           env:
             - name: POD_NAMESPACE
               valueFrom:

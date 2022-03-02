@@ -68,6 +68,22 @@ resources:
 
   # Routes
   - ./routes/ml-pipeline-ui.yaml
+generatorOptions:
+  disableNameSuffixHash: true
+configMapGenerator:
+  - name: kfp-tekton-params-config
+    envs:
+      - params.env
+vars:
+  - name: artifact_secret_name
+    objref:
+      name: kfp-tekton-params-config
+      kind: ConfigMap
+      apiVersion: v1
+    fieldref:
+      fieldpath: data.artifact_secret_name
+configurations:
+  - params.yaml
 images:
   - name: metadata-envoy
     newName: gcr.io/ml-pipeline/metadata-envoy
