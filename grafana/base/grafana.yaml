@@ -6,7 +6,7 @@ metadata:
     argocd.argoproj.io/sync-wave: "1"
   name: grafana
 spec:
-  baseImage: quay.io/operate-first/grafana:8.1.1
+  baseImage: quay.io/operate-first/grafana:8.4.3
   config:
     log:
       level: warn
