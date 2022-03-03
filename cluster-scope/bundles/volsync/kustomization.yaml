@@ -9,4 +9,5 @@ resources:
   - ../../base/rbac.authorization.k8s.io/clusterroles/volsync-manager
   - ../../base/rbac.authorization.k8s.io/clusterroles/volsync-metrics-reader
   - ../../base/rbac.authorization.k8s.io/clusterroles/volsync-proxy
+  - ../../base/rbac.authorization.k8s.io/clusterroles/volsync-rs-aggregate-to-admin
   - ../../base/security.openshift.io/securitycontextconstraints/volsync-mover
