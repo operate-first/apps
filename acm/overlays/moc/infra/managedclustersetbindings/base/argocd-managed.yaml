@@ -1,7 +1,6 @@
 apiVersion: cluster.open-cluster-management.io/v1alpha1
 kind: ManagedClusterSetBinding
 metadata:
-  name: osc
-  namespace: argocd
+  name: argocd-managed
 spec:
-  clusterSet: osc
+  clusterSet: argocd-managed

@@ -2,6 +2,5 @@ apiVersion: cluster.open-cluster-management.io/v1alpha1
 kind: ManagedClusterSetBinding
 metadata:
   name: octo-ushift-dev
-  namespace: argocd
 spec:
   clusterSet: octo-ushift-dev
