@@ -4,5 +4,8 @@ metadata:
   annotations:
     openshift.io/display-name: "Operate First: Observatorium"
     openshift.io/requester: operate-first
+    op1st/project-owner: operate-first
+    op1st/onboarding-issue: "https://github.com/operate-first/support/issues/44"
+    op1st/docs: "https://www.operate-first.cloud/apps/content/observatorium/README.html"
   name: opf-observatorium
 spec: {}
