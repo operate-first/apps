@@ -13,7 +13,7 @@ metadata:
 subjects:
 - kind: ServiceAccount
   name: cosigned-webhook
-  namespace: cosigned
+  namespace: cosign-system
 roleRef:
   kind: Role
   name: cosigned-webhook
