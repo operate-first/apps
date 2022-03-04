@@ -10,4 +10,4 @@ spec:
     retention:
         maxCount: 7
     # Note that schedules are in the UTC timezone
-    schedule: “0 0 * * *”
+    schedule: "0 0 * * *"
