@@ -6,7 +6,7 @@ To provision Superset access to an individual user, we have a Superset rolebindi
 Steps:
 1. Fork/Clone https://github.com/operate-first/apps
 2. Navigate to [this location][2].
-3. Add the github users to [this][3] ocp group.
+3. Add the github users to [this][3] ocp group. Make sure that the usernames are lowercase.
 4. Make a PR
 
 If you would like to give another OCP `group` access to Superset follow the instructions [here][4].
