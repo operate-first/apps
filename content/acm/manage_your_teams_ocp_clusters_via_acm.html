@@ -5,7 +5,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Adding users to ACM &#8212; GitOps Docs</title>
+    <title>Managing your team’s ocp clusters via ACM &#8212; GitOps Docs</title>
     
   <link href="../../_static/css/theme.css" rel="stylesheet">
   <link href="../../_static/css/index.ff1ffe594081f20da1ef19478df9384b.css" rel="stylesheet">
@@ -139,7 +139,7 @@ const thebe_selector_output = ".output, .cell_output"
    </li>
    <li class="toctree-l2 current active">
     <a class="current reference internal" href="#">
-     Adding users to ACM
+     Managing your team’s ocp clusters via ACM
     </a>
    </li>
   </ul>
@@ -674,7 +674,7 @@ const thebe_selector_output = ".output, .cell_output"
         <!-- ipynb file if we had a myst markdown file -->
         
         <!-- Download raw file -->
-        <a class="dropdown-buttons" href="../../_sources/content/acm/adding_users_to_acm.md"><button type="button"
+        <a class="dropdown-buttons" href="../../_sources/content/acm/manage_your_teams_ocp_clusters_via_acm.md"><button type="button"
                 class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
                 data-placement="left">.md</button></a>
         <!-- Download PDF via print -->
@@ -694,7 +694,7 @@ const thebe_selector_output = ".output, .cell_output"
                 data-toggle="tooltip" data-placement="left" title="Source repository"><i
                     class="fab fa-github"></i>repository</button></a>
         <a class="issues-button"
-            href="https://github.com/operate-first/apps/issues/new?title=Issue%20on%20page%20%2Fcontent/acm/adding_users_to_acm.html&body=Your%20issue%20content%20here."><button
+            href="https://github.com/operate-first/apps/issues/new?title=Issue%20on%20page%20%2Fcontent/acm/manage_your_teams_ocp_clusters_via_acm.html&body=Your%20issue%20content%20here."><button
                 type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
                 title="Open an issue"><i class="fas fa-lightbulb"></i>open issue</button></a>
         
@@ -735,7 +735,7 @@ const thebe_selector_output = ".output, .cell_output"
         <div class="col-12 col-md-9 pl-md-3 pr-md-0">
             <!-- Table of contents that is only displayed when printing the page -->
             <div id="jb-print-docs-body" class="onlyprint">
-                <h1>Adding users to ACM</h1>
+                <h1>Managing your team’s ocp clusters via ACM</h1>
                 <!-- Table of contents -->
                 <div id="print-main-content">
                     <div id="jb-print-toc">
@@ -759,8 +759,8 @@ const thebe_selector_output = ".output, .cell_output"
             
               <div>
                 
-  <div class="tex2jax_ignore mathjax_ignore section" id="adding-users-to-acm">
-<h1>Adding users to ACM<a class="headerlink" href="#adding-users-to-acm" title="Permalink to this headline">¶</a></h1>
+  <div class="tex2jax_ignore mathjax_ignore section" id="managing-your-team-s-ocp-clusters-via-acm">
+<h1>Managing your team’s ocp clusters via ACM<a class="headerlink" href="#managing-your-team-s-ocp-clusters-via-acm" title="Permalink to this headline">¶</a></h1>
 <p>We use ACM <a class="reference external" href="https://access.redhat.com/documentation/en-us/red_hat_advanced_cluster_management_for_kubernetes/2.3/html/clusters/managedclustersets#creating-a-managedclusterset">managed cluster sets</a> to organize our clusters. When a team is looking to create, import, or manage a cluster
 using the Operate First ACM instance (and thus make it part of the Operate First Cloud), they can do so by creating their
 own <code class="docutils literal notranslate"><span class="pre">ManagedClusterSet</span></code>. Once a team is given admin access to their <code class="docutils literal notranslate"><span class="pre">ManagedClusterSet</span></code>, they can then create and manage
@@ -782,20 +782,23 @@ clusters in this <code class="docutils literal notranslate"><span class="pre">Ma
 <p>Name it <code class="docutils literal notranslate"><span class="pre">&lt;YOUR-CLUSTER-SET-NAME&gt;.yaml</span></code>.</p>
 <ol class="simple">
 <li><p>Add <code class="docutils literal notranslate"><span class="pre">&lt;YOUR-CLUSTER-SET-NAME&gt;.yaml</span></code> <code class="docutils literal notranslate"><span class="pre">clusterset</span></code> to the <code class="docutils literal notranslate"><span class="pre">kustomization.yaml</span></code> to <code class="docutils literal notranslate"><span class="pre">acm/overlays/moc/infra/managedclustersets/kustomization.yaml</span></code>.</p></li>
-<li><p>Enable GitOps via ArgoCD for this cluster by adding the <code class="docutils literal notranslate"><span class="pre">ManagedClusterSet</span></code> to the <code class="docutils literal notranslate"><span class="pre">Placement</span></code> found here:  <code class="docutils literal notranslate"><span class="pre">acm/overlays/moc/infra/placements/argocd-managed-clusters.yaml</span></code>.</p></li>
+<li><p>Enable GitOps via ArgoCD and Cluster Authentication via <a class="reference external" href="https://identitatem.github.io/idp-mgmt-docs/">Identitatem</a> by doing the following:</p></li>
 </ol>
-<p>Then Create the following <code class="docutils literal notranslate"><span class="pre">ManagedClusterSetBinding</span></code>:</p>
+<p>Create a <code class="docutils literal notranslate"><span class="pre">ManagedClusterSetBinding</span></code>:</p>
 <div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="nt">apiVersion</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">cluster.open-cluster-management.io/v1alpha1</span><span class="w"></span>
 <span class="nt">kind</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">ManagedClusterSetBinding</span><span class="w"></span>
 <span class="nt">metadata</span><span class="p">:</span><span class="w"></span>
 <span class="w">  </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">&lt;YOUR-CLUSTER-SET-NAME&gt;</span><span class="w"></span>
-<span class="w">  </span><span class="nt">namespace</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">argocd</span><span class="w"></span>
 <span class="nt">spec</span><span class="p">:</span><span class="w"></span>
 <span class="w">  </span><span class="nt">clusterSet</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">&lt;YOUR-CLUSTER-SET-NAME&gt;</span><span class="w"></span>
 </pre></div>
 </div>
-<p>Name this file <code class="docutils literal notranslate"><span class="pre">&lt;YOUR-CLUSTER-SET-NAME&gt;.yaml</span></code> and add it to <code class="docutils literal notranslate"><span class="pre">acm/overlays/moc/infra/managedclustersetbindings</span></code>.
-Also add <code class="docutils literal notranslate"><span class="pre">&lt;YOUR-CLUSTER-SET-NAME&gt;.yaml</span></code> to the <code class="docutils literal notranslate"><span class="pre">kustomization.yaml</span></code> within the same path.</p>
+<p>Name this file <code class="docutils literal notranslate"><span class="pre">&lt;YOUR-CLUSTER-SET-NAME&gt;.yaml</span></code> and add it to <code class="docutils literal notranslate"><span class="pre">acm/overlays/moc/infra/managedclustersetbindings/base</span></code>.</p>
+<p>This will deploy <code class="docutils literal notranslate"><span class="pre">ManagedClusterSetBinding</span></code> in the <code class="docutils literal notranslate"><span class="pre">argocd</span></code> and <code class="docutils literal notranslate"><span class="pre">idp-auth-primary</span></code> namespaces.</p>
+<p>That’s it for enabling ArgoCD. All clusters added in your <code class="docutils literal notranslate"><span class="pre">ManagedClusterSet</span></code> by default will be picked up by our ArgoCD
+instance. However, to configure your cluster to enable auth via our IDP <a class="reference external" href="https://github.com/operate-first/apps/blob/master/acm/overlays/moc/infra/identitatem/authrealms/primary.yaml">AuthRealm</a> you will need to add the <code class="docutils literal notranslate"><span class="pre">label</span></code>
+<code class="docutils literal notranslate"><span class="pre">authdeployment:</span> <span class="pre">primary</span></code> to your clusters’ <code class="docutils literal notranslate"><span class="pre">ManagedCluster</span></code> resource. You can do this via GitOps after importing your
+cluster via ACM UI, then following the instructions <a class="reference internal" href="adding_managed_cluster_to_argocd.html"><span class="doc std std-doc">here</span></a>.</p>
 <ol class="simple">
 <li><p>Create the following <code class="docutils literal notranslate"><span class="pre">ClusterRoleBinding</span></code>:</p></li>
 </ol>
