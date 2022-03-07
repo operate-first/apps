@@ -4,7 +4,6 @@ metadata:
   labels:
     application-crd-id: kubeflow-pipelines
   name: ml-pipeline-persistenceagent-binding
-  namespace: kubeflow
 roleRef:
   apiGroup: rbac.authorization.k8s.io
   kind: Role
