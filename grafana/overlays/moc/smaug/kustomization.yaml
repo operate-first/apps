@@ -12,6 +12,7 @@ resources:
   - ../../../base
   - dashboards
   - datasources
+  - ./blackbox-exporter
 
 patchesStrategicMerge:
   - ./grafana-oauth.yaml
