@@ -13,7 +13,7 @@ parts:
       - file: content/acm/README.md
         sections:
           - file: content/acm/adding_managed_cluster_to_argocd.md
-          - file: content/acm/adding_users_to_acm.md
+          - file: content/acm/manage_your_teams_ocp_clusters_via_acm.md
 
       # ACME
       - file: content/acme/README.md

@@ -3,6 +3,5 @@ apiVersion: kustomize.config.k8s.io/v1beta1
 kind: Kustomization
 
 resources:
-  - argocd-managed.yaml
-  - osc.yaml
-  - octo-ushift-dev.yaml
+  - argocd
+  - idp-auth-primary
