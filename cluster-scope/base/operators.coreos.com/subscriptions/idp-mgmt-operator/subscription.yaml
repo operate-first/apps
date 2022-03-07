@@ -5,6 +5,6 @@ metadata:
 spec:
   channel: alpha
   installPlanApproval: Automatic
-  name: idp-mgmt-operator
+  name: idp-mgmt-operator-product
   source: redhat-operators
   sourceNamespace: openshift-marketplace
