@@ -21,6 +21,9 @@ resources:
 - ../../../../base/operators.coreos.com/subscriptions/openshift-local-storage-operator
 - ../../../../base/operators.coreos.com/subscriptions/cert-manager
 - ../../../../base/user.openshift.io/groups/cluster-admins
+- ingresscontrollers/default.yaml
+- apiserver/api_server_cert.yaml
+
 - ../common
 
 patchesJson6902:
