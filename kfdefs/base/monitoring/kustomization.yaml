@@ -8,5 +8,4 @@ resources:
   - alertmanager-service.yaml
   - alertmanager-route.yaml
   - alertmanager-config.yaml
-  - ./blackbox-exporter
   - ./thanos-query
