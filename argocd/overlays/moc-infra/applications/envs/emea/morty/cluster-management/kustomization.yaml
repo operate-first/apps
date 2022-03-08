@@ -5,3 +5,4 @@ resources:
 - alertreceiver.yaml
 - local-storage.yaml
 - odf.yaml
+- cert-manager.yaml
