@@ -26,6 +26,7 @@ resources:
 - ../../../base/user.openshift.io/groups/fybrik
 - ../../../base/user.openshift.io/groups/lab-cicd
 - ../../../base/user.openshift.io/groups/logs-insights
+- ../../../base/user.openshift.io/groups/manageiq
 - ../../../base/user.openshift.io/groups/mwperf
 - ../../../base/user.openshift.io/groups/neu-students
 - ../../../base/user.openshift.io/groups/ocp-pipelines-sre
