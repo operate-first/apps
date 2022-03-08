@@ -3,8 +3,8 @@ kind: GrafanaDashboard
 metadata:
   name: thoth-knowledge-graph-content-metrics
   labels:
-    version: v5
+    version: v1
     app: grafana
     component: thoth-station
 spec:
-  url: https://raw.githubusercontent.com/thoth-station/thoth-application/master/grafana-dashboard/overlays/moc-prod/thoth-knowledge-graph-content-metrics.json
+  url: https://raw.githubusercontent.com/thoth-station/thoth-application/master/grafana-dashboard/base/thoth-knowledge-graph-content-metrics.json
