@@ -1,0 +1,11 @@
+apiVersion: v1
+kind: ResourceQuota
+metadata:
+    name: sandiego-custom
+spec:
+    hard:
+        limits.cpu: "24"
+        limits.storage: 1000Gi
+        requests.cpu: "24"
+        requests.memory: 126Gi
+        requests.storage: 1000Gi

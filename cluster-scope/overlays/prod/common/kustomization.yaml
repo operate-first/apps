@@ -36,6 +36,7 @@ resources:
 - ../../../base/user.openshift.io/groups/open-aiops
 - ../../../base/user.openshift.io/groups/operate-first
 - ../../../base/user.openshift.io/groups/opf-alerting
+- ../../../base/user.openshift.io/groups/opso
 - ../../../base/user.openshift.io/groups/osc
 - ../../../base/user.openshift.io/groups/osc-admins
 - ../../../base/user.openshift.io/groups/prometheus-ai
