@@ -11,7 +11,7 @@ spec:
     targetRevision: HEAD
   destination:
     server: 'https://gohan.octo-emerging.redhataicoe.com:6443'
-    namespace: summit-2021-octo-keynote
+    namespace: summit-2022-octo-keynote
   syncPolicy:
     automated:
       selfHeal: true

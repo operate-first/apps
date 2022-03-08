@@ -1,0 +1,9 @@
+apiVersion: kustomize.config.k8s.io/v1beta1
+kind: Kustomization
+resources:
+    - ../../../../cluster-scope/base/cosigned
+    - ../../../../cluster-scope/base/core/namespaces/cosign-system
+    - ../../../../cluster-scope/base/core/namespaces/summit-2022-octo-keynote
+    - ../../../../cluster-scope/base/core/namespaces/ushift-dev
+    - ../../../../cluster-scope/base/rbac.authorization.k8s.io/clusterrolebindings/cosigned
+    - ../../../../cluster-scope/base/rbac.authorization.k8s.io/clusterroles/cosigned

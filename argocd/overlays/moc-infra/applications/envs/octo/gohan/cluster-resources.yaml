@@ -1,0 +1,20 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: cluster-resources
+spec:
+  destination:
+    name: 'https://gohan.octo-emerging.redhataicoe.com:6443'
+    namespace: default
+  project: cluster-management
+  source:
+    path: cluster-scope/overlays/prod/octo
+    repoURL: https://github.com/operate-first/apps.git
+    targetRevision: HEAD
+  syncPolicy:
+    automated:
+      prune: true
+      selfHeal: true
+    syncOptions:
+    - Validate=false
+    - ApplyOutOfSyncOnly=true
