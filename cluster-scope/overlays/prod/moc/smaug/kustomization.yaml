@@ -31,6 +31,7 @@ resources:
 - ../../../../base/core/namespaces/dex
 - ../../../../base/core/namespaces/ds-github-labeler
 - ../../../../base/core/namespaces/ds-ml-workflows-ws
+- ../../../../base/core/namespaces/fedora
 - ../../../../base/core/namespaces/koku-metrics-operator
 - ../../../../base/core/namespaces/kubeflow
 - ../../../../base/core/namespaces/neu-cs6620
