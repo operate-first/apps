@@ -49,6 +49,7 @@ resources:
 - ../../../base/user.openshift.io/groups/redhat-cto-team
 - ../../../base/user.openshift.io/groups/redhat-impact
 - ../../../base/user.openshift.io/groups/rekor
+- ../../../base/user.openshift.io/groups/rh-dus
 - ../../../base/user.openshift.io/groups/sa-dach
 - ../../../base/user.openshift.io/groups/sdap-mslsp
 - ../../../base/user.openshift.io/groups/seraph
