@@ -19,5 +19,17 @@ resources:
 - ../../../../base/operators.coreos.com/operatorgroups/openshift-storage
 - ../../../../base/operators.coreos.com/subscriptions/odf-operator
 - ../../../../base/operators.coreos.com/subscriptions/openshift-local-storage-operator
+- ../../../../base/operators.coreos.com/subscriptions/cert-manager
 - ../../../../base/user.openshift.io/groups/cluster-admins
 - ../common
+
+patchesJson6902:
+  - patch: |
+      - op: replace
+        path: /spec/startingCSV
+        value: cert-manager.v1.6.1
+    target:
+      group: operators.coreos.com
+      version: v1alpha1
+      kind: Subscription
+      name: cert-manager
