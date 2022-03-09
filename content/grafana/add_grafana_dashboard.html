@@ -715,6 +715,19 @@ const thebe_selector_output = ".output, .cell_output"
         <!-- Table of contents -->
         <div class="d-none d-md-block col-md-2 bd-toc show noprint">
             
+            <div class="tocsection onthispage pt-5 pb-3">
+                <i class="fas fa-list"></i> Contents
+            </div>
+            <nav id="bd-toc-nav" aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#backing-up-your-dashboard">
+   Backing Up Your Dashboard:
+  </a>
+ </li>
+</ul>
+
+            </nav>
         </div>
     </div>
 </div>
@@ -727,6 +740,19 @@ const thebe_selector_output = ".output, .cell_output"
                 <div id="print-main-content">
                     <div id="jb-print-toc">
                         
+                        <div>
+                            <h2> Contents </h2>
+                        </div>
+                        <nav aria-label="Page">
+                            <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#backing-up-your-dashboard">
+   Backing Up Your Dashboard:
+  </a>
+ </li>
+</ul>
+
+                        </nav>
                     </div>
                 </div>
             </div>
@@ -758,14 +784,22 @@ const thebe_selector_output = ".output, .cell_output"
 <p>Pick a suitable <code class="docutils literal notranslate"><span class="pre">metadata.name</span></code>, ensure that its unique in the <a class="reference external" href="https://github.com/operate-first/apps/tree/master/grafana/overlays/moc/smaug/dashboards"><code class="docutils literal notranslate"><span class="pre">grafana/overlays/moc/smaug/dashboards</span></code></a> folder.</p>
 <p>Save this file under <code class="docutils literal notranslate"><span class="pre">grafana/overlays/moc/smaug/dashboards/${DASHBOARD_FOLDER}/grafana-dashboard-example.yaml</span></code>.</p>
 <p>Make sure to create a kustomization inside your ‘${DASHBOARD_FOLDER}’</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$  <span class="nb">cd</span> <span class="si">${</span><span class="nv">DASHBOARD_FOLDER</span><span class="si">}</span>
-$  kustomize create --autodetect
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$ <span class="nb">cd</span> <span class="si">${</span><span class="nv">DASHBOARD_FOLDER</span><span class="si">}</span>
+$ kustomize create --autodetect
 </pre></div>
 </div>
 <p>Then add it to <code class="docutils literal notranslate"><span class="pre">grafana/overlays/moc/smaug/dashboards/kustomization.yaml</span></code> by running the following:</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$ <span class="nb">cd</span> grafana/overlays/moc/smaug/dashboards
 $ kustomize edit add resource <span class="si">${</span><span class="nv">DASHBOARD_FOLDER</span><span class="si">}</span>
 </pre></div>
+</div>
+<div class="section" id="backing-up-your-dashboard">
+<h2>Backing Up Your Dashboard:<a class="headerlink" href="#backing-up-your-dashboard" title="Permalink to this headline">¶</a></h2>
+<p>Grafana is redeployed frequently, such as during an automatic operator update or when a new dashboard is added via a pull request. Please make sure to backup any dashboards you have created through the Grafana UI.</p>
+<p>To export your dashboard click the share icon
+<img src="img/share-icon.png" width="28" height="28">
+at the top dashboard menu. Click the “Export” tab and you can now save a JSON file of your dashboard.</p>
+<p>To import your dashboard click the “+” icon in the side menu, and then click “Import.” There you can either import via JSON file, dashboard url, or via panel json. For more details on how to import/export see <a class="reference external" href="https://grafana.com/docs/grafana/latest/dashboards/export-import/">the Grafana documentation</a>.</p>
 </div>
 </div>
 
