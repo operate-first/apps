@@ -6,3 +6,5 @@ resources:
 - local-storage.yaml
 - odf.yaml
 - cert-manager.yaml
+- nfd.yaml
+- kubevirt-hyperconverged.yaml
