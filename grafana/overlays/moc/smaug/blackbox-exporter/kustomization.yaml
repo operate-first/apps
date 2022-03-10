@@ -6,3 +6,4 @@ resources:
   - deployment.yaml
   - route.yaml
   - service.yaml
+  - service-monitor.yaml
