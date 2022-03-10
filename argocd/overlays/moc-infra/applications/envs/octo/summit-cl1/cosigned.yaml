@@ -11,7 +11,7 @@ spec:
     targetRevision: HEAD
   destination:
     server: 'https://summit-octo-2022-jc.octo-emerging.redhataicoe.com:6443'
-    namespace: cosigned
+    namespace: cosign-system
   syncPolicy:
     automated:
       selfHeal: true
