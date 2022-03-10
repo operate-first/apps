@@ -5,7 +5,7 @@ metadata:
   name: nfd
 spec:
   destination:
-    name: rick
+    name: morty
     namespace: openshift-nfd
   project: cluster-management
   source:
