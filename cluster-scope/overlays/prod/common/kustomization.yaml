@@ -51,6 +51,7 @@ resources:
 - ../../../base/user.openshift.io/groups/rekor
 - ../../../base/user.openshift.io/groups/sa-dach
 - ../../../base/user.openshift.io/groups/sdap-mslsp
+- ../../../base/user.openshift.io/groups/seraph
 - ../../../base/user.openshift.io/groups/sigstore
 - ../../../base/user.openshift.io/groups/sre
 - ../../../base/user.openshift.io/groups/superset-user
