@@ -28,7 +28,6 @@ resources:
 - prod-thoth-package-extract.yaml
 - prod-thoth-package-releases.yaml
 - prod-thoth-package-update.yaml
-- prod-thoth-prescriptions-refresh-job.yaml
 - prod-thoth-purge-job.yaml
 - prod-thoth-revsolver.yaml
 - prod-thoth-security-indicators.yaml
