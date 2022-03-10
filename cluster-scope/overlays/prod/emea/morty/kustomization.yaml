@@ -7,22 +7,32 @@ patchesStrategicMerge:
 - oauths/cluster_patch.yaml
 - subscriptions/local-storage-operator_patch.yaml
 - subscriptions/odf-operator_patch.yaml
+- subscriptions/kubevirt-hyperconverged_patch.yaml
+- subscriptions/nfd_patch.yaml
+- subscriptions/openshift-pipelines-operator-rh_patch.yaml
+
 resources:
 - ../../../../base/config.openshift.io/oauths/cluster
 - ../../../../base/core/configmaps/cluster-monitoring-config
+- ../../../../base/core/namespaces/openshift-cnv
 - ../../../../base/core/namespaces/openshift-local-storage
 - ../../../../base/core/namespaces/openshift-storage
 - ../../../../base/core/namespaces/opf-alertreceiver
 - ../../../../base/core/namespaces/pixel-secrets
 - ../../../../base/core/namespaces/thoth-test-core
+- ../../../../base/operators.coreos.com/operatorgroups/openshift-cnv-rn5jf
 - ../../../../base/operators.coreos.com/operatorgroups/openshift-local-storage
 - ../../../../base/operators.coreos.com/operatorgroups/openshift-storage
 - ../../../../base/operators.coreos.com/subscriptions/odf-operator
 - ../../../../base/operators.coreos.com/subscriptions/openshift-local-storage-operator
 - ../../../../base/operators.coreos.com/subscriptions/cert-manager
+- ../../../../base/operators.coreos.com/subscriptions/kubevirt-hyperconverged
+- ../../../../base/operators.coreos.com/subscriptions/openshift-pipelines-operator-rh
 - ../../../../base/user.openshift.io/groups/cluster-admins
 - ../../../../base/core/persistentvolumeclaims/image-registry-storage
 - ../../../../base/imageregistry.operator.openshift.io/configs/cluster
+- ../../../../bundles/nfd
+
 - ingresscontrollers/default.yaml
 - apiserver/api_server_cert.yaml
 
