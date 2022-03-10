@@ -1,7 +1,6 @@
 apiVersion: user.openshift.io/v1
 kind: Group
 metadata:
-  name: cluster-admins
+  name: sudoers
 users:
-  - humairak
-  - 4n4nd
+  - rbo
