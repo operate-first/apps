@@ -4,6 +4,7 @@ generators:
 kind: Kustomization
 patchesStrategicMerge:
 - groups/cluster-admins.yaml
+- groups/sudoers.yaml
 - oauths/cluster_patch.yaml
 - subscriptions/local-storage-operator_patch.yaml
 - subscriptions/odf-operator_patch.yaml
@@ -29,6 +30,8 @@ resources:
 - ../../../../base/operators.coreos.com/subscriptions/kubevirt-hyperconverged
 - ../../../../base/operators.coreos.com/subscriptions/openshift-pipelines-operator-rh
 - ../../../../base/user.openshift.io/groups/cluster-admins
+- ../../../../base/rbac.authorization.k8s.io/clusterrolebindings/sudoers
+- ../../../../base/user.openshift.io/groups/sudoers
 - ../../../../base/core/persistentvolumeclaims/image-registry-storage
 - ../../../../base/imageregistry.operator.openshift.io/configs/cluster
 - ../../../../bundles/nfd
