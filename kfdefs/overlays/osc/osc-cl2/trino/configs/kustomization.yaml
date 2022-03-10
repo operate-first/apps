@@ -12,7 +12,8 @@ configMapGenerator:
     files:
       - config-coordinator.properties
       - config-worker.properties
-      - jvm.config
+      - jvm-coordinator.config
+      - jvm-worker.config
       - log.properties
       - node.properties
       - password-authenticator.properties
