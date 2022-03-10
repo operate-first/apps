@@ -14,6 +14,8 @@ spec:
       name: odh-common
     - kustomizeConfig:
         parameters:
+          - name: notebook_destination
+            value: "odh-jupyterhub"
           - name: s3_endpoint_url
             value: s3.odh.com
         repoRef:
@@ -34,5 +36,5 @@ spec:
       name: radanalyticsio-spark-cluster
   repos:
     - name: manifests
-      uri: https://github.com/operate-first/odh-manifests/tarball/osc-cl2-v1.1.0
+      uri: https://github.com/operate-first/odh-manifests/tarball/osc-cl2-v1.1.2
   version: v1.1.0
