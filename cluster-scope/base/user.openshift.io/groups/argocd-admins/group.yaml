@@ -3,11 +3,12 @@ kind: Group
 metadata:
   name: argocd-admins
 users:
-  - anishasthana
   - 4n4nd
+  - anishasthana
   - dystewart
   - gregory-pereira
+  - harshad16
   - humairak
   - larsks
-  - tumido
   - naved001
+  - tumido
