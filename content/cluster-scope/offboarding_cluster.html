@@ -5,7 +5,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Adding User to an OCP team &#8212; GitOps Docs</title>
+    <title>Remove a Cluster from Operate First &#8212; GitOps Docs</title>
     
   <link href="../../_static/css/theme.css" rel="stylesheet">
   <link href="../../_static/css/index.ff1ffe594081f20da1ef19478df9384b.css" rel="stylesheet">
@@ -54,8 +54,8 @@ const thebe_selector_output = ".output, .cell_output"
     <link rel="shortcut icon" href="../../_static/favicon.png"/>
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
-    <link rel="next" title="Remove a Cluster from Operate First" href="offboarding_cluster.html" />
-    <link rel="prev" title="Adding an OCP group to Operate First Cloud" href="create_ocp_group.html" />
+    <link rel="next" title="Onboard Project" href="onboarding_project.html" />
+    <link rel="prev" title="Adding User to an OCP team" href="add_user_to_group.html" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="None">
     
@@ -248,13 +248,13 @@ const thebe_selector_output = ".output, .cell_output"
      Adding an OCP group to Operate First Cloud
     </a>
    </li>
-   <li class="toctree-l2 current active">
-    <a class="current reference internal" href="#">
+   <li class="toctree-l2">
+    <a class="reference internal" href="add_user_to_group.html">
      Adding User to an OCP team
     </a>
    </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="offboarding_cluster.html">
+   <li class="toctree-l2 current active">
+    <a class="current reference internal" href="#">
      Remove a Cluster from Operate First
     </a>
    </li>
@@ -679,7 +679,7 @@ const thebe_selector_output = ".output, .cell_output"
         <!-- ipynb file if we had a myst markdown file -->
         
         <!-- Download raw file -->
-        <a class="dropdown-buttons" href="../../_sources/content/cluster-scope/add_user_to_group.md"><button type="button"
+        <a class="dropdown-buttons" href="../../_sources/content/cluster-scope/offboarding_cluster.md"><button type="button"
                 class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
                 data-placement="left">.md</button></a>
         <!-- Download PDF via print -->
@@ -699,7 +699,7 @@ const thebe_selector_output = ".output, .cell_output"
                 data-toggle="tooltip" data-placement="left" title="Source repository"><i
                     class="fab fa-github"></i>repository</button></a>
         <a class="issues-button"
-            href="https://github.com/operate-first/apps/issues/new?title=Issue%20on%20page%20%2Fcontent/cluster-scope/add_user_to_group.html&body=Your%20issue%20content%20here."><button
+            href="https://github.com/operate-first/apps/issues/new?title=Issue%20on%20page%20%2Fcontent/cluster-scope/offboarding_cluster.html&body=Your%20issue%20content%20here."><button
                 type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
                 title="Open an issue"><i class="fas fa-lightbulb"></i>open issue</button></a>
         
@@ -725,14 +725,36 @@ const thebe_selector_output = ".output, .cell_output"
             </div>
             <nav id="bd-toc-nav" aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
- <li class="toc-h1 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#">
-   Adding User to an OCP team
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#pre-requisites">
+   Pre-requisites
   </a>
  </li>
- <li class="toc-h1 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#making-a-user-cluster-admin">
-   Making a user cluster admin
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#remove-all-argocd-manifests">
+   Remove all ArgoCD manifests
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#detach-this-cluster-from-acm">
+     Detach this cluster from ACM
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#remove-all-manifests-belonging-to-this-cluster-from-the-apps-repo">
+   Remove all manifests belonging to this cluster from the apps repo:
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#cleanup-acm-manifests">
+   Cleanup ACM manifests
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#remove-from-keycloak">
+   Remove from Keycloak
   </a>
  </li>
 </ul>
@@ -745,7 +767,7 @@ const thebe_selector_output = ".output, .cell_output"
         <div class="col-12 col-md-9 pl-md-3 pr-md-0">
             <!-- Table of contents that is only displayed when printing the page -->
             <div id="jb-print-docs-body" class="onlyprint">
-                <h1>Adding User to an OCP team</h1>
+                <h1>Remove a Cluster from Operate First</h1>
                 <!-- Table of contents -->
                 <div id="print-main-content">
                     <div id="jb-print-toc">
@@ -755,14 +777,36 @@ const thebe_selector_output = ".output, .cell_output"
                         </div>
                         <nav aria-label="Page">
                             <ul class="visible nav section-nav flex-column">
- <li class="toc-h1 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#">
-   Adding User to an OCP team
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#pre-requisites">
+   Pre-requisites
   </a>
  </li>
- <li class="toc-h1 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#making-a-user-cluster-admin">
-   Making a user cluster admin
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#remove-all-argocd-manifests">
+   Remove all ArgoCD manifests
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#detach-this-cluster-from-acm">
+     Detach this cluster from ACM
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#remove-all-manifests-belonging-to-this-cluster-from-the-apps-repo">
+   Remove all manifests belonging to this cluster from the apps repo:
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#cleanup-acm-manifests">
+   Cleanup ACM manifests
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#remove-from-keycloak">
+   Remove from Keycloak
   </a>
  </li>
 </ul>
@@ -774,16 +818,106 @@ const thebe_selector_output = ".output, .cell_output"
             
               <div>
                 
-  <div class="tex2jax_ignore mathjax_ignore section" id="adding-user-to-an-ocp-team">
-<h1>Adding User to an OCP team<a class="headerlink" href="#adding-user-to-an-ocp-team" title="Permalink to this headline">¶</a></h1>
-<p>All user groups can be found <a class="reference external" href="https://github.com/operate-first/apps/tree/master/cluster-scope/base/user.openshift.io/groups">here</a>.</p>
-<p>Find the folder that corresponds with your group and append the <code class="docutils literal notranslate"><span class="pre">group.yaml</span></code> file within that directory.</p>
+  <div class="tex2jax_ignore mathjax_ignore section" id="remove-a-cluster-from-operate-first">
+<h1>Remove a Cluster from Operate First<a class="headerlink" href="#remove-a-cluster-from-operate-first" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="pre-requisites">
+<h2>Pre-requisites<a class="headerlink" href="#pre-requisites" title="Permalink to this headline">¶</a></h2>
+<ol class="simple">
+<li><p>Basic Git/GitHub knowledge</p></li>
+<li><p>Basic Linux knowledge</p></li>
+<li><p>ArgoCD knowledge and admin access to <a class="reference external" href="https://argocd.operate-first.cloud/applications">Operate First ArgoCD</a></p></li>
+<li><p>ACM access to the ManagedClusterSet that this cluster’s ManagedCluster</p></li>
+<li><p>Have <a class="reference external" href="https://kustomize.io/">kustomize</a> and <a class="reference external" href="https://mikefarah.gitbook.io/yq/">yq</a> installed.</p></li>
+</ol>
+<p>Before getting started complete the following steps:</p>
+<ol class="simple">
+<li><p>Fork/Clone the Operate-First <a class="reference external" href="https://github.com/operate-first/apps">apps repo</a>. We’ll assume <code class="docutils literal notranslate"><span class="pre">${WORKDIR}</span></code> is the location of your clone.</p></li>
+<li><p>Know the name of the environment and cluster you will be looking to remove.
+We will refer to these as <code class="docutils literal notranslate"><span class="pre">$ENV</span></code> and <code class="docutils literal notranslate"><span class="pre">$CLUSTER</span></code> respectively.</p></li>
+</ol>
+<p>Values for <code class="docutils literal notranslate"><span class="pre">$CLUSTER</span></code> can be obtained by running:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>kustomize build https://github.com/operate-first/apps/acm/overlays/moc/infra/managedclusters?ref=master | yq e -N &#39;.metadata.name&#39; -
+</pre></div>
 </div>
-<div class="tex2jax_ignore mathjax_ignore section" id="making-a-user-cluster-admin">
-<h1>Making a user cluster admin<a class="headerlink" href="#making-a-user-cluster-admin" title="Permalink to this headline">¶</a></h1>
-<p>Cluster admins are handled on a per-cluster basis.</p>
-<p>To add a user as a cluster admin for a particular cluster, add the GitHub handle associated with that user to this file
-<code class="docutils literal notranslate"><span class="pre">cluster-scope/overlays/prod/${ENV}/${CLUSTER}/groups/cluster-admins.yaml</span></code>.</p>
+<p>Similarly values for <code class="docutils literal notranslate"><span class="pre">$ENV</span></code>:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">curl</span> <span class="o">-</span><span class="n">sX</span> <span class="n">GET</span> <span class="n">https</span><span class="p">:</span><span class="o">//</span><span class="n">api</span><span class="o">.</span><span class="n">github</span><span class="o">.</span><span class="n">com</span><span class="o">/</span><span class="n">repos</span><span class="o">/</span><span class="n">operate</span><span class="o">-</span><span class="n">first</span><span class="o">/</span><span class="n">apps</span><span class="o">/</span><span class="n">contents</span><span class="o">/</span><span class="n">argocd</span><span class="o">/</span><span class="n">overlays</span><span class="o">/</span><span class="n">moc</span><span class="o">-</span><span class="n">infra</span><span class="o">/</span><span class="n">applications</span><span class="o">/</span><span class="n">envs</span> <span class="o">|</span> <span class="n">yq</span> <span class="n">e</span> <span class="s1">&#39;.[].name&#39;</span> <span class="o">-</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="remove-all-argocd-manifests">
+<h2>Remove all ArgoCD manifests<a class="headerlink" href="#remove-all-argocd-manifests" title="Permalink to this headline">¶</a></h2>
+<p>We will first remove all ArgoCD manifests. This step should take place first, and be submitted as the first PR on its
+own. This is to prevent ArgoCD from deleting from removing any manifests that will be removed from the <a class="reference external" href="https://github.com/operate-first/apps">apps repo</a>
+repo in the later steps.</p>
+<p>Identify your cluster’s <code class="docutils literal notranslate"><span class="pre">app-of-apps</span></code> in <code class="docutils literal notranslate"><span class="pre">apps/argocd/overlays/moc-infra/applications/app-of-apps</span></code> and remove it,
+for example:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>rm ${WORKDIR}/argocd/overlays/moc-infra/applications/app-of-apps/app-of-apps-${CLUSTER}.yaml
+rm ${WORKDIR}/argocd/overlays/moc-infra/applications/envs/$ENV/$CLUSTER -rf
+CLUSTER=$CLUSTER yq -i e &#39;del(.resources[] | select(. == &quot;app-of-apps-&quot; + env(CLUSTER) + &quot;.yaml&quot;) )&#39; ${WORKDIR}/argocd/overlays/moc-infra/applications/app-of-apps/kustomization.yaml
+</pre></div>
+</div>
+<p>If any ArgoCD projects were created as part of this cluster that you feel are no longer needed, please remove those as
+well, they are found in: <code class="docutils literal notranslate"><span class="pre">argocd/overlays/moc-infra/projects</span></code>. Remember to remove them from the <code class="docutils literal notranslate"><span class="pre">kustomization.yaml</span></code>
+as well. Please make sure that no other ArgoCD applications belong to this project that were not removed as part of
+the earlier deletion commands.</p>
+<p>Submit a PR, once merged, you will need to look for the <code class="docutils literal notranslate"><span class="pre">argocd-infra</span></code> application, and manually sync these changes,
+as this ArgoCD app does not have Auto Sync enabled. Please only sync changes introduced from this PR, and confirm that
+all ArgoCD apps associated with this cluster were successfully removed. Once done proceed to the next steps.</p>
+<div class="section" id="detach-this-cluster-from-acm">
+<h3>Detach this cluster from ACM<a class="headerlink" href="#detach-this-cluster-from-acm" title="Permalink to this headline">¶</a></h3>
+<p>Navigate to the <a class="reference external" href="https://multicloud-console.apps.moc-infra.massopen.cloud/multicloud/welcome">ACM console</a>. Find your cluster under <code class="docutils literal notranslate"><span class="pre">Clusters</span></code> in the left panel. Click <code class="docutils literal notranslate"><span class="pre">Actions</span></code> at the top right
+and select <code class="docutils literal notranslate"><span class="pre">Detach</span> <span class="pre">cluster</span></code>. Wait until ACM successfully removes this cluster from the cluster list.</p>
+</div>
+</div>
+<div class="section" id="remove-all-manifests-belonging-to-this-cluster-from-the-apps-repo">
+<h2>Remove all manifests belonging to this cluster from the apps repo:<a class="headerlink" href="#remove-all-manifests-belonging-to-this-cluster-from-the-apps-repo" title="Permalink to this headline">¶</a></h2>
+<p>Go back to your <a class="reference external" href="https://github.com/operate-first/apps">apps repo</a> clone at <code class="docutils literal notranslate"><span class="pre">${$WORKDIR}</span></code>, and remove all application manifests in this repo:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ rm ${WORKDIR}/*/overlays/${ENV}/${CLUSTER} -rf
+$ rm ${WORKDIR}/cluster-scope/overlays/prod/${ENV}/${CLUSTER} -rf
+</pre></div>
+</div>
+<p>If this was the only cluster in <code class="docutils literal notranslate"><span class="pre">${ENV}</span></code>, go ahead and remove <code class="docutils literal notranslate"><span class="pre">${WORKDIR}/cluster-scope/overlays/prod/${ENV}</span></code>.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ rm ${WORKDIR}/cluster-scope/overlays/prod/${ENV}
+</pre></div>
+</div>
+</div>
+<div class="section" id="cleanup-acm-manifests">
+<h2>Cleanup ACM manifests<a class="headerlink" href="#cleanup-acm-manifests" title="Permalink to this headline">¶</a></h2>
+<p>Navigate to the <code class="docutils literal notranslate"><span class="pre">ACM</span></code> folder in <a class="reference external" href="https://github.com/operate-first/apps">apps repo</a>:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ cd ${WORKDIR}/acm/overlays/moc/infra
+</pre></div>
+</div>
+<p>Remove the cluster’s ManagedCluster if it exists:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span># First inspect the `managedcluster` to see if it&#39;s part of a ManagedClusterSet, remember this value
+$ MANAGED_CLUSTER_SET=`cat managedclusters/${CLUSTER}.yaml | grep cluster.open-cluster-management.io/clusterset`
+
+# Now remove it
+$ rm managedclusters/${CLUSTER}.yaml
+$ CLUSTER=$CLUSTER yq -i e &#39;del(.resources[] | select(. == env(CLUSTER) + &quot;.yaml&quot;) )&#39; managedclusters/kustomization.yaml
+</pre></div>
+</div>
+<p>Look to see if the ManagedClusterSet that this cluster belonged to has any other clusters belonging to it.</p>
+<p>You can confirm whether any other clusters belong to the <code class="docutils literal notranslate"><span class="pre">ManagedClusterSet</span></code> by running a simple grep like:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ kustomize build managedclusters | grep &quot;${MANAGED_CLUSTER_SET}&quot;
+</pre></div>
+</div>
+<p>If this was the only cluster, then also remove the <code class="docutils literal notranslate"><span class="pre">ManagedClusterSet</span></code> and any associated <code class="docutils literal notranslate"><span class="pre">ManagedClusterSetBindings</span></code> found in:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">acm/overlays/moc/infra/managedclustersetbindings</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">acm/overlays/moc/infra/managedclustersets</span></code></p></li>
+</ul>
+</div>
+<div class="section" id="remove-from-keycloak">
+<h2>Remove from Keycloak<a class="headerlink" href="#remove-from-keycloak" title="Permalink to this headline">¶</a></h2>
+<p>If this cluster was configured with Keycloak remove it by running the following:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ cd ${WORKDIR}/keycloak/overlays/moc/infra/
+$ rm clients/${CLUSTER}.enc.yaml
+$ CLUSTER=$CLUSTER yq -i e &#39;del(.files[] | select(. == &quot;clients/&quot; + env(CLUSTER) + &quot;.enc.yaml&quot;) )&#39; secret-generator.yaml
+</pre></div>
+</div>
+<p>That should be it, once done commit your changes and submit a PR. The ACM changes can be verified by checking the ArgoCD
+app called <code class="docutils literal notranslate"><span class="pre">ACM-Infra</span></code> in the <a class="reference external" href="https://multicloud-console.apps.moc-infra.massopen.cloud/multicloud/welcome">ACM console</a>.</p>
+</div>
 </div>
 
     <script type="text/x-thebe-config">
@@ -811,17 +945,17 @@ const thebe_selector_output = ".output, .cell_output"
             
                 <!-- Previous / next buttons -->
 <div class='prev-next-area'> 
-    <a class='left-prev' id="prev-link" href="create_ocp_group.html" title="previous page">
+    <a class='left-prev' id="prev-link" href="add_user_to_group.html" title="previous page">
         <i class="fas fa-angle-left"></i>
         <div class="prev-next-info">
             <p class="prev-next-subtitle">previous</p>
-            <p class="prev-next-title">Adding an OCP group to Operate First Cloud</p>
+            <p class="prev-next-title">Adding User to an OCP team</p>
         </div>
     </a>
-    <a class='right-next' id="next-link" href="offboarding_cluster.html" title="next page">
+    <a class='right-next' id="next-link" href="onboarding_project.html" title="next page">
     <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title">Remove a Cluster from Operate First</p>
+        <p class="prev-next-title">Onboard Project</p>
     </div>
     <i class="fas fa-angle-right"></i>
     </a>
