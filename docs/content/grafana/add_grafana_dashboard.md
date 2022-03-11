@@ -44,9 +44,7 @@ $ kustomize edit add resource ${DASHBOARD_FOLDER}
 ### Backing Up Your Dashboard:
 Grafana is redeployed frequently, such as during an automatic operator update or when a new dashboard is added via a pull request. Please make sure to backup any dashboards you have created through the Grafana UI.
 
-To export your dashboard click the share icon
-<img src="img/share-icon.png" width="28" height="28">
- at the top dashboard menu. Click the "Export" tab and you can now save a JSON file of your dashboard.
+To export your dashboard click the share icon ![](img/share-icon.png) at the top dashboard menu. Click the "Export" tab and you can now save a JSON file of your dashboard.
 
 To import your dashboard click the "+" icon in the side menu, and then click "Import." There you can either import via JSON file, dashboard url, or via panel json. For more details on how to import/export see [the Grafana documentation](https://grafana.com/docs/grafana/latest/dashboards/export-import/).
 
