@@ -21,6 +21,7 @@ resources:
 - ../../../../base/core/namespaces/opf-alertreceiver
 - ../../../../base/core/namespaces/pixel-secrets
 - ../../../../base/core/namespaces/smartoffice
+- ../../../../base/core/namespaces/rbo-builder
 - ../../../../base/core/namespaces/thoth-test-core
 - ../../../../base/operators.coreos.com/operatorgroups/openshift-cnv-rn5jf
 - ../../../../base/operators.coreos.com/operatorgroups/openshift-local-storage
