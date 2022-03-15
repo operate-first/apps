@@ -21,6 +21,7 @@ The Operate First initiative currently manages two clusters within the MOC envir
 
 The Operate First community deploys the following cluster within the EMEA region.
 
+- [`Morty` cluster][morty] for experimental user workloads
 - [`Rick` cluster][rick] for experimental user workloads
 
 ### [OS-Climate][24]
@@ -91,6 +92,7 @@ Operate First manages various applications and services in the environments list
 [smaug]: https://console-openshift-console.apps.smaug.na.operate-first.cloud/
 [infra]: https://console-openshift-console.apps.moc-infra.massopen.cloud/
 [rick]: https://console-openshift-console.apps.rick.emea.operate-first.cloud/
+[morty]: https://console-openshift-console.apps.morty.emea.operate-first.cloud/
 [osc-cl]: https://console-openshift-console.apps.odh-cl1.apps.os-climate.org/dashboards
 [odh1]: odh/README.md
 [odh2]: https://odh.operate-first.cloud/
