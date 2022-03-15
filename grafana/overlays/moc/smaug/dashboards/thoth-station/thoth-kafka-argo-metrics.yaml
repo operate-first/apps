@@ -7,4 +7,5 @@ metadata:
     app: grafana
     component: thoth-station
 spec:
+  customFolderName: "thoth-station"
   url: https://raw.githubusercontent.com/thoth-station/thoth-application/master/grafana-dashboard/base/thoth-kafka-argo-metrics.json
