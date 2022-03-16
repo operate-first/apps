@@ -5,6 +5,11 @@
             "allow": "all"
         },
         {
+            "group": ".*",
+            "catalog": "osc_datacommons_dev",
+            "allow": "all"
+        },
+        {
             "catalog": ".*",
             "allow": "read-only"
         }
@@ -12,6 +17,12 @@
     "schemas": [
         {
             "group": "admins",
+            "owner": true
+        },
+        {
+            "group": ".*",
+            "catalog": "osc_datacommons_dev",
+            "schema": "sandbox",
             "owner": true
         },
         {
@@ -28,6 +39,34 @@
                 "INSERT",
                 "DELETE",
                 "OWNERSHIP"
+            ]
+        },
+        {
+            "group": ".*",
+            "catalog": "osc_datacommons_dev",
+            "schema": "sandbox",
+            "table": ".*",
+            "privileges": [
+                "SELECT",
+                "INSERT",
+                "DELETE",
+                "OWNERSHIP"
+            ]
+        },
+        {
+            "catalog": "osc_datacommons_dev",
+            "schema": "sandbox",
+            "table": ".*",
+            "privileges": [
+                "SELECT"
+            ]
+        },
+        {
+            "catalog": "osc_datacommons_dev",
+            "schema": ".*",
+            "table": ".*",
+            "privileges": [
+                "SELECT"
             ]
         },
         {
