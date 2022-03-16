@@ -9,6 +9,8 @@ metadata:
   name: <cluster-name>
   labels:
     cluster.open-cluster-management.io/clusterset: argocd-managed
+    # Uncomment the following line if you want to enable GitHub auth (via Operate First org) managed by Identitatem
+    # authdeployment: primary
 ```
 
 > Ensure that the `<cluster-name>` matches that of the `ManagedCluster` resource on live, you can also check for this value

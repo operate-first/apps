@@ -8,6 +8,7 @@ commonLabels:
 resources:
   - ../../../../base/instance/loki
   - servicemonitors
+  - obcs
 
 patchesStrategicMerge:
   - configmaps/observatorium-loki-configmap_patch.yaml

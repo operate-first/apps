@@ -13,7 +13,7 @@ parts:
       - file: content/acm/README.md
         sections:
           - file: content/acm/adding_managed_cluster_to_argocd.md
-          - file: content/acm/adding_users_to_acm.md
+          - file: content/acm/manage_your_teams_ocp_clusters_via_acm.md
 
       # ACME
       - file: content/acme/README.md
@@ -33,6 +33,7 @@ parts:
           - file: content/argocd-gitops/setup_argocd_dev_environment.md
           - file: content/argocd-gitops/update_argocd.md
           - file: content/argocd-gitops/update_gpg_key.md
+          - file: content/argocd-gitops/argocd_notifications.md
 
       # Cluster Scope
       - file: content/cluster-scope/README.md
@@ -40,7 +41,8 @@ parts:
           - file: content/cluster-scope/add_resource_quotas.md
           - file: content/cluster-scope/create_ocp_group.md
           - file: content/cluster-scope/add_user_to_group.md
-          - file: content/cluster-scope/onboarding_to_cluster.md
+          - file: content/cluster-scope/offboarding_cluster.md
+          - file: content/cluster-scope/onboarding_project.md
           - file: content/cluster-scope/quotas.md
 
       # Development
@@ -107,10 +109,20 @@ parts:
 
           - file: content/odh/adding_kfdefs.md
 
+      # Reloader
+      - file: content/reloader/README.md
+        sections:
+          - file: content/reloader/monitoring-secrets-configmaps.md
+
       # UWM
       - file: content/uwm/README.md
         sections:
           - file: content/uwm/overview.md
+
+      # Volsync
+      - file: content/volsync/README.md
+        sections:
+          - file: content/volsync/using-volsync.md
 
       # Notebooks
       - file: content/notebooks/README.md

@@ -1,0 +1,158 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  labels:
+    app: ml-pipeline
+    application-crd-id: kubeflow-pipelines
+  name: ml-pipeline
+spec:
+  selector:
+    matchLabels:
+      app: ml-pipeline
+      application-crd-id: kubeflow-pipelines
+  template:
+    metadata:
+      annotations:
+        cluster-autoscaler.kubernetes.io/safe-to-evict: "true"
+      labels:
+        app: ml-pipeline
+        application-crd-id: kubeflow-pipelines
+    spec:
+      containers:
+        - envFrom:
+            - secretRef:
+                name: $(artifact_secret_name)
+          env:
+            - name: POD_NAMESPACE
+              valueFrom:
+                fieldRef:
+                  fieldPath: metadata.namespace
+            - name: DBCONFIG_USER
+              valueFrom:
+                secretKeyRef:
+                  key: username
+                  name: mysql-secret
+            - name: DBCONFIG_PASSWORD
+              valueFrom:
+                secretKeyRef:
+                  key: password
+                  name: mysql-secret
+            - name: DBCONFIG_DBNAME
+              valueFrom:
+                configMapKeyRef:
+                  key: pipelineDb
+                  name: pipeline-install-config
+            - name: DBCONFIG_HOST
+              valueFrom:
+                configMapKeyRef:
+                  key: dbHost
+                  name: pipeline-install-config
+            - name: DBCONFIG_PORT
+              valueFrom:
+                configMapKeyRef:
+                  key: dbPort
+                  name: pipeline-install-config
+            - name: PIPELINE_RUNTIME
+              value: tekton
+            - name: ARTIFACT_BUCKET
+              valueFrom:
+                configMapKeyRef:
+                  key: artifact_bucket
+                  name: kfp-tekton-config
+            - name: ARTIFACT_ENDPOINT
+              valueFrom:
+                configMapKeyRef:
+                  key: artifact_endpoint
+                  name: kfp-tekton-config
+            - name: ARTIFACT_ENDPOINT_SCHEME
+              valueFrom:
+                configMapKeyRef:
+                  key: artifact_endpoint_scheme
+                  name: kfp-tekton-config
+            - name: ARCHIVE_LOGS
+              valueFrom:
+                configMapKeyRef:
+                  key: archive_logs
+                  name: kfp-tekton-config
+            - name: TRACK_ARTIFACTS
+              valueFrom:
+                configMapKeyRef:
+                  key: track_artifacts
+                  name: kfp-tekton-config
+            - name: STRIP_EOF
+              valueFrom:
+                configMapKeyRef:
+                  key: strip_eof
+                  name: kfp-tekton-config
+            - name: ARTIFACT_SCRIPT
+              valueFrom:
+                configMapKeyRef:
+                  key: artifact_script
+                  name: kfp-tekton-config
+            - name: ARTIFACT_IMAGE
+              valueFrom:
+                configMapKeyRef:
+                  key: artifact_image
+                  name: kfp-tekton-config
+            - name: INJECT_DEFAULT_SCRIPT
+              valueFrom:
+                configMapKeyRef:
+                  key: inject_default_script
+                  name: kfp-tekton-config
+            - name: APPLY_TEKTON_CUSTOM_RESOURCE
+              valueFrom:
+                configMapKeyRef:
+                  key: apply_tekton_custom_resource
+                  name: kfp-tekton-config
+            - name: TERMINATE_STATUS
+              valueFrom:
+                configMapKeyRef:
+                  key: terminate_status
+                  name: kfp-tekton-config
+            - name: AUTO_UPDATE_PIPELINE_DEFAULT_VERSION
+              valueFrom:
+                configMapKeyRef:
+                  key: autoUpdatePipelineDefaultVersion
+                  name: pipeline-install-config
+            - name: DBCONFIG_CONMAXLIFETIMESEC
+              valueFrom:
+                configMapKeyRef:
+                  key: ConMaxLifeTimeSec
+                  name: pipeline-install-config
+          image: api-server
+          imagePullPolicy: Always
+          livenessProbe:
+            exec:
+              command:
+                - wget
+                - -q
+                - -S
+                - -O
+                - '-'
+                - http://localhost:8888/apis/v1beta1/healthz
+            initialDelaySeconds: 3
+            periodSeconds: 5
+            timeoutSeconds: 2
+          name: ml-pipeline-api-server
+          ports:
+            - containerPort: 8888
+              name: http
+            - containerPort: 8887
+              name: grpc
+          readinessProbe:
+            exec:
+              command:
+                - wget
+                - -q
+                - -S
+                - -O
+                - '-'
+                - http://localhost:8888/apis/v1beta1/healthz
+            initialDelaySeconds: 3
+            periodSeconds: 5
+            timeoutSeconds: 2
+          resources:
+            requests:
+              cpu: 250m
+              memory: 500Mi
+      serviceAccountName: ml-pipeline

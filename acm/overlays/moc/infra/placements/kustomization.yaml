@@ -4,3 +4,4 @@ kind: Kustomization
 
 resources:
   - argocd-managed-clusters.yaml
+  - primary-auth.yaml

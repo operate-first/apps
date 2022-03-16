@@ -1,0 +1,20 @@
+---
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: cosigned
+spec:
+  project: octo-ushift-dev
+  source:
+    repoURL: 'https://github.com/operate-first/apps.git'
+    path: cosigned/overlays/octo
+    targetRevision: HEAD
+  destination:
+    server: 'https://gohan.octo-emerging.redhataicoe.com:6443'
+    namespace: cosign-system
+  syncPolicy:
+    automated:
+      selfHeal: true
+      prune: true
+    syncOptions:
+      - Validate=false

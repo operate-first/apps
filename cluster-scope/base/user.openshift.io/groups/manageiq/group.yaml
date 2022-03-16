@@ -1,0 +1,11 @@
+apiVersion: user.openshift.io/v1
+kind: Group
+metadata:
+    name: manageiq
+users:
+    - fryguy
+    - chessbyte
+    - bdunne
+    - agrare
+    - jrafanie
+    - kbrock

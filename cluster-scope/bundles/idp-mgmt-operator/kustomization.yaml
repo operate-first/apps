@@ -1,0 +1,9 @@
+apiVersion: kustomize.config.k8s.io/v1beta1
+kind: Kustomization
+
+resources:
+  - ../../base/core/namespaces/idp-auth-primary
+  - ../../base/core/namespaces/idp-mgmt-config
+  - ../../base/operators.coreos.com/subscriptions/idp-mgmt-operator/
+  - ../../base/operators.coreos.com/operatorgroups/idp-mgmt-operator/
+  - ../../base/identityconfig.identitatem.io/idpconfigs/idpconfig

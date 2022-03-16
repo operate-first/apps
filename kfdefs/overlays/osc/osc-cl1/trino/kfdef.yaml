@@ -14,11 +14,6 @@ spec:
           path: odh-common
       name: odh-common
     - kustomizeConfig:
-        repoRef:
-          name: manifests
-          path: trino
-      name: trino
-    - kustomizeConfig:
         parameters:
           - name: s3_endpoint_url
             value: s3.us-east-1.amazonaws.com
@@ -35,12 +30,10 @@ spec:
           - name: trino_cpu_limit
             value: '2'
         repoRef:
-          name: opf
-          path: odh-manifests/osc-cl1/trino
+          name: manifests
+          path: trino
       name: trino
   repos:
     - name: manifests
-      uri: https://github.com/opendatahub-io/odh-manifests/tarball/v1.1.0
-    - name: opf
-      uri: https://github.com/operate-first/apps/tarball/master
+      uri: https://github.com/operate-first/odh-manifests/tarball/osc-cl1-v1.1.0
   version: v1.1.0

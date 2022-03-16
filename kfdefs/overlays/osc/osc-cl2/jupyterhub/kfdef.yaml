@@ -1,0 +1,40 @@
+---
+apiVersion: kfdef.apps.kubeflow.org/v1
+kind: KfDef
+metadata:
+  annotations:
+    kfctl.kubeflow.io/force-delete: "false"
+  name: jupyterhub
+spec:
+  applications:
+    - kustomizeConfig:
+        repoRef:
+          name: manifests
+          path: odh-common
+      name: odh-common
+    - kustomizeConfig:
+        parameters:
+          - name: notebook_destination
+            value: "odh-jupyterhub"
+          - name: s3_endpoint_url
+            value: s3.odh.com
+        repoRef:
+          name: manifests
+          path: jupyterhub/jupyterhub
+      name: jupyterhub
+    - kustomizeConfig:
+        overlays:
+          - additional
+        repoRef:
+          name: manifests
+          path: jupyterhub/notebook-images
+      name: notebook-images
+    - kustomizeConfig:
+        repoRef:
+          name: manifests
+          path: radanalyticsio/spark/cluster
+      name: radanalyticsio-spark-cluster
+  repos:
+    - name: manifests
+      uri: https://github.com/operate-first/odh-manifests/tarball/osc-cl2-v1.1.2
+  version: v1.1.0

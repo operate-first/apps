@@ -1,0 +1,117 @@
+---
+apiVersion: kustomize.config.k8s.io/v1beta1
+kind: Kustomization
+resources:
+  # Roles
+  - ./roles/kubeflow-pipelines-metadata-writer-role.yaml
+  - ./roles/ml-pipeline-persistenceagent-role.yaml
+  - ./roles/ml-pipeline-scheduledworkflow-role.yaml
+  - ./roles/ml-pipeline-ui.yaml
+  - ./roles/ml-pipeline-viewer-controller-role.yaml
+  - ./roles/ml-pipeline.yaml
+  - ./roles/pipeline-runner.yaml
+
+  # Rolebindings
+  - ./rolebindings/kubeflow-pipelines-metadata-writer-binding.yaml
+  - ./rolebindings/ml-pipeline-persistenceagent-binding.yaml
+  - ./rolebindings/ml-pipeline-scheduledworkflow-binding.yaml
+  - ./rolebindings/ml-pipeline-ui.yaml
+  - ./rolebindings/ml-pipeline-viewer-crd-binding.yaml
+  - ./rolebindings/ml-pipeline.yaml
+  - ./rolebindings/pipeline-runner-binding.yaml
+
+  # ServiceAccounts
+  - ./serviceaccounts/kubeflow-pipelines-container-builder.yaml
+  - ./serviceaccounts/kubeflow-pipelines-metadata-writer.yaml
+  - ./serviceaccounts/kubeflow-pipelines-viewer.yaml
+  - ./serviceaccounts/metadata-grpc-server.yaml
+  - ./serviceaccounts/ml-pipeline-persistenceagent.yaml
+  - ./serviceaccounts/ml-pipeline-scheduledworkflow.yaml
+  - ./serviceaccounts/ml-pipeline-ui.yaml
+  - ./serviceaccounts/ml-pipeline-viewer-crd-service-account.yaml
+  - ./serviceaccounts/ml-pipeline-visualizationserver.yaml
+  - ./serviceaccounts/ml-pipeline.yaml
+  - ./serviceaccounts/mysql.yaml
+  - ./serviceaccounts/pipeline-runner.yaml
+
+  # Secrets
+  - ./secrets/mlpipeline-ceph-artifact.yaml
+  - ./secrets/mysql-secret.yaml
+
+  # Configmaps
+  - ./configmaps/kfp-tekton-config.yaml
+  - ./configmaps/ml-pipeline-ui-configmap.yaml
+  - ./configmaps/pipeline-install-config.yaml
+
+  # PersistentVolumeClaims
+  - ./persistentvolumeclaims/mysql-pv-claim.yaml
+
+  # Deployments
+  - ./deployments/metadata-envoy-deployment.yaml
+  - ./deployments/metadata-grpc-deployment.yaml
+  - ./deployments/metadata-writer.yaml
+  - ./deployments/ml-pipeline-persistenceagent.yaml
+  - ./deployments/ml-pipeline-scheduledworkflow.yaml
+  - ./deployments/ml-pipeline-ui.yaml
+  - ./deployments/ml-pipeline-viewer-crd.yaml
+  - ./deployments/ml-pipeline-visualizationserver.yaml
+  - ./deployments/ml-pipeline.yaml
+  - ./deployments/mysql.yaml
+
+  # Services
+  - ./services/metadata-envoy-service.yaml
+  - ./services/metadata-grpc-service.yaml
+  - ./services/ml-pipeline-ui.yaml
+  - ./services/ml-pipeline-visualizationserver.yaml
+  - ./services/ml-pipeline.yaml
+  - ./services/mysql.yaml
+
+  # Routes
+  - ./routes/ml-pipeline-ui.yaml
+generatorOptions:
+  disableNameSuffixHash: true
+configMapGenerator:
+  - name: kfp-tekton-params-config
+    envs:
+      - params.env
+vars:
+  - name: artifact_secret_name
+    objref:
+      name: kfp-tekton-params-config
+      kind: ConfigMap
+      apiVersion: v1
+    fieldref:
+      fieldpath: data.artifact_secret_name
+configurations:
+  - params.yaml
+images:
+  - name: metadata-envoy
+    newName: gcr.io/ml-pipeline/metadata-envoy
+    newTag: 1.7.0
+  - name: metadata-grpc
+    newName: gcr.io/tfx-oss-public/ml_metadata_store_server
+    newTag: 1.0.0
+  - name: metadata-writer
+    newName: docker.io/aipipeline/metadata-writer
+    newTag: 1.1.0
+  - name: persistenceagent
+    newName: docker.io/aipipeline/persistenceagent
+    newTag: 1.1.0
+  - name: scheduledworkflow
+    newName: docker.io/aipipeline/scheduledworkflow
+    newTag: 1.1.0
+  - name: frontend
+    newName: docker.io/aipipeline/frontend
+    newTag: 1.1.0
+  - name: viewer-crd-controller
+    newName: gcr.io/ml-pipeline/viewer-crd-controller
+    newTag: 1.7.0
+  - name: visualization-server
+    newName: gcr.io/ml-pipeline/visualization-server
+    newTag: 1.7.0
+  - name: api-server
+    newName: docker.io/aipipeline/api-server
+    newTag: 1.1.0
+  - name: mysql
+    newName: gcr.io/ml-pipeline/mysql
+    newTag: "5.7"

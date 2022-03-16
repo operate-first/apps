@@ -17,14 +17,7 @@ spec:
           name: manifests
           path: superset
       name: superset
-    - kustomizeConfig:
-        repoRef:
-          name: opf
-          path: odh-manifests/osc-cl1/superset
-      name: superset
   repos:
     - name: manifests
-      uri: https://github.com/opendatahub-io/odh-manifests/tarball/v1.1.0
-    - name: opf
-      uri: https://github.com/operate-first/apps/tarball/master
+      uri: https://github.com/operate-first/odh-manifests/tarball/osc-cl1-v1.1.0
   version: v1.1.0

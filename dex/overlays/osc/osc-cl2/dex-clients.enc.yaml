@@ -1,0 +1,41 @@
+kind: Secret
+apiVersion: v1
+metadata:
+    name: dex-clients
+    annotations:
+        kustomize.config.k8s.io/behavior: replace
+stringData:
+    SUPERSET_SECRET: ENC[AES256_GCM,data:+SU1scRNu1rFHl+Y5RIjpCHhd+i1WG4/nTo6Aj+xTfQglKPE,iv:Q1N73L3T/fVjSEF3ZY3+wtBLDwH4gV6kCkyJ7pPWdgg=,tag:BQZdMCMTFqQnZoCNs9+Bnw==,type:str]
+    TRINO_SECRET: ENC[AES256_GCM,data:RvMhbCU9Wt6gcKWBzjaaCtTx0w6VcA00QlqDYV6OUBHijRJq,iv:AUQKlOLc2fAi60xWgDh2kwdBOMsNoTVD12jqtszaTwk=,tag:tls8HVgC697OZqSZlP6RLQ==,type:str]
+    DAS_SECRET: ENC[AES256_GCM,data:/sPZPs1rBj8SGFB+ap/dkkhueY3WN1+tS3TfdzYY0mpiZn3L,iv:hJOrj0VCFojd4xJg5dNYZxUiAIgGlnJYYjR5KVAd93M=,tag:YmDFeqd1MYEY1ycC9s1DRA==,type:str]
+sops:
+    kms: []
+    gcp_kms: []
+    azure_kv: []
+    hc_vault: []
+    lastmodified: '2022-02-16T21:43:30Z'
+    mac: ENC[AES256_GCM,data:AFDo0r/IGCrcbntbPyhY3RIpiJjtXXxsK1mx2cf4XZCQtsJUIdSDWeLS8n46Y8avFgeubRze2lJeF50q7EU6ELSy4IW8O4oA/kdBLuvhFt76QHNN59GhBB4XVH4Yl+i42clZeT1lMRUtm+s0i10DqD9gL7fAaQYvtIkAWxmaC5I=,iv:HiIFM1kIGrzOcvJORZ9iQ93f2AGY38eLR/IzZPXqnFQ=,tag:yd1XQsV4tWoY+IfDIR/7qw==,type:str]
+    pgp:
+    -   created_at: '2022-02-10T21:42:47Z'
+        enc: |-
+            -----BEGIN PGP MESSAGE-----
+
+            wcFMA9aKBcudqifiARAAKirOC3Tzst/dkCwQ7WQ3j4sNbh4JStNFTEQJvINTfwoF
+            ILI93/EEIDBy2sWF5humn8ti+7X1hQb1QPc12dFylYRyTiVyLtTruaIEMRAz6j1D
+            6SBUtflQMXyl2F7hXl7CzJ8jkPaWCNGynI2IPrR6TKi8PXbBCShHQ8q//4aACwzk
+            76pxVfSmFJm4GCM0zTYwO5DlsZldbT7LouCPlnBnc0jQe8eCEILER2Q2DPiQbnrJ
+            3Pt/+iR+WgTGhilh0yGTjp61bD4j2gaioYfDs4q56ZAp+1K+/WA+MouRIQe89SER
+            SkzdFwZs1F6t7ZXgESXJ0wIuhyO+RMYaDPGCTx2kuUkLiw3xfwOhGVL8BV42zJ/v
+            ompYqvTJp+XiLKqYY7Fq/RF0zHqQptbnS+vkVRuE0hnkBkp0krTG2ve3AZ1VOugS
+            HTAHWVneKGRKGCNpHPlGSOfU4+QaIBODntZ3tBKKRYNrCnarLmwGMGZG+2UgN1qQ
+            pKFIkHQnRpa3YQht3nKXhluh2Q7W+pa1FKaMVfVTdfXTV3IBBnOxNIjLH6qmV3gd
+            SkvkAF73N0EZdi1KYgmH+YAIpvWoOee2gfUKdqMa0IqhbhUFDu9B5BmBXwDrQ3BV
+            WHyXzdhK+t6y78tJp2qDuPDyNnt0GLTjy0v7CK4GmDH4REmoYAMlk/7wdSgPXpvS
+            4AHkQ1Ryt+EkWqBm0JCohtwvPeHZ7uBw4EbhR7XgaeLduHT94AXll2jP1Axe+X9T
+            0yCH1K/L/3g6OOnV3assooh18hySy2fgqeTMIPPiWpzgzmNPqXzrWkTk4nyfZ5jh
+            ap8A
+            =IjQy
+            -----END PGP MESSAGE-----
+        fp: 0508677DD04952D06A943D5B4DC4116D360E3276
+    encrypted_regex: ^(data|stringData)$
+    version: 3.6.1

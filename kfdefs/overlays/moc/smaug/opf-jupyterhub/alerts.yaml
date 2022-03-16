@@ -19,7 +19,7 @@ spec:
               $labels.persistentvolumeclaim }}
             # Link the runbook with instructions to fix this issue
             runbook: >-
-              https://github.com/operate-first/SRE/blob/master/runbooks/jupyterhub.md#insufficient-disk-space-for-notebook-pod
+              https://github.com/operate-first/apps/blob/master/docs/content/odh/jupyterhub/runbook.md#insufficient-disk-space-for-notebook-pod
           # Alert when 90% of PVC is full
           expr: >-
             kubelet_volume_stats_available_bytes{namespace="opf-jupyterhub"}/kubelet_volume_stats_capacity_bytes{namespace="opf-jupyterhub"}

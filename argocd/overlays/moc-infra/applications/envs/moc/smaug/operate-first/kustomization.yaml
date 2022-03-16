@@ -9,6 +9,7 @@ resources:
   - cluster-logging.yaml
   - grafana.yaml
   - jh-idle-culler.yaml
+  - kfp-tekton.yaml
   - meteor-shower.yaml
   - meteor-operator-pipelines.yaml
   - meteor-operator-pushgateway.yaml

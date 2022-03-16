@@ -5,3 +5,6 @@ resources:
 - alertreceiver.yaml
 - local-storage.yaml
 - odf.yaml
+- cert-manager.yaml
+- nfd.yaml
+- kubevirt-hyperconverged.yaml

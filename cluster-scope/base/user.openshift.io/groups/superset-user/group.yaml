@@ -3,10 +3,14 @@ kind: Group
 metadata:
   name: superset-user
 users:
-  - oindrillac
   - aakankshaduggal
-  - chauhankaranraj
-  - leihchen
-  - gagansk
-  - skanthed
   - antter
+  - chauhankaranraj
+  - codificat
+  - gagansk
+  - leihchen
+  - oindrillac
+  - schwesig
+  - shreyanand
+  - skanthed
+  - suppathak

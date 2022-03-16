@@ -9,6 +9,7 @@ resources:
   - global_project.yaml
   - lab-cicd.yaml
   - mocops.yaml
+  - octo-ushift-dev.yaml
   - operate-first.yaml
   - rekor.yaml
   - thoth.yaml

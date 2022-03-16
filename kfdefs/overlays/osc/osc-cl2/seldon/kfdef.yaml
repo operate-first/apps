@@ -1,0 +1,24 @@
+---
+apiVersion: kfdef.apps.kubeflow.org/v1
+kind: KfDef
+metadata:
+  annotations:
+    kfctl.kubeflow.io/force-delete: "false"
+  name: seldon
+  namespace: odh-seldon
+spec:
+  applications:
+    - kustomizeConfig:
+        repoRef:
+          name: manifests
+          path: odh-common
+      name: odh-common
+    - kustomizeConfig:
+        repoRef:
+          name: manifests
+          path: odhseldon/cluster
+      name: odhseldon
+  repos:
+    - name: manifests
+      uri: https://github.com/operate-first/odh-manifests/tarball/osc-cl2-v1.1.2
+  version: v1.1.0

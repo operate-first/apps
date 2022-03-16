@@ -7,3 +7,6 @@ subjects:
   - apiGroup: rbac.authorization.k8s.io
     kind: Group
     name: octo-ushift-dev
+  - apiGroup: rbac.authorization.k8s.io
+    kind: Group
+    name: osc-admins

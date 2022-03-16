@@ -3,6 +3,7 @@ kind: Kustomization
 resources:
   - acm.yaml
   - alertreceiver.yaml
+  - argocd-notifications.yaml
   - argocd-projects.yaml
   - argocd.yaml
   - cert-manager.yaml

@@ -2,6 +2,12 @@ apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
   name: cluster-resources
+  annotations:
+    notifications.argoproj.io/subscribe.on-sync-succeeded.slack: "argocd-notifications"
+    notifications.argoproj.io/subscribe.on-sync-running.slack: "argocd-notifications"
+    notifications.argoproj.io/subscribe.on-sync-failed.slack: "argocd-notifications"
+    notifications.argoproj.io/subscribe.on-sync-status-unknown.slack: "argocd-notifications"
+    notifications.argoproj.io/subscribe.on-sync-degraded.slack: "argocd-notifications"
 spec:
   destination:
     name: smaug

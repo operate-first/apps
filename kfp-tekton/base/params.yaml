@@ -1,0 +1,6 @@
+---
+varReference:
+  - path: spec/template/spec/containers[]/env[]/valueFrom/secretKeyRef/name
+    kind: Deployment
+  - path: spec/template/spec/containers[]/envFrom/secretRef/name
+    kind: Deployment

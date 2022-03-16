@@ -7,5 +7,8 @@ approvers:
   - larsks
   - durandom
   - harshad16
+  - gregory-pereira
+  - dystewart
 
-reviewers: []
+reviewers:
+  - bryanmontalvan

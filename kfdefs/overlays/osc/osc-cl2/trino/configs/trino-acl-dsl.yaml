@@ -1,0 +1,22 @@
+# the current OS-Climate data commons trino deployment on the dev cluster
+admin-groups: [admins]
+
+# global default is non-public (no read/select access)
+public-tables: false
+
+catalogs:
+  - catalog: osc_datacommons_dev
+    public-tables: true
+    # setting 'admin' at catalog level does not translate to
+    # admin-like privs at table or schema level: see 'allow'
+    # in trino access control docs
+    admin-groups:
+      - '.*'
+
+schemas:
+  - schema: sandbox
+    catalog: osc_datacommons_dev
+    admin-groups: ['.*']
+    public-tables: true
+
+tables: []

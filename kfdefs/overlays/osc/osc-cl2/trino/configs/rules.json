@@ -1,0 +1,79 @@
+{
+    "catalogs": [
+        {
+            "group": "admins",
+            "allow": "all"
+        },
+        {
+            "group": ".*",
+            "catalog": "osc_datacommons_dev",
+            "allow": "all"
+        },
+        {
+            "catalog": ".*",
+            "allow": "read-only"
+        }
+    ],
+    "schemas": [
+        {
+            "group": "admins",
+            "owner": true
+        },
+        {
+            "group": ".*",
+            "catalog": "osc_datacommons_dev",
+            "schema": "sandbox",
+            "owner": true
+        },
+        {
+            "catalog": ".*",
+            "schema": ".*",
+            "owner": false
+        }
+    ],
+    "tables": [
+        {
+            "group": "admins",
+            "privileges": [
+                "SELECT",
+                "INSERT",
+                "DELETE",
+                "OWNERSHIP"
+            ]
+        },
+        {
+            "group": ".*",
+            "catalog": "osc_datacommons_dev",
+            "schema": "sandbox",
+            "table": ".*",
+            "privileges": [
+                "SELECT",
+                "INSERT",
+                "DELETE",
+                "OWNERSHIP"
+            ]
+        },
+        {
+            "catalog": "osc_datacommons_dev",
+            "schema": "sandbox",
+            "table": ".*",
+            "privileges": [
+                "SELECT"
+            ]
+        },
+        {
+            "catalog": "osc_datacommons_dev",
+            "schema": ".*",
+            "table": ".*",
+            "privileges": [
+                "SELECT"
+            ]
+        },
+        {
+            "catalog": ".*",
+            "schema": ".*",
+            "table": ".*",
+            "privileges": []
+        }
+    ]
+}

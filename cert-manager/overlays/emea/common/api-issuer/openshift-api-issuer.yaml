@@ -1,0 +1,22 @@
+apiVersion: cert-manager.io/v1
+kind: Issuer
+metadata:
+  name: api-letsencrypt-production
+spec:
+  acme:
+    email: ops-team@operate-first.cloud
+    server: https://acme-v02.api.letsencrypt.org/directory
+    privateKeySecretRef:
+      name: letsencrypt-key
+    solvers:
+      - selector:
+          dnsZones:
+            - "emea.operate-first.cloud"
+        dns01:
+          cnameStrategy: Follow
+          cloudDNS:
+            project: aicoe-prow
+            hostedZoneName: "emea-operate-first"
+            serviceAccountSecretRef:
+              key: key.json
+              name: clouddns-dns01-emea-svc-acct

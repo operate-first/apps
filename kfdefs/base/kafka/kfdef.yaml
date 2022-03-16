@@ -11,14 +11,6 @@ spec:
           path: odh-common
       name: odh-common
     - kustomizeConfig:
-        parameters:
-          - name: namespace
-            value: openshift-operators
-        repoRef:
-          name: manifests
-          path: kafka/cluster
-      name: strimzi-operator
-    - kustomizeConfig:
         repoRef:
           name: manifests
           path: kafka/kafka

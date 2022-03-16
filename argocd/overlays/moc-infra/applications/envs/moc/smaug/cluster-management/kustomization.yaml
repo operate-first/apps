@@ -11,3 +11,4 @@ resources:
   - odh-operator.yaml
   - nfd.yaml
   - kubevirt-hyperconverged.yaml
+  - volsync.yaml

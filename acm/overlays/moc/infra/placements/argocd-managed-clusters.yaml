@@ -4,6 +4,7 @@ metadata:
   name: argocd-managed-clusters
   namespace: argocd
 spec:
-  clusterSets:
-    - argocd-managed
-    - octo-ushift-dev
+  predicates:
+    - requiredClusterSelector:
+        # Select all Managedcluster bound to this namespace
+        labelSelector: {}

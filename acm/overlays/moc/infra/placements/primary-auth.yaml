@@ -1,0 +1,11 @@
+apiVersion: cluster.open-cluster-management.io/v1alpha1
+kind: Placement
+metadata:
+  name: primary-auth
+  namespace: idp-auth-primary
+spec:
+  predicates:
+    - requiredClusterSelector:
+        labelSelector:
+          matchLabels:
+            authdeployment: primary
