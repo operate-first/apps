@@ -25,6 +25,7 @@ spec:
     - kustomizeConfig:
         overlays:
           - additional
+          - cuda-11.0.3
         repoRef:
           name: manifests
           path: jupyterhub/notebook-images
