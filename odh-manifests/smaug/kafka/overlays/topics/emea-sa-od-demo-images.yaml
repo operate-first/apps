@@ -1,7 +1,7 @@
 apiVersion: kafka.strimzi.io/v1beta2
 kind: KafkaTopic
 metadata:
-  name: od-demo-images
+  name: emea-sa.od-demo.images
   labels:
     strimzi.io/cluster: odh-message-bus
 spec:
