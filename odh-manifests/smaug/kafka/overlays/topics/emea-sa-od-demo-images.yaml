@@ -1,0 +1,12 @@
+apiVersion: kafka.strimzi.io/v1beta2
+kind: KafkaTopic
+metadata:
+  name: emea-sa.od-demo.images
+  labels:
+    strimzi.io/cluster: odh-message-bus
+spec:
+  partitions: 2
+  replicas: 3
+  config:
+    # message retention period is 6 hours
+    retention.ms: 21600000

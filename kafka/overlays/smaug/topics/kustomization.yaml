@@ -35,3 +35,5 @@ resources:
 - thoth-unresolved-package.yaml
 - thoth-unrevsolved-package.yaml
 - thoth-update-provides-source-distro.yaml
+- emea-sa-od-demo-objects.yaml
+- emea-sa-od-demo-images.yaml
