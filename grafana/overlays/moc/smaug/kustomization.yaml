@@ -13,6 +13,7 @@ resources:
   - dashboards
   - datasources
   - ./blackbox-exporter
+  - landingpage-dashboard-configmap.yaml
 
 patchesStrategicMerge:
   - ./grafana-oauth.yaml
