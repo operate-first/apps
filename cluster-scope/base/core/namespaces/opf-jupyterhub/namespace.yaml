@@ -5,5 +5,8 @@ metadata:
   annotations:
     openshift.io/display-name: "Operate First: JupyterHub"
     openshift.io/requester: operate-first
+    op1st/project-owner: operate-first
+    op1st/onboarding-issue: "https://github.com/operate-first/apps/issues/9"
+    op1st/docs: "https://www.operate-first.cloud/apps/content/odh/jupyterhub/README.html"
   name: opf-jupyterhub
 spec: {}

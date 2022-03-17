@@ -16,10 +16,8 @@ spec:
     server:
       root_url: https://grafana.operate-first.cloud
     auth.generic_oauth:
-      name: Dex
       enabled: true
       scopes: openid email groups profile
-      email_attribute_name: name
       email_attribute_path: name
       client_id: grafana
       client_secret: "${GRAFANA_CLIENT_SECRET}"

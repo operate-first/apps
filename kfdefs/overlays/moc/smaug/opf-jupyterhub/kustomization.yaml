@@ -3,6 +3,7 @@ kind: Kustomization
 namespace: opf-jupyterhub
 resources:
   - ../../../../base/jupyterhub
+  - ../../../../base/jupyterhub/ray-odh-integration
   - ./pvcs/
   - alerts.yaml
 patchesJson6902:
