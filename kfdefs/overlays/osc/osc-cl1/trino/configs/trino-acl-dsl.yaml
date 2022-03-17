@@ -24,9 +24,15 @@ catalogs:
       - 'itr.*'
       - 'physical_risk.*'
       - 'aicoe_osc_demo'
+      - 'pcaf_sovereign_footprint.*'
       - 'demo_.*'
 
 schemas:
+  - schema: pcaf_sovereign_footprint
+    catalog: osc_datacommons_iceberg_dev
+    admin-groups: ['pcaf_sovereign_footprint.*']
+    public-tables: true
+
   - schema: corporate_data
     catalog: osc_datacommons_iceberg_dev
     admin-groups: ['corporate_data.*']
