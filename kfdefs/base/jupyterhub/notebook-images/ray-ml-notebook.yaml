@@ -13,9 +13,9 @@ spec:
   tags:
     # This ray integration is being provided on an experimental basis
     - annotations:
-        openshift.io/imported-from: quay.io/erikerlandson/ray-ml-notebook
+        openshift.io/imported-from: quay.io/thoth-station/s2i-ray-ml-notebook
       name: experimental
       from:
         kind: DockerImage
         # can rebuild with newer nightly SHAs periodically
-        name: 'quay.io/erikerlandson/ray-ml-notebook:py-3.8-ray-1.4.0'
+        name: 'quay.io/thoth-station/s2i-ray-ml-notebook:v0.1.0'
