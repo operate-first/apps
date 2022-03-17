@@ -7,6 +7,6 @@ metadata:
     openshift.io/requester: operate-first
     op1st/project-owner: operate-first
     op1st/onboarding-issue: "https://github.com/operate-first/support/issues/237"
-    op1st/docs: "https://www.operate-first.cloud/apps/content/acme/README.html?highlight=acme"
+    op1st/docs: "https://www.operate-first.cloud/apps/content/acme/README.html"
   name: acme-operator
 spec: {}
