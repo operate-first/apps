@@ -11,6 +11,7 @@ resources:
   - mocops.yaml
   - octo-ushift-dev.yaml
   - operate-first.yaml
+  - os-climate.yaml
   - rekor.yaml
   - thoth.yaml
   - tremor-demo.yaml
