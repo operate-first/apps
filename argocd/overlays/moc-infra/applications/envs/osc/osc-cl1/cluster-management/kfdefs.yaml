@@ -7,15 +7,15 @@ spec:
   destination:
     name: osc-cl1
     namespace: opendatahub
-  project: cluster-management
+  project: os-climate
   source:
     path: kfdefs/overlays/osc/osc-cl1
     repoURL: https://github.com/operate-first/apps.git
     targetRevision: HEAD
-#  syncPolicy:
-#    automated:
-#      prune: true
-#      selfHeal: true
-#    syncOptions:
-#    - Validate=false
-#    - ApplyOutOfSyncOnly=true
+  syncPolicy:
+    automated:
+      prune: true
+      selfHeal: true
+    syncOptions:
+    - Validate=false
+    - ApplyOutOfSyncOnly=true

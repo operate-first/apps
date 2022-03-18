@@ -6,7 +6,7 @@ spec:
   destination:
     name: osc-cl2
     namespace: open-cluster-management-agent
-  project: cluster-management
+  project: os-climate
   source:
     path: cluster-scope/overlays/prod/osc/osc-cl2
     repoURL: https://github.com/operate-first/apps.git
