@@ -49,7 +49,7 @@ data:
               # defining HOME is part of a workaround for:
               # https://github.com/ray-project/ray/issues/14155
               - name: HOME
-                value: '/opt'
+                value: '/home'
               volumeMounts:
               - mountPath: /dev/shm
                 name: dshm
@@ -91,7 +91,7 @@ data:
               args: ["trap : TERM INT; sleep infinity & wait;"]
               env:
               - name: HOME
-                value: '/opt'
+                value: '/home'
               volumeMounts:
               - mountPath: /dev/shm
                 name: dshm
@@ -105,12 +105,12 @@ data:
       # Commands to start Ray on the head node. You don't need to change this.
       # Note dashboard-host is set to 0.0.0.0 so that Kubernetes can port forward.
       headStartRayCommands:
-          - cd /opt/ray; pipenv run ray stop
-          - ulimit -n 65536; cd /opt/ray; pipenv run ray start --head --no-monitor --port=6379 --object-manager-port=8076 --dashboard-host=0.0.0.0
+          - cd /home/ray; pipenv run ray stop
+          - ulimit -n 65536; cd /home/ray; pipenv run ray start --head --no-monitor --port=6379 --object-manager-port=8076 --dashboard-host=0.0.0.0
       # Commands to start Ray on worker nodes. You don't need to change this.
       workerStartRayCommands:
-          - cd /opt/ray; pipenv run ray stop
-          - ulimit -n 65536; cd /opt/ray; pipenv run ray start --address=$RAY_HEAD_IP:6379 --object-manager-port=8076
+          - cd /home/ray; pipenv run ray stop
+          - ulimit -n 65536; cd /home/ray; pipenv run ray start --address=$RAY_HEAD_IP:6379 --object-manager-port=8076
   rayDashboardRouteTemplate: |
     kind: Route
     apiVersion: route.openshift.io/v1
