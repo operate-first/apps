@@ -1,0 +1,7 @@
+---
+apiVersion: pulp.pulpproject.org/v1beta
+kind: PulpBackup
+metadata:
+  name: opf-pulp-backup
+spec:
+  deployment_name: 'pulp'
