@@ -20,5 +20,5 @@ spec:
       name: odhseldon
   repos:
     - name: manifests
-      uri: https://github.com/operate-first/odh-manifests/tarball/osc-cl1-v1.1.0
+      uri: https://github.com/operate-first/odh-manifests/tarball/osc-cl1-v1.1.2
   version: v1.1.0
