@@ -1,5 +1,5 @@
 ---
-apiVersion: pulp.pulpproject.org/v1beta
+apiVersion: pulp.pulpproject.org/v1beta1
 kind: PulpBackup
 metadata:
   name: opf-pulp-backup
