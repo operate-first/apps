@@ -2,6 +2,18 @@ apiVersion: kustomize.config.k8s.io/v1beta1
 generators:
 - secret-generator.yaml
 kind: Kustomization
+patchesJson6902:
+- patch: "- op: replace\n  path: /spec/startingCSV\n  value: cert-manager.v1.6.1\n"
+  target:
+    group: operators.coreos.com
+    kind: Subscription
+    name: cert-manager
+    version: v1alpha1
+- patch: "- op: add\n  path: /spec/storageClassName\n  value: ocs-storagecluster-cephfs\n"
+  target:
+    kind: PersistentVolumeClaim
+    name: image-registry-storage
+    version: v1
 patchesStrategicMerge:
 - groups/cluster-admins.yaml
 - groups/sudoers.yaml
@@ -11,55 +23,33 @@ patchesStrategicMerge:
 - subscriptions/kubevirt-hyperconverged_patch.yaml
 - subscriptions/nfd_patch.yaml
 - subscriptions/openshift-pipelines-operator-rh_patch.yaml
-
 resources:
 - ../../../../base/config.openshift.io/oauths/cluster
 - ../../../../base/core/configmaps/cluster-monitoring-config
+- ../../../../base/core/namespaces/examples-openshift-pub
 - ../../../../base/core/namespaces/openshift-cnv
 - ../../../../base/core/namespaces/openshift-local-storage
 - ../../../../base/core/namespaces/openshift-storage
 - ../../../../base/core/namespaces/opf-alertreceiver
+- ../../../../base/core/namespaces/pixel-demo
 - ../../../../base/core/namespaces/pixel-secrets
-- ../../../../base/core/namespaces/smartoffice
 - ../../../../base/core/namespaces/rbo-builder
-- ../../../../base/core/namespaces/examples-openshift-pub
+- ../../../../base/core/namespaces/smartoffice
 - ../../../../base/core/namespaces/thoth-test-core
+- ../../../../base/core/persistentvolumeclaims/image-registry-storage
+- ../../../../base/imageregistry.operator.openshift.io/configs/cluster
 - ../../../../base/operators.coreos.com/operatorgroups/openshift-cnv-rn5jf
 - ../../../../base/operators.coreos.com/operatorgroups/openshift-local-storage
 - ../../../../base/operators.coreos.com/operatorgroups/openshift-storage
-- ../../../../base/operators.coreos.com/subscriptions/odf-operator
-- ../../../../base/operators.coreos.com/subscriptions/openshift-local-storage-operator
 - ../../../../base/operators.coreos.com/subscriptions/cert-manager
 - ../../../../base/operators.coreos.com/subscriptions/kubevirt-hyperconverged
+- ../../../../base/operators.coreos.com/subscriptions/odf-operator
+- ../../../../base/operators.coreos.com/subscriptions/openshift-local-storage-operator
 - ../../../../base/operators.coreos.com/subscriptions/openshift-pipelines-operator-rh
-- ../../../../base/user.openshift.io/groups/cluster-admins
 - ../../../../base/rbac.authorization.k8s.io/clusterrolebindings/sudoers
+- ../../../../base/user.openshift.io/groups/cluster-admins
 - ../../../../base/user.openshift.io/groups/sudoers
-- ../../../../base/core/persistentvolumeclaims/image-registry-storage
-- ../../../../base/imageregistry.operator.openshift.io/configs/cluster
 - ../../../../bundles/nfd
-
-- ingresscontrollers/default.yaml
-- apiserver/api_server_cert.yaml
-
 - ../common
-
-patchesJson6902:
-  - patch: |
-      - op: replace
-        path: /spec/startingCSV
-        value: cert-manager.v1.6.1
-    target:
-      group: operators.coreos.com
-      version: v1alpha1
-      kind: Subscription
-      name: cert-manager
-
-  - patch: |
-      - op: add
-        path: /spec/storageClassName
-        value: ocs-storagecluster-cephfs
-    target:
-      version: v1
-      kind: PersistentVolumeClaim
-      name: image-registry-storage
+- apiserver/api_server_cert.yaml
+- ingresscontrollers/default.yaml
