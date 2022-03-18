@@ -7,14 +7,14 @@ spec:
   destination:
     name: osc-cl1
     namespace: dex
-  project: cluster-management
+  project: os-climate
   source:
     path: dex/overlays/osc/osc-cl1
     repoURL: https://github.com/operate-first/apps.git
     targetRevision: HEAD
-#  syncPolicy:
-#    automated:
-#      prune: true
-#      selfHeal: true
-#    syncOptions:
-#      - Validate=false
+  syncPolicy:
+    automated:
+      prune: true
+      selfHeal: true
+    syncOptions:
+      - Validate=false
