@@ -19,8 +19,8 @@ spec:
       containers:
         - name: ray-operator
           imagePullPolicy: Always
-          image: 'ray-operator:experimental'
-          command: ['/bin/bash', '-c', '--', 'cd /opt/ray && pipenv run ray-operator']
+          image: 'quay.io/thoth-station/ray-operator:v0.1.1'
+          command: ['/bin/bash', '-c', '--', 'cd /home/ray && pipenv run ray-operator']
           env:
             - name: RAY_CONFIG_DIR
               value: '/tmp/ray_cluster_configs'

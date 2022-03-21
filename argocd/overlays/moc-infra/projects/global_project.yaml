@@ -164,6 +164,10 @@ spec:
       kind: PodDisruptionBudget
     - group: pulp.pulpproject.org
       kind: Pulp
+    - group: pulp.pulpproject.org
+      kind: PulpBackup
+    - group: pulp.pulpproject.org
+      kind: PulpRestore
     - group: quota.openshift.io
       kind: AppliedClusterResourceQuota
     - group: rbac.authorization.k8s.io

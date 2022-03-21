@@ -24,9 +24,16 @@ catalogs:
       - 'itr.*'
       - 'physical_risk.*'
       - 'aicoe_osc_demo'
+      - 'pcaf_sovereign_footprint.*'
+      - 'entity_matching.*'
       - 'demo_.*'
 
 schemas:
+  - schema: pcaf_sovereign_footprint
+    catalog: osc_datacommons_iceberg_dev
+    admin-groups: ['pcaf_sovereign_footprint.*']
+    public-tables: true
+
   - schema: corporate_data
     catalog: osc_datacommons_iceberg_dev
     admin-groups: ['corporate_data.*']
@@ -43,6 +50,11 @@ schemas:
     public-tables: true
 
   - schema: gleif
+    catalog: osc_datacommons_iceberg_dev
+    admin-groups: ['entity_matching.*']
+    public-tables: true
+
+  - schema: esg_matching
     catalog: osc_datacommons_iceberg_dev
     admin-groups: ['entity_matching.*']
     public-tables: true

@@ -11,13 +11,15 @@ spec:
       name: odh-common
     - kustomizeConfig:
         parameters:
-          - name: SUPERSET_IMAGE
-            value: quay.io/opendatahub/superset:1.3.0
+          - name: superset_secret
+            value: "superset-custom"
+          - name: superset_db_secret
+            value: "superset-db-custom"
         repoRef:
           name: manifests
           path: superset
       name: superset
   repos:
     - name: manifests
-      uri: https://github.com/operate-first/odh-manifests/tarball/osc-cl1-v1.1.0
+      uri: https://github.com/operate-first/odh-manifests/tarball/osc-cl1-v1.1.2
   version: v1.1.0

@@ -3,6 +3,7 @@ kind: Group
 metadata:
     name: seraph
 users:
+    - mimotej
     - tumido
     - schwesig
     - SamoKopecky
