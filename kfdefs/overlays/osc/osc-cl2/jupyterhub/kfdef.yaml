@@ -30,11 +30,6 @@ spec:
           name: manifests
           path: jupyterhub/notebook-images
       name: notebook-images
-    - kustomizeConfig:
-        repoRef:
-          name: manifests
-          path: radanalyticsio/spark/cluster
-      name: radanalyticsio-spark-cluster
   repos:
     - name: manifests
       uri: https://github.com/operate-first/odh-manifests/tarball/osc-cl2-v1.1.2
