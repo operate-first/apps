@@ -10,7 +10,7 @@
             "allow": "all"
         },
         {
-            "group": "corporate_data.*|itr.*|physical_risk.*|aicoe_osc_demo|pcaf_sovereign_footprint.*|demo_.*",
+            "group": "corporate_data.*|itr.*|physical_risk.*|aicoe_osc_demo|pcaf_sovereign_footprint.*|entity_matching.*|demo_.*",
             "catalog": "osc_datacommons_iceberg_dev",
             "allow": "all"
         },
@@ -52,6 +52,12 @@
             "group": "entity_matching.*",
             "catalog": "osc_datacommons_iceberg_dev",
             "schema": "gleif",
+            "owner": true
+        },
+        {
+            "group": "entity_matching.*",
+            "catalog": "osc_datacommons_iceberg_dev",
+            "schema": "esg_matching",
             "owner": true
         },
         {
@@ -353,6 +359,26 @@
         {
             "catalog": "osc_datacommons_iceberg_dev",
             "schema": "gleif",
+            "table": ".*",
+            "privileges": [
+                "SELECT"
+            ]
+        },
+        {
+            "group": "entity_matching.*",
+            "catalog": "osc_datacommons_iceberg_dev",
+            "schema": "esg_matching",
+            "table": ".*",
+            "privileges": [
+                "SELECT",
+                "INSERT",
+                "DELETE",
+                "OWNERSHIP"
+            ]
+        },
+        {
+            "catalog": "osc_datacommons_iceberg_dev",
+            "schema": "esg_matching",
             "table": ".*",
             "privileges": [
                 "SELECT"
