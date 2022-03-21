@@ -1,0 +1,29 @@
+apiVersion: monitoring.coreos.com/v1
+kind: PrometheusRule
+metadata:
+  name: recording-rules
+spec:
+  groups:
+    - name: SLOs-probe_success
+      rules:
+      - expr: |
+          1 - avg_over_time(probe_success[1d])
+        record: probe_success:burnrate1d
+      - expr: |
+          1 - avg_over_time(probe_success[1h])
+        record: probe_success:burnrate1h
+      - expr: |
+          1 - avg_over_time(probe_success[2h])
+        record: probe_success:burnrate2h
+      - expr: |
+          1 - avg_over_time(probe_success[30m])
+        record: probe_success:burnrate30m
+      - expr: |
+          1 - avg_over_time(probe_success[3d])
+        record: probe_success:burnrate3d
+      - expr: |
+          1 - avg_over_time(probe_success[5m])
+        record: probe_success:burnrate5m
+      - expr: |
+          1 - avg_over_time(probe_success[6h])
+        record: probe_success:burnrate6h
