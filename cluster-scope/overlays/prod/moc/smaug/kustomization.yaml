@@ -100,6 +100,7 @@ resources:
 - ../../../../base/operators.coreos.com/subscriptions/vertical-pod-autoscaler
 - ../../../../base/rbac.authorization.k8s.io/clusterrolebindings/cluster-interceptor-opf-ci-pipelines
 - ../../../../base/rbac.authorization.k8s.io/clusterrolebindings/cluster-monitoring-view
+- ../../../../base/rbac.authorization.k8s.io/clusterrolebindings/cluster-reader-k8s-annotations-exporter
 - ../../../../base/rbac.authorization.k8s.io/clusterrolebindings/jupyterhub-cluster
 - ../../../../base/rbac.authorization.k8s.io/clusterrolebindings/moc-nfs-democratic-csi-controller-rb
 - ../../../../base/rbac.authorization.k8s.io/clusterrolebindings/moc-nfs-democratic-csi-node-rb

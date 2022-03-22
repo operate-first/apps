@@ -31,6 +31,7 @@ resources:
 - ../../../../base/core/namespaces/openshift-local-storage
 - ../../../../base/core/namespaces/openshift-storage
 - ../../../../base/core/namespaces/opf-alertreceiver
+- ../../../../base/core/namespaces/opf-monitoring
 - ../../../../base/core/namespaces/pixel-demo
 - ../../../../base/core/namespaces/pixel-secrets
 - ../../../../base/core/namespaces/rbo-builder
@@ -46,6 +47,7 @@ resources:
 - ../../../../base/operators.coreos.com/subscriptions/odf-operator
 - ../../../../base/operators.coreos.com/subscriptions/openshift-local-storage-operator
 - ../../../../base/operators.coreos.com/subscriptions/openshift-pipelines-operator-rh
+- ../../../../base/rbac.authorization.k8s.io/clusterrolebindings/cluster-reader-k8s-annotations-exporter
 - ../../../../base/rbac.authorization.k8s.io/clusterrolebindings/sudoers
 - ../../../../base/user.openshift.io/groups/cluster-admins
 - ../../../../base/user.openshift.io/groups/sudoers
