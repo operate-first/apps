@@ -1,0 +1,23 @@
+apiVersion: rbac.authorization.k8s.io/v1
+kind: ClusterRole
+metadata:
+  name: volsync-aggregate-to-edit
+  labels:
+    # Grant access to namespace admins
+    rbac.authorization.k8s.io/aggregate-to-admin: "true"
+    # Grant access to namespace editors
+    rbac.authorization.k8s.io/aggregate-to-edit: "true"
+rules:
+  # Give users full control of ReplicationSource and ReplicationDestination
+  # objects so they can manage data replication
+  - apiGroups: ["volsync.backube"]
+    resources: ["replicationdestinations", "replicationsources"]
+    verbs: ["create", "delete", "deletecollection", "patch", "update", "get,", "list", "watch"]
+  - apiGroups: ["volsync.backube"]
+    resources: ["replicationdestinations/status", "replicationsources/status"]
+    verbs: ["get,", "list", "watch"]
+  # Give users the ability to view VolumeSnapshots so they can "promote" the
+  # destination snapshots into usable PVCs
+  - apiGroups: ["snapshot.storage.k8s.io"]
+    resources: ["volumesnapshots", "volumesnapshots/status"]
+    verbs: ["get,", "list", "watch"]
