@@ -3,10 +3,11 @@ kind: Group
 metadata:
     name: octo-ushift-dev
 users:
-    - fzdarsky
+    - codificat
     - cooktheryan
+    - fzdarsky
+    - jimcadden
+    - michaelclifford
     - oglok
     - screeley44
-    - michaelclifford
     - treeinrandomforest
-    - codificat
