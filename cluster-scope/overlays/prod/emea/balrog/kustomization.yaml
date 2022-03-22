@@ -10,6 +10,7 @@ resources:
     - ../../../../base/core/configmaps/user-workload-monitoring-config
     - ../../../../base/core/namespaces/openshift-logging
     - ../../../../base/core/namespaces/opf-kafka
+    - ../../../../base/core/namespaces/opf-monitoring
     - ../../../../base/core/namespaces/thoth-amun-api-prod
     - ../../../../base/core/namespaces/thoth-amun-inspection-prod
     - ../../../../base/core/namespaces/thoth-backend-prod
@@ -22,6 +23,7 @@ resources:
     - ../../../../base/operators.coreos.com/subscriptions/cluster-logging
     - ../../../../base/operators.coreos.com/subscriptions/strimzi
     - ../../../../base/rbac.authorization.k8s.io/clusterrolebindings/cluster-monitoring-view-balrog
+    - ../../../../base/rbac.authorization.k8s.io/clusterrolebindings/cluster-reader-k8s-annotations-exporter
     - ../../../../base/user.openshift.io/groups/cluster-admins
     - ../../../../bundles/acme-operator
     - machineautoscalers.yaml

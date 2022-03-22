@@ -1,0 +1,16 @@
+apiVersion: monitoring.coreos.com/v1
+kind: ServiceMonitor
+metadata:
+  name: k8s-annotations-exporter
+spec:
+  endpoints:
+    - interval: 5m
+      path: /metrics
+      port: metrics
+      scheme: http
+  selector:
+    matchLabels:
+      app: k8s-annotations-exporter
+  namespaceSelector:
+    matchNames:
+      - opf-monitoring
