@@ -4,3 +4,6 @@ metadata:
     name: curator-engine
     annotations:
         openshift.io/requester: curator
+        op1st/project-owner: curator
+        op1st/onboarding-issue: "https://github.com/operate-first/support/issues/265"
+        op1st/docs: "https://curator-doc.readthedocs.io/en/latest/"

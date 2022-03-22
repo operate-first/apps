@@ -5,5 +5,8 @@ metadata:
   annotations:
     openshift.io/display-name: "Namespace to complete the Elyra Tutorial"
     openshift.io/requester: codait-advo
+    op1st/project-owner: codait-advo
+    op1st/onboarding-issue: "https://github.com/operate-first/support/issues/202"
+    op1st/docs: "https://github.com/AICoE/elyra-aidevsecops-tutorial"
   name: codait-advo
 spec: {}
