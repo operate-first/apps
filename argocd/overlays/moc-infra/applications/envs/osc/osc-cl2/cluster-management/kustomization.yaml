@@ -9,3 +9,4 @@ resources:
   - kfdefs.yaml
   - kfp-tekton.yaml
   - pachyderm.yaml
+  - reloader.yaml
