@@ -1,0 +1,20 @@
+---
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: k8s-annotations-exporter
+spec:
+  destination:
+    name: moc-infra
+    namespace: opf-monitoring
+  project: operate-first
+  source:
+    path: k8s-annotations-exporter/overlays/moc/infra
+    repoURL: https://github.com/operate-first/apps.git
+    targetRevision: HEAD
+  syncPolicy:
+    automated:
+      prune: true
+      selfHeal: true
+    syncOptions:
+    - Validate=false
