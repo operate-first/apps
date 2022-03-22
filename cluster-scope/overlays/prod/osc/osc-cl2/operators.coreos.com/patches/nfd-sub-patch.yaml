@@ -4,5 +4,5 @@ kind: Subscription
 metadata:
   name: nfd
 spec:
-  channel: "4.8"
+  channel: "stable"
   installPlanApproval: Manual
