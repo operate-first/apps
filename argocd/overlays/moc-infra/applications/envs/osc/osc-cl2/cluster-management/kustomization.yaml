@@ -7,3 +7,4 @@ resources:
   - das.yaml
   - dex.yaml
   - kfdefs.yaml
+  - kfp-tekton.yaml
