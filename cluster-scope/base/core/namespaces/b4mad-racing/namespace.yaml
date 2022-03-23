@@ -5,6 +5,8 @@ metadata:
   annotations:
     openshift.io/display-name: "B4mad: Racing"
     openshift.io/requester: b4mad
-    operate-first.cloud/issue: "https://github.com/operate-first/support/issues/350"
+    op1st/project-owner: b4mad
+    op1st/onboarding-issue: "https://github.com/operate-first/support/issues/350"
+    op1st/docs: "https://github.com/b4mad/racing"
   name: b4mad-racing
 spec: {}

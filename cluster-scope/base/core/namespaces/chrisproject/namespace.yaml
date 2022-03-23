@@ -4,3 +4,6 @@ metadata:
     name: chrisproject
     annotations:
         openshift.io/requester: redhat-impact
+        op1st/project-owner: redhat-impact
+        op1st/onboarding-issue: "https://github.com/operate-first/support/issues/527"
+        op1st/docs: "https://redhat.com/chris"

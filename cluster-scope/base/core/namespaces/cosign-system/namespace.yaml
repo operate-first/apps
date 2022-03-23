@@ -3,4 +3,8 @@ kind: Namespace
 metadata:
   labels:
     kubernetes.io/metadata.name: cosign-system
+  annotations:
+    op1st/project-owner: octo-training-model
+    op1st/onboarding-issue: "https://github.com/AICoE/summit-2021-octo-keynote/issues/16"
+    op1st/docs: "https://github.com/sigstore/cosign"
   name: cosign-system

@@ -5,5 +5,8 @@ metadata:
   annotations:
     openshift.io/display-name: "dkenigsb cnv testing"
     openshift.io/requester: cnv-testing
+    op1st/project-owner: cnv-testing
+    op1st/onboarding-issue: "https://github.com/operate-first/support/issues/160"
+    op1st/docs: "https://github.com/operate-first/apps/pull/443"
   name: cnv-testing
 spec: {}
