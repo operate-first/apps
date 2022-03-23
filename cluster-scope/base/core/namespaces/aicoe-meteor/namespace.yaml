@@ -3,6 +3,7 @@ kind: Namespace
 metadata:
     name: aicoe-meteor
     annotations:
+        openshift.io/display-name: "AICoE Meteor Operator"
         openshift.io/requester: operate-first
         op1st/project-owner: operate-first
         op1st/onboarding-issue: "https://github.com/AICoE/meteor/issues/46"

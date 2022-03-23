@@ -3,6 +3,7 @@ kind: Namespace
 metadata:
     name: boatrockers
     annotations:
+        openshift.io/display-name: "Boatrockers"
         openshift.io/requester: boatroackers
         op1st/project-owner: boatroackers
         op1st/onboarding-issue: https://github.com/operate-first/support/issues/524

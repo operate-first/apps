@@ -3,6 +3,7 @@ kind: Namespace
 metadata:
     name: curator-engine
     annotations:
+        openshift.io/display-name: "Curator Engine"
         openshift.io/requester: curator
         op1st/project-owner: curator
         op1st/onboarding-issue: "https://github.com/operate-first/support/issues/265"
