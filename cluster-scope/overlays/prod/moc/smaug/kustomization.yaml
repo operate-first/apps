@@ -23,6 +23,7 @@ resources:
 - ../../../../base/core/namespaces/apicurio-apicurio-registry
 - ../../../../base/core/namespaces/b4mad-racing
 - ../../../../base/core/namespaces/boatrockers
+- ../../../../base/core/namespaces/bu-scsaol
 - ../../../../base/core/namespaces/chrisproject
 - ../../../../base/core/namespaces/debezium-ui
 - ../../../../base/core/namespaces/democratic-csi

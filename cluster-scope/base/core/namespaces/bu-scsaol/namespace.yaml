@@ -1,0 +1,7 @@
+apiVersion: v1
+kind: Namespace
+metadata:
+    name: bu-scsaol
+    annotations:
+        openshift.io/display-name: Secure Cross-site Analytics on OpenShift Logs
+        openshift.io/requester: scsaol
