@@ -18,7 +18,8 @@ spec:
           path: jupyterhub/jupyterhub
       name: jupyterhub
     - kustomizeConfig:
-        overlays: []
+        overlays:
+          - additional
         parameters:
         - name: notebook_destination
           value: opf-jupyterhub
