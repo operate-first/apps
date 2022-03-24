@@ -13,6 +13,12 @@ spec:
           path: odh-common
       name: odh-common
     - kustomizeConfig:
+        overlays: []
+        parameters:
+          - name: notebook_destination
+            value: opf-jupyterhub
+          - name: s3_endpoint_url
+            value: s3.odh.com
         repoRef:
           name: manifests
           path: jupyterhub/jupyterhub
@@ -20,11 +26,6 @@ spec:
     - kustomizeConfig:
         overlays:
           - additional
-        parameters:
-        - name: notebook_destination
-          value: opf-jupyterhub
-        - name: s3_endpoint_url
-          value: s3.odh.com
       name: notebook-images
   repos:
     - name: manifests
