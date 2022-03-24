@@ -5,3 +5,6 @@ metadata:
     annotations:
         openshift.io/display-name: Secure Cross-site Analytics on OpenShift Logs
         openshift.io/requester: scsaol
+        op1st/project-owner: scsaol
+        op1st/onboarding-issue: "https://github.com/operate-first/support/issues/533"
+        op1st/docs: "https://www.bu.edu/rhcollab/projects/security-privacy/secure-cross-site-analytics-on-openshift-logs/"
