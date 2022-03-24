@@ -4,3 +4,6 @@ metadata:
     name: aicoe-meteor
     annotations:
         openshift.io/requester: operate-first
+        op1st/project-owner: operate-first
+        op1st/onboarding-issue: "https://github.com/AICoE/meteor/issues/46"
+        op1st/docs: "https://github.com/AICoE/meteor-operator"
