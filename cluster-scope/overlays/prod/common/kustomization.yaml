@@ -53,6 +53,7 @@ resources:
 - ../../../base/user.openshift.io/groups/rh-curator-eval
 - ../../../base/user.openshift.io/groups/rh-dus
 - ../../../base/user.openshift.io/groups/sa-dach
+- ../../../base/user.openshift.io/groups/scsaol
 - ../../../base/user.openshift.io/groups/sdap-mslsp
 - ../../../base/user.openshift.io/groups/seraph
 - ../../../base/user.openshift.io/groups/sigstore
