@@ -63,6 +63,66 @@
         },
         {
             "catalog": "osc_datacommons_dev",
+            "schema": "demo_dv",
+            "table": "demo_dv_backend",
+            "privileges": []
+        },
+        {
+            "group": "demo_dv_dev",
+            "catalog": "osc_datacommons_dev",
+            "schema": "demo_dv",
+            "table": "demo_dv_userfacing",
+            "privileges": [
+                "SELECT",
+                "INSERT",
+                "DELETE",
+                "OWNERSHIP"
+            ]
+        },
+        {
+            "group": "demo_dv_quant",
+            "catalog": "osc_datacommons_dev",
+            "schema": "demo_dv",
+            "table": "demo_dv_userfacing",
+            "privileges": [
+                "SELECT"
+            ],
+            "filter": "contains(current_groups(), access) or access = 'public'",
+            "columns": [
+                {
+                    "name": "dev1",
+                    "allow": false
+                }
+            ]
+        },
+        {
+            "group": "demo_dv_user",
+            "catalog": "osc_datacommons_dev",
+            "schema": "demo_dv",
+            "table": "demo_dv_userfacing",
+            "privileges": [
+                "SELECT"
+            ],
+            "filter": "contains(current_groups(), access) or access = 'public'",
+            "columns": [
+                {
+                    "name": "dev1",
+                    "allow": false
+                },
+                {
+                    "name": "quant1",
+                    "allow": false
+                }
+            ]
+        },
+        {
+            "catalog": "osc_datacommons_dev",
+            "schema": "demo_dv",
+            "table": "demo_dv_userfacing",
+            "privileges": []
+        },
+        {
+            "catalog": "osc_datacommons_dev",
             "schema": ".*",
             "table": ".*",
             "privileges": [
