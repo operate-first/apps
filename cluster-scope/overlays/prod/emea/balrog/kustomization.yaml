@@ -1,7 +1,25 @@
-apiVersion: kustomize.config.k8s.io/v1beta1
 kind: Kustomization
+apiVersion: kustomize.config.k8s.io/v1beta1
+patchesStrategicMerge:
+    - oauths/cluster_patch.yaml
+    - groups/cluster-admins.yaml
+    - subscriptions/cluster-logging-operator_patch.yaml
+    - clusterautoscaler.yaml
+patches:
+    - patch: |-
+        - op: replace
+          path: /spec/hard
+          value:
+            limits.cpu: '16'
+            limits.memory: 32Gi
+            requests.cpu: '8'
+            requests.memory: 16Gi
+            requests.storage: 60Gi
+      target:
+          version: v1
+          kind: ResourceQuota
+          name: opf-kafka-custom
 resources:
-    - ../common
     - ../../../../base/apiextensions.k8s.io/customresourcedefinitions/workflow.argoproj.io
     - ../../../../base/apiextensions.k8s.io/customresourcedefinitions/workflowtemplate.argoproj.io
     - ../../../../base/autoscaling.openshift.io/clusterautoscalers/default
@@ -25,27 +43,7 @@ resources:
     - ../../../../base/rbac.authorization.k8s.io/clusterrolebindings/cluster-reader-k8s-annotations-exporter
     - ../../../../base/user.openshift.io/groups/cluster-admins
     - ../../../../bundles/acme-operator
+    - ../common
     - machineautoscalers.yaml
 generators:
     - secret-generator.yaml
-
-patchesStrategicMerge:
-    - oauths/cluster_patch.yaml
-    - groups/cluster-admins.yaml
-    - subscriptions/cluster-logging-operator_patch.yaml
-    - clusterautoscaler.yaml
-patches:
-    - patch: |-
-        - op: replace
-          path: /spec/hard
-          value:
-            limits.cpu: '16'
-            limits.memory: 32Gi
-            requests.cpu: '8'
-            requests.memory: 16Gi
-            requests.storage: 60Gi
-      target:
-          group: ""
-          version: v1
-          kind: ResourceQuota
-          name: opf-kafka-custom

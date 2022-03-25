@@ -1,31 +1,26 @@
----
-apiVersion: kustomize.config.k8s.io/v1beta1
 kind: Kustomization
-
-resources:
-  - ../../../../base/config.openshift.io/oauths/cluster
-  - ../../../../base/core/namespaces/hostpath-provisioner
-  - ../../../../base/core/namespaces/openshift-cnv
-  - ../../../../base/core/namespaces/openshift-storage
-  - ../../../../base/hostpathprovisioner.kubevirt.io/hostpathprovisioners/hostpath-provisioner
-  - ../../../../base/machineconfiguration.openshift.io/machineconfigs/50-set-selinux-for-hostpath-provisioner-controller
-  - ../../../../base/operator.openshift.io/ingresscontrollers/default
-  - ../../../../base/operators.coreos.com/operatorgroups/openshift-storage
-  - ../../../../base/operators.coreos.com/subscriptions/kubevirt-hyperconverged
-  - ../../../../base/operators.coreos.com/subscriptions/ocs-operator
-  - ../../../../base/rbac.authorization.k8s.io/clusterrolebindings/cluster-admins-rb
-  - ../../../../base/storage.k8s.io/storageclasses/hostpath-provisioner
-  - ../../../../base/user.openshift.io/groups/cluster-admins
-
-  - machineconfigs/50-ipmi-route.yaml
-  - configmaps/admin-acks.yaml
-
-generators:
-  - secret-generator.yaml
-
+apiVersion: kustomize.config.k8s.io/v1beta1
 patchesStrategicMerge:
-  - oauths/cluster_patch.yaml
-  - subscriptions/kubevirt-hyperconverged_patch.yaml
-  - subscriptions/ocs-operator_patch.yaml
-  - storageclasses/hostpath-provisioner_patch.yaml
-  - groups/cluster-admins.yaml
+    - oauths/cluster_patch.yaml
+    - subscriptions/kubevirt-hyperconverged_patch.yaml
+    - subscriptions/ocs-operator_patch.yaml
+    - storageclasses/hostpath-provisioner_patch.yaml
+    - groups/cluster-admins.yaml
+resources:
+    - ../../../../base/config.openshift.io/oauths/cluster
+    - ../../../../base/core/namespaces/hostpath-provisioner
+    - ../../../../base/core/namespaces/openshift-cnv
+    - ../../../../base/core/namespaces/openshift-storage
+    - ../../../../base/hostpathprovisioner.kubevirt.io/hostpathprovisioners/hostpath-provisioner
+    - ../../../../base/machineconfiguration.openshift.io/machineconfigs/50-set-selinux-for-hostpath-provisioner-controller
+    - ../../../../base/operator.openshift.io/ingresscontrollers/default
+    - ../../../../base/operators.coreos.com/operatorgroups/openshift-storage
+    - ../../../../base/operators.coreos.com/subscriptions/kubevirt-hyperconverged
+    - ../../../../base/operators.coreos.com/subscriptions/ocs-operator
+    - ../../../../base/rbac.authorization.k8s.io/clusterrolebindings/cluster-admins-rb
+    - ../../../../base/storage.k8s.io/storageclasses/hostpath-provisioner
+    - ../../../../base/user.openshift.io/groups/cluster-admins
+    - configmaps/admin-acks.yaml
+    - machineconfigs/50-ipmi-route.yaml
+generators:
+    - secret-generator.yaml
