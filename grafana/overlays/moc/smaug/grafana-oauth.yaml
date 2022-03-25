@@ -39,5 +39,6 @@ spec:
         contains(groups[*], 'prometheus-anomaly-detector') && 'Editor' ||
         contains(groups[*], 'thoth')          && 'Editor' ||
         contains(groups[*], 'opf-alerting')          && 'Admin' ||
+        contains(groups[*], 'grafana-viewer')   && 'Viewer' ||
         'Deny'
       role_attribute_strict: true

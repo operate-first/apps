@@ -27,6 +27,7 @@ For example if we wanted to give the OCP group "my-team" the "Editor" Grafana ro
     contains(groups[*], 'my-team') && 'Editor' ||
     'Deny'
 ```
+Alternatively, if you do not want to create your own group and simply want read-only access to grafana, you can also just add yourself to the [`grafana-viewer` group](https://github.com/operate-first/apps/blob/master/cluster-scope/base/user.openshift.io/groups/grafana-viewer/group.yaml).
 
 Submit a PR with the changes.
 

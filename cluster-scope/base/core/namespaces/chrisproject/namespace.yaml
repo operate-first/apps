@@ -3,6 +3,7 @@ kind: Namespace
 metadata:
     name: chrisproject
     annotations:
+        openshift.io/display-name: "ChRIS"
         openshift.io/requester: redhat-impact
         op1st/project-owner: redhat-impact
         op1st/onboarding-issue: "https://github.com/operate-first/support/issues/527"

@@ -4,35 +4,5 @@ kind: Kustomization
 namespace: opf-superset
 
 resources:
-  - ../../../../base/superset
+  - kfdef.yaml
   - secrets
-
-patchesJson6902:
-  - patch: |
-      - op: add
-        path: /spec/applications/-
-        value:
-          kustomizeConfig:
-            parameters:
-              - name: superset_memory_requests
-                value: "6Gi"
-              - name: superset_memory_limits
-                value: "8Gi"
-              - name: superset_secret
-                value: "superset-custom"
-              - name: superset_db_secret
-                value: "superset-db-custom"
-            repoRef:
-              name: opf
-              path: odh-manifests/smaug/superset
-          name: superset
-      - op: add
-        path: /spec/repos/-
-        value:
-          name: opf
-          uri: https://github.com/operate-first/apps/tarball/master
-    target:
-      group: kfdef.apps.kubeflow.org
-      kind: KfDef
-      name: opendatahub
-      version: v1
