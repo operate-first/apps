@@ -16,6 +16,9 @@ subjects:
     name: apicurio
   - kind: Group
     apiGroup: rbac.authorization.k8s.io
+    name: scsaol
+  - kind: Group
+    apiGroup: rbac.authorization.k8s.io
     name: data-science
   - kind: Group
     apiGroup: rbac.authorization.k8s.io
