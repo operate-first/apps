@@ -32,12 +32,6 @@
             "owner": true
         },
         {
-            "group": ".*",
-            "catalog": "osc_datacommons_dev",
-            "schema": "workaround_1801",
-            "owner": true
-        },
-        {
             "catalog": ".*",
             "schema": ".*",
             "owner": false
@@ -160,26 +154,6 @@
         {
             "catalog": "osc_datacommons_dev",
             "schema": "demo_dv",
-            "table": ".*",
-            "privileges": [
-                "SELECT"
-            ]
-        },
-        {
-            "group": ".*",
-            "catalog": "osc_datacommons_dev",
-            "schema": "workaround_1801",
-            "table": ".*",
-            "privileges": [
-                "SELECT",
-                "INSERT",
-                "DELETE",
-                "OWNERSHIP"
-            ]
-        },
-        {
-            "catalog": "osc_datacommons_dev",
-            "schema": "workaround_1801",
             "table": ".*",
             "privileges": [
                 "SELECT"
