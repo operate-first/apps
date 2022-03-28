@@ -1,10 +1,8 @@
 ---
-apiVersion: image.openshift.io/v1
 kind: ImageStream
+apiVersion: image.openshift.io/v1
 metadata:
   name: htm-applications
-  labels:
-    opendatahub.io/notebook-image: "true"
   annotations:
     opendatahub.io/notebook-image-url:
       "https://github.com/aicoe-aiops/htm-applications"
@@ -12,15 +10,16 @@ metadata:
       "HTM Applications"
     opendatahub.io/notebook-image-desc:
       "Jupyter notebook image with htm package installed"
+  labels:
+    opendatahub.io/notebook-image: 'true'
 spec:
-  lookupPolicy:
-    local: true
   tags:
-    - name: "latest"
+    - name: latest
+      annotations:
+        openshift.io/imported-from: quay.io/aicoe/htm-applications
       from:
         kind: DockerImage
-        name: quay.io/aicoe/htm-applications:latest
-      annotations:
-         openshift.io/imported-from: quay.io/aicoe/htm-applications
-      importPolicy:
-        scheduled: true
+        name: 'quay.io/aicoe/htm-applications:latest'
+      importPolicy: {}
+      referencePolicy:
+        type: Local
