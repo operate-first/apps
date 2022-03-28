@@ -11,6 +11,7 @@ catalogs:
     # admin-like privs at table or schema level: see 'allow'
     # in trino access control docs
     admin-groups:
+      - 'demo_.*'
       - '.*'
 
 schemas:
@@ -19,4 +20,29 @@ schemas:
     admin-groups: ['.*']
     public-tables: true
 
-tables: []
+  - schema: demo_dv
+    catalog: osc_datacommons_dev
+    admin-groups: ['.*']
+    public-tables: true
+
+tables:
+  - table: demo_dv_backend
+    schema: demo_dv
+    catalog: osc_datacommons_dev
+    admin-groups: [demo_dv_dev]
+    public: false
+
+  - table: demo_dv_userfacing
+    schema: demo_dv
+    catalog: osc_datacommons_dev
+    admin-groups: [demo_dv_dev]
+    public: false
+    row-acl:
+      type: filter
+      filter: "contains(current_groups(), access) or access = 'public'"
+    column-acl:
+      - groups: [demo_dv_quant]
+        hide-columns: [dev1]
+      - groups: [demo_dv_user]
+        # hide-columns are cumulative, top to bottom
+        hide-columns: [quant1]
