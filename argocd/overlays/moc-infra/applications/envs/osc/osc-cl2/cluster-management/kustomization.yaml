@@ -8,3 +8,4 @@ resources:
   - dex.yaml
   - kfdefs.yaml
   - kfp-tekton.yaml
+  - pachyderm.yaml
