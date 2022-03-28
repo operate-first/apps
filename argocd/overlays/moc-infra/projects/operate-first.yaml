@@ -64,6 +64,8 @@ spec:
     - group: monitoring.coreos.com
       kind: Alertmanager
     - group: monitoring.coreos.com
+      kind: PodMonitor
+    - group: monitoring.coreos.com
       kind: Prometheus
     - group: monitoring.coreos.com
       kind: PrometheusRule
