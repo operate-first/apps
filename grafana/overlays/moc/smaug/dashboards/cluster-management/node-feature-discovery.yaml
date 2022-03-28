@@ -27,15 +27,15 @@ spec:
           }
         ]
       },
-      "editable": false,
-      "gnetId": null,
+      "editable": true,
+      "fiscalYearStartMonth": 0,
       "graphTooltip": 0,
-      "id": null,
-      "iteration": 1635236910805,
+      "id": 2,
+      "iteration": 1648046652874,
       "links": [],
+      "liveNow": false,
       "panels": [
         {
-          "datasource": null,
           "gridPos": {
             "h": 1,
             "w": 24,
@@ -47,7 +47,10 @@ spec:
           "type": "row"
         },
         {
-          "datasource": "openshift-monitoring",
+          "datasource": {
+            "type": "prometheus",
+            "uid": "${datasource}"
+          },
           "fieldConfig": {
             "defaults": {
               "color": {
@@ -79,6 +82,13 @@ spec:
           },
           "id": 4,
           "options": {
+            "footer": {
+              "fields": "",
+              "reducer": [
+                "sum"
+              ],
+              "show": false
+            },
             "showHeader": false,
             "sortBy": [
               {
@@ -87,9 +97,13 @@ spec:
               }
             ]
           },
-          "pluginVersion": "8.1.1",
+          "pluginVersion": "8.4.3",
           "targets": [
             {
+              "datasource": {
+                "type": "prometheus",
+                "uid": "${datasource}"
+              },
               "exemplar": false,
               "expr": "sum(kube_node_labels{label_feature_node_kubernetes_io_cpu_cpuid_$flag=\"true\"}) by (cluster)",
               "format": "table",
@@ -117,7 +131,10 @@ spec:
           "type": "table"
         },
         {
-          "datasource": "openshift-monitoring",
+          "datasource": {
+            "type": "prometheus",
+            "uid": "${datasource}"
+          },
           "fieldConfig": {
             "defaults": {
               "color": {
@@ -152,6 +169,13 @@ spec:
           },
           "id": 7,
           "options": {
+            "footer": {
+              "fields": "",
+              "reducer": [
+                "sum"
+              ],
+              "show": false
+            },
             "showHeader": true,
             "sortBy": [
               {
@@ -160,9 +184,13 @@ spec:
               }
             ]
           },
-          "pluginVersion": "8.1.1",
+          "pluginVersion": "8.4.3",
           "targets": [
             {
+              "datasource": {
+                "type": "prometheus",
+                "uid": "${datasource}"
+              },
               "exemplar": false,
               "expr": "sum(kube_node_labels{label_feature_node_kubernetes_io_cpu_cpuid_$flag=\"true\"}) by (node, cluster)",
               "format": "table",
@@ -190,7 +218,6 @@ spec:
           "type": "table"
         },
         {
-          "datasource": null,
           "description": "https://kubernetes-sigs.github.io/node-feature-discovery",
           "gridPos": {
             "h": 7,
@@ -203,7 +230,7 @@ spec:
             "content": "<pre>\nspec:\n  nodeSelector:\n    feature.node.kubernetes.io/cpu-cpuid.<span style=\"text-transform:uppercase;\">$flag</span>: 'true'\n</pre>",
             "mode": "markdown"
           },
-          "pluginVersion": "8.1.1",
+          "pluginVersion": "8.4.3",
           "targets": [
             {
               "queryType": "randomWalk",
@@ -215,7 +242,6 @@ spec:
         },
         {
           "collapsed": false,
-          "datasource": null,
           "gridPos": {
             "h": 1,
             "w": 24,
@@ -228,7 +254,10 @@ spec:
           "type": "row"
         },
         {
-          "datasource": "openshift-monitoring",
+          "datasource": {
+            "type": "prometheus",
+            "uid": "${datasource}"
+          },
           "fieldConfig": {
             "defaults": {
               "color": {
@@ -303,13 +332,24 @@ spec:
           },
           "id": 2,
           "options": {
+            "footer": {
+              "fields": "",
+              "reducer": [
+                "sum"
+              ],
+              "show": false
+            },
             "showHeader": true,
             "sortBy": []
           },
-          "pluginVersion": "8.1.1",
+          "pluginVersion": "8.4.3",
           "targets": [
             {
-              "exemplar": true,
+              "datasource": {
+                "type": "prometheus",
+                "uid": "${datasource}"
+              },
+              "exemplar": false,
               "expr": "kube_node_labels{} * on (node) group_left sum(kube_node_labels{cluster=\"$cluster\"}) by (node)",
               "format": "table",
               "hide": false,
@@ -370,63 +410,71 @@ spec:
         }
       ],
       "refresh": false,
-      "schemaVersion": 30,
+      "schemaVersion": 35,
       "style": "dark",
       "tags": [],
       "templating": {
         "list": [
           {
-            "allValue": null,
+            "current": {
+              "selected": true,
+              "text": "default",
+              "value": "default"
+            },
+            "hide": 0,
+            "includeAll": false,
+            "label": "Datasource",
+            "multi": false,
+            "name": "datasource",
+            "options": [],
+            "query": "prometheus",
+            "queryValue": "",
+            "refresh": 1,
+            "regex": "",
+            "skipUrlSync": false,
+            "type": "datasource"
+          },
+          {
             "current": {
               "selected": true,
               "text": "moc/smaug",
               "value": "moc/smaug"
             },
-            "description": null,
-            "error": null,
+            "datasource": {
+              "type": "prometheus",
+              "uid": "${datasource}"
+            },
+            "definition": "label_values(kube_node_labels, cluster)",
             "hide": 0,
             "includeAll": false,
             "label": "Cluster",
             "multi": false,
             "name": "cluster",
-            "options": [
-              {
-                "selected": true,
-                "text": "moc/smaug",
-                "value": "moc/smaug"
-              },
-              {
-                "selected": false,
-                "text": "moc/infra",
-                "value": "moc/infra"
-              },
-              {
-                "selected": false,
-                "text": "emea/rick",
-                "value": "emea/rick"
-              },
-              {
-                "selected": false,
-                "text": "emea/balrog",
-                "value": "emea/balrog"
-              }
-            ],
-            "query": "moc/smaug,moc/infra,emea/rick,emea/balrog",
-            "queryValue": "",
+            "options": [],
+            "query": {
+              "query": "label_values(kube_node_labels, cluster)",
+              "refId": "StandardVariableQuery"
+            },
+            "refresh": 2,
+            "regex": "",
             "skipUrlSync": false,
-            "type": "custom"
+            "sort": 1,
+            "type": "query"
           },
           {
-            "allValue": null,
             "current": {
               "selected": false,
               "text": "aesni",
               "value": "aesni"
             },
-            "datasource": "openshift-monitoring",
+            "datasource": {
+              "uid": "openshift-monitoring"
+            },
             "definition": "label_names()",
             "description": "Filter all clusters and all nodes by a flag to see which clusters and nodes can be scheduled",
-            "error": null,
+            "error": {
+              "message": "Datasource openshift-monitoring was not found"
+            },
             "hide": 0,
             "includeAll": false,
             "label": "Global flag filter",
@@ -453,5 +501,6 @@ spec:
       "timezone": "",
       "title": "Node feature discovery",
       "uid": "LCLH8kd7z",
-      "version": 1
+      "version": 4,
+      "weekStart": ""
     }
