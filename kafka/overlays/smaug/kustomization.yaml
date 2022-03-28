@@ -6,3 +6,5 @@ resources:
 - topics
 - users
 - kafka-podmonitors.yaml
+patchesStrategicMerge:
+  - opf-kafdrop.yaml
