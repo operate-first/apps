@@ -1,0 +1,27 @@
+apiVersion: v1
+data:
+  extraconfig-from-values.hcl: |-
+    disable_mlock = true
+    ui = true
+
+    listener "tcp" {
+      tls_disable = 1
+      address = "[::]:8200"
+      cluster_address = "[::]:8201"
+    }
+
+    storage "raft" {
+      path = "/vault/data"
+    }
+
+    service_registration "kubernetes" {}
+
+kind: ConfigMap
+metadata:
+  labels:
+    app.kubernetes.io/instance: opf
+    app.kubernetes.io/managed-by: Helm
+    app.kubernetes.io/name: vault
+    helm.sh/chart: vault-0.18.0
+  name: opf-vault-config
+  namespace: vault
