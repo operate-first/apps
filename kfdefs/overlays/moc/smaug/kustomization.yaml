@@ -9,7 +9,6 @@ resources:
   - opf-google-spark-operator
   - opf-jupyterhub
   - opf-jupyterhub-stage
-  - opf-kafka
   - opf-seldon
   - opf-superset
   - opf-trino
