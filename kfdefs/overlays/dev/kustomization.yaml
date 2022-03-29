@@ -7,7 +7,6 @@ resources:
   - opf-dashboard
   - opf-datacatalog
   - opf-jupyterhub
-  - opf-kafka
   - opf-monitoring
   - opf-seldon
   - opf-superset
