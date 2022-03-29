@@ -24,6 +24,7 @@ resources:
   - ../../../../base/user.openshift.io/groups/kubeflow-admin
   - ../../../../base/user.openshift.io/groups/odh-admin
   - ../../../../base/user.openshift.io/groups/odh-users
+  - ../../../../base/user.openshift.io/groups/pachyderm-admins
   - ../../../../base/user.openshift.io/groups/seldon-admin
   - apiserver
   - ingresscontroller
@@ -35,4 +36,5 @@ patchesStrategicMerge:
   - groups/kubeflow-admin.yaml
   - groups/odh-admin.yaml
   - groups/odh-users.yaml
+  - groups/pachyderm-admins.yaml
   - groups/seldon-admin.yaml
