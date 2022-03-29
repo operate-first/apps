@@ -5,4 +5,5 @@ resources:
   - acme-operator.yaml
   - dex.yaml
   - cloudbeaver.yaml
+  - k8s-annotations-exporter.yaml
   - kfdefs.yaml
