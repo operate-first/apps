@@ -5,3 +5,4 @@ resources:
     - namespace.yaml
 components:
     - ../../../../components/limitranges/default
+    - ../../../../components/project-admin-rolebindings/osc-pachyderm-admins
