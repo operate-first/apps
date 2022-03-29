@@ -1,0 +1,12 @@
+apiVersion: integreatly.org/v1alpha1
+kind: GrafanaDashboard
+metadata:
+  labels:
+    app: grafana
+  name: strimzi-kafka-overview
+spec:
+  customFolderName: Kafka
+  url: https://raw.githubusercontent.com/strimzi/strimzi-kafka-operator/60f929c3c69c1d54cac6713a58f23d320cf59419/examples/metrics/grafana-dashboards/strimzi-kafka.json
+  datasources:
+    - inputName: "DS_PROMETHEUS"
+      datasourceName: "moc-smaug"
