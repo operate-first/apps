@@ -26,6 +26,7 @@ resources:
   - ../../../../base/user.openshift.io/groups/seldon-admin
   - ../../../../bundles/kfp-tekton
   - ../../../../bundles/openshift-pipelines
+  - ../../../../bundles/pachyderm-operator
   - apiserver
   - ingresscontroller
   - machinesets

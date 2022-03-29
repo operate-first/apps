@@ -1,0 +1,15 @@
+apiVersion: aiml.pachyderm.com/v1beta1
+kind: Pachyderm
+metadata:
+  name: pachyderm-sample
+  namespace: pachyderm-test
+spec:
+  console:
+    disable: true
+  pachd:
+    metrics:
+      disable: false
+    storage:
+      amazon:
+        credentialSecretName: pachyderm-aws
+      backend: AMAZON
