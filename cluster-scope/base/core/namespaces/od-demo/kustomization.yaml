@@ -1,0 +1,9 @@
+kind: Kustomization
+apiVersion: kustomize.config.k8s.io/v1beta1
+namespace: od-demo
+resources:
+    - namespace.yaml
+components:
+    - ../../../../components/limitranges/default
+    - ../../../../components/project-admin-rolebindings/emea-sa
+    - ../../../../components/resourcequotas/small

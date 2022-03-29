@@ -35,6 +35,7 @@ resources:
 - ../../../../base/core/namespaces/kubeflow
 - ../../../../base/core/namespaces/manageiq
 - ../../../../base/core/namespaces/neu-cs6620
+- ../../../../base/core/namespaces/od-demo
 - ../../../../base/core/namespaces/openshift-cnv
 - ../../../../base/core/namespaces/openshift-logging
 - ../../../../base/core/namespaces/openshift-operators
