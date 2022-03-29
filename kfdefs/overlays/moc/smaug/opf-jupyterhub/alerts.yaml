@@ -26,3 +26,61 @@ spec:
             < 0.1
           labels:
             severity: critical
+    - name: SLOs-probe_success
+      rules:
+        - alert: Probe Success Burn Rate
+          annotations:
+            description: >-
+              Jupyterhub successful probe burn rate  in the last 2 minutes found by
+              Blackbox are failing to meet the 98% SLO.
+            summary:
+              Probe success burn rate for Jupyterhub is not met for last 2 mins
+          expr: |
+            sum(probe_success:burnrate5m{opf-instance=~"jupyterhub"}) by (opf-instance) > (14.40 * (1-0.98000))
+            and
+            sum(probe_success:burnrate1h{opf-instance=~"jupyterhub"}) by (opf-instance) > (14.40 * (1-0.98000))
+          for: 2m
+          labels:
+            severity: critical
+        - alert: Probe Success Burn Rate
+          annotations:
+            description: >-
+              Jupyterhub successful probe burn rate  in the last 15 minutes found by
+              Blackbox are failing to meet the 98% SLO.
+            summary:
+              Probe success burn rate for Jupyterhub is not met for last 15 mins
+          expr: |
+            sum(probe_success:burnrate30m{opf-instance=~"jupyterhub"}) by (opf-instance) > (6.00 * (1-0.98000))
+            and
+            sum(probe_success:burnrate6h{opf-instance=~"jupyterhub"}) by (opf-instance) > (6.00 * (1-0.98000))
+          for: 15m
+          labels:
+            severity: critical
+        - alert: Probe Success Burn Rate
+          annotations:
+            description: >-
+              Jupyterhub successful probe burn rate  in the last 1 hour found by
+              Blackbox are failing to meet the 98% SLO.
+            summary:
+              Probe success burn rate for Jupyterhub is not met for last 1 hour
+          expr: |
+            sum(probe_success:burnrate2h{opf-instance=~"jupyterhub"}) by (opf-instance) > (3.00 * (1-0.98000))
+            and
+            sum(probe_success:burnrate1d{opf-instance=~"jupyterhub"}) by (opf-instance) > (3.00 * (1-0.98000))
+          for: 1h
+          labels:
+            severity: critical
+        - alert: Probe Success Burn Rate
+          annotations:
+            description: >-
+              Jupyterhub successful probe burn rate  in the last 3 hours found by
+              Blackbox are failing to meet the 98% SLO.
+            summary:
+              Probe success burn rate for Jupyterhub is not met for last 3 hours
+          expr: |
+            sum(probe_success:burnrate6h{opf-instance=~"jupyterhub"}) by (opf-instance) > (1.00 * (1-0.98000))
+            and
+            sum(probe_success:burnrate3d{opf-instance=~"jupyterhub"}) by (opf-instance) > (1.00 * (1-0.98000))
+          for: 3h
+          labels:
+            severity: critical
