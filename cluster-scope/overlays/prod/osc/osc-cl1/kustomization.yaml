@@ -10,6 +10,7 @@ resources:
   - ../../../../base/core/namespaces/dex
   - ../../../../base/core/namespaces/kubeflow
   - ../../../../base/core/namespaces/odh-jupyterhub
+  - ../../../../base/core/namespaces/opf-jupyterhub-stage
   - ../../../../base/core/namespaces/odh-seldon
   - ../../../../base/core/namespaces/odh-superset
   - ../../../../base/core/namespaces/odh-trino
