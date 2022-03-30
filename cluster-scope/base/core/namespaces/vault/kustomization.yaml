@@ -3,7 +3,7 @@ kind: Kustomization
 namespace: vault
 resources:
 - namespace.yaml
+- resourcequota.yaml
 components:
 - ../../../../components/project-admin-rolebindings/operate-first
-- ../../../../components/resourcequotas/x-small
 - ../../../../components/limitranges/default
