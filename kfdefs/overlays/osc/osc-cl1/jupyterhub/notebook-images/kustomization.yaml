@@ -5,3 +5,4 @@ resources:
   - aicoe-osc-demo.yaml
   - corporate-data-pipeline-nb.yaml
   - elyra-image.yaml
+  - htm-applications.yaml
