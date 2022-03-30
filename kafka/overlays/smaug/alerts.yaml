@@ -1,0 +1,87 @@
+apiVersion: monitoring.coreos.com/v1
+kind: PrometheusRule
+metadata:
+  name: kafka-alerts
+spec:
+  groups:
+    - name: Kafka PVC
+      rules:
+        - alert: PVCFillingUp
+          annotations:
+            description: >-
+              The PersistentVolume claimed by {{ $labels.persistentvolumeclaim
+              }} in Namespace {{ $labels.namespace }} is only {{ $value |
+              humanizePercentage }} free.
+            summary: PersistentVolume is filling up.
+          # Alert when 90% of PVC is full
+          expr: >-
+            kubelet_volume_stats_available_bytes{namespace="opf-kafka"}/kubelet_volume_stats_capacity_bytes{namespace="opf-kafka"}
+            < 0.9
+          labels:
+            severity: critical
+
+    - name: Kafka-metrics Rules
+      interval: 5m
+      rules:
+        - alert: opf-kafka is no longer running
+          expr: absent(up{job="opf-kafka/kafka-metrics"} == 1)
+          for: 5m
+          annotations:
+            summary: The opf-kafka service is not running
+            description: >-
+              opf-kafka in the namepace {{ $labels.namespace}}
+              is no longer running. VALUE = {{ $value }}\n  LABELS = {{ $labels }}
+            severity: "Critical"
+          labels:
+            service: "opf-kafka"
+            severity: "Critical"
+        - alert: Under_Replicated_Partition_Count
+          expr: kafka_cluster_partition_underreplicated{job="opf-kafka/kafka-metrics"} > 0
+          for: 1m
+          labels:
+            severity: critical
+          annotations:
+            summary: 'Kafka {{ $labels }}: {{ $value }} under replicated partitons'
+            description: 'Under-replicated partitions means that one or more replicas are not available. This is usually because a broker is down.  Restart the broker, and check for errors in the logs.'
+        - alert: Active_Controller
+          expr: kafka_controller_kafkacontroller_activecontrollercount{cluster="moc/smaug"} != 1
+          for: 1m
+          labels:
+            severity: critical
+          annotations:
+            summary: 'Kafka: No active controller'
+            description: ' Kafka {{ $labels }}: {{ $value }} No broker in the cluster is reporting as the active controller in the last 1 minute interval. During steady state there should be only one active controller per cluster.'
+
+    - name: Kafka-consumer-group-rules
+      interval: 1m
+      rules:
+        - alert: Kafka2es consumer group lag is higher than 1 million
+          expr: sum(kafka_server_fetcherlagmetrics_consumerlag{group='opf-kafka/kafka-metrics', job='opf-kafka/kafka-metrics'}) by (group) > 1000000
+          for: 30s
+          annotations:
+            summary: "The current opf-kafka/kafka-metrics consumer group lag is: {{ $value }}"
+            severity: "HIGH"
+
+    - name: Kafka Unavailable partitions rules
+      interval: 1m
+      rules:
+        - alert: Kafka unavailable partitions > 0
+          expr: kafka_controller_kafkacontroller_offlinepartitionscount > 0
+          for: 1m
+          annotations:
+            summary: "Kafka unavailable partitions is greater than 0"
+            severity: "HIGH"
+
+    - name: Kafka Broker Rules
+      rules:
+      - alert: KafkaBrokerOffline
+        annotations:
+          title: Kafka brokers are offline
+          severity: HIGH
+          summary: Atleast one kafka broker is offline
+          description: Currently there are {{ $value }} brokers online
+        expr: |
+          count(kafka_server_replicamanager_leadercount{job='opf-kafka/kafka-metrics'}) < 5
+        for: 10m
+        labels:
+          severity: "Critical"
