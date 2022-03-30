@@ -20,6 +20,7 @@ spec:
       from:
         kind: DockerImage
         name: 'quay.io/aicoe/htm-applications:latest'
-      importPolicy: {}
+      importPolicy:
+        scheduled: true
       referencePolicy:
         type: Local
