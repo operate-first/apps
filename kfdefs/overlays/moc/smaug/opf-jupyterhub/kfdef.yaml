@@ -26,6 +26,9 @@ spec:
     - kustomizeConfig:
         overlays:
           - additional
+        repoRef:
+          name: manifests
+          path: jupyterhub/notebook-images
       name: notebook-images
   repos:
     - name: manifests
