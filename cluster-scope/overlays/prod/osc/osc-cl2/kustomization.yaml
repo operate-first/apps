@@ -28,6 +28,7 @@ resources:
   - ../../../../bundles/kfp-tekton
   - ../../../../bundles/openshift-pipelines
   - ../../../../bundles/pachyderm-operator
+  - ../../../../bundles/reloader
   - apiserver
   - ingresscontroller
   - machinesets
