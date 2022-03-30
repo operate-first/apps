@@ -23,3 +23,4 @@ resources:
   - s2i-pytorch-py38-notebook.yaml
   - bu-cs-jupyterbook.yaml
   - operate-first-jupyterhub-analysis.yaml
+  - htm-applications.yaml
