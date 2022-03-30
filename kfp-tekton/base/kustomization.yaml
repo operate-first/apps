@@ -35,7 +35,7 @@ resources:
   - ./serviceaccounts/pipeline-runner.yaml
 
   # Secrets
-  - ./secrets/mlpipeline-ceph-artifact.yaml
+  - ./secrets/mlpipeline-minio-artifact.yaml
   - ./secrets/mysql-secret.yaml
 
   # Configmaps
@@ -45,6 +45,7 @@ resources:
 
   # PersistentVolumeClaims
   - ./persistentvolumeclaims/mysql-pv-claim.yaml
+  - ./persistentvolumeclaims/minio-pvc.yaml
 
   # Deployments
   - ./deployments/metadata-envoy-deployment.yaml
@@ -55,6 +56,7 @@ resources:
   - ./deployments/ml-pipeline-ui.yaml
   - ./deployments/ml-pipeline-viewer-crd.yaml
   - ./deployments/ml-pipeline-visualizationserver.yaml
+  - ./deployments/minio.yaml
   - ./deployments/ml-pipeline.yaml
   - ./deployments/mysql.yaml
 
@@ -65,6 +67,7 @@ resources:
   - ./services/ml-pipeline-visualizationserver.yaml
   - ./services/ml-pipeline.yaml
   - ./services/mysql.yaml
+  - ./services/minio.yaml
 
   # Routes
   - ./routes/ml-pipeline-ui.yaml
