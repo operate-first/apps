@@ -1,0 +1,621 @@
+apiVersion: integreatly.org/v1alpha1
+kind: GrafanaDashboard
+metadata:
+  labels:
+    app: grafana
+  name: opf-workload-overview
+spec:
+  customFolderName: Operate-First
+  json: |
+    {
+      "annotations": {
+        "list": [
+          {
+            "builtIn": 1,
+            "datasource": "-- Grafana --",
+            "enable": true,
+            "hide": true,
+            "iconColor": "rgba(0, 211, 255, 1)",
+            "name": "Annotations & Alerts",
+            "target": {
+              "limit": 100,
+              "matchAny": false,
+              "tags": [],
+              "type": "dashboard"
+            },
+            "type": "dashboard"
+          }
+        ]
+      },
+      "editable": true,
+      "fiscalYearStartMonth": 0,
+      "graphTooltip": 0,
+      "id": 40,
+      "iteration": 1648224654530,
+      "links": [],
+      "liveNow": false,
+      "panels": [
+        {
+          "collapsed": false,
+          "gridPos": {
+            "h": 1,
+            "w": 24,
+            "x": 0,
+            "y": 0
+          },
+          "id": 2,
+          "panels": [],
+          "repeat": "cluster",
+          "title": "Overview for cluster $cluster",
+          "type": "row"
+        },
+        {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "${datasource}"
+          },
+          "fieldConfig": {
+            "defaults": {
+              "color": {
+                "mode": "thresholds"
+              },
+              "custom": {
+                "align": "auto",
+                "displayMode": "auto",
+                "filterable": true
+              },
+              "mappings": [],
+              "thresholds": {
+                "mode": "percentage",
+                "steps": [
+                  {
+                    "color": "dark-red",
+                    "value": null
+                  }
+                ]
+              },
+              "unit": "none"
+            },
+            "overrides": [
+              {
+                "matcher": {
+                  "id": "byName",
+                  "options": "Project Owner Group"
+                },
+                "properties": [
+                  {
+                    "id": "links",
+                    "value": [
+                      {
+                        "targetBlank": true,
+                        "title": "Project Owner Group link",
+                        "url": "https://github.com/operate-first/apps/blob/master/cluster-scope/base/user.openshift.io/groups/${__data.fields[\"Project Owner Group\"]}/group.yaml#L5"
+                      }
+                    ]
+                  }
+                ]
+              },
+              {
+                "matcher": {
+                  "id": "byName",
+                  "options": "Project"
+                },
+                "properties": [
+                  {
+                    "id": "links",
+                    "value": [
+                      {
+                        "targetBlank": true,
+                        "title": "project docs url",
+                        "url": "${__data.fields.annotation_op1st_docs}"
+                      }
+                    ]
+                  }
+                ]
+              },
+              {
+                "matcher": {
+                  "id": "byName",
+                  "options": "Onboarding Issue"
+                },
+                "properties": [
+                  {
+                    "id": "links",
+                    "value": [
+                      {
+                        "title": "onboarding issue url",
+                        "url": "${__data.fields.annotation_op1st_onboarding_issue}"
+                      }
+                    ]
+                  }
+                ]
+              },
+              {
+                "matcher": {
+                  "id": "byName",
+                  "options": "annotation_op1st_docs"
+                },
+                "properties": [
+                  {
+                    "id": "custom.hidden",
+                    "value": true
+                  }
+                ]
+              },
+              {
+                "matcher": {
+                  "id": "byName",
+                  "options": "Namespace"
+                },
+                "properties": [
+                  {
+                    "id": "links",
+                    "value": [
+                      {
+                        "targetBlank": true,
+                        "title": "project namespace url",
+                        "url": "https://github.com/operate-first/apps/blob/master/cluster-scope/base/core/namespaces/${__data.fields.Namespace}/namespace.yaml"
+                      }
+                    ]
+                  },
+                  {
+                    "id": "custom.width",
+                    "value": 291
+                  }
+                ]
+              },
+              {
+                "matcher": {
+                  "id": "byName",
+                  "options": "Memory limits usage"
+                },
+                "properties": [
+                  {
+                    "id": "custom.displayMode",
+                    "value": "color-text"
+                  },
+                  {
+                    "id": "thresholds",
+                    "value": {
+                      "mode": "percentage",
+                      "steps": [
+                        {
+                          "color": "dark-red",
+                          "value": null
+                        },
+                        {
+                          "color": "yellow",
+                          "value": 25
+                        },
+                        {
+                          "color": "green",
+                          "value": 50
+                        },
+                        {
+                          "color": "dark-green",
+                          "value": 75
+                        }
+                      ]
+                    }
+                  },
+                  {
+                    "id": "unit",
+                    "value": "percentunit"
+                  },
+                  {
+                    "id": "mappings",
+                    "value": [
+                      {
+                        "options": {
+                          "match": "null+nan",
+                          "result": {
+                            "color": "semi-dark-yellow",
+                            "index": 0,
+                            "text": "No Quota set"
+                          }
+                        },
+                        "type": "special"
+                      }
+                    ]
+                  }
+                ]
+              },
+              {
+                "matcher": {
+                  "id": "byRegexp",
+                  "options": ".* limits usage"
+                },
+                "properties": [
+                  {
+                    "id": "unit",
+                    "value": "percentunit"
+                  },
+                  {
+                    "id": "custom.displayMode",
+                    "value": "color-text"
+                  },
+                  {
+                    "id": "thresholds",
+                    "value": {
+                      "mode": "percentage",
+                      "steps": [
+                        {
+                          "color": "red",
+                          "value": null
+                        },
+                        {
+                          "color": "orange",
+                          "value": 25
+                        },
+                        {
+                          "color": "#EAB839",
+                          "value": 50
+                        },
+                        {
+                          "color": "green",
+                          "value": 75
+                        }
+                      ]
+                    }
+                  },
+                  {
+                    "id": "mappings",
+                    "value": [
+                      {
+                        "options": {
+                          "match": "null+nan",
+                          "result": {
+                            "color": "dark-blue",
+                            "index": 0,
+                            "text": "No Resource Quota Set"
+                          }
+                        },
+                        "type": "special"
+                      }
+                    ]
+                  }
+                ]
+              }
+            ]
+          },
+          "gridPos": {
+            "h": 9,
+            "w": 24,
+            "x": 0,
+            "y": 1
+          },
+          "id": 4,
+          "options": {
+            "footer": {
+              "fields": "",
+              "reducer": [
+                "sum"
+              ],
+              "show": false
+            },
+            "frameIndex": 0,
+            "showHeader": true,
+            "sortBy": [
+              {
+                "desc": false,
+                "displayName": "Project"
+              }
+            ]
+          },
+          "pluginVersion": "8.4.3",
+          "targets": [
+            {
+              "datasource": {
+                "type": "prometheus",
+                "uid": "${datasource}"
+              },
+              "exemplar": false,
+              "expr": "label_replace(kube_resourcequota{namespace=~\"$namespace\", cluster=~\"$cluster\", resource=\"limits.cpu\",type=\"used\"} / ignoring(type) kube_resourcequota{cluster=~\"$cluster\",resource=\"limits.cpu\",type=\"hard\"}, \"name\", \"$1\", \"namespace\", \"(.+)\")",
+              "format": "table",
+              "instant": true,
+              "interval": "",
+              "legendFormat": "",
+              "refId": "A"
+            },
+            {
+              "datasource": {
+                "type": "prometheus",
+                "uid": "${datasource}"
+              },
+              "exemplar": false,
+              "expr": "k8s_resource_annotations_info{cluster=~\"$cluster\", name=~\"$namespace\"}",
+              "format": "table",
+              "hide": false,
+              "instant": true,
+              "interval": "",
+              "legendFormat": "",
+              "refId": "B"
+            },
+            {
+              "datasource": {
+                "type": "prometheus",
+                "uid": "${datasource}"
+              },
+              "exemplar": false,
+              "expr": "label_replace(kube_resourcequota{cluster=~\"$cluster\", namespace=~\"$namespace\", resource=\"limits.memory\",type=\"used\"} / ignoring(type) kube_resourcequota{cluster=~\"$cluster\",resource=\"limits.memory\",type=\"hard\"}, \"name\", \"$1\", \"namespace\", \"(.+)\")",
+              "format": "table",
+              "hide": false,
+              "instant": true,
+              "interval": "",
+              "legendFormat": "",
+              "refId": "C"
+            },
+            {
+              "datasource": {
+                "type": "prometheus",
+                "uid": "${datasource}"
+              },
+              "exemplar": false,
+              "expr": "label_replace(kube_resourcequota{cluster=~\"$cluster\", namespace=~\"$namespace\", resource=\"requests.storage\",type=\"used\"} / ignoring(type) kube_resourcequota{cluster=~\"$cluster\",resource=\"requests.storage\",type=\"hard\"}, \"name\", \"$1\", \"namespace\", \"(.+)\")",
+              "format": "table",
+              "hide": false,
+              "instant": true,
+              "interval": "",
+              "legendFormat": "",
+              "refId": "D"
+            }
+          ],
+          "title": "$cluster",
+          "transformations": [
+            {
+              "id": "seriesToColumns",
+              "options": {
+                "byField": "name"
+              }
+            },
+            {
+              "id": "organize",
+              "options": {
+                "excludeByName": {
+                  "Time 1": true,
+                  "Time 2": true,
+                  "Time 3": true,
+                  "Time 4": true,
+                  "Value #A": false,
+                  "Value #B": true,
+                  "__name__": true,
+                  "annotation_include_release_openshift_io_ibm_cloud_managed": true,
+                  "annotation_include_release_openshift_io_self_managed_high_availability": true,
+                  "annotation_include_release_openshift_io_single_node_developer": true,
+                  "annotation_kubectl_kubernetes_io_last_applied_configuration": true,
+                  "annotation_op1st_docs": false,
+                  "annotation_openshift_io_description": true,
+                  "annotation_openshift_io_requester": true,
+                  "annotation_openshift_io_sa_scc_mcs": true,
+                  "annotation_openshift_io_sa_scc_supplemental_groups": true,
+                  "annotation_openshift_io_sa_scc_uid_range": true,
+                  "annotation_workload_openshift_io_allowed": true,
+                  "api_version": true,
+                  "cluster 1": true,
+                  "cluster 2": true,
+                  "cluster 3": true,
+                  "cluster 4": true,
+                  "container 1": true,
+                  "container 2": true,
+                  "container 3": true,
+                  "container 4": true,
+                  "endpoint 1": true,
+                  "endpoint 2": true,
+                  "endpoint 3": true,
+                  "endpoint 4": true,
+                  "instance": true,
+                  "job 1": true,
+                  "job 2": true,
+                  "job 3": true,
+                  "job 4": true,
+                  "kind": true,
+                  "namespace 1": true,
+                  "namespace 2": true,
+                  "namespace 3": true,
+                  "namespace 4": true,
+                  "pod": true,
+                  "prometheus 1": true,
+                  "prometheus 2": true,
+                  "prometheus 3": true,
+                  "prometheus 4": true,
+                  "resource": true,
+                  "resource 1": true,
+                  "resource 2": true,
+                  "resource 3": true,
+                  "resourcequota": true,
+                  "resourcequota 1": true,
+                  "resourcequota 2": true,
+                  "resourcequota 3": true,
+                  "service 1": true,
+                  "service 2": true,
+                  "service 3": true,
+                  "service 4": true,
+                  "tenant_id 1": true,
+                  "tenant_id 2": true,
+                  "tenant_id 3": true,
+                  "tenant_id 4": true
+                },
+                "indexByName": {
+                  "Time 1": 4,
+                  "Time 2": 12,
+                  "Time 3": 39,
+                  "Time 4": 50,
+                  "Value #A": 11,
+                  "Value #B": 34,
+                  "Value #C": 16,
+                  "Value #D": 17,
+                  "__name__": 13,
+                  "annotation_kubectl_kubernetes_io_last_applied_configuration": 14,
+                  "annotation_op1st_docs": 15,
+                  "annotation_op1st_onboarding_issue": 18,
+                  "annotation_op1st_project_owner": 1,
+                  "annotation_openshift_io_display_name": 0,
+                  "annotation_openshift_io_requester": 19,
+                  "annotation_openshift_io_sa_scc_mcs": 20,
+                  "annotation_openshift_io_sa_scc_supplemental_groups": 21,
+                  "annotation_openshift_io_sa_scc_uid_range": 22,
+                  "api_version": 23,
+                  "cluster 1": 2,
+                  "cluster 2": 24,
+                  "cluster 3": 40,
+                  "cluster 4": 51,
+                  "container 1": 5,
+                  "container 2": 25,
+                  "container 3": 41,
+                  "container 4": 52,
+                  "endpoint 1": 6,
+                  "endpoint 2": 26,
+                  "endpoint 3": 42,
+                  "endpoint 4": 53,
+                  "instance": 27,
+                  "job 1": 7,
+                  "job 2": 28,
+                  "job 3": 43,
+                  "job 4": 54,
+                  "kind": 29,
+                  "name": 3,
+                  "namespace 1": 8,
+                  "namespace 2": 30,
+                  "namespace 3": 44,
+                  "namespace 4": 55,
+                  "pod": 31,
+                  "prometheus 1": 9,
+                  "prometheus 2": 32,
+                  "prometheus 3": 45,
+                  "prometheus 4": 56,
+                  "resource 1": 35,
+                  "resource 2": 46,
+                  "resource 3": 57,
+                  "resourcequota 1": 36,
+                  "resourcequota 2": 47,
+                  "resourcequota 3": 58,
+                  "service 1": 10,
+                  "service 2": 33,
+                  "service 3": 48,
+                  "service 4": 59,
+                  "tenant_id 1": 37,
+                  "tenant_id 2": 38,
+                  "tenant_id 3": 49,
+                  "tenant_id 4": 60
+                },
+                "renameByName": {
+                  "Time 1": "",
+                  "Time 2": "",
+                  "Value #A": "CPU limits usage",
+                  "Value #C": "Memory limits usage",
+                  "Value #D": "Storage limits usage",
+                  "annotation_op1st_onboarding_issue": "Onboarding Issue",
+                  "annotation_op1st_project_owner": "Project Owner Group",
+                  "annotation_openshift_io_display_name": "Project",
+                  "cluster 1": "Cluster",
+                  "name": "Namespace"
+                }
+              }
+            }
+          ],
+          "type": "table"
+        }
+      ],
+      "refresh": "",
+      "schemaVersion": 35,
+      "style": "dark",
+      "tags": [
+        "show-to-landing"
+      ],
+      "templating": {
+        "list": [
+          {
+            "current": {
+              "selected": false,
+              "text": "default",
+              "value": "default"
+            },
+            "description": "Metric data source",
+            "hide": 0,
+            "includeAll": false,
+            "label": "Datasource",
+            "multi": false,
+            "name": "datasource",
+            "options": [],
+            "query": "prometheus",
+            "queryValue": "",
+            "refresh": 1,
+            "regex": "",
+            "skipUrlSync": false,
+            "type": "datasource"
+          },
+          {
+            "current": {
+              "selected": true,
+              "text": [
+                "All"
+              ],
+              "value": [
+                "$__all"
+              ]
+            },
+            "datasource": {
+              "type": "prometheus",
+              "uid": "${datasource}"
+            },
+            "definition": "label_values(k8s_resource_annotations_info, cluster)",
+            "hide": 0,
+            "includeAll": true,
+            "label": "Cluster",
+            "multi": true,
+            "name": "cluster",
+            "options": [],
+            "query": {
+              "query": "label_values(k8s_resource_annotations_info, cluster)",
+              "refId": "StandardVariableQuery"
+            },
+            "refresh": 2,
+            "regex": "",
+            "skipUrlSync": false,
+            "sort": 1,
+            "type": "query"
+          },
+          {
+            "current": {
+              "selected": true,
+              "text": [
+                "All"
+              ],
+              "value": [
+                "$__all"
+              ]
+            },
+            "datasource": {
+              "type": "prometheus",
+              "uid": "${datasource}"
+            },
+            "definition": "label_values(k8s_resource_annotations_info{annotation_op1st_project_owner!=\"\", cluster=~\"$cluster\"}, name)",
+            "hide": 0,
+            "includeAll": true,
+            "label": "Project",
+            "multi": true,
+            "name": "namespace",
+            "options": [],
+            "query": {
+              "query": "label_values(k8s_resource_annotations_info{annotation_op1st_project_owner!=\"\", cluster=~\"$cluster\"}, name)",
+              "refId": "StandardVariableQuery"
+            },
+            "refresh": 2,
+            "regex": "",
+            "skipUrlSync": false,
+            "sort": 1,
+            "type": "query"
+          }
+        ]
+      },
+      "time": {
+        "from": "now-5m",
+        "to": "now"
+      },
+      "timepicker": {},
+      "timezone": "",
+      "title": "Workload Overview",
+      "uid": "opf-overview",
+      "version": 1,
+      "weekStart": ""
+    }
