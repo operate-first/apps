@@ -8,5 +8,5 @@ spec:
     requests.memory: 2Gi
     limits.cpu: '500m'
     limits.memory: 2Gi
-    requests.storage: 30Gi
+    requests.storage: 60Gi
     count/objectbucketclaims.objectbucket.io: 1

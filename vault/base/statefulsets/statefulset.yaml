@@ -131,7 +131,7 @@ spec:
           - ReadWriteOnce
         resources:
           requests:
-            storage: 10Gi
+            storage: 5Gi
     - metadata:
         name: home
       spec:
@@ -139,4 +139,4 @@ spec:
           - ReadWriteOnce
         resources:
           requests:
-            storage: 10Gi
+            storage: 5Gi
