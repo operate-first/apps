@@ -50,7 +50,6 @@ resources:
 - ../../../../base/core/namespaces/opf-jupyterhub
 - ../../../../base/core/namespaces/opf-jupyterhub-stage
 - ../../../../base/core/namespaces/opf-kafka
-- ../../../../base/core/namespaces/opf-monitoring
 - ../../../../base/core/namespaces/opf-observatorium
 - ../../../../base/core/namespaces/opf-pulp
 - ../../../../base/core/namespaces/opf-seldon
