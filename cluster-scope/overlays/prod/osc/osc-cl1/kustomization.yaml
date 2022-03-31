@@ -15,11 +15,13 @@ resources:
   - ../../../../base/core/namespaces/odh-superset
   - ../../../../base/core/namespaces/odh-trino
   - ../../../../base/core/namespaces/odh-trino-dev
+  - ../../../../base/core/namespaces/opf-monitoring
   - ../../../../base/core/namespaces/sandbox
   - ../../../../base/operators.coreos.com/subscriptions/cert-manager
   - ../../../../base/operators.coreos.com/subscriptions/opendatahub-operator
   - ../../../../base/rbac.authorization.k8s.io/clusterrolebindings/acme-operator
   - ../../../../base/rbac.authorization.k8s.io/clusterrolebindings/cluster-admins-rb
+  - ../../../../base/rbac.authorization.k8s.io/clusterrolebindings/cluster-reader-k8s-annotations-exporter
   - ../../../../base/rbac.authorization.k8s.io/clusterroles/acme-operator
   - ../../../../base/user.openshift.io/groups/cluster-admins
   - ../../../../base/user.openshift.io/groups/kubeflow-admin
