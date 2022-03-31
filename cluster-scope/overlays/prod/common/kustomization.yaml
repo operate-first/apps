@@ -67,4 +67,5 @@ resources:
 - ../../../base/user.openshift.io/groups/uky-redhat
 - ../../../base/user.openshift.io/groups/varangian
 - ../../../base/user.openshift.io/groups/workshops
+- ../../../bundles/opf-monitoring
 - alertmanager-main-secret.yaml
