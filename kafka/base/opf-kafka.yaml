@@ -30,7 +30,7 @@ spec:
       auto.create.topics.enable: false
       default.replication.factor: 3
       inter.broker.protocol.version: '3.1'
-      min.insync.replicas: 3
+      min.insync.replicas: 1
       offsets.topic.replication.factor: 3
       transaction.state.log.min.isr: 3
       transaction.state.log.replication.factor: 3
@@ -38,6 +38,13 @@ spec:
       type: persistent-claim
       size: 60Gi
       deleteClaim: false
+    resources:
+      limits:
+        cpu: 2000m
+        memory: 32Gi
+      requests:
+        cpu: 1000m
+        memory: 16Gi
     metricsConfig:
       type: jmxPrometheusExporter
       valueFrom:
@@ -50,6 +57,13 @@ spec:
       type: persistent-claim
       size: 2Gi
       deleteClaim: false
+    resources:
+      limits:
+        cpu: 500m
+        memory: 2Gi
+      requests:
+        cpu: 200m
+        memory: 1Gi
     metricsConfig:
       type: jmxPrometheusExporter
       valueFrom:
