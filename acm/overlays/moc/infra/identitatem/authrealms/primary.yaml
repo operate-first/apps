@@ -1,11 +1,11 @@
 apiVersion: identityconfig.identitatem.io/v1alpha1
 kind: AuthRealm
 metadata:
-  name: primary
+  name: operate-first
 spec:
   identityProviders:
     - github:
-        clientID: b222cb4ccc33667e28bd
+        clientID: Iv1.86e2e288288eb40d
         clientSecret:
           name: identitatem-github-client-secret
         organizations:
@@ -17,5 +17,5 @@ spec:
   # auth configured according to this authrealm IDPs
   placementRef:
     name: primary-auth
-  routeSubDomain: primary
+  routeSubDomain: operate-first
   type: dex
