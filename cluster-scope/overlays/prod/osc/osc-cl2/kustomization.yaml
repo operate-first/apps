@@ -12,7 +12,6 @@ resources:
   - ../../../../base/core/namespaces/odh-superset
   - ../../../../base/core/namespaces/odh-trino
   - ../../../../base/core/namespaces/openshift-nfd
-  - ../../../../base/core/namespaces/opf-monitoring
   - ../../../../base/core/namespaces/nvidia-gpu-operator
   - ../../../../base/operators.coreos.com/operatorgroups/openshift-nfd
   - ../../../../base/operators.coreos.com/subscriptions/nfd
@@ -29,6 +28,7 @@ resources:
   - ../../../../base/user.openshift.io/groups/seldon-admin
   - ../../../../bundles/kfp-tekton
   - ../../../../bundles/openshift-pipelines
+  - ../../../../bundles/opf-monitoring
   - ../../../../bundles/pachyderm-operator
   - ../../../../bundles/reloader
   - apiserver

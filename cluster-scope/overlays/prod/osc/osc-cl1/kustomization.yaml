@@ -15,7 +15,6 @@ resources:
   - ../../../../base/core/namespaces/odh-superset
   - ../../../../base/core/namespaces/odh-trino
   - ../../../../base/core/namespaces/odh-trino-dev
-  - ../../../../base/core/namespaces/opf-monitoring
   - ../../../../base/core/namespaces/sandbox
   - ../../../../base/operators.coreos.com/subscriptions/cert-manager
   - ../../../../base/operators.coreos.com/subscriptions/opendatahub-operator
@@ -29,6 +28,7 @@ resources:
   - ../../../../base/user.openshift.io/groups/odh-users
   - ../../../../base/user.openshift.io/groups/pachyderm-admins
   - ../../../../base/user.openshift.io/groups/seldon-admin
+  - ../../../../bundles/opf-monitoring
   - apiserver
   - ingresscontroller
 
