@@ -51,6 +51,26 @@ spec:
             httpHeaderValue1: ENC[AES256_GCM,data:oUioVMRwLzgpDMY47Xggh1lkHOEZkQ8Mkbej2TlCpHqnGseIEEqcOSHj6cKeYaNxL6MyX08FAHKo2/GgJgGCettISw0LbadWi6FgeNbuscyTRJ4KttYLlCg+u2p6JoeKOx4YtRJ8PN6hbzrtFqiKgnTyZX/dLCBnP6Xa7si3SwTbRB661KQ0av8bXThxUITmvhI2aWeYqcImTD4g4DXXRG1fMDtRY4cP1gT6TZq9cKmrDRdMB5U0SRZjT2oJRogDNlUGtYbQX96JvaGBe7okBTnBWSgiAxga0e7lS6V+sw/nqG3KHEK4QRS5h8fTKNcavIab0zH2b2Gmlehwfklz3J1HToQnAtJCIIBrKLlGnPB8IRSyxwyqOwlnMEVZ7BenUGwX6C3zLM4uESSKlX81W2YymRray2EZ9pELQa1qnmVutpRyZJVPRTsLz5yWG4obefVHLVDheEp1t59A0hjriYStRnFT+ifPzuhCBhKXWGRsqNUHGaErmaC0Z2/T6JilhxCH+mF9QzUYan8vpKE8evlAMFZ7ZdO6X+660vHlFlAZALBEak2fD/pFZzJfl8o1s6KMClKY1cCSuaWEeGSWNugzv+Spl1o2VkZQYOyx5IXOVw5c+ToaF1wUjVe7MMLLmTq1+KWW3gExdtbQ7CtVCF+YRiX79PD7FIJW5a1mkcX9EJ7WqVIV8HtBlmXt96ud+u9CbMiVP+6wPo0NIb2Xw9bTK2tlPc5v4VZVMZzxsC1ALUwDR+tzB1UJvuHIZ5Q0S3hKJXNgaNw8GP9mtebaFc3ot+9pYnD1KyBVLHsM+dhLXVvxmo3tVEflf4mxDQXidFyJUVEqFUTlEsPMyG1MWaWG51+duk95ivHnmTDXi3j6wyNfRx8i9ZH5hfffwDLlL+SYy4fFTLfjcfewC3hFpSVhyk0KkTURmb32mcW2aJootWz0Zqu09h6Nc7/8dZAsoVB60trP01P6wJljuUADLkPwko8lApBlOr/21b68Hngj2qWrwyAAv8G2/k35Ccsmvxpj/HXBjWeGTM7Xer0TOIDzdBeMbG8dc9S9ZcrT3J2KhWuC/JnfAG4tUjHIl68P+mm9Lk+mJFr3iYa8lZDptPDCBVXCNMe0CHu7b1BvA9FArD8IAOFOP8gUFk93vO8d6CZaofiFLNIwJAo5f476Lez+gACdlmx6nibfeVRPi5A8wP3qq0cv27tn8bHiHWgNQCDI2Wys861qiwf3cyCCi70ENXwO7ZV2ZzN+PRk5vovMcF/9VerKGy1X7qokAuRnb4d6qNmL/AFaRKHQPcGAJ5/ONH4eDbEMJyzZ+ncmBW09sDpaT/gy6tupMKFog1ZLTE/iC/n0u7xpXTue+HqcJAgxAvZ3rxMG5G28bPFkT7vxVD1SFRhCWRsVskdD2qKBgQDKFaXLWLAhf0FgKjGjaKtG9KuJwIxQFlbjLUI1IevcPxdfyIlQL62C0lW1QUhpFrWJPBUJTV+Uu4YNpKOUdaW+C4ylR2HrLXMrgyj4o2/vSoznf8y8ac+adBgu4reOBMz/me3hVYy1IaWW5ge/LI/Be6zwCsv7jaqt6hfTJ6YsSCOMQTxyxkK2j/buLhln7F/3hX424MQHsLQYorxCAUMOcQ4tZH2S2NjbJ0UdLRJS7TLeUHxVJ9Hm8kaU3Hv6ga5Kldrg/ch8k/BrUByvMbNTWPc+GCAPMIRtmq0yg0z3ec5LUHAlXOvpvI7f/wLs93sx1YYxXaHwc6I6NMk5e2G9cY768+N+Cp0y6eJwEo5npe3r5vxqYI7h7/s=,iv:W77HRfI3w+R/uB/1lNwi63mpSj4uGL1+0fdVWNg1748=,tag:uQXg3ywWFMMPPW6uGGm0Mg==,type:str]
           type: prometheus
           url: https://thanos-querier-openshift-monitoring.apps.balrog.aws.operate-first.cloud/
+        - editable: false
+          jsonData:
+            httpHeaderName1: Authorization
+            timeInterval: 5s
+            tlsSkipVerify: true
+          name: osc-cl1
+          secureJsonData:
+            httpHeaderValue1: ENC[AES256_GCM,data:dhyrwVyL8FpCavoPQ9VHdmXBhEVH4ptQvLDVp9ST9sCHHlDL4GVLc/WAZIEN3uDGACVgWOc60BpqAGIVFWYw+ug18EOHzQ3xIrXBqCPoeFbf94sRsH/qj76rDGQsNCnxQosTbgmOJ4Bhk087+kltxPJ8RLKCdrZaum09/Hbj8X/fZonklF+A+55dXoQW+i41e/L10mymqUOUyLcqBaShlZwfCZlN6ptTlzlLO0Sj5zrHpEF9ReoCkNF7Y9T6Li2PPzblwByeRxDw791iGU76yxLe5QrzeAGdPtA/+EQ6NkrUDco72HuxroMosFs1PBUBwQ+BtwcYIXdiUKTf8Yea4tQTa1ENd0AxfDl3PapxCqX4r6/AAooZqv8lM9OfOvAqeLrGw9ucn50+jNdpQYY/Fj32TTEJOYf6VFGwoPXYYDvdkxSP/neV2rGg4R18v5nA1n54xSNJlXb+NSpCgYg/0tryseskOKPLzbdUkoP7ucNM8vv3zTwSRXqxzhPdBulucoamRGfZwGHHneByFUOa9k9tRvyKMS9N21cmym+oHPHPWn1p23alzf0G+/3SPdIpPJHF2sG/aoP2B7AG7uGFc3sIDb6sir9F3tOUDf1jVabzJp9BKg6vcCSIn8LBwcDAJZ/kYsmGNZSyfw/xCrZ497l52hElMBTOSVYbirB4py5HKv7V8n0VQtmsTrXEef0oquTzp3L9cF5YYBqTdGVe+9Yng8YFOG3jDso1sXiRHPE0kZsdg2EgRntbVotYsoN1emEJK5YV5vAcHTX2eb7yMUWtYdoGEZWqgSocM1iaCQBaXEEZYQS6/FSBWC2wnuM4+q8pYNx8QMoE3QHQcLa+kaRyIeI6Z/cUbiOBjGBdmzP8xpDHeRCbSZCpQqo9pTwgJf+WzR6Ma3fqVCDEGFJPjzCBGpvWlRVuamH4nVQn46ahyFu9atjbKkdBH4Puiz3TreCB7gzJRDffl6b1gxm1yZ3pp0yT8hPlig8J5sOdN3ZMeI5dzeMg36mm2ntX+xfsE8LYeq9ze2yA5y8xpamEIiqHVfEK0NiCXKm1CoxWOi634SDfuDMjEapkFRG3ms/dg4ynXoMmWP+rlNKpZt944R0nItMamLKg6ZfMp09Imx1kIVosC/9uIxdgMysDIEFEi01NrbsnaJrIM6NBxWsWnh4u4Mj5ENxv8zeoliRhXPRmapT44n1qAfmVsIDsDrpIFlD4466J5H6QTIZrkOVZHr9MPnIOeo1PCwA9CwlUbLDgeCgxcGcaMgOQwGHIyPMdNqQwn1oLAWOK0t5f0paJMGcSjbzTUD6GHw==,iv:Mht2pTGtQoYF9SLbm+OxWuaSXjjZQXMTF19AawPY/zE=,tag:VviRUps7Loi4kBeaWekP5w==,type:str]
+          type: prometheus
+          url: https://thanos-querier-openshift-monitoring.apps.odh-cl1.apps.os-climate.org/
+        - editable: false
+          jsonData:
+            httpHeaderName1: Authorization
+            timeInterval: 5s
+            tlsSkipVerify: true
+          name: osc-cl2
+          secureJsonData:
+            httpHeaderValue1: ENC[AES256_GCM,data:f0oZAeA/9q6OuEzmfgjAmgGDstXwxqkyIO13ZMqDXt7yfNLguP3nBN6rIkODbcni3w/6P5w7kbfGvIKniL182f47rjHN3YlOytPDukAB2dZ4ERbWjpUsTp1edfiiKIRZTn8IC2y1qWfElo/jwkhJvvM/g30iTyNk6OeZt6g/oWpp1RYck+kl3BMiOLSyZeLJRj5Z7XvjeFMapaqzxS2vNGqp8lCTMK/QnaotEuFYfgQyH6mNZ4/maPW+nLlgazNTi3j2vmq+CvOOOThXmsSkzt8uV93Eu3OaH3m431/80cHth71TZa4IB+M/uzkovtrg+KJSIsOPUOAfY0VVXEONTrsogkPzPxqKqhr05raO9n5L3eZEcEfdGUAxIEXpp9DZmL+BsewxyGyimnut2XBUB+nI6JGCEMsXvY4leHeP4qxuvdN3M3c0sMZhFV4zc1m5YM5cUvipnBFTlWJ/fGVgr4+jVkO3GHnjVSLyKD4RlFui6jrWZZpn28VgTIpJpku97eDm8CcFbl8p8QlYxo4yKTF5d+9H3dB2c4+Qd9edd7p6lYI516Xxh2AZZcWZrGrROs7BpV3MnzKNJbawiIFoBsDPyURyBkMtyKp59oNYbnsH/DWT/fKpely6Kbd2X4Sr79eW5LFd1LkXd6e6m/1RQF17rVD1XnweBehz7+S/kIEcH2xMcTWhPB1fr70bm5oJZ5YelkG94YfsKEOTWDxHBjJQmSt+yt4vPh6xc0G9nPzFqGOsOs5AG0pmWtVb1dps0CyZravo1iH4ea+45VT51IZ9CMoEylKhr0ITk940mXOMq5gashYq5tgVKo5nkogiq7Ptt7T2PAAyFT7iLIeoO7/2xTaQi6ocaIAfqOuaqrk1YGmLxO9ekfvS0a380ao6r2cAAvrWRfGPlQgv9WfX9K5HBRzmS+boYCqduHOp2utLEMFIZRcvXtCX+Uf2V92FNKeCJV3VmKXTIwgm3O14+7ieTbQRHGO3A1/ziNtcFweOML55y40eQylR679Q0OCGMuuoANFVPzX3iCvDtZyqPO7RiE5MVUh83buYG0Jo8n+o9ahOhn6dyg5BYlWOMpnDn6anTxXHmJp0P7pR4lxZUNzDL3ZJyQA59LEyXMap2XbcDDSX+w8yjlT+psy7iCzxROel7WZ+PloKKaBqsdg5TIiui5nwOtNIgYdAHxBDtXy4sgjax2B+UTT8iB4xtKRi3qfDfSIMpmuK3j2UI0Q2ijv7opvcgn2Zpm2gr/k8RmigHoTkkYLSn1ZDmoeawm6zORcvRgwqwnZuehU//fdyxMReQqQlTwQAU8PS8LkwNBCGSDIgiSkQoRFhi2Jp4u8GH82+SDSO0FP3GJHBLs+BzaNb8/507n+aNLcRvOHxBDXGgUJNWaXViiT6c5GbwBGiL8PBd9XDb5u4vaZRqLgeu3l4sv/7mCndbCrCN4vc6at9HC7GoRMBLEGBRHPAGo6yA62DFfMAR+UXxOEWlTI+k7gaxhTz5sKzPLQFzE7Ze/xyNO6Gn8j53M27KmroVk7eclO2bV/crUqEJaSgnbioHUTCjcRTT5+6ozauo0VkuB+kUJy3QUiHq5sRlAnOcKEs8aILVw6lXy6KBIKGgPdaM8aLkRpWcImMxLLXJ26sP8idNrGRd0ksVrBbbjAJZAGShXVCbOvXEbEDtit1szS3prutUb9icCfwxO//iILsth3laEB3M20bFVybS65sQO5wIc/GsKf9oNM6chpW275zfVPe3Bfxxf8RamCRXkIa,iv:b/ahBj1hn2sAMyt1mbFFsgpvRzTv2ViRqg3nCMfXxIo=,tag:uYCz3M1N/pl5Fe+OmnN4qg==,type:str]
+          type: prometheus
+          url: https://thanos-querier-openshift-monitoring.apps.odh-cl2.apps.os-climate.org/
     name: prometheus-grafanadatasource.yaml
 sops:
     kms: []
@@ -58,8 +78,8 @@ sops:
     azure_kv: []
     hc_vault: []
     age: []
-    lastmodified: "2021-12-13T15:29:52Z"
-    mac: ENC[AES256_GCM,data:OrWobP+H3nCyho55phGHdJQ/FJht1+hHzXEV2L1KQemDNOVaCF8NE01I5VJQG+jqiv/zxtukZwBiFuIyq7o2KG+VPgAUI+ZZKvRpd52GottWlh07d8/vjjy3HHe8v5IW23NvV56wsLSx0IdHCD5B6xVO/JV0Vb1Kn3tf0yLHxk8=,iv:4p4se1ylYMhiBTi/E0xjc8jwsAq2KCiIKeeDMmGOFt4=,tag:mg2U0B0C9g7r8SenY5WwOg==,type:str]
+    lastmodified: "2022-04-01T14:24:31Z"
+    mac: ENC[AES256_GCM,data:nr1IPwjOIMQ61XVWnZEArYpPEkDQH4nsX5qIdGAsN0Ec5aiS7azRvf1ZJgXNj9hqyV6knXV8+KQqDwVAbjxjjoCH+qLfGd7XlBK9eyllBOTIE3+zAi5N23d9w2lnLXhMJXadtC5lJIEp/dyz/TARf+M8ACcviBYs2nSMAwwTPDk=,iv:180Eryy+kIiPwn/i4TwYHMBP1GRmXdUlYGu7fhUPlBM=,tag:EjI5dnuOmSHlh5QQuERIxg==,type:str]
     pgp:
         - created_at: "2021-09-01T16:36:51Z"
           enc: |-
