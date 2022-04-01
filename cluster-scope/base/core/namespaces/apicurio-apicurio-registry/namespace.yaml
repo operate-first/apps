@@ -5,5 +5,8 @@ metadata:
   annotations:
     openshift.io/display-name: "Apicurio Registry - High performance, runtime registry for API Designs and Schemas https://www.apicur.io/registry/"
     openshift.io/requester: apicurio
+    op1st/project-owner: apicurio
+    op1st/onboarding-issue: "https://github.com/operate-first/apps/pull/477"
+    op1st/docs: "https://www.apicur.io/registry/docs/apicurio-registry/2.1.x/index.html"
   name: apicurio-apicurio-registry
 spec: {}

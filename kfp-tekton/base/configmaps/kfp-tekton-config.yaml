@@ -2,9 +2,9 @@ apiVersion: v1
 data:
   apply_tekton_custom_resource: "true"
   archive_logs: "false"
-  artifact_bucket: kfp-tekton-artifacts
-  artifact_endpoint: s3-openshift-storage.apps.smaug.na.operate-first.cloud
-  artifact_endpoint_scheme: https://
+  artifact_bucket: mlpipeline
+  artifact_endpoint: minio-service.kubeflow:9000
+  artifact_endpoint_scheme: http://
   artifact_image: quay.io/thoth-station/document-sync-job:v0.1.0
   artifact_script: |-
     #!/usr/bin/env sh

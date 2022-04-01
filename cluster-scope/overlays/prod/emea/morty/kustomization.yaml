@@ -1,6 +1,4 @@
 apiVersion: kustomize.config.k8s.io/v1beta1
-generators:
-- secret-generator.yaml
 kind: Kustomization
 patchesJson6902:
 - patch: "- op: replace\n  path: /spec/startingCSV\n  value: cert-manager.v1.6.1\n"
@@ -17,7 +15,6 @@ patchesJson6902:
 patchesStrategicMerge:
 - groups/cluster-admins.yaml
 - groups/sudoers.yaml
-- oauths/cluster_patch.yaml
 - subscriptions/local-storage-operator_patch.yaml
 - subscriptions/odf-operator_patch.yaml
 - subscriptions/kubevirt-hyperconverged_patch.yaml
@@ -31,7 +28,6 @@ resources:
 - ../../../../base/core/namespaces/openshift-local-storage
 - ../../../../base/core/namespaces/openshift-storage
 - ../../../../base/core/namespaces/opf-alertreceiver
-- ../../../../base/core/namespaces/opf-monitoring
 - ../../../../base/core/namespaces/pixel-demo
 - ../../../../base/core/namespaces/pixel-secrets
 - ../../../../base/core/namespaces/rbo-builder

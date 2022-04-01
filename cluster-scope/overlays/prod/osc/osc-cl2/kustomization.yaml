@@ -12,6 +12,7 @@ resources:
   - ../../../../base/core/namespaces/odh-superset
   - ../../../../base/core/namespaces/odh-trino
   - ../../../../base/core/namespaces/openshift-nfd
+  - ../../../../base/core/namespaces/opf-monitoring
   - ../../../../base/core/namespaces/nvidia-gpu-operator
   - ../../../../base/operators.coreos.com/operatorgroups/openshift-nfd
   - ../../../../base/operators.coreos.com/subscriptions/nfd
@@ -19,13 +20,17 @@ resources:
   - ../../../../base/config.openshift.io/oauths/cluster
   - ../../../../base/rbac.authorization.k8s.io/clusterrolebindings/acme-operator
   - ../../../../base/rbac.authorization.k8s.io/clusterrolebindings/cluster-admins-rb
+  - ../../../../base/rbac.authorization.k8s.io/clusterrolebindings/cluster-reader-k8s-annotations-exporter
   - ../../../../base/rbac.authorization.k8s.io/clusterroles/acme-operator
   - ../../../../base/user.openshift.io/groups/cluster-admins
   - ../../../../base/user.openshift.io/groups/odh-admin
   - ../../../../base/user.openshift.io/groups/odh-users
+  - ../../../../base/user.openshift.io/groups/pachyderm-admins
   - ../../../../base/user.openshift.io/groups/seldon-admin
   - ../../../../bundles/kfp-tekton
   - ../../../../bundles/openshift-pipelines
+  - ../../../../bundles/pachyderm-operator
+  - ../../../../bundles/reloader
   - apiserver
   - ingresscontroller
   - machinesets
@@ -42,4 +47,5 @@ patchesStrategicMerge:
   - groups/odh-admin.yaml
   - groups/odh-users.yaml
   - groups/seldon-admin.yaml
+  - groups/pachyderm-admins.yaml
   - operators.coreos.com/patches/nfd-sub-patch.yaml

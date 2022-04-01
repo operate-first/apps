@@ -2,28 +2,9 @@ apiVersion: kustomize.config.k8s.io/v1beta1
 kind: Kustomization
 namespace: opf-jupyterhub
 resources:
-  - ../../../../base/jupyterhub
   - ../../../../base/jupyterhub/ray-odh-integration
+  - ../../../../base/jupyterhub/notebook-images
   - ./pvcs/
   - alerts.yaml
-patchesJson6902:
-  - patch: |
-      - op: add
-        path: /spec/applications/-
-        value:
-          kustomizeConfig:
-            overlays: []
-            parameters:
-              - name: notebook_destination
-                value: "opf-jupyterhub"
-              - name: s3_endpoint_url
-                value: s3.odh.com
-            repoRef:
-              name: opf-manifests
-              path: odh-manifests/smaug/jupyterhub
-          name: jupyterhub
-    target:
-      group: kfdef.apps.kubeflow.org
-      kind: KfDef
-      name: opendatahub
-      version: v1
+  - kfdef.yaml
+  - servicemonitor.yaml

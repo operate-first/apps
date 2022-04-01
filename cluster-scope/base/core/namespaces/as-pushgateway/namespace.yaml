@@ -5,5 +5,8 @@ metadata:
   annotations:
     openshift.io/display-name: "AI-Services Push Gateway"
     openshift.io/requester: ai-services
+    op1st/project-owner: ai-services
+    op1st/onboarding-issue: "https://github.com/operate-first/support/issues/128"
+    op1st/docs: "https://github.com/operate-first/apps/pull/393"
   name: as-pushgateway
 spec: {}

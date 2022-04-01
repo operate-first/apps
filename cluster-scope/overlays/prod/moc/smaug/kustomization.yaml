@@ -23,6 +23,7 @@ resources:
 - ../../../../base/core/namespaces/apicurio-apicurio-registry
 - ../../../../base/core/namespaces/b4mad-racing
 - ../../../../base/core/namespaces/boatrockers
+- ../../../../base/core/namespaces/bu-scsaol
 - ../../../../base/core/namespaces/chrisproject
 - ../../../../base/core/namespaces/debezium-ui
 - ../../../../base/core/namespaces/democratic-csi
@@ -34,6 +35,7 @@ resources:
 - ../../../../base/core/namespaces/kubeflow
 - ../../../../base/core/namespaces/manageiq
 - ../../../../base/core/namespaces/neu-cs6620
+- ../../../../base/core/namespaces/od-demo
 - ../../../../base/core/namespaces/openshift-cnv
 - ../../../../base/core/namespaces/openshift-logging
 - ../../../../base/core/namespaces/openshift-operators
@@ -48,7 +50,6 @@ resources:
 - ../../../../base/core/namespaces/opf-jupyterhub
 - ../../../../base/core/namespaces/opf-jupyterhub-stage
 - ../../../../base/core/namespaces/opf-kafka
-- ../../../../base/core/namespaces/opf-monitoring
 - ../../../../base/core/namespaces/opf-observatorium
 - ../../../../base/core/namespaces/opf-pulp
 - ../../../../base/core/namespaces/opf-seldon

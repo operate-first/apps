@@ -5,3 +5,5 @@ resources:
   - argocd.yaml
   - cluster-logs-quick-search.yaml
   - opf-availability.yaml
+  - opf-workload-overview.yaml
+  - strimzi-kafka-overview.yaml

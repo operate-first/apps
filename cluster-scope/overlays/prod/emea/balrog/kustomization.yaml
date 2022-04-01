@@ -10,7 +10,6 @@ resources:
     - ../../../../base/core/configmaps/user-workload-monitoring-config
     - ../../../../base/core/namespaces/openshift-logging
     - ../../../../base/core/namespaces/opf-kafka
-    - ../../../../base/core/namespaces/opf-monitoring
     - ../../../../base/core/namespaces/thoth-amun-api-prod
     - ../../../../base/core/namespaces/thoth-amun-inspection-prod
     - ../../../../base/core/namespaces/thoth-backend-prod

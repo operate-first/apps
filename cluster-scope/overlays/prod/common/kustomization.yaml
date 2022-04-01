@@ -20,11 +20,13 @@ resources:
 - ../../../base/user.openshift.io/groups/curator
 - ../../../base/user.openshift.io/groups/data-science
 - ../../../base/user.openshift.io/groups/debezium
+- ../../../base/user.openshift.io/groups/emea-sa
 - ../../../base/user.openshift.io/groups/enterprise-neurosystem
 - ../../../base/user.openshift.io/groups/esi-project
 - ../../../base/user.openshift.io/groups/fde
 - ../../../base/user.openshift.io/groups/fedora
 - ../../../base/user.openshift.io/groups/fybrik
+- ../../../base/user.openshift.io/groups/grafana-viewer
 - ../../../base/user.openshift.io/groups/lab-cicd
 - ../../../base/user.openshift.io/groups/logs-insights
 - ../../../base/user.openshift.io/groups/manageiq
@@ -52,6 +54,7 @@ resources:
 - ../../../base/user.openshift.io/groups/rh-curator-eval
 - ../../../base/user.openshift.io/groups/rh-dus
 - ../../../base/user.openshift.io/groups/sa-dach
+- ../../../base/user.openshift.io/groups/scsaol
 - ../../../base/user.openshift.io/groups/sdap-mslsp
 - ../../../base/user.openshift.io/groups/seraph
 - ../../../base/user.openshift.io/groups/sigstore
@@ -64,4 +67,5 @@ resources:
 - ../../../base/user.openshift.io/groups/uky-redhat
 - ../../../base/user.openshift.io/groups/varangian
 - ../../../base/user.openshift.io/groups/workshops
+- ../../../bundles/opf-monitoring
 - alertmanager-main-secret.yaml

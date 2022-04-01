@@ -13,6 +13,8 @@ spec:
       mappingMethod: claim
       name: identitatem-github
       type: GitHub
+  # Every cluster captured by this placement will have its
+  # auth configured according to this authrealm IDPs
   placementRef:
     name: primary-auth
   routeSubDomain: primary

@@ -5,10 +5,8 @@ namespace: kubeflow
 
 resources:
   - ../../../base
-
+  - secrets
 patchesStrategicMerge:
   - params.yaml
-generators:
-  - secret-generator.yaml
 generatorOptions:
   disableNameSuffixHash: true

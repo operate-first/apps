@@ -3,4 +3,5 @@ kind: Group
 metadata:
   name: sudoers
 users:
+  - dystewar
   - rbo

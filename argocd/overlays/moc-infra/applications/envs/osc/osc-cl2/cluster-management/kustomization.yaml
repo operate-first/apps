@@ -6,5 +6,8 @@ resources:
   - cluster-resources.yaml
   - das.yaml
   - dex.yaml
+  - k8s-annotations-exporter.yaml
   - kfdefs.yaml
   - kfp-tekton.yaml
+  - pachyderm.yaml
+  - reloader.yaml

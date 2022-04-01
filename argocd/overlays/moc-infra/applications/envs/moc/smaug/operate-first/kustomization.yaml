@@ -15,6 +15,7 @@ resources:
   - meteor-operator-pipelines.yaml
   - meteor-operator-pushgateway.yaml
   - observatorium.yaml
+  - opf-kafka.yaml
   - prod-aicoe-ci.yaml
   - pulp.yaml
   - reloader.yaml

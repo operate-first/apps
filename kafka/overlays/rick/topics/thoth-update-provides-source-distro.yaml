@@ -1,9 +1,0 @@
-apiVersion: kafka.strimzi.io/v1beta2
-kind: KafkaTopic
-metadata:
-  name: rick-test.thoth.update-provides-source-distro
-spec:
-  partitions: 1
-  replicas: 1
-  config:
-    retention.ms: 86400000

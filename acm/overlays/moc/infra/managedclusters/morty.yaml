@@ -4,3 +4,4 @@ metadata:
   name: morty
   labels:
     cluster.open-cluster-management.io/clusterset: argocd-managed
+    authdeployment: primary

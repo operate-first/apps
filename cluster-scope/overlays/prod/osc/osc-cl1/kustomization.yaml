@@ -10,20 +10,24 @@ resources:
   - ../../../../base/core/namespaces/dex
   - ../../../../base/core/namespaces/kubeflow
   - ../../../../base/core/namespaces/odh-jupyterhub
+  - ../../../../base/core/namespaces/opf-jupyterhub-stage
   - ../../../../base/core/namespaces/odh-seldon
   - ../../../../base/core/namespaces/odh-superset
   - ../../../../base/core/namespaces/odh-trino
   - ../../../../base/core/namespaces/odh-trino-dev
+  - ../../../../base/core/namespaces/opf-monitoring
   - ../../../../base/core/namespaces/sandbox
   - ../../../../base/operators.coreos.com/subscriptions/cert-manager
   - ../../../../base/operators.coreos.com/subscriptions/opendatahub-operator
   - ../../../../base/rbac.authorization.k8s.io/clusterrolebindings/acme-operator
   - ../../../../base/rbac.authorization.k8s.io/clusterrolebindings/cluster-admins-rb
+  - ../../../../base/rbac.authorization.k8s.io/clusterrolebindings/cluster-reader-k8s-annotations-exporter
   - ../../../../base/rbac.authorization.k8s.io/clusterroles/acme-operator
   - ../../../../base/user.openshift.io/groups/cluster-admins
   - ../../../../base/user.openshift.io/groups/kubeflow-admin
   - ../../../../base/user.openshift.io/groups/odh-admin
   - ../../../../base/user.openshift.io/groups/odh-users
+  - ../../../../base/user.openshift.io/groups/pachyderm-admins
   - ../../../../base/user.openshift.io/groups/seldon-admin
   - apiserver
   - ingresscontroller
@@ -35,4 +39,5 @@ patchesStrategicMerge:
   - groups/kubeflow-admin.yaml
   - groups/odh-admin.yaml
   - groups/odh-users.yaml
+  - groups/pachyderm-admins.yaml
   - groups/seldon-admin.yaml
