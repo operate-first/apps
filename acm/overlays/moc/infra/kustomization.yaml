@@ -5,6 +5,7 @@ kind: Kustomization
 resources:
   - ../../../base
   - gitopsclusters
+  - identitatem
   - managedclusters
   - managedclustersetbindings
   - managedclustersets
