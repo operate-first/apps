@@ -32,6 +32,12 @@
             "owner": true
         },
         {
+            "group": "pcaf_sovereign_footprint.*",
+            "catalog": "osc_datacommons_dev",
+            "schema": "pcaf_sovereign_footprint",
+            "owner": true
+        },
+        {
             "catalog": ".*",
             "schema": ".*",
             "owner": false
@@ -154,6 +160,26 @@
         {
             "catalog": "osc_datacommons_dev",
             "schema": "demo_dv",
+            "table": ".*",
+            "privileges": [
+                "SELECT"
+            ]
+        },
+        {
+            "group": "pcaf_sovereign_footprint.*",
+            "catalog": "osc_datacommons_dev",
+            "schema": "pcaf_sovereign_footprint",
+            "table": ".*",
+            "privileges": [
+                "SELECT",
+                "INSERT",
+                "DELETE",
+                "OWNERSHIP"
+            ]
+        },
+        {
+            "catalog": "osc_datacommons_dev",
+            "schema": "pcaf_sovereign_footprint",
             "table": ".*",
             "privileges": [
                 "SELECT"

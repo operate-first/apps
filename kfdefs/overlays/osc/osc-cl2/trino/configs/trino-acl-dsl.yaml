@@ -25,6 +25,11 @@ schemas:
     admin-groups: ['.*']
     public-tables: true
 
+  - schema: pcaf_sovereign_footprint
+    catalog: osc_datacommons_dev
+    admin-groups: ['pcaf_sovereign_footprint.*']
+    public-tables: true
+
 tables:
   - table: demo_dv_backend
     schema: demo_dv
