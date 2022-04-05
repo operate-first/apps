@@ -5,6 +5,7 @@ resources:
 - github.com/argoproj-labs/applicationset/manifests/base?ref=v0.2.0
 - routes/argocd_server_route.yaml
 - serviceaccounts/argocd-manager.yaml
+- service-monitor.yaml
 patchesStrategicMerge:
 - services/argocd_metrics_service_patch.yaml
 - services/argocd_server_metrics_service_patch.yaml
