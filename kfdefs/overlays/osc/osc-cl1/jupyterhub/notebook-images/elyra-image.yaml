@@ -20,6 +20,7 @@ spec:
       from:
         kind: DockerImage
         name: 'quay.io/thoth-station/s2i-lab-elyra:latest'
-      importPolicy: {}
+      importPolicy:
+        scheduled: true
       referencePolicy:
         type: Local
