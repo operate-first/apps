@@ -21,6 +21,7 @@ resources:
 - ../../../../base/core/namespaces/odh-superset
 - ../../../../base/core/namespaces/odh-trino
 - ../../../../base/core/namespaces/odh-trino-dev
+- ../../../../base/core/namespaces/opf-dashboard
 - ../../../../base/core/namespaces/opf-jupyterhub-stage
 - ../../../../base/core/namespaces/opf-monitoring
 - ../../../../base/core/namespaces/sandbox

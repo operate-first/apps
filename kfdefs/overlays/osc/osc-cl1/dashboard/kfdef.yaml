@@ -1,0 +1,18 @@
+---
+apiVersion: kfdef.apps.kubeflow.org/v1
+kind: KfDef
+metadata:
+  annotations:
+    kfctl.kubeflow.io/force-delete: "false"
+  name: odh-dashboard
+spec:
+  applications:
+    - kustomizeConfig:
+        repoRef:
+          name: manifests
+          path: odh-dashboard
+      name: odh-dashboard
+  repos:
+    - name: manifests
+      uri: https://github.com/operate-first/odh-manifests/tarball/osc-cl1-byon
+  version: v1.1.0
