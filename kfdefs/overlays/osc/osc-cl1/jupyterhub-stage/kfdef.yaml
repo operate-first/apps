@@ -29,7 +29,12 @@ spec:
           name: manifests
           path: jupyterhub/notebook-images
       name: notebook-images
+    - kustomizeConfig:
+        repoRef:
+          name: manifests
+          path: jupyterhub/byon
+      name: byon
   repos:
     - name: manifests
-      uri: https://github.com/operate-first/odh-manifests/tarball/osc-cl1-v1.1.2
+      uri: https://github.com/operate-first/odh-manifests/tarball/osc-cl1-byon
   version: v1.1.0
