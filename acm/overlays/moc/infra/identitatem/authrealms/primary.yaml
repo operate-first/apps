@@ -10,7 +10,7 @@ spec:
           name: identitatem-github-client-secret
         organizations:
           - operate-first
-      mappingMethod: claim
+      mappingMethod: add
       name: identitatem-github
       type: GitHub
   # Every cluster captured by this placement will have its
