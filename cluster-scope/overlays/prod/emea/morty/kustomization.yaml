@@ -21,7 +21,6 @@ patchesStrategicMerge:
 - subscriptions/nfd_patch.yaml
 - subscriptions/openshift-pipelines-operator-rh_patch.yaml
 resources:
-- ../../../../base/config.openshift.io/oauths/cluster
 - ../../../../base/core/configmaps/cluster-monitoring-config
 - ../../../../base/core/namespaces/examples-openshift-pub
 - ../../../../base/core/namespaces/openshift-cnv
