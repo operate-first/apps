@@ -1,5 +1,7 @@
 # Monitoring secrets and configMaps for changes with Reloader
-For `deployments` in the Smaug cluster, Reloader can be used to monitor `configMap` and `secret` resources for changes. If a change is detected Reloader will trigger a rolling upgrade on relevant pods via the associated `deployment`.
+For `deployments`, Reloader can be used to monitor `configMap` and `secret` resources for changes. If a change is detected Reloader will trigger a rolling upgrade on relevant pods via the associated `deployment`.
+
+To see the clusters where Reloader is currently available in Operate first visit: [opf clusters with Reloader](https://github.com/stakater/Reloader)
 
 NOTE: `configMap` and `secret` resources must be used via an environment variable, or a volume mount to allow monitoring with Reloader.
 
@@ -59,3 +61,4 @@ spec:
 
 ## Resources and links
 - [Reloader github page](https://github.com/stakater/Reloader)
+- [opf clusters with Reloader](https://github.com/stakater/Reloader)
