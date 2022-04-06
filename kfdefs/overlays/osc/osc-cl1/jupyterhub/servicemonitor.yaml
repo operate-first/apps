@@ -7,9 +7,9 @@ metadata:
   name: opf-jupyterhub-servicemonitor
 spec:
   endpoints:
-    - port: 8080-tcp        # Jupyterhub
+    - port: 8080-tcp
       path: "/metrics"
   selector: {}
   namespaceSelector:
     matchNames:
-      - opf-jupyterhub
+      - odh-jupyterhub

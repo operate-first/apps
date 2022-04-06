@@ -13,11 +13,20 @@ spec:
           path: odh-common
       name: odh-common
     - kustomizeConfig:
+        parameters:
+          - name: trino_memory_request
+            value: "2Gi"
+          - name: trino_memory_limit
+            value: "2Gi"
+          - name: trino_cpu_request
+            value: "500m"
+          - name: trino_cpu_limit
+            value: "500m"
         repoRef:
           name: manifests
-          path: odhseldon/cluster
-      name: odhseldon
+          path: trino
+      name: trino
   repos:
     - name: manifests
-      uri: "https://github.com/opendatahub-io/odh-manifests/tarball/v1.1.1"
+      uri: "https://github.com/operate-first/odh-manifests/tarball/smaug-v1.1.1"
   version: v1.1.1

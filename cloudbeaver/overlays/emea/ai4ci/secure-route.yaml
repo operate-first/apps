@@ -1,6 +1,0 @@
-kind: Route
-apiVersion: route.openshift.io/v1
-metadata:
-  name: cloudbeaver
-  annotations:
-    kubernetes.io/tls-acme: "true"
