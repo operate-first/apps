@@ -1,6 +1,6 @@
 # Add Kafka Topics
 
-To add Kafka topics, create a new `KafkaTopic` resource within the `odh-manifests/smaug/kafka/overlays/topics` sub directory.
+To add Kafka topics, create a new `KafkaTopic` resource within the `kafka/overlays/smaug/topics` sub directory.
 
 Replace `my-topic` with a preferred name.
 
@@ -24,12 +24,12 @@ The label `strimzi.io/cluster` should have the value `odh-message-bus`. On MOC t
 
 Pick a suitable name, ensure that it's unique in the `topics` folder.
 
-Save this file under `odh-manifests/smaug/kafka/overlays/topics/my-topic.yaml`.
+Save this file under `kafka/overlays/smaug/my-topic.yaml`.
 
-Then add it to `odh-manifests/smaug/kafka/overlays/topics/kustomization.yaml` by running the following:
+Then add it to `kafka/overlays/smaug/kustomization.yaml` by running the following:
 
 ```bash
-$ cd odh-manifests/smaug/kafka/overlays/topics
+$ cd kafka/overlays/smaug/topics
 $ kustomize edit add resource my-topic.yaml
 ```
 

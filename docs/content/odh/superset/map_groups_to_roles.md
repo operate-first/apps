@@ -18,6 +18,6 @@ the following format:
 
 Once done, submit a PR.
 
-[superset_config]: https://github.com/operate-first/apps/blob/master/odh-manifests/smaug/superset/base/secret.yaml
+[superset_config]: https://github.com/operate-first/odh-manifests/blob/smaug-v1.1.1/superset/base/secret.yaml
 
 Note that the ODH and Superset pod will need to be restarted after the PR is merged.
