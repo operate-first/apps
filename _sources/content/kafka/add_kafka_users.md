@@ -2,7 +2,7 @@
 
 We manage access to Kafka Topics in our Kafka instance using the [`KafkaUser` resource][1].
 
-To add a new `KafkaUser`, create a new `KafkaUser` resource within the `odh-manifests/smaug/kafka/overlays/users` sub directory.
+To add a new `KafkaUser`, create a new `KafkaUser` resource within the `kafka/overlays/smaug/users` sub directory.
 
 Replace `my-user` with a preferred name.
 
@@ -52,12 +52,12 @@ The label `strimzi.io/cluster` should have the value `odh-message-bus`.
 
 Pick a suitable name, ensure that it's unique in the `users` folder.
 
-Save this file under `odh-manifests/smaug/kafka/overlays/users/my-users.yaml`.
+Save this file under `kafka/overlays/smaug/users/my-users.yaml`.
 
-Then add it to `odh-manifests/smaug/kafka/overlays/users/kustomization.yaml` by running the following:
+Then add it to `kafka/overlays/smaug/users/kustomization.yaml` by running the following:
 
 ```bash
-$ cd odh-manifests/smaug/kafka/overlays/users
+$ cd kafka/overlays/smaug/users
 $ kustomize edit add resource my-user.yaml
 ```
 

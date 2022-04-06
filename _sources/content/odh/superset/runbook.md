@@ -63,7 +63,7 @@ edit this user's name accordingly.
 
 The user should now show up in the drop down list when searched for by First/Last name.
 
-[oauth-mapping]: https://github.com/operate-first/apps/blob/master/odh-manifests/smaug/superset/base/secret.yaml#L29
+[oauth-mapping]: https://github.com/operate-first/odh-manifests/blob/smaug-v1.1.1/superset/base/secret.yaml#L29
 [superset]: https://superset.operate-first.cloud
 [repo]: https://github.com/operate-first/apps/tree/master/kfdefs/overlays/moc/smaug/opf-superset
 [1]: https://github.com/operate-first/SRE/issues/408

@@ -1,6 +1,5 @@
 # Adding buckets to Trino
 
-
 ## Prerequisites
 - Must be Operate-First admin with SOPS GPG access
 
@@ -9,7 +8,7 @@
 1. Clone apps repo
 2. Navigate to `apps/kfdefs/overlays/$ENV/$CLUSTER/$TRINO_FOLDER/hive-metastores`
 
-> Note: Values for $ENV, $CLUSTER, $TRINO_FOLDER are dependent upon which cluster you are deploying.
+> Note: Values for ENV, CLUSTER, TRINO_FOLDER are dependent upon which cluster you are deploying.
 > Please explore [kfdefs][kfdefs] overlays folder to identify the values for these variables.
 
 3. Create a new directory which is named after the new Trino catalog you will add, in this example we'll create
@@ -142,38 +141,33 @@ Next add the following to the `s3buckets` secret found at `apps/kfdefs/overlays/
 Use the same value for `<catalog_name_upercase>` as used above. Fill out the values for these fields according to your
 s3 bucket details.
 
-Next we need to update Trino Catalog configuration files, these are managed by ODH and are thus found in a different
-location:
+Next we need to update Trino Catalog configuration files.
 
-Navigate to: `odh-manifests/$CLUSTER/trino/base`, open the file called `trino-catalog-secret.yaml`. Append the following
-entry to `stringData`, replacing all `<*>` values same as above:
+Navigate to: `apps/kfdefs/overlays/$ENV/$CLUSTER/$TRINO_FOLDER/configs/catalogs/`, create a file called
+`<catalog_name_underscored>.properties`. With the following contents:
 
 ```yaml
-apiVersion: v1
-kind: Secret
-metadata:
-  name: trino-catalog
-stringData:
-    .....
-  # same as <catalog_name> but replace any spaces/dashes with underscores
-  <catalog_name_underscored>.properties: |
-    connector.name=hive-hadoop2
-    hive.metastore.uri=thrift://<catalog_name>:9083
-    hive.s3.endpoint=${ENV:<catalog_name_upercase>_S3_ENDPOINT_URL_PREFIX}${ENV:<catalog_name_upercase>_S3_ENDPOINT}
-    hive.s3.signer-type=S3SignerType
-    hive.s3.path-style-access=true
-    hive.s3.staging-directory=/tmp
-    hive.s3.ssl.enabled=false
-    hive.s3.sse.enabled=false
-    hive.allow-drop-table=true
-    hive.parquet.use-column-names=true
-    hive.recursive-directories=true
-    hive.non-managed-table-writes-enabled=true
-    hive.s3.aws-access-key=${ENV:<catalog_name_upercase>_AWS_ACCESS_KEY_ID}
-    hive.s3.aws-secret-key=${ENV:<catalog_name_upercase>_AWS_SECRET_ACCESS_KEY}
+connector.name=hive-hadoop2
+hive.metastore.uri=thrift://<catalog_name>:9083
+hive.s3.endpoint=${ENV:<catalog_name_upercase>_S3_ENDPOINT_URL_PREFIX}${ENV:<catalog_name_upercase>_S3_ENDPOINT}
+hive.s3.signer-type=S3SignerType
+hive.s3.path-style-access=true
+hive.s3.staging-directory=/tmp
+hive.s3.ssl.enabled=false
+hive.s3.sse.enabled=false
+hive.allow-drop-table=true
+hive.parquet.use-column-names=true
+hive.recursive-directories=true
+hive.non-managed-table-writes-enabled=true
+hive.s3.aws-access-key=${ENV:<catalog_name_upercase>_AWS_ACCESS_KEY_ID}
+hive.s3.aws-secret-key=${ENV:<catalog_name_upercase>_AWS_SECRET_ACCESS_KEY}
 ```
 
-Commit changes, make a pr.
+Replace all `<*>` values same as above.
 
+Add this file to `apps/kfdefs/overlays/$ENV/$CLUSTER/$TRINO_FOLDER/configs/kustomization.yaml` under the
+`configMapGenerator` in the `files` list for `trino-catalog`.
+
+Commit changes, make a pr.
 
 [kfdefs]: https://github.com/operate-first/apps/tree/master/kfdefs/overlays

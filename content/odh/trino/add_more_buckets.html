@@ -51,8 +51,6 @@ const thebe_selector_input = "pre"
 const thebe_selector_output = ".output, .cell_output"
 </script>
     <script async="async" src="../../../_static/sphinx-thebe.js"></script>
-    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
-    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <link rel="shortcut icon" href="../../../_static/favicon.png"/>
     <link rel="index" title="Index" href="../../../genindex.html" />
     <link rel="search" title="Search" href="../../../search.html" />
@@ -300,11 +298,38 @@ const thebe_selector_output = ".output, .cell_output"
   </ul>
  </li>
  <li class="toctree-l1 has-children">
-  <a class="reference internal" href="../../grafana/README.html">
-   Grafana
+  <a class="reference internal" href="../../kafka/README.html">
+   Kafka
   </a>
   <input class="toctree-checkbox" id="toctree-checkbox-7" name="toctree-checkbox-7" type="checkbox"/>
   <label for="toctree-checkbox-7">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../kafka/add_kafka_topics.html">
+     Add Kafka Topics
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../kafka/add_kafka_users.html">
+     Add Kafka Users
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../kafka/runbook.html">
+     Kafka Runbook
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../../grafana/README.html">
+   Grafana
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-8" name="toctree-checkbox-8" type="checkbox"/>
+  <label for="toctree-checkbox-8">
    <i class="fas fa-chevron-down">
    </i>
   </label>
@@ -325,8 +350,8 @@ const thebe_selector_output = ".output, .cell_output"
   <a class="reference internal" href="../../observatorium/README.html">
    Observatorium
   </a>
-  <input class="toctree-checkbox" id="toctree-checkbox-8" name="toctree-checkbox-8" type="checkbox"/>
-  <label for="toctree-checkbox-8">
+  <input class="toctree-checkbox" id="toctree-checkbox-9" name="toctree-checkbox-9" type="checkbox"/>
+  <label for="toctree-checkbox-9">
    <i class="fas fa-chevron-down">
    </i>
   </label>
@@ -372,8 +397,8 @@ const thebe_selector_output = ".output, .cell_output"
   <a class="reference internal" href="../../ocs/README.html">
    OpenShift Container Storage
   </a>
-  <input class="toctree-checkbox" id="toctree-checkbox-9" name="toctree-checkbox-9" type="checkbox"/>
-  <label for="toctree-checkbox-9">
+  <input class="toctree-checkbox" id="toctree-checkbox-10" name="toctree-checkbox-10" type="checkbox"/>
+  <label for="toctree-checkbox-10">
    <i class="fas fa-chevron-down">
    </i>
   </label>
@@ -399,8 +424,8 @@ const thebe_selector_output = ".output, .cell_output"
   <a class="reference internal" href="../README.html">
    Open Data Hub (ODH)
   </a>
-  <input checked="" class="toctree-checkbox" id="toctree-checkbox-10" name="toctree-checkbox-10" type="checkbox"/>
-  <label for="toctree-checkbox-10">
+  <input checked="" class="toctree-checkbox" id="toctree-checkbox-11" name="toctree-checkbox-11" type="checkbox"/>
+  <label for="toctree-checkbox-11">
    <i class="fas fa-chevron-down">
    </i>
   </label>
@@ -409,8 +434,8 @@ const thebe_selector_output = ".output, .cell_output"
     <a class="reference internal" href="../jupyterhub/README.html">
      JupyterHub
     </a>
-    <input class="toctree-checkbox" id="toctree-checkbox-11" name="toctree-checkbox-11" type="checkbox"/>
-    <label for="toctree-checkbox-11">
+    <input class="toctree-checkbox" id="toctree-checkbox-12" name="toctree-checkbox-12" type="checkbox"/>
+    <label for="toctree-checkbox-12">
      <i class="fas fa-chevron-down">
      </i>
     </label>
@@ -448,33 +473,6 @@ const thebe_selector_output = ".output, .cell_output"
      <li class="toctree-l3">
       <a class="reference internal" href="../jupyterhub/user_profiles.html">
        Managing user profiles
-      </a>
-     </li>
-    </ul>
-   </li>
-   <li class="toctree-l2 has-children">
-    <a class="reference internal" href="../kafka/README.html">
-     Kafka
-    </a>
-    <input class="toctree-checkbox" id="toctree-checkbox-12" name="toctree-checkbox-12" type="checkbox"/>
-    <label for="toctree-checkbox-12">
-     <i class="fas fa-chevron-down">
-     </i>
-    </label>
-    <ul>
-     <li class="toctree-l3">
-      <a class="reference internal" href="../kafka/add_kafka_topics.html">
-       Add Kafka Topics
-      </a>
-     </li>
-     <li class="toctree-l3">
-      <a class="reference internal" href="../kafka/add_kafka_users.html">
-       Add Kafka Users
-      </a>
-     </li>
-     <li class="toctree-l3">
-      <a class="reference internal" href="../kafka/runbook.html">
-       Kafka Runbook
       </a>
      </li>
     </ul>
@@ -796,7 +794,7 @@ const thebe_selector_output = ".output, .cell_output"
 <li><p>Navigate to <code class="docutils literal notranslate"><span class="pre">apps/kfdefs/overlays/$ENV/$CLUSTER/$TRINO_FOLDER/hive-metastores</span></code></p></li>
 </ol>
 <blockquote>
-<div><p>Note: Values for <span class="math notranslate nohighlight">\(ENV, \)</span>CLUSTER, $TRINO_FOLDER are dependent upon which cluster you are deploying.
+<div><p>Note: Values for ENV, CLUSTER, TRINO_FOLDER are dependent upon which cluster you are deploying.
 Please explore <a class="reference external" href="https://github.com/operate-first/apps/tree/master/kfdefs/overlays">kfdefs</a> overlays folder to identify the values for these variables.</p>
 </div></blockquote>
 <ol class="simple">
@@ -921,34 +919,28 @@ $ sed -i <span class="s1">&#39;s/&lt;catalog_name_upercase&gt;/SOME_CATALOG/g&#3
 </div>
 <p>Use the same value for <code class="docutils literal notranslate"><span class="pre">&lt;catalog_name_upercase&gt;</span></code> as used above. Fill out the values for these fields according to your
 s3 bucket details.</p>
-<p>Next we need to update Trino Catalog configuration files, these are managed by ODH and are thus found in a different
-location:</p>
-<p>Navigate to: <code class="docutils literal notranslate"><span class="pre">odh-manifests/$CLUSTER/trino/base</span></code>, open the file called <code class="docutils literal notranslate"><span class="pre">trino-catalog-secret.yaml</span></code>. Append the following
-entry to <code class="docutils literal notranslate"><span class="pre">stringData</span></code>, replacing all <code class="docutils literal notranslate"><span class="pre">&lt;*&gt;</span></code> values same as above:</p>
-<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="nt">apiVersion</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">v1</span><span class="w"></span>
-<span class="nt">kind</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Secret</span><span class="w"></span>
-<span class="nt">metadata</span><span class="p">:</span><span class="w"></span>
-<span class="w">  </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">trino-catalog</span><span class="w"></span>
-<span class="nt">stringData</span><span class="p">:</span><span class="w"></span>
-<span class="w">    </span><span class="l l-Scalar l-Scalar-Plain">.....</span><span class="w"></span>
-<span class="w">  </span><span class="l l-Scalar l-Scalar-Plain"># same as &lt;catalog_name&gt; but replace any spaces/dashes with underscores</span><span class="w"></span>
-<span class="w">  </span><span class="l l-Scalar l-Scalar-Plain">&lt;catalog_name_underscored&gt;.properties</span><span class="p p-Indicator">:</span><span class="w"> </span><span class="p p-Indicator">|</span><span class="w"></span>
-<span class="w">    </span><span class="l l-Scalar l-Scalar-Plain">connector.name=hive-hadoop2</span><span class="w"></span>
-<span class="w">    </span><span class="l l-Scalar l-Scalar-Plain">hive.metastore.uri=thrift://&lt;catalog_name&gt;:9083</span><span class="w"></span>
-<span class="w">    </span><span class="l l-Scalar l-Scalar-Plain">hive.s3.endpoint=${ENV:&lt;catalog_name_upercase&gt;_S3_ENDPOINT_URL_PREFIX}${ENV:&lt;catalog_name_upercase&gt;_S3_ENDPOINT}</span><span class="w"></span>
-<span class="w">    </span><span class="l l-Scalar l-Scalar-Plain">hive.s3.signer-type=S3SignerType</span><span class="w"></span>
-<span class="w">    </span><span class="l l-Scalar l-Scalar-Plain">hive.s3.path-style-access=true</span><span class="w"></span>
-<span class="w">    </span><span class="l l-Scalar l-Scalar-Plain">hive.s3.staging-directory=/tmp</span><span class="w"></span>
-<span class="w">    </span><span class="l l-Scalar l-Scalar-Plain">hive.s3.ssl.enabled=false</span><span class="w"></span>
-<span class="w">    </span><span class="l l-Scalar l-Scalar-Plain">hive.s3.sse.enabled=false</span><span class="w"></span>
-<span class="w">    </span><span class="l l-Scalar l-Scalar-Plain">hive.allow-drop-table=true</span><span class="w"></span>
-<span class="w">    </span><span class="l l-Scalar l-Scalar-Plain">hive.parquet.use-column-names=true</span><span class="w"></span>
-<span class="w">    </span><span class="l l-Scalar l-Scalar-Plain">hive.recursive-directories=true</span><span class="w"></span>
-<span class="w">    </span><span class="l l-Scalar l-Scalar-Plain">hive.non-managed-table-writes-enabled=true</span><span class="w"></span>
-<span class="w">    </span><span class="l l-Scalar l-Scalar-Plain">hive.s3.aws-access-key=${ENV:&lt;catalog_name_upercase&gt;_AWS_ACCESS_KEY_ID}</span><span class="w"></span>
-<span class="w">    </span><span class="l l-Scalar l-Scalar-Plain">hive.s3.aws-secret-key=${ENV:&lt;catalog_name_upercase&gt;_AWS_SECRET_ACCESS_KEY}</span><span class="w"></span>
+<p>Next we need to update Trino Catalog configuration files.</p>
+<p>Navigate to: <code class="docutils literal notranslate"><span class="pre">apps/kfdefs/overlays/$ENV/$CLUSTER/$TRINO_FOLDER/configs/catalogs/</span></code>, create a file called
+<code class="docutils literal notranslate"><span class="pre">&lt;catalog_name_underscored&gt;.properties</span></code>. With the following contents:</p>
+<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="l l-Scalar l-Scalar-Plain">connector.name=hive-hadoop2</span><span class="w"></span>
+<span class="l l-Scalar l-Scalar-Plain">hive.metastore.uri=thrift://&lt;catalog_name&gt;:9083</span><span class="w"></span>
+<span class="l l-Scalar l-Scalar-Plain">hive.s3.endpoint=${ENV:&lt;catalog_name_upercase&gt;_S3_ENDPOINT_URL_PREFIX}${ENV:&lt;catalog_name_upercase&gt;_S3_ENDPOINT}</span><span class="w"></span>
+<span class="l l-Scalar l-Scalar-Plain">hive.s3.signer-type=S3SignerType</span><span class="w"></span>
+<span class="l l-Scalar l-Scalar-Plain">hive.s3.path-style-access=true</span><span class="w"></span>
+<span class="l l-Scalar l-Scalar-Plain">hive.s3.staging-directory=/tmp</span><span class="w"></span>
+<span class="l l-Scalar l-Scalar-Plain">hive.s3.ssl.enabled=false</span><span class="w"></span>
+<span class="l l-Scalar l-Scalar-Plain">hive.s3.sse.enabled=false</span><span class="w"></span>
+<span class="l l-Scalar l-Scalar-Plain">hive.allow-drop-table=true</span><span class="w"></span>
+<span class="l l-Scalar l-Scalar-Plain">hive.parquet.use-column-names=true</span><span class="w"></span>
+<span class="l l-Scalar l-Scalar-Plain">hive.recursive-directories=true</span><span class="w"></span>
+<span class="l l-Scalar l-Scalar-Plain">hive.non-managed-table-writes-enabled=true</span><span class="w"></span>
+<span class="l l-Scalar l-Scalar-Plain">hive.s3.aws-access-key=${ENV:&lt;catalog_name_upercase&gt;_AWS_ACCESS_KEY_ID}</span><span class="w"></span>
+<span class="l l-Scalar l-Scalar-Plain">hive.s3.aws-secret-key=${ENV:&lt;catalog_name_upercase&gt;_AWS_SECRET_ACCESS_KEY}</span><span class="w"></span>
 </pre></div>
 </div>
+<p>Replace all <code class="docutils literal notranslate"><span class="pre">&lt;*&gt;</span></code> values same as above.</p>
+<p>Add this file to <code class="docutils literal notranslate"><span class="pre">apps/kfdefs/overlays/$ENV/$CLUSTER/$TRINO_FOLDER/configs/kustomization.yaml</span></code> under the
+<code class="docutils literal notranslate"><span class="pre">configMapGenerator</span></code> in the <code class="docutils literal notranslate"><span class="pre">files</span></code> list for <code class="docutils literal notranslate"><span class="pre">trino-catalog</span></code>.</p>
 <p>Commit changes, make a pr.</p>
 </div>
 </div>

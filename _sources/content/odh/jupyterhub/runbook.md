@@ -83,7 +83,7 @@ If the user is encountering issues starting their server and encounter errors pe
 
 [1]: https://console-openshift-console.apps.smaug.na.operate-first.cloud/k8s/ns/opf-jupyterhub/
 [2]: https://jupyterhub-opf-jupyterhub.apps.smaug.na.operate-first.cloud/hub/admin
-[3]: https://github.com/operate-first/apps/blob/master/odh-manifests/smaug/jupyterhub/base/jupyterhub-groups-configmap.yaml#L9
+[3]: https://github.com/operate-first/odh-manifests/blob/smaug-v1.1.1/jupyterhub/jupyterhub/base/jupyterhub-groups-configmap.yaml#L9
 [4]: https://jupyterhub-opf-jupyterhub.apps.smaug.na.operate-first.cloud
 [5]: analyze_storage.md
 [6]: increase_pvc_size_jh.md
