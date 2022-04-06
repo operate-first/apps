@@ -4,6 +4,7 @@ kind: Kustomization
 namespace: odh-jupyterhub
 resources:
   - kfdef.yaml
-  - profiles
   - notebook-images
-  - ./pvcs/
+  - profiles
+  - pvcs
+  - servicemonitor.yaml

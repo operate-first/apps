@@ -52,6 +52,13 @@ parts:
           - file: content/development/crc-disk-size.md
           - file: content/development/setup_quicklab.md
 
+      # Kafka
+      - file: content/kafka/README.md
+        sections:
+          - file: content/kafka/add_kafka_topics.md
+          - file: content/kafka/add_kafka_users.md
+          - file: content/kafka/runbook.md
+
       # Grafana
       - file: content/grafana/README.md
         sections:

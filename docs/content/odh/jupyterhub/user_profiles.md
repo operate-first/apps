@@ -8,20 +8,15 @@ The following steps serves as a guide for maintenance on user profiles for ODH J
 
 You will need pre-requisite tools to follow along with this doc, please do one of the following:
 
-- Install our [toolbox][1] to have the developer setup ready automatically for you.
-- Install the tools manually. You'll need [kustomize][2], [sops][3] and [ksops][4].
+- You'll need [kustomize][1] to test your builds.
+- Git
 
-Please fork/clone the [operate-first/apps][5] repository.
+Please fork/clone the [operate-first/apps][2] repository.
 
-## JupyterHub user profiles and HW quota
+## JupyterHub user profiles
 
-JupyterHub userprofiles are managed [here][6]. These are amendments to the configmaps that are pulled from the [odh-manifests repo][7]. They are managed by ODH operator. Any new configmaps ought to be added [here][8], so they may be managed by ArgoCD.
+JupyterHub user profiles are managed [here][3]. Look for files named `jupyterhub-singleuser-profiles-*`.
 
-[1]: https://github.com/operate-first/toolbox
-[2]: https://kustomize.io/
-[3]: https://github.com/mozilla/sops
-[4]: https://github.com/viaduct-ai/kustomize-sops
-[5]: https://github.com/operate-first/apps
-[6]: https://github.com/operate-first/apps/tree/master/odh-manifests/smaug/jupyterhub/base
-[7]: https://github.com/opendatahub-io/odh-manifests
-[8]: https://github.com/operate-first/apps/tree/master/kfdefs/overlays/moc/smaug/opf-jupyterhub
+[1]: https://kustomize.io/
+[2]: https://github.com/operate-first/apps
+[3]: https://github.com/operate-first/odh-manifests/tree/smaug-v1.1.1/jupyterhub/jupyterhub/base

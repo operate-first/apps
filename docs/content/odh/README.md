@@ -14,12 +14,6 @@ UI: https://jupyterhub-opf-jupyterhub.apps.smaug.na.operate-first.cloud
 
 Docs can be found [here][1].
 
-### [Kafka][7]
-
-Kafka broker URL: https://odh-message-bus-kafka-bootstrap-opf-kafka.apps.smaug.na.operate-first.cloud
-
-Docs can be found [here][2].
-
 ### [ODH Dashboard][8]
 
 UI: https://odh.operate-first.cloud/
@@ -45,11 +39,9 @@ UI: http://cloudbeaver-opf-trino.apps.smaug.na.operate-first.cloud
 If you require any components offered by ODH that are not currently managed, please submit a request [here][2].
 
 [1]: jupyterhub/README.md
-[2]: kafka/README.md
 [3]: trino/README.md
 [4]: superset/README.md
 [6]: https://jupyter.org/hub
-[7]: https://kafka.apache.org/
 [8]: https://github.com/opendatahub-io/odh-dashboard
 [11]: https://trino.io/
 [12]: https://superset.apache.org/
