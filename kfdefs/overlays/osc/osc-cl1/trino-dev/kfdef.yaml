@@ -25,7 +25,7 @@ spec:
           - name: s3_credentials_secret
             value: odh-datacatalog-bucket
           - name: trino_image
-            value: quay.io/opendatahub/trino:362
+            value: quay.io/os-climate/trino:373
         repoRef:
           name: opf
           path: odh-manifests/osc/trino-dev
