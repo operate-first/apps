@@ -5,6 +5,6 @@ resources:
   - ray-odh-integration
   - alerts.yaml
   - kfdef.yaml
-  - notebook-images
+  - ../../../../base/jupyterhub/notebook-images
   - pvcs
   - servicemonitor.yaml
