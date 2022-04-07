@@ -36,9 +36,9 @@ spec:
             summary:
               Probe success burn rate for Jupyterhub is not met for last 2 mins
           expr: |
-            sum(probe_success:burnrate5m{opf-instance=~"jupyterhub"}) by (opf-instance) > (14.40 * (1-0.98000))
+            sum(probe_success:burnrate5m{opf_instance=~"jupyterhub"}) by (opf_instance) > (14.40 * (1-0.98000))
             and
-            sum(probe_success:burnrate1h{opf-instance=~"jupyterhub"}) by (opf-instance) > (14.40 * (1-0.98000))
+            sum(probe_success:burnrate1h{opf_instance=~"jupyterhub"}) by (opf_instance) > (14.40 * (1-0.98000))
           for: 2m
           labels:
             severity: critical
@@ -50,9 +50,9 @@ spec:
             summary:
               Probe success burn rate for Jupyterhub is not met for last 15 mins
           expr: |
-            sum(probe_success:burnrate30m{opf-instance=~"jupyterhub"}) by (opf-instance) > (6.00 * (1-0.98000))
+            sum(probe_success:burnrate30m{opf_instance=~"jupyterhub"}) by (opf_instance) > (6.00 * (1-0.98000))
             and
-            sum(probe_success:burnrate6h{opf-instance=~"jupyterhub"}) by (opf-instance) > (6.00 * (1-0.98000))
+            sum(probe_success:burnrate6h{opf_instance=~"jupyterhub"}) by (opf_instance) > (6.00 * (1-0.98000))
           for: 15m
           labels:
             severity: critical
@@ -64,9 +64,9 @@ spec:
             summary:
               Probe success burn rate for Jupyterhub is not met for last 1 hour
           expr: |
-            sum(probe_success:burnrate2h{opf-instance=~"jupyterhub"}) by (opf-instance) > (3.00 * (1-0.98000))
+            sum(probe_success:burnrate2h{opf_instance=~"jupyterhub"}) by (opf_instance) > (3.00 * (1-0.98000))
             and
-            sum(probe_success:burnrate1d{opf-instance=~"jupyterhub"}) by (opf-instance) > (3.00 * (1-0.98000))
+            sum(probe_success:burnrate1d{opf_instance=~"jupyterhub"}) by (opf_instance) > (3.00 * (1-0.98000))
           for: 1h
           labels:
             severity: critical
@@ -78,9 +78,9 @@ spec:
             summary:
               Probe success burn rate for Jupyterhub is not met for last 3 hours
           expr: |
-            sum(probe_success:burnrate6h{opf-instance=~"jupyterhub"}) by (opf-instance) > (1.00 * (1-0.98000))
+            sum(probe_success:burnrate6h{opf_instance=~"jupyterhub"}) by (opf_instance) > (1.00 * (1-0.98000))
             and
-            sum(probe_success:burnrate3d{opf-instance=~"jupyterhub"}) by (opf-instance) > (1.00 * (1-0.98000))
+            sum(probe_success:burnrate3d{opf_instance=~"jupyterhub"}) by (opf_instance) > (1.00 * (1-0.98000))
           for: 3h
           labels:
             severity: critical

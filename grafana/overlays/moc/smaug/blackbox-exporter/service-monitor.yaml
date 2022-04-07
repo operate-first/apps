@@ -15,7 +15,7 @@ spec:
         - replacement: 'https://jupyterhub-opf-jupyterhub.apps.smaug.na.operate-first.cloud/'
           targetLabel: target
         - replacement: jupyterhub
-          targetLabel: opf-instance
+          targetLabel: opf_instance
       params:
         module:
           - http_2xx
@@ -34,7 +34,7 @@ spec:
         - replacement: 'https://www.operate-first.cloud/'
           targetLabel: target
         - replacement: operate-first.cloud
-          targetLabel: opf-instance
+          targetLabel: opf_instance
       params:
         module:
           - http_2xx
@@ -53,7 +53,7 @@ spec:
         - replacement: 'https://thanos-query-frontend-opf-observatorium.apps.smaug.na.operate-first.cloud/'
           targetLabel: target
         - replacement: thanos-query-frontend
-          targetLabel: opf-instance
+          targetLabel: opf_instance
       params:
         module:
           - http_2xx
@@ -72,7 +72,7 @@ spec:
         - replacement: 'https://trino.operate-first.cloud/'
           targetLabel: target
         - replacement: trino
-          targetLabel: opf-instance
+          targetLabel: opf_instance
       params:
         module:
           - http_2xx
@@ -91,7 +91,7 @@ spec:
         - replacement: 'http://cloudbeaver-opf-trino.apps.smaug.na.operate-first.cloud/'
           targetLabel: target
         - replacement: cloudbeaver
-          targetLabel: opf-instance
+          targetLabel: opf_instance
       params:
         module:
           - http_2xx
