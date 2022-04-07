@@ -4,12 +4,12 @@ kind: Kustomization
 
 resources:
   - ds-ml-workflows-ws
-  - opf-argo
-  - opf-dashboard
-  - opf-google-spark-operator
-  - opf-jupyterhub
-  - opf-jupyterhub-stage
-  - opf-seldon
-  - opf-superset
-  - opf-trino
-  - opf-trino-stage
+  - argo
+  - dashboard
+  - google-spark-operator
+  - jupyterhub
+  - jupyterhub-stage
+  - seldon
+  - superset
+  - trino
+  - trino-stage
