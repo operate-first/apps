@@ -14,19 +14,19 @@ spec:
       name: odh-common
     - kustomizeConfig:
         parameters:
-        - name: trino_memory_request
-          value: 8Gi
-        - name: trino_memory_limit
-          value: 16Gi
-        - name: trino_cpu_request
-          value: "4"
-        - name: trino_cpu_limit
-          value: "8"
+          - name: trino_memory_request
+            value: "2Gi"
+          - name: trino_memory_limit
+            value: "2Gi"
+          - name: trino_cpu_request
+            value: "500m"
+          - name: trino_cpu_limit
+            value: "500m"
         repoRef:
           name: manifests
           path: trino
       name: trino
   repos:
     - name: manifests
-      uri: "https://github.com/operate-first/odh-manifests/tarball/smaug-v1.1.1"
-  version: v1.1.1
+      uri: "https://github.com/operate-first/odh-manifests/tarball/smaug-v1.1.2"
+  version: v1.1.2

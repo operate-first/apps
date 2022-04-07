@@ -16,7 +16,7 @@ spec:
         overlays: []
         parameters:
           - name: notebook_destination
-            value: "opf-jupyterhub-stage"
+            value: opf-jupyterhub
           - name: s3_endpoint_url
             value: s3.odh.com
         repoRef:
@@ -31,6 +31,6 @@ spec:
           path: jupyterhub/notebook-images
       name: notebook-images
   repos:
-    - name: opf-manifests
-      uri: "https://github.com/operate-first/odh-manifests/tarball/smaug-v1.1.1"
-  version: v1.1.1
+    - name: manifests
+      uri: "https://github.com/operate-first/odh-manifests/tarball/smaug-v1.1.2"
+  version: v1.1.2

@@ -6,7 +6,7 @@
 ## Steps
 
 1. Clone apps repo
-2. Navigate to `apps/kfdefs/overlays/$ENV/$CLUSTER/$TRINO_FOLDER/hive-metastores`
+2. Navigate to `apps/kfdefs/overlays/$ENV/$CLUSTER/trino/hive-metastores`
 
 > Note: Values for ENV, CLUSTER, TRINO_FOLDER are dependent upon which cluster you are deploying.
 > Please explore [kfdefs][kfdefs] overlays folder to identify the values for these variables.
@@ -17,7 +17,7 @@ a catalog called `some-catalog`, so we create:
 ```bash
 $ cd $APPS_REPO
 # Replace dashes with underscores in catalog names, so some-catalog becomes some_catalog
-$ mkdir apps/kfdefs/overlays/$ENV/$CLUSTER/$TRINO_FOLDER/hive-metastores/some_catalog
+$ mkdir apps/kfdefs/overlays/$ENV/$CLUSTER/trino/hive-metastores/some_catalog
 ```
 
 Now create a new file in this directory called `kustomization.yaml` and fill it out like so:
@@ -121,11 +121,11 @@ $ sed -i 's/<catalog_name>/some-catalog/g' kustomization.yaml
 $ sed -i 's/<catalog_name_upercase>/SOME_CATALOG/g' kustomization.yaml
 ```
 
-Add this file to the `kustomization.yaml` in `apps/kfdefs/overlays/$ENV/$CLUSTER/$TRINO_FOLDER/`.
+Add this file to the `kustomization.yaml` in `apps/kfdefs/overlays/$ENV/$CLUSTER/trino/`.
 
-Also add the path to this file to the `kustomization.yaml` located at `kfdefs/overlays/$ENV/$CLUSTER/$TRINO_FOLDER/hive-metastores/kustomization.yaml`
+Also add the path to this file to the `kustomization.yaml` located at `kfdefs/overlays/$ENV/$CLUSTER/trino/hive-metastores/kustomization.yaml`
 
-Next add the following to the `s3buckets` secret found at `apps/kfdefs/overlays/$ENV/$CLUSTER/$TRINO_FOLDER/secrets/s3buckets.yaml`.
+Next add the following to the `s3buckets` secret found at `apps/kfdefs/overlays/$ENV/$CLUSTER/trino/secrets/s3buckets.yaml`.
 
 > Note you will need to use sops to edit this file with the appropriate gpg key
 
@@ -143,7 +143,7 @@ s3 bucket details.
 
 Next we need to update Trino Catalog configuration files.
 
-Navigate to: `apps/kfdefs/overlays/$ENV/$CLUSTER/$TRINO_FOLDER/configs/catalogs/`, create a file called
+Navigate to: `apps/kfdefs/overlays/$ENV/$CLUSTER/trino/configs/catalogs/`, create a file called
 `<catalog_name_underscored>.properties`. With the following contents:
 
 ```yaml
@@ -165,7 +165,7 @@ hive.s3.aws-secret-key=${ENV:<catalog_name_upercase>_AWS_SECRET_ACCESS_KEY}
 
 Replace all `<*>` values same as above.
 
-Add this file to `apps/kfdefs/overlays/$ENV/$CLUSTER/$TRINO_FOLDER/configs/kustomization.yaml` under the
+Add this file to `apps/kfdefs/overlays/$ENV/$CLUSTER/trino/configs/kustomization.yaml` under the
 `configMapGenerator` in the `files` list for `trino-catalog`.
 
 Commit changes, make a pr.

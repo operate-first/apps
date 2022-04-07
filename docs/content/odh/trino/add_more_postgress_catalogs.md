@@ -6,7 +6,7 @@
 ## Steps
 
 1. Clone apps repo
-2. Add your PostGreSQL credentials to the secrets file located at `kfdefs/overlays/$ENV/$CLUSTER/$TRINO_FOLDER/secrets/postgres-dbs.enc.yaml`:
+2. Add your PostGreSQL credentials to the secrets file located at `kfdefs/overlays/$ENV/$CLUSTER/trino/secrets/postgres-dbs.enc.yaml`:
 
 > Note: Values for ENV, CLUSTER, TRINO_FOLDER are dependent upon which cluster you are deploying.
 > Please explore [kfdefs][kfdefs] overlays folder to identify the values for these variables.
@@ -30,7 +30,7 @@ type: Opaque
 
 > Note that <catalog_name_upercase>_POSTGRESQL_URL should be of the form: jdbc:postgresql://{host}:{port}
 
-3. Navigate to: `apps/kfdefs/overlays/$ENV/$CLUSTER/$TRINO_FOLDER/configs/catalogs/`, create a file called
+3. Navigate to: `apps/kfdefs/overlays/$ENV/$CLUSTER/trino/configs/catalogs/`, create a file called
 `<catalog_name_underscored>.properties`. With the following contents:
 
 ```yaml
@@ -42,7 +42,7 @@ connection-password=${ENV:<catalog_name_upercase>_POSTGRESQL_PASSWORD}
 
 Replace all `<*>` values same as above.
 
-Add this file to `apps/kfdefs/overlays/$ENV/$CLUSTER/$TRINO_FOLDER/configs/kustomization.yaml` under the
+Add this file to `apps/kfdefs/overlays/$ENV/$CLUSTER/trino/configs/kustomization.yaml` under the
 `configMapGenerator` in the `files` list for `trino-catalog`.
 
 Commit changes, make a pr.
