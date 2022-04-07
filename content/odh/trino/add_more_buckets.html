@@ -791,7 +791,7 @@ const thebe_selector_output = ".output, .cell_output"
 <h2>Steps<a class="headerlink" href="#steps" title="Permalink to this headline">¶</a></h2>
 <ol class="simple">
 <li><p>Clone apps repo</p></li>
-<li><p>Navigate to <code class="docutils literal notranslate"><span class="pre">apps/kfdefs/overlays/$ENV/$CLUSTER/$TRINO_FOLDER/hive-metastores</span></code></p></li>
+<li><p>Navigate to <code class="docutils literal notranslate"><span class="pre">apps/kfdefs/overlays/$ENV/$CLUSTER/trino/hive-metastores</span></code></p></li>
 </ol>
 <blockquote>
 <div><p>Note: Values for ENV, CLUSTER, TRINO_FOLDER are dependent upon which cluster you are deploying.
@@ -803,7 +803,7 @@ a catalog called <code class="docutils literal notranslate"><span class="pre">so
 </ol>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$ <span class="nb">cd</span> <span class="nv">$APPS_REPO</span>
 <span class="c1"># Replace dashes with underscores in catalog names, so some-catalog becomes some_catalog</span>
-$ mkdir apps/kfdefs/overlays/<span class="nv">$ENV</span>/<span class="nv">$CLUSTER</span>/<span class="nv">$TRINO_FOLDER</span>/hive-metastores/some_catalog
+$ mkdir apps/kfdefs/overlays/<span class="nv">$ENV</span>/<span class="nv">$CLUSTER</span>/trino/hive-metastores/some_catalog
 </pre></div>
 </div>
 <p>Now create a new file in this directory called <code class="docutils literal notranslate"><span class="pre">kustomization.yaml</span></code> and fill it out like so:</p>
@@ -902,9 +902,9 @@ following <code class="docutils literal notranslate"><span class="pre">sed</span
 $ sed -i <span class="s1">&#39;s/&lt;catalog_name_upercase&gt;/SOME_CATALOG/g&#39;</span> kustomization.yaml
 </pre></div>
 </div>
-<p>Add this file to the <code class="docutils literal notranslate"><span class="pre">kustomization.yaml</span></code> in <code class="docutils literal notranslate"><span class="pre">apps/kfdefs/overlays/$ENV/$CLUSTER/$TRINO_FOLDER/</span></code>.</p>
-<p>Also add the path to this file to the <code class="docutils literal notranslate"><span class="pre">kustomization.yaml</span></code> located at <code class="docutils literal notranslate"><span class="pre">kfdefs/overlays/$ENV/$CLUSTER/$TRINO_FOLDER/hive-metastores/kustomization.yaml</span></code></p>
-<p>Next add the following to the <code class="docutils literal notranslate"><span class="pre">s3buckets</span></code> secret found at <code class="docutils literal notranslate"><span class="pre">apps/kfdefs/overlays/$ENV/$CLUSTER/$TRINO_FOLDER/secrets/s3buckets.yaml</span></code>.</p>
+<p>Add this file to the <code class="docutils literal notranslate"><span class="pre">kustomization.yaml</span></code> in <code class="docutils literal notranslate"><span class="pre">apps/kfdefs/overlays/$ENV/$CLUSTER/trino/</span></code>.</p>
+<p>Also add the path to this file to the <code class="docutils literal notranslate"><span class="pre">kustomization.yaml</span></code> located at <code class="docutils literal notranslate"><span class="pre">kfdefs/overlays/$ENV/$CLUSTER/trino/hive-metastores/kustomization.yaml</span></code></p>
+<p>Next add the following to the <code class="docutils literal notranslate"><span class="pre">s3buckets</span></code> secret found at <code class="docutils literal notranslate"><span class="pre">apps/kfdefs/overlays/$ENV/$CLUSTER/trino/secrets/s3buckets.yaml</span></code>.</p>
 <blockquote>
 <div><p>Note you will need to use sops to edit this file with the appropriate gpg key</p>
 </div></blockquote>
@@ -920,7 +920,7 @@ $ sed -i <span class="s1">&#39;s/&lt;catalog_name_upercase&gt;/SOME_CATALOG/g&#3
 <p>Use the same value for <code class="docutils literal notranslate"><span class="pre">&lt;catalog_name_upercase&gt;</span></code> as used above. Fill out the values for these fields according to your
 s3 bucket details.</p>
 <p>Next we need to update Trino Catalog configuration files.</p>
-<p>Navigate to: <code class="docutils literal notranslate"><span class="pre">apps/kfdefs/overlays/$ENV/$CLUSTER/$TRINO_FOLDER/configs/catalogs/</span></code>, create a file called
+<p>Navigate to: <code class="docutils literal notranslate"><span class="pre">apps/kfdefs/overlays/$ENV/$CLUSTER/trino/configs/catalogs/</span></code>, create a file called
 <code class="docutils literal notranslate"><span class="pre">&lt;catalog_name_underscored&gt;.properties</span></code>. With the following contents:</p>
 <div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="l l-Scalar l-Scalar-Plain">connector.name=hive-hadoop2</span><span class="w"></span>
 <span class="l l-Scalar l-Scalar-Plain">hive.metastore.uri=thrift://&lt;catalog_name&gt;:9083</span><span class="w"></span>
@@ -939,7 +939,7 @@ s3 bucket details.</p>
 </pre></div>
 </div>
 <p>Replace all <code class="docutils literal notranslate"><span class="pre">&lt;*&gt;</span></code> values same as above.</p>
-<p>Add this file to <code class="docutils literal notranslate"><span class="pre">apps/kfdefs/overlays/$ENV/$CLUSTER/$TRINO_FOLDER/configs/kustomization.yaml</span></code> under the
+<p>Add this file to <code class="docutils literal notranslate"><span class="pre">apps/kfdefs/overlays/$ENV/$CLUSTER/trino/configs/kustomization.yaml</span></code> under the
 <code class="docutils literal notranslate"><span class="pre">configMapGenerator</span></code> in the <code class="docutils literal notranslate"><span class="pre">files</span></code> list for <code class="docutils literal notranslate"><span class="pre">trino-catalog</span></code>.</p>
 <p>Commit changes, make a pr.</p>
 </div>
