@@ -6,6 +6,7 @@ resources:
   - hive-metastores
   - kfdef.yaml
   - obcs
+  - routes
   - secrets
   - vpa
 generatorOptions:
