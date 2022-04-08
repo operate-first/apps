@@ -39,5 +39,6 @@ resources:
 - ../../../../base/user.openshift.io/groups/pachyderm-admins
 - ../../../../base/user.openshift.io/groups/seldon-admin
 - ../../../../base/user.openshift.io/groups/sostrades
+- ../../../../bundles/training-operator
 - apiserver
 - ingresscontroller
