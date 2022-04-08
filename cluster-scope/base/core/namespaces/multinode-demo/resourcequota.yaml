@@ -1,0 +1,12 @@
+apiVersion: v1
+kind: ResourceQuota
+metadata:
+    name: multinode-demo-custom
+spec:
+    hard:
+        limits.cpu: "1"
+        limits.memory: 4Gi
+        limits.nvidia.com/gpu: "2"
+        requests.cpu: "1"
+        requests.memory: 4Gi
+        requests.storage: 1Gi

@@ -1,0 +1,10 @@
+apiVersion: v1
+kind: Namespace
+metadata:
+    name: multinode-demo
+    annotations:
+        openshift.io/requester: multinode-demo
+        openshift.io/display-name: "Multi GPU node ML workload distribution "
+        op1st/project-owner: multinode-demo
+        op1st/onboarding-issue: "https://github.com/operate-first/support/issues/537"
+        op1st/docs: "https://github.com/aicoe-aiops/operate-first-data-science-community/issues/56#issuecomment-1065543057"
