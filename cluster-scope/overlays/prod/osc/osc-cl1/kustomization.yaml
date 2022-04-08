@@ -1,5 +1,5 @@
-apiVersion: kustomize.config.k8s.io/v1beta1
 kind: Kustomization
+apiVersion: kustomize.config.k8s.io/v1beta1
 patchesStrategicMerge:
 - configmaps/cluster-monitoring-config.yaml
 - configmaps/user-workload-monitoring-config.yaml
@@ -16,6 +16,7 @@ resources:
 - ../../../../base/core/namespaces/acme-operator
 - ../../../../base/core/namespaces/dex
 - ../../../../base/core/namespaces/kubeflow
+- ../../../../base/core/namespaces/multinode-demo
 - ../../../../base/core/namespaces/odh-jupyterhub
 - ../../../../base/core/namespaces/odh-seldon
 - ../../../../base/core/namespaces/odh-superset
@@ -34,6 +35,7 @@ resources:
 - ../../../../base/rbac.authorization.k8s.io/clusterroles/acme-operator
 - ../../../../base/user.openshift.io/groups/cluster-admins
 - ../../../../base/user.openshift.io/groups/kubeflow-admin
+- ../../../../base/user.openshift.io/groups/multinode-demo
 - ../../../../base/user.openshift.io/groups/odh-admin
 - ../../../../base/user.openshift.io/groups/odh-users
 - ../../../../base/user.openshift.io/groups/pachyderm-admins
