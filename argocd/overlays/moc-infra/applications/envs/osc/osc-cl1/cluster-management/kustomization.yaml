@@ -7,3 +7,4 @@ resources:
   - cloudbeaver.yaml
   - k8s-annotations-exporter.yaml
   - kfdefs.yaml
+  - training-operator.yaml

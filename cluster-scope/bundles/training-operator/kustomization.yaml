@@ -1,0 +1,11 @@
+apiVersion: kustomize.config.k8s.io/v1beta1
+kind: Kustomization
+# Source: https://github.com/kubeflow/training-operator/tree/v1.4.0/manifests/overlays/standalone
+resources:
+  - ../../base/apiextensions.k8s.io/customresourcedefinitions/mpijobs.kubeflow.org
+  - ../../base/apiextensions.k8s.io/customresourcedefinitions/mxjobs.kubeflow.org
+  - ../../base/apiextensions.k8s.io/customresourcedefinitions/pytorchjobs.kubeflow.org
+  - ../../base/apiextensions.k8s.io/customresourcedefinitions/tfjobs.kubeflow.org
+  - ../../base/apiextensions.k8s.io/customresourcedefinitions/xgboostjobs.kubeflow.org
+  - ../../base/rbac.authorization.k8s.io/clusterrolebindings/training-operator
+  - ../../base/rbac.authorization.k8s.io/clusterroles/training-operator
