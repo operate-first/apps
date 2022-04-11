@@ -5,3 +5,6 @@ metadata:
     annotations:
         openshift.io/display-name: collaborative workspace for enterprise neurosystem projects
         openshift.io/requester: enterprise-neurosystem
+        op1st/project-owner: enterprise-neurosystem
+        op1st/onboarding-issue: "https://github.com/operate-first/support/issues/313"
+        op1st/docs: "https://github.com/Enterprise-Neurosystem/Enterprise-Neurosystem"

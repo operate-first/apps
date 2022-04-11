@@ -4,3 +4,6 @@ metadata:
     name: fedora
     annotations:
         openshift.io/requester: fedora
+        op1st/project-owner: fedora
+        op1st/onboarding-issue: "https://github.com/operate-first/support/issues/500"
+        op1st/docs: "https://getfedora.org/"
