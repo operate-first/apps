@@ -6,3 +6,6 @@ metadata:
         openshift.io/description: Our project permits multiple tenants to flexibly allocate baremetal machines from a pool of available hardware, create networks, attach baremetal nodes and networks, and to optionally provision an operating system on those systems through the use of an associated provisioning service.
         openshift.io/display-name: ESI team's project to provision OS on available hardware pools.
         openshift.io/requester: esi-project
+        op1st/project-owner: esi-project
+        op1st/onboarding-issue: "https://github.com/operate-first/support/issues/272"
+        op1st/docs: "https://www.bu.edu/rhcollab/projects/distributed-systems/esi/"

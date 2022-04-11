@@ -5,5 +5,8 @@ metadata:
   annotations:
     openshift.io/display-name: "FDE: Audio Decoder"
     openshift.io/requester: fde
+    op1st/project-owner: fde
+    op1st/onboarding-issue: "https://github.com/operate-first/support/issues/164"
+    op1st/docs: "https://github.com/operate-first/support/issues/164"
   name: fde-audio-decoder-demo
 spec: {}
