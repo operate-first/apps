@@ -1,0 +1,37 @@
+apiVersion: monitoring.coreos.com/v1
+kind: PrometheusRule
+metadata:
+  name: argocd-alerts
+spec:
+  groups:
+    - name: argocd-alerts
+      rules:
+        - alert: ArgoAppSyncFailed
+          expr: argocd_app_sync_total{phase!="Succeeded"} == 1  # Triggered when argocd-application is not succeeded
+          for: 1m
+          labels:
+            severity: warning
+          annotations:
+            summary: "'{{ $labels.name }}' Application has sync phase as '{{ $labels.phase }}'"
+            description: >
+              For the last minute, ArgoCD applications sync status is not succeeded.
+              The `argocd_app_sync_total` metric is the counter for application sync history.
+        - alert: ArgoAppMissing
+          expr: absent(argocd_app_info)                         # Triggered when argocd-application info is not found
+          for: 15m
+          labels:
+            severity: critical
+          annotations:
+            summary: "[ArgoCD] No reported applications"
+            description: >
+              ArgoCD has not reported any applications data for the past 15 minutes which
+              means that it must be down or not functioning properly.
+    - name: argocd-app-alerts
+      rules:
+        - alert: ArgoCDAppOutOfSync
+          expr: argocd_app_info{sync_status="OutOfSync"}  # Triggered when argocd-application is `OutofSync`
+          for: 1m
+          labels:
+            severity: warning
+          annotations:
+            summary: "'{{ $labels.name }}' Application has sync status as '{{ $labels.sync_status }}'"
