@@ -7,3 +7,4 @@ resources:
 - cluster-logging.yaml
 - opf-public-demo.yaml
 - thoth.yaml
+- emea-sa-od-demo.yaml

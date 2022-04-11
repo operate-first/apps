@@ -8,6 +8,8 @@ resources:
 - balrog-cluster-app-logs.yaml
 - balrog-cluster-audit-logs.yaml
 - balrog-cluster-infra-logs.yaml
+- emea-sa-od-demo-objects.yaml
+- emea-sa-od-demo-images.yaml
 - infra-cluster-app-logs.yaml
 - infra-cluster-audit-logs.yaml
 - infra-cluster-infra-logs.yaml

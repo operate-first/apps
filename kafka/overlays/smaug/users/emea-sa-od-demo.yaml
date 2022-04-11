@@ -1,0 +1,24 @@
+apiVersion: kafka.strimzi.io/v1beta2
+kind: KafkaUser
+metadata:
+  name: emea-sa.od-demo
+spec:
+  authentication:
+    type: tls
+  authorization:
+    acls:
+      - host: '*'
+        operation: All
+        resource:
+          name: emea-sa.od-demo.
+          patternType: prefix
+          type: topic
+        type: allow
+      - host: '*'
+        operation: All
+        resource:
+          name: emea-sa.od-demo.
+          patternType: prefix
+          type: group
+        type: allow
+    type: simple
