@@ -1,0 +1,13 @@
+---
+apiVersion: monitoring.coreos.com/v1
+kind: ServiceMonitor
+metadata:
+  name: opf-grafana-servicemonitor
+spec:
+  endpoints:
+    - port: grafana         # grafana
+    - port: http-metrics    # grafana-operator
+  selector: {}
+  namespaceSelector:
+    matchNames:
+      - opf-grafana-public

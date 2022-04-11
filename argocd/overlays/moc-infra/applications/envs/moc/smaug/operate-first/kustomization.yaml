@@ -8,6 +8,7 @@ resources:
   - cloudbeaver-stage.yaml
   - cluster-logging.yaml
   - grafana.yaml
+  - grafana-public.yaml
   - jh-idle-culler.yaml
   - k8s-annotations-exporter.yaml
   - kfp-tekton.yaml
