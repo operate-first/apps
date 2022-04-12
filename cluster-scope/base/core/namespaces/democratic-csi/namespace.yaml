@@ -3,6 +3,7 @@ kind: Namespace
 metadata:
     name: democratic-csi
     annotations:
+        openshift.io/display-name: "Democratic-csi"
         op1st/project-owner: operate-first
         op1st/onboarding-issue: "https://github.com/operate-first/operations/issues/280"
         op1st/docs: "https://github.com/democratic-csi/democratic-csi"
