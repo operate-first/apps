@@ -3,6 +3,7 @@ kind: Namespace
 metadata:
     name: fedora
     annotations:
+        openshift.io/display-name: "Fedora"
         openshift.io/requester: fedora
         op1st/project-owner: fedora
         op1st/onboarding-issue: "https://github.com/operate-first/support/issues/500"

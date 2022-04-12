@@ -3,6 +3,7 @@ kind: Namespace
 metadata:
     name: fybrik-applications
     annotations:
+        openshift.io/display-name: "Fybrik"
         openshift.io/requester: fybrik
         op1st/project-owner: fybrik
         op1st/onboarding-issue: "https://github.com/operate-first/support/issues/41"
