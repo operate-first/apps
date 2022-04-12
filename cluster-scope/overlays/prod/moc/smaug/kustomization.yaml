@@ -59,6 +59,7 @@ resources:
 - ../../../../base/core/namespaces/opf-trino
 - ../../../../base/core/namespaces/opf-trino-stage
 - ../../../../base/core/namespaces/otel-dev
+- ../../../../base/core/namespaces/peribolos-as-a-service
 - ../../../../base/core/namespaces/prometheus-ai-project
 - ../../../../base/core/namespaces/prometheus-anomaly-detector
 - ../../../../base/core/namespaces/rapidast
@@ -99,6 +100,7 @@ resources:
 - ../../../../base/operators.coreos.com/subscriptions/snapscheduler
 - ../../../../base/operators.coreos.com/subscriptions/strimzi
 - ../../../../base/operators.coreos.com/subscriptions/vertical-pod-autoscaler
+- ../../../../base/rbac.authorization.k8s.io/clusterrolebindings/apirequest-count-reader
 - ../../../../base/rbac.authorization.k8s.io/clusterrolebindings/cluster-interceptor-opf-ci-pipelines
 - ../../../../base/rbac.authorization.k8s.io/clusterrolebindings/cluster-monitoring-view
 - ../../../../base/rbac.authorization.k8s.io/clusterrolebindings/cluster-reader-k8s-annotations-exporter
@@ -108,14 +110,13 @@ resources:
 - ../../../../base/rbac.authorization.k8s.io/clusterrolebindings/node-labeler
 - ../../../../base/rbac.authorization.k8s.io/clusterrolebindings/oauth-token-access-review-opf-observatorium
 - ../../../../base/rbac.authorization.k8s.io/clusterrolebindings/scc-privileged-opf-ci-pipelines-aicoe-ci
-- ../../../../base/rbac.authorization.k8s.io/clusterrolebindings/apirequest-count-reader
 - ../../../../base/rbac.authorization.k8s.io/clusterrolebindings/tekton-dashboard
 - ../../../../base/rbac.authorization.k8s.io/clusterrolebindings/vault-server-binding
+- ../../../../base/rbac.authorization.k8s.io/clusterroles/apirequest-count-read-cr
 - ../../../../base/rbac.authorization.k8s.io/clusterroles/moc-nfs-democratic-csi-controller-cr
 - ../../../../base/rbac.authorization.k8s.io/clusterroles/moc-nfs-democratic-csi-node-cr
 - ../../../../base/rbac.authorization.k8s.io/clusterroles/node-labeler
 - ../../../../base/rbac.authorization.k8s.io/clusterroles/oauth-token-access-review
-- ../../../../base/rbac.authorization.k8s.io/clusterroles/apirequest-count-read-cr
 - ../../../../base/rbac.authorization.k8s.io/clusterroles/tekton-dashboard
 - ../../../../base/storage.k8s.io/csidrivers/org.democratic-csi.nfs
 - ../../../../base/storage.k8s.io/storageclasses/moc-nfs-csi
