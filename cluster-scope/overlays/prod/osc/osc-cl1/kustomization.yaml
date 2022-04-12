@@ -43,5 +43,6 @@ resources:
 - ../../../../base/user.openshift.io/groups/seldon-admin
 - ../../../../base/user.openshift.io/groups/sostrades
 - ../../../../bundles/training-operator
+- ../../../../bundles/openshift-pipelines
 - apiserver
 - ingresscontroller
