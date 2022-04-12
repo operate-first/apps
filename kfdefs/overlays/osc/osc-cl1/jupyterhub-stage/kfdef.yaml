@@ -18,6 +18,8 @@ spec:
             value: "opf-jupyterhub-stage"
           - name: s3_endpoint_url
             value: s3.odh.com
+        overlays:
+          - byon
         repoRef:
           name: manifests
           path: jupyterhub/jupyterhub
@@ -32,8 +34,8 @@ spec:
     - kustomizeConfig:
         repoRef:
           name: manifests
-          path: jupyterhub/byon
-      name: byon
+          path: odh-dashboard
+      name: odh-dashboard
   repos:
     - name: manifests
       uri: https://github.com/operate-first/odh-manifests/tarball/osc-cl1-byon
