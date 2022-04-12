@@ -9,5 +9,6 @@ resources:
   - k8s-annotations-exporter.yaml
   - kfdefs.yaml
   - kfp-tekton.yaml
+  - odh-operator.yaml
   - pachyderm.yaml
   - reloader.yaml
