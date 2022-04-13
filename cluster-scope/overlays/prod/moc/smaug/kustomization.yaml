@@ -91,9 +91,9 @@ resources:
 - ../../../../base/operators.coreos.com/subscriptions/camel-k
 - ../../../../base/operators.coreos.com/subscriptions/cert-manager
 - ../../../../base/operators.coreos.com/subscriptions/cluster-logging
+- ../../../../base/operators.coreos.com/subscriptions/grafana-operator
 - ../../../../base/operators.coreos.com/subscriptions/koku-metrics-operator
 - ../../../../base/operators.coreos.com/subscriptions/kubevirt-hyperconverged
-- ../../../../base/operators.coreos.com/subscriptions/opf-grafana
 - ../../../../base/operators.coreos.com/subscriptions/ovms-operator
 - ../../../../base/operators.coreos.com/subscriptions/pulp-operator
 - ../../../../base/operators.coreos.com/subscriptions/snapscheduler
@@ -128,6 +128,7 @@ resources:
 - ../../../../bundles/meteor-operator
 - ../../../../bundles/nfd
 - ../../../../bundles/openshift-pipelines
+- ../../../../bundles/opf-grafana-public
 - ../../../../bundles/reloader
 - ../../../../bundles/seraph
 - ../../../../bundles/tekton-chains

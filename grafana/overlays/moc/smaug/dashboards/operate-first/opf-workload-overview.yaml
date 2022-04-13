@@ -3,6 +3,7 @@ kind: GrafanaDashboard
 metadata:
   labels:
     app: grafana
+    public: "true"
   name: opf-workload-overview
 spec:
   customFolderName: Operate-First
@@ -30,8 +31,8 @@ spec:
       "editable": true,
       "fiscalYearStartMonth": 0,
       "graphTooltip": 0,
-      "id": 40,
-      "iteration": 1648224654530,
+      "id": 46,
+      "iteration": 1649772047103,
       "links": [],
       "liveNow": false,
       "panels": [
@@ -389,6 +390,7 @@ spec:
                   "annotation_openshift_io_sa_scc_mcs": true,
                   "annotation_openshift_io_sa_scc_supplemental_groups": true,
                   "annotation_openshift_io_sa_scc_uid_range": true,
+                  "annotation_operate_first_cloud_issue": true,
                   "annotation_workload_openshift_io_allowed": true,
                   "api_version": true,
                   "cluster 1": true,
@@ -616,6 +618,6 @@ spec:
       "timezone": "",
       "title": "Workload Overview",
       "uid": "opf-overview",
-      "version": 1,
+      "version": 5,
       "weekStart": ""
     }
