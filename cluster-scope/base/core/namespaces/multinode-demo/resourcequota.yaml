@@ -4,9 +4,9 @@ metadata:
     name: multinode-demo-custom
 spec:
     hard:
-        limits.cpu: "1"
-        limits.memory: 4Gi
+        limits.cpu: "2"
+        limits.memory: 8Gi
         limits.nvidia.com/gpu: "2"
-        requests.cpu: "1"
-        requests.memory: 4Gi
-        requests.storage: 1Gi
+        requests.cpu: "2"
+        requests.memory: 8Gi
+        requests.storage: 6Gi
