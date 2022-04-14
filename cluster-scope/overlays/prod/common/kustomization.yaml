@@ -1,5 +1,5 @@
-kind: Kustomization
 apiVersion: kustomize.config.k8s.io/v1beta1
+kind: Kustomization
 resources:
 - ../../../base/config.openshift.io/projects/cluster
 - ../../../base/rbac.authorization.k8s.io/clusterrolebindings/cluster-admins-rb
@@ -43,6 +43,7 @@ resources:
 - ../../../base/user.openshift.io/groups/opf-alerting
 - ../../../base/user.openshift.io/groups/osc
 - ../../../base/user.openshift.io/groups/osc-admins
+- ../../../base/user.openshift.io/groups/peribolos-as-a-service
 - ../../../base/user.openshift.io/groups/prometheus-ai
 - ../../../base/user.openshift.io/groups/prometheus-anomaly-detector
 - ../../../base/user.openshift.io/groups/psse-research

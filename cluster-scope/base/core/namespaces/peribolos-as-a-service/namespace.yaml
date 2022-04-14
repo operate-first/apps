@@ -1,0 +1,10 @@
+apiVersion: v1
+kind: Namespace
+metadata:
+    name: peribolos-as-a-service
+    annotations:
+        openshift.io/display-name: Peribolos Service
+        openshift.io/requester: peribolos-as-a-service
+        op1st/project-owner: peribolos-as-a-service
+        op1st/onboarding-issue: "https://github.com/open-services-group/peribolos-as-a-service/issues/31"
+        op1st/docs: "https://github.com/kubernetes/test-infra/tree/master/prow/cmd/peribolos"
