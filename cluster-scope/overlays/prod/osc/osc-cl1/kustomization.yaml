@@ -13,6 +13,7 @@ resources:
 - ../../../../base/core/configmaps/cluster-monitoring-config
 - ../../../../base/core/configmaps/user-workload-monitoring-config
 - ../../../../base/core/namespaces/acme-operator
+- ../../../../base/core/namespaces/datahub-linkedin
 - ../../../../base/core/namespaces/dex
 - ../../../../base/core/namespaces/kubeflow
 - ../../../../base/core/namespaces/multinode-demo
