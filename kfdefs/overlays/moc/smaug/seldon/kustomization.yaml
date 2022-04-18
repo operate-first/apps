@@ -5,3 +5,4 @@ namespace: opf-seldon
 
 resources:
   - kfdef.yaml
+  - servicemonitor.yaml

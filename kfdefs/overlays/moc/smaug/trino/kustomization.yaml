@@ -8,6 +8,7 @@ resources:
   - kfdef.yaml
   - obcs
   - secrets
+  - servicemonitor.yaml
   - vpa
 generatorOptions:
   disableNameSuffixHash: true

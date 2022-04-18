@@ -1,0 +1,11 @@
+apiVersion: monitoring.coreos.com/v1
+kind: ServiceMonitor
+metadata:
+  name: seldon-metrics
+spec:
+  endpoints:
+  - port: http
+  selector: {}
+  namespaceSelector:
+    matchNames:
+      - opf-seldon
