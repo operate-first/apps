@@ -1,0 +1,9 @@
+kind: Kustomization
+apiVersion: kustomize.config.k8s.io/v1beta1
+namespace: smart-village-view
+resources:
+    - namespace.yaml
+components:
+    - ../../../../components/limitranges/default
+    - ../../../../components/project-admin-rolebindings/boston-university-redhat
+    - ../../../../components/resourcequotas/medium

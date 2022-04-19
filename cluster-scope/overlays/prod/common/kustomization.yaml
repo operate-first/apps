@@ -13,6 +13,7 @@ resources:
 - ../../../base/user.openshift.io/groups/argocd-readonly
 - ../../../base/user.openshift.io/groups/b4mad
 - ../../../base/user.openshift.io/groups/boatroackers
+- ../../../base/user.openshift.io/groups/boston-university-redhat
 - ../../../base/user.openshift.io/groups/ccx
 - ../../../base/user.openshift.io/groups/chi-rhug
 - ../../../base/user.openshift.io/groups/cnv-testing
