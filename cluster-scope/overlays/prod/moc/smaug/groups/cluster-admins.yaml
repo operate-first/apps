@@ -4,6 +4,8 @@ metadata:
     name: cluster-admins
 users:
     - 4n4nd
+    - dystewart
+    - gregory-pereira
     - humairak
     - harshad16
     - larsks
