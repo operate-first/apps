@@ -126,6 +126,40 @@
             "privileges": []
         },
         {
+            "group": "demo_dv_dev",
+            "catalog": "osc_datacommons_dev",
+            "schema": "sandbox",
+            "table": "gppd",
+            "privileges": [
+                "SELECT",
+                "INSERT",
+                "DELETE",
+                "OWNERSHIP"
+            ]
+        },
+        {
+            "group": "demo_dv_user",
+            "catalog": "osc_datacommons_dev",
+            "schema": "sandbox",
+            "table": "gppd",
+            "privileges": [
+                "SELECT"
+            ],
+            "filter": "case when contains(current_groups(), 'demo_dv_user') then (observation_year <= 2017) else true end",
+            "columns": [
+                {
+                    "name": "capacity_mw",
+                    "allow": false
+                }
+            ]
+        },
+        {
+            "catalog": "osc_datacommons_dev",
+            "schema": "sandbox",
+            "table": "gppd",
+            "privileges": []
+        },
+        {
             "group": ".*",
             "catalog": "osc_datacommons_dev",
             "schema": "sandbox",
