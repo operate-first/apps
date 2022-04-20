@@ -51,3 +51,15 @@ tables:
       - groups: [demo_dv_user]
         # hide-columns are cumulative, top to bottom
         hide-columns: [quant1]
+
+  - table: gppd
+    schema: sandbox
+    catalog: osc_datacommons_dev
+    admin-groups: [demo_dv_dev]
+    public: false
+    row-acl:
+      type: filter
+      filter: "case when contains(current_groups(), 'demo_dv_user') then (observation_year <= 2017) else true end"
+    column-acl:
+      - groups: [demo_dv_user]
+        hide-columns: [capacity_mw]
