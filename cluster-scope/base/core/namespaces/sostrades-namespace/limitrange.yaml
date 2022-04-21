@@ -1,7 +1,7 @@
 kind: LimitRange
 apiVersion: v1
 metadata:
-  name: default
+  name: sostrades-limitrange-custom
 spec:
   limits:
     - type: Container
