@@ -1,7 +1,7 @@
 apiVersion: v1
 kind: ResourceQuota
 metadata:
-  name: sostrades-namespace-custom
+  name: sostrades-resourcequota-custom
 spec:
   hard:
     limits.cpu: '40'
