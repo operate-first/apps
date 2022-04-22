@@ -3,7 +3,10 @@ kind: Group
 metadata:
     name: octo-training-model
 users:
+    - codificat
     - cooktheryan
-    - michaelclifford
-    - treeinrandomforest
     - jimcadden
+    - michaelclifford
+    - oglok
+    - screeley44
+    - treeinrandomforest

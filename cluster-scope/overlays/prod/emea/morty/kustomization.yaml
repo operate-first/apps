@@ -23,6 +23,7 @@ patchesStrategicMerge:
 resources:
 - ../../../../base/core/configmaps/cluster-monitoring-config
 - ../../../../base/core/namespaces/examples-openshift-pub
+- ../../../../base/core/namespaces/keylime
 - ../../../../base/core/namespaces/openshift-cnv
 - ../../../../base/core/namespaces/openshift-local-storage
 - ../../../../base/core/namespaces/openshift-storage
@@ -31,6 +32,7 @@ resources:
 - ../../../../base/core/namespaces/pixel-secrets
 - ../../../../base/core/namespaces/rbo-builder
 - ../../../../base/core/namespaces/smartoffice
+- ../../../../base/core/namespaces/summit-2022-octo-keynote
 - ../../../../base/core/namespaces/thoth-test-core
 - ../../../../base/core/persistentvolumeclaims/image-registry-storage
 - ../../../../base/imageregistry.operator.openshift.io/configs/cluster

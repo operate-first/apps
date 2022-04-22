@@ -4,7 +4,7 @@ kind: Namespace
 metadata:
   annotations:
     openshift.io/display-name: "Operate First: Prow"
-    openshift.io/discription: "Project for execution of continous integration prow jobs."
+    openshift.io/description: "Project for execution of continous integration prow jobs."
     openshift.io/requester: aicoe-thoth-devops
   name: opf-ci-prow
 spec: {}

@@ -4,7 +4,7 @@ kind: Namespace
 metadata:
   annotations:
     openshift.io/display-name: "Operate First: AICoE-CI Pipelines"
-    openshift.io/discription: "Project for execution of continous integration aicoe-ci openshift pipelines."
+    openshift.io/description: "Project for execution of continous integration aicoe-ci openshift pipelines."
     openshift.io/requester: aicoe-thoth-devops
   name: opf-ci-pipelines
 spec: {}
