@@ -1,0 +1,20 @@
+---
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: peribolos-as-a-service
+spec:
+  destination:
+    name: smaug
+    namespace: peribolos-as-a-service
+  project: peribolos-service
+  source:
+    path: manifests/overlays/prod
+    repoURL: https://github.com/open-services-group/peribolos-as-a-service.git
+    targetRevision: main
+  syncPolicy:
+    automated:
+      prune: true
+      selfHeal: true
+    syncOptions:
+    - Validate=false
