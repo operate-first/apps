@@ -4,6 +4,7 @@ metadata:
     name: manageiq
 users:
     - fryguy
+    - Fryguy
     - chessbyte
     - bdunne
     - agrare
