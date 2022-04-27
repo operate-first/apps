@@ -2,4 +2,7 @@ apiVersion: user.openshift.io/v1
 kind: Group
 metadata:
   name: demo-team
-users: [4n4nd, humairak]
+users:
+  - 4n4nd
+  - humairak
+  - HumairAK
