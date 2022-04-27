@@ -21,7 +21,6 @@ resources:
 - ../../../../base/core/namespaces/ai-services-thanos-grpc
 - ../../../../base/core/namespaces/aicoe-meteor
 - ../../../../base/core/namespaces/apicurio-apicurio-registry
-- ../../../../base/core/namespaces/b4mad-racing
 - ../../../../base/core/namespaces/boatrockers
 - ../../../../base/core/namespaces/bu-scsaol
 - ../../../../base/core/namespaces/chrisproject
@@ -124,6 +123,7 @@ resources:
 - ../../../../base/storage.k8s.io/storageclasses/ocs-external-storagecluster-ceph-rbd
 - ../../../../base/user.openshift.io/groups/cluster-admins
 - ../../../../bundles/acme-operator
+- ../../../../bundles/b4mad-racing
 - ../../../../bundles/curator
 - ../../../../bundles/fybrik
 - ../../../../bundles/kfp-tekton
