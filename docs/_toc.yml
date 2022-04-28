@@ -105,6 +105,7 @@ parts:
           - file: content/odh/superset/README.md
             sections:
             - file: content/odh/superset/add_superset_users.md
+            - file: content/odh/superset/add_trino_db.md
             - file: content/odh/superset/map_groups_to_roles.md
             - file: content/odh/superset/runbook.md
 
