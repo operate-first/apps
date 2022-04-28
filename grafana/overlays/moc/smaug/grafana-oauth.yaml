@@ -19,6 +19,9 @@ spec:
       root_url: https://grafana.operate-first.cloud
     dashboards:
       default_home_dashboard_path: "/etc/grafana-configmaps/grafana-landing-page/landingpage.json"
+    serviceAccount:
+      labels:
+        app.kubernetes.io/instance: cluster-resources-smaug
     auth.generic_oauth:
       enabled: true
       scopes: openid email groups profile
