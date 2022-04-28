@@ -126,6 +126,7 @@ resources:
 - ../../../../bundles/b4mad-racing
 - ../../../../bundles/curator
 - ../../../../bundles/fybrik
+- ../../../../bundles/jaeger-operator
 - ../../../../bundles/kfp-tekton
 - ../../../../bundles/meteor-operator
 - ../../../../bundles/nfd
