@@ -54,7 +54,7 @@ const thebe_selector_output = ".output, .cell_output"
     <link rel="shortcut icon" href="../../../_static/favicon.png"/>
     <link rel="index" title="Index" href="../../../genindex.html" />
     <link rel="search" title="Search" href="../../../search.html" />
-    <link rel="next" title="Map OCP Group to Superset Role" href="map_groups_to_roles.html" />
+    <link rel="next" title="Add Trino database" href="add_trino_db.html" />
     <link rel="prev" title="Superset" href="README.html" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="None">
@@ -493,6 +493,11 @@ const thebe_selector_output = ".output, .cell_output"
       </a>
      </li>
      <li class="toctree-l3">
+      <a class="reference internal" href="add_trino_db.html">
+       Add Trino database
+      </a>
+     </li>
+     <li class="toctree-l3">
       <a class="reference internal" href="map_groups_to_roles.html">
        Map OCP Group to Superset Role
       </a>
@@ -735,6 +740,11 @@ const thebe_selector_output = ".output, .cell_output"
    For Smaug cluster
   </a>
  </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#for-osc-clusters">
+   For OSC clusters:
+  </a>
+ </li>
 </ul>
 
             </nav>
@@ -760,6 +770,11 @@ const thebe_selector_output = ".output, .cell_output"
    For Smaug cluster
   </a>
  </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#for-osc-clusters">
+   For OSC clusters:
+  </a>
+ </li>
 </ul>
 
                         </nav>
@@ -782,6 +797,21 @@ const thebe_selector_output = ".output, .cell_output"
 <li><p>Make a PR</p></li>
 </ol>
 <p>If you would like to give another OCP <code class="docutils literal notranslate"><span class="pre">group</span></code> access to Superset follow the instructions <a class="reference internal" href="map_groups_to_roles.html"><span class="doc std std-doc">here</span></a>.</p>
+</div>
+<div class="section" id="for-osc-clusters">
+<h2>For OSC clusters:<a class="headerlink" href="#for-osc-clusters" title="Permalink to this headline">¶</a></h2>
+<ol class="simple">
+<li><p>Fork/Clone <a class="reference external" href="https://github.com/operate-first/apps">https://github.com/operate-first/apps</a></p></li>
+<li><p>Add GitHub usernames that need access to the following group:</p>
+<ul class="simple">
+<li><p>For OSC-cl1 add users to <a class="reference external" href="https://github.com/operate-first/apps/blob/master/cluster-scope/overlays/prod/osc/osc-cl1/groups/odh-users.yaml">this group</a></p></li>
+<li><p>For OSC-cl2 add users to <a class="reference external" href="https://github.com/operate-first/apps/blob/master/cluster-scope/overlays/prod/osc/osc-cl2/groups/odh-users.yaml">this group</a></p></li>
+<li><p>As of this writing all users are by default given admin access to Superset</p></li>
+</ul>
+</li>
+<li><p>Make a PR</p></li>
+<li><p>Request an invite to <a class="reference external" href="https://github.com/os-climate">the OSC org</a>, and the <a class="reference external" href="https://github.com/orgs/os-climate/teams/odh-env-users">odh-env team</a>. You can request it in <code class="docutils literal notranslate"><span class="pre">#support</span></code> channel in our <a class="reference external" href="https://join.slack.com/t/operatefirst/shared_invite/zt-o2gn4wn8-O39g7sthTAuPCvaCNRnLww">slack</a>.</p></li>
+</ol>
 </div>
 </div>
 
@@ -817,10 +847,10 @@ const thebe_selector_output = ".output, .cell_output"
             <p class="prev-next-title">Superset</p>
         </div>
     </a>
-    <a class='right-next' id="next-link" href="map_groups_to_roles.html" title="next page">
+    <a class='right-next' id="next-link" href="add_trino_db.html" title="next page">
     <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title">Map OCP Group to Superset Role</p>
+        <p class="prev-next-title">Add Trino database</p>
     </div>
     <i class="fas fa-angle-right"></i>
     </a>
