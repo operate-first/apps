@@ -20,6 +20,7 @@ resources:
 - ../../../../base/core/configmaps/user-workload-monitoring-config
 - ../../../../base/core/namespaces/ai-services-thanos-grpc
 - ../../../../base/core/namespaces/aicoe-meteor
+- ../../../../base/core/namespaces/api-designer
 - ../../../../base/core/namespaces/apicurio-apicurio-registry
 - ../../../../base/core/namespaces/boatrockers
 - ../../../../base/core/namespaces/bu-scsaol
