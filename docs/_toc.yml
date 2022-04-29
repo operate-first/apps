@@ -6,8 +6,6 @@ parts:
 
       # About
       - file: content/about/README.md
-        sections:
-          - file: content/about/intro.md
 
       # ACM
       - file: content/acm/README.md
