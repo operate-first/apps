@@ -4,6 +4,9 @@ kind: Namespace
 metadata:
   annotations:
     openshift.io/display-name: "Thoth-Station: Amun Inspection Namespace"
-    openshift.io/requester: aicoe-thoth-devops
+    openshift.io/requester: thoth-devops
+    op1st/project-owner: thoth-devops
+    op1st/onboarding-issue: "https://github.com/operate-first/apps/pull/118"
+    op1st/docs: "https://thoth-station.ninja/"
   name: thoth-amun-inspection-prod
 spec: {}

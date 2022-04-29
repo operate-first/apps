@@ -5,6 +5,9 @@ metadata:
   annotations:
     openshift.io/display-name: "Operate First: Prow"
     openshift.io/description: "Project for execution of continous integration prow jobs."
-    openshift.io/requester: aicoe-thoth-devops
+    openshift.io/requester: thoth-devops
+    op1st/project-owner: thoth-devops
+    op1st/onboarding-issue: "https://github.com/operate-first/apps/pull/119"
+    op1st/docs: "https://github.com/kubernetes/test-infra/tree/master/prow#readme"
   name: opf-ci-prow
 spec: {}
