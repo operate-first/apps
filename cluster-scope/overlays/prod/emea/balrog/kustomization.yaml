@@ -5,7 +5,6 @@ resources:
     - ../../../../base/apiextensions.k8s.io/customresourcedefinitions/workflow.argoproj.io
     - ../../../../base/apiextensions.k8s.io/customresourcedefinitions/workflowtemplate.argoproj.io
     - ../../../../base/autoscaling.openshift.io/clusterautoscalers/default
-    - ../../../../base/config.openshift.io/oauths/cluster
     - ../../../../base/core/configmaps/cluster-monitoring-config
     - ../../../../base/core/configmaps/user-workload-monitoring-config
     - ../../../../base/core/namespaces/openshift-logging
@@ -30,7 +29,6 @@ generators:
     - secret-generator.yaml
 
 patchesStrategicMerge:
-    - oauths/cluster_patch.yaml
     - groups/cluster-admins.yaml
     - subscriptions/cluster-logging-operator_patch.yaml
     - clusterautoscaler.yaml
