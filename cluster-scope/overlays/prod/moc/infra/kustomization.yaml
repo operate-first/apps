@@ -49,6 +49,7 @@ resources:
   - nodenetworkconfigurationpolicies/moc-nfs-network.yaml
   - nodenetworkconfigurationpolicies/ocp-prod-provisioning-vlan.yaml
   - nodenetworkconfigurationpolicies/zero-provisioning-vlan.yaml
+  - oauth
 
 generators:
   - secret-generator.yaml

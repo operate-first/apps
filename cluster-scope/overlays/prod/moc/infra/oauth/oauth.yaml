@@ -1,0 +1,15 @@
+apiVersion: config.openshift.io/v1
+kind: OAuth
+metadata:
+  name: cluster
+spec:
+  identityProviders:
+    - github:
+        clientID: b222cb4ccc33667e28bd
+        clientSecret:
+          name: github-client-secret
+        organizations:
+          - operate-first
+      mappingMethod: add
+      name: operate-first
+      type: GitHub
