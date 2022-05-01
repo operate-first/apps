@@ -5,7 +5,6 @@ kind: Kustomization
 resources:
   - ../common
   - ../../../../bundles/klusterletaddonconfig-editor/
-  - ../../../../base/config.openshift.io/oauths/cluster
   - ../../../../base/core/configmaps/cluster-monitoring-config
   - ../../../../base/core/configmaps/user-workload-monitoring-config
   - ../../../../base/core/namespaces/acm
