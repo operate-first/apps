@@ -4,5 +4,6 @@ kind: Kustomization
 
 resources:
   - argocd-managed.yaml
+  - drvbw.yaml
   - octo-ushift-dev.yaml
   - osc.yaml
