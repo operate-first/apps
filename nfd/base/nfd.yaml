@@ -4,7 +4,5 @@ metadata:
   name: nfd-instance
   namespace: openshift-nfd
 spec:
-  operand:
-    namespace: openshift-nfd
   workerConfig:
     configData: ""
