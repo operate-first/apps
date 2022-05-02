@@ -61,3 +61,4 @@ patchesStrategicMerge:
   - subscriptions/kubernetes-nmstate-operator_patch.yaml
   - groups/cluster-admins.yaml
   - clusterrolebindings/self-provisioners_patch.yaml
+  - clusterrolebindings/klusteraddonconfig-editor.yaml
