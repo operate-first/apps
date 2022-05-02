@@ -29,6 +29,7 @@ resources:
   - ../../../../base/rbac.authorization.k8s.io/clusterrolebindings/moc-nfs-democratic-csi-controller-rb
   - ../../../../base/rbac.authorization.k8s.io/clusterrolebindings/moc-nfs-democratic-csi-node-rb
   - ../../../../base/rbac.authorization.k8s.io/clusterrolebindings/open-cluster-management:admin:osc-cl1
+  - ../../../../base/rbac.authorization.k8s.io/clusterrolebindings/open-cluster-management:managedclusterset:admin:drvbw
   - ../../../../base/rbac.authorization.k8s.io/clusterrolebindings/open-cluster-management:managedclusterset:admin:octo-ushift-dev
   - ../../../../base/rbac.authorization.k8s.io/clusterrolebindings/open-cluster-management:managedclusterset:admin:osc
   - ../../../../base/rbac.authorization.k8s.io/clusterrolebindings/apirequest-count-reader
