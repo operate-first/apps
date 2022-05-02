@@ -4,4 +4,3 @@ resources:
   - acme-operator.yaml
   - cluster-logging.yaml
   - k8s-annotations-exporter.yaml
-  - opf-vault.yaml
