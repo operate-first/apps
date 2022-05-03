@@ -1,0 +1,199 @@
+---
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  labels:
+    helm.sh/chart: keylime-v0.0.1
+    app.kubernetes.io/name: keylime
+    app.kubernetes.io/instance: keylime
+    app.kubernetes.io/version: "v6.3.2"
+    app.kubernetes.io/managed-by: Helm
+    control-plane: keylime-server
+  name: keylime-conf
+data:
+  keylime.conf: |-
+    [general]
+    enable_tls = True
+    ca_implementation = openssl
+    receive_revocation_ip = 127.0.0.1
+    receive_revocation_port = 8992
+
+    [cloud_verifier]
+    cloudverifier_id = default
+    cloudverifier_ip = 0.0.0.0
+    cloudverifier_port = 8881
+    registrar_ip = 127.0.0.1
+    registrar_port = 8891
+    tls_dir = generate
+    ca_cert = default
+    my_cert = default
+    private_key = default
+    private_key_pw = default
+    check_client_cert = False
+    registrar_tls_dir = CV
+    registrar_ca_cert = default
+    registrar_my_cert = default
+    registrar_private_key = default
+    registrar_private_key_pw = default
+    agent_mtls_cert_enabled = False
+    agent_mtls_cert = CV
+    agent_mtls_private_key =
+    agent_mtls_private_key_pw =
+
+    database_url =
+    database_drivername = sqlite
+    database_username = ''
+    database_password = ''
+    database_host = ''
+    database_name = cv_data.sqlite
+    database_pool_sz_ovfl=5,10
+    auto_migrate_db = True
+    multiprocessing_pool_num_workers = 4
+    exponential_backoff = True
+    retry_interval = 2
+    max_retries = 5
+    quote_interval = 2
+    revocation_notifier = False
+    revocation_notifier_webhook = False
+    webhook_url = ''
+    max_upload_size = 104857600
+    measured_boot_policy_name = accept-all
+    severity_labels = ["info", "notice", "warning", "error", "critical", "alert", "emergency"]
+    severity_policy = [{"event_id": ".*", "severity_label": "emergency"}]
+    tomtou_errors = False
+
+    [registrar]
+    registrar_ip = 0.0.0.0
+    registrar_port = 8890
+    registrar_tls_port = 8891
+    tls_dir = CV
+    ca_cert = default
+    my_cert = default
+    private_key = default
+    private_key_pw = default
+    registrar_tls_dir = CV
+    registrar_private_key_pw = default
+    check_client_cert = False
+    database_url =
+    database_drivername = sqlite
+    database_username = ''
+    database_password = ''
+    database_host = ''
+    database_name = reg_data.sqlite
+    database_pool_sz_ovfl=5,10
+    auto_migrate_db = True
+    prov_db_filename = provider_reg_data.sqlite
+
+    [tenant]
+    cloudverifier_ip = 127.0.0.1
+    cloudverifier_port = 8881
+    registrar_ip = 127.0.0.1
+    registrar_port = 8891
+    tls_dir = default
+    ca_cert = default
+    my_cert = default
+    private_key = default
+    agent_mtls_cert_enabled = False
+    agent_mtls_cert = CV
+    agent_mtls_private_key =
+    agent_mtls_private_key_pw =
+    tpm_cert_store = /var/lib/keylime/tpm_cert_store/
+    private_key_pw = default
+    registrar_tls_dir = CV
+    registrar_ca_cert = default
+    registrar_my_cert = default
+    registrar_private_key = default
+    registrar_private_key_pw = default
+    max_payload_size = 1048576
+    tpm_policy = {}
+    ima_allowlist = allowlist.txt
+    ima_excludelist = exclude.txt
+    accept_tpm_hash_algs = sha512,sha384,sha256,sha1
+    accept_tpm_encryption_algs = ecc,rsa
+    accept_tpm_signing_algs = ecschnorr,rsassa
+    exponential_backoff = True
+    retry_interval = 2
+    max_retries = 5
+    require_ek_cert = False
+    ek_check_script=
+
+    [cloud_agent]
+    cloudagent_ip = 127.0.0.1
+    cloudagent_port = 9002
+    agent_contact_ip = 127.0.0.1
+    agent_contact_port = 9002
+    registrar_ip = 127.0.0.1
+    registrar_port = 8890
+    rsa_keyname = tci_rsa_key
+    mtls_cert_enabled = False
+    mtls_cert = tci_mtls_cert
+    keylime_ca = default
+    enc_keyname = derived_tci_key
+    dec_payload_file = decrypted_payload
+    secure_size = 1m
+    tpm_ownerpassword = keylime
+    extract_payload_zip = True
+    agent_uuid = hash_ek
+    listen_notifications = False
+    revocation_cert = default
+    revocation_actions=
+    payload_script=autorun.sh
+    enable_insecure_payload = False
+    measure_payload_pcr=-1
+    exponential_backoff = True
+    retry_interval = 2
+    max_retries = 4
+    tpm_hash_alg = sha1
+    tpm_encryption_alg = rsa
+    tpm_signing_alg = rsassa
+    ek_handle = generate
+    run_as =
+
+    [ca]
+    cert_country=US
+    cert_ca_name=Keylime Certificate Authority
+    cert_state=MA
+    cert_locality=Lexington
+    cert_organization=MITLL
+    cert_org_unit=53
+    cert_ca_lifetime=3650
+    cert_lifetime=365
+    cert_bits=2048
+    cert_crl_dist=http://localhost:38080/crl
+    cfssl_ip = 127.0.0.1
+    cfssl_port = 8888
+
+    [webapp]
+    webapp_ip = 127.0.0.1
+    webapp_port = 443
+    populate_agents_interval = 4000
+    update_agents_interval = 1500
+    update_terminal_interval = 2000
+
+    [loggers]
+    keys = root,keylime
+
+    [handlers]
+    keys = consoleHandler
+
+    [formatters]
+    keys = formatter
+
+    [formatter_formatter]
+    format = %(asctime)s.%(msecs)03d - %(name)s - %(levelname)s - %(message)s
+    datefmt = %Y-%m-%d %H:%M:%S
+
+    [logger_root]
+    level = INFO
+    handlers = consoleHandler
+
+    [handler_consoleHandler]
+    class = StreamHandler
+    level = INFO
+    formatter = formatter
+    args = (sys.stdout,)
+
+    [logger_keylime]
+    level = INFO
+    qualname = keylime
+    handlers =

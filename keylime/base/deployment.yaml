@@ -1,0 +1,172 @@
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  labels:
+    helm.sh/chart: keylime-v0.0.1
+    app.kubernetes.io/name: keylime
+    app.kubernetes.io/instance: keylime
+    app.kubernetes.io/version: "v6.3.2"
+    app.kubernetes.io/managed-by: Helm
+    control-plane: keylime-server
+  name: keylime
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app.kubernetes.io/name: keylime
+      app.kubernetes.io/instance: keylime
+      control-plane: keylime-server
+  template:
+    metadata:
+      labels:
+        app.kubernetes.io/name: keylime
+        app.kubernetes.io/instance: keylime
+        control-plane: keylime-server
+    spec:
+      nodeSelector:
+        {}
+      tolerations:
+        []
+      serviceAccountName: keylime-server
+      terminationGracePeriodSeconds: 10
+      volumes:
+      - name: keylime-data-dir
+        emptyDir: {}
+      - name: keylime-logs
+        emptyDir: {}
+      - name: keylime-conf
+        configMap:
+          name: 'keylime-conf'
+      containers:
+      # the tenant exists only as a place to run the keylime_tenant CLI and can be removed when we have ephemeral containers
+      - name: keylime-tenant
+        image: quay.io/keylime/keylime_tenant:v6.3.2
+        imagePullPolicy: IfNotPresent
+        command: ["/bin/bash", "-c", "--"]
+        args: ["while true; do sleep 30; done;"]
+        volumeMounts:
+          - name: keylime-data-dir
+            mountPath: /var/lib/keylime/
+            readOnly: false
+          - name: keylime-conf
+            mountPath: /etc/keylime
+            readOnly: true
+          - name: keylime-logs
+            mountPath: /var/log/keylime
+            readOnly: false
+        resources:
+          limits:
+            cpu: 100m
+            memory: 256Mi
+          requests:
+            cpu: 100m
+            memory: 128Mi
+        env:
+        - name: SYSTEM_NAMESPACE
+          valueFrom:
+            fieldRef:
+              fieldPath: metadata.namespace
+        - name: CONFIG_LOGGING_NAME
+          value: keylime-logging
+        - name: CONFIG_OBSERVABILITY_NAME
+          value: keylime-observability
+        - name: METRICS_DOMAIN
+          value: keylime.dev
+        - name: KEYLIME_CONFIG
+          value: /etc/keylime/keylime.conf
+        securityContext:
+          allowPrivilegeEscalation: false
+          capabilities:
+            drop:
+            - all
+          readOnlyRootFilesystem: false
+
+      - name: keylime-verifier
+        image: quay.io/keylime/keylime_verifier:v6.3.2
+        imagePullPolicy: IfNotPresent
+        volumeMounts:
+          - name: keylime-data-dir
+            mountPath: /var/lib/keylime/
+            readOnly: false
+          - name: keylime-conf
+            mountPath: /etc/keylime
+            readOnly: true
+          - name: keylime-logs
+            mountPath: /var/log/keylime
+            readOnly: false
+        ports:
+        - containerPort: 8881
+          name: verifier-http
+          protocol: TCP
+        resources:
+          limits:
+            cpu: 100m
+            memory: 256Mi
+          requests:
+            cpu: 100m
+            memory: 128Mi
+        env:
+        - name: SYSTEM_NAMESPACE
+          valueFrom:
+            fieldRef:
+              fieldPath: metadata.namespace
+        - name: CONFIG_LOGGING_NAME
+          value: keylime-server-logging
+        - name: CONFIG_OBSERVABILITY_NAME
+          value: keylime-server-observability
+        - name: METRICS_DOMAIN
+          value: keylime.dev
+        - name: KEYLIME_CONFIG
+          value: /etc/keylime/keylime.conf
+        securityContext:
+          allowPrivilegeEscalation: false
+          capabilities:
+            drop:
+            - all
+
+      - name: keylime-registrar
+        image: quay.io/keylime/keylime_registrar:v6.3.2
+        imagePullPolicy: IfNotPresent
+        volumeMounts:
+          - name: keylime-data-dir
+            mountPath: /var/lib/keylime/
+            readOnly: false
+          - name: keylime-conf
+            mountPath: /etc/keylime
+            readOnly: true
+          - name: keylime-logs
+            mountPath: /var/log/keylime
+            readOnly: false
+        ports:
+        - containerPort: 8890
+          name: registrar-http
+          protocol: TCP
+        - containerPort: 8891
+          name: registrar-https
+          protocol: TCP
+        resources:
+          limits:
+            cpu: 100m
+            memory: 256Mi
+          requests:
+            cpu: 100m
+            memory: 128Mi
+        env:
+        - name: SYSTEM_NAMESPACE
+          valueFrom:
+            fieldRef:
+              fieldPath: metadata.namespace
+        - name: CONFIG_LOGGING_NAME
+          value: keylime-logging
+        - name: CONFIG_OBSERVABILITY_NAME
+          value: keylime-observability
+        - name: METRICS_DOMAIN
+          value: keylime.dev
+        - name: KEYLIME_CONFIG
+          value: /etc/keylime/keylime.conf
+        securityContext:
+          allowPrivilegeEscalation: false
+          capabilities:
+            drop:
+            - all

@@ -1,0 +1,48 @@
+---
+kind: Route
+apiVersion: route.openshift.io/v1
+metadata:
+  name: keylime-verifier
+  namespace: keylime
+  labels:
+    helm.sh/chart: keylime-v0.0.1
+    app.kubernetes.io/name: keylime
+    app.kubernetes.io/instance: keylime
+    app.kubernetes.io/version: "v6.3.2"
+    app.kubernetes.io/managed-by: Helm
+    control-plane: keylime-server
+spec:
+  host: keylime-verifier.apps.morty.emea.operate-first.cloud
+  port:
+    targetPort: 8881
+  tls:
+    termination: passthrough
+  to:
+    kind: Service
+    name: keylime-server
+    port:
+      targetPort: verifier-http
+
+---
+kind: Route
+apiVersion: route.openshift.io/v1
+metadata:
+  name: keylime-registrar
+  namespace: keylime
+  labels:
+    helm.sh/chart: keylime-v0.0.1
+    app.kubernetes.io/name: keylime
+    app.kubernetes.io/instance: keylime
+    app.kubernetes.io/version: "v6.3.2"
+    app.kubernetes.io/managed-by: Helm
+    control-plane: keylime-server
+spec:
+  host: keylime-registrar.apps.morty.emea.operate-first.cloud
+  port:
+    targetPort: 8890
+  to:
+    kind: Service
+    name: keylime-server
+    port:
+      targetPort: registrar-http
+  wildcardPolicy: None
