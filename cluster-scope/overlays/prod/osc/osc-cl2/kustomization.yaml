@@ -18,17 +18,17 @@ resources:
   - ../../../../base/operators.coreos.com/subscriptions/nfd
   - ../../../../base/config.openshift.io/oauths/cluster
   - ../../../../base/rbac.authorization.k8s.io/clusterrolebindings/acme-operator
-  - ../../../../base/rbac.authorization.k8s.io/clusterrolebindings/cluster-admins-rb
   - ../../../../base/rbac.authorization.k8s.io/clusterrolebindings/cluster-reader-k8s-annotations-exporter
   - ../../../../base/rbac.authorization.k8s.io/clusterrolebindings/self-provisioners
+  - ../../../../base/rbac.authorization.k8s.io/clusterrolebindings/sudoers
   - ../../../../base/rbac.authorization.k8s.io/clusterroles/acme-operator
   - ../../../../base/rbac.authorization.k8s.io/clusterroles/pytorchjobs-create-aggregate-to-admin
-  - ../../../../base/user.openshift.io/groups/cluster-admins
   - ../../../../base/user.openshift.io/groups/kubeflow-admin
   - ../../../../base/user.openshift.io/groups/odh-admin
   - ../../../../base/user.openshift.io/groups/odh-users
   - ../../../../base/user.openshift.io/groups/pachyderm-admins
   - ../../../../base/user.openshift.io/groups/seldon-admin
+  - ../../../../base/user.openshift.io/groups/sudoers
   - ../../../../bundles/kfp-tekton
   - ../../../../bundles/opendatahub-operator-manual
   - ../../../../bundles/openshift-pipelines
@@ -46,7 +46,6 @@ patchesStrategicMerge:
   - oauths/cluster-patch.yaml
   - configmaps/cluster-monitoring-config.yaml
   - configmaps/user-workload-monitoring-config.yaml
-  - groups/cluster-admins.yaml
   - groups/kubeflow-admin.yaml
   - groups/odh-admin.yaml
   - groups/odh-users.yaml

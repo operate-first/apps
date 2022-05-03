@@ -4,14 +4,15 @@ kind: Kustomization
 resources:
 - ../common
 - ../../../../base/config.openshift.io/oauths/cluster
-- ../../../../base/user.openshift.io/groups/cluster-admins
 - ../../../../base/core/configmaps/cluster-monitoring-config
 - ../../../../base/core/namespaces/opf-alertreceiver
 - ../../../../base/operators.coreos.com/subscriptions/opendatahub-operator
 - ../../../../base/core/namespaces/demo-jupyterhub
+- ../../../../base/rbac.authorization.k8s.io/clusterrolebindings/sudoers
+- ../../../../base/user.openshift.io/groups/sudoers
 
 patchesStrategicMerge:
-- groups/cluster-admins.yaml
+- groups/sudoers.yaml
 - oauths/cluster_patch.yaml
 
 generators:

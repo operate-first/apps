@@ -3,12 +3,12 @@ apiVersion: kustomize.config.k8s.io/v1beta1
 patchesStrategicMerge:
 - configmaps/cluster-monitoring-config.yaml
 - configmaps/user-workload-monitoring-config.yaml
-- groups/cluster-admins.yaml
 - groups/kubeflow-admin.yaml
 - groups/odh-admin.yaml
 - groups/odh-users.yaml
 - groups/pachyderm-admins.yaml
 - groups/seldon-admin.yaml
+- groups/sudoers.yaml
 resources:
 - ../../../../base/core/configmaps/cluster-monitoring-config
 - ../../../../base/core/configmaps/user-workload-monitoring-config
@@ -32,8 +32,8 @@ resources:
 - ../../../../base/rbac.authorization.k8s.io/clusterrolebindings/cluster-admins-rb
 - ../../../../base/rbac.authorization.k8s.io/clusterrolebindings/cluster-reader-k8s-annotations-exporter
 - ../../../../base/rbac.authorization.k8s.io/clusterrolebindings/self-provisioners
+- ../../../../base/rbac.authorization.k8s.io/clusterrolebindings/sudoers
 - ../../../../base/rbac.authorization.k8s.io/clusterroles/acme-operator
-- ../../../../base/user.openshift.io/groups/cluster-admins
 - ../../../../base/user.openshift.io/groups/kubeflow-admin
 - ../../../../base/user.openshift.io/groups/multinode-demo
 - ../../../../base/user.openshift.io/groups/odh-admin
@@ -41,6 +41,7 @@ resources:
 - ../../../../base/user.openshift.io/groups/pachyderm-admins
 - ../../../../base/user.openshift.io/groups/seldon-admin
 - ../../../../base/user.openshift.io/groups/sostrades
+- ../../../../base/user.openshift.io/groups/sudoers
 - ../../../../bundles/opendatahub-operator-manual
 - ../../../../bundles/training-operator
 - ../../../../bundles/openshift-pipelines

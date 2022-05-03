@@ -13,8 +13,9 @@ resources:
   - ../../../../base/operators.coreos.com/subscriptions/kubevirt-hyperconverged
   - ../../../../base/operators.coreos.com/subscriptions/ocs-operator
   - ../../../../base/rbac.authorization.k8s.io/clusterrolebindings/cluster-admins-rb
+  - ../../../../base/rbac.authorization.k8s.io/clusterrolebindings/sudoers
   - ../../../../base/storage.k8s.io/storageclasses/hostpath-provisioner
-  - ../../../../base/user.openshift.io/groups/cluster-admins
+  - ../../../../base/user.openshift.io/groups/sudoers
 
   - machineconfigs/50-ipmi-route.yaml
   - configmaps/admin-acks.yaml
@@ -26,4 +27,4 @@ patchesStrategicMerge:
   - subscriptions/kubevirt-hyperconverged_patch.yaml
   - subscriptions/ocs-operator_patch.yaml
   - storageclasses/hostpath-provisioner_patch.yaml
-  - groups/cluster-admins.yaml
+  - groups/sudoers.yaml

@@ -13,7 +13,6 @@ patchesJson6902:
     name: image-registry-storage
     version: v1
 patchesStrategicMerge:
-- groups/cluster-admins.yaml
 - groups/sudoers.yaml
 - subscriptions/local-storage-operator_patch.yaml
 - subscriptions/odf-operator_patch.yaml
@@ -46,7 +45,6 @@ resources:
 - ../../../../base/operators.coreos.com/subscriptions/openshift-pipelines-operator-rh
 - ../../../../base/rbac.authorization.k8s.io/clusterrolebindings/cluster-reader-k8s-annotations-exporter
 - ../../../../base/rbac.authorization.k8s.io/clusterrolebindings/sudoers
-- ../../../../base/user.openshift.io/groups/cluster-admins
 - ../../../../base/user.openshift.io/groups/sudoers
 - ../../../../bundles/nfd
 - ../common
