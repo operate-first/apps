@@ -1,0 +1,6 @@
+apiVersion: v1
+kind: Namespace
+metadata:
+    name: api-designer
+    annotations:
+        openshift.io/requester: apicurio
