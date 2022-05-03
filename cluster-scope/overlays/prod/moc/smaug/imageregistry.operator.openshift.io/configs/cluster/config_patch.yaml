@@ -1,0 +1,13 @@
+---
+apiVersion: imageregistry.operator.openshift.io/v1
+kind: Config
+metadata:
+  name: cluster
+spec:
+  storage:
+    $patch: replace
+    managementState: Unmanaged
+    s3:
+      bucket: openshift-image-registry-bucket
+      regionEndpoint: "https://s3-openshift-storage.apps.smaug.na.operate-first.cloud/"
+      region: "-"
