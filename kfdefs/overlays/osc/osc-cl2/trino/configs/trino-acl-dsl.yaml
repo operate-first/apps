@@ -1,65 +1,65 @@
 # the current OS-Climate data commons trino deployment on the dev cluster
-admin-groups: [admins]
+admin:
+  - group: admins
 
 # global default is non-public (no read/select access)
-public-tables: false
+public: false
 
 catalogs:
   - catalog: osc_datacommons_dev
-    public-tables: true
-    # setting 'admin' at catalog level does not translate to
-    # admin-like privs at table or schema level: see 'allow'
-    # in trino access control docs
-    admin-groups:
-      - 'demo_.*'
-      - '.*'
+    public: true
 
 schemas:
   - schema: sandbox
     catalog: osc_datacommons_dev
-    admin-groups: ['.*']
-    public-tables: true
+    admin:
+      - group: '.*'
+    public: true
 
   - schema: demo_dv
     catalog: osc_datacommons_dev
-    admin-groups: ['.*']
-    public-tables: true
+    admin:
+      - group: '.*'
+    public: true
 
   - schema: pcaf_sovereign_footprint
     catalog: osc_datacommons_dev
-    admin-groups: ['pcaf_sovereign_footprint.*']
-    public-tables: true
+    admin:
+      - group: 'pcaf_sovereign_footprint.*'
+    public: true
 
 tables:
   - table: demo_dv_backend
     schema: demo_dv
     catalog: osc_datacommons_dev
-    admin-groups: [demo_dv_dev]
+    admin:
+      - group: demo_dv_dev
     public: false
 
   - table: demo_dv_userfacing
     schema: demo_dv
     catalog: osc_datacommons_dev
-    admin-groups: [demo_dv_dev]
+    admin:
+      - group: demo_dv_dev
     public: false
-    row-acl:
-      type: filter
-      filter: "contains(current_groups(), access) or access = 'public'"
-    column-acl:
-      - groups: [demo_dv_quant]
-        hide-columns: [dev1]
-      - groups: [demo_dv_user]
-        # hide-columns are cumulative, top to bottom
-        hide-columns: [quant1]
+    acl:
+      - id:
+        - group: demo_dv_quant
+        hide: [dev1]
+        filter: ["contains(current_groups(), access) or access = 'public'"]
+      - id:
+        - group: demo_dv_user
+        hide: [dev1, quant1]
+        filter: ["contains(current_groups(), access) or access = 'public'"]
 
   - table: gppd
     schema: sandbox
     catalog: osc_datacommons_dev
-    admin-groups: [demo_dv_dev]
+    admin:
+      - group: demo_dv_dev
     public: false
-    row-acl:
-      type: filter
-      filter: "case when contains(current_groups(), 'demo_dv_user') then (observation_year <= 2017) else true end"
-    column-acl:
-      - groups: [demo_dv_user]
-        hide-columns: [capacity_mw]
+    acl:
+      - id:
+        - group: demo_dv_user
+        filter: ["observation_year <= 2017"]
+        hide: [capacity_mw]
