@@ -6,8 +6,8 @@ metadata:
     project-template: global
 spec:
   destinations:
-    - namespace: peribolos-as-a-service    # if there is no generic team name prefix, then specify namespaces individually
-      name: 'smaug'
+    - namespace: peribolos-as-a-service  # if there is no generic team name prefix, then specify namespaces individually
+      server: "https://api.smaug.na.operate-first.cloud:6443"
   sourceRepos:
     - '*'
   roles:
