@@ -131,6 +131,7 @@ resources:
 - ../../../../bundles/nfd
 - ../../../../bundles/openshift-pipelines
 - ../../../../bundles/opf-grafana-public
+- ../../../../bundles/opf-vault
 - ../../../../bundles/reloader
 - ../../../../bundles/seraph
 - ../../../../bundles/tekton-chains
