@@ -4,9 +4,10 @@ namespace: argocd
 nameSuffix: -smaug
 resources:
 - apicurio
+- b4mad
 - cluster-management
-- operate-first
-- thoth
 - data-science
 - fybrik
-- b4mad
+- open-services-group
+- operate-first
+- thoth
