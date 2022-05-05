@@ -4,7 +4,7 @@ metadata:
   name: opf-jupyterhub-custom
 spec:
   hard:
-    limits.cpu: '100'
+    limits.cpu: '120'
     limits.memory: 600Gi
     requests.cpu: '80'
     requests.memory: 600Gi
