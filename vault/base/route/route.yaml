@@ -1,0 +1,11 @@
+kind: Route
+apiVersion: route.openshift.io/v1
+metadata:
+  name: vault-ui
+  namespace: vault
+spec:
+  to:
+    kind: Service
+    name: opf-vault-ui
+  port:
+    targetPort: http
