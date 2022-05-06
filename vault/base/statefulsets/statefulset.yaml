@@ -8,37 +8,58 @@ metadata:
   name: opf-vault
   namespace: vault
 spec:
+  serviceName: opf-vault-internal
   podManagementPolicy: Parallel
   replicas: 3
+  updateStrategy:
+    type: OnDelete
   selector:
     matchLabels:
-      app.kubernetes.io/instance: opf
       app.kubernetes.io/name: vault
+      app.kubernetes.io/instance: opf
       component: server
-  serviceName: opf-vault-internal
   template:
     metadata:
       labels:
-        app.kubernetes.io/instance: opf
+        helm.sh/chart: vault-0.19.0
         app.kubernetes.io/name: vault
+        app.kubernetes.io/instance: opf
         component: server
-        helm.sh/chart: vault-0.18.0
     spec:
       affinity:
         podAntiAffinity:
           requiredDuringSchedulingIgnoredDuringExecution:
             - labelSelector:
                 matchLabels:
-                  app.kubernetes.io/instance: opf
                   app.kubernetes.io/name: vault
+                  app.kubernetes.io/instance: "opf"
                   component: server
               topologyKey: kubernetes.io/hostname
+      terminationGracePeriodSeconds: 10
+      serviceAccountName: opf-vault
+      volumes:
+        - name: config
+          configMap:
+            name: opf-vault-config
+        - name: home
+          emptyDir: {}
       containers:
-        - args:
-          - "cp /vault/config/extraconfig-from-values.hcl /tmp/storageconfig.hcl;\n[ -n \"${HOST_IP}\" ] && sed -Ei \"s|HOST_IP|${HOST_IP?}|g\" /tmp/storageconfig.hcl;\n[ -n \"${POD_IP}\" ] && sed -Ei \"s|POD_IP|${POD_IP?}|g\" /tmp/storageconfig.hcl;\n[ -n \"${HOSTNAME}\" ] && sed -Ei \"s|HOSTNAME|${HOSTNAME?}|g\" /tmp/storageconfig.hcl;\n[ -n \"${API_ADDR}\" ] && sed -Ei \"s|API_ADDR|${API_ADDR?}|g\" /tmp/storageconfig.hcl;\n[ -n \"${TRANSIT_ADDR}\" ] && sed -Ei \"s|TRANSIT_ADDR|${TRANSIT_ADDR?}|g\" /tmp/storageconfig.hcl;\n[ -n \"${RAFT_ADDR}\" ] && sed -Ei \"s|RAFT_ADDR|${RAFT_ADDR?}|g\" /tmp/storageconfig.hcl;\n/usr/local/bin/docker-entrypoint.sh vault server -config=/tmp/storageconfig.hcl \n"
+        - name: vault
+          image: quay.io/operate-first/vault:1.9.2
+          imagePullPolicy: IfNotPresent
           command:
-            - /bin/sh
-            - -ec
+          - "/bin/sh"
+          - "-ec"
+          args:
+          - |
+            cp /vault/config/extraconfig-from-values.hcl /tmp/storageconfig.hcl;
+            [ -n "${HOST_IP}" ] && sed -Ei "s|HOST_IP|${HOST_IP?}|g" /tmp/storageconfig.hcl;
+            [ -n "${POD_IP}" ] && sed -Ei "s|POD_IP|${POD_IP?}|g" /tmp/storageconfig.hcl;
+            [ -n "${HOSTNAME}" ] && sed -Ei "s|HOSTNAME|${HOSTNAME?}|g" /tmp/storageconfig.hcl;
+            [ -n "${API_ADDR}" ] && sed -Ei "s|API_ADDR|${API_ADDR?}|g" /tmp/storageconfig.hcl;
+            [ -n "${TRANSIT_ADDR}" ] && sed -Ei "s|TRANSIT_ADDR|${TRANSIT_ADDR?}|g" /tmp/storageconfig.hcl;
+            [ -n "${RAFT_ADDR}" ] && sed -Ei "s|RAFT_ADDR|${RAFT_ADDR?}|g" /tmp/storageconfig.hcl;
+            /usr/local/bin/docker-entrypoint.sh vault server -config=/tmp/storageconfig.hcl
           env:
             - name: HOST_IP
               valueFrom:
@@ -57,9 +78,9 @@ spec:
                 fieldRef:
                   fieldPath: metadata.namespace
             - name: VAULT_ADDR
-              value: http://127.0.0.1:8200
+              value: "http://127.0.0.1:8200"
             - name: VAULT_API_ADDR
-              value: http://$(POD_IP):8200
+              value: "http://$(POD_IP):8200"
             - name: SKIP_CHOWN
               value: "true"
             - name: SKIP_SETCAP
@@ -69,19 +90,16 @@ spec:
                 fieldRef:
                   fieldPath: metadata.name
             - name: VAULT_CLUSTER_ADDR
-              value: https://$(HOSTNAME).opf-vault-internal:8201
+              value: "https://$(HOSTNAME).opf-vault-internal:8201"
             - name: HOME
-              value: /home/vault
-          image: quay.io/operate-first/vault:1.9.2
-          imagePullPolicy: IfNotPresent
-          lifecycle:
-            preStop:
-              exec:
-                command:
-                  - /bin/sh
-                  - -c
-                  - sleep 5 && kill -SIGTERM $(pidof vault)
-          name: vault
+              value: "/home/vault"
+          volumeMounts:
+            - name: data
+              mountPath: /vault/data
+            - name: config
+              mountPath: /vault/config
+            - name: home
+              mountPath: /home/vault
           ports:
             - containerPort: 8200
               name: http
@@ -90,31 +108,32 @@ spec:
             - containerPort: 8202
               name: http-rep
           readinessProbe:
+            # Check status; unsealed vault servers return 0
+            # The exit code reflects the seal status:
+            #   0 - unsealed
+            #   1 - error
+            #   2 - sealed
             exec:
-              command:
-                - /bin/sh
-                - -ec
-                - vault status -tls-skip-verify
+              command: ["/bin/sh", "-ec", "vault status -tls-skip-verify"]
             failureThreshold: 2
             initialDelaySeconds: 5
             periodSeconds: 5
             successThreshold: 1
             timeoutSeconds: 3
-          volumeMounts:
-            - mountPath: /vault/data
-              name: data
-            - mountPath: /vault/config
-              name: config
-            - mountPath: /home/vault
-              name: home
-          serviceAccountName: opf-vault
-          terminationGracePeriodSeconds: 10
-          volumes:
-          - configMap:
-            name: opf-vault-config
-          - emptyDir: {}
-  updateStrategy:
-    type: OnDelete
+          lifecycle:
+            # Vault container doesn't receive SIGTERM from Kubernetes
+            # and after the grace period ends, Kube sends SIGKILL.  This
+            # causes issues with graceful shutdowns such as deregistering itself
+            # from Consul (zombie services).
+            preStop:
+              exec:
+                command: [
+                  "/bin/sh", "-c",
+                  # Adding a sleep here to give the pod eviction a
+                  # chance to propagate, so requests will not be made
+                  # to this pod while it's terminating
+                  "sleep 5 && kill -SIGTERM $(pidof vault)",
+                ]
   volumeClaimTemplates:
     - metadata:
         name: data
@@ -124,19 +143,3 @@ spec:
         resources:
           requests:
             storage: 10Gi
-    - metadata:
-        name: config
-      spec:
-        accessModes:
-          - ReadWriteOnce
-        resources:
-          requests:
-            storage: 5Gi
-    - metadata:
-        name: home
-      spec:
-        accessModes:
-          - ReadWriteOnce
-        resources:
-          requests:
-            storage: 5Gi
