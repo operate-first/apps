@@ -4,6 +4,7 @@ resources:
 - configmaps/
 - policy/
 - rbac.authorization.k8s.io/
+- route
 - serviceaccounts/
 - services/
 - statefulsets/
