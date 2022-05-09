@@ -5,12 +5,21 @@
             "allow": "all"
         },
         {
-            "group": "demo_.*|.*",
+            "group": ".*",
             "catalog": "osc_datacommons_dev",
             "allow": "all"
         },
         {
-            "catalog": ".*",
+            "group": "demo_dv_dev",
+            "catalog": "osc_datacommons_dev",
+            "allow": "all"
+        },
+        {
+            "group": "pcaf_sovereign_footprint.*",
+            "catalog": "osc_datacommons_dev",
+            "allow": "all"
+        },
+        {
             "allow": "read-only"
         }
     ],
@@ -20,32 +29,63 @@
             "owner": true
         },
         {
-            "group": ".*",
             "catalog": "osc_datacommons_dev",
             "schema": "sandbox",
+            "group": ".*",
             "owner": true
         },
         {
-            "group": ".*",
             "catalog": "osc_datacommons_dev",
             "schema": "demo_dv",
+            "group": ".*",
             "owner": true
         },
         {
-            "group": "pcaf_sovereign_footprint.*",
             "catalog": "osc_datacommons_dev",
             "schema": "pcaf_sovereign_footprint",
+            "group": "pcaf_sovereign_footprint.*",
             "owner": true
         },
         {
-            "catalog": ".*",
-            "schema": ".*",
             "owner": false
         }
     ],
     "tables": [
         {
             "group": "admins",
+            "privileges": [
+                "SELECT",
+                "INSERT",
+                "DELETE",
+                "OWNERSHIP"
+            ]
+        },
+        {
+            "catalog": "osc_datacommons_dev",
+            "schema": "sandbox",
+            "group": ".*",
+            "privileges": [
+                "SELECT",
+                "INSERT",
+                "DELETE",
+                "OWNERSHIP"
+            ]
+        },
+        {
+            "catalog": "osc_datacommons_dev",
+            "schema": "demo_dv",
+            "group": ".*",
+            "privileges": [
+                "SELECT",
+                "INSERT",
+                "DELETE",
+                "OWNERSHIP"
+            ]
+        },
+        {
+            "catalog": "osc_datacommons_dev",
+            "schema": "pcaf_sovereign_footprint",
+            "group": "pcaf_sovereign_footprint.*",
             "privileges": [
                 "SELECT",
                 "INSERT",
@@ -91,13 +131,13 @@
             "privileges": [
                 "SELECT"
             ],
-            "filter": "contains(current_groups(), access) or access = 'public'",
             "columns": [
                 {
                     "name": "dev1",
                     "allow": false
                 }
-            ]
+            ],
+            "filter": "(contains(current_groups(), access) or access = 'public')"
         },
         {
             "group": "demo_dv_user",
@@ -107,7 +147,6 @@
             "privileges": [
                 "SELECT"
             ],
-            "filter": "contains(current_groups(), access) or access = 'public'",
             "columns": [
                 {
                     "name": "dev1",
@@ -117,7 +156,8 @@
                     "name": "quant1",
                     "allow": false
                 }
-            ]
+            ],
+            "filter": "(contains(current_groups(), access) or access = 'public')"
         },
         {
             "catalog": "osc_datacommons_dev",
@@ -145,13 +185,13 @@
             "privileges": [
                 "SELECT"
             ],
-            "filter": "case when contains(current_groups(), 'demo_dv_user') then (observation_year <= 2017) else true end",
             "columns": [
                 {
                     "name": "capacity_mw",
                     "allow": false
                 }
-            ]
+            ],
+            "filter": "(observation_year <= 2017)"
         },
         {
             "catalog": "osc_datacommons_dev",
@@ -160,77 +200,33 @@
             "privileges": []
         },
         {
-            "group": ".*",
             "catalog": "osc_datacommons_dev",
             "schema": "sandbox",
-            "table": ".*",
-            "privileges": [
-                "SELECT",
-                "INSERT",
-                "DELETE",
-                "OWNERSHIP"
-            ]
-        },
-        {
-            "catalog": "osc_datacommons_dev",
-            "schema": "sandbox",
-            "table": ".*",
             "privileges": [
                 "SELECT"
-            ]
-        },
-        {
-            "group": ".*",
-            "catalog": "osc_datacommons_dev",
-            "schema": "demo_dv",
-            "table": ".*",
-            "privileges": [
-                "SELECT",
-                "INSERT",
-                "DELETE",
-                "OWNERSHIP"
             ]
         },
         {
             "catalog": "osc_datacommons_dev",
             "schema": "demo_dv",
-            "table": ".*",
             "privileges": [
                 "SELECT"
-            ]
-        },
-        {
-            "group": "pcaf_sovereign_footprint.*",
-            "catalog": "osc_datacommons_dev",
-            "schema": "pcaf_sovereign_footprint",
-            "table": ".*",
-            "privileges": [
-                "SELECT",
-                "INSERT",
-                "DELETE",
-                "OWNERSHIP"
             ]
         },
         {
             "catalog": "osc_datacommons_dev",
             "schema": "pcaf_sovereign_footprint",
-            "table": ".*",
             "privileges": [
                 "SELECT"
             ]
         },
         {
             "catalog": "osc_datacommons_dev",
-            "schema": ".*",
-            "table": ".*",
             "privileges": [
                 "SELECT"
             ]
         },
         {
-            "catalog": ".*",
-            "schema": ".*",
-            "table": ".*",
             "privileges": []
         }
     ]

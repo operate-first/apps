@@ -5,17 +5,76 @@
             "allow": "all"
         },
         {
-            "group": "corporate_data.*|itr.*|physical_risk.*|aicoe_osc_demo|demo_.*",
+            "group": ".*",
             "catalog": "osc_datacommons_dev",
             "allow": "all"
         },
         {
-            "group": "corporate_data.*|itr.*|physical_risk.*|aicoe_osc_demo|pcaf_sovereign_footprint.*|entity_matching.*|demo_.*",
+            "group": "aicoe_osc_demo",
+            "catalog": "osc_datacommons_dev",
+            "allow": "all"
+        },
+        {
+            "group": "corporate_data.*",
+            "catalog": "osc_datacommons_dev",
+            "allow": "all"
+        },
+        {
+            "group": "demo_dv_dev",
+            "catalog": "osc_datacommons_dev",
+            "allow": "all"
+        },
+        {
+            "group": "entity_matching.*",
+            "catalog": "osc_datacommons_dev",
+            "allow": "all"
+        },
+        {
+            "group": "itr.*",
+            "catalog": "osc_datacommons_dev",
+            "allow": "all"
+        },
+        {
+            "group": "physical_risk.*",
+            "catalog": "osc_datacommons_dev",
+            "allow": "all"
+        },
+        {
+            "group": ".*",
             "catalog": "osc_datacommons_iceberg_dev",
             "allow": "all"
         },
         {
-            "catalog": ".*",
+            "group": "aicoe_osc_demo",
+            "catalog": "osc_datacommons_iceberg_dev",
+            "allow": "all"
+        },
+        {
+            "group": "corporate_data.*",
+            "catalog": "osc_datacommons_iceberg_dev",
+            "allow": "all"
+        },
+        {
+            "group": "entity_matching.*",
+            "catalog": "osc_datacommons_iceberg_dev",
+            "allow": "all"
+        },
+        {
+            "group": "itr.*",
+            "catalog": "osc_datacommons_iceberg_dev",
+            "allow": "all"
+        },
+        {
+            "group": "pcaf_sovereign_footprint.*",
+            "catalog": "osc_datacommons_iceberg_dev",
+            "allow": "all"
+        },
+        {
+            "group": "physical_risk.*",
+            "catalog": "osc_datacommons_iceberg_dev",
+            "allow": "all"
+        },
+        {
             "allow": "read-only"
         }
     ],
@@ -25,116 +84,114 @@
             "owner": true
         },
         {
-            "group": "pcaf_sovereign_footprint.*",
             "catalog": "osc_datacommons_iceberg_dev",
             "schema": "pcaf_sovereign_footprint",
+            "group": "pcaf_sovereign_footprint.*",
             "owner": true
         },
         {
-            "group": "corporate_data.*",
             "catalog": "osc_datacommons_iceberg_dev",
             "schema": "corporate_data",
+            "group": "corporate_data.*",
             "owner": true
         },
         {
-            "group": "itr.*",
             "catalog": "osc_datacommons_iceberg_dev",
             "schema": "itr",
+            "group": "itr.*",
             "owner": true
         },
         {
-            "group": "physical_risk.*",
             "catalog": "osc_datacommons_iceberg_dev",
             "schema": "physical_risk",
+            "group": "physical_risk.*",
             "owner": true
         },
         {
-            "group": "entity_matching.*",
             "catalog": "osc_datacommons_iceberg_dev",
             "schema": "gleif",
+            "group": "entity_matching.*",
             "owner": true
         },
         {
-            "group": "entity_matching.*",
             "catalog": "osc_datacommons_iceberg_dev",
             "schema": "esg_matching",
+            "group": "entity_matching.*",
             "owner": true
         },
         {
-            "group": "aicoe_osc_demo",
             "catalog": "osc_datacommons_iceberg_dev",
             "schema": "aicoe_osc_demo",
+            "group": "aicoe_osc_demo",
             "owner": true
         },
         {
-            "group": "aicoe_osc_demo",
             "catalog": "osc_datacommons_iceberg_dev",
             "schema": "urgentem",
+            "group": "aicoe_osc_demo",
             "owner": true
         },
         {
-            "group": ".*",
             "catalog": "osc_datacommons_iceberg_dev",
             "schema": "sandbox",
+            "group": ".*",
             "owner": true
         },
         {
-            "group": ".*",
             "catalog": "osc_datacommons_iceberg_dev",
             "schema": "demo",
+            "group": ".*",
             "owner": true
         },
         {
-            "group": "corporate_data.*",
             "catalog": "osc_datacommons_dev",
             "schema": "corporate_data",
+            "group": "corporate_data.*",
             "owner": true
         },
         {
-            "group": "itr.*",
             "catalog": "osc_datacommons_dev",
             "schema": "itr",
+            "group": "itr.*",
             "owner": true
         },
         {
-            "group": "physical_risk.*",
             "catalog": "osc_datacommons_dev",
             "schema": "physical_risk",
+            "group": "physical_risk.*",
             "owner": true
         },
         {
-            "group": "entity_matching.*",
             "catalog": "osc_datacommons_dev",
             "schema": "gleif",
+            "group": "entity_matching.*",
             "owner": true
         },
         {
-            "group": "aicoe_osc_demo",
             "catalog": "osc_datacommons_dev",
             "schema": "aicoe_osc_demo",
+            "group": "aicoe_osc_demo",
             "owner": true
         },
         {
-            "group": "aicoe_osc_demo",
             "catalog": "osc_datacommons_dev",
             "schema": "urgentem",
+            "group": "aicoe_osc_demo",
             "owner": true
         },
         {
-            "group": ".*",
             "catalog": "osc_datacommons_dev",
             "schema": "sandbox",
+            "group": ".*",
             "owner": true
         },
         {
-            "group": ".*",
             "catalog": "osc_datacommons_dev",
             "schema": "demo",
+            "group": ".*",
             "owner": true
         },
         {
-            "catalog": ".*",
-            "schema": ".*",
             "owner": false
         }
     ],
@@ -149,6 +206,204 @@
             ]
         },
         {
+            "catalog": "osc_datacommons_iceberg_dev",
+            "schema": "pcaf_sovereign_footprint",
+            "group": "pcaf_sovereign_footprint.*",
+            "privileges": [
+                "SELECT",
+                "INSERT",
+                "DELETE",
+                "OWNERSHIP"
+            ]
+        },
+        {
+            "catalog": "osc_datacommons_iceberg_dev",
+            "schema": "corporate_data",
+            "group": "corporate_data.*",
+            "privileges": [
+                "SELECT",
+                "INSERT",
+                "DELETE",
+                "OWNERSHIP"
+            ]
+        },
+        {
+            "catalog": "osc_datacommons_iceberg_dev",
+            "schema": "itr",
+            "group": "itr.*",
+            "privileges": [
+                "SELECT",
+                "INSERT",
+                "DELETE",
+                "OWNERSHIP"
+            ]
+        },
+        {
+            "catalog": "osc_datacommons_iceberg_dev",
+            "schema": "physical_risk",
+            "group": "physical_risk.*",
+            "privileges": [
+                "SELECT",
+                "INSERT",
+                "DELETE",
+                "OWNERSHIP"
+            ]
+        },
+        {
+            "catalog": "osc_datacommons_iceberg_dev",
+            "schema": "gleif",
+            "group": "entity_matching.*",
+            "privileges": [
+                "SELECT",
+                "INSERT",
+                "DELETE",
+                "OWNERSHIP"
+            ]
+        },
+        {
+            "catalog": "osc_datacommons_iceberg_dev",
+            "schema": "esg_matching",
+            "group": "entity_matching.*",
+            "privileges": [
+                "SELECT",
+                "INSERT",
+                "DELETE",
+                "OWNERSHIP"
+            ]
+        },
+        {
+            "catalog": "osc_datacommons_iceberg_dev",
+            "schema": "aicoe_osc_demo",
+            "group": "aicoe_osc_demo",
+            "privileges": [
+                "SELECT",
+                "INSERT",
+                "DELETE",
+                "OWNERSHIP"
+            ]
+        },
+        {
+            "catalog": "osc_datacommons_iceberg_dev",
+            "schema": "urgentem",
+            "group": "aicoe_osc_demo",
+            "privileges": [
+                "SELECT",
+                "INSERT",
+                "DELETE",
+                "OWNERSHIP"
+            ]
+        },
+        {
+            "catalog": "osc_datacommons_iceberg_dev",
+            "schema": "sandbox",
+            "group": ".*",
+            "privileges": [
+                "SELECT",
+                "INSERT",
+                "DELETE",
+                "OWNERSHIP"
+            ]
+        },
+        {
+            "catalog": "osc_datacommons_iceberg_dev",
+            "schema": "demo",
+            "group": ".*",
+            "privileges": [
+                "SELECT",
+                "INSERT",
+                "DELETE",
+                "OWNERSHIP"
+            ]
+        },
+        {
+            "catalog": "osc_datacommons_dev",
+            "schema": "corporate_data",
+            "group": "corporate_data.*",
+            "privileges": [
+                "SELECT",
+                "INSERT",
+                "DELETE",
+                "OWNERSHIP"
+            ]
+        },
+        {
+            "catalog": "osc_datacommons_dev",
+            "schema": "itr",
+            "group": "itr.*",
+            "privileges": [
+                "SELECT",
+                "INSERT",
+                "DELETE",
+                "OWNERSHIP"
+            ]
+        },
+        {
+            "catalog": "osc_datacommons_dev",
+            "schema": "physical_risk",
+            "group": "physical_risk.*",
+            "privileges": [
+                "SELECT",
+                "INSERT",
+                "DELETE",
+                "OWNERSHIP"
+            ]
+        },
+        {
+            "catalog": "osc_datacommons_dev",
+            "schema": "gleif",
+            "group": "entity_matching.*",
+            "privileges": [
+                "SELECT",
+                "INSERT",
+                "DELETE",
+                "OWNERSHIP"
+            ]
+        },
+        {
+            "catalog": "osc_datacommons_dev",
+            "schema": "aicoe_osc_demo",
+            "group": "aicoe_osc_demo",
+            "privileges": [
+                "SELECT",
+                "INSERT",
+                "DELETE",
+                "OWNERSHIP"
+            ]
+        },
+        {
+            "catalog": "osc_datacommons_dev",
+            "schema": "urgentem",
+            "group": "aicoe_osc_demo",
+            "privileges": [
+                "SELECT",
+                "INSERT",
+                "DELETE",
+                "OWNERSHIP"
+            ]
+        },
+        {
+            "catalog": "osc_datacommons_dev",
+            "schema": "sandbox",
+            "group": ".*",
+            "privileges": [
+                "SELECT",
+                "INSERT",
+                "DELETE",
+                "OWNERSHIP"
+            ]
+        },
+        {
+            "catalog": "osc_datacommons_dev",
+            "schema": "demo",
+            "group": ".*",
+            "privileges": [
+                "SELECT",
+                "INSERT",
+                "DELETE",
+                "OWNERSHIP"
+            ]
+        },
+        {
             "group": "demo_dv_dev",
             "catalog": "osc_datacommons_dev",
             "schema": "demo",
@@ -168,7 +423,7 @@
             "privileges": [
                 "SELECT"
             ],
-            "filter": "country = 'France'"
+            "filter": "(country = 'France')"
         },
         {
             "group": "demo_dv_user",
@@ -178,13 +433,13 @@
             "privileges": [
                 "SELECT"
             ],
-            "filter": "country = 'France'",
             "columns": [
                 {
                     "name": "rating",
                     "allow": false
                 }
-            ]
+            ],
+            "filter": "(country = 'France')"
         },
         {
             "catalog": "osc_datacommons_dev",
@@ -230,13 +485,13 @@
             "privileges": [
                 "SELECT"
             ],
-            "filter": "contains(current_groups(), access) or access = 'public'",
             "columns": [
                 {
                     "name": "dev1",
                     "allow": false
                 }
-            ]
+            ],
+            "filter": "(contains(current_groups(), access) or access = 'public')"
         },
         {
             "group": "demo_dv_user",
@@ -246,7 +501,6 @@
             "privileges": [
                 "SELECT"
             ],
-            "filter": "contains(current_groups(), access) or access = 'public'",
             "columns": [
                 {
                     "name": "dev1",
@@ -256,7 +510,8 @@
                     "name": "quant1",
                     "allow": false
                 }
-            ]
+            ],
+            "filter": "(contains(current_groups(), access) or access = 'public')"
         },
         {
             "catalog": "osc_datacommons_dev",
@@ -265,385 +520,144 @@
             "privileges": []
         },
         {
-            "group": "pcaf_sovereign_footprint.*",
             "catalog": "osc_datacommons_iceberg_dev",
             "schema": "pcaf_sovereign_footprint",
-            "table": ".*",
-            "privileges": [
-                "SELECT",
-                "INSERT",
-                "DELETE",
-                "OWNERSHIP"
-            ]
-        },
-        {
-            "catalog": "osc_datacommons_iceberg_dev",
-            "schema": "pcaf_sovereign_footprint",
-            "table": ".*",
             "privileges": [
                 "SELECT"
-            ]
-        },
-        {
-            "group": "corporate_data.*",
-            "catalog": "osc_datacommons_iceberg_dev",
-            "schema": "corporate_data",
-            "table": ".*",
-            "privileges": [
-                "SELECT",
-                "INSERT",
-                "DELETE",
-                "OWNERSHIP"
             ]
         },
         {
             "catalog": "osc_datacommons_iceberg_dev",
             "schema": "corporate_data",
-            "table": ".*",
             "privileges": [
                 "SELECT"
-            ]
-        },
-        {
-            "group": "itr.*",
-            "catalog": "osc_datacommons_iceberg_dev",
-            "schema": "itr",
-            "table": ".*",
-            "privileges": [
-                "SELECT",
-                "INSERT",
-                "DELETE",
-                "OWNERSHIP"
             ]
         },
         {
             "catalog": "osc_datacommons_iceberg_dev",
             "schema": "itr",
-            "table": ".*",
             "privileges": [
                 "SELECT"
-            ]
-        },
-        {
-            "group": "physical_risk.*",
-            "catalog": "osc_datacommons_iceberg_dev",
-            "schema": "physical_risk",
-            "table": ".*",
-            "privileges": [
-                "SELECT",
-                "INSERT",
-                "DELETE",
-                "OWNERSHIP"
             ]
         },
         {
             "catalog": "osc_datacommons_iceberg_dev",
             "schema": "physical_risk",
-            "table": ".*",
             "privileges": [
                 "SELECT"
             ]
         },
         {
-            "group": "entity_matching.*",
             "catalog": "osc_datacommons_iceberg_dev",
             "schema": "gleif",
-            "table": ".*",
-            "privileges": [
-                "SELECT",
-                "INSERT",
-                "DELETE",
-                "OWNERSHIP"
-            ]
-        },
-        {
-            "catalog": "osc_datacommons_iceberg_dev",
-            "schema": "gleif",
-            "table": ".*",
             "privileges": [
                 "SELECT"
-            ]
-        },
-        {
-            "group": "entity_matching.*",
-            "catalog": "osc_datacommons_iceberg_dev",
-            "schema": "esg_matching",
-            "table": ".*",
-            "privileges": [
-                "SELECT",
-                "INSERT",
-                "DELETE",
-                "OWNERSHIP"
             ]
         },
         {
             "catalog": "osc_datacommons_iceberg_dev",
             "schema": "esg_matching",
-            "table": ".*",
             "privileges": [
                 "SELECT"
-            ]
-        },
-        {
-            "group": "aicoe_osc_demo",
-            "catalog": "osc_datacommons_iceberg_dev",
-            "schema": "aicoe_osc_demo",
-            "table": ".*",
-            "privileges": [
-                "SELECT",
-                "INSERT",
-                "DELETE",
-                "OWNERSHIP"
             ]
         },
         {
             "catalog": "osc_datacommons_iceberg_dev",
             "schema": "aicoe_osc_demo",
-            "table": ".*",
             "privileges": [
                 "SELECT"
-            ]
-        },
-        {
-            "group": "aicoe_osc_demo",
-            "catalog": "osc_datacommons_iceberg_dev",
-            "schema": "urgentem",
-            "table": ".*",
-            "privileges": [
-                "SELECT",
-                "INSERT",
-                "DELETE",
-                "OWNERSHIP"
             ]
         },
         {
             "catalog": "osc_datacommons_iceberg_dev",
             "schema": "urgentem",
-            "table": ".*",
             "privileges": [
                 "SELECT"
-            ]
-        },
-        {
-            "group": ".*",
-            "catalog": "osc_datacommons_iceberg_dev",
-            "schema": "sandbox",
-            "table": ".*",
-            "privileges": [
-                "SELECT",
-                "INSERT",
-                "DELETE",
-                "OWNERSHIP"
             ]
         },
         {
             "catalog": "osc_datacommons_iceberg_dev",
             "schema": "sandbox",
-            "table": ".*",
             "privileges": [
                 "SELECT"
             ]
         },
         {
-            "group": ".*",
             "catalog": "osc_datacommons_iceberg_dev",
             "schema": "demo",
-            "table": ".*",
-            "privileges": [
-                "SELECT",
-                "INSERT",
-                "DELETE",
-                "OWNERSHIP"
-            ]
-        },
-        {
-            "catalog": "osc_datacommons_iceberg_dev",
-            "schema": "demo",
-            "table": ".*",
             "privileges": [
                 "SELECT"
-            ]
-        },
-        {
-            "group": "corporate_data.*",
-            "catalog": "osc_datacommons_dev",
-            "schema": "corporate_data",
-            "table": ".*",
-            "privileges": [
-                "SELECT",
-                "INSERT",
-                "DELETE",
-                "OWNERSHIP"
             ]
         },
         {
             "catalog": "osc_datacommons_dev",
             "schema": "corporate_data",
-            "table": ".*",
             "privileges": [
                 "SELECT"
-            ]
-        },
-        {
-            "group": "itr.*",
-            "catalog": "osc_datacommons_dev",
-            "schema": "itr",
-            "table": ".*",
-            "privileges": [
-                "SELECT",
-                "INSERT",
-                "DELETE",
-                "OWNERSHIP"
             ]
         },
         {
             "catalog": "osc_datacommons_dev",
             "schema": "itr",
-            "table": ".*",
             "privileges": [
                 "SELECT"
-            ]
-        },
-        {
-            "group": "physical_risk.*",
-            "catalog": "osc_datacommons_dev",
-            "schema": "physical_risk",
-            "table": ".*",
-            "privileges": [
-                "SELECT",
-                "INSERT",
-                "DELETE",
-                "OWNERSHIP"
             ]
         },
         {
             "catalog": "osc_datacommons_dev",
             "schema": "physical_risk",
-            "table": ".*",
             "privileges": [
                 "SELECT"
-            ]
-        },
-        {
-            "group": "entity_matching.*",
-            "catalog": "osc_datacommons_dev",
-            "schema": "gleif",
-            "table": ".*",
-            "privileges": [
-                "SELECT",
-                "INSERT",
-                "DELETE",
-                "OWNERSHIP"
             ]
         },
         {
             "catalog": "osc_datacommons_dev",
             "schema": "gleif",
-            "table": ".*",
             "privileges": [
                 "SELECT"
-            ]
-        },
-        {
-            "group": "aicoe_osc_demo",
-            "catalog": "osc_datacommons_dev",
-            "schema": "aicoe_osc_demo",
-            "table": ".*",
-            "privileges": [
-                "SELECT",
-                "INSERT",
-                "DELETE",
-                "OWNERSHIP"
             ]
         },
         {
             "catalog": "osc_datacommons_dev",
             "schema": "aicoe_osc_demo",
-            "table": ".*",
             "privileges": [
                 "SELECT"
-            ]
-        },
-        {
-            "group": "aicoe_osc_demo",
-            "catalog": "osc_datacommons_dev",
-            "schema": "urgentem",
-            "table": ".*",
-            "privileges": [
-                "SELECT",
-                "INSERT",
-                "DELETE",
-                "OWNERSHIP"
             ]
         },
         {
             "catalog": "osc_datacommons_dev",
             "schema": "urgentem",
-            "table": ".*",
             "privileges": [
                 "SELECT"
-            ]
-        },
-        {
-            "group": ".*",
-            "catalog": "osc_datacommons_dev",
-            "schema": "sandbox",
-            "table": ".*",
-            "privileges": [
-                "SELECT",
-                "INSERT",
-                "DELETE",
-                "OWNERSHIP"
             ]
         },
         {
             "catalog": "osc_datacommons_dev",
             "schema": "sandbox",
-            "table": ".*",
-            "privileges": [
-                "SELECT"
-            ]
-        },
-        {
-            "group": ".*",
-            "catalog": "osc_datacommons_dev",
-            "schema": "demo",
-            "table": ".*",
-            "privileges": [
-                "SELECT",
-                "INSERT",
-                "DELETE",
-                "OWNERSHIP"
-            ]
-        },
-        {
-            "catalog": "osc_datacommons_dev",
-            "schema": "demo",
-            "table": ".*",
             "privileges": [
                 "SELECT"
             ]
         },
         {
             "catalog": "osc_datacommons_dev",
-            "schema": ".*",
-            "table": ".*",
+            "schema": "demo",
+            "privileges": [
+                "SELECT"
+            ]
+        },
+        {
+            "catalog": "osc_datacommons_dev",
             "privileges": [
                 "SELECT"
             ]
         },
         {
             "catalog": "osc_datacommons_iceberg_dev",
-            "schema": ".*",
-            "table": ".*",
             "privileges": [
                 "SELECT"
             ]
         },
         {
-            "catalog": ".*",
-            "schema": ".*",
-            "table": ".*",
             "privileges": []
         }
     ]

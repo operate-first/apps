@@ -1,8 +1,9 @@
 # this is a development only cluster
-admin-groups: [admins]
+admin:
+  - group: admins
 
 # all user groups have read privileges
-public-tables: true
+public: true
 
 # currently no non-admin rules for any ACL granularities
 catalogs: []
