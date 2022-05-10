@@ -49,6 +49,7 @@ resources:
   - metal3.io/provisionings/provisioning-configuration.yaml
   - nodenetworkconfigurationpolicies/moc-nfs-network.yaml
   - nodenetworkconfigurationpolicies/ocp-prod-provisioning-vlan.yaml
+  - nodenetworkconfigurationpolicies/vlan-211-nese.yaml
   - nodenetworkconfigurationpolicies/zero-provisioning-vlan.yaml
   - oauth
 
