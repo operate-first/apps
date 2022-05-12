@@ -5,7 +5,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Grafana &#8212; GitOps Docs</title>
+    <title>Prometheus &#8212; GitOps Docs</title>
     
   <link href="../../_static/css/theme.css" rel="stylesheet">
   <link href="../../_static/css/index.ff1ffe594081f20da1ef19478df9384b.css" rel="stylesheet">
@@ -54,8 +54,8 @@ const thebe_selector_output = ".output, .cell_output"
     <link rel="shortcut icon" href="../../_static/favicon.png"/>
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
-    <link rel="next" title="Add a Grafana dashboard to OperateFirst Grafana" href="add_grafana_dashboard.html" />
-    <link rel="prev" title="Kafka Runbook" href="../kafka/runbook.html" />
+    <link rel="next" title="Observatorium" href="../observatorium/README.html" />
+    <link rel="prev" title="Adding permissions in Grafana" href="../grafana/map_groups_to_roles.html" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="None">
     
@@ -324,30 +324,30 @@ const thebe_selector_output = ".output, .cell_output"
    </li>
   </ul>
  </li>
- <li class="toctree-l1 current active has-children">
-  <a class="current reference internal" href="#">
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../grafana/README.html">
    Grafana
   </a>
-  <input checked="" class="toctree-checkbox" id="toctree-checkbox-8" name="toctree-checkbox-8" type="checkbox"/>
+  <input class="toctree-checkbox" id="toctree-checkbox-8" name="toctree-checkbox-8" type="checkbox"/>
   <label for="toctree-checkbox-8">
    <i class="fas fa-chevron-down">
    </i>
   </label>
   <ul>
    <li class="toctree-l2">
-    <a class="reference internal" href="add_grafana_dashboard.html">
+    <a class="reference internal" href="../grafana/add_grafana_dashboard.html">
      Add a Grafana dashboard to OperateFirst Grafana
     </a>
    </li>
    <li class="toctree-l2">
-    <a class="reference internal" href="map_groups_to_roles.html">
+    <a class="reference internal" href="../grafana/map_groups_to_roles.html">
      Adding permissions in Grafana
     </a>
    </li>
   </ul>
  </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../prometheus/README.html">
+ <li class="toctree-l1 current active">
+  <a class="current reference internal" href="#">
    Prometheus
   </a>
  </li>
@@ -694,7 +694,7 @@ const thebe_selector_output = ".output, .cell_output"
         <!-- ipynb file if we had a myst markdown file -->
         
         <!-- Download raw file -->
-        <a class="dropdown-buttons" href="../../_sources/content/grafana/README.md"><button type="button"
+        <a class="dropdown-buttons" href="../../_sources/content/prometheus/README.md"><button type="button"
                 class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
                 data-placement="left">.md</button></a>
         <!-- Download PDF via print -->
@@ -714,7 +714,7 @@ const thebe_selector_output = ".output, .cell_output"
                 data-toggle="tooltip" data-placement="left" title="Source repository"><i
                     class="fab fa-github"></i>repository</button></a>
         <a class="issues-button"
-            href="https://github.com/operate-first/apps/issues/new?title=Issue%20on%20page%20%2Fcontent/grafana/README.html&body=Your%20issue%20content%20here."><button
+            href="https://github.com/operate-first/apps/issues/new?title=Issue%20on%20page%20%2Fcontent/prometheus/README.html&body=Your%20issue%20content%20here."><button
                 type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
                 title="Open an issue"><i class="fas fa-lightbulb"></i>open issue</button></a>
         
@@ -740,19 +740,19 @@ const thebe_selector_output = ".output, .cell_output"
             </div>
             <nav id="bd-toc-nav" aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#get-access-to-grafana">
-   Get Access to Grafana
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#">
+   Prometheus
   </a>
  </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#adding-the-dashboards">
-   Adding the Dashboards
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#adding-or-removing-alerts">
+   Adding or removing alerts
   </a>
  </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#using-the-dashboards">
-   Using the Dashboards
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#adding-new-alertmanager-github-receiver-instances">
+   Adding new alertmanager github receiver instances
   </a>
  </li>
 </ul>
@@ -765,7 +765,7 @@ const thebe_selector_output = ".output, .cell_output"
         <div class="col-12 col-md-9 pl-md-3 pr-md-0">
             <!-- Table of contents that is only displayed when printing the page -->
             <div id="jb-print-docs-body" class="onlyprint">
-                <h1>Grafana</h1>
+                <h1>Prometheus</h1>
                 <!-- Table of contents -->
                 <div id="print-main-content">
                     <div id="jb-print-toc">
@@ -775,19 +775,19 @@ const thebe_selector_output = ".output, .cell_output"
                         </div>
                         <nav aria-label="Page">
                             <ul class="visible nav section-nav flex-column">
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#get-access-to-grafana">
-   Get Access to Grafana
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#">
+   Prometheus
   </a>
  </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#adding-the-dashboards">
-   Adding the Dashboards
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#adding-or-removing-alerts">
+   Adding or removing alerts
   </a>
  </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#using-the-dashboards">
-   Using the Dashboards
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#adding-new-alertmanager-github-receiver-instances">
+   Adding new alertmanager github receiver instances
   </a>
  </li>
 </ul>
@@ -799,30 +799,19 @@ const thebe_selector_output = ".output, .cell_output"
             
               <div>
                 
-  <div class="tex2jax_ignore mathjax_ignore section" id="grafana">
-<h1>Grafana<a class="headerlink" href="#grafana" title="Permalink to this headline">¶</a></h1>
-<p><a class="reference external" href="https://grafana.com/oss/grafana">Grafana</a> is a multi-platform open source analytics and interactive visualization tool. It allows you to query, create dashboards, explore, and alert on metrics when connected to supported data sources.</p>
-<p>We use Grafana to visualize the metrics that we source from our [User Workload Monitoring][../uwm]. These monitoring dashboards are useful for visualizing the metrics (such as Prometheus metrics) collected from the applications to track and analyze the system’s overall health.</p>
-<p>The dashboards can be altered, saved and reused as per your specific monitoring needs.</p>
-<p>Dashboards can be represented by the <code class="docutils literal notranslate"><span class="pre">GrafanaDashboard</span></code> custom resource or by their raw <code class="docutils literal notranslate"><span class="pre">JSON</span></code> files. You can find example monitoring dashboards defined in separate <code class="docutils literal notranslate"><span class="pre">JSON</span></code> files for each of the Operate First managed applications in our <a class="reference external" href="https://github.com/operate-first/apps/tree/master/grafana/overlays/moc/smaug/dashboards">apps repo</a>. For more information on how the Grafana dashboards are defined, please refer to <a class="reference external" href="https://github.com/integr8ly/grafana-operator/blob/master/documentation/dashboards.md">this documentation</a>.</p>
-<div class="section" id="get-access-to-grafana">
-<h2>Get Access to Grafana<a class="headerlink" href="#get-access-to-grafana" title="Permalink to this headline">¶</a></h2>
-<p>Grafana can be accessed at: <a class="reference external" href="https://grafana.operate-first.cloud/">https://grafana.operate-first.cloud/</a></p>
-<p>You will need to be onboarded to access the UI, this can be self serviced, please follow the instructions <a class="reference internal" href="map_groups_to_roles.html"><span class="doc std std-doc">here</span></a> to do so. You will need to belong to an OCP <code class="docutils literal notranslate"><span class="pre">group</span></code> in order to gain access, current list of groups and their belonging users can be found <a class="reference external" href="https://github.com/operate-first/apps/tree/master/cluster-scope/base/user.openshift.io/groups">here</a>. If you do not belong to one, please create one, and then include this group in the <code class="docutils literal notranslate"><span class="pre">smaug</span></code> cluster overlay <a class="reference external" href="https://github.com/operate-first/apps/blob/master/cluster-scope/overlays/prod/moc/smaug/kustomization.yaml">here</a>.</p>
+  <div class="tex2jax_ignore mathjax_ignore section" id="prometheus">
+<h1>Prometheus<a class="headerlink" href="#prometheus" title="Permalink to this headline">¶</a></h1>
+<p>Prometheus is part of the alerting stack that we use in Operate-First.</p>
 </div>
-<div class="section" id="adding-the-dashboards">
-<h2>Adding the Dashboards<a class="headerlink" href="#adding-the-dashboards" title="Permalink to this headline">¶</a></h2>
-<p>To add your dashboards to Grafana, you will need to create a <code class="docutils literal notranslate"><span class="pre">GrafanaDashboard</span></code> custom resource. To do this, you can follow the instructions available <a class="reference internal" href="add_grafana_dashboard.html"><span class="doc std std-doc">here</span></a>.</p>
+<div class="tex2jax_ignore mathjax_ignore section" id="adding-or-removing-alerts">
+<h1>Adding or removing alerts<a class="headerlink" href="#adding-or-removing-alerts" title="Permalink to this headline">¶</a></h1>
+<p>To add alerts there are 2 modifications need to happen.</p>
+<p>Firstly the alert itself must be constructed through a <code class="docutils literal notranslate"><span class="pre">PrometheusRule</span></code> file. Typically these files live alongside the application that they are creating the alerts for. Examples of this can be seen for <a class="reference external" href="https://github.com/operate-first/apps/blob/master/argocd/overlays/moc-infra/alerts.yaml">argocd in MOC-Infra</a>, <a class="reference external" href="https://github.com/operate-first/apps/blob/master/kfdefs/overlays/moc/smaug/jupyterhub/alerts.yaml">jupyterhub on Smuag</a>, and the <a class="reference external" href="https://github.com/operate-first/apps/blob/master/grafana/overlays/moc/smaug/blackbox-exporter/recording-rules.yaml">blackbox exporter on Smuag</a>. It is important to note that these <code class="docutils literal notranslate"><span class="pre">PrometheusRule</span></code> files are defined per overlay. For more information on creating the alerts themselves, refer to the <span class="xref myst">prometheus docs</span></p>
+<p>Secondly, we must tell the alertmanager-github-receiver how to route the alerts. This can be done by modifying the <a class="reference external" href="https://github.com/operate-first/apps/blob/master/cluster-scope/overlays/prod/common/alertmanager-main-secret.yaml">alertmanager-main-secret</a> file. This defines which alerts should be forwarded to which receivers. To remove or silence an alert, the entry can either be deleted, or the receiver can be swapped to the <code class="docutils literal notranslate"><span class="pre">&quot;null&quot;</span></code> value, which will silence it.</p>
 </div>
-<div class="section" id="using-the-dashboards">
-<h2>Using the Dashboards<a class="headerlink" href="#using-the-dashboards" title="Permalink to this headline">¶</a></h2>
-<p>Grafana dashboards can easily be exported and imported, either from the UI or from the HTTP API.
-Dashboards are exported in Grafana JSON format, and contain everything you need (layout, variables, styles, data sources, queries, etc) to import the dashboard at a later time.</p>
-<p>You can import these dashboards in Grafana either by pasting the dashboard JSON text directly into the text area or directly uploading the JSON file. Make sure to add/connect your <a class="reference external" href="https://grafana.com/docs/grafana/latest/datasources/">data sources</a> to Grafana and pick what data source you want the dashboard to use.</p>
-<p>For more details on importing/exporting dashboards, you can refer to the Grafana documentation <a class="reference external" href="https://grafana.com/docs/grafana/latest/dashboards/export-import/">here</a>.</p>
-</div>
-<div class="toctree-wrapper compound">
-</div>
+<div class="tex2jax_ignore mathjax_ignore section" id="adding-new-alertmanager-github-receiver-instances">
+<h1>Adding new alertmanager github receiver instances<a class="headerlink" href="#adding-new-alertmanager-github-receiver-instances" title="Permalink to this headline">¶</a></h1>
+<p>Adding new receivers have 2 parts. Firstly create an overlay in the <a class="reference external" href="https://github.com/operate-first/apps/tree/master/alertreceiver/overlays">alertmanager directory</a>, to create a new deployment of base and patching in the necesary value. An example of this for MOC/Smaug can be seen <a class="reference external" href="https://github.com/operate-first/apps/blob/master/alertreceiver/overlays/moc/smaug/kustomization.yaml">here</a>. Secondly, the receiver needs to be defined in the <a class="reference external" href="https://github.com/operate-first/apps/blob/master/cluster-scope/overlays/prod/common/alertmanager-main-secret.yaml#L64">alertmanager-main-secret</a>.</p>
 </div>
 
     <script type="text/x-thebe-config">
@@ -838,7 +827,7 @@ Dashboards are exported in Grafana JSON format, and contain everything you need 
         },
         kernelOptions: {
             kernelName: "python3",
-            path: "./content/grafana"
+            path: "./content/prometheus"
         },
         predefinedOutput: true
     }
@@ -850,17 +839,17 @@ Dashboards are exported in Grafana JSON format, and contain everything you need 
             
                 <!-- Previous / next buttons -->
 <div class='prev-next-area'> 
-    <a class='left-prev' id="prev-link" href="../kafka/runbook.html" title="previous page">
+    <a class='left-prev' id="prev-link" href="../grafana/map_groups_to_roles.html" title="previous page">
         <i class="fas fa-angle-left"></i>
         <div class="prev-next-info">
             <p class="prev-next-subtitle">previous</p>
-            <p class="prev-next-title">Kafka Runbook</p>
+            <p class="prev-next-title">Adding permissions in Grafana</p>
         </div>
     </a>
-    <a class='right-next' id="next-link" href="add_grafana_dashboard.html" title="next page">
+    <a class='right-next' id="next-link" href="../observatorium/README.html" title="next page">
     <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title">Add a Grafana dashboard to OperateFirst Grafana</p>
+        <p class="prev-next-title">Observatorium</p>
     </div>
     <i class="fas fa-angle-right"></i>
     </a>
