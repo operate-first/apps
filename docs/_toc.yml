@@ -65,6 +65,9 @@ parts:
           - file: content/grafana/add_grafana_dashboard.md
           - file: content/grafana/map_groups_to_roles.md
 
+      # Prometheus / Alerting
+      - file: content/prometheus/README.md
+
       # Observatorium
       - file: content/observatorium/README.md
         sections:
