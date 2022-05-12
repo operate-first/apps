@@ -1,0 +1,15 @@
+apiVersion: noobaa.io/v1alpha1
+kind: BackingStore
+metadata:
+  labels:
+    app: noobaa
+    app.kubernetes.io/instance: cluster-resources-smaug
+  name: noobaa-pool-01
+  namespace: openshift-storage
+spec:
+  pvPool:
+    numVolumes: 10
+    resources:
+      requests:
+        storage: 100Gi
+  type: pv-pool

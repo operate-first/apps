@@ -139,6 +139,8 @@ resources:
 - ../../../../bundles/volsync
 - ../common
 - apiserver/api_server_cert.yaml
+- backingstores/noobaa-pool-01.yaml
+- bucketclasses/noobaa-pool-01-bucket-class.yaml
 - clusterversion.yaml
 - ingresscontrollers/default.yaml
 - nodenetworkconfigurationpolicies/vlan-210-nfs.yaml
