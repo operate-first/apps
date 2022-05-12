@@ -91,7 +91,6 @@ resources:
 - ../../../../base/operators.coreos.com/subscriptions/camel-k
 - ../../../../base/operators.coreos.com/subscriptions/cert-manager
 - ../../../../base/operators.coreos.com/subscriptions/cluster-logging
-- ../../../../base/operators.coreos.com/subscriptions/external-secrets-operator
 - ../../../../base/operators.coreos.com/subscriptions/grafana-operator
 - ../../../../base/operators.coreos.com/subscriptions/koku-metrics-operator
 - ../../../../base/operators.coreos.com/subscriptions/kubevirt-hyperconverged
@@ -125,6 +124,7 @@ resources:
 - ../../../../bundles/acme-operator
 - ../../../../bundles/b4mad-racing
 - ../../../../bundles/curator
+- ../../../../bundles/external-secrets-operator
 - ../../../../bundles/fybrik
 - ../../../../bundles/jaeger-operator
 - ../../../../bundles/kfp-tekton
