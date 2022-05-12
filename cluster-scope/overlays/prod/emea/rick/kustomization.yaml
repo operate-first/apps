@@ -39,6 +39,7 @@ resources:
     - ../../../../bundles/acme-operator
     - ../../../../bundles/nfd
     - clusterversion.yaml
+    - secrets
 
 generators:
     - secret-generator.yaml
