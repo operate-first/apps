@@ -52,6 +52,7 @@ resources:
   - nodenetworkconfigurationpolicies/vlan-211-nese.yaml
   - nodenetworkconfigurationpolicies/zero-provisioning-vlan.yaml
   - oauth
+  - secrets
 
 generators:
   - secret-generator.yaml

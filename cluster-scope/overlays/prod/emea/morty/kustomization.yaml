@@ -52,3 +52,4 @@ resources:
 - ../common
 - apiserver/api_server_cert.yaml
 - ingresscontrollers/default.yaml
+- secrets
