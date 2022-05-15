@@ -5,7 +5,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Using Volsync to back up persistent volumes &#8212; GitOps Docs</title>
+    <title>Add External Secrets Operator to an OPF cluster &#8212; GitOps Docs</title>
     
   <link href="../../_static/css/theme.css" rel="stylesheet">
   <link href="../../_static/css/index.ff1ffe594081f20da1ef19478df9384b.css" rel="stylesheet">
@@ -54,8 +54,8 @@ const thebe_selector_output = ".output, .cell_output"
     <link rel="shortcut icon" href="../../_static/favicon.png"/>
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
-    <link rel="next" title="Notebooks" href="../notebooks/README.html" />
-    <link rel="prev" title="Volsync" href="README.html" />
+    <link rel="next" title="Cluster Management" href="../cluster-scope/README.html" />
+    <link rel="prev" title="External Secrets Operator" href="README.html" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="None">
     
@@ -233,18 +233,18 @@ const thebe_selector_output = ".output, .cell_output"
    </li>
   </ul>
  </li>
- <li class="toctree-l1 has-children">
-  <a class="reference internal" href="../external-secrets/README.html">
+ <li class="toctree-l1 current active has-children">
+  <a class="reference internal" href="README.html">
    External Secrets Operator
   </a>
-  <input class="toctree-checkbox" id="toctree-checkbox-5" name="toctree-checkbox-5" type="checkbox"/>
+  <input checked="" class="toctree-checkbox" id="toctree-checkbox-5" name="toctree-checkbox-5" type="checkbox"/>
   <label for="toctree-checkbox-5">
    <i class="fas fa-chevron-down">
    </i>
   </label>
-  <ul>
-   <li class="toctree-l2">
-    <a class="reference internal" href="../external-secrets/add_eso_to_cluster.html">
+  <ul class="current">
+   <li class="toctree-l2 current active">
+    <a class="current reference internal" href="#">
      Add External Secrets Operator to an OPF cluster
     </a>
    </li>
@@ -604,18 +604,18 @@ const thebe_selector_output = ".output, .cell_output"
    </li>
   </ul>
  </li>
- <li class="toctree-l1 current active has-children">
-  <a class="reference internal" href="README.html">
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../volsync/README.html">
    Volsync
   </a>
-  <input checked="" class="toctree-checkbox" id="toctree-checkbox-18" name="toctree-checkbox-18" type="checkbox"/>
+  <input class="toctree-checkbox" id="toctree-checkbox-18" name="toctree-checkbox-18" type="checkbox"/>
   <label for="toctree-checkbox-18">
    <i class="fas fa-chevron-down">
    </i>
   </label>
-  <ul class="current">
-   <li class="toctree-l2 current active">
-    <a class="current reference internal" href="#">
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../volsync/using-volsync.html">
      Using Volsync to back up persistent volumes
     </a>
    </li>
@@ -711,7 +711,7 @@ const thebe_selector_output = ".output, .cell_output"
         <!-- ipynb file if we had a myst markdown file -->
         
         <!-- Download raw file -->
-        <a class="dropdown-buttons" href="../../_sources/content/volsync/using-volsync.md"><button type="button"
+        <a class="dropdown-buttons" href="../../_sources/content/external-secrets/add_eso_to_cluster.md"><button type="button"
                 class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
                 data-placement="left">.md</button></a>
         <!-- Download PDF via print -->
@@ -731,7 +731,7 @@ const thebe_selector_output = ".output, .cell_output"
                 data-toggle="tooltip" data-placement="left" title="Source repository"><i
                     class="fab fa-github"></i>repository</button></a>
         <a class="issues-button"
-            href="https://github.com/operate-first/apps/issues/new?title=Issue%20on%20page%20%2Fcontent/volsync/using-volsync.html&body=Your%20issue%20content%20here."><button
+            href="https://github.com/operate-first/apps/issues/new?title=Issue%20on%20page%20%2Fcontent/external-secrets/add_eso_to_cluster.html&body=Your%20issue%20content%20here."><button
                 type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
                 title="Open an issue"><i class="fas fa-lightbulb"></i>open issue</button></a>
         
@@ -757,9 +757,26 @@ const thebe_selector_output = ".output, .cell_output"
             </div>
             <nav id="bd-toc-nav" aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#links-and-resources">
-   Links and Resources
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#">
+   Add External Secrets Operator to an OPF cluster
+  </a>
+  <ul class="visible nav section-nav flex-column">
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#deploy-the-operator">
+     Deploy the operator:
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#add-operatorconfig-resource">
+   Add OperatorConfig resource
+  </a>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#add-the-argocd-app">
+   Add the ArgoCD app
   </a>
  </li>
 </ul>
@@ -772,7 +789,7 @@ const thebe_selector_output = ".output, .cell_output"
         <div class="col-12 col-md-9 pl-md-3 pr-md-0">
             <!-- Table of contents that is only displayed when printing the page -->
             <div id="jb-print-docs-body" class="onlyprint">
-                <h1>Using Volsync to back up persistent volumes</h1>
+                <h1>Add External Secrets Operator to an OPF cluster</h1>
                 <!-- Table of contents -->
                 <div id="print-main-content">
                     <div id="jb-print-toc">
@@ -782,9 +799,26 @@ const thebe_selector_output = ".output, .cell_output"
                         </div>
                         <nav aria-label="Page">
                             <ul class="visible nav section-nav flex-column">
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#links-and-resources">
-   Links and Resources
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#">
+   Add External Secrets Operator to an OPF cluster
+  </a>
+  <ul class="visible nav section-nav flex-column">
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#deploy-the-operator">
+     Deploy the operator:
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#add-operatorconfig-resource">
+   Add OperatorConfig resource
+  </a>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#add-the-argocd-app">
+   Add the ArgoCD app
   </a>
  </li>
 </ul>
@@ -796,23 +830,31 @@ const thebe_selector_output = ".output, .cell_output"
             
               <div>
                 
-  <div class="tex2jax_ignore mathjax_ignore section" id="using-volsync-to-back-up-persistent-volumes">
-<h1>Using Volsync to back up persistent volumes<a class="headerlink" href="#using-volsync-to-back-up-persistent-volumes" title="Permalink to this headline">¶</a></h1>
-<p>The Volsync operator supports backing up your project’s persistent volumes.</p>
-<p>Volsync is currently deployed and available on the Smaug cluster.</p>
-<p>You can find the documentation for Volsync usage <a class="reference external" href="https://volsync.readthedocs.io/en/stable/usage/index.html">here</a>.</p>
-<p>Anyone with the view role is granted view-only access to ReplicationSource and ReplicationDestination objects as well as VolumeSnapshots in order to monitor data replication.
-Anyone with the edit role has full control of ReplicationSource and ReplicationDestination objects.
-They also have the ability to view VolumeSnapshots to promote destination snapshots into usable PVCs.
-The edit role allows users not only to monitor, but also to manage data replication.</p>
-<p>For more information on RBAC permissions in Volsync, please visit the Volsync documentation <a class="reference external" href="https://volsync.readthedocs.io/en/latest/installation/rbac.html">here</a>.</p>
-<div class="section" id="links-and-resources">
-<h2>Links and Resources<a class="headerlink" href="#links-and-resources" title="Permalink to this headline">¶</a></h2>
-<ul class="simple">
-<li><p><a class="reference external" href="https://volsync.readthedocs.io/en/stable/index.html">Volsync docs</a></p></li>
-<li><p><a class="reference external" href="https://github.com/backube/volsync">Volsync github</a></p></li>
-</ul>
+  <div class="tex2jax_ignore mathjax_ignore section" id="add-external-secrets-operator-to-an-opf-cluster">
+<h1>Add External Secrets Operator to an OPF cluster<a class="headerlink" href="#add-external-secrets-operator-to-an-opf-cluster" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="deploy-the-operator">
+<h2>Deploy the operator:<a class="headerlink" href="#deploy-the-operator" title="Permalink to this headline">¶</a></h2>
+<p>Add the <a class="reference external" href="https://github.com/operate-first/apps/tree/master/cluster-scope/bundles/external-secrets-operator">ESO bundle</a> to the <code class="docutils literal notranslate"><span class="pre">cluster-scope/overlay/prod/$ENV/$CLUSTER/kustomization.yaml</span></code>.</p>
+<p>The OLM operator is a helm chart deployer, and lives in the openshift-operators namespace. We use this operator to
+deploy the <em>actual</em> operator via an <code class="docutils literal notranslate"><span class="pre">OperatorConfig</span></code> resource, which essentially allows us to specify the helm chart values
+via an OCP resource. The bundle above creates the namespace where this resource will live. We deploy this resource
+separately via an argocd app.</p>
 </div>
+</div>
+<div class="tex2jax_ignore mathjax_ignore section" id="add-operatorconfig-resource">
+<h1>Add OperatorConfig resource<a class="headerlink" href="#add-operatorconfig-resource" title="Permalink to this headline">¶</a></h1>
+<blockquote>
+<div><p>Note: For details on this resource see OLM page for ESO <a class="reference external" href="https://operatorhub.io/operator/external-secrets-operator">here</a></p>
+</div></blockquote>
+<p>Add your <code class="docutils literal notranslate"><span class="pre">OperatorConfig</span></code> to the target cluster’s overlay found at the root of the <code class="docutils literal notranslate"><span class="pre">operate-first/apps</span></code> repo
+here: <code class="docutils literal notranslate"><span class="pre">operate-first/apps/external-secrets/overlays/$ENV/$CLUSTER</span></code>. If you prefer the default config, feel free to just
+leverage the one in <code class="docutils literal notranslate"><span class="pre">base</span></code> directory.</p>
+</div>
+<div class="tex2jax_ignore mathjax_ignore section" id="add-the-argocd-app">
+<h1>Add the ArgoCD app<a class="headerlink" href="#add-the-argocd-app" title="Permalink to this headline">¶</a></h1>
+<p>Follow the instructions <a class="reference internal" href="../argocd-gitops/add_application.html"><span class="doc std std-doc">here</span></a> to add your ArgoCD app. In general we recommend adding it to the
+<code class="docutils literal notranslate"><span class="pre">cluster-managerment</span></code> ArgoCD Project.</p>
+<p>Commit your changes and create a PR.</p>
 </div>
 
     <script type="text/x-thebe-config">
@@ -828,7 +870,7 @@ The edit role allows users not only to monitor, but also to manage data replicat
         },
         kernelOptions: {
             kernelName: "python3",
-            path: "./content/volsync"
+            path: "./content/external-secrets"
         },
         predefinedOutput: true
     }
@@ -844,13 +886,13 @@ The edit role allows users not only to monitor, but also to manage data replicat
         <i class="fas fa-angle-left"></i>
         <div class="prev-next-info">
             <p class="prev-next-subtitle">previous</p>
-            <p class="prev-next-title">Volsync</p>
+            <p class="prev-next-title">External Secrets Operator</p>
         </div>
     </a>
-    <a class='right-next' id="next-link" href="../notebooks/README.html" title="next page">
+    <a class='right-next' id="next-link" href="../cluster-scope/README.html" title="next page">
     <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title">Notebooks</p>
+        <p class="prev-next-title">Cluster Management</p>
     </div>
     <i class="fas fa-angle-right"></i>
     </a>
