@@ -1,0 +1,27 @@
+apiVersion: external-secrets.io/v1beta1
+kind: ExternalSecret
+metadata:
+  name: alertmanager-main
+  namespace: openshift-monitoring
+spec:
+  secretStoreRef:
+    name: example
+    kind: SecretStore
+  refreshInterval: "1h"
+  target:
+    name: alertmanager-main
+    creationPolicy: 'Owner'
+    deletionPolicy: "Retain"
+    template:
+      engineVersion: v2
+      templateFrom:
+        - configMap:
+            name: alertmanager-main-template
+            items:
+              - key: alertmanager.yaml
+  data:
+    - remoteRef:
+        conversionStrategy: Default
+        key: opf-ops/openshift-monitoring/alert-manager-config
+        property: slack_api_url
+      secretKey: slack_api_url
