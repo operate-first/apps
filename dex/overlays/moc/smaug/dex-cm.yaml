@@ -55,6 +55,13 @@ data:
           - https://trino-route-opf-trino-stage.apps.smaug.na.operate-first.cloud/oauth2/callback
         secretEnv: TRINO_STAGING_SECRET
 
+      - id: vault
+        name: Vault
+        redirectURIs:
+          - https://vault-ui-vault.apps.smaug.na.operate-first.cloud/ui/vault/auth/oidc/oidc/callback
+          - https://vault-ui-vault.apps.smaug.na.operate-first.cloud:8250/oidc/callback
+        secretEnv: VAULT_STAGING_SECRET
+
     connectors:
       - type: openshift
         id: openshift
