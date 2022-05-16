@@ -9,7 +9,7 @@ data:
     profiles:
       - name: Ray ML Notebook
         images:
-          - 'ray-ml-notebook:experimental'
+          - 'image-registry.openshift-image-registry.svc:5000/opf-jupyterhub/ray-ml-notebook:latest'
         env:
           # expose to jupyter users as a convenience
           - name: RAY_DASH_URL
@@ -26,7 +26,7 @@ data:
               - name: ray-cluster-template
                 path: rayDashboardRouteTemplate
             configuration:
-              ray_image: 'quay.io/thoth-station/ray-ml-worker:v0.1.1'
+              ray_image: 'quay.io/thoth-station/ray-ml-worker:v0.1.2'
               # number of workers currently disabled due to json/jinja bug in JH launcher
               #max_workers: 5
               memory_request: '3Gi'
