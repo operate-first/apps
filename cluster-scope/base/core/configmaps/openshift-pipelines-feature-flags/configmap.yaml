@@ -4,7 +4,6 @@ metadata:
   name: feature-flags
   namespace: openshift-pipelines
   labels:
-    app.kubernetes.io/instance: default
     app.kubernetes.io/part-of: tekton-pipelines
 data:
   running-in-environment-with-injected-sidecars: 'true'
