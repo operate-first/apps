@@ -9,9 +9,9 @@ spec:
       auth:
         kubernetes:
           mountPath: smaug-k8s
-          role: opf-ops
+          role: moc-ops
           serviceAccountRef:
             name: vault-secret-fetcher
-      path: smaug-k8s-kv
+      path: k8s_secrets
       server: 'https://vault-ui-vault.apps.smaug.na.operate-first.cloud'
       version: v2
