@@ -140,6 +140,7 @@ resources:
 - clusterversion.yaml
 - configmaps
 - externalsecrets
+- groups
 - ingresscontrollers/default.yaml
 - nodenetworkconfigurationpolicies/vlan-210-nfs.yaml
 - nodenetworkconfigurationpolicies/vlan-211-nese.yaml
