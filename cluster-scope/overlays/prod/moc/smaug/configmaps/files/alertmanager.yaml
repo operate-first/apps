@@ -1,5 +1,6 @@
 global:
   resolve_timeout: 5m
+  slack_api_url: {{.slack_api_url}}
 inhibit_rules:
   - equal:
       - namespace
@@ -47,21 +48,43 @@ inhibit_rules:
       alertname: KubePodNotReady|KubePodCrashLooping
     equal:
       - namespace
-receivers:
-  - name: Default
-  - name: Watchdog
-  - name: Critical
 route:
   group_by:
     - namespace
+    - alertname
   group_interval: 5m
   group_wait: 30s
   receiver: Default
   repeat_interval: 12h
   routes:
+    # OCP Default
     - match:
         alertname: Watchdog
       receiver: Watchdog
-    - match:
-        severity: critical
-      receiver: Critical
+
+    # ** Slack alerts **
+    # Ensure that the routes will not result in spam.
+    # Rule of thumb: If seeing the alert requires immediate response
+    # Then route this alert to slack.
+    - matchers:
+        - service = noobaa-mgmt
+        - severity = critical
+      group_by:
+        - service
+      receiver: slack
+    - matchers:
+        - namespace = openshift-storage
+        - alertname = KubePersistentVolumeFillingUp
+        - severity = critical
+      receiver: slack
+      group_interval: 12h
+receivers:
+  - name: Watchdog
+  - name: Default
+  - name: Github
+    webhook_configs:
+      - url: 'http://github-receiver-service.opf-alertreceiver.svc.cluster.local:9393/v1/receiver'
+  - name: slack
+    slack_configs:
+      - channel: '#ocp-alerts'
+        send_resolved: true

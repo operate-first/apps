@@ -1,0 +1,17 @@
+apiVersion: external-secrets.io/v1beta1
+kind: SecretStore
+metadata:
+  name: openshift-monitoring
+  namespace: openshift-monitoring
+spec:
+  provider:
+    vault:
+      auth:
+        kubernetes:
+          mountPath: smaug-k8s
+          role: opf-ops
+          serviceAccountRef:
+            name: vault-secret-fetcher
+      path: smaug-k8s-kv
+      server: 'http://vault.operate-first.cloud'
+      version: v2
