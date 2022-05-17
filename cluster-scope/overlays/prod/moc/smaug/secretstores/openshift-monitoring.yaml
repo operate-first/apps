@@ -13,5 +13,5 @@ spec:
           serviceAccountRef:
             name: vault-secret-fetcher
       path: smaug-k8s-kv
-      server: 'http://vault.operate-first.cloud'
+      server: 'https://vault-ui-vault.apps.smaug.na.operate-first.cloud'
       version: v2
