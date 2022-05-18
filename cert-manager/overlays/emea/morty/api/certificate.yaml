@@ -5,4 +5,9 @@ metadata:
   namespace: openshift-config
 spec:
   dnsNames:
-    - "api.morty.emea.operate-first.cloud"
+  - api.morty.emea.operate-first.cloud
+  duration: 2160h0m0s
+  issuerRef:
+    name: api-letsencrypt-production
+  renewBefore: 360h0m0s
+  secretName: api-certificate

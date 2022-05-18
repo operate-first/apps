@@ -4,10 +4,10 @@ metadata:
   name: default-ingress-certificate
   namespace: openshift-ingress
 spec:
+  dnsNames:
+  - '*.apps.moc-infra.massopen.cloud'
+  duration: 2160h0m0s
   issuerRef:
     name: ingress-letsencrypt
-  secretName: default-ingress-certificate
-  duration: 2160h0m0s
   renewBefore: 360h0m0s
-  dnsNames:
-    - "*.apps.moc-infra.massopen.cloud"
+  secretName: default-ingress-certificate

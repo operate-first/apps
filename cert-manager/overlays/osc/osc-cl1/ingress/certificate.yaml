@@ -4,6 +4,8 @@ metadata:
   name: ingress-certificate
   namespace: openshift-ingress
 spec:
+  dnsNames:
+    - "*.apps.odh-cl1.apps.os-climate.org"
   issuerRef:
     name: ingress-letsencrypt-production
   secretName: ingress-certificate

@@ -2,6 +2,6 @@ apiVersion: kustomize.config.k8s.io/v1beta1
 kind: Kustomization
 namespace: openshift-ingress
 resources:
-  - default-ingress-cert.yaml
-  - openshift-ingress-issuer.yaml
+  - certificate.yaml
+  - issuer.yaml
   - ../secrets
