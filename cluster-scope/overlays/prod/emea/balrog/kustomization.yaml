@@ -24,10 +24,13 @@ resources:
     - ../../../../base/rbac.authorization.k8s.io/clusterrolebindings/cluster-reader-k8s-annotations-exporter
     - ../../../../base/user.openshift.io/groups/cluster-admins
     - ../../../../bundles/acme-operator
+    - ../../../../bundles/external-secrets-operator
     - apiserver
     - machineautoscalers.yaml
     - ingresscontrollers
     - secrets
+    - secretstores
+    - serviceaccounts
 generators:
     - secret-generator.yaml
 patchesStrategicMerge:

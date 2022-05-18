@@ -41,6 +41,7 @@ resources:
   - ../../../../base/storage.k8s.io/storageclasses/moc-nfs-csi
   - ../../../../base/user.openshift.io/groups/cluster-admins
   - ../../../../bundles/acme-operator
+  - ../../../../bundles/external-secrets-operator
   - ../../../../bundles/idp-mgmt-operator
   - apiserver/api_server_cert.yaml
   - clusterversion.yaml
@@ -53,7 +54,8 @@ resources:
   - nodenetworkconfigurationpolicies/zero-provisioning-vlan.yaml
   - oauth
   - secrets
-
+  - secretstores
+  - serviceaccounts
 generators:
   - secret-generator.yaml
 

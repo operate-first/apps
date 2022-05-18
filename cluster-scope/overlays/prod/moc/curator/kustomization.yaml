@@ -15,10 +15,11 @@ resources:
   - ../../../../base/rbac.authorization.k8s.io/clusterrolebindings/cluster-admins-rb
   - ../../../../base/storage.k8s.io/storageclasses/hostpath-provisioner
   - ../../../../base/user.openshift.io/groups/cluster-admins
-
+  - ../../../../bundles/external-secrets-operator
   - machineconfigs/50-ipmi-route.yaml
   - configmaps/admin-acks.yaml
-
+  - secretstores
+  - serviceaccounts
 generators:
   - secret-generator.yaml
 

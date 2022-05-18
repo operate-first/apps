@@ -41,8 +41,11 @@ resources:
 - ../../../../base/user.openshift.io/groups/pachyderm-admins
 - ../../../../base/user.openshift.io/groups/seldon-admin
 - ../../../../base/user.openshift.io/groups/sostrades
+- ../../../../bundles/external-secrets-operator
 - ../../../../bundles/opendatahub-operator-manual
 - ../../../../bundles/training-operator
 - ../../../../bundles/openshift-pipelines
 - apiserver
 - ingresscontroller
+- secretstores
+- serviceaccounts

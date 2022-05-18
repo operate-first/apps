@@ -48,8 +48,11 @@ resources:
 - ../../../../base/rbac.authorization.k8s.io/clusterrolebindings/sudoers
 - ../../../../base/user.openshift.io/groups/cluster-admins
 - ../../../../base/user.openshift.io/groups/sudoers
+- ../../../../bundles/external-secrets-operator
 - ../../../../bundles/nfd
 - ../common
 - apiserver/api_server_cert.yaml
 - ingresscontrollers/default.yaml
 - secrets
+- secretstores
+- serviceaccounts
