@@ -1,0 +1,24 @@
+apiVersion: cert-manager.io/v1
+kind: Issuer
+metadata:
+  name: api-letsencrypt-production
+  namespace: openshift-config
+spec:
+  acme:
+    email: ops-team@operate-first.cloud
+    privateKeySecretRef:
+      name: letsencrypt-key
+    server: 'https://acme-v02.api.letsencrypt.org/directory'
+    solvers:
+      - dns01:
+          cnameStrategy: Follow
+          route53:
+            accessKeyID: AKIA5VY3HAI56S3YHL6E
+            hostedZoneID: Z09186832B3YGE0MK54V2
+            region: eu-west-2
+            secretAccessKeySecretRef:
+              key: secret-access-key
+              name: route53
+        selector:
+          dnsZones:
+            - aws.operate-first.cloud
