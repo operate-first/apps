@@ -4,5 +4,10 @@ metadata:
   name: ingress-certificate
   namespace: openshift-ingress
 spec:
+  issuerRef:
+    name: ingress-letsencrypt-production
+  secretName: ingress-certificate
+  duration: 2160h0m0s
+  renewBefore: 360h0m0s
   dnsNames:
     - "*.apps.balrog.aws.operate-first.cloud"
