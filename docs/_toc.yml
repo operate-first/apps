@@ -36,6 +36,11 @@ parts:
           - file: content/argocd-gitops/update_gpg_key.md
           - file: content/argocd-gitops/argocd_notifications.md
 
+      # ArgoCD
+      - file: content/vault/README.md
+        sections:
+          - file: content/vault/add_cluster_to_eso_and_vault.md
+
       # ESO
       - file: content/external-secrets/README.md
         sections:
