@@ -11,4 +11,3 @@ spec:
     name: cert-manager
     source: community-operators
     sourceNamespace: openshift-marketplace
-    startingCSV: cert-manager.v1.5.3
