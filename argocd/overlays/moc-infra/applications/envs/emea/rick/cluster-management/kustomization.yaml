@@ -3,6 +3,7 @@ kind: Kustomization
 resources:
   - alertreceiver.yaml
   - cluster-resources.yaml
+  - external-secrets.yaml
   - local-storage.yaml
   - kubevirt-hyperconverged.yaml
   - nfd.yaml

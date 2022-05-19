@@ -5,6 +5,7 @@ resources:
   - cloudbeaver.yaml
   - cluster-resources.yaml
   - dex.yaml
+  - external-secrets.yaml
   - k8s-annotations-exporter.yaml
   - kfdefs.yaml
   - odh-operator.yaml
