@@ -37,9 +37,12 @@ resources:
     - ../../../../base/user.openshift.io/groups/cluster-admins
     - ../../../../base/storage.k8s.io/storageclasses/ocs-storagecluster-cephfs
     - ../../../../bundles/acme-operator
+    - ../../../../bundles/external-secrets-operator
     - ../../../../bundles/nfd
     - clusterversion.yaml
     - secrets
+    - secretstores
+    - serviceaccounts
 
 generators:
     - secret-generator.yaml

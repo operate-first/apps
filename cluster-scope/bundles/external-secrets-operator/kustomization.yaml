@@ -3,4 +3,5 @@ kind: Kustomization
 
 resources:
   - ../../base/core/namespaces/external-secrets-operator
+  - ../../base/rbac.authorization.k8s.io/clusterrolebindings/eso-tokenreview
   - ../../base/operators.coreos.com/subscriptions/external-secrets-operator
