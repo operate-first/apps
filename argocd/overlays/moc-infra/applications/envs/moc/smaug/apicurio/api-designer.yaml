@@ -8,9 +8,14 @@ spec:
     namespace: api-designer
   project: apicurio
   source:
-    path: manifests/api-designer/operate-first
+    path: manifests/api-designer/overlays/operate-first
     repoURL: https://github.com/Apicurio/apicurio-operate-first
     targetRevision: HEAD
   syncPolicy:
     syncOptions:
     - Validate=false
+  ignoreDifferences:
+    - group: apps.openshift.io
+      kind: DeploymentConfig
+      jsonPointers:
+        - /spec/template/spec/containers/0/image
