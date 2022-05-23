@@ -78,12 +78,14 @@ resources:
 - ../../../../base/imageregistry.operator.openshift.io/configs/cluster
 - ../../../../base/noobaa.io/backingstores
 - ../../../../base/operators.coreos.com/catalogsources/operatorhubio-catalog/
+  ../../../../base/operators.coreos.com/catalogsources/rapidast
 - ../../../../base/operators.coreos.com/operatorgroups/cluster-logging
 - ../../../../base/operators.coreos.com/operatorgroups/koku-metrics-operator
 - ../../../../base/operators.coreos.com/operatorgroups/openshift-cnv-rn5jf
 - ../../../../base/operators.coreos.com/operatorgroups/openshift-vertical-pod-autoscaler
 - ../../../../base/operators.coreos.com/operatorgroups/opf-monitoring
 - ../../../../base/operators.coreos.com/operatorgroups/opf-pulp
+  ../../../../base/operators.coreos.com/operatorgroups/rapidast
 - ../../../../base/operators.coreos.com/subscriptions/camel-k
 - ../../../../base/operators.coreos.com/subscriptions/cert-manager
 - ../../../../base/operators.coreos.com/subscriptions/cluster-logging
@@ -92,6 +94,7 @@ resources:
 - ../../../../base/operators.coreos.com/subscriptions/kubevirt-hyperconverged
 - ../../../../base/operators.coreos.com/subscriptions/ovms-operator
 - ../../../../base/operators.coreos.com/subscriptions/pulp-operator
+  ../../../../base/operators.coreos.com/subscriptions/rapidast
 - ../../../../base/operators.coreos.com/subscriptions/snapscheduler
 - ../../../../base/operators.coreos.com/subscriptions/strimzi
 - ../../../../base/operators.coreos.com/subscriptions/vertical-pod-autoscaler
