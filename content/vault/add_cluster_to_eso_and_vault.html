@@ -5,7 +5,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Adding an OCP group to Operate First Cloud &#8212; GitOps Docs</title>
+    <title>Enable Cluster to use External Secrets with Vault &#8212; GitOps Docs</title>
     
   <link href="../../_static/css/theme.css" rel="stylesheet">
   <link href="../../_static/css/index.ff1ffe594081f20da1ef19478df9384b.css" rel="stylesheet">
@@ -54,8 +54,8 @@ const thebe_selector_output = ".output, .cell_output"
     <link rel="shortcut icon" href="../../_static/favicon.png"/>
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
-    <link rel="next" title="Adding User to an OCP team" href="add_user_to_group.html" />
-    <link rel="prev" title="Adding Resource Quotas" href="add_resource_quotas.html" />
+    <link rel="next" title="External Secrets Operator" href="../external-secrets/README.html" />
+    <link rel="prev" title="Vault" href="README.html" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="None">
     
@@ -233,18 +233,18 @@ const thebe_selector_output = ".output, .cell_output"
    </li>
   </ul>
  </li>
- <li class="toctree-l1 has-children">
-  <a class="reference internal" href="../vault/README.html">
+ <li class="toctree-l1 current active has-children">
+  <a class="reference internal" href="README.html">
    Vault
   </a>
-  <input class="toctree-checkbox" id="toctree-checkbox-5" name="toctree-checkbox-5" type="checkbox"/>
+  <input checked="" class="toctree-checkbox" id="toctree-checkbox-5" name="toctree-checkbox-5" type="checkbox"/>
   <label for="toctree-checkbox-5">
    <i class="fas fa-chevron-down">
    </i>
   </label>
-  <ul>
-   <li class="toctree-l2">
-    <a class="reference internal" href="../vault/add_cluster_to_eso_and_vault.html">
+  <ul class="current">
+   <li class="toctree-l2 current active">
+    <a class="current reference internal" href="#">
      Enable Cluster to use External Secrets with Vault
     </a>
    </li>
@@ -267,43 +267,43 @@ const thebe_selector_output = ".output, .cell_output"
    </li>
   </ul>
  </li>
- <li class="toctree-l1 current active has-children">
-  <a class="reference internal" href="README.html">
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../cluster-scope/README.html">
    Cluster Management
   </a>
-  <input checked="" class="toctree-checkbox" id="toctree-checkbox-7" name="toctree-checkbox-7" type="checkbox"/>
+  <input class="toctree-checkbox" id="toctree-checkbox-7" name="toctree-checkbox-7" type="checkbox"/>
   <label for="toctree-checkbox-7">
    <i class="fas fa-chevron-down">
    </i>
   </label>
-  <ul class="current">
+  <ul>
    <li class="toctree-l2">
-    <a class="reference internal" href="add_resource_quotas.html">
+    <a class="reference internal" href="../cluster-scope/add_resource_quotas.html">
      Adding Resource Quotas
     </a>
    </li>
-   <li class="toctree-l2 current active">
-    <a class="current reference internal" href="#">
+   <li class="toctree-l2">
+    <a class="reference internal" href="../cluster-scope/create_ocp_group.html">
      Adding an OCP group to Operate First Cloud
     </a>
    </li>
    <li class="toctree-l2">
-    <a class="reference internal" href="add_user_to_group.html">
+    <a class="reference internal" href="../cluster-scope/add_user_to_group.html">
      Adding User to an OCP team
     </a>
    </li>
    <li class="toctree-l2">
-    <a class="reference internal" href="offboarding_cluster.html">
+    <a class="reference internal" href="../cluster-scope/offboarding_cluster.html">
      Remove a Cluster from Operate First
     </a>
    </li>
    <li class="toctree-l2">
-    <a class="reference internal" href="onboarding_project.html">
+    <a class="reference internal" href="../cluster-scope/onboarding_project.html">
      Onboard Project
     </a>
    </li>
    <li class="toctree-l2">
-    <a class="reference internal" href="quotas.html">
+    <a class="reference internal" href="../cluster-scope/quotas.html">
      Resource Quota Tiers
     </a>
    </li>
@@ -728,7 +728,7 @@ const thebe_selector_output = ".output, .cell_output"
         <!-- ipynb file if we had a myst markdown file -->
         
         <!-- Download raw file -->
-        <a class="dropdown-buttons" href="../../_sources/content/cluster-scope/create_ocp_group.md"><button type="button"
+        <a class="dropdown-buttons" href="../../_sources/content/vault/add_cluster_to_eso_and_vault.md"><button type="button"
                 class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
                 data-placement="left">.md</button></a>
         <!-- Download PDF via print -->
@@ -748,7 +748,7 @@ const thebe_selector_output = ".output, .cell_output"
                 data-toggle="tooltip" data-placement="left" title="Source repository"><i
                     class="fab fa-github"></i>repository</button></a>
         <a class="issues-button"
-            href="https://github.com/operate-first/apps/issues/new?title=Issue%20on%20page%20%2Fcontent/cluster-scope/create_ocp_group.html&body=Your%20issue%20content%20here."><button
+            href="https://github.com/operate-first/apps/issues/new?title=Issue%20on%20page%20%2Fcontent/vault/add_cluster_to_eso_and_vault.html&body=Your%20issue%20content%20here."><button
                 type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
                 title="Open an issue"><i class="fas fa-lightbulb"></i>open issue</button></a>
         
@@ -775,14 +775,36 @@ const thebe_selector_output = ".output, .cell_output"
             <nav id="bd-toc-nav" aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#add-groups-manually">
-   Add groups manually
+  <a class="reference internal nav-link" href="#pre-requisites">
+   Pre-requisites:
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#use-the-opf-cli">
-   Use the OPF CLI
+  <a class="reference internal nav-link" href="#steps">
+   Steps:
   </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#add-eso-to-the-cluster">
+     Add ESO to the Cluster
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#create-policy-with-access-to-the-k8s-k-v-secrets-engine">
+     Create Policy with access to the k8s K-V secrets engine
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#give-ocp-users-rw-access">
+     Give OCP users RW access
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#create-the-k8s-auth-method-for-eso">
+     Create the K8S Auth Method for ESO
+    </a>
+   </li>
+  </ul>
  </li>
 </ul>
 
@@ -794,7 +816,7 @@ const thebe_selector_output = ".output, .cell_output"
         <div class="col-12 col-md-9 pl-md-3 pr-md-0">
             <!-- Table of contents that is only displayed when printing the page -->
             <div id="jb-print-docs-body" class="onlyprint">
-                <h1>Adding an OCP group to Operate First Cloud</h1>
+                <h1>Enable Cluster to use External Secrets with Vault</h1>
                 <!-- Table of contents -->
                 <div id="print-main-content">
                     <div id="jb-print-toc">
@@ -805,14 +827,36 @@ const thebe_selector_output = ".output, .cell_output"
                         <nav aria-label="Page">
                             <ul class="visible nav section-nav flex-column">
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#add-groups-manually">
-   Add groups manually
+  <a class="reference internal nav-link" href="#pre-requisites">
+   Pre-requisites:
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#use-the-opf-cli">
-   Use the OPF CLI
+  <a class="reference internal nav-link" href="#steps">
+   Steps:
   </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#add-eso-to-the-cluster">
+     Add ESO to the Cluster
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#create-policy-with-access-to-the-k8s-k-v-secrets-engine">
+     Create Policy with access to the k8s K-V secrets engine
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#give-ocp-users-rw-access">
+     Give OCP users RW access
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#create-the-k8s-auth-method-for-eso">
+     Create the K8S Auth Method for ESO
+    </a>
+   </li>
+  </ul>
  </li>
 </ul>
 
@@ -823,80 +867,125 @@ const thebe_selector_output = ".output, .cell_output"
             
               <div>
                 
-  <div class="tex2jax_ignore mathjax_ignore section" id="adding-an-ocp-group-to-operate-first-cloud">
-<h1>Adding an OCP group to Operate First Cloud<a class="headerlink" href="#adding-an-ocp-group-to-operate-first-cloud" title="Permalink to this headline">¶</a></h1>
-<p>Instructions on how to add an OCP group to Operate First Cloud.</p>
-<div class="section" id="add-groups-manually">
-<h2>Add groups manually<a class="headerlink" href="#add-groups-manually" title="Permalink to this headline">¶</a></h2>
-<ol class="simple">
-<li><p>Set your GitHub username, your choice of OCP group, and your workingdir:</p></li>
-</ol>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="nv">OCP_GROUP</span><span class="o">=</span>&lt;enter-your-group-here&gt;
-<span class="nv">GITHUB_USER</span><span class="o">=</span>&lt;your-github-user-handle&gt;
-<span class="nv">WORKING_DIR</span><span class="o">=</span>&lt;path-to-your-working-dir&gt;
+  <div class="tex2jax_ignore mathjax_ignore section" id="enable-cluster-to-use-external-secrets-with-vault">
+<h1>Enable Cluster to use External Secrets with Vault<a class="headerlink" href="#enable-cluster-to-use-external-secrets-with-vault" title="Permalink to this headline">¶</a></h1>
+<p>Follow the following steps to use External Secrets Operator with Vault to manage secrets on an OCP cluster.</p>
+<p>Note: This is to enable gitops workflow for secrets management for cluster operations, and not user workloads.</p>
+<div class="section" id="pre-requisites">
+<h2>Pre-requisites:<a class="headerlink" href="#pre-requisites" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><p>Know the name of the cluster (e.g. smaug, rick, infra). Referred to as <code class="docutils literal notranslate"><span class="pre">$cluster</span></code> in this doc.</p></li>
+<li><p>Know the environment of the cluster (e.g. moc, osc, emea). Referred to as <code class="docutils literal notranslate"><span class="pre">$env</span></code> in this doc.</p></li>
+<li><p>Cluster api/ingress must be secured</p></li>
+<li><p>Must have cluster admin to said cluster</p></li>
+<li><p>Must have access to add auth methods to OPF vault instance, and create policies</p></li>
+<li><p>Cluster must be part of the OPF cloud (have associated <a class="reference external" href="https://github.com/operate-first/apps/tree/master/cluster-scope">cluster-scope folder</a> and argocd app)</p></li>
+<li><p>Have Vault CLI installed</p></li>
+<li><p>Have <code class="docutils literal notranslate"><span class="pre">jq</span></code> installed</p></li>
+</ul>
+</div>
+<div class="section" id="steps">
+<h2>Steps:<a class="headerlink" href="#steps" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="add-eso-to-the-cluster">
+<h3>Add ESO to the Cluster<a class="headerlink" href="#add-eso-to-the-cluster" title="Permalink to this headline">¶</a></h3>
+<p>Fork and clone the <code class="docutils literal notranslate"><span class="pre">operate-first/apps</span></code> repository.</p>
+<p>Add ESO to the cluster by adding to <code class="docutils literal notranslate"><span class="pre">apps/cluster-scope/overlays/prod/$env/$cluster/kustomization.yaml</span></code>
+the following line:</p>
+<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="l l-Scalar l-Scalar-Plain">../../../../bundles/external-secrets-operator</span><span class="w"></span>
 </pre></div>
 </div>
+<p>Also add <code class="docutils literal notranslate"><span class="pre">OperatorConfig</span></code> from the <code class="docutils literal notranslate"><span class="pre">base</span></code> directory <a class="reference external" href="https://github.com/operate-first/apps/tree/master/external-secrets/overlays">here</a> for your <code class="docutils literal notranslate"><span class="pre">$env/$cluster</span></code>. See other sub folders in
+<code class="docutils literal notranslate"><span class="pre">apps/external-secrets/overlays/$env/$cluster</span></code>. Yours will look nearly identical.</p>
+<p>Add the ArgoCD app to deploy this config to:
+<code class="docutils literal notranslate"><span class="pre">apps/argocd/overlays/moc-infra/applications/envs/$env/$cluster/cluster-management/external-secrets.yaml</span></code></p>
+<p>See <a class="reference internal" href="../argocd-gitops/add_application.html"><span class="doc std std-doc">more details on adding an app here</span></a>.</p>
+<p>Commit your changes, make a PR. Once merged proceed to the next steps.</p>
+</div>
+<div class="section" id="create-policy-with-access-to-the-k8s-k-v-secrets-engine">
+<h3>Create Policy with access to the k8s K-V secrets engine<a class="headerlink" href="#create-policy-with-access-to-the-k8s-k-v-secrets-engine" title="Permalink to this headline">¶</a></h3>
+<p>Two types of policies need to be created:</p>
 <ol class="simple">
-<li><p>Fork/Clone apps repo <a class="reference external" href="https://github.com/operate-first/apps.git:">https://github.com/operate-first/apps.git:</a></p></li>
+<li><p>A policy for users that will need to add secret data (read-write access)</p></li>
+<li><p>A policy for service accounts to read this data (read-access)</p></li>
 </ol>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="c1"># After forking</span>
-$ git clone https://github.com/<span class="nv">$GITHUB_USER</span>/apps.git <span class="nv">$WORKING_DIR</span>
+<p>Both policies access the OPF KV (V2) secrets engine mounted at <code class="docutils literal notranslate"><span class="pre">k8s_secrets</span></code>. The clusters’ secrets will need to
+be stored within the path <code class="docutils literal notranslate"><span class="pre">k8s_secrets/$env/$cluster/</span></code>, so the team and service accounts wishing to store/read for their
+clusters’ secret will need access to this path.</p>
+<p>Create the following <code class="docutils literal notranslate"><span class="pre">*.hcl</span></code> files. Replace <code class="docutils literal notranslate"><span class="pre">$env</span></code> accordingly.</p>
+<div class="highlight-hcl notranslate"><div class="highlight"><pre><span></span># sa_policy.hcl
+path &quot;k8s_secrets/data/$env/*&quot; {
+  capabilities = [&quot;read&quot;, &quot;list&quot;]
+}
 </pre></div>
 </div>
-<ol class="simple">
-<li><p>Navigate to the <code class="docutils literal notranslate"><span class="pre">base</span></code> OCP <code class="docutils literal notranslate"><span class="pre">groups</span></code> directory:</p></li>
-</ol>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$ <span class="nb">cd</span> <span class="nv">$WORKING_DIR</span>/apps/cluster-scope/base/user.openshift.io/groups/
+<div class="highlight-hcl notranslate"><div class="highlight"><pre><span></span># user_policy.hcl
+path &quot;k8s_secrets/data/$env/*&quot; {
+    capabilities = [&quot;create&quot;, &quot;read&quot;, &quot;update&quot;, &quot;delete&quot;, &quot;list&quot;, &quot;sudo&quot;]
+}
 </pre></div>
 </div>
-<ol class="simple">
-<li><p>Create your <code class="docutils literal notranslate"><span class="pre">$OCP_GROUP</span></code> folder:</p></li>
-</ol>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$ mkdir <span class="nv">$OCP_GROUP</span>
-$ <span class="nb">cd</span> <span class="nv">$OCP_GROUP</span>
+<p>Login to Vault via the CLI and run the following to apply these policies:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>vault policy write <span class="si">${</span><span class="nv">env</span><span class="si">}</span>-kv-r sa_policy.hcl
+vault policy write <span class="si">${</span><span class="nv">env</span><span class="si">}</span>-kv-rw user_policy.hcl
 </pre></div>
 </div>
-<ol class="simple">
-<li><p>Create <code class="docutils literal notranslate"><span class="pre">group.yaml</span></code> in $OCP_GROUP</p></li>
-</ol>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$ cat <span class="s">&lt;&lt;EOF &gt; group.yaml</span>
-<span class="s">apiVersion: user.openshift.io/v1</span>
-<span class="s">kind: Group</span>
-<span class="s">metadata:</span>
-<span class="s">    name: $OCP_GROUP</span>
-<span class="s">users: []</span>
-<span class="s">EOF</span>
+</div>
+<div class="section" id="give-ocp-users-rw-access">
+<h3>Give OCP users RW access<a class="headerlink" href="#give-ocp-users-rw-access" title="Permalink to this headline">¶</a></h3>
+<p>Check if the Vault group for this ENV exists:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>vault list /identity/group/name <span class="p">|</span> grep vault-<span class="si">${</span><span class="nv">env</span><span class="si">}</span>-admins
 </pre></div>
 </div>
-<p>Add users to the <code class="docutils literal notranslate"><span class="pre">users</span></code> field accordingly.</p>
-<ol class="simple">
-<li><p>Create the <code class="docutils literal notranslate"><span class="pre">kustomization.yaml</span></code></p></li>
-</ol>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$ cat <span class="s">&lt;&lt;EOF &gt; kustomization.yaml</span>
-<span class="s">apiVersion: kustomize.config.k8s.io/v1beta1</span>
-<span class="s">kind: Kustomization</span>
-<span class="s">resources:</span>
-<span class="s">    - group.yaml</span>
-<span class="s">EOF</span>
+<p>If there’s no output then you need to create a Vault group that has read/write access to the path <code class="docutils literal notranslate"><span class="pre">k8s_secrets/data/$env/*</span></code>.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>vault write identity/group <span class="nv">name</span><span class="o">=</span><span class="s2">&quot;vault-</span><span class="si">${</span><span class="nv">env</span><span class="si">}</span><span class="s2">-admins&quot;</span> <span class="nv">type</span><span class="o">=</span><span class="s2">&quot;external&quot;</span> <span class="se">\</span>
+       <span class="nv">policies</span><span class="o">=</span><span class="s2">&quot;</span><span class="si">${</span><span class="nv">env</span><span class="si">}</span><span class="s2">-kv-rw&quot;</span> <span class="se">\</span>
+       <span class="nv">metadata</span><span class="o">=</span><span class="nv">responsibility</span><span class="o">=</span><span class="s2">&quot;Vault </span><span class="si">${</span><span class="nv">env</span><span class="si">}</span><span class="s2"> Admin&quot;</span>
+
+vault write identity/group-alias <span class="nv">name</span><span class="o">=</span><span class="s2">&quot;vault-</span><span class="si">${</span><span class="nv">env</span><span class="si">}</span><span class="s2">-admins&quot;</span> <span class="se">\</span>
+     <span class="nv">mount_accessor</span><span class="o">=</span><span class="k">$(</span>vault auth list -format<span class="o">=</span>json  <span class="p">|</span> jq -r <span class="s1">&#39;.&quot;oidc/&quot;.accessor&#39;</span><span class="k">)</span> <span class="se">\</span>
+     <span class="nv">canonical_id</span><span class="o">=</span><span class="s2">&quot;</span><span class="k">$(</span>vault <span class="nb">read</span> /identity/group/name/vault-osc-admins -format<span class="o">=</span>json <span class="p">|</span> jq -r <span class="s1">&#39;.data.alias.canonical_id&#39;</span><span class="k">)</span><span class="s2">&quot;</span>
 </pre></div>
 </div>
-<ol class="simple">
-<li><p>Add the following line to <code class="docutils literal notranslate"><span class="pre">cluster-scope/overlays/prod/common/kustomization.yaml</span></code> alphabetically:</p></li>
-</ol>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>- ../../../base/user.openshift.io/groups/$OCP_GROUP
+<p>This will associate the OCP group named <code class="docutils literal notranslate"><span class="pre">vault-${env}-admins</span></code> with the policy created earlier named <code class="docutils literal notranslate"><span class="pre">${env}-kv-rw</span></code>.
+Any Vault user belonging to this OCP group will be able to login using the <code class="docutils literal notranslate"><span class="pre">OIDC</span></code> method and add their secrets to the
+path: <code class="docutils literal notranslate"><span class="pre">k8s_secrets/$env/$cluster/</span></code>.</p>
+<blockquote>
+<div><p>Note: The OCP group in this context refers to an OCP group found on the OCP cluster where Vault resides.</p>
+</div></blockquote>
+</div>
+<div class="section" id="create-the-k8s-auth-method-for-eso">
+<h3>Create the K8S Auth Method for ESO<a class="headerlink" href="#create-the-k8s-auth-method-for-eso" title="Permalink to this headline">¶</a></h3>
+<p>We enabled user login to Vault via OIDC. But we also need to enable k8s auth for the service accounts used by the
+Secret Stores managed by ESO. For this we just run the following:</p>
+<p>Ensure you are logged into to the target cluster via <code class="docutils literal notranslate"><span class="pre">oc</span> <span class="pre">login</span></code>.</p>
+<p>First enable the auth method. Each cluster gets their own because Vault will use its <code class="docutils literal notranslate"><span class="pre">ServiceAccount</span></code> with <code class="docutils literal notranslate"><span class="pre">tokenreview</span></code>
+permissions to authenticate requests from ESO.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>vault auth <span class="nb">enable</span> -path<span class="o">=</span><span class="si">${</span><span class="nv">cluster</span><span class="si">}</span>-k8s kubernetes
 </pre></div>
 </div>
-<ol class="simple">
-<li><p>Commit and push your changes. Submit a PR to the upstream repository.</p></li>
-</ol>
+<p>Configure this auth method so that it can review tokens for this cluster.</p>
+<blockquote>
+<div><p>Note: For this to work, the api server must have a valid certs.</p>
+</div></blockquote>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>vault write auth/<span class="si">${</span><span class="nv">cluster</span><span class="si">}</span>-k8s/config <span class="se">\</span>
+<span class="nv">token_reviewer_jwt</span><span class="o">=</span><span class="k">$(</span>oc sa get-token eso-vault-auth -n external-secrets-operator<span class="k">)</span> <span class="se">\</span>
+<span class="nv">kubernetes_host</span><span class="o">=</span><span class="k">$(</span>oc whoami --show-server<span class="k">)</span>
+</pre></div>
 </div>
-<div class="section" id="use-the-opf-cli">
-<h2>Use the OPF CLI<a class="headerlink" href="#use-the-opf-cli" title="Permalink to this headline">¶</a></h2>
-<ol class="simple">
-<li><p>Clone/Fork/Navigate to working directory as shown above</p></li>
-<li><p>Follow instructions here: <a class="reference external" href="https://github.com/operate-first/opfcli#create-group">https://github.com/operate-first/opfcli#create-group</a></p></li>
-<li><p>Commit and push your changes. Submit a PR to the upstream repository.</p></li>
-</ol>
+<p>Create the role for this auth server with a starter SA that can be used to authenticate against this k8s auth method.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="c1"># replace $sa and $sa_namespace accordingly</span>
+vault write auth/<span class="si">${</span><span class="nv">cluster</span><span class="si">}</span>-k8s/role/<span class="si">${</span><span class="nv">env</span><span class="si">}</span>-ops <span class="se">\</span>
+<span class="nv">alias_name_source</span><span class="o">=</span>serviceaccount_uid <span class="se">\</span>
+<span class="nv">bound_service_account_names</span><span class="o">=</span><span class="si">${</span><span class="nv">sa</span><span class="si">}</span> <span class="se">\</span>
+<span class="nv">bound_service_account_namespaces</span><span class="o">=</span><span class="si">${</span><span class="nv">sa_namespace</span><span class="si">}</span> <span class="se">\</span>
+<span class="nv">policies</span><span class="o">=</span><span class="si">${</span><span class="nv">env</span><span class="si">}</span>-kv-r <span class="se">\</span>
+<span class="nv">ttl</span><span class="o">=</span>1h
+</pre></div>
+</div>
+<p>You should now be able to use <code class="docutils literal notranslate"><span class="pre">${sa}</span></code> in your <code class="docutils literal notranslate"><span class="pre">SecretStore</span></code>. As long as this <code class="docutils literal notranslate"><span class="pre">${sa}</span></code> is in the namespace <code class="docutils literal notranslate"><span class="pre">${sa_namespace}</span></code>
+Then the Secret Store can be authenticate against this vault and fetch secrets from the paths designated by our defined
+policies above.</p>
+</div>
 </div>
 </div>
 
@@ -913,7 +1002,7 @@ $ <span class="nb">cd</span> <span class="nv">$OCP_GROUP</span>
         },
         kernelOptions: {
             kernelName: "python3",
-            path: "./content/cluster-scope"
+            path: "./content/vault"
         },
         predefinedOutput: true
     }
@@ -925,17 +1014,17 @@ $ <span class="nb">cd</span> <span class="nv">$OCP_GROUP</span>
             
                 <!-- Previous / next buttons -->
 <div class='prev-next-area'> 
-    <a class='left-prev' id="prev-link" href="add_resource_quotas.html" title="previous page">
+    <a class='left-prev' id="prev-link" href="README.html" title="previous page">
         <i class="fas fa-angle-left"></i>
         <div class="prev-next-info">
             <p class="prev-next-subtitle">previous</p>
-            <p class="prev-next-title">Adding Resource Quotas</p>
+            <p class="prev-next-title">Vault</p>
         </div>
     </a>
-    <a class='right-next' id="next-link" href="add_user_to_group.html" title="next page">
+    <a class='right-next' id="next-link" href="../external-secrets/README.html" title="next page">
     <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title">Adding User to an OCP team</p>
+        <p class="prev-next-title">External Secrets Operator</p>
     </div>
     <i class="fas fa-angle-right"></i>
     </a>
