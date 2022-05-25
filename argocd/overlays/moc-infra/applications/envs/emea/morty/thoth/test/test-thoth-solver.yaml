@@ -2,21 +2,15 @@
 apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
-  name: test-thoth-graph-refresh
+  name: test-thoth-solver
 spec:
   project: thoth
   source:
     repoURL: 'https://github.com/thoth-station/thoth-application.git'
-    path: graph-refresh/overlays/test
+    path: solver/overlays/test
     targetRevision: master
   destination:
-    name: rick
+    name: morty
     namespace: thoth-test-core
   syncPolicy:
     automated: {}
-  ignoreDifferences:
-    - group: batch
-      kind: CronJob
-      name: graph-refresh
-      jsonPointers:
-        - /spec/jobTemplate/spec/template/spec/containers/0/image

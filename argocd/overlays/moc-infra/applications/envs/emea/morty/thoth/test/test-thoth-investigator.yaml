@@ -2,15 +2,15 @@
 apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
-  name: test-thoth-package-extract
+  name: test-thoth-investigator
 spec:
   project: thoth
   source:
     repoURL: 'https://github.com/thoth-station/thoth-application.git'
-    path: package-extract/overlays/test
-    targetRevision: master
+    path: investigator/overlays/rick-test
+    targetRevision: HEAD
   destination:
-    name: rick
+    name: morty
     namespace: thoth-test-core
   syncPolicy:
     automated: {}

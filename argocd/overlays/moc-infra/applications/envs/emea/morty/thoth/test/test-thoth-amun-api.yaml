@@ -2,15 +2,15 @@
 apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
-  name: test-thoth-user-api
+  name: test-thoth-amun
 spec:
   project: thoth
   source:
     repoURL: 'https://github.com/thoth-station/thoth-application.git'
-    path: user-api/overlays/rick-test
+    path: amun/overlays/test
     targetRevision: master
   destination:
-    name: rick
+    name: morty
     namespace: thoth-test-core
   syncPolicy:
     automated: {}

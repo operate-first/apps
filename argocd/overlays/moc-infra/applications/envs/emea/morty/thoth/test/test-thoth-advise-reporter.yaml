@@ -2,15 +2,15 @@
 apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
-  name: test-thoth-adviser
+  name: test-thoth-advise-reporter
 spec:
   project: thoth
   source:
     repoURL: 'https://github.com/thoth-station/thoth-application.git'
-    path: adviser/overlays/test
+    path: advise-reporter/overlays/test
     targetRevision: master
   destination:
-    name: rick
+    name: morty
     namespace: thoth-test-core
   syncPolicy:
     automated: {}

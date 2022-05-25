@@ -2,21 +2,20 @@
 apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
-  name: test-thoth-graph-sync
+  name: test-thoth-mi-scheduler
 spec:
   project: thoth
   source:
     repoURL: 'https://github.com/thoth-station/thoth-application.git'
-    path: graph-sync/overlays/test
+    path: mi-scheduler/overlays/rick-test
     targetRevision: master
   destination:
-    name: rick
+    name: morty
     namespace: thoth-test-core
   syncPolicy:
     automated: {}
   ignoreDifferences:
-    - group: template.openshift.io
-      kind: Template
-      name: graph-sync-job
+    - group: batch
+      kind: CronJob
       jsonPointers:
-        - /metadata/labels
+        - /spec/jobTemplate/spec/template/spec/containers/0/image
