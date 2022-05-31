@@ -2,15 +2,21 @@
 apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
-  name: test-thoth-kebechet
+  name: test-thoth-graph-sync
 spec:
   project: thoth
   source:
     repoURL: 'https://github.com/thoth-station/thoth-application.git'
-    path: kebechet/overlays/test
+    path: graph-sync/overlays/test
     targetRevision: master
   destination:
-    name: rick
+    name: morty
     namespace: thoth-test-core
   syncPolicy:
     automated: {}
+  ignoreDifferences:
+    - group: template.openshift.io
+      kind: Template
+      name: graph-sync-job
+      jsonPointers:
+        - /metadata/labels
