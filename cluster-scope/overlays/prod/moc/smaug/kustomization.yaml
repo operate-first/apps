@@ -20,6 +20,7 @@ resources:
 - ../../../../base/core/namespaces/boatrockers
 - ../../../../base/core/namespaces/bu-scsaol
 - ../../../../base/core/namespaces/chrisproject
+- ../../../../base/core/namespaces/curator-operator
 - ../../../../base/core/namespaces/debezium-ui
 - ../../../../base/core/namespaces/democratic-csi
 - ../../../../base/core/namespaces/dex
