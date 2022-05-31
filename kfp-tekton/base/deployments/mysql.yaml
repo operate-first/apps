@@ -2,7 +2,7 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   labels:
-    app: mysql
+    app: mysql-backup
     application-crd-id: kubeflow-pipelines
   name: mysql
 spec:
@@ -40,6 +40,6 @@ spec:
               name: mysql-persistent-storage
       serviceAccountName: mysql
       volumes:
-        - name: mysql-persistent-storage
+        - name: mysql-persistent-storage-backup
           persistentVolumeClaim:
             claimName: mysql-pv-claim
