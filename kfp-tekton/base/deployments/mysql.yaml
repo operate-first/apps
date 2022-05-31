@@ -2,7 +2,7 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   labels:
-    app: mysql-backup
+    app: mysql
     application-crd-id: kubeflow-pipelines
   name: mysql
 spec:
