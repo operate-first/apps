@@ -6,3 +6,4 @@ resources:
   - ../../../base
   - ocs-storagecluster-storagesystem.yaml
   - ocs-storagecluster.yaml
+  - route.yaml
