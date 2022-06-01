@@ -17,3 +17,4 @@ resources:
   - tremor-demo.yaml
   - workshops.yaml
   - peribolos-service.yaml
+  - chris-project.yaml

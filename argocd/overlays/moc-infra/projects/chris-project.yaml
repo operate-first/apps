@@ -1,0 +1,29 @@
+apiVersion: argoproj.io/v1alpha1
+kind: AppProject
+metadata:
+  name: chris-project
+  labels:
+    project-template: global
+spec:
+  destinations:
+    - namespace: 'chrisproject-*'
+      name: 'smaug'
+  sourceRepos:
+    - '*'
+  roles:
+    - name: project-admin
+      description: Read/Write access to this project only
+      policies:
+        - p, proj:chris-project:project-admin, applications, get, chris-project/*, allow
+        - p, proj:chris-project:project-admin, applications, create, chris-project/*, allow
+        - p, proj:chris-project:project-admin, applications, update, chris-project/*, allow
+        - p, proj:chris-project:project-admin, applications, delete, chris-project/*, allow
+        - p, proj:chris-project:project-admin, applications, sync, chris-project/*, allow
+        - p, proj:chris-project:project-admin, applications, override, chris-project/*, allow
+        - p, proj:chris-project:project-admin, applications, action/*, chris-project/*, allow
+      groups:
+        - chris-project
+        - operate-first
+  clusterResourceWhitelist:
+    - group: ''
+      kind: Namespace
