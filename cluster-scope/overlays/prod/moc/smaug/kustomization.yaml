@@ -11,6 +11,7 @@ patchesStrategicMerge:
 - subscriptions/kubevirt-hyperconverged_patch.yaml
 resources:
 - ../../../../base/apiextensions.k8s.io/customresourcedefinitions/extensions.dashboard.tekton.dev
+- ../../../../base/apiextensions.k8s.io/customresourcedefinitions/fetchdata.curatoropertor.openshift.io
 - ../../../../base/apiextensions.k8s.io/customresourcedefinitions/prowjobs.prow.k8s.io
 - ../../../../base/apiextensions.k8s.io/customresourcedefinitions/reports.batch.curator.openshift.io
 - ../../../../base/core/namespaces/ai-services-thanos-grpc
