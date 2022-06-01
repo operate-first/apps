@@ -36,7 +36,7 @@ spec:
       transaction.state.log.replication.factor: 3
     storage:
       type: persistent-claim
-      size: 60Gi
+      size: 120Gi
       deleteClaim: false
     resources:
       limits:
