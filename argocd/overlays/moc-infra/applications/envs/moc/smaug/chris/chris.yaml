@@ -5,7 +5,7 @@ metadata:
 spec:
   destination:
     name: smaug
-    namespace: chris-dev
+    namespace: chrisproject-dev
   source:
     path: charts/chris
     repoURL: 'https://github.com/veniceofcode/kustomize-chris.git'
