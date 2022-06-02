@@ -7,7 +7,7 @@ spec:
     name: smaug
     namespace: chrisproject-dev
   source:
-    path: charts/chris
+    path: cube/base
     repoURL: 'https://github.com/veniceofcode/kustomize-chris.git'
     targetRevision: HEAD
   project: chris
