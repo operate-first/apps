@@ -6,4 +6,4 @@ resources:
 components:
     - ../../../../components/limitranges/default
     - ../../../../components/project-admin-rolebindings/chris-project
-    - ../../../../components/resourcequotas/medium
+    - ../../../../components/resourcequotas/large

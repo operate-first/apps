@@ -1,0 +1,19 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: chris
+spec:
+  destination:
+    name: smaug
+    namespace: chrisproject-dev
+  source:
+    path: cube/base
+    repoURL: 'https://github.com/veniceofcode/kustomize-chris.git'
+    targetRevision: HEAD
+  project: chris
+  syncPolicy:
+    automated:
+      prune: true
+      selfHeal: true
+    syncOptions:
+      - Validate=false
