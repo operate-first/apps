@@ -5,9 +5,9 @@ metadata:
 spec:
   destination:
     name: smaug
-    namespace: chris-system
+    namespace: chris-dev
   source:
-    path: charts/fybrik
+    path: charts/chris
     repoURL: 'https://github.com/veniceofcode/kustomize-chris.git'
     targetRevision: HEAD
     helm:
