@@ -1,0 +1,19 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: chris
+spec:
+  destination:
+    name: smaug
+    namespace: chris-system
+  source:
+    path: charts/fybrik
+    repoURL: 'https://github.com/veniceofcode/kustomize-chris.git'
+    targetRevision: HEAD
+    helm:
+      parameters:
+        - name: clusterScoped
+          value: "false"
+        - name: applicationNamespace
+          value: chris-applications
+  project: chris
