@@ -1,0 +1,9 @@
+apiVersion: backstage.io/v1alpha1
+kind: Group
+metadata:
+  name: operate-first
+  description: Group managing the operate-first services
+spec:
+  type: team
+  children: []
+  members: [operate-first]
