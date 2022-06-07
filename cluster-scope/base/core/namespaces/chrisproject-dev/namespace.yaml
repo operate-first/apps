@@ -1,0 +1,7 @@
+apiVersion: v1
+kind: Namespace
+metadata:
+    name: chrisproject-dev
+    annotations:
+        openshift.io/display-name: chrisproject-dev
+        openshift.io/requester: chris-project

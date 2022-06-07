@@ -23,6 +23,7 @@ resources:
 - ../../../../base/core/configmaps/cluster-monitoring-config
 - ../../../../base/core/namespaces/examples-openshift-pub
 - ../../../../base/core/namespaces/keylime
+- ../../../../base/core/namespaces/opf-obcs
 - ../../../../base/core/namespaces/openshift-cnv
 - ../../../../base/core/namespaces/openshift-local-storage
 - ../../../../base/core/namespaces/openshift-storage
@@ -46,7 +47,11 @@ resources:
 - ../../../../base/rbac.authorization.k8s.io/clusterrolebindings/cluster-reader-k8s-annotations-exporter
 - ../../../../base/rbac.authorization.k8s.io/clusterrolebindings/sudoers
 - ../../../../base/user.openshift.io/groups/sudoers
+- ../../../../bundles/external-secrets-operator
 - ../../../../bundles/nfd
 - ../common
 - apiserver/api_server_cert.yaml
 - ingresscontrollers/default.yaml
+- secrets
+- secretstores
+- serviceaccounts

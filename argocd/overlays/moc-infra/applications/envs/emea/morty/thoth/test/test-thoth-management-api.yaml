@@ -1,0 +1,16 @@
+---
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: test-thoth-management-api
+spec:
+  project: thoth
+  source:
+    repoURL: 'https://github.com/thoth-station/thoth-application.git'
+    path: management-api/overlays/test
+    targetRevision: master
+  destination:
+    name: morty
+    namespace: thoth-test-core
+  syncPolicy:
+    automated: {}

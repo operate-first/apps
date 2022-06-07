@@ -16,6 +16,7 @@ resources:
 - ../../../base/user.openshift.io/groups/boston-university-redhat
 - ../../../base/user.openshift.io/groups/ccx
 - ../../../base/user.openshift.io/groups/chi-rhug
+- ../../../base/user.openshift.io/groups/chris-project
 - ../../../base/user.openshift.io/groups/cnv-testing
 - ../../../base/user.openshift.io/groups/codait-advo
 - ../../../base/user.openshift.io/groups/curator
@@ -73,4 +74,3 @@ resources:
 - ../../../base/user.openshift.io/groups/varangian
 - ../../../base/user.openshift.io/groups/workshops
 - ../../../bundles/opf-monitoring
-- alertmanager-main-secret.yaml

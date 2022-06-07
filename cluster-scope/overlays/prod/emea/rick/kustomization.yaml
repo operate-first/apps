@@ -22,6 +22,7 @@ resources:
     - ../../../../base/operators.coreos.com/operatorgroups/openshift-cnv-rn5jf
     - ../../../../base/operators.coreos.com/operatorgroups/openshift-local-storage-zj22x
     - ../../../../base/operators.coreos.com/operatorgroups/openshift-storage-24n7x
+    - ../../../../base/operators.coreos.com/subscriptions/cert-manager
     - ../../../../base/operators.coreos.com/operatorgroups/opf-monitoring
     - ../../../../base/operators.coreos.com/operatorgroups/opf-kafka
     - ../../../../base/operators.coreos.com/subscriptions/cluster-logging
@@ -38,8 +39,14 @@ resources:
     - ../../../../base/storage.k8s.io/storageclasses/ocs-storagecluster-cephfs
     - ../../../../base/user.openshift.io/groups/sudoers
     - ../../../../bundles/acme-operator
+    - ../../../../bundles/external-secrets-operator
     - ../../../../bundles/nfd
+    - apiserver
     - clusterversion.yaml
+    - ingresscontrollers
+    - secrets
+    - secretstores
+    - serviceaccounts
 
 generators:
     - secret-generator.yaml

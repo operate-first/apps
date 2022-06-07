@@ -6,6 +6,9 @@ metadata:
 spec:
   to:
     kind: Service
-    name: opf-vault-ui
+    name: opf-vault
+  tls:
+    termination: edge
+    insecureEdgeTerminationPolicy: Redirect
   port:
     targetPort: http

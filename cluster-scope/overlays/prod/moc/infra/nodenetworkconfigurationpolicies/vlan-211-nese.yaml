@@ -1,0 +1,19 @@
+apiVersion: nmstate.io/v1beta1
+kind: NodeNetworkConfigurationPolicy
+metadata:
+  name: vlan-211-nese
+spec:
+  nodeSelector:
+    node-role.kubernetes.io/worker: ""
+  desiredState:
+    interfaces:
+      - name: eno1.211
+        description: zero cluster provisioning network
+        type: vlan
+        state: up
+        vlan:
+          base-iface: eno1
+          id: 211
+        ipv4:
+          enabled: true
+          dhcp: true

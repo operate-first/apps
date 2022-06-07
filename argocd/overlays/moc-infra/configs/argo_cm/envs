@@ -1,5 +1,5 @@
 admin.enabled=true
 kustomize.buildOptions=--enable-alpha-plugins
 url=https://argocd.operate-first.cloud
-users.anonymous.enabled=true
+users.anonymous.enabled=false
 statusbadge.enabled=true

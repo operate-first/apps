@@ -19,7 +19,6 @@ metadata:
   name: extensions.dashboard.tekton.dev
   labels:
     app.kubernetes.io/component: dashboard
-    app.kubernetes.io/instance: default
     app.kubernetes.io/part-of: tekton-dashboard
 spec:
   group: dashboard.tekton.dev

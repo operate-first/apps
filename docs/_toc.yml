@@ -36,6 +36,16 @@ parts:
           - file: content/argocd-gitops/update_gpg_key.md
           - file: content/argocd-gitops/argocd_notifications.md
 
+      # ArgoCD
+      - file: content/vault/README.md
+        sections:
+          - file: content/vault/add_cluster_to_eso_and_vault.md
+
+      # ESO
+      - file: content/external-secrets/README.md
+        sections:
+          - file: content/external-secrets/add_eso_to_cluster.md
+
       # Cluster Scope
       - file: content/cluster-scope/README.md
         sections:
@@ -64,6 +74,9 @@ parts:
         sections:
           - file: content/grafana/add_grafana_dashboard.md
           - file: content/grafana/map_groups_to_roles.md
+
+      # Prometheus / Alerting
+      - file: content/prometheus/README.md
 
       # Observatorium
       - file: content/observatorium/README.md

@@ -1,0 +1,8 @@
+apiVersion: v1
+kind: Namespace
+metadata:
+  annotations:
+    openshift.io/display-name: "curator-operator-system"
+    openshift.io/requester: operate-first
+  name: curator-operator-system
+spec: {}

@@ -29,6 +29,7 @@ resources:
   - ../../../../base/user.openshift.io/groups/pachyderm-admins
   - ../../../../base/user.openshift.io/groups/seldon-admin
   - ../../../../base/user.openshift.io/groups/sudoers
+  - ../../../../bundles/external-secrets-operator
   - ../../../../bundles/kfp-tekton
   - ../../../../bundles/opendatahub-operator-manual
   - ../../../../bundles/openshift-pipelines
@@ -41,7 +42,8 @@ resources:
   - operators.coreos.com/operatorgroups/nvidia-gpu-operator
   - operators.coreos.com/subscriptions/nvidia-gpu-operator
   - nvidia-gpu
-
+  - secretstores
+  - serviceaccounts
 patchesStrategicMerge:
   - oauths/cluster-patch.yaml
   - configmaps/cluster-monitoring-config.yaml

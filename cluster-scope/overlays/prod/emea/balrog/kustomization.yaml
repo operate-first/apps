@@ -25,10 +25,15 @@ resources:
     - ../../../../base/rbac.authorization.k8s.io/clusterrolebindings/sudoers
     - ../../../../base/user.openshift.io/groups/sudoers
     - ../../../../bundles/acme-operator
+    - ../../../../bundles/external-secrets-operator
+    - apiserver
     - machineautoscalers.yaml
+    - ingresscontrollers
+    - secrets
+    - secretstores
+    - serviceaccounts
 generators:
     - secret-generator.yaml
-
 patchesStrategicMerge:
     - groups/sudoers.yaml
     - subscriptions/cluster-logging-operator_patch.yaml

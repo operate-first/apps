@@ -1,7 +1,8 @@
 apiVersion: kustomize.config.k8s.io/v1beta1
 kind: Kustomization
 resources:
-    - ../../../../cluster-scope/base/cosigned
+    - ../../../../cluster-scope/base/admissionregistration.k8s.io/mutatingwebhookconfigurations/cosigned.sigstore.dev
+    - ../../../../cluster-scope/base/admissionregistration.k8s.io/validatingwebhookconfigurations/cosigned.sigstore.dev
     - ../../../../cluster-scope/base/core/namespaces/cosign-system
     - ../../../../cluster-scope/base/core/namespaces/summit-2022-octo-keynote
     - ../../../../cluster-scope/base/core/namespaces/ushift-dev
