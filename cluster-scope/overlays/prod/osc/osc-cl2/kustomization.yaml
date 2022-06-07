@@ -30,6 +30,7 @@ resources:
 - ../../../../base/core/namespaces/openshift-nfd
 - ../../../../base/core/namespaces/opf-monitoring
 - ../../../../base/core/namespaces/nvidia-gpu-operator
+- ../../../../base/core/namespaces/sostrades
 - ../../../../base/operators.coreos.com/operatorgroups/openshift-nfd
 - ../../../../base/operators.coreos.com/subscriptions/nfd
 - ../../../../base/config.openshift.io/oauths/cluster
