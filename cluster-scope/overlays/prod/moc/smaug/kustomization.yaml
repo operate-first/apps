@@ -2,7 +2,7 @@ apiVersion: kustomize.config.k8s.io/v1beta1
 kind: Kustomization
 patchesStrategicMerge:
 - backingstores/noobaa-default-backing-store_patch.yaml
-- groups/cluster-admins.yaml
+- groups/sudoers.yaml
 - imageregistry.operator.openshift.io/configs/cluster/config_patch.yaml
 - storageclasses/ocs-external-storagecluster-ceph-rbd.yaml
 - subscriptions/cluster-logging-operator_patch.yaml
@@ -123,7 +123,6 @@ resources:
 - ../../../../base/storage.k8s.io/csidrivers/org.democratic-csi.nfs
 - ../../../../base/storage.k8s.io/storageclasses/moc-nfs-csi
 - ../../../../base/storage.k8s.io/storageclasses/ocs-external-storagecluster-ceph-rbd
-- ../../../../base/user.openshift.io/groups/cluster-admins
 - ../../../../bundles/acme-operator
 - ../../../../bundles/b4mad-racing
 - ../../../../bundles/curator
@@ -140,6 +139,7 @@ resources:
 - ../../../../bundles/seraph
 - ../../../../bundles/tekton-chains
 - ../../../../bundles/volsync
+- ../../../../bundles/sudoers
 - ../common
 - apiserver/api_server_cert.yaml
 - backingstores/noobaa-pool-01.yaml

@@ -22,9 +22,10 @@ resources:
     - ../../../../base/operators.coreos.com/subscriptions/strimzi
     - ../../../../base/rbac.authorization.k8s.io/clusterrolebindings/cluster-monitoring-view-balrog
     - ../../../../base/rbac.authorization.k8s.io/clusterrolebindings/cluster-reader-k8s-annotations-exporter
-    - ../../../../base/user.openshift.io/groups/cluster-admins
     - ../../../../bundles/acme-operator
     - ../../../../bundles/external-secrets-operator
+    - ../../../../bundles/sudoers
+
     - apiserver
     - machineautoscalers.yaml
     - ingresscontrollers
@@ -34,7 +35,7 @@ resources:
 generators:
     - secret-generator.yaml
 patchesStrategicMerge:
-    - groups/cluster-admins.yaml
+    - groups/sudoers.yaml
     - subscriptions/cluster-logging-operator_patch.yaml
     - clusterautoscaler.yaml
 patches:

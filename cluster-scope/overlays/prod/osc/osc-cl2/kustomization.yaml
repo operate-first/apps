@@ -23,7 +23,6 @@ resources:
   - ../../../../base/rbac.authorization.k8s.io/clusterrolebindings/self-provisioners
   - ../../../../base/rbac.authorization.k8s.io/clusterroles/acme-operator
   - ../../../../base/rbac.authorization.k8s.io/clusterroles/pytorchjobs-create-aggregate-to-admin
-  - ../../../../base/user.openshift.io/groups/cluster-admins
   - ../../../../base/user.openshift.io/groups/kubeflow-admin
   - ../../../../base/user.openshift.io/groups/odh-admin
   - ../../../../base/user.openshift.io/groups/odh-users
@@ -35,6 +34,7 @@ resources:
   - ../../../../bundles/openshift-pipelines
   - ../../../../bundles/pachyderm-operator
   - ../../../../bundles/reloader
+  - ../../../../bundles/sudoers
   - apiserver
   - ingresscontroller
   - machinesets
@@ -48,10 +48,10 @@ patchesStrategicMerge:
   - oauths/cluster-patch.yaml
   - configmaps/cluster-monitoring-config.yaml
   - configmaps/user-workload-monitoring-config.yaml
-  - groups/cluster-admins.yaml
   - groups/kubeflow-admin.yaml
   - groups/odh-admin.yaml
   - groups/odh-users.yaml
   - groups/seldon-admin.yaml
   - groups/pachyderm-admins.yaml
+  - groups/sudoers.yaml
   - operators.coreos.com/patches/nfd-sub-patch.yaml

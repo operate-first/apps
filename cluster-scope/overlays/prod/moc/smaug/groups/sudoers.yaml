@@ -1,10 +1,13 @@
 apiVersion: user.openshift.io/v1
 kind: Group
 metadata:
-    name: cluster-admins
+    name: sudoers
 users:
-    - tumido
+    - dystewart
+    - gregory-pereira
+    - Gregory-Pereira
     - humairak
     - HumairAK
-    - 4n4nd
     - harshad16
+    - larsks
+    - tumido

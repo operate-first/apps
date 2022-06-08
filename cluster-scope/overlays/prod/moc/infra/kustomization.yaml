@@ -39,10 +39,10 @@ resources:
   - ../../../../base/rbac.authorization.k8s.io/clusterroles/apirequest-count-read-cr
   - ../../../../base/storage.k8s.io/csidrivers/org.democratic-csi.nfs
   - ../../../../base/storage.k8s.io/storageclasses/moc-nfs-csi
-  - ../../../../base/user.openshift.io/groups/cluster-admins
   - ../../../../bundles/acme-operator
   - ../../../../bundles/external-secrets-operator
   - ../../../../bundles/idp-mgmt-operator
+  - ../../../../bundles/sudoers
   - apiserver/api_server_cert.yaml
   - clusterversion.yaml
   - nodenetworkconfigurationpolicies/crc-provisioning-vlan.yaml
@@ -63,6 +63,6 @@ patchesStrategicMerge:
   - storageclasses/moc-nfs-csi_patch.yaml
   - subscriptions/cluster-logging-operator_patch.yaml
   - subscriptions/kubernetes-nmstate-operator_patch.yaml
-  - groups/cluster-admins.yaml
+  - groups/sudoers.yaml
   - clusterrolebindings/self-provisioners_patch.yaml
   - clusterrolebindings/klusteraddonconfig-editor.yaml
