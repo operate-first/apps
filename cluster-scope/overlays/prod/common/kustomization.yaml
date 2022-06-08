@@ -23,6 +23,7 @@ resources:
 - ../../../base/user.openshift.io/groups/data-science
 - ../../../base/user.openshift.io/groups/debezium
 - ../../../base/user.openshift.io/groups/drvbw
+- ../../../base/user.openshift.io/groups/eldritch-team13
 - ../../../base/user.openshift.io/groups/emea-sa
 - ../../../base/user.openshift.io/groups/enterprise-neurosystem
 - ../../../base/user.openshift.io/groups/esi-project
