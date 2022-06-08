@@ -6,7 +6,7 @@ metadata:
     project-template: global
 spec:
   destinations:
-    - namespace: 'chris-*'
+    - namespace: 'chris*'
       server: 'https://api.smaug.na.operate-first.cloud:6443'
   sourceRepos:
     - '*'
