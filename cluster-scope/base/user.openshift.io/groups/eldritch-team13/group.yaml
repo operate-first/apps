@@ -3,5 +3,6 @@ kind: Group
 metadata:
   name: eldritch-team13
 users:
+  - EldritchJS
   - eldritchjs
   - wtheisen
