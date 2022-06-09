@@ -4,11 +4,13 @@
 <html>
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
     <title>ArgoCD onboarding procedure &#8212; GitOps Docs</title>
     
-  <link href="../../_static/css/theme.css" rel="stylesheet">
-  <link href="../../_static/css/index.ff1ffe594081f20da1ef19478df9384b.css" rel="stylesheet">
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../../_static/styles/theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
+<link href="../../_static/styles/pydata-sphinx-theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
 
     
   <link rel="stylesheet"
@@ -18,20 +20,16 @@
   <link rel="preload" as="font" type="font/woff2" crossorigin
     href="../../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
 
-    
-      
-
-    
     <link rel="stylesheet" type="text/css" href="../../_static/pygments.css" />
-    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-book-theme.css?digest=c3fdc42140077d1ad13ad2f1588a4309" />
+    <link rel="stylesheet" href="../../_static/styles/sphinx-book-theme.css?digest=62ba249389abaaa9ffc34bf36a076bdc1d65ee18" type="text/css" />
     <link rel="stylesheet" type="text/css" href="../../_static/togglebutton.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/mystnb.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/sphinx-thebe.css" />
-    <link rel="stylesheet" type="text/css" href="../../_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
-    <link rel="stylesheet" type="text/css" href="../../_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/design-style.b7bb847fb20b106c3d81b95245e65545.min.css" />
     
-  <link rel="preload" as="script" href="../../_static/js/index.be7d3bbb2ef33a8344ce.js">
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../../_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf">
 
     <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
     <script src="../../_static/jquery.js"></script>
@@ -39,12 +37,13 @@
     <script src="../../_static/doctools.js"></script>
     <script src="../../_static/clipboard.min.js"></script>
     <script src="../../_static/copybutton.js"></script>
+    <script src="../../_static/scripts/sphinx-book-theme.js?digest=f31d14ad54b65d19161ba51d4ffff3a77ae00456"></script>
     <script>let toggleHintShow = 'Click to show';</script>
     <script>let toggleHintHide = 'Click to hide';</script>
     <script>let toggleOpenOnPrint = 'true';</script>
     <script src="../../_static/togglebutton.js"></script>
     <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
-    <script src="../../_static/sphinx-book-theme.d59cb220de22ca1c485ebbdc042f0030.js"></script>
+    <script src="../../_static/design-tabs.js"></script>
     <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
 const thebe_selector = ".thebe,.cell"
 const thebe_selector_input = "pre"
@@ -63,7 +62,21 @@ const thebe_selector_output = ".output, .cell_output"
     <!-- Google Analytics -->
     
   </head>
-  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="60">
+<!-- Checkboxes to toggle the left sidebar -->
+<input type="checkbox" class="sidebar-toggle" name="__navigation" id="__navigation" aria-label="Toggle navigation sidebar">
+<label class="overlay overlay-navbar" for="__navigation">
+    <div class="visually-hidden">Toggle navigation sidebar</div>
+</label>
+<!-- Checkboxes to toggle the in-page toc -->
+<input type="checkbox" class="sidebar-toggle" name="__page-toc" id="__page-toc" aria-label="Toggle in-page Table of Contents">
+<label class="overlay overlay-pagetoc" for="__page-toc">
+    <div class="visually-hidden">Toggle in-page Table of Contents</div>
+</label>
+<!-- Headers at the top -->
+<div class="announcement header-item noprint"></div>
+<div class="header header-item noprint"></div>
+
     
     <div class="container-fluid" id="banner"></div>
 
@@ -72,9 +85,10 @@ const thebe_selector_output = ".output, .cell_output"
     <div class="container-xl">
       <div class="row">
           
-<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
-    
-        <div class="navbar-brand-box">
+<!-- Sidebar -->
+<div class="bd-sidebar noprint" id="site-navigation">
+    <div class="bd-sidebar__content">
+        <div class="bd-sidebar__top"><div class="navbar-brand-box">
     <a class="navbar-brand text-wrap" href="../../index.html">
       
         <!-- `logo` is deprecated in Sphinx 4.0, so remove this when we stop supporting 3 -->
@@ -92,14 +106,15 @@ const thebe_selector_output = ".output, .cell_output"
   <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
 </form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
     <div class="bd-toc-item active">
-        <ul class="nav bd-sidenav">
- <li class="toctree-l1">
-  <a class="reference internal" href="../README.html">
-   GitOps Documentation
-  </a>
- </li>
-</ul>
-<p aria-level="2" class="caption" role="heading">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="../README.html">
+                    GitOps Documentation
+                </a>
+            </li>
+        </ul>
+        <p aria-level="2" class="caption" role="heading">
  <span class="caption-text">
   GitOps
  </span>
@@ -690,90 +705,180 @@ const thebe_selector_output = ".output, .cell_output"
 </ul>
 
     </div>
-</nav> <!-- To handle the deprecated key -->
-
-<div class="navbar_extra_footer">
-  Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
-</div>
-
-</div>
-
-
-          
-
-
-          
-<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
-    
-    <div class="topbar container-xl fixed-top">
-    <div class="topbar-contents row">
-        <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show"></div>
-        <div class="col pl-md-4 topbar-main">
+</nav></div>
+        <div class="bd-sidebar__bottom">
+             <!-- To handle the deprecated key -->
             
-            <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
-                data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
-                aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
-                title="Toggle navigation" data-toggle="tooltip" data-placement="left">
-                <i class="fas fa-bars"></i>
-                <i class="fas fa-arrow-left"></i>
-                <i class="fas fa-arrow-up"></i>
-            </button>
-            
-            
-<div class="dropdown-buttons-trigger">
-    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
-            class="fas fa-download"></i></button>
-
-    <div class="dropdown-buttons">
-        <!-- ipynb file if we had a myst markdown file -->
-        
-        <!-- Download raw file -->
-        <a class="dropdown-buttons" href="../../_sources/content/argocd-gitops/onboarding_to_argocd.md"><button type="button"
-                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
-                data-placement="left">.md</button></a>
-        <!-- Download PDF via print -->
-        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
-                onclick="printPdf(this)" data-toggle="tooltip" data-placement="left">.pdf</button>
-    </div>
-</div>
-
-            <!-- Source interaction buttons -->
-
-<div class="dropdown-buttons-trigger">
-    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
-        aria-label="Connect with source repository"><i class="fab fa-github"></i></button>
-    <div class="dropdown-buttons sourcebuttons">
-        <a class="repository-button"
-            href="https://github.com/operate-first/apps"><button type="button" class="btn btn-secondary topbarbtn"
-                data-toggle="tooltip" data-placement="left" title="Source repository"><i
-                    class="fab fa-github"></i>repository</button></a>
-        <a class="issues-button"
-            href="https://github.com/operate-first/apps/issues/new?title=Issue%20on%20page%20%2Fcontent/argocd-gitops/onboarding_to_argocd.html&body=Your%20issue%20content%20here."><button
-                type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
-                title="Open an issue"><i class="fas fa-lightbulb"></i>open issue</button></a>
-        
-    </div>
-</div>
-
-            <!-- Full screen (wrap in <a> to have style consistency -->
-
-<a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
-        data-placement="bottom" onclick="toggleFullScreen()" aria-label="Fullscreen mode"
-        title="Fullscreen mode"><i
-            class="fas fa-expand"></i></button></a>
-
-            <!-- Launch buttons -->
-
-        </div>
-
-        <!-- Table of contents -->
-        <div class="d-none d-md-block col-md-2 bd-toc show noprint">
-            
-            <div class="tocsection onthispage pt-5 pb-3">
-                <i class="fas fa-list"></i> Contents
+            <div class="navbar_extra_footer">
+            Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
             </div>
-            <nav id="bd-toc-nav" aria-label="Page">
-                <ul class="visible nav section-nav flex-column">
+            
+        </div>
+    </div>
+    <div id="rtd-footer-container"></div>
+</div>
+
+
+          
+
+
+          
+<!-- A tiny helper pixel to detect if we've scrolled -->
+<div class="sbt-scroll-pixel-helper"></div>
+<!-- Main content -->
+<div class="col py-0 content-container">
+    
+    <div class="header-article row sticky-top noprint">
+        
+
+
+
+<div class="col py-1 d-flex header-article-main">
+    <div class="header-article__left">
+        
+        <label for="__navigation"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="right"
+title="Toggle navigation"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-bars"></i>
+  </span>
+
+</label>
+
+        
+    </div>
+    <div class="header-article__right">
+<button onclick="toggleFullScreen()"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="bottom"
+title="Fullscreen mode"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+<div class="menu-dropdown menu-dropdown-repository-buttons">
+  <button class="headerbtn menu-dropdown__trigger"
+      aria-label="Source repositories">
+      <i class="fab fa-github"></i>
+  </button>
+  <div class="menu-dropdown__content">
+    <ul>
+      <li>
+        <a href="https://github.com/operate-first/apps"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Source repository"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="headerbtn__text-container">repository</span>
+</a>
+
+      </li>
+      
+      <li>
+        <a href="https://github.com/operate-first/apps/issues/new?title=Issue%20on%20page%20%2Fcontent/argocd-gitops/onboarding_to_argocd.html&body=Your%20issue%20content%20here."
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Open an issue"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="headerbtn__text-container">open issue</span>
+</a>
+
+      </li>
+      
+    </ul>
+  </div>
+</div>
+
+<div class="menu-dropdown menu-dropdown-download-buttons">
+  <button class="headerbtn menu-dropdown__trigger"
+      aria-label="Download this page">
+      <i class="fas fa-download"></i>
+  </button>
+  <div class="menu-dropdown__content">
+    <ul>
+      <li>
+        <a href="../../_sources/content/argocd-gitops/onboarding_to_argocd.md"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Download source file"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="headerbtn__text-container">.md</span>
+</a>
+
+      </li>
+      
+      <li>
+        
+<button onclick="printPdf(this)"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="left"
+title="Print to PDF"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="headerbtn__text-container">.pdf</span>
+</button>
+
+      </li>
+      
+    </ul>
+  </div>
+</div>
+<label for="__page-toc"
+  class="headerbtn headerbtn-page-toc"
+  
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-list"></i>
+  </span>
+
+</label>
+
+    </div>
+</div>
+
+<!-- Table of contents -->
+<div class="col-md-3 bd-toc show noprint">
+    <div class="tocsection onthispage pt-5 pb-3">
+        <i class="fas fa-list"></i> Contents
+    </div>
+    <nav id="bd-toc-nav" aria-label="Page">
+        <ul class="visible nav section-nav flex-column">
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#pre-requisites">
    Pre-requisites
@@ -823,12 +928,11 @@ const thebe_selector_output = ".output, .cell_output"
  </li>
 </ul>
 
-            </nav>
-        </div>
-    </div>
+    </nav>
 </div>
-    <div id="main-content" class="row">
-        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
+    </div>
+    <div class="article row">
+        <div class="col pl-md-3 pl-lg-5 content-container">
             <!-- Table of contents that is only displayed when printing the page -->
             <div id="jb-print-docs-body" class="onlyprint">
                 <h1>ArgoCD onboarding procedure</h1>
@@ -894,11 +998,12 @@ const thebe_selector_output = ".output, .cell_output"
                     </div>
                 </div>
             </div>
-            
+            <main id="main-content" role="main">
+                
               <div>
                 
-  <div class="tex2jax_ignore mathjax_ignore section" id="argocd-onboarding-procedure">
-<h1>ArgoCD onboarding procedure<a class="headerlink" href="#argocd-onboarding-procedure" title="Permalink to this headline">¶</a></h1>
+  <section class="tex2jax_ignore mathjax_ignore" id="argocd-onboarding-procedure">
+<h1>ArgoCD onboarding procedure<a class="headerlink" href="#argocd-onboarding-procedure" title="Permalink to this headline">#</a></h1>
 <p>We have an ArgoCD instance deployed on MOC that can be used to deploy OpenShift resources located on a Git Repository.</p>
 <p>The ArgoCD instance is deployed on <a class="reference external" href="https://github.com/operate-first/apps/tree/master/argocd/overlays/moc-infra">MOC Infra</a> cluster.</p>
 <p>Each team is given an <a class="reference external" href="https://argoproj.github.io/argo-cd/user-guide/projects/">ArgoCD Project</a> that has an allow-list of clusters and namespaces to which they can deploy.
@@ -912,14 +1017,14 @@ their ArgoCD <code class="docutils literal notranslate"><span class="pre">Projec
 <blockquote>
 <div><p>Note: ArgoCD Projects should not to be confused with OpenShift Projects.</p>
 </div></blockquote>
-<div class="section" id="pre-requisites">
-<h2>Pre-requisites<a class="headerlink" href="#pre-requisites" title="Permalink to this headline">¶</a></h2>
+<section id="pre-requisites">
+<h2>Pre-requisites<a class="headerlink" href="#pre-requisites" title="Permalink to this headline">#</a></h2>
 <p>Team requesting ArgoCD access must have been onboarded to the cluster. See <span class="xref myst">here</span>.</p>
 <p>Please fork/clone the <a class="reference external" href="https://github.com/operate-first/apps">operate-first/apps</a>.</p>
 <p><strong>During this whole setup, we’ll be working within this repository.</strong></p>
-</div>
-<div class="section" id="openshift-group">
-<h2>OpenShift Group<a class="headerlink" href="#openshift-group" title="Permalink to this headline">¶</a></h2>
+</section>
+<section id="openshift-group">
+<h2>OpenShift Group<a class="headerlink" href="#openshift-group" title="Permalink to this headline">#</a></h2>
 <p>To add multi-tenancy support, we require the team to have an OpenShift group on the Infra cluster on which our ArgoCD
 instance resides. This OpenShift group should include all the people belonging to the team that will need write-level
 access to applications belonging to the team’s ArgoCD Project (explained later). Existing OCP groups and their
@@ -929,9 +1034,9 @@ yourself and associated members by following the instructions <a class="referenc
 <div><p>Note: We use teams/project names interchangeably throughout this doc as all ArgoCD projects (for end-users) are named
 after their team names picked during the cluster onboarding process.</p>
 </div></blockquote>
-</div>
-<div class="section" id="create-project-directories-for-this-repository">
-<h2>Create project directories for this repository<a class="headerlink" href="#create-project-directories-for-this-repository" title="Permalink to this headline">¶</a></h2>
+</section>
+<section id="create-project-directories-for-this-repository">
+<h2>Create project directories for this repository<a class="headerlink" href="#create-project-directories-for-this-repository" title="Permalink to this headline">#</a></h2>
 <p>Pick an environment/cluster this team will be deploying to. Navigate to
 <code class="docutils literal notranslate"><span class="pre">apps/argocd/overlays/moc-infra/applications/envs/&lt;env&gt;/&lt;cluster&gt;/</span></code>, where <code class="docutils literal notranslate"><span class="pre">&lt;env&gt;</span></code> and <code class="docutils literal notranslate"><span class="pre">&lt;cluster&gt;</span></code> correspond to the
 cluster you intend to deploy manifests to via ArgoCD. For example if deploying to <code class="docutils literal notranslate"><span class="pre">Smaug</span></code> cluster, you will navigate to
@@ -939,9 +1044,9 @@ cluster you intend to deploy manifests to via ArgoCD. For example if deploying t
 <p>Teams should be directed <a class="reference internal" href="add_application.html"><span class="doc std std-doc">here</span></a> for instructions on where to create their ArgoCD Applications. All Applications
 should be pointed to the team’s <a class="reference external" href="https://github.com/operate-first/apps/tree/master/argocd/overlays/moc-infra/projects">ArgoCD Project</a> (i.e. the <code class="docutils literal notranslate"><span class="pre">project</span></code> field in the ArgoCD <a class="reference external" href="https://argoproj.github.io/argo-cd/operator-manual/declarative-setup/#applications">Application</a> manifest),
 see below for instructions on adding an ArgoCD Project.</p>
-</div>
-<div class="section" id="create-the-argocd-project">
-<h2>Create the ArgoCD Project<a class="headerlink" href="#create-the-argocd-project" title="Permalink to this headline">¶</a></h2>
+</section>
+<section id="create-the-argocd-project">
+<h2>Create the ArgoCD Project<a class="headerlink" href="#create-the-argocd-project" title="Permalink to this headline">#</a></h2>
 <p>The team will need a dedicated <a class="reference external" href="https://argoproj.github.io/argo-cd/user-guide/projects/">ArgoCD Project</a> for their <a class="reference external" href="https://argoproj.github.io/argo-cd/operator-manual/declarative-setup/#applications">ArgoCD Applications</a>. The ArgoCD project should be
 added <a class="reference external" href="https://github.com/operate-first/apps/tree/master/argocd/overlays/moc-infra/projects">here</a>.</p>
 <p>A typical project will look like the following:</p>
@@ -994,26 +1099,26 @@ additional resources here if they are not covered by the global project.</p></li
 full list).</p></li>
 </ul>
 <p>Ensure that the ArgoCD project is included in the <code class="docutils literal notranslate"><span class="pre">kustomization.yaml</span></code> <a class="reference external" href="https://github.com/operate-first/apps/blob/master/argocd/overlays/moc-infra/projects/kustomization.yaml">here</a>.</p>
-</div>
-<div class="section" id="enable-openshift-auth-to-argocd-console">
-<h2>Enable OpenShift auth to ArgoCD Console<a class="headerlink" href="#enable-openshift-auth-to-argocd-console" title="Permalink to this headline">¶</a></h2>
+</section>
+<section id="enable-openshift-auth-to-argocd-console">
+<h2>Enable OpenShift auth to ArgoCD Console<a class="headerlink" href="#enable-openshift-auth-to-argocd-console" title="Permalink to this headline">#</a></h2>
 <p>By default, all users should be able to see the <a class="reference external" href="https://argocd.operate-first.cloud">ArgoCD console</a>. To be able to make changes to applications
 belonging to the team’s ArgoCD Project (via the cli or ui), the team will need to be able to log into the console with
 appropriate access. This is accomplished by adding the team’s OpenShift group mentioned in the beginning under the dex
 config <a class="reference external" href="https://github.com/operate-first/apps/blob/master/argocd/overlays/moc-infra/configs/argo_cm/dex.config#L11">here</a>. You can find your OpenShift group within this list <a class="reference external" href="https://github.com/operate-first/apps/tree/master/cluster-scope/base/user.openshift.io/groups">here</a>.</p>
-</div>
-<div class="section" id="give-team-read-access-to-non-app-argocd-resources">
-<h2>Give team read access to non-app ArgoCD resources<a class="headerlink" href="#give-team-read-access-to-non-app-argocd-resources" title="Permalink to this headline">¶</a></h2>
+</section>
+<section id="give-team-read-access-to-non-app-argocd-resources">
+<h2>Give team read access to non-app ArgoCD resources<a class="headerlink" href="#give-team-read-access-to-non-app-argocd-resources" title="Permalink to this headline">#</a></h2>
 <p>Append this <a class="reference external" href="https://github.com/operate-first/apps/blob/master/argocd/overlays/moc-infra/configs/argo_rbac_cm/policy.csv">list</a> and give the team the <code class="docutils literal notranslate"><span class="pre">standard-user</span></code> role. The group will correspond to the team’s OCP group.
 For example if onboarding the team <code class="docutils literal notranslate"><span class="pre">someteam</span></code> you would append the following to this file:</p>
 <div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="l l-Scalar l-Scalar-Plain">g, someteam, role:standard-user</span><span class="w"></span>
 </pre></div>
 </div>
-</div>
-<div class="section" id="additional-notes">
-<h2>Additional Notes:<a class="headerlink" href="#additional-notes" title="Permalink to this headline">¶</a></h2>
-<div class="section" id="namespace-prefix">
-<h3>Namespace Prefix<a class="headerlink" href="#namespace-prefix" title="Permalink to this headline">¶</a></h3>
+</section>
+<section id="additional-notes">
+<h2>Additional Notes:<a class="headerlink" href="#additional-notes" title="Permalink to this headline">#</a></h2>
+<section id="namespace-prefix">
+<h3>Namespace Prefix<a class="headerlink" href="#namespace-prefix" title="Permalink to this headline">#</a></h3>
 <p>An ArgoCD project allows us to ensure that a team cannot deploy applications onto another team’s namespace via ArgoCD.</p>
 <p>We accomplish this by allowing teams to add the namespaces that they will be deploying to in their ArgoCD Project CR
 under the <code class="docutils literal notranslate"><span class="pre">spec.destinations.</span></code> field. Example:</p>
@@ -1041,18 +1146,18 @@ with a prefix. For example, the <code class="docutils literal notranslate"><span
 </div>
 <p>Now, as long as all thoth team’s namespaces have <code class="docutils literal notranslate"><span class="pre">metadata.name</span></code> beginning with a <code class="docutils literal notranslate"><span class="pre">thoth-</span></code> prefix, they can deploy into
 these namespaces using ArgoCD Applications that are part of the <code class="docutils literal notranslate"><span class="pre">thoth</span></code> project.</p>
-</div>
-<div class="section" id="resources">
-<h3>Resources:<a class="headerlink" href="#resources" title="Permalink to this headline">¶</a></h3>
+</section>
+<section id="resources">
+<h3>Resources:<a class="headerlink" href="#resources" title="Permalink to this headline">#</a></h3>
 <ul class="simple">
 <li><p>To read more about ArgoCD Declarative setup <a class="reference external" href="https://argoproj.github.io/argo-cd/operator-manual/declarative-setup/">see here</a></p></li>
 <li><p>To understand our authentication setup <a class="reference external" href="https://argoproj.github.io/argo-cd/operator-manual/user-management/#dex">see here</a></p></li>
 <li><p>To read about ArgoCD Projects <a class="reference external" href="https://argoproj.github.io/argo-cd/user-guide/projects/">see here</a></p></li>
 <li><p>To learn about Kustomize bases &amp; overlays <a class="reference external" href="https://kubernetes.io/docs/tasks/manage-kubernetes-objects/kustomization/#bases-and-overlays">see here</a></p></li>
 </ul>
-</div>
-</div>
-</div>
+</section>
+</section>
+</section>
 
     <script type="text/x-thebe-config">
     {
@@ -1076,9 +1181,11 @@ these namespaces using ArgoCD Applications that are part of the <code class="doc
 
               </div>
               
-            
-                <!-- Previous / next buttons -->
-<div class='prev-next-area'> 
+            </main>
+            <footer class="footer-article noprint">
+                
+    <!-- Previous / next buttons -->
+<div class='prev-next-area'>
     <a class='left-prev' id="prev-link" href="import_dev_gpg.html" title="previous page">
         <i class="fas fa-angle-left"></i>
         <div class="prev-next-info">
@@ -1094,24 +1201,28 @@ these namespaces using ArgoCD Applications that are part of the <code class="doc
     <i class="fas fa-angle-right"></i>
     </a>
 </div>
-            
+            </footer>
         </div>
     </div>
-    <footer class="footer">
-  <p>
+    <div class="footer-content row">
+        <footer class="col footer"><p>
+  
+    By Operate First Authors<br/>
+  
+      &copy; Copyright 2022.<br/>
+</p>
+        </footer>
+    </div>
     
-      By Operate First Authors<br/>
-    
-        &copy; Copyright 2021.<br/>
-  </p>
-</footer>
-</main>
+</div>
 
 
       </div>
     </div>
   
-  <script src="../../_static/js/index.be7d3bbb2ef33a8344ce.js"></script>
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../../_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf"></script>
+
 
   </body>
 </html>

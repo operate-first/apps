@@ -4,11 +4,13 @@
 <html>
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
     <title>Steps for Upgrading ArgoCD &#8212; GitOps Docs</title>
     
-  <link href="../../_static/css/theme.css" rel="stylesheet">
-  <link href="../../_static/css/index.ff1ffe594081f20da1ef19478df9384b.css" rel="stylesheet">
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../../_static/styles/theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
+<link href="../../_static/styles/pydata-sphinx-theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
 
     
   <link rel="stylesheet"
@@ -18,20 +20,16 @@
   <link rel="preload" as="font" type="font/woff2" crossorigin
     href="../../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
 
-    
-      
-
-    
     <link rel="stylesheet" type="text/css" href="../../_static/pygments.css" />
-    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-book-theme.css?digest=c3fdc42140077d1ad13ad2f1588a4309" />
+    <link rel="stylesheet" href="../../_static/styles/sphinx-book-theme.css?digest=62ba249389abaaa9ffc34bf36a076bdc1d65ee18" type="text/css" />
     <link rel="stylesheet" type="text/css" href="../../_static/togglebutton.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/mystnb.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/sphinx-thebe.css" />
-    <link rel="stylesheet" type="text/css" href="../../_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
-    <link rel="stylesheet" type="text/css" href="../../_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/design-style.b7bb847fb20b106c3d81b95245e65545.min.css" />
     
-  <link rel="preload" as="script" href="../../_static/js/index.be7d3bbb2ef33a8344ce.js">
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../../_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf">
 
     <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
     <script src="../../_static/jquery.js"></script>
@@ -39,12 +37,13 @@
     <script src="../../_static/doctools.js"></script>
     <script src="../../_static/clipboard.min.js"></script>
     <script src="../../_static/copybutton.js"></script>
+    <script src="../../_static/scripts/sphinx-book-theme.js?digest=f31d14ad54b65d19161ba51d4ffff3a77ae00456"></script>
     <script>let toggleHintShow = 'Click to show';</script>
     <script>let toggleHintHide = 'Click to hide';</script>
     <script>let toggleOpenOnPrint = 'true';</script>
     <script src="../../_static/togglebutton.js"></script>
     <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
-    <script src="../../_static/sphinx-book-theme.d59cb220de22ca1c485ebbdc042f0030.js"></script>
+    <script src="../../_static/design-tabs.js"></script>
     <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
 const thebe_selector = ".thebe,.cell"
 const thebe_selector_input = "pre"
@@ -63,7 +62,21 @@ const thebe_selector_output = ".output, .cell_output"
     <!-- Google Analytics -->
     
   </head>
-  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="60">
+<!-- Checkboxes to toggle the left sidebar -->
+<input type="checkbox" class="sidebar-toggle" name="__navigation" id="__navigation" aria-label="Toggle navigation sidebar">
+<label class="overlay overlay-navbar" for="__navigation">
+    <div class="visually-hidden">Toggle navigation sidebar</div>
+</label>
+<!-- Checkboxes to toggle the in-page toc -->
+<input type="checkbox" class="sidebar-toggle" name="__page-toc" id="__page-toc" aria-label="Toggle in-page Table of Contents">
+<label class="overlay overlay-pagetoc" for="__page-toc">
+    <div class="visually-hidden">Toggle in-page Table of Contents</div>
+</label>
+<!-- Headers at the top -->
+<div class="announcement header-item noprint"></div>
+<div class="header header-item noprint"></div>
+
     
     <div class="container-fluid" id="banner"></div>
 
@@ -72,9 +85,10 @@ const thebe_selector_output = ".output, .cell_output"
     <div class="container-xl">
       <div class="row">
           
-<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
-    
-        <div class="navbar-brand-box">
+<!-- Sidebar -->
+<div class="bd-sidebar noprint" id="site-navigation">
+    <div class="bd-sidebar__content">
+        <div class="bd-sidebar__top"><div class="navbar-brand-box">
     <a class="navbar-brand text-wrap" href="../../index.html">
       
         <!-- `logo` is deprecated in Sphinx 4.0, so remove this when we stop supporting 3 -->
@@ -92,14 +106,15 @@ const thebe_selector_output = ".output, .cell_output"
   <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
 </form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
     <div class="bd-toc-item active">
-        <ul class="nav bd-sidenav">
- <li class="toctree-l1">
-  <a class="reference internal" href="../README.html">
-   GitOps Documentation
-  </a>
- </li>
-</ul>
-<p aria-level="2" class="caption" role="heading">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="../README.html">
+                    GitOps Documentation
+                </a>
+            </li>
+        </ul>
+        <p aria-level="2" class="caption" role="heading">
  <span class="caption-text">
   GitOps
  </span>
@@ -690,90 +705,180 @@ const thebe_selector_output = ".output, .cell_output"
 </ul>
 
     </div>
-</nav> <!-- To handle the deprecated key -->
-
-<div class="navbar_extra_footer">
-  Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
-</div>
-
-</div>
-
-
-          
-
-
-          
-<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
-    
-    <div class="topbar container-xl fixed-top">
-    <div class="topbar-contents row">
-        <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show"></div>
-        <div class="col pl-md-4 topbar-main">
+</nav></div>
+        <div class="bd-sidebar__bottom">
+             <!-- To handle the deprecated key -->
             
-            <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
-                data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
-                aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
-                title="Toggle navigation" data-toggle="tooltip" data-placement="left">
-                <i class="fas fa-bars"></i>
-                <i class="fas fa-arrow-left"></i>
-                <i class="fas fa-arrow-up"></i>
-            </button>
-            
-            
-<div class="dropdown-buttons-trigger">
-    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
-            class="fas fa-download"></i></button>
-
-    <div class="dropdown-buttons">
-        <!-- ipynb file if we had a myst markdown file -->
-        
-        <!-- Download raw file -->
-        <a class="dropdown-buttons" href="../../_sources/content/argocd-gitops/update_argocd.md"><button type="button"
-                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
-                data-placement="left">.md</button></a>
-        <!-- Download PDF via print -->
-        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
-                onclick="printPdf(this)" data-toggle="tooltip" data-placement="left">.pdf</button>
-    </div>
-</div>
-
-            <!-- Source interaction buttons -->
-
-<div class="dropdown-buttons-trigger">
-    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
-        aria-label="Connect with source repository"><i class="fab fa-github"></i></button>
-    <div class="dropdown-buttons sourcebuttons">
-        <a class="repository-button"
-            href="https://github.com/operate-first/apps"><button type="button" class="btn btn-secondary topbarbtn"
-                data-toggle="tooltip" data-placement="left" title="Source repository"><i
-                    class="fab fa-github"></i>repository</button></a>
-        <a class="issues-button"
-            href="https://github.com/operate-first/apps/issues/new?title=Issue%20on%20page%20%2Fcontent/argocd-gitops/update_argocd.html&body=Your%20issue%20content%20here."><button
-                type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
-                title="Open an issue"><i class="fas fa-lightbulb"></i>open issue</button></a>
-        
-    </div>
-</div>
-
-            <!-- Full screen (wrap in <a> to have style consistency -->
-
-<a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
-        data-placement="bottom" onclick="toggleFullScreen()" aria-label="Fullscreen mode"
-        title="Fullscreen mode"><i
-            class="fas fa-expand"></i></button></a>
-
-            <!-- Launch buttons -->
-
-        </div>
-
-        <!-- Table of contents -->
-        <div class="d-none d-md-block col-md-2 bd-toc show noprint">
-            
-            <div class="tocsection onthispage pt-5 pb-3">
-                <i class="fas fa-list"></i> Contents
+            <div class="navbar_extra_footer">
+            Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
             </div>
-            <nav id="bd-toc-nav" aria-label="Page">
-                <ul class="visible nav section-nav flex-column">
+            
+        </div>
+    </div>
+    <div id="rtd-footer-container"></div>
+</div>
+
+
+          
+
+
+          
+<!-- A tiny helper pixel to detect if we've scrolled -->
+<div class="sbt-scroll-pixel-helper"></div>
+<!-- Main content -->
+<div class="col py-0 content-container">
+    
+    <div class="header-article row sticky-top noprint">
+        
+
+
+
+<div class="col py-1 d-flex header-article-main">
+    <div class="header-article__left">
+        
+        <label for="__navigation"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="right"
+title="Toggle navigation"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-bars"></i>
+  </span>
+
+</label>
+
+        
+    </div>
+    <div class="header-article__right">
+<button onclick="toggleFullScreen()"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="bottom"
+title="Fullscreen mode"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+<div class="menu-dropdown menu-dropdown-repository-buttons">
+  <button class="headerbtn menu-dropdown__trigger"
+      aria-label="Source repositories">
+      <i class="fab fa-github"></i>
+  </button>
+  <div class="menu-dropdown__content">
+    <ul>
+      <li>
+        <a href="https://github.com/operate-first/apps"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Source repository"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="headerbtn__text-container">repository</span>
+</a>
+
+      </li>
+      
+      <li>
+        <a href="https://github.com/operate-first/apps/issues/new?title=Issue%20on%20page%20%2Fcontent/argocd-gitops/update_argocd.html&body=Your%20issue%20content%20here."
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Open an issue"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="headerbtn__text-container">open issue</span>
+</a>
+
+      </li>
+      
+    </ul>
+  </div>
+</div>
+
+<div class="menu-dropdown menu-dropdown-download-buttons">
+  <button class="headerbtn menu-dropdown__trigger"
+      aria-label="Download this page">
+      <i class="fas fa-download"></i>
+  </button>
+  <div class="menu-dropdown__content">
+    <ul>
+      <li>
+        <a href="../../_sources/content/argocd-gitops/update_argocd.md"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Download source file"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="headerbtn__text-container">.md</span>
+</a>
+
+      </li>
+      
+      <li>
+        
+<button onclick="printPdf(this)"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="left"
+title="Print to PDF"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="headerbtn__text-container">.pdf</span>
+</button>
+
+      </li>
+      
+    </ul>
+  </div>
+</div>
+<label for="__page-toc"
+  class="headerbtn headerbtn-page-toc"
+  
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-list"></i>
+  </span>
+
+</label>
+
+    </div>
+</div>
+
+<!-- Table of contents -->
+<div class="col-md-3 bd-toc show noprint">
+    <div class="tocsection onthispage pt-5 pb-3">
+        <i class="fas fa-list"></i> Contents
+    </div>
+    <nav id="bd-toc-nav" aria-label="Page">
+        <ul class="visible nav section-nav flex-column">
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#changes-to-operate-first-continuous-deployment">
    Changes to operate-first/continuous-deployment
@@ -830,12 +935,11 @@ const thebe_selector_output = ".output, .cell_output"
  </li>
 </ul>
 
-            </nav>
-        </div>
-    </div>
+    </nav>
 </div>
-    <div id="main-content" class="row">
-        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
+    </div>
+    <div class="article row">
+        <div class="col pl-md-3 pl-lg-5 content-container">
             <!-- Table of contents that is only displayed when printing the page -->
             <div id="jb-print-docs-body" class="onlyprint">
                 <h1>Steps for Upgrading ArgoCD</h1>
@@ -908,11 +1012,12 @@ const thebe_selector_output = ".output, .cell_output"
                     </div>
                 </div>
             </div>
-            
+            <main id="main-content" role="main">
+                
               <div>
                 
-  <div class="tex2jax_ignore mathjax_ignore section" id="steps-for-upgrading-argocd">
-<h1>Steps for Upgrading ArgoCD<a class="headerlink" href="#steps-for-upgrading-argocd" title="Permalink to this headline">¶</a></h1>
+  <section class="tex2jax_ignore mathjax_ignore" id="steps-for-upgrading-argocd">
+<h1>Steps for Upgrading ArgoCD<a class="headerlink" href="#steps-for-upgrading-argocd" title="Permalink to this headline">#</a></h1>
 <p>Here’s a list of relevant release pages you might find useful:</p>
 <ul class="simple">
 <li><p>ArgoCD releases: <a class="reference external" href="https://github.com/argoproj/argo-cd/releases">link</a></p></li>
@@ -922,30 +1027,30 @@ const thebe_selector_output = ".output, .cell_output"
 <li><p>Helm-Secrets releases: <a class="reference external" href="https://github.com/zendesk/helm-secrets/releases">link</a></p></li>
 </ul>
 <p>First checkout the upgrade docs <a class="reference external" href="https://argoproj.github.io/argo-cd/operator-manual/upgrading/overview/">here</a> to see if there have been any major/breaking changes, or additional steps that will be required when updating between versions.</p>
-<div class="section" id="changes-to-operate-first-continuous-deployment">
-<h2>Changes to operate-first/continuous-deployment<a class="headerlink" href="#changes-to-operate-first-continuous-deployment" title="Permalink to this headline">¶</a></h2>
-<div class="section" id="determine-version-number">
-<h3>Determine version Number<a class="headerlink" href="#determine-version-number" title="Permalink to this headline">¶</a></h3>
+<section id="changes-to-operate-first-continuous-deployment">
+<h2>Changes to operate-first/continuous-deployment<a class="headerlink" href="#changes-to-operate-first-continuous-deployment" title="Permalink to this headline">#</a></h2>
+<section id="determine-version-number">
+<h3>Determine version Number<a class="headerlink" href="#determine-version-number" title="Permalink to this headline">#</a></h3>
 <p>The version number will be referred throughout this doc, it takes the form of <code class="docutils literal notranslate"><span class="pre">X.X.X-Y</span></code>. Where <code class="docutils literal notranslate"><span class="pre">X.X.X</span></code> refers to the ArgoCD version number, and the <code class="docutils literal notranslate"><span class="pre">-Y</span></code> suffix, refers to our custom version that iterates on the <code class="docutils literal notranslate"><span class="pre">X.X.X</span></code> ArgoCD version. The <code class="docutils literal notranslate"><span class="pre">-Y</span></code> value indicates the version number for our custom tooling. If we are simply updating the custom tooling, then we only bump <code class="docutils literal notranslate"><span class="pre">-Y</span></code> value. For example if we are updating our custom tooling for <code class="docutils literal notranslate"><span class="pre">1.7.8-1</span></code> but keeping ArgoCD at <code class="docutils literal notranslate"><span class="pre">1.7.8</span></code> then we would bump the version to <code class="docutils literal notranslate"><span class="pre">1.7.8-2</span></code>.</p>
 <p>We’ll use <code class="docutils literal notranslate"><span class="pre">X.X.X-Y</span></code> as the placeholder for this value throughout the doc.</p>
-</div>
-<div class="section" id="update-dockerfile">
-<h3>Update Dockerfile<a class="headerlink" href="#update-dockerfile" title="Permalink to this headline">¶</a></h3>
+</section>
+<section id="update-dockerfile">
+<h3>Update Dockerfile<a class="headerlink" href="#update-dockerfile" title="Permalink to this headline">#</a></h3>
 <p>Fork/Clone the <code class="docutils literal notranslate"><span class="pre">operate-first/continuous-deployment</span></code> repo.</p>
 <p>Open the <code class="docutils literal notranslate"><span class="pre">Dockerfile</span></code> and bump the <code class="docutils literal notranslate"><span class="pre">ARGO_CD_VERSION</span></code> to the new ArgoCD Version. If upgrading <code class="docutils literal notranslate"><span class="pre">KSOPS</span></code> then also bump <code class="docutils literal notranslate"><span class="pre">KSOPS_VERSION</span></code> to the newer version. Similarly change <code class="docutils literal notranslate"><span class="pre">SOPS_VERSION</span></code> and <code class="docutils literal notranslate"><span class="pre">HELM_SECRETS_VERSION</span></code> if needed.</p>
 <p>Create a pull request.</p>
-</div>
-<div class="section" id="create-tag-release">
-<h3>Create tag release<a class="headerlink" href="#create-tag-release" title="Permalink to this headline">¶</a></h3>
+</section>
+<section id="create-tag-release">
+<h3>Create tag release<a class="headerlink" href="#create-tag-release" title="Permalink to this headline">#</a></h3>
 <p>Once it’s merged create a new tag in the <code class="docutils literal notranslate"><span class="pre">operate-first/continuous-deployment</span></code> in the form of <code class="docutils literal notranslate"><span class="pre">vX.X.X-Y</span></code>, where <code class="docutils literal notranslate"><span class="pre">X.X.X-Y</span></code> should resolve to the version number as described <a class="reference external" href="#determine-version-number">here</a>. This tag will be used by downstream, and should never be changed once it’s created.</p>
 <p>Once the tag is created, a bot will create the build and publish it to <a class="reference external" href="https://quay.io/operate-first/argocd">https://quay.io/operate-first/argocd</a>.</p>
-</div>
-</div>
-<div class="section" id="changes-to-operate-first-apps">
-<h2>Changes to operate-first/apps<a class="headerlink" href="#changes-to-operate-first-apps" title="Permalink to this headline">¶</a></h2>
+</section>
+</section>
+<section id="changes-to-operate-first-apps">
+<h2>Changes to operate-first/apps<a class="headerlink" href="#changes-to-operate-first-apps" title="Permalink to this headline">#</a></h2>
 <p>Fork/Clone the <code class="docutils literal notranslate"><span class="pre">operate-first/apps</span></code> repo.</p>
-<div class="section" id="updating-redis-image">
-<h3>Updating Redis image<a class="headerlink" href="#updating-redis-image" title="Permalink to this headline">¶</a></h3>
+<section id="updating-redis-image">
+<h3>Updating Redis image<a class="headerlink" href="#updating-redis-image" title="Permalink to this headline">#</a></h3>
 <p>Upstream uses <code class="docutils literal notranslate"><span class="pre">redis</span></code> on docker for their image, we prefer to use <code class="docutils literal notranslate"><span class="pre">quay</span></code> so we don’t encounter rate-limit issues. Unfortunately this means we need to also push a new <code class="docutils literal notranslate"><span class="pre">redis</span></code> image to our <code class="docutils literal notranslate"><span class="pre">quay</span></code> org whenever newer <code class="docutils literal notranslate"><span class="pre">redis</span></code> is introduced in <code class="docutils literal notranslate"><span class="pre">ArgoCD</span></code>.</p>
 <p>Check <a class="reference external" href="https://github.com/argoproj/argo-cd/blob/master/manifests/install.yaml">here</a>, under the tag appropriate ArgoCD version tag. Search for the <code class="docutils literal notranslate"><span class="pre">redis</span></code> deployment and see if the tag version for <code class="docutils literal notranslate"><span class="pre">redis</span></code> under <code class="docutils literal notranslate"><span class="pre">containers/0/image</span></code> has been updated. If it has, then push this new image onto <code class="docutils literal notranslate"><span class="pre">quay.io/operate-first/redis</span></code>. For example, if adding <code class="docutils literal notranslate"><span class="pre">redis:5.0.10-alpine</span></code> we would do the following:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ podman pull redis:5.0.10-alpine
@@ -958,9 +1063,9 @@ $ podman push redis:5.0.10-alpine quay.io/operate-first/redis:5.0.10-alpine
 <span class="w">    </span><span class="nt">newTag</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">5.0.10-alpine</span><span class="w"></span>
 </pre></div>
 </div>
-</div>
-<div class="section" id="update-argocd-manifests">
-<h3>Update ArgoCD Manifests<a class="headerlink" href="#update-argocd-manifests" title="Permalink to this headline">¶</a></h3>
+</section>
+<section id="update-argocd-manifests">
+<h3>Update ArgoCD Manifests<a class="headerlink" href="#update-argocd-manifests" title="Permalink to this headline">#</a></h3>
 <p>If updating ArgoCD’s version, perform the following:</p>
 <ul>
 <li><p>Bump image ref to the new custom image in the root <code class="docutils literal notranslate"><span class="pre">Kustomization</span></code> <a class="reference external" href="https://github.com/operate-first/apps/blob/master/argocd/base/kustomization.yaml#L4">here</a>.</p></li>
@@ -973,9 +1078,9 @@ $ ./scripts/argocd/update_cluster_resources.sh <span class="si">${</span><span c
 </li>
 <li><p>Do a search for other references to <code class="docutils literal notranslate"><span class="pre">github.com/argoproj/argo-cd</span></code> update accordingly where applicable.</p></li>
 </ul>
-</div>
-<div class="section" id="update-container-images">
-<h3>Update Container Images<a class="headerlink" href="#update-container-images" title="Permalink to this headline">¶</a></h3>
+</section>
+<section id="update-container-images">
+<h3>Update Container Images<a class="headerlink" href="#update-container-images" title="Permalink to this headline">#</a></h3>
 <p>Under the <code class="docutils literal notranslate"><span class="pre">images</span></code> section <a class="reference external" href="https://github.com/operate-first/apps/blob/master/argocd/base/kustomization.yaml#L16">here</a>, update the <code class="docutils literal notranslate"><span class="pre">operate-first/argocd</span></code> tag to <code class="docutils literal notranslate"><span class="pre">vX.X.X-Y</span></code>. For example, if updating to <code class="docutils literal notranslate"><span class="pre">v1.8.1-2</span></code> we would have the following new image in our <code class="docutils literal notranslate"><span class="pre">Kustomization</span></code>:</p>
 <div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">argoproj/argocd</span><span class="w"></span>
 <span class="w">    </span><span class="nt">newName</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">quay.io/operate-first/argocd</span><span class="w"></span>
@@ -983,18 +1088,18 @@ $ ./scripts/argocd/update_cluster_resources.sh <span class="si">${</span><span c
 </pre></div>
 </div>
 <p>Run a manual <code class="docutils literal notranslate"><span class="pre">kustomize</span> <span class="pre">build</span></code> for the <code class="docutils literal notranslate"><span class="pre">argocd</span></code> overlay, and ensure that the images are updated in the deployment specs as intended.</p>
-</div>
-</div>
-<div class="section" id="changes-to-operate-first-toolbox">
-<h2>Changes to operate-first/toolbox<a class="headerlink" href="#changes-to-operate-first-toolbox" title="Permalink to this headline">¶</a></h2>
+</section>
+</section>
+<section id="changes-to-operate-first-toolbox">
+<h2>Changes to operate-first/toolbox<a class="headerlink" href="#changes-to-operate-first-toolbox" title="Permalink to this headline">#</a></h2>
 <p>If updating any of the custom tooling (e.g. sops, ksops, helm, helm-secrets, etc.), these changes should also be brought to <code class="docutils literal notranslate"><span class="pre">operate-first/toolbox</span></code>, simply update the Dockerfile <a class="reference external" href="https://github.com/operate-first/toolbox/blob/master/Dockerfile">here</a>, you will likely only need to update the version variables.</p>
 <p>Update the version in the readme (to the version we’ll be tagging), and cut a new tag so that a new tag-release build is initiated.</p>
-</div>
-<div class="section" id="update-docs">
-<h2>Update Docs<a class="headerlink" href="#update-docs" title="Permalink to this headline">¶</a></h2>
+</section>
+<section id="update-docs">
+<h2>Update Docs<a class="headerlink" href="#update-docs" title="Permalink to this headline">#</a></h2>
 <p>We make an attempt to list the current versions of our tooling <a class="reference external" href="https://github.com/operate-first/continuous-deployment/blob/master/README.md">here</a>. So update these accordingly.</p>
-</div>
-</div>
+</section>
+</section>
 
     <script type="text/x-thebe-config">
     {
@@ -1018,9 +1123,11 @@ $ ./scripts/argocd/update_cluster_resources.sh <span class="si">${</span><span c
 
               </div>
               
-            
-                <!-- Previous / next buttons -->
-<div class='prev-next-area'> 
+            </main>
+            <footer class="footer-article noprint">
+                
+    <!-- Previous / next buttons -->
+<div class='prev-next-area'>
     <a class='left-prev' id="prev-link" href="setup_argocd_dev_environment.html" title="previous page">
         <i class="fas fa-angle-left"></i>
         <div class="prev-next-info">
@@ -1036,24 +1143,28 @@ $ ./scripts/argocd/update_cluster_resources.sh <span class="si">${</span><span c
     <i class="fas fa-angle-right"></i>
     </a>
 </div>
-            
+            </footer>
         </div>
     </div>
-    <footer class="footer">
-  <p>
+    <div class="footer-content row">
+        <footer class="col footer"><p>
+  
+    By Operate First Authors<br/>
+  
+      &copy; Copyright 2022.<br/>
+</p>
+        </footer>
+    </div>
     
-      By Operate First Authors<br/>
-    
-        &copy; Copyright 2021.<br/>
-  </p>
-</footer>
-</main>
+</div>
 
 
       </div>
     </div>
   
-  <script src="../../_static/js/index.be7d3bbb2ef33a8344ce.js"></script>
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../../_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf"></script>
+
 
   </body>
 </html>

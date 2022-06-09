@@ -4,11 +4,13 @@
 <html>
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
     <title>How to add a new cluster to Operate First &#8212; GitOps Docs</title>
     
-  <link href="../../_static/css/theme.css" rel="stylesheet">
-  <link href="../../_static/css/index.ff1ffe594081f20da1ef19478df9384b.css" rel="stylesheet">
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../../_static/styles/theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
+<link href="../../_static/styles/pydata-sphinx-theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
 
     
   <link rel="stylesheet"
@@ -18,20 +20,16 @@
   <link rel="preload" as="font" type="font/woff2" crossorigin
     href="../../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
 
-    
-      
-
-    
     <link rel="stylesheet" type="text/css" href="../../_static/pygments.css" />
-    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-book-theme.css?digest=c3fdc42140077d1ad13ad2f1588a4309" />
+    <link rel="stylesheet" href="../../_static/styles/sphinx-book-theme.css?digest=62ba249389abaaa9ffc34bf36a076bdc1d65ee18" type="text/css" />
     <link rel="stylesheet" type="text/css" href="../../_static/togglebutton.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/mystnb.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/sphinx-thebe.css" />
-    <link rel="stylesheet" type="text/css" href="../../_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
-    <link rel="stylesheet" type="text/css" href="../../_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/design-style.b7bb847fb20b106c3d81b95245e65545.min.css" />
     
-  <link rel="preload" as="script" href="../../_static/js/index.be7d3bbb2ef33a8344ce.js">
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../../_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf">
 
     <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
     <script src="../../_static/jquery.js"></script>
@@ -39,12 +37,13 @@
     <script src="../../_static/doctools.js"></script>
     <script src="../../_static/clipboard.min.js"></script>
     <script src="../../_static/copybutton.js"></script>
+    <script src="../../_static/scripts/sphinx-book-theme.js?digest=f31d14ad54b65d19161ba51d4ffff3a77ae00456"></script>
     <script>let toggleHintShow = 'Click to show';</script>
     <script>let toggleHintHide = 'Click to hide';</script>
     <script>let toggleOpenOnPrint = 'true';</script>
     <script src="../../_static/togglebutton.js"></script>
     <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
-    <script src="../../_static/sphinx-book-theme.d59cb220de22ca1c485ebbdc042f0030.js"></script>
+    <script src="../../_static/design-tabs.js"></script>
     <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
 const thebe_selector = ".thebe,.cell"
 const thebe_selector_input = "pre"
@@ -63,7 +62,21 @@ const thebe_selector_output = ".output, .cell_output"
     <!-- Google Analytics -->
     
   </head>
-  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="60">
+<!-- Checkboxes to toggle the left sidebar -->
+<input type="checkbox" class="sidebar-toggle" name="__navigation" id="__navigation" aria-label="Toggle navigation sidebar">
+<label class="overlay overlay-navbar" for="__navigation">
+    <div class="visually-hidden">Toggle navigation sidebar</div>
+</label>
+<!-- Checkboxes to toggle the in-page toc -->
+<input type="checkbox" class="sidebar-toggle" name="__page-toc" id="__page-toc" aria-label="Toggle in-page Table of Contents">
+<label class="overlay overlay-pagetoc" for="__page-toc">
+    <div class="visually-hidden">Toggle in-page Table of Contents</div>
+</label>
+<!-- Headers at the top -->
+<div class="announcement header-item noprint"></div>
+<div class="header header-item noprint"></div>
+
     
     <div class="container-fluid" id="banner"></div>
 
@@ -72,9 +85,10 @@ const thebe_selector_output = ".output, .cell_output"
     <div class="container-xl">
       <div class="row">
           
-<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
-    
-        <div class="navbar-brand-box">
+<!-- Sidebar -->
+<div class="bd-sidebar noprint" id="site-navigation">
+    <div class="bd-sidebar__content">
+        <div class="bd-sidebar__top"><div class="navbar-brand-box">
     <a class="navbar-brand text-wrap" href="../../index.html">
       
         <!-- `logo` is deprecated in Sphinx 4.0, so remove this when we stop supporting 3 -->
@@ -92,14 +106,15 @@ const thebe_selector_output = ".output, .cell_output"
   <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
 </form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
     <div class="bd-toc-item active">
-        <ul class="nav bd-sidenav">
- <li class="toctree-l1">
-  <a class="reference internal" href="../README.html">
-   GitOps Documentation
-  </a>
- </li>
-</ul>
-<p aria-level="2" class="caption" role="heading">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="../README.html">
+                    GitOps Documentation
+                </a>
+            </li>
+        </ul>
+        <p aria-level="2" class="caption" role="heading">
  <span class="caption-text">
   GitOps
  </span>
@@ -690,107 +705,209 @@ const thebe_selector_output = ".output, .cell_output"
 </ul>
 
     </div>
-</nav> <!-- To handle the deprecated key -->
-
-<div class="navbar_extra_footer">
-  Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
-</div>
-
-</div>
-
-
-          
-
-
-          
-<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
-    
-    <div class="topbar container-xl fixed-top">
-    <div class="topbar-contents row">
-        <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show"></div>
-        <div class="col pl-md-4 topbar-main">
+</nav></div>
+        <div class="bd-sidebar__bottom">
+             <!-- To handle the deprecated key -->
             
-            <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
-                data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
-                aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
-                title="Toggle navigation" data-toggle="tooltip" data-placement="left">
-                <i class="fas fa-bars"></i>
-                <i class="fas fa-arrow-left"></i>
-                <i class="fas fa-arrow-up"></i>
-            </button>
-            
-            
-<div class="dropdown-buttons-trigger">
-    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
-            class="fas fa-download"></i></button>
-
-    <div class="dropdown-buttons">
-        <!-- ipynb file if we had a myst markdown file -->
-        
-        <!-- Download raw file -->
-        <a class="dropdown-buttons" href="../../_sources/content/notebooks/onboarding_new_cluster.ipynb"><button type="button"
-                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
-                data-placement="left">.ipynb</button></a>
-        <!-- Download PDF via print -->
-        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
-                onclick="printPdf(this)" data-toggle="tooltip" data-placement="left">.pdf</button>
-    </div>
-</div>
-
-            <!-- Source interaction buttons -->
-
-<div class="dropdown-buttons-trigger">
-    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
-        aria-label="Connect with source repository"><i class="fab fa-github"></i></button>
-    <div class="dropdown-buttons sourcebuttons">
-        <a class="repository-button"
-            href="https://github.com/operate-first/apps"><button type="button" class="btn btn-secondary topbarbtn"
-                data-toggle="tooltip" data-placement="left" title="Source repository"><i
-                    class="fab fa-github"></i>repository</button></a>
-        <a class="issues-button"
-            href="https://github.com/operate-first/apps/issues/new?title=Issue%20on%20page%20%2Fcontent/notebooks/onboarding_new_cluster.html&body=Your%20issue%20content%20here."><button
-                type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
-                title="Open an issue"><i class="fas fa-lightbulb"></i>open issue</button></a>
-        
-    </div>
-</div>
-
-            <!-- Full screen (wrap in <a> to have style consistency -->
-
-<a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
-        data-placement="bottom" onclick="toggleFullScreen()" aria-label="Fullscreen mode"
-        title="Fullscreen mode"><i
-            class="fas fa-expand"></i></button></a>
-
-            <!-- Launch buttons -->
-
-<div class="dropdown-buttons-trigger">
-    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
-        aria-label="Launch interactive content"><i class="fas fa-rocket"></i></button>
-    <div class="dropdown-buttons">
-        
-        <a class="binder-button" href="https://mybinder.org/v2/gh/operate-first/apps/master?urlpath=tree/docs/content/notebooks/onboarding_new_cluster.ipynb"><button type="button"
-                class="btn btn-secondary topbarbtn" title="Launch Binder" data-toggle="tooltip"
-                data-placement="left"><img class="binder-button-logo"
-                    src="../../_static/images/logo_binder.svg"
-                    alt="Interact on binder">Binder</button></a>
-        
-        
-        
-        
-    </div>
-</div>
-
-        </div>
-
-        <!-- Table of contents -->
-        <div class="d-none d-md-block col-md-2 bd-toc show noprint">
-            
-            <div class="tocsection onthispage pt-5 pb-3">
-                <i class="fas fa-list"></i> Contents
+            <div class="navbar_extra_footer">
+            Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
             </div>
-            <nav id="bd-toc-nav" aria-label="Page">
-                <ul class="visible nav section-nav flex-column">
+            
+        </div>
+    </div>
+    <div id="rtd-footer-container"></div>
+</div>
+
+
+          
+
+
+          
+<!-- A tiny helper pixel to detect if we've scrolled -->
+<div class="sbt-scroll-pixel-helper"></div>
+<!-- Main content -->
+<div class="col py-0 content-container">
+    
+    <div class="header-article row sticky-top noprint">
+        
+
+
+
+<div class="col py-1 d-flex header-article-main">
+    <div class="header-article__left">
+        
+        <label for="__navigation"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="right"
+title="Toggle navigation"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-bars"></i>
+  </span>
+
+</label>
+
+        
+    </div>
+    <div class="header-article__right">
+<div class="menu-dropdown menu-dropdown-launch-buttons">
+  <button class="headerbtn menu-dropdown__trigger"
+      aria-label="Launch interactive content">
+      <i class="fas fa-rocket"></i>
+  </button>
+  <div class="menu-dropdown__content">
+    <ul>
+      <li>
+        <a href="https://mybinder.org/v2/gh/operate-first/apps/master?urlpath=tree/docs/content/notebooks/onboarding_new_cluster.ipynb"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Launch on Binder"
+>
+  
+
+<span class="headerbtn__icon-container">
+  
+    <img src="../../_static/images/logo_binder.svg">
+  </span>
+<span class="headerbtn__text-container">Binder</span>
+</a>
+
+      </li>
+      
+    </ul>
+  </div>
+</div>
+
+<button onclick="toggleFullScreen()"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="bottom"
+title="Fullscreen mode"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+<div class="menu-dropdown menu-dropdown-repository-buttons">
+  <button class="headerbtn menu-dropdown__trigger"
+      aria-label="Source repositories">
+      <i class="fab fa-github"></i>
+  </button>
+  <div class="menu-dropdown__content">
+    <ul>
+      <li>
+        <a href="https://github.com/operate-first/apps"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Source repository"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="headerbtn__text-container">repository</span>
+</a>
+
+      </li>
+      
+      <li>
+        <a href="https://github.com/operate-first/apps/issues/new?title=Issue%20on%20page%20%2Fcontent/notebooks/onboarding_new_cluster.html&body=Your%20issue%20content%20here."
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Open an issue"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="headerbtn__text-container">open issue</span>
+</a>
+
+      </li>
+      
+    </ul>
+  </div>
+</div>
+
+<div class="menu-dropdown menu-dropdown-download-buttons">
+  <button class="headerbtn menu-dropdown__trigger"
+      aria-label="Download this page">
+      <i class="fas fa-download"></i>
+  </button>
+  <div class="menu-dropdown__content">
+    <ul>
+      <li>
+        <a href="../../_sources/content/notebooks/onboarding_new_cluster.ipynb"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Download source file"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="headerbtn__text-container">.ipynb</span>
+</a>
+
+      </li>
+      
+      <li>
+        
+<button onclick="printPdf(this)"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="left"
+title="Print to PDF"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="headerbtn__text-container">.pdf</span>
+</button>
+
+      </li>
+      
+    </ul>
+  </div>
+</div>
+<label for="__page-toc"
+  class="headerbtn headerbtn-page-toc"
+  
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-list"></i>
+  </span>
+
+</label>
+
+    </div>
+</div>
+
+<!-- Table of contents -->
+<div class="col-md-3 bd-toc show noprint">
+    <div class="tocsection onthispage pt-5 pb-3">
+        <i class="fas fa-list"></i> Contents
+    </div>
+    <nav id="bd-toc-nav" aria-label="Page">
+        <ul class="visible nav section-nav flex-column">
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#prerequisites">
    Prerequisites
@@ -901,12 +1018,11 @@ const thebe_selector_output = ".output, .cell_output"
  </li>
 </ul>
 
-            </nav>
-        </div>
-    </div>
+    </nav>
 </div>
-    <div id="main-content" class="row">
-        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
+    </div>
+    <div class="article row">
+        <div class="col pl-md-3 pl-lg-5 content-container">
             <!-- Table of contents that is only displayed when printing the page -->
             <div id="jb-print-docs-body" class="onlyprint">
                 <h1>How to add a new cluster to Operate First</h1>
@@ -1033,22 +1149,23 @@ const thebe_selector_output = ".output, .cell_output"
                     </div>
                 </div>
             </div>
-            
+            <main id="main-content" role="main">
+                
               <div>
                 
-  <div class="tex2jax_ignore mathjax_ignore section" id="how-to-add-a-new-cluster-to-operate-first">
-<h1>How to add a new cluster to Operate First<a class="headerlink" href="#how-to-add-a-new-cluster-to-operate-first" title="Permalink to this headline">¶</a></h1>
+  <section class="tex2jax_ignore mathjax_ignore" id="how-to-add-a-new-cluster-to-operate-first">
+<h1>How to add a new cluster to Operate First<a class="headerlink" href="#how-to-add-a-new-cluster-to-operate-first" title="Permalink to this headline">#</a></h1>
 <p>In this guide we will explore how to onboard a cluster to the Operate First community. This document covers a journey from a standalone cluster to cluster which is centrally managed by the Operate First Ops team via GitOps.</p>
-<div class="section" id="prerequisites">
-<h2>Prerequisites<a class="headerlink" href="#prerequisites" title="Permalink to this headline">¶</a></h2>
+<section id="prerequisites">
+<h2>Prerequisites<a class="headerlink" href="#prerequisites" title="Permalink to this headline">#</a></h2>
 <ul class="contains-task-list simple">
 <li class="task-list-item"><p><input class="task-list-item-checkbox" checked="checked" disabled="disabled" type="checkbox"> The cluster which is being onboarded must already exist and run OpenShift.</p></li>
 <li class="task-list-item"><p><input class="task-list-item-checkbox" checked="checked" disabled="disabled" type="checkbox"> The cluster is imported to the Operate First’s Advanced cluster management (ACM).</p></li>
 </ul>
 <p>If you need help to fulfill either of the prerequisites, please raise an issue in the support repository <a class="reference external" href="https://github.com/operate-first/support/issues">here</a>.</p>
-</div>
-<div class="section" id="outcomes">
-<h2>Outcomes<a class="headerlink" href="#outcomes" title="Permalink to this headline">¶</a></h2>
+</section>
+<section id="outcomes">
+<h2>Outcomes<a class="headerlink" href="#outcomes" title="Permalink to this headline">#</a></h2>
 <ul class="contains-task-list simple">
 <li class="task-list-item"><p><input class="task-list-item-checkbox" disabled="disabled" type="checkbox"> A pull request against the <code class="docutils literal notranslate"><span class="pre">operate-first/apps</span></code> repository.</p></li>
 </ul>
@@ -1058,18 +1175,18 @@ const thebe_selector_output = ".output, .cell_output"
 <li class="task-list-item"><p><input class="task-list-item-checkbox" disabled="disabled" type="checkbox"> Operate First’s SSO is used as identity provider by OpenShift.</p></li>
 <li class="task-list-item"><p><input class="task-list-item-checkbox" disabled="disabled" type="checkbox"> Operate First’s integrated metrics and alerting federation is deployed to the cluster.</p></li>
 </ul>
-</div>
-<div class="section" id="introduction">
-<h2>Introduction<a class="headerlink" href="#introduction" title="Permalink to this headline">¶</a></h2>
+</section>
+<section id="introduction">
+<h2>Introduction<a class="headerlink" href="#introduction" title="Permalink to this headline">#</a></h2>
 <p>All manifests for all the workloads owned by Operate First Ops team are maintained in the <code class="docutils literal notranslate"><span class="pre">operate-first/apps</span></code> repository following the <a class="reference external" href="https://kubernetes.io/docs/tasks/manage-kubernetes-objects/kustomization/">Kustomize best practices</a>.</p>
 <p>The <code class="docutils literal notranslate"><span class="pre">cluster-scope</span></code> folder in this repo stores all privileged resources that are usually not allowed to be deployed by regular project admin and requires elevated access like cluster-admin role.</p>
 <p>If you want to know more about the overall design please consult Operate First’s <a class="reference external" href="https://www.operate-first.cloud/blueprints/blueprint/#architectural-decisions">Architectural Decision Records (ADR) archive</a>.</p>
 <p>For each cluster we have a separate overlay in the <code class="docutils literal notranslate"><span class="pre">cluster-scope</span></code> folder. Clusters are grouped grouped by region. For more information on this topic, see <a class="reference external" href="https://www.operate-first.cloud/blueprints/blueprint/docs/adr/0009-cluster-resources.md">ADR-0009 - Declarative Definitions for Cluster Scoped Resources</a>.</p>
-</div>
-<div class="section" id="steps">
-<h2>Steps<a class="headerlink" href="#steps" title="Permalink to this headline">¶</a></h2>
-<div class="section" id="define-important-variables">
-<h3>1. Define important variables<a class="headerlink" href="#define-important-variables" title="Permalink to this headline">¶</a></h3>
+</section>
+<section id="steps">
+<h2>Steps<a class="headerlink" href="#steps" title="Permalink to this headline">#</a></h2>
+<section id="define-important-variables">
+<h3>1. Define important variables<a class="headerlink" href="#define-important-variables" title="Permalink to this headline">#</a></h3>
 <p>In this guide we will use a couple of facts about the cluster. To make it easier to follow this guide, let’s define these valued beforehand.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -1093,9 +1210,9 @@ const thebe_selector_output = ".output, .cell_output"
 </div>
 </div>
 </div>
-</div>
-<div class="section" id="fork-and-clone-the-apps-repository">
-<h3>2. Fork and clone the apps repository<a class="headerlink" href="#fork-and-clone-the-apps-repository" title="Permalink to this headline">¶</a></h3>
+</section>
+<section id="fork-and-clone-the-apps-repository">
+<h3>2. Fork and clone the apps repository<a class="headerlink" href="#fork-and-clone-the-apps-repository" title="Permalink to this headline">#</a></h3>
 <p>Please fork/clone the <a class="reference external" href="https://github.com/operate-first/apps">operate-first/apps</a> repository. We’ll be working within this repository only.</p>
 <ol class="simple">
 <li><p>Go to <a class="reference external" href="https://github.com/operate-first/apps">operate-first/apps</a>.</p></li>
@@ -1123,9 +1240,9 @@ Resolving deltas: 100% (6290/6290), done.
 </div>
 </div>
 </div>
-</div>
-<div class="section" id="enable-argocd-management-in-acm">
-<h3>3. Enable ArgoCD management in ACM<a class="headerlink" href="#enable-argocd-management-in-acm" title="Permalink to this headline">¶</a></h3>
+</section>
+<section id="enable-argocd-management-in-acm">
+<h3>3. Enable ArgoCD management in ACM<a class="headerlink" href="#enable-argocd-management-in-acm" title="Permalink to this headline">#</a></h3>
 <p>The onboarded cluster is already being managed by ACM. Since Operate First manages its applications through ArgoCD and ACM can integrate with ArgoCD, we will use that. In the next cell we will let ACM setup a connection to the new cluster from our ArgoCD instance. Since ACM 2.3 this is achieved by declaring the cluster to be managed via a ArgoCD-enabled ClusterSet.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -1150,16 +1267,16 @@ Resolving deltas: 100% (6290/6290), done.
 </div>
 </div>
 </div>
-</div>
-<div class="section" id="enable-sso-login">
-<h3>4. Enable SSO login<a class="headerlink" href="#enable-sso-login" title="Permalink to this headline">¶</a></h3>
+</section>
+<section id="enable-sso-login">
+<h3>4. Enable SSO login<a class="headerlink" href="#enable-sso-login" title="Permalink to this headline">#</a></h3>
 <p>Next on the list of tasks that need to happen is to enable SSO for this cluster. Operate First SSO provides users a unified and seamless experience when accessing the cluster. To enable it, we need to setup 2 things:</p>
 <ol class="simple">
 <li><p>We need to inform the SSO server - a Keycloak instance, that this new cluster exists and that it is indeed a valid client.</p></li>
 <li><p>Configure cluster’s oauth controller to query our SSO for user identity.</p></li>
 </ol>
-<div class="section" id="configure-sso-server">
-<h4>1. Configure SSO server<a class="headerlink" href="#configure-sso-server" title="Permalink to this headline">¶</a></h4>
+<section id="configure-sso-server">
+<h4>1. Configure SSO server<a class="headerlink" href="#configure-sso-server" title="Permalink to this headline">#</a></h4>
 <p>The cell below will create a Keycloak client definition for the new cluster. SSO server is managed via <code class="docutils literal notranslate"><span class="pre">keycloak</span></code> folder in this repo, hence this cell creates a file at <code class="docutils literal notranslate"><span class="pre">keycloak/overlays/moc/infra/clients/$CLUSTER_NAME.yaml</span></code> and then encrypts it with sops. You can find the key to import from <a class="reference external" href="https://github.com/operate-first/apps/tree/master/cluster-scope/overlays/prod/moc#secret-management">here</a>:</p>
 <p>The <code class="docutils literal notranslate"><span class="pre">KeycloakClient</span></code> resource makes our SSO aware of the cluster’s presence - it configures and enables the cluster to a client to the SSO.</p>
 <div class="cell docutils container">
@@ -1211,9 +1328,9 @@ Writing &#39;text_input&#39; (str) to file &#39;keycloak/overlays/moc/infra/clie
 </div>
 </div>
 </div>
-</div>
-<div class="section" id="configure-sso-as-identity-provider-for-the-cluster">
-<h4>2. Configure SSO as identity provider for the cluster<a class="headerlink" href="#configure-sso-as-identity-provider-for-the-cluster" title="Permalink to this headline">¶</a></h4>
+</section>
+<section id="configure-sso-as-identity-provider-for-the-cluster">
+<h4>2. Configure SSO as identity provider for the cluster<a class="headerlink" href="#configure-sso-as-identity-provider-for-the-cluster" title="Permalink to this headline">#</a></h4>
 <p>Now we need to configure the cluster’s OAuth controller so it uses Opereate First SSO as an identity provider.</p>
 <p>Below we will create a <code class="docutils literal notranslate"><span class="pre">operate-first-sso-secret</span></code> secret resource and encrypt it with sops. This secret contains cluster’s SSO credentials which matches the SSO server configuration above.</p>
 <p>Then we reference this secret in the OAuth configuration for OpenShift. The <code class="docutils literal notranslate"><span class="pre">OAuth</span></code> resource defines identity providers available to users when authenticating to the cluster.</p>
@@ -1310,10 +1427,10 @@ Writing &#39;text_input&#39; (str) to file &#39;keycloak/overlays/moc/infra/clie
 </div>
 </div>
 </div>
-</div>
-</div>
-<div class="section" id="create-a-cluster-admins-group">
-<h3>5. Create a cluster admins group<a class="headerlink" href="#create-a-cluster-admins-group" title="Permalink to this headline">¶</a></h3>
+</section>
+</section>
+<section id="create-a-cluster-admins-group">
+<h3>5. Create a cluster admins group<a class="headerlink" href="#create-a-cluster-admins-group" title="Permalink to this headline">#</a></h3>
 <p>Now we can assume we have Operate First SSO enabled on the cluster, hence we can start using GitHub accounts as user names on the cluster. Let’s use that to declare cluster admins for this particular cluster. While cluster admins have full access to the cluster, all changes should always be done via GitOps. In general, we think of cluster admins as an emergency break in case we need to investigate or act quickly.</p>
 <p>Please be advised that Keycloak converts all usernames to lowercase and OpenShift RBAC is case sensitive, hence we convert all GitHub usernames to lowercase and reference them in OpenShift as such.</p>
 <p>By executing the following cell you will create a file <code class="docutils literal notranslate"><span class="pre">cluster-scope/overlays/prod/$CLUSTER_REGION/$CLUSTER_NAME/groups/cluster-admins.yaml</span></code>.</p>
@@ -1337,9 +1454,9 @@ Writing &#39;text_input&#39; (str) to file &#39;keycloak/overlays/moc/infra/clie
 </div>
 </div>
 </div>
-</div>
-<div class="section" id="stitch-things-together-via-kustomize">
-<span id="content-references-stich-kustomize"></span><h3>6. Stitch things together via Kustomize<a class="headerlink" href="#stitch-things-together-via-kustomize" title="Permalink to this headline">¶</a></h3>
+</section>
+<section id="stitch-things-together-via-kustomize">
+<span id="content-references-stich-kustomize"></span><h3>6. Stitch things together via Kustomize<a class="headerlink" href="#stitch-things-together-via-kustomize" title="Permalink to this headline">#</a></h3>
 <p>Now we have many different isolated bits and pieces of configuration defined and modified for our cluster. In order to apply those changes we need to render all those manifests together and instruct ArgoCD to deploy it. First things first, let’s combine those manifests now.</p>
 <p>We use Kustomize to compose manifests. This tool requires a <code class="docutils literal notranslate"><span class="pre">kustomization.yaml</span></code> file as the base manifest. This file instructs Kustomize which resource files to pull and how to overlay and render them together. In this particular case it serves us as the single source of truth for what gets configured on each cluster when it comes to the privileged resources.</p>
 <p>The following cell will create a <code class="docutils literal notranslate"><span class="pre">kustomization.yaml</span></code> file in <code class="docutils literal notranslate"><span class="pre">cluster-scope/overlays/prod/$CLUSTER_REGION/$CLUSTER_NAME</span></code> and bootstraps it with:</p>
@@ -1378,12 +1495,12 @@ Writing &#39;text_input&#39; (str) to file &#39;keycloak/overlays/moc/infra/clie
 </div>
 </div>
 </div>
-</div>
-<div class="section" id="enable-monitoring-and-alerting">
-<span id="content-references-enable-monitoring"></span><h3>7. Enable monitoring and alerting<a class="headerlink" href="#enable-monitoring-and-alerting" title="Permalink to this headline">¶</a></h3>
+</section>
+<section id="enable-monitoring-and-alerting">
+<span id="content-references-enable-monitoring"></span><h3>7. Enable monitoring and alerting<a class="headerlink" href="#enable-monitoring-and-alerting" title="Permalink to this headline">#</a></h3>
 <p>We follow the recommended practices by OpenShift upstream, that means we support User Workload Monitoring on our clusters. And since Operate First is a community cloud, we are aiming to be transparent about alerts fired by the cluster itself. In this step we will enable User Workload Monitoring, then we’ll bring in an alert receiver for GitHub that funnels alerts from the cluster and files them as GitHub Issues.</p>
-<div class="section" id="enable-user-workload-monitoring">
-<h4>1. Enable User Workload Monitoring<a class="headerlink" href="#enable-user-workload-monitoring" title="Permalink to this headline">¶</a></h4>
+<section id="enable-user-workload-monitoring">
+<h4>1. Enable User Workload Monitoring<a class="headerlink" href="#enable-user-workload-monitoring" title="Permalink to this headline">#</a></h4>
 <p>User Workload Monitoring can be enabled via a simple configuration change in the <code class="docutils literal notranslate"><span class="pre">cluster-monitoring-config</span></code> ConfigMap in the <code class="docutils literal notranslate"><span class="pre">openshift-monitoring</span></code> namespace. Since we apply this change to most of the clusters, we host it in the <code class="docutils literal notranslate"><span class="pre">cluster-scope/base</span></code>. To apply this change to the new cluster, all we have to do is to pull the resource in to the overlay we created in previous step.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -1392,9 +1509,9 @@ Writing &#39;text_input&#39; (str) to file &#39;keycloak/overlays/moc/infra/clie
 </div>
 </div>
 </div>
-</div>
-<div class="section" id="deploy-alert-receiver-for-github">
-<h4>2. Deploy alert receiver for Github<a class="headerlink" href="#deploy-alert-receiver-for-github" title="Permalink to this headline">¶</a></h4>
+</section>
+<section id="deploy-alert-receiver-for-github">
+<h4>2. Deploy alert receiver for Github<a class="headerlink" href="#deploy-alert-receiver-for-github" title="Permalink to this headline">#</a></h4>
 <p>Alert receiver configuration is also well known and already defined. However since this is a standalone application, we need a separate overlay for it in folder which belongs to this application - <code class="docutils literal notranslate"><span class="pre">alertreceiver</span></code> folder. In the next cell we will create a new overlay in there (patching the static labels assigned to each alert originating from this cluster). Then we’ll update the <code class="docutils literal notranslate"><span class="pre">cluster-scope</span></code> overlay we’ve created in the step <a class="reference internal" href="#content-references-stich-kustomize"><span class="std std-ref">6. Stitch things together via Kustomize</span></a> of this guide by requesting a namespace for the alert receiver to be created.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -1432,10 +1549,10 @@ Writing &#39;text_input&#39; (str) to file &#39;keycloak/overlays/moc/infra/clie
 </div>
 </div>
 </div>
-</div>
-</div>
-<div class="section" id="create-argocd-apps-for-this-cluster">
-<h3>8. Create ArgoCD apps for this cluster<a class="headerlink" href="#create-argocd-apps-for-this-cluster" title="Permalink to this headline">¶</a></h3>
+</section>
+</section>
+<section id="create-argocd-apps-for-this-cluster">
+<h3>8. Create ArgoCD apps for this cluster<a class="headerlink" href="#create-argocd-apps-for-this-cluster" title="Permalink to this headline">#</a></h3>
 <p>At this point we have created, modified and updated all necessary manifests that are needed for a cluster to be properly managed. The remaining step now is to make ArgoCD aware that those manifests exists and how it can deploy and monitor them for us.</p>
 <p>In this step we will create:</p>
 <ol class="simple">
@@ -1444,8 +1561,8 @@ Writing &#39;text_input&#39; (str) to file &#39;keycloak/overlays/moc/infra/clie
 <li><p>An application which deploys the alertreceiver (from the <code class="docutils literal notranslate"><span class="pre">alertreceiver</span></code> folder).</p></li>
 <li><p>We will enable this cluster to be targeted by ArgoCD project for Operate First management applications.</p></li>
 </ol>
-<div class="section" id="create-the-app-of-apps">
-<h4>1. Create the App-of-apps<a class="headerlink" href="#create-the-app-of-apps" title="Permalink to this headline">¶</a></h4>
+<section id="create-the-app-of-apps">
+<h4>1. Create the App-of-apps<a class="headerlink" href="#create-the-app-of-apps" title="Permalink to this headline">#</a></h4>
 <p>First we will create the app-of-apps application for this cluster. It’s an application which points to other application manifests. This pattern allows us to automate deployment of future ArgoCD applications that we will want to deploy to this cluster.</p>
 <p>Since we assume ArgoCD to be yet another regular application we host manifests which helps to configure it in the <code class="docutils literal notranslate"><span class="pre">argocd</span></code> folder. We host a single instance of it, so we’ll be working within the <code class="docutils literal notranslate"><span class="pre">argocd/overlays/moc-infra/</span></code></p>
 <p>In this step we will create an <code class="docutils literal notranslate"><span class="pre">Application</span></code> resource which points to <code class="docutils literal notranslate"><span class="pre">argocd/overlays/moc-infra/applications/envs/$CLUSTER_REGION/$CLUSTER_NAME</span></code>. That is exactly where we will keep all other <code class="docutils literal notranslate"><span class="pre">Application</span></code> resources for this cluster. Once the app-of-apps resource manifest is created, we’ll add it to the Kustomization at <code class="docutils literal notranslate"><span class="pre">argocd/overlays/moc-infra/applications/app-of-apps/kustomization.yaml</span></code>.</p>
@@ -1496,9 +1613,9 @@ Writing &#39;text_input&#39; (str) to file &#39;keycloak/overlays/moc/infra/clie
 </div>
 </div>
 </div>
-</div>
-<div class="section" id="application-for-privileged-resource">
-<h4>2. Application for privileged resource<a class="headerlink" href="#application-for-privileged-resource" title="Permalink to this headline">¶</a></h4>
+</section>
+<section id="application-for-privileged-resource">
+<h4>2. Application for privileged resource<a class="headerlink" href="#application-for-privileged-resource" title="Permalink to this headline">#</a></h4>
 <p>Now let’s add our first application to this folder. This application should source the overlay in the <code class="docutils literal notranslate"><span class="pre">cluster-scope</span></code> folder, which we’ve created at <a class="reference internal" href="#content-references-stich-kustomize"><span class="std std-ref">6. Stitch things together via Kustomize</span></a> step.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -1585,9 +1702,9 @@ Global Flags:
 </div>
 </div>
 </div>
-</div>
-<div class="section" id="application-for-alert-receiver">
-<h4>3. Application for alert receiver<a class="headerlink" href="#application-for-alert-receiver" title="Permalink to this headline">¶</a></h4>
+</section>
+<section id="application-for-alert-receiver">
+<h4>3. Application for alert receiver<a class="headerlink" href="#application-for-alert-receiver" title="Permalink to this headline">#</a></h4>
 <p>Next up is the alert receiver. We need to create an Application resource for it as well. It will point to the <code class="docutils literal notranslate"><span class="pre">alertreceiver</span></code> overlay we’ve created in the step <a class="reference internal" href="#content-references-enable-monitoring"><span class="std std-ref">7. Enable monitoring and alerting</span></a>.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -1625,11 +1742,11 @@ Global Flags:
 </div>
 </div>
 </div>
-</div>
-</div>
-</div>
-<div class="section" id="finalize">
-<h2>Finalize<a class="headerlink" href="#finalize" title="Permalink to this headline">¶</a></h2>
+</section>
+</section>
+</section>
+<section id="finalize">
+<h2>Finalize<a class="headerlink" href="#finalize" title="Permalink to this headline">#</a></h2>
 <p>Please stage your changes and send them as a PR against the <a class="reference external" href="https://github.com/operate-first/apps">operate-first/apps</a> repository.</p>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
@@ -1713,8 +1830,8 @@ To https://github.com/tumido/apps.git
 </div>
 </div>
 </div>
-</div>
-</div>
+</section>
+</section>
 
     <script type="text/x-thebe-config">
     {
@@ -1738,9 +1855,11 @@ To https://github.com/tumido/apps.git
 
               </div>
               
-            
-                <!-- Previous / next buttons -->
-<div class='prev-next-area'> 
+            </main>
+            <footer class="footer-article noprint">
+                
+    <!-- Previous / next buttons -->
+<div class='prev-next-area'>
     <a class='left-prev' id="prev-link" href="increase_pvc_size.html" title="previous page">
         <i class="fas fa-angle-left"></i>
         <div class="prev-next-info">
@@ -1756,24 +1875,28 @@ To https://github.com/tumido/apps.git
     <i class="fas fa-angle-right"></i>
     </a>
 </div>
-            
+            </footer>
         </div>
     </div>
-    <footer class="footer">
-  <p>
+    <div class="footer-content row">
+        <footer class="col footer"><p>
+  
+    By Operate First Authors<br/>
+  
+      &copy; Copyright 2022.<br/>
+</p>
+        </footer>
+    </div>
     
-      By Operate First Authors<br/>
-    
-        &copy; Copyright 2021.<br/>
-  </p>
-</footer>
-</main>
+</div>
 
 
       </div>
     </div>
   
-  <script src="../../_static/js/index.be7d3bbb2ef33a8344ce.js"></script>
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../../_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf"></script>
+
 
   </body>
 </html>

@@ -4,11 +4,13 @@
 <html>
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
     <title>JupyterHub Runbook &#8212; GitOps Docs</title>
     
-  <link href="../../../_static/css/theme.css" rel="stylesheet">
-  <link href="../../../_static/css/index.ff1ffe594081f20da1ef19478df9384b.css" rel="stylesheet">
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../../../_static/styles/theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
+<link href="../../../_static/styles/pydata-sphinx-theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
 
     
   <link rel="stylesheet"
@@ -18,20 +20,16 @@
   <link rel="preload" as="font" type="font/woff2" crossorigin
     href="../../../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
 
-    
-      
-
-    
     <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css" />
-    <link rel="stylesheet" type="text/css" href="../../../_static/sphinx-book-theme.css?digest=c3fdc42140077d1ad13ad2f1588a4309" />
+    <link rel="stylesheet" href="../../../_static/styles/sphinx-book-theme.css?digest=62ba249389abaaa9ffc34bf36a076bdc1d65ee18" type="text/css" />
     <link rel="stylesheet" type="text/css" href="../../../_static/togglebutton.css" />
     <link rel="stylesheet" type="text/css" href="../../../_static/copybutton.css" />
     <link rel="stylesheet" type="text/css" href="../../../_static/mystnb.css" />
     <link rel="stylesheet" type="text/css" href="../../../_static/sphinx-thebe.css" />
-    <link rel="stylesheet" type="text/css" href="../../../_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
-    <link rel="stylesheet" type="text/css" href="../../../_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/design-style.b7bb847fb20b106c3d81b95245e65545.min.css" />
     
-  <link rel="preload" as="script" href="../../../_static/js/index.be7d3bbb2ef33a8344ce.js">
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../../../_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf">
 
     <script data-url_root="../../../" id="documentation_options" src="../../../_static/documentation_options.js"></script>
     <script src="../../../_static/jquery.js"></script>
@@ -39,12 +37,13 @@
     <script src="../../../_static/doctools.js"></script>
     <script src="../../../_static/clipboard.min.js"></script>
     <script src="../../../_static/copybutton.js"></script>
+    <script src="../../../_static/scripts/sphinx-book-theme.js?digest=f31d14ad54b65d19161ba51d4ffff3a77ae00456"></script>
     <script>let toggleHintShow = 'Click to show';</script>
     <script>let toggleHintHide = 'Click to hide';</script>
     <script>let toggleOpenOnPrint = 'true';</script>
     <script src="../../../_static/togglebutton.js"></script>
     <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
-    <script src="../../../_static/sphinx-book-theme.d59cb220de22ca1c485ebbdc042f0030.js"></script>
+    <script src="../../../_static/design-tabs.js"></script>
     <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
 const thebe_selector = ".thebe,.cell"
 const thebe_selector_input = "pre"
@@ -63,7 +62,21 @@ const thebe_selector_output = ".output, .cell_output"
     <!-- Google Analytics -->
     
   </head>
-  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="60">
+<!-- Checkboxes to toggle the left sidebar -->
+<input type="checkbox" class="sidebar-toggle" name="__navigation" id="__navigation" aria-label="Toggle navigation sidebar">
+<label class="overlay overlay-navbar" for="__navigation">
+    <div class="visually-hidden">Toggle navigation sidebar</div>
+</label>
+<!-- Checkboxes to toggle the in-page toc -->
+<input type="checkbox" class="sidebar-toggle" name="__page-toc" id="__page-toc" aria-label="Toggle in-page Table of Contents">
+<label class="overlay overlay-pagetoc" for="__page-toc">
+    <div class="visually-hidden">Toggle in-page Table of Contents</div>
+</label>
+<!-- Headers at the top -->
+<div class="announcement header-item noprint"></div>
+<div class="header header-item noprint"></div>
+
     
     <div class="container-fluid" id="banner"></div>
 
@@ -72,9 +85,10 @@ const thebe_selector_output = ".output, .cell_output"
     <div class="container-xl">
       <div class="row">
           
-<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
-    
-        <div class="navbar-brand-box">
+<!-- Sidebar -->
+<div class="bd-sidebar noprint" id="site-navigation">
+    <div class="bd-sidebar__content">
+        <div class="bd-sidebar__top"><div class="navbar-brand-box">
     <a class="navbar-brand text-wrap" href="../../../index.html">
       
         <!-- `logo` is deprecated in Sphinx 4.0, so remove this when we stop supporting 3 -->
@@ -92,14 +106,15 @@ const thebe_selector_output = ".output, .cell_output"
   <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
 </form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
     <div class="bd-toc-item active">
-        <ul class="nav bd-sidenav">
- <li class="toctree-l1">
-  <a class="reference internal" href="../../README.html">
-   GitOps Documentation
-  </a>
- </li>
-</ul>
-<p aria-level="2" class="caption" role="heading">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="../../README.html">
+                    GitOps Documentation
+                </a>
+            </li>
+        </ul>
+        <p aria-level="2" class="caption" role="heading">
  <span class="caption-text">
   GitOps
  </span>
@@ -690,90 +705,180 @@ const thebe_selector_output = ".output, .cell_output"
 </ul>
 
     </div>
-</nav> <!-- To handle the deprecated key -->
-
-<div class="navbar_extra_footer">
-  Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
-</div>
-
-</div>
-
-
-          
-
-
-          
-<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
-    
-    <div class="topbar container-xl fixed-top">
-    <div class="topbar-contents row">
-        <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show"></div>
-        <div class="col pl-md-4 topbar-main">
+</nav></div>
+        <div class="bd-sidebar__bottom">
+             <!-- To handle the deprecated key -->
             
-            <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
-                data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
-                aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
-                title="Toggle navigation" data-toggle="tooltip" data-placement="left">
-                <i class="fas fa-bars"></i>
-                <i class="fas fa-arrow-left"></i>
-                <i class="fas fa-arrow-up"></i>
-            </button>
-            
-            
-<div class="dropdown-buttons-trigger">
-    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
-            class="fas fa-download"></i></button>
-
-    <div class="dropdown-buttons">
-        <!-- ipynb file if we had a myst markdown file -->
-        
-        <!-- Download raw file -->
-        <a class="dropdown-buttons" href="../../../_sources/content/odh/jupyterhub/runbook.md"><button type="button"
-                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
-                data-placement="left">.md</button></a>
-        <!-- Download PDF via print -->
-        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
-                onclick="printPdf(this)" data-toggle="tooltip" data-placement="left">.pdf</button>
-    </div>
-</div>
-
-            <!-- Source interaction buttons -->
-
-<div class="dropdown-buttons-trigger">
-    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
-        aria-label="Connect with source repository"><i class="fab fa-github"></i></button>
-    <div class="dropdown-buttons sourcebuttons">
-        <a class="repository-button"
-            href="https://github.com/operate-first/apps"><button type="button" class="btn btn-secondary topbarbtn"
-                data-toggle="tooltip" data-placement="left" title="Source repository"><i
-                    class="fab fa-github"></i>repository</button></a>
-        <a class="issues-button"
-            href="https://github.com/operate-first/apps/issues/new?title=Issue%20on%20page%20%2Fcontent/odh/jupyterhub/runbook.html&body=Your%20issue%20content%20here."><button
-                type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
-                title="Open an issue"><i class="fas fa-lightbulb"></i>open issue</button></a>
-        
-    </div>
-</div>
-
-            <!-- Full screen (wrap in <a> to have style consistency -->
-
-<a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
-        data-placement="bottom" onclick="toggleFullScreen()" aria-label="Fullscreen mode"
-        title="Fullscreen mode"><i
-            class="fas fa-expand"></i></button></a>
-
-            <!-- Launch buttons -->
-
-        </div>
-
-        <!-- Table of contents -->
-        <div class="d-none d-md-block col-md-2 bd-toc show noprint">
-            
-            <div class="tocsection onthispage pt-5 pb-3">
-                <i class="fas fa-list"></i> Contents
+            <div class="navbar_extra_footer">
+            Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
             </div>
-            <nav id="bd-toc-nav" aria-label="Page">
-                <ul class="visible nav section-nav flex-column">
+            
+        </div>
+    </div>
+    <div id="rtd-footer-container"></div>
+</div>
+
+
+          
+
+
+          
+<!-- A tiny helper pixel to detect if we've scrolled -->
+<div class="sbt-scroll-pixel-helper"></div>
+<!-- Main content -->
+<div class="col py-0 content-container">
+    
+    <div class="header-article row sticky-top noprint">
+        
+
+
+
+<div class="col py-1 d-flex header-article-main">
+    <div class="header-article__left">
+        
+        <label for="__navigation"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="right"
+title="Toggle navigation"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-bars"></i>
+  </span>
+
+</label>
+
+        
+    </div>
+    <div class="header-article__right">
+<button onclick="toggleFullScreen()"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="bottom"
+title="Fullscreen mode"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+<div class="menu-dropdown menu-dropdown-repository-buttons">
+  <button class="headerbtn menu-dropdown__trigger"
+      aria-label="Source repositories">
+      <i class="fab fa-github"></i>
+  </button>
+  <div class="menu-dropdown__content">
+    <ul>
+      <li>
+        <a href="https://github.com/operate-first/apps"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Source repository"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="headerbtn__text-container">repository</span>
+</a>
+
+      </li>
+      
+      <li>
+        <a href="https://github.com/operate-first/apps/issues/new?title=Issue%20on%20page%20%2Fcontent/odh/jupyterhub/runbook.html&body=Your%20issue%20content%20here."
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Open an issue"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="headerbtn__text-container">open issue</span>
+</a>
+
+      </li>
+      
+    </ul>
+  </div>
+</div>
+
+<div class="menu-dropdown menu-dropdown-download-buttons">
+  <button class="headerbtn menu-dropdown__trigger"
+      aria-label="Download this page">
+      <i class="fas fa-download"></i>
+  </button>
+  <div class="menu-dropdown__content">
+    <ul>
+      <li>
+        <a href="../../../_sources/content/odh/jupyterhub/runbook.md"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Download source file"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="headerbtn__text-container">.md</span>
+</a>
+
+      </li>
+      
+      <li>
+        
+<button onclick="printPdf(this)"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="left"
+title="Print to PDF"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="headerbtn__text-container">.pdf</span>
+</button>
+
+      </li>
+      
+    </ul>
+  </div>
+</div>
+<label for="__page-toc"
+  class="headerbtn headerbtn-page-toc"
+  
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-list"></i>
+  </span>
+
+</label>
+
+    </div>
+</div>
+
+<!-- Table of contents -->
+<div class="col-md-3 bd-toc show noprint">
+    <div class="tocsection onthispage pt-5 pb-3">
+        <i class="fas fa-list"></i> Contents
+    </div>
+    <nav id="bd-toc-nav" aria-label="Page">
+        <ul class="visible nav section-nav flex-column">
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#key-locations">
    Key Locations
@@ -828,12 +933,11 @@ const thebe_selector_output = ".output, .cell_output"
  </li>
 </ul>
 
-            </nav>
-        </div>
-    </div>
+    </nav>
 </div>
-    <div id="main-content" class="row">
-        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
+    </div>
+    <div class="article row">
+        <div class="col pl-md-3 pl-lg-5 content-container">
             <!-- Table of contents that is only displayed when printing the page -->
             <div id="jb-print-docs-body" class="onlyprint">
                 <h1>JupyterHub Runbook</h1>
@@ -904,15 +1008,16 @@ const thebe_selector_output = ".output, .cell_output"
                     </div>
                 </div>
             </div>
-            
+            <main id="main-content" role="main">
+                
               <div>
                 
-  <div class="tex2jax_ignore mathjax_ignore section" id="jupyterhub-runbook">
-<h1>JupyterHub Runbook<a class="headerlink" href="#jupyterhub-runbook" title="Permalink to this headline">¶</a></h1>
+  <section class="tex2jax_ignore mathjax_ignore" id="jupyterhub-runbook">
+<h1>JupyterHub Runbook<a class="headerlink" href="#jupyterhub-runbook" title="Permalink to this headline">#</a></h1>
 <p>This document provides information on how to administer our JupyterHub
 deployment.</p>
-<div class="section" id="key-locations">
-<h2>Key Locations<a class="headerlink" href="#key-locations" title="Permalink to this headline">¶</a></h2>
+<section id="key-locations">
+<h2>Key Locations<a class="headerlink" href="#key-locations" title="Permalink to this headline">#</a></h2>
 <table class="colwidths-auto table">
 <thead>
 <tr class="row-odd"><th class="head"><p>Env</p></th>
@@ -927,40 +1032,40 @@ deployment.</p>
 </tr>
 </tbody>
 </table>
-</div>
-<div class="section" id="setup">
-<h2>Setup<a class="headerlink" href="#setup" title="Permalink to this headline">¶</a></h2>
+</section>
+<section id="setup">
+<h2>Setup<a class="headerlink" href="#setup" title="Permalink to this headline">#</a></h2>
 <p>Our JupyterHub instance is managed by the Open Data Hub operator. Any changes should be made in the necessary files in git and redeployed (rather than manually editing OpenShift objects directly).</p>
-</div>
-<div class="section" id="upkeep-and-administration">
-<h2>Upkeep and Administration<a class="headerlink" href="#upkeep-and-administration" title="Permalink to this headline">¶</a></h2>
+</section>
+<section id="upkeep-and-administration">
+<h2>Upkeep and Administration<a class="headerlink" href="#upkeep-and-administration" title="Permalink to this headline">#</a></h2>
 <p>JupyterHub includes an Admin tool that lets us manage users. In production, this tool can be reached <a class="reference external" href="https://jupyterhub-opf-jupyterhub.apps.smaug.na.operate-first.cloud/hub/admin">here</a>. Note that the members of the <code class="docutils literal notranslate"><span class="pre">operate-first</span></code> group have been added as <code class="docutils literal notranslate"><span class="pre">jupyterhub_admins</span></code> <a class="reference external" href="https://github.com/operate-first/odh-manifests/blob/smaug-v1.1.1/jupyterhub/jupyterhub/base/jupyterhub-groups-configmap.yaml#L9">here</a>. If you require admin access, make a pr adding yourself to this OCP <code class="docutils literal notranslate"><span class="pre">group</span></code>, it can be found <a class="reference external" href="https://github.com/operate-first/apps/blob/master/cluster-scope/base/user.openshift.io/groups/operate-first/group.yaml">here</a>.</p>
 <p>The admin tool will let you stop/start, delete, and access a user’s notebook server and can be very helpful for addressing issues that JupyterHub users may encounter.</p>
-</div>
-<div class="section" id="common-problems">
-<h2>Common Problems<a class="headerlink" href="#common-problems" title="Permalink to this headline">¶</a></h2>
+</section>
+<section id="common-problems">
+<h2>Common Problems<a class="headerlink" href="#common-problems" title="Permalink to this headline">#</a></h2>
 <p>The following is a list of common issues we’ve encountered with JupyterHub and how to fix them.</p>
-<div class="section" id="smoke-test">
-<h3>Smoke Test<a class="headerlink" href="#smoke-test" title="Permalink to this headline">¶</a></h3>
+<section id="smoke-test">
+<h3>Smoke Test<a class="headerlink" href="#smoke-test" title="Permalink to this headline">#</a></h3>
 <p>Verify that the service is <code class="docutils literal notranslate"><span class="pre">up</span></code> and <code class="docutils literal notranslate"><span class="pre">available</span></code> by checking if you can access/login to the service <a class="reference external" href="https://jupyterhub-opf-jupyterhub.apps.smaug.na.operate-first.cloud">endpoint</a>. Verify that the page loads, that you can log in, and that you can spin up a notebook.</p>
-</div>
-<div class="section" id="insufficient-disk-space-for-notebook-pod">
-<h3>Insufficient disk space for notebook pod<a class="headerlink" href="#insufficient-disk-space-for-notebook-pod" title="Permalink to this headline">¶</a></h3>
+</section>
+<section id="insufficient-disk-space-for-notebook-pod">
+<h3>Insufficient disk space for notebook pod<a class="headerlink" href="#insufficient-disk-space-for-notebook-pod" title="Permalink to this headline">#</a></h3>
 <p>When a user runs out of disk space on their notebook pod, the pod will fail to start and give little indication to the user about why that’s happening.
 Follow steps <a class="reference internal" href="analyze_storage.html"><span class="doc std std-doc">here</span></a> to determine if the user has, in fact, used up their storage quota.</p>
 <p>If the user has run out of storage space, follow the steps <a class="reference internal" href="increase_pvc_size_jh.html"><span class="doc std std-doc">here</span></a> to increase their PVC size.</p>
-</div>
-<div class="section" id="custom-image-not-listed-in-spawner-ui">
-<h3>Custom Image not listed in Spawner UI<a class="headerlink" href="#custom-image-not-listed-in-spawner-ui" title="Permalink to this headline">¶</a></h3>
+</section>
+<section id="custom-image-not-listed-in-spawner-ui">
+<h3>Custom Image not listed in Spawner UI<a class="headerlink" href="#custom-image-not-listed-in-spawner-ui" title="Permalink to this headline">#</a></h3>
 <p>Custom JupyterHub notebook images add libraries, and kernels to JupyterHub which users can spawn and use. The steps followed to create these custom images are documented <a class="reference internal" href="add_imagestream_to_jh.html"><span class="doc std std-doc">here</span></a>.</p>
 <p>After adding the custom image to <code class="docutils literal notranslate"><span class="pre">odh/base/jupyterhub/notebook-images</span></code> if the images do not show up in the JH Spawner UI then ensure the following:</p>
 <ul class="simple">
 <li><p>The imagestream has the label:   <a class="reference external" href="http://opendatahub.io/notebook-image:">opendatahub.io/notebook-image:</a> “true”</p></li>
 <li><p>The imagestream was deployed by ArgoCD in <a class="reference external" href="https://argocd.operate-first.cloud/applications/kfdefs-smaug">this app</a>.</p></li>
 </ul>
-</div>
-<div class="section" id="user-unable-to-start-server">
-<h3>User unable to start server<a class="headerlink" href="#user-unable-to-start-server" title="Permalink to this headline">¶</a></h3>
+</section>
+<section id="user-unable-to-start-server">
+<h3>User unable to start server<a class="headerlink" href="#user-unable-to-start-server" title="Permalink to this headline">#</a></h3>
 <p>JupyterHub occasionally gets into a corrupted state where it thinks that the notebook pod for a user is running when it actually isn’t running. When the user tells JupyterHub to take the server down, they will either get stuck in an infinite loop or get an error saying that the pod isn’t running. The fix is as follows:</p>
 <ol class="simple">
 <li><p>Login as an Operate First admin user to the jupyterhub namespace</p></li>
@@ -968,9 +1073,9 @@ Follow steps <a class="reference internal" href="analyze_storage.html"><span cla
 <li><p>Delete the <em>jupyterhub</em> pod. Do <strong>NOT</strong> delete the <em>jupyterhub-db</em> pod.</p></li>
 <li><p>Ask the user to login again. They should be able to spin up their notebook server.</p></li>
 </ol>
-</div>
-<div class="section" id="jupyterhub-unreachable-despite-pods-being-up">
-<h3>JupyterHub unreachable despite pods being up<a class="headerlink" href="#jupyterhub-unreachable-despite-pods-being-up" title="Permalink to this headline">¶</a></h3>
+</section>
+<section id="jupyterhub-unreachable-despite-pods-being-up">
+<h3>JupyterHub unreachable despite pods being up<a class="headerlink" href="#jupyterhub-unreachable-despite-pods-being-up" title="Permalink to this headline">#</a></h3>
 <p>JupyterHub can occasionally end up in a state where the main jupyterhub pod is unable to connect to the database. The logs will usually look like the following.</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>---&gt; Running application from script <span class="o">(</span>/opt/app-root/builder/run<span class="o">)</span> ...
 + <span class="nb">trap</span> <span class="s1">&#39;kill -TERM $PID&#39;</span> TERM INT
@@ -991,13 +1096,13 @@ Follow steps <a class="reference internal" href="analyze_storage.html"><span cla
 </pre></div>
 </div>
 <p>The issue can be resolved by restarting both pods.</p>
-</div>
-<div class="section" id="no-kernel-or-error-starting-kernel-errors">
-<h3>“No Kernel” or “Error Starting Kernel” errors<a class="headerlink" href="#no-kernel-or-error-starting-kernel-errors" title="Permalink to this headline">¶</a></h3>
+</section>
+<section id="no-kernel-or-error-starting-kernel-errors">
+<h3>“No Kernel” or “Error Starting Kernel” errors<a class="headerlink" href="#no-kernel-or-error-starting-kernel-errors" title="Permalink to this headline">#</a></h3>
 <p>If the user is encountering issues starting their server and encounter errors pertaining to their Kernel, they can try restarting their Kernel by following steps <a class="reference internal" href="reinstall_kernel.html"><span class="doc std std-doc">here</span></a>.</p>
-</div>
-</div>
-</div>
+</section>
+</section>
+</section>
 
     <script type="text/x-thebe-config">
     {
@@ -1021,9 +1126,11 @@ Follow steps <a class="reference internal" href="analyze_storage.html"><span cla
 
               </div>
               
-            
-                <!-- Previous / next buttons -->
-<div class='prev-next-area'> 
+            </main>
+            <footer class="footer-article noprint">
+                
+    <!-- Previous / next buttons -->
+<div class='prev-next-area'>
     <a class='left-prev' id="prev-link" href="reinstall_kernel.html" title="previous page">
         <i class="fas fa-angle-left"></i>
         <div class="prev-next-info">
@@ -1039,24 +1146,28 @@ Follow steps <a class="reference internal" href="analyze_storage.html"><span cla
     <i class="fas fa-angle-right"></i>
     </a>
 </div>
-            
+            </footer>
         </div>
     </div>
-    <footer class="footer">
-  <p>
+    <div class="footer-content row">
+        <footer class="col footer"><p>
+  
+    By Operate First Authors<br/>
+  
+      &copy; Copyright 2022.<br/>
+</p>
+        </footer>
+    </div>
     
-      By Operate First Authors<br/>
-    
-        &copy; Copyright 2021.<br/>
-  </p>
-</footer>
-</main>
+</div>
 
 
       </div>
     </div>
   
-  <script src="../../../_static/js/index.be7d3bbb2ef33a8344ce.js"></script>
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../../../_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf"></script>
+
 
   </body>
 </html>
