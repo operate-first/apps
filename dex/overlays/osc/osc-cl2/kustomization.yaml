@@ -3,8 +3,7 @@ kind: Kustomization
 namespace: dex
 resources:
   - ../../../base
+  - configmaps
 patchesStrategicMerge:
-  - dex-cm.yaml
-  - dex-sa.yaml
-generators:
-  - secret-generator.yaml
+  - externalsecrets/dex-clients_patch.yaml
+  - secretstores/opf-vault-store.yaml

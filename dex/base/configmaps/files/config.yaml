@@ -1,0 +1,48 @@
+issuer: <DEX_HOST>/api/dex
+
+storage:
+  type: memory
+
+web:
+  http: "0.0.0.0:5556"
+
+grpc:
+  addr: "0.0.0.0:5557"
+
+telemetry:
+  http: "0.0.0.0:5558"
+
+oauth2:
+  skipApprovalScreen: true
+
+staticClients:
+  - id: argo
+    name: Argo
+    redirectURIs:
+      - http://URL/oauth2/callback
+    secretEnv: ARGO_SECRET
+
+  - id: grafana
+    name: Grafana
+    redirectURIs:
+      - https://URL/login/generic_oauth
+    secretEnv: GRAFANA_SECRET
+
+  - id: hue
+    name: Hue
+    redirectURIs:
+      - https://URL/oidc/callback
+      - https://URL/hue/oidc_failed
+    secretEnv: HUE_SECRET
+
+connectors:
+  - type: openshift
+    id: openshift
+    name: OpenShift
+    config:
+      issuer: https://kubernetes.default.svc
+      clientID: system:serviceaccount:opf-auth:dex
+      clientSecret: $OPENSHIFT_CLIENT_SECRET
+      redirectURI: DEX_HOST/api/dex/callback
+      groups:
+        - system:authenticated

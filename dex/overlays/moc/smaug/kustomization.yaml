@@ -1,14 +1,9 @@
----
 apiVersion: kustomize.config.k8s.io/v1beta1
 kind: Kustomization
-
 namespace: dex
-
 resources:
   - ../../../base
-
+  - configmaps
 patchesStrategicMerge:
-  - dex-cm.yaml
-
-generators:
-  - secret-generator.yaml
+  - externalsecrets/dex-clients_patch.yaml
+  - secretstores/opf-vault-store.yaml

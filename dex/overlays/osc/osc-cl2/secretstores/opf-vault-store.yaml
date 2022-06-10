@@ -1,0 +1,11 @@
+apiVersion: external-secrets.io/v1beta1
+kind: SecretStore
+metadata:
+  name: opf-vault-store
+spec:
+  provider:
+    vault:
+      auth:
+        kubernetes:
+          mountPath: osc-cl2-k8s
+          role: osc-ops

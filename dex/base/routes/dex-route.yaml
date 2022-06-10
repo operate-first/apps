@@ -1,9 +1,11 @@
----
 apiVersion: route.openshift.io/v1
 kind: Route
 metadata:
   name: dex
 spec:
+  tls:
+    termination: edge
+    insecureEdgeTerminationPolicy: Redirect
   port:
     targetPort: 5556
   to:

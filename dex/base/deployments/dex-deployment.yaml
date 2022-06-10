@@ -19,7 +19,7 @@ spec:
             - "/usr/local/bin/dex"
             - "serve"
             - "/etc/dex/cfg/config.yaml"
-          image: quay.io/dexidp/dex:v2.25.0
+          image: quay.io/dexidp/dex:v2.28.1
           imagePullPolicy: Always
           name: dex
           ports:
@@ -29,8 +29,6 @@ spec:
           volumeMounts:
             - mountPath: /etc/dex/cfg
               name: config
-            - mountPath: /etc/ssl/certs
-              name: ssl
           resources:
             limits:
               cpu: 500m
@@ -48,6 +46,3 @@ spec:
         - name: config
           configMap:
             name: dex
-        - name: ssl
-          secret:
-            secretName: dex-sa
