@@ -5,6 +5,7 @@ storage:
 
 web:
   http: "0.0.0.0:5556"
+  allowedOrigins: ['https://openmetadata-openmetadata.apps.odh-cl2.apps.os-climate.org']
 
 grpc:
   addr: "0.0.0.0:5557"
@@ -14,6 +15,8 @@ telemetry:
 
 oauth2:
   skipApprovalScreen: true
+  alwaysShowLoginScreen: true
+  responseTypes: ["code", "token", "id_token"]
 
 staticClients:
   - id: superset
@@ -44,6 +47,12 @@ staticClients:
       - https://das-odh-trino.apps.odh-cl2.apps.os-climate.org/callback
     secretEnv: DAS_SECRET
 
+  - id: openmetadata
+    name: OpenMetadata Service
+    redirectURIs:
+      - https://openmetadata-openmetadata.apps.odh-cl2.apps.os-climate.org/callback
+    secretEnv: OPENMETADATA_SECRET
+
 expiry:
   idTokens: "168h"
 
@@ -58,3 +67,17 @@ connectors:
       redirectURI: https://dex-dex.apps.odh-cl2.apps.os-climate.org/callback
       groups:
         - system:authenticated
+  - type: github
+    id: github
+    name: GitHub
+    config:
+      clientID: $GITHUB_ID
+      clientSecret: $GITHUB_TOKEN
+      redirectURI: https://dex-dex.apps.odh-cl2.apps.os-climate.org/callback
+      orgs:
+        - name: os-climate
+          teams:
+            - odh-env-users
+      loadAllGroups: false
+      teamNameField: slug
+      useLoginAsID: true

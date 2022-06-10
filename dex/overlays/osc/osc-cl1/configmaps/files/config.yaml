@@ -15,6 +15,7 @@ telemetry:
 
 oauth2:
   skipApprovalScreen: true
+  alwaysShowLoginScreen: true
   responseTypes: ["code", "token", "id_token"]
 
 staticClients:
@@ -75,7 +76,8 @@ connectors:
       redirectURI: https://dex-dex.apps.odh-cl1.apps.os-climate.org/callback
       orgs:
         - name: os-climate
-          teams: odh-env-users
+          teams:
+          - odh-env-users
       loadAllGroups: false
       teamNameField: slug
-      useLoginAsID: false
+      useLoginAsID: true
