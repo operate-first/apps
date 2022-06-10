@@ -28,9 +28,9 @@ spec:
       email_attribute_path: name
       client_id: grafana
       client_secret: "${GRAFANA_CLIENT_SECRET}"
-      api_url: http://dex-dex.apps.smaug.na.operate-first.cloud/userinfo
-      auth_url: http://dex-dex.apps.smaug.na.operate-first.cloud/auth
-      token_url: http://dex-dex.apps.smaug.na.operate-first.cloud/token
+      api_url: https://dex-dex.apps.smaug.na.operate-first.cloud/userinfo
+      auth_url: https://dex-dex.apps.smaug.na.operate-first.cloud/auth
+      token_url: https://dex-dex.apps.smaug.na.operate-first.cloud/token
       role_attribute_path: >-
         contains(groups[*], 'cluster-admins') && 'Admin' ||
         contains(groups[*], 'operate-first')  && 'Admin' ||
