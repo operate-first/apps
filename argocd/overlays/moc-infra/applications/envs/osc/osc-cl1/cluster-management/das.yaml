@@ -1,0 +1,20 @@
+---
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: das
+spec:
+  destination:
+    name: osc-cl1
+    namespace: odh-trino
+  project: os-climate
+  source:
+    path: das/overlays/osc-cl1
+    repoURL: https://github.com/operate-first/apps.git
+    targetRevision: HEAD
+  syncPolicy:
+    automated:
+      prune: true
+      selfHeal: true
+    syncOptions:
+      - Validate=false

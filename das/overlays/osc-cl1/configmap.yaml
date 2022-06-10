@@ -1,0 +1,11 @@
+kind: ConfigMap
+apiVersion: v1
+metadata:
+  name: das
+data:
+  CLIENT_ID: "das"
+  REDIRECT_URI: "https://das-odh-trino.apps.odh-cl1.apps.os-climate.org/callback"
+  ISSUER_URL: "https://dex-dex.apps.odh-cl1.apps.os-climate.org"
+  LISTEN_ADDRESS: "http://0.0.0.0:5555"
+  DEBUG: "false"
+  SCOPES: "email,openid,profile"
