@@ -4,6 +4,7 @@ resources:
   - acme-operator.yaml
   - cloudbeaver.yaml
   - cluster-resources.yaml
+  - das.yaml
   - dex.yaml
   - external-secrets.yaml
   - k8s-annotations-exporter.yaml

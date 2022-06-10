@@ -1,0 +1,81 @@
+issuer: https://dex-dex.apps.odh-cl1.apps.os-climate.org
+
+storage:
+  type: memory
+
+web:
+  http: "0.0.0.0:5556"
+  allowedOrigins: ['https://openmetadata-openmetadata.apps.odh-cl1.apps.os-climate.org']
+
+grpc:
+  addr: "0.0.0.0:5557"
+
+telemetry:
+  http: "0.0.0.0:5558"
+
+oauth2:
+  skipApprovalScreen: true
+  responseTypes: ["code", "token", "id_token"]
+
+staticClients:
+  - id: superset
+    name: Superset
+    redirectURIs:
+      - http://superset-odh-superset.apps.odh-cl1.apps.os-climate.org/oauth-authorized/dex
+      - https://superset-secure-odh-superset.apps.odh-cl1.apps.os-climate.org/oauth-authorized/dex
+      - http://superset-secure-odh-superset.apps.odh-cl1.apps.os-climate.org/oauth-authorized/dex
+    secretEnv: SUPERSET_SECRET
+
+  - id: trino
+    name: Trino
+    redirectURIs:
+      - https://trino-secure-odh-trino.apps.odh-cl1.apps.os-climate.org/oauth2/callback
+      - https://trino-route-odh-trino.apps.odh-cl1.apps.os-climate.org
+    secretEnv: TRINO_SECRET
+
+  - id: trino-dev
+    name: Trino
+    redirectURIs:
+      - https://trino-secure-odh-trino-dev.apps.odh-cl1.apps.os-climate.org/oauth2/callback
+      - https://trino-route-odh-trino-dev.apps.odh-cl1.apps.os-climate.org
+    secretEnv: TRINO_DEV_SECRET
+
+  - id: das
+    name: Dex Auth Service
+    redirectURIs:
+      - https://das-odh-trino.apps.odh-cl1.apps.os-climate.org/callback
+    secretEnv: DAS_SECRET
+
+  - id: openmetadata
+    name: OpenMetadata Service
+    redirectURIs:
+      - https://openmetadata-openmetadata.apps.odh-cl1.apps.os-climate.org/callback
+    secretEnv: OPENMETADATA_SECRET
+
+expiry:
+  idTokens: "168h"
+
+connectors:
+  - type: openshift
+    id: openshift
+    name: OpenShift
+    config:
+      issuer: https://kubernetes.default.svc
+      clientID: system:serviceaccount:dex:dex
+      clientSecret: $OPENSHIFT_CLIENT_SECRET
+      redirectURI: https://dex-dex.apps.odh-cl1.apps.os-climate.org/callback
+      groups:
+        - system:authenticated
+  - type: github
+    id: github
+    name: GitHub
+    config:
+      clientID: $GITHUB_ID
+      clientSecret: $GITHUB_TOKEN
+      redirectURI: https://dex-dex.apps.odh-cl1.apps.os-climate.org/callback
+      orgs:
+        - name: os-climate
+          teams: odh-env-users
+      loadAllGroups: false
+      teamNameField: slug
+      useLoginAsID: false

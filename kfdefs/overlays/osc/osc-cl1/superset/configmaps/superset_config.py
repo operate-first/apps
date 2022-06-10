@@ -38,9 +38,9 @@ OAUTH_PROVIDERS = [
          'client_kwargs': {
              'scope': 'openid email groups profile offline_access'
          },
-         'api_base_url': 'http://dex-dex.apps.odh-cl1.apps.os-climate.org/userinfo',
-         'access_token_url': 'http://dex-dex.apps.odh-cl1.apps.os-climate.org/token',
-         'authorize_url': 'http://dex-dex.apps.odh-cl1.apps.os-climate.org/auth'
+         'api_base_url': 'https://dex-dex.apps.odh-cl1.apps.os-climate.org/userinfo',
+         'access_token_url': 'https://dex-dex.apps.odh-cl1.apps.os-climate.org/token',
+         'authorize_url': 'https://dex-dex.apps.odh-cl1.apps.os-climate.org/auth'
      }
      }
 ]
