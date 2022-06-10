@@ -44,5 +44,7 @@ OAUTH_PROVIDERS = [
      }
 ]
 
+WTF_CSRF_ENABLED = False
+
 from custom_sso_security_manager import CustomSsoSecurityManager
 CUSTOM_SECURITY_MANAGER = CustomSsoSecurityManager
