@@ -1,0 +1,96 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: openmetadata
+  labels:
+    app.kubernetes.io/name: openmetadata
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app.kubernetes.io/name: openmetadata
+  template:
+    metadata:
+      labels:
+        app.kubernetes.io/name: openmetadata
+    spec:
+      serviceAccountName: openmetadata
+      containers:
+        - name: openmetadata
+          image: "quay.io/operate-first/om-server:0.10.3"
+          ports:
+            - name: http
+              containerPort: 8585
+              protocol: TCP
+            - name: http-admin
+              containerPort: 8586
+              protocol: TCP
+          livenessProbe:
+            initialDelaySeconds: 60
+            periodSeconds: 30
+            failureThreshold: 5
+            httpGet:
+              path: /api/v1/health-check
+              port: http
+          readinessProbe:
+            initialDelaySeconds: 60
+            periodSeconds: 30
+            failureThreshold: 5
+            httpGet:
+              path: /
+              port: http
+          env:
+            - name: SERVER_HOST
+              value: "openmetadata"
+            - name: SERVER_PORT
+              value: "8585"
+            - name: SERVER_ADMIN_PORT
+              value: "8586"
+            - name: AUTHENTICATION_PROVIDER
+              value: "no-auth"
+            - name: AUTHENTICATION_PUBLIC_KEYS
+              value: "[]"
+            - name: AUTHENTICATION_AUTHORITY
+              value: ""
+            - name: AUTHENTICATION_CLIENT_ID
+              value: ""
+            - name: AUTHENTICATION_CALLBACK_URL
+              value: ""
+            - name: AUTHORIZER_CLASS_NAME
+              value: "org.openmetadata.catalog.security.NoopAuthorizer"
+            - name: AUTHORIZER_REQUEST_FILTER
+              value: "org.openmetadata.catalog.security.NoopFilter"
+            - name: AUTHORIZER_ADMIN_PRINCIPALS
+              value: "[admin]"
+            - name: AUTHORIZER_INGESTION_PRINCIPALS
+              value: "[ingestion-bot]"
+            - name: AUTHORIZER_PRINCIPAL_DOMAIN
+              value: "open-metadata.org"
+            - name: ELASTICSEARCH_HOST
+              value: "elasticsearch"
+            - name: ELASTICSEARCH_PORT
+              value: "9200"
+            - name: ELASTICSEARCH_SCHEME
+              value: "http"
+            - name: MYSQL_HOST
+              value: "mysql"
+            - name: MYSQL_PORT
+              value: "3306"
+            - name: MYSQL_USER
+              value: "openmetadata"
+            - name: MYSQL_USER_PASSWORD
+              valueFrom:
+                secretKeyRef:
+                  name: mysql-secrets
+                  key: OPENMETADATA_DB_PASSWORD
+            - name: MYSQL_DATABASE
+              value: "openmetadata_db"
+            - name: AIRFLOW_HOST
+              value: "http://airflow.openmetadata.svc.cluster.local:8080"
+            - name: AIRFLOW_PASSWORD
+              valueFrom:
+                secretKeyRef:
+                  name: airflow-secrets
+                  key: AIRFLOW_PASSWORD
+            - name: SERVER_HOST_API_URL
+              value: "http://openmetadata.openmetadata.svc.cluster.local:8585/api"

@@ -1,0 +1,16 @@
+apiVersion: external-secrets.io/v1beta1
+kind: ExternalSecret
+metadata:
+  name: openmetadata-dependencies-config-envs
+spec:
+  secretStoreRef:
+    name: opf-vault-store
+    kind: SecretStore
+  refreshInterval: "1h"
+  target:
+    name: openmetadata-dependencies-config-envs
+    creationPolicy: 'Owner'
+    deletionPolicy: "Retain"
+  dataFrom:
+    - extract:
+        key: osc/osc-cl2/openmetadata/openmetadata-dependencies-config-envs
