@@ -6,6 +6,7 @@ resources:
   - cluster-resources.yaml
   - das.yaml
   - dex.yaml
+  - dex-secondary.yaml
   - external-secrets.yaml
   - k8s-annotations-exporter.yaml
   - kfdefs.yaml

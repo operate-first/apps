@@ -1,0 +1,76 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: openmetadata-dependencies-config-envs
+data:
+  ## ================
+  ## Linux Configs
+  ## ================
+  TZ: "Etc/UTC"
+  ## ================
+  ## Database Configs
+  ## ================
+  ## database host/port
+  DATABASE_HOST: "mysql.openmetadata.svc.cluster.local"
+  DATABASE_PORT: "3306"
+  ## database configs
+  DATABASE_USER: "airflow"
+  DATABASE_DB: "airflow_db"
+  DATABASE_PROPERTIES: ""
+  ## bash command which echos the URL encoded value of $DATABASE_USER
+  DATABASE_USER_CMD: |
+    echo "${DATABASE_USER}" | python3 -c "import urllib.parse; encoded_user = urllib.parse.quote(input()); print(encoded_user)"
+  ## bash command which echos the URL encoded value of $DATABASE_PASSWORD
+  DATABASE_PASSWORD_CMD: |
+    echo "${DATABASE_PASSWORD}" | python3 -c "import urllib.parse; encoded_pass = urllib.parse.quote(input()); print(encoded_pass)"
+  ## bash command which echos the DB connection string in SQLAlchemy format
+  DATABASE_SQLALCHEMY_CMD: |
+    echo -n "mysql+mysqldb://$(eval $DATABASE_USER_CMD):$(eval $DATABASE_PASSWORD_CMD)@${DATABASE_HOST}:${DATABASE_PORT}/${DATABASE_DB}${DATABASE_PROPERTIES}"
+  ## bash command which echos the DB connection string in Celery result_backend format
+  DATABASE_CELERY_CMD: |
+    echo -n "db+mysql://$(eval $DATABASE_USER_CMD):$(eval $DATABASE_PASSWORD_CMD)@${DATABASE_HOST}:${DATABASE_PORT}/${DATABASE_DB}${DATABASE_PROPERTIES}"
+  ## bash command which echos the DB connection string in `psql` cli format
+  DATABASE_PSQL_CMD: |
+    echo -n "postgresql://$(eval $DATABASE_USER_CMD):$(eval $DATABASE_PASSWORD_CMD)@${DATABASE_HOST}:${DATABASE_PORT}/${DATABASE_DB}${DATABASE_PROPERTIES}"
+  ## ================
+  ## Redis Configs
+  ## ================
+
+  ## ================
+  ## Airflow Configs (General)
+  ## ================
+  AIRFLOW__CORE__DAGS_FOLDER: "/opt/airflow/dags"
+  AIRFLOW__CORE__EXECUTOR: "KubernetesExecutor"
+  # AIRFLOW__CORE__FERNET_KEY: ''                # Added via secret named: openmetadata-dependencies-config-envs (vault)
+  AIRFLOW__CORE__SQL_ALCHEMY_CONN_CMD: |
+    bash -c 'eval "$DATABASE_SQLALCHEMY_CMD"'
+  # AIRFLOW__WEBSERVER__SECRET_KEY: ''           # Added via secret named: openmetadata-dependencies-config-envs (vault)
+  AIRFLOW__WEBSERVER__WEB_SERVER_PORT: "8080"
+  AIRFLOW__CELERY__FLOWER_PORT: "5555"
+  ## ================
+  ## Airflow Configs (Logging)
+  ## ================
+  AIRFLOW__LOGGING__BASE_LOG_FOLDER: "/opt/airflow/logs"
+  AIRFLOW__LOGGING__DAG_PROCESSOR_MANAGER_LOG_LOCATION: "/opt/airflow/logs/dag_processor_manager/dag_processor_manager.log"
+  AIRFLOW__SCHEDULER__CHILD_PROCESS_LOG_DIRECTORY: "/opt/airflow/logs/scheduler"
+  ## ================
+  ## Airflow Configs (Celery)
+  ## ================
+
+  ## ================
+  ## Airflow Configs (Kubernetes)
+  ## ================
+  AIRFLOW__KUBERNETES__NAMESPACE: "openmetadata"
+  AIRFLOW__KUBERNETES__WORKER_CONTAINER_REPOSITORY: "quay.io/operate-first/om-airflow"
+  AIRFLOW__KUBERNETES__WORKER_CONTAINER_TAG: "0.10.3"
+  AIRFLOW__KUBERNETES__POD_TEMPLATE_FILE: "/opt/airflow/pod_templates/pod_template.yaml"
+  ## ================
+  ## User Configs
+  ## ================
+  "AIRFLOW__API__AUTH_BACKENDS": "airflow.api.auth.backend.basic_auth"
+  "AIRFLOW__LINEAGE__AIRFLOW_SERVICE_NAME": "airflow_helm"
+  "AIRFLOW__LINEAGE__AUTH_PROVIDER_TYPE": "no-auth"
+  "AIRFLOW__LINEAGE__BACKEND": "airflow_provider_openmetadata.lineage.openmetadata.OpenMetadataLineageBackend"
+  "AIRFLOW__LINEAGE__OPENMETADATA_API_ENDPOINT": "http://openmetadata.openmetadata.svc.cluster.local:8585/api"
+  "AIRFLOW__OPENMETADATA_AIRFLOW_APIS__DAG_GENERATED_CONFIGS": "/opt/airflow/dags"
+  "AIRFLOW__OPENMETADATA_AIRFLOW_APIS__DAG_RUNNER_TEMPLATE": "/opt/airflow/dag_templates/dag_runner.j2"

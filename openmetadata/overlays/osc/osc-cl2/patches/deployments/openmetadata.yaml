@@ -1,0 +1,82 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: openmetadata
+spec:
+  template:
+    spec:
+      volumes:
+        - name: logs
+          emptyDir: {}
+        - name: openmetadata-auth
+          secret:
+            secretName: openmetadata-auth
+        - name: openmetadata-config
+          configMap:
+            name: openmetadata-configuration
+        - name: rsakeys
+          emptyDir: {}
+      # OpenMetaData Requires RSA Keys be stored in DER format
+      # This is a binary format, and we pull these secrets from Vault
+      # But vault secrets engine does not let us store binary data
+      # So we encode it as base64, and we use this init container to
+      # Decode it onto an emptydir volume which is read by OM.
+      initContainers:
+        - name: openmetadata-init
+          image: "quay.io/operate-first/om-server:0.10.3"
+          volumeMounts:
+            - mountPath: /openmetadata-0.10.3/jwt
+              name: rsakeys
+            - mountPath: /tmp/rsakeys
+              name: openmetadata-auth
+          command: ["/bin/sh", "-c", "base64 -d /tmp/rsakeys/private_key.der > /openmetadata-0.10.3/jwt/private_key.der && base64 -d /tmp/rsakeys/public_key.der > /openmetadata-0.10.3/jwt/public_key.der"]
+      containers:
+        - name: openmetadata
+          volumeMounts:
+            - mountPath: /openmetadata-0.10.3/logs
+              name: logs
+            - mountPath: /openmetadata-0.10.3/jwt
+              name: rsakeys
+            - mountPath: /openmetadata-0.10.3/conf/
+              name: openmetadata-config
+          envFrom:
+            - secretRef:
+                name: openmetadata-envs
+          env:
+            - name: AUTHENTICATION_PROVIDER
+              value: custom-oidc
+            - name: AUTHENTICATION_PUBLIC_KEYS
+              value: '[https://dex-dex-secondary.apps.odh-cl2.apps.os-climate.org/keys, http://openmetadata.openmetadata.svc.cluster.local:8585/api/v1/config/jwks]'
+            - name: AUTHENTICATION_AUTHORITY
+              value: "https://dex-dex-secondary.apps.odh-cl2.apps.os-climate.org"
+            - name: AUTHENTICATION_CLIENT_ID
+              value: openmetadata
+            - name: AUTHENTICATION_CALLBACK_URL
+              value: https://openmetadata-openmetadata.apps.odh-cl2.apps.os-climate.org/callback
+            - name: AUTHORIZER_CLASS_NAME
+              value: org.openmetadata.catalog.security.DefaultAuthorizer
+            - name: AUTHORIZER_REQUEST_FILTER
+              value: org.openmetadata.catalog.security.JwtFilter
+            - name: AUTHORIZER_ADMIN_PRINCIPALS
+              value: '[humair88]'
+            - name: AUTHORIZER_INGESTION_PRINCIPALS
+              value: '[ingestion-bot]'
+            - name: AUTHORIZER_PRINCIPAL_DOMAIN
+              value: open-metadata.org
+            - name: AIRFLOW_AUTH_PROVIDER
+              value: openmetadata
+            - name: AIRFLOW_USERNAME
+              valueFrom:
+                secretKeyRef:
+                  key: AIRFLOW_USERNAME
+                  name: airflow-secrets
+            - name: RSA_PUBLIC_KEY_FILE_PATH
+              value: /openmetadata-0.10.3/jwt/public_key.der
+            - name: RSA_PRIVATE_KEY_FILE_PATH
+              value: /openmetadata-0.10.3/jwt/private_key.der
+            - name: OPENMETADATA_JWT_TOKEN
+              valueFrom:
+                secretKeyRef:
+                  key: openmetadata_jwt_token
+                  name: openmetadata-auth
+          resources: {}

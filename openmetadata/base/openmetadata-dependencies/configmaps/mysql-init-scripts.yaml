@@ -1,0 +1,18 @@
+# Source: openmetadata-dependencies/charts/mysql/templates/primary/initialization-configmap.yaml
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: mysql-init-scripts
+  labels:
+    app.kubernetes.io/name: mysql
+data:
+  init_airflow_db_scripts.sql: |
+    CREATE DATABASE {{ .AIRFLOW_DB }};
+    CREATE USER '{{ .AIRFLOW_DB_USER }}'@'%' IDENTIFIED BY '{{ .AIRFLOW_DB_PASSWORD }}';
+    GRANT ALL PRIVILEGES ON {{ .AIRFLOW_DB }}.* TO '{{ .AIRFLOW_DB_USER }}'@'%' WITH GRANT OPTION;
+    commit;
+  init_openmetadata_db_scripts.sql: |
+    CREATE DATABASE {{ .OPENMETADATA_DB }};
+    CREATE USER '{{ .OPENMETADATA_DB_USER }}'@'%' IDENTIFIED BY '{{ .OPENMETADATA_DB_PASSWORD }}';
+    GRANT ALL PRIVILEGES ON {{ .OPENMETADATA_DB }}.* TO '{{ .OPENMETADATA_DB_USER }}'@'%' WITH GRANT OPTION;
+    commit;

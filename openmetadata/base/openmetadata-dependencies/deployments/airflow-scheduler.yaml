@@ -1,0 +1,196 @@
+# Source: openmetadata-dependencies/charts/airflow/templates/scheduler/scheduler-deployment.yaml
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: airflow-scheduler
+  labels:
+    app: airflow
+    component: scheduler
+spec:
+  replicas: 1
+  strategy:
+    type: RollingUpdate
+    rollingUpdate:
+      ## multiple schedulers can run concurrently (Airflow 2.0)
+      maxSurge: 25%
+      maxUnavailable: 0
+  selector:
+    matchLabels:
+      app: airflow
+      component: scheduler
+  template:
+    metadata:
+      annotations:
+        checksum/secret-config-envs: be70a40407f09d2cd3540c5bafa9065c3d67d2cab36f7085c20a5e5bfa0de4c8
+        checksum/secret-local-settings: e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855
+        checksum/config-pod-template: 5bdc6fcb2099bc480b3dea97f6a7c8594d809e089e08f8c35462afd7d8e92347
+        cluster-autoscaler.kubernetes.io/safe-to-evict: "true"
+      labels:
+        app: airflow
+        component: scheduler
+    spec:
+      restartPolicy: Always
+      nodeSelector: {}
+      affinity:
+        podAffinity:
+          requiredDuringSchedulingIgnoredDuringExecution:
+            - labelSelector:
+                matchExpressions:
+                  - key: app
+                    operator: In
+                    values:
+                      - airflow
+              topologyKey: kubernetes.io/hostname
+      tolerations: []
+      serviceAccountName: airflow
+      initContainers:
+        - name: check-db
+          image: quay.io/operate-first/om-airflow:0.10.3
+          imagePullPolicy: IfNotPresent
+          envFrom:
+            - secretRef:
+                name: openmetadata-dependencies-config-envs
+            - configMapRef:
+                name: openmetadata-dependencies-config-envs
+          env:
+            - name: DATABASE_PASSWORD
+              valueFrom:
+                secretKeyRef:
+                  name: airflow-mysql-secrets
+                  key: airflow-mysql-password
+            - name: REDIS_PASSWORD
+              value: ""
+            - name: CONNECTION_CHECK_MAX_COUNT
+              value: "0"
+          command:
+            - "/usr/bin/dumb-init"
+            - "--"
+            - "/entrypoint"
+          args:
+            - "bash"
+            - "-c"
+            - "exec timeout 60s airflow db check"
+          volumeMounts:
+            - name: dags-data
+              mountPath: /opt/airflow/dags
+              subPath:
+            - name: logs-data
+              mountPath: /opt/airflow/logs
+              subPath:
+        - name: wait-for-db-migrations
+          image: quay.io/operate-first/om-airflow:0.10.3
+          imagePullPolicy: IfNotPresent
+          envFrom:
+            - secretRef:
+                name: openmetadata-dependencies-config-envs
+            - configMapRef:
+                name: openmetadata-dependencies-config-envs
+          env:
+            - name: DATABASE_PASSWORD
+              valueFrom:
+                secretKeyRef:
+                  name: airflow-mysql-secrets
+                  key: airflow-mysql-password
+            - name: REDIS_PASSWORD
+              value: ""
+            - name: CONNECTION_CHECK_MAX_COUNT
+              value: "0"
+          command:
+            - "/usr/bin/dumb-init"
+            - "--"
+            - "/entrypoint"
+          args:
+            - "bash"
+            - "-c"
+            - "exec airflow db check-migrations -t 60"
+          volumeMounts:
+            - name: dags-data
+              mountPath: /opt/airflow/dags
+              subPath:
+            - name: logs-data
+              mountPath: /opt/airflow/logs
+              subPath:
+      containers:
+        - name: airflow-scheduler
+          image: quay.io/operate-first/om-airflow:0.10.3
+          imagePullPolicy: IfNotPresent
+          resources: {}
+          envFrom:
+            - secretRef:
+                name: openmetadata-dependencies-config-envs
+            - configMapRef:
+                name: openmetadata-dependencies-config-envs
+          env:
+            - name: DATABASE_PASSWORD
+              valueFrom:
+                secretKeyRef:
+                  name: airflow-mysql-secrets
+                  key: airflow-mysql-password
+            - name: REDIS_PASSWORD
+              value: ""
+            - name: CONNECTION_CHECK_MAX_COUNT
+              value: "0"
+          command:
+            - "/usr/bin/dumb-init"
+            - "--"
+            - "/entrypoint"
+          args:
+            - "bash"
+            - "-c"
+            - "exec airflow scheduler -n -1"
+          livenessProbe:
+            initialDelaySeconds: 10
+            periodSeconds: 30
+            failureThreshold: 5
+            timeoutSeconds: 60
+            exec:
+              command:
+                - "python"
+                - "-Wignore"
+                - "-c"
+                - |
+                  import sys
+                  from typing import List
+                  from airflow.jobs.scheduler_job import SchedulerJob
+                  from airflow.utils.db import create_session
+                  from airflow.utils.net import get_hostname
+                  from airflow.utils.state import State
+
+                  with create_session() as session:
+                      hostname = get_hostname()
+                      query = session \
+                          .query(SchedulerJob) \
+                          .filter_by(state=State.RUNNING, hostname=hostname) \
+                          .order_by(SchedulerJob.latest_heartbeat.desc())
+                      jobs: List[SchedulerJob] = query.all()
+                      alive_jobs = [job for job in jobs if job.is_alive()]
+                      count_alive_jobs = len(alive_jobs)
+
+                  if count_alive_jobs == 1:
+                      # scheduler is healthy - we expect one SchedulerJob per scheduler
+                      pass
+                  elif count_alive_jobs == 0:
+                      sys.exit(f"UNHEALTHY - 0 alive SchedulerJob for: {hostname}")
+                  else:
+                      sys.exit(f"UNHEALTHY - {count_alive_jobs} (more than 1) alive SchedulerJob for: {hostname}")
+          volumeMounts:
+            - name: dags-data
+              mountPath: /opt/airflow/dags
+              subPath:
+            - name: logs-data
+              mountPath: /opt/airflow/logs
+              subPath:
+            - name: pod-template
+              mountPath: /opt/airflow/pod_templates/pod_template.yaml
+              subPath: pod_template.yaml
+              readOnly: true
+      volumes:
+        - name: dags-data
+          persistentVolumeClaim:
+            claimName: airflow-dags
+        - name: logs-data
+          persistentVolumeClaim:
+            claimName: airflow-logs
+        - name: pod-template
+          configMap:
+            name: airflow-pod-template

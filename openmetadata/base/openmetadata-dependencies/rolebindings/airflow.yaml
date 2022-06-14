@@ -1,0 +1,15 @@
+# Source: openmetadata-dependencies/charts/airflow/templates/rbac/airflow-rolebinding.yaml
+apiVersion: rbac.authorization.k8s.io/v1
+kind: RoleBinding
+metadata:
+  name: airflow
+  labels:
+    app: airflow
+roleRef:
+  apiGroup: rbac.authorization.k8s.io
+  kind: Role
+  name: airflow
+subjects:
+  - kind: ServiceAccount
+    name: airflow
+    namespace: openmetadata

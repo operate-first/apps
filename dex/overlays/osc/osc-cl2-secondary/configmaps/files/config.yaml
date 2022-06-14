@@ -1,0 +1,45 @@
+issuer: https://dex-dex-secondary.apps.odh-cl2.apps.os-climate.org
+
+storage:
+  type: memory
+
+web:
+  http: "0.0.0.0:5556"
+  allowedOrigins: ['https://openmetadata-openmetadata.apps.odh-cl2.apps.os-climate.org']
+
+grpc:
+  addr: "0.0.0.0:5557"
+
+telemetry:
+  http: "0.0.0.0:5558"
+
+oauth2:
+  skipApprovalScreen: true
+  alwaysShowLoginScreen: false
+  responseTypes: ["code", "token", "id_token"]
+
+staticClients:
+  - id: openmetadata
+    name: OpenMetadata Service
+    redirectURIs:
+      - https://openmetadata-openmetadata.apps.odh-cl2.apps.os-climate.org/callback
+    secretEnv: OPENMETADATA_SECRET
+
+expiry:
+  idTokens: "168h"
+
+connectors:
+  - type: github
+    id: github
+    name: GitHub
+    config:
+      clientID: $GITHUB_ID
+      clientSecret: $GITHUB_TOKEN
+      redirectURI: https://dex-dex-secondary.apps.odh-cl2.apps.os-climate.org/callback
+      orgs:
+        - name: os-climate
+          teams:
+            - odh-env-users
+      loadAllGroups: false
+      teamNameField: slug
+      useLoginAsID: true

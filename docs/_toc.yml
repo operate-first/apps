@@ -41,10 +41,12 @@ parts:
         sections:
           - file: content/vault/add_cluster_to_eso_and_vault.md
 
-      # ESO
-      - file: content/external-secrets/README.md
+      # Vault
+      - file: content/vault_eso/README.md
         sections:
-          - file: content/external-secrets/add_eso_to_cluster.md
+          - file: content/vault_eso/add_cluster_to_eso_and_vault.md
+          - file: content/vault_eso/add_external_secrets_to_ns.md
+          - file: content/vault_eso/add_eso_to_cluster.md
 
       # Cluster Scope
       - file: content/cluster-scope/README.md
@@ -130,6 +132,12 @@ parts:
             - file: content/odh/trino/trino_superset_user_guide.md
 
           - file: content/odh/adding_kfdefs.md
+
+      # OpenMetaData
+      - file: content/openmetadata/README.md
+        sections:
+          - file: content/openmetadata/operator_manual/deployment.md
+          - file: content/openmetadata/operator_manual/updating_om.md
 
       # Reloader
       - file: content/reloader/README.md
