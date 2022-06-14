@@ -6,11 +6,13 @@ resources:
   - ../../../../base/core/configmaps/user-workload-monitoring-config
   - ../../../../base/core/namespaces/acme-operator
   - ../../../../base/core/namespaces/dex
+  - ../../../../base/core/namespaces/dex-secondary
   - ../../../../base/core/namespaces/kubeflow
   - ../../../../base/core/namespaces/odh-jupyterhub
   - ../../../../base/core/namespaces/odh-seldon
   - ../../../../base/core/namespaces/odh-superset
   - ../../../../base/core/namespaces/odh-trino
+  - ../../../../base/core/namespaces/openmetadata
   - ../../../../base/core/namespaces/openshift-nfd
   - ../../../../base/core/namespaces/opf-monitoring
   - ../../../../base/core/namespaces/nvidia-gpu-operator

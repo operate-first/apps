@@ -15,6 +15,7 @@ resources:
 - ../../../../base/core/namespaces/acme-operator
 - ../../../../base/core/namespaces/datahub-linkedin
 - ../../../../base/core/namespaces/dex
+- ../../../../base/core/namespaces/dex-secondary
 - ../../../../base/core/namespaces/kubeflow
 - ../../../../base/core/namespaces/multinode-demo
 - ../../../../base/core/namespaces/odh-jupyterhub
@@ -22,6 +23,7 @@ resources:
 - ../../../../base/core/namespaces/odh-superset
 - ../../../../base/core/namespaces/odh-trino
 - ../../../../base/core/namespaces/odh-trino-dev
+- ../../../../base/core/namespaces/openmetadata
 - ../../../../base/core/namespaces/opf-dashboard
 - ../../../../base/core/namespaces/opf-jupyterhub-stage
 - ../../../../base/core/namespaces/opf-monitoring
