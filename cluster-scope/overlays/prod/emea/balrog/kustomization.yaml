@@ -28,9 +28,8 @@ resources:
     - apiserver
     - machineautoscalers.yaml
     - ingresscontrollers
+    - secret-mgmt
     - secrets
-    - secretstores
-    - serviceaccounts
 generators:
     - secret-generator.yaml
 patchesStrategicMerge:
