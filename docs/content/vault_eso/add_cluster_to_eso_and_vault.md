@@ -59,6 +59,16 @@ path "k8s_secrets/data/$env/*" {
 path "k8s_secrets/data/$env/*" {
     capabilities = ["create", "read", "update", "delete", "list", "sudo"]
 }
+
+
+path "k8s_secrets/*" {
+  capabilities = ["list"]
+}
+
+path "k8s_secrets/metadata/$env/*" {
+  capabilities = ["create", "read", "update", "patch", "delete", "list", "sudo"]
+}
+
 ```
 
 Login to Vault via the CLI and run the following to apply these policies:
@@ -73,22 +83,22 @@ vault policy write ${env}-kv-rw user_policy.hcl
 Check if the Vault group for this ENV exists:
 
 ```bash
-vault list /identity/group/name | grep vault-${env}-admins
+vault list /identity/group/name | grep vault-admins-${env}
 ```
 
 If there's no output then you need to create a Vault group that has read/write access to the path `k8s_secrets/data/$env/*`.
 
 ```bash
-vault write identity/group name="vault-${env}-admins" type="external" \
+vault write identity/group name="vault-admins-${env}" type="external" \
        policies="${env}-kv-rw" \
        metadata=responsibility="Vault ${env} Admin"
 
-vault write identity/group-alias name="vault-${env}-admins" \
+vault write identity/group-alias name="vault-admins-${env}" \
      mount_accessor=$(vault auth list -format=json  | jq -r '."oidc/".accessor') \
      canonical_id="$(vault read /identity/group/name/vault-osc-admins -format=json | jq -r '.data.alias.canonical_id')"
 ```
 
-This will associate the OCP group named `vault-${env}-admins` with the policy created earlier named `${env}-kv-rw`.
+This will associate the OCP group named `vault-admins-${env}` with the policy created earlier named `${env}-kv-rw`.
 Any Vault user belonging to this OCP group will be able to login using the `OIDC` method and add their secrets to the
 path: `k8s_secrets/$env/$cluster/`.
 
