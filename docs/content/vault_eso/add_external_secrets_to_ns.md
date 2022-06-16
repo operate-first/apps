@@ -9,16 +9,21 @@ from vault. We do not currently offer support for using Operate First Vault inst
 * Cluster should be [integrated with opf vault instance][1]
 * Namespace admin access
 * Know your env and cluster (referred to as `$env` and `$cluster` in this doc)
+* Have a working clone of the operate-first/apps repo
 
 ## Steps
 
 There are 2 steps:
+1) Enable namespace to fetch secrets from vault
+2) Add external secrets
 
-### Enable Namespace to pull from vault
+The first step only needs to be done once per namespace.
+
+###1. Enable namespace to fetch secrets from vault
 
 These steps need to be followed only once per namespace:
 
-### Permit role to access namespace
+#### Permit role to access namespace
 
 Navigate to vault: https://vault-ui-vault.apps.smaug.na.operate-first.cloud/ui/vault/access
 
@@ -33,46 +38,24 @@ Scroll to `Bound service account namespaces`.
 
 Enter your namespace you would like to integrate with vault.
 
-### Add Secret Store
+#### Add Store and SA to namespace
 
-Add this secret store to your namespace:
-
-```yaml
-apiVersion: external-secrets.io/v1beta1
-kind: SecretStore
-metadata:
-  name: opf-vault-store
-spec:
-  provider:
-    vault:
-      auth:
-        kubernetes:
-          mountPath: ${cluster}-k8s # Ex. 'balrog-k8s', 'smaug-k8s', 'osc-cl1-k8s'
-          role: ${env}-ops
-          serviceAccountRef:
-            name: vault-secret-fetcher
-      path: k8s_secrets
-      server: 'https://vault-ui-vault.apps.smaug.na.operate-first.cloud'
-      version: v2
-```
-
-This will allow ESO to authenticate against the vault instance for this particular cluster. Allowing ESO to access
-this cluster's secrets in vault.
-
-### Add Service Account
-
-Add this SA to your namespace. Vault is configured to recognize this ServiceAccount name for all integrated clusters.
+Navigate to `apps/cluster-scope/overlays/prod/${env}/${cluster}/secret-mgmt` and create a new directory named after
+your namespace. In this directory add `kustomization.yaml`:
 
 ```yaml
-kind: ServiceAccount
-apiVersion: v1
-metadata:
-  name: vault-secret-fetcher
+apiVersion: kustomize.config.k8s.io/v1beta1
+kind: Kustomization
+namespace: ${namespace}  # replace with your namespace
+resources:
+  - ../base
 ```
 
-ESO will assume this SA's credentials when authenticating with vault.
+Then include this directory in  `apps/cluster-scope/overlays/prod/${env}/${cluster}/secret-mgmt/kustomization.yaml`.
 
-### Create External Secret
+Commit your changes and make a PR.
+
+###2. Create External Secret
 
 Refer to [ESO Vault Docs][2] on how to create your secret.
 
