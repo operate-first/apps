@@ -1,0 +1,20 @@
+# Source: openmetadata/templates/service.yaml
+apiVersion: v1
+kind: Service
+metadata:
+  name: openmetadata
+  labels:
+    app.kubernetes.io/name: openmetadata
+spec:
+  type: ClusterIP
+  ports:
+    - port: 8585
+      targetPort: http
+      protocol: TCP
+      name: http
+    - port: 8586
+      targetPort: http-admin
+      protocol: TCP
+      name: http-admin
+  selector:
+    app.kubernetes.io/name: openmetadata

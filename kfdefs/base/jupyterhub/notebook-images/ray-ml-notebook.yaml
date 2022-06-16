@@ -16,4 +16,4 @@ spec:
       name: latest
       from:
         kind: DockerImage
-        name: 'quay.io/thoth-station/s2i-ray-ml-notebook:v0.1.1'
+        name: 'quay.io/thoth-station/s2i-ray-ml-notebook:v0.2.0'

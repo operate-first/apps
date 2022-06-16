@@ -21,9 +21,15 @@ resources:
 - ../../../../base/core/namespaces/boatrockers
 - ../../../../base/core/namespaces/bu-scsaol
 - ../../../../base/core/namespaces/chrisproject
+- ../../../../base/core/namespaces/chrisproject-dev
+- ../../../../base/core/namespaces/chrisproject-staging
 - ../../../../base/core/namespaces/curator-operator
+- ../../../../base/core/namespaces/ddas-proj
 - ../../../../base/core/namespaces/debezium-ui
 - ../../../../base/core/namespaces/democratic-csi
+- ../../../../base/core/namespaces/demolab
+- ../../../../base/core/namespaces/demolab-dev
+- ../../../../base/core/namespaces/demolab-staging
 - ../../../../base/core/namespaces/dex
 - ../../../../base/core/namespaces/ds-github-labeler
 - ../../../../base/core/namespaces/ds-ml-workflows-ws
@@ -62,6 +68,7 @@ resources:
 - ../../../../base/core/namespaces/rapidast
 - ../../../../base/core/namespaces/report-system
 - ../../../../base/core/namespaces/rh-curator-eval
+- ../../../../base/core/namespaces/service-catalog
 - ../../../../base/core/namespaces/smart-village-view
 - ../../../../base/core/namespaces/tekton-pipelines
 - ../../../../base/core/namespaces/thoth-amun-api-prod
@@ -80,12 +87,14 @@ resources:
 - ../../../../base/imageregistry.operator.openshift.io/configs/cluster
 - ../../../../base/noobaa.io/backingstores
 - ../../../../base/operators.coreos.com/catalogsources/operatorhubio-catalog/
+- ../../../../base/operators.coreos.com/catalogsources/rapidast
 - ../../../../base/operators.coreos.com/operatorgroups/cluster-logging
 - ../../../../base/operators.coreos.com/operatorgroups/koku-metrics-operator
 - ../../../../base/operators.coreos.com/operatorgroups/openshift-cnv-rn5jf
 - ../../../../base/operators.coreos.com/operatorgroups/openshift-vertical-pod-autoscaler
 - ../../../../base/operators.coreos.com/operatorgroups/opf-monitoring
 - ../../../../base/operators.coreos.com/operatorgroups/opf-pulp
+- ../../../../base/operators.coreos.com/operatorgroups/rapidast
 - ../../../../base/operators.coreos.com/subscriptions/camel-k
 - ../../../../base/operators.coreos.com/subscriptions/cert-manager
 - ../../../../base/operators.coreos.com/subscriptions/cluster-logging
@@ -94,6 +103,7 @@ resources:
 - ../../../../base/operators.coreos.com/subscriptions/kubevirt-hyperconverged
 - ../../../../base/operators.coreos.com/subscriptions/ovms-operator
 - ../../../../base/operators.coreos.com/subscriptions/pulp-operator
+- ../../../../base/operators.coreos.com/subscriptions/rapidast
 - ../../../../base/operators.coreos.com/subscriptions/snapscheduler
 - ../../../../base/operators.coreos.com/subscriptions/strimzi
 - ../../../../base/operators.coreos.com/subscriptions/vertical-pod-autoscaler

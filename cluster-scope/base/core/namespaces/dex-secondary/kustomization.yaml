@@ -1,0 +1,9 @@
+apiVersion: kustomize.config.k8s.io/v1beta1
+components:
+    - ../../../../components/project-admin-rolebindings/operate-first
+    - ../../../../components/limitranges/default
+    - ../../../../components/resourcequotas/x-small
+kind: Kustomization
+namespace: dex-secondary
+resources:
+    - namespace.yaml

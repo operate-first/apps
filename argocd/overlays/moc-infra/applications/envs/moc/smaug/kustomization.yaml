@@ -5,6 +5,7 @@ nameSuffix: -smaug
 resources:
 - apicurio
 - b4mad
+- chris
 - cluster-management
 - data-science
 - fybrik

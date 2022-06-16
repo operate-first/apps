@@ -37,12 +37,14 @@ OAUTH_PROVIDERS = [
          'client_kwargs': {
              'scope': 'openid email groups profile offline_access'
          },
-         'api_base_url': 'http://dex-dex.apps.smaug.na.operate-first.cloud/userinfo',
-         'access_token_url': 'http://dex-dex.apps.smaug.na.operate-first.cloud/token',
-         'authorize_url': 'http://dex-dex.apps.smaug.na.operate-first.cloud/auth'
+         'api_base_url': 'https://dex-dex.apps.smaug.na.operate-first.cloud/userinfo',
+         'access_token_url': 'https://dex-dex.apps.smaug.na.operate-first.cloud/token',
+         'authorize_url': 'https://dex-dex.apps.smaug.na.operate-first.cloud/auth'
      }
      }
 ]
+
+WTF_CSRF_ENABLED = False
 
 from custom_sso_security_manager import CustomSsoSecurityManager
 CUSTOM_SECURITY_MANAGER = CustomSsoSecurityManager

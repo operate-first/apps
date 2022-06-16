@@ -1,0 +1,8 @@
+apiVersion: external-secrets.io/v1beta1
+kind: ExternalSecret
+metadata:
+  name: dex-clients
+spec:
+  dataFrom:
+    - extract:
+        key: moc/smaug/dex/dex-clients

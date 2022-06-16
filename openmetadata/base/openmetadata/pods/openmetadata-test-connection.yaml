@@ -1,0 +1,14 @@
+# Source: openmetadata/templates/tests/test-connection.yaml
+apiVersion: v1
+kind: Pod
+metadata:
+  name: "openmetadata-test-connection"
+  labels:
+    app.kubernetes.io/name: openmetadata
+spec:
+  containers:
+    - name: wget
+      image: busybox
+      command: ['wget']
+      args: ['openmetadata:8585']
+  restartPolicy: Never

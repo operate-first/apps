@@ -1,0 +1,7 @@
+# Source: openmetadata-dependencies/charts/airflow/templates/rbac/airflow-serviceaccount.yaml
+apiVersion: v1
+kind: ServiceAccount
+metadata:
+  name: airflow
+  labels:
+    app: airflow
