@@ -143,6 +143,7 @@ resources:
 - ../../../../bundles/opf-vault
 - ../../../../bundles/reloader
 - ../../../../bundles/seraph
+- ../../../../bundles/service-catalog
 - ../../../../bundles/tekton-chains
 - ../../../../bundles/volsync
 - ../common
