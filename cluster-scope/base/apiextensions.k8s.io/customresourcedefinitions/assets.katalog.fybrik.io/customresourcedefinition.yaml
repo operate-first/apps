@@ -90,8 +90,11 @@ spec:
                   this asset
                 properties:
                   name:
-                    description: Name of the Secret resource (must exist in the same
-                      namespace)
+                    description: Name of the Secret resource
+                    type: string
+                  namespace:
+                    description: Namespace of the Secret resource. If it is empty
+                      then the asset namespace is used.
                     type: string
                 required:
                 - name
@@ -101,6 +104,8 @@ spec:
             - metadata
             - secretRef
             type: object
+        required:
+        - spec
         type: object
     served: true
     storage: true
