@@ -9,5 +9,5 @@ spec:
     managementState: Unmanaged
     s3:
       bucket: openshift-image-registry-bucket
-      regionEndpoint: "https://s3-openshift-storage.apps.smaug.na.operate-first.cloud/"
+      regionEndpoint: "https://s3-rook-openshift-storage.apps.morty.emea.operate-first.cloud/"
       region: "-"
