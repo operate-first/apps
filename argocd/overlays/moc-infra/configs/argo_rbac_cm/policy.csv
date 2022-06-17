@@ -10,6 +10,8 @@ p, role:standard-user, gpgkeys, get, *, allow
 p, role:readonly-public, applications, get, workshops/*, allow
 # Workshop's app of apps lives in operate-first project, allow apps in this project to be listed as well
 p, role:readonly-public, applications, get, operate-first/*, allow
+# Peribolos app of apps lives in peribolos-service project, allow apps in this project to be listed as well
+p, role:readonly-public, applications, get, peribolos-service/*, allow
 
 # Give Openshift group (argocd-admins) the argocd admin role with unrestricted argocd access
 g, argocd-admins, role:admin
