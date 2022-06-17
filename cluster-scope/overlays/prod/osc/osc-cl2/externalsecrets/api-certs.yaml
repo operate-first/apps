@@ -3,6 +3,9 @@ kind: ExternalSecret
 metadata:
   name: api-certs
   namespace: openshift-config
+  annotations:
+    argocd.argoproj.io/compare-options: IgnoreExtraneous
+    argocd.argoproj.io/sync-options: Prune=false
 spec:
   secretStoreRef:
     name: openshift-config
