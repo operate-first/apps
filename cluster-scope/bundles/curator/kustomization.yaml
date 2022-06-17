@@ -4,7 +4,15 @@ kind: Kustomization
 resources:
   - ../../base/rbac.authorization.k8s.io/clusterrolebindings/curator-manager-rb
   - ../../base/rbac.authorization.k8s.io/clusterrolebindings/curator-oauth-proxy-rb
+  - ../../base/rbac.authorization.k8s.io/clusterrolebindings/curator-operator-manager-rb
+  - ../../base/rbac.authorization.k8s.io/clusterrolebindings/curator-operator-oauth-proxy-rb
   - ../../base/rbac.authorization.k8s.io/clusterroles/curator-auth-proxy-role
+  - ../../base/rbac.authorization.k8s.io/clusterroles/curator-operator-fetchdata-editor-role
+  - ../../base/rbac.authorization.k8s.io/clusterroles/curator-operator-fetchdata-viewer-role
+  - ../../base/rbac.authorization.k8s.io/clusterroles/curator-operator-manager-role
+  - ../../base/rbac.authorization.k8s.io/clusterroles/curator-operator-metrics-reader
+  - ../../base/rbac.authorization.k8s.io/clusterroles/curator-operator-report-editor-role
+  - ../../base/rbac.authorization.k8s.io/clusterroles/curator-operator-report-viewer-role
   - ../../base/rbac.authorization.k8s.io/clusterroles/curator-report-editor-role
   - ../../base/rbac.authorization.k8s.io/clusterroles/curator-report-manager-role
   - ../../base/rbac.authorization.k8s.io/clusterroles/curator-report-viewer-role
