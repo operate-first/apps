@@ -21,6 +21,7 @@ resources:
   - prod-aicoe-ci.yaml
   - pulp.yaml
   - reloader.yaml
+  - service-catalog.yaml
   - slack-first.yaml
   - tekton-chains.yaml
   - triage-party.yaml
