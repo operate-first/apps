@@ -1042,6 +1042,16 @@ path &quot;k8s_secrets/data/$env/*&quot; {
 path &quot;k8s_secrets/data/$env/*&quot; {
     capabilities = [&quot;create&quot;, &quot;read&quot;, &quot;update&quot;, &quot;delete&quot;, &quot;list&quot;, &quot;sudo&quot;]
 }
+
+
+path &quot;k8s_secrets/*&quot; {
+  capabilities = [&quot;list&quot;]
+}
+
+path &quot;k8s_secrets/metadata/$env/*&quot; {
+  capabilities = [&quot;create&quot;, &quot;read&quot;, &quot;update&quot;, &quot;patch&quot;, &quot;delete&quot;, &quot;list&quot;, &quot;sudo&quot;]
+}
+
 </pre></div>
 </div>
 <p>Login to Vault via the CLI and run the following to apply these policies:</p>
@@ -1053,20 +1063,20 @@ vault policy write <span class="si">${</span><span class="nv">env</span><span cl
 <section id="give-ocp-users-rw-access">
 <h3>Give OCP users RW access<a class="headerlink" href="#give-ocp-users-rw-access" title="Permalink to this headline">#</a></h3>
 <p>Check if the Vault group for this ENV exists:</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>vault list /identity/group/name <span class="p">|</span> grep vault-<span class="si">${</span><span class="nv">env</span><span class="si">}</span>-admins
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>vault list /identity/group/name <span class="p">|</span> grep vault-admins-<span class="si">${</span><span class="nv">env</span><span class="si">}</span>
 </pre></div>
 </div>
 <p>If there’s no output then you need to create a Vault group that has read/write access to the path <code class="docutils literal notranslate"><span class="pre">k8s_secrets/data/$env/*</span></code>.</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>vault write identity/group <span class="nv">name</span><span class="o">=</span><span class="s2">&quot;vault-</span><span class="si">${</span><span class="nv">env</span><span class="si">}</span><span class="s2">-admins&quot;</span> <span class="nv">type</span><span class="o">=</span><span class="s2">&quot;external&quot;</span> <span class="se">\</span>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>vault write identity/group <span class="nv">name</span><span class="o">=</span><span class="s2">&quot;vault-admins-</span><span class="si">${</span><span class="nv">env</span><span class="si">}</span><span class="s2">&quot;</span> <span class="nv">type</span><span class="o">=</span><span class="s2">&quot;external&quot;</span> <span class="se">\</span>
        <span class="nv">policies</span><span class="o">=</span><span class="s2">&quot;</span><span class="si">${</span><span class="nv">env</span><span class="si">}</span><span class="s2">-kv-rw&quot;</span> <span class="se">\</span>
        <span class="nv">metadata</span><span class="o">=</span><span class="nv">responsibility</span><span class="o">=</span><span class="s2">&quot;Vault </span><span class="si">${</span><span class="nv">env</span><span class="si">}</span><span class="s2"> Admin&quot;</span>
 
-vault write identity/group-alias <span class="nv">name</span><span class="o">=</span><span class="s2">&quot;vault-</span><span class="si">${</span><span class="nv">env</span><span class="si">}</span><span class="s2">-admins&quot;</span> <span class="se">\</span>
+vault write identity/group-alias <span class="nv">name</span><span class="o">=</span><span class="s2">&quot;vault-admins-</span><span class="si">${</span><span class="nv">env</span><span class="si">}</span><span class="s2">&quot;</span> <span class="se">\</span>
      <span class="nv">mount_accessor</span><span class="o">=</span><span class="k">$(</span>vault auth list -format<span class="o">=</span>json  <span class="p">|</span> jq -r <span class="s1">&#39;.&quot;oidc/&quot;.accessor&#39;</span><span class="k">)</span> <span class="se">\</span>
      <span class="nv">canonical_id</span><span class="o">=</span><span class="s2">&quot;</span><span class="k">$(</span>vault <span class="nb">read</span> /identity/group/name/vault-osc-admins -format<span class="o">=</span>json <span class="p">|</span> jq -r <span class="s1">&#39;.data.alias.canonical_id&#39;</span><span class="k">)</span><span class="s2">&quot;</span>
 </pre></div>
 </div>
-<p>This will associate the OCP group named <code class="docutils literal notranslate"><span class="pre">vault-${env}-admins</span></code> with the policy created earlier named <code class="docutils literal notranslate"><span class="pre">${env}-kv-rw</span></code>.
+<p>This will associate the OCP group named <code class="docutils literal notranslate"><span class="pre">vault-admins-${env}</span></code> with the policy created earlier named <code class="docutils literal notranslate"><span class="pre">${env}-kv-rw</span></code>.
 Any Vault user belonging to this OCP group will be able to login using the <code class="docutils literal notranslate"><span class="pre">OIDC</span></code> method and add their secrets to the
 path: <code class="docutils literal notranslate"><span class="pre">k8s_secrets/$env/$cluster/</span></code>.</p>
 <blockquote>
