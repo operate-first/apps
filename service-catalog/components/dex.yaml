@@ -1,0 +1,14 @@
+apiVersion: backstage.io/v1alpha1
+kind: Component
+metadata:
+  name: Dex-OIDC-Provider
+  description: We manage an instance of Dex on the Smaug cluster to provide authentication for some of our services
+  links:
+    - url: https://github.com/dexidp/dex
+      title: Support path
+      icon: user
+spec:
+  type: service
+  lifecycle: production
+  owner: group:operate-first
+  system: system:operate-first-cloud

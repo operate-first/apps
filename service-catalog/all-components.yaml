@@ -1,0 +1,13 @@
+apiVersion: backstage.io/v1alpha1
+kind: Location
+metadata:
+  name: Components
+  description: A collection of all operate-first services
+spec:
+  targets:
+    - ./components/argo.yaml
+    - ./components/dex.yaml
+    - ./components/grafana.yaml
+    - ./components/observatorium.yaml
+    - ./components/odh.yaml
+    - ./components/odf.yaml
