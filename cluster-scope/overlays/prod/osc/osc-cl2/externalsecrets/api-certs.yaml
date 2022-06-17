@@ -1,0 +1,17 @@
+apiVersion: external-secrets.io/v1beta1
+kind: ExternalSecret
+metadata:
+  name: api-certs
+  namespace: openshift-config
+spec:
+  secretStoreRef:
+    name: openshift-config
+    kind: SecretStore
+  refreshInterval: "1h"
+  target:
+    name: api-certs
+    creationPolicy: 'Owner'
+    deletionPolicy: "Retain"
+  dataFrom:
+    - extract:
+        key: osc/osc-cl2/openshift-config/api-certs
