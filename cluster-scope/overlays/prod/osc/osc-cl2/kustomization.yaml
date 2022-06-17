@@ -38,6 +38,7 @@ resources:
   - ../../../../bundles/pachyderm-operator
   - ../../../../bundles/reloader
   - apiserver
+  - externalsecrets
   - ingresscontroller
   - machinesets
   - nodefeaturediscovery

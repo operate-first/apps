@@ -48,6 +48,7 @@ resources:
 - ../../../../bundles/training-operator
 - ../../../../bundles/openshift-pipelines
 - apiserver
+- externalsecrets
 - ingresscontroller
 - secretstores
 - serviceaccounts
