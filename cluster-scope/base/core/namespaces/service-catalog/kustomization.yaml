@@ -6,4 +6,4 @@ resources:
 components:
     - ../../../../components/limitranges/default
     - ../../../../components/project-admin-rolebindings/service-catalog
-    - ../../../../components/resourcequotas/small
+    - ../../../../components/resourcequotas/large
