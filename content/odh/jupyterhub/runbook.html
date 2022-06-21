@@ -944,6 +944,11 @@ title="Print to PDF"
      “No Kernel” or “Error Starting Kernel” errors
     </a>
    </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#unable-to-spawn-server-with-username-exceeded-quota-error">
+     Unable to spawn server with “username exceeded quota” error
+    </a>
+   </li>
   </ul>
  </li>
 </ul>
@@ -1013,6 +1018,11 @@ title="Print to PDF"
    <li class="toc-h3 nav-item toc-entry">
     <a class="reference internal nav-link" href="#no-kernel-or-error-starting-kernel-errors">
      “No Kernel” or “Error Starting Kernel” errors
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#unable-to-spawn-server-with-username-exceeded-quota-error">
+     Unable to spawn server with “username exceeded quota” error
     </a>
    </li>
   </ul>
@@ -1115,6 +1125,14 @@ Follow steps <a class="reference internal" href="analyze_storage.html"><span cla
 <section id="no-kernel-or-error-starting-kernel-errors">
 <h3>“No Kernel” or “Error Starting Kernel” errors<a class="headerlink" href="#no-kernel-or-error-starting-kernel-errors" title="Permalink to this headline">#</a></h3>
 <p>If the user is encountering issues starting their server and encounter errors pertaining to their Kernel, they can try restarting their Kernel by following steps <a class="reference internal" href="reinstall_kernel.html"><span class="doc std std-doc">here</span></a>.</p>
+</section>
+<section id="unable-to-spawn-server-with-username-exceeded-quota-error">
+<h3>Unable to spawn server with “username exceeded quota” error<a class="headerlink" href="#unable-to-spawn-server-with-username-exceeded-quota-error" title="Permalink to this headline">#</a></h3>
+<p>Jupyterhub can fail to spawn with an error message such as the following when the resource limits on the Jupyterhub namespace gets capped.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">pods</span> \<span class="s2">&quot;jupyterhub-nb-username</span><span class="se">\&quot;</span><span class="s2"> is forbidden: exceeded quota: opf-jupyterhub-custom, requested: limits.cpu=3, used: limits.cpu=120, limited: limits.cpu=120&quot;</span>
+</pre></div>
+</div>
+<p>To solve that, the cpu and memory limits on the jupyterhub namespace can be increased. You can do that by adding a PR <a class="reference external" href="https://github.com/operate-first/apps/blob/master/cluster-scope/base/core/namespaces/opf-jupyterhub/resourcequota.yaml#L7-L8">here</a> and increasing the limits.</p>
 </section>
 </section>
 </section>
