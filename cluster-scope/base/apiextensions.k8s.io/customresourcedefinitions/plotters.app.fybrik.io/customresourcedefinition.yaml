@@ -48,10 +48,6 @@ spec:
               which provides the Data Scientist's application with secure and governed
               access to the data requested in the FybrikApplication.
             properties:
-              appInfo:
-                description: Application context to be transferred to the modules
-                type: object
-                x-kubernetes-preserve-unknown-fields: true
               appSelector:
                 description: Selector enables to connect the resource to the application
                   Application labels should match the labels in the selector. For
@@ -172,6 +168,7 @@ spec:
                           type: object
                       required:
                       - connection
+                      - vault
                       type: object
                   required:
                   - assetDetails
@@ -191,11 +188,6 @@ spec:
                       type: string
                     flowType:
                       description: Type of the flow (e.g. read)
-                      enum:
-                      - read
-                      - write
-                      - delete
-                      - copy
                       type: string
                     name:
                       description: Name of the flow
@@ -208,11 +200,6 @@ spec:
                         properties:
                           flowType:
                             description: Type of the flow (e.g. read)
-                            enum:
-                            - read
-                            - write
-                            - delete
-                            - copy
                             type: string
                           name:
                             description: Name of the SubFlow
@@ -269,37 +256,49 @@ spec:
                                         required:
                                         - connection
                                         type: object
-                                      args:
-                                        items:
-                                          description: 'StepArgument describes a step:
-                                            it could be assetID or an endpoint of
-                                            another step'
-                                          properties:
-                                            api:
-                                              description: API holds information for
-                                                accessing a module instance
-                                              properties:
-                                                connection:
-                                                  description: Connection information
-                                                  properties:
-                                                    name:
-                                                      type: string
-                                                  required:
-                                                  - name
-                                                  type: object
-                                                  x-kubernetes-preserve-unknown-fields: true
-                                                dataFormat:
-                                                  description: Data format
-                                                  type: string
-                                              required:
-                                              - connection
-                                              type: object
-                                            assetId:
-                                              description: AssetID identifies the
-                                                source asset of this step
-                                              type: string
-                                          type: object
-                                        type: array
+                                      sink:
+                                        description: 'StepSink holds information to
+                                          where the target data will be written: it
+                                          could be assetID of an asset specified in
+                                          fybrikapplication or of an asset created
+                                          by fybrik control-plane'
+                                        properties:
+                                          assetId:
+                                            description: AssetID identifies the target
+                                              asset of this step
+                                            type: string
+                                        required:
+                                        - assetId
+                                        type: object
+                                      source:
+                                        description: 'StepSource is the source of
+                                          this step: it could be assetID or an enpoint
+                                          of another step'
+                                        properties:
+                                          api:
+                                            description: API holds information for
+                                              accessing a module instance
+                                            properties:
+                                              connection:
+                                                description: Connection information
+                                                properties:
+                                                  name:
+                                                    type: string
+                                                required:
+                                                - name
+                                                type: object
+                                                x-kubernetes-preserve-unknown-fields: true
+                                              dataFormat:
+                                                description: Data format
+                                                type: string
+                                            required:
+                                            - connection
+                                            type: object
+                                          assetId:
+                                            description: AssetID identifies the source
+                                              asset of this step
+                                            type: string
+                                        type: object
                                     type: object
                                   template:
                                     description: Template is the name of the template
@@ -360,9 +359,6 @@ spec:
                         description: ModuleInfo is a copy of FybrikModule Custom Resource.  It
                           contains information to instantiate resource of type FybrikModule.
                         properties:
-                          capability:
-                            description: Module capability
-                            type: string
                           chart:
                             description: Chart contains the information needed to
                               use helm to install the capability
@@ -405,7 +401,6 @@ spec:
                               a stand-alone module'
                             type: string
                         required:
-                        - capability
                         - chart
                         - name
                         - type
@@ -623,8 +618,6 @@ spec:
                 format: date-time
                 type: string
             type: object
-        required:
-        - spec
         type: object
     served: true
     storage: true
