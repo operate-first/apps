@@ -63,6 +63,24 @@ edit this user's name accordingly.
 
 The user should now show up in the drop down list when searched for by First/Last name.
 
+### This endpoint requires datasource $datasource  (Public Dashboards)
+
+When making dashboards public you may encounter an error:
+
+> This endpoint requires the datasources $datasource, database, or `all_datasource_access` permission
+
+Prerequisite:
+
+* Superset Admin
+
+Resolution:
+
+Go to `Settings -> List users -> Edit Public role -> Permissions -> Select datasource drop down.`
+
+The datasource in the drop down should correspond to the one mentioned in the error. The name may not be exact, but
+will likely be of the form: `datasource access on [DATABASE].[$YOUR_DATASOURCE](id:##)` example:
+`datasource access on [Trino].[thoth_support_issues](id:83`
+
 [oauth-mapping]: https://github.com/operate-first/odh-manifests/blob/smaug-v1.1.1/superset/base/secret.yaml#L29
 [superset]: https://superset.operate-first.cloud
 [repo]: https://github.com/operate-first/apps/tree/master/kfdefs/overlays/moc/smaug/opf-superset

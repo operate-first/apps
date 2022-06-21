@@ -924,6 +924,11 @@ title="Print to PDF"
      Can’t find user when adding them to a Chart
     </a>
    </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#this-endpoint-requires-datasource-datasource-public-dashboards">
+     This endpoint requires datasource $datasource  (Public Dashboards)
+    </a>
+   </li>
   </ul>
  </li>
 </ul>
@@ -973,6 +978,11 @@ title="Print to PDF"
    <li class="toc-h3 nav-item toc-entry">
     <a class="reference internal nav-link" href="#can-t-find-user-when-adding-them-to-a-chart">
      Can’t find user when adding them to a Chart
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#this-endpoint-requires-datasource-datasource-public-dashboards">
+     This endpoint requires datasource $datasource  (Public Dashboards)
     </a>
    </li>
   </ul>
@@ -1055,6 +1065,22 @@ represent users that have not updated their First/Last name within Superset.</p>
 reach out to an ODH admin, anyone from this list <a class="reference external" href="https://github.com/operate-first/apps/blob/master/cluster-scope/base/user.openshift.io/groups/odh-admin/group.yaml#L5">here</a> will have the appropriate permissions. Have them
 edit this user’s name accordingly.</p>
 <p>The user should now show up in the drop down list when searched for by First/Last name.</p>
+</section>
+<section id="this-endpoint-requires-datasource-datasource-public-dashboards">
+<h3>This endpoint requires datasource $datasource  (Public Dashboards)<a class="headerlink" href="#this-endpoint-requires-datasource-datasource-public-dashboards" title="Permalink to this headline">#</a></h3>
+<p>When making dashboards public you may encounter an error:</p>
+<blockquote>
+<div><p>This endpoint requires the datasources $datasource, database, or <code class="docutils literal notranslate"><span class="pre">all_datasource_access</span></code> permission</p>
+</div></blockquote>
+<p>Prerequisite:</p>
+<ul class="simple">
+<li><p>Superset Admin</p></li>
+</ul>
+<p>Resolution:</p>
+<p>Go to <code class="docutils literal notranslate"><span class="pre">Settings</span> <span class="pre">-&gt;</span> <span class="pre">List</span> <span class="pre">users</span> <span class="pre">-&gt;</span> <span class="pre">Edit</span> <span class="pre">Public</span> <span class="pre">role</span> <span class="pre">-&gt;</span> <span class="pre">Permissions</span> <span class="pre">-&gt;</span> <span class="pre">Select</span> <span class="pre">datasource</span> <span class="pre">drop</span> <span class="pre">down.</span></code></p>
+<p>The datasource in the drop down should correspond to the one mentioned in the error. The name may not be exact, but
+will likely be of the form: <code class="docutils literal notranslate"><span class="pre">datasource</span> <span class="pre">access</span> <span class="pre">on</span> <span class="pre">[DATABASE].[$YOUR_DATASOURCE](id:##)</span></code> example:
+<code class="docutils literal notranslate"><span class="pre">datasource</span> <span class="pre">access</span> <span class="pre">on</span> <span class="pre">[Trino].[thoth_support_issues](id:83</span></code></p>
 </section>
 </section>
 </section>
