@@ -44,6 +44,10 @@ spec:
           spec:
             description: FybrikApplicationSpec defines data flows needed by the application,
               the purpose and other contextual information about the application.
+              Read flow - if selector is populated, fybrik builds a data plane for
+              reading the specified data sets Ingest flow - if no selector, and data/copy/required
+              is true then the data specified is copied into a bucket allocated by
+              fybrik and is cataloged in the data catalog
             properties:
               appInfo:
                 description: AppInfo contains information describing the reasons for
@@ -55,88 +59,47 @@ spec:
                   by the Data Scientist's application, and the protocol used to access
                   it and the format expected.
                 items:
-                  description: DataContext indicates data set being processed by the
-                    workload and includes information about the data format and technologies
-                    used to access the data.
+                  description: DataContext indicates data set chosen by the Data Scientist
+                    to be used by his application, and includes information about
+                    the data format and technologies used by the application to access
+                    the data.
                   properties:
+                    catalogService:
+                      description: CatalogService represents the catalog service for
+                        accessing the requested dataset. If not specified, the enterprise
+                        catalog service will be used.
+                      type: string
                     dataSetID:
                       description: DataSetID is a unique identifier of the dataset
-                        chosen from the data catalog. For data catalogs that support
-                        multiple sub-catalogs, it includes the catalog id and the
-                        dataset id. When writing a new dataset it is the name provided
-                        by the user or workload generating it.
+                        chosen from the data catalog for processing by the data user
+                        application.
                       minLength: 1
-                      type: string
-                    flow:
-                      description: 'Flows indicates what is being done with the particular
-                        dataset - ex: read, write, copy (ingest), delete This is optional
-                        for the purpose of backward compatibility. If nothing is provided,
-                        read is assumed.'
-                      enum:
-                      - read
-                      - write
-                      - delete
-                      - copy
                       type: string
                     requirements:
                       description: Requirements from the system
                       properties:
-                        flowParams:
-                          description: FlowParams include the requirements for particular
-                            data flows
+                        copy:
+                          description: CopyRequrements include the requirements for
+                            copying the data
                           properties:
                             catalog:
                               description: Catalog indicates that the data asset must
-                                be cataloged, and in which catalog to register it
-                              type: string
-                            isNewDataSet:
-                              description: IsNewDataSet if true indicates that the
-                                DataContext.DataSetID is user provided and not a full
-                                catalog / dataset ID. Relevant when writing. A unique
-                                ID from the catalog will be provided in the FybrikApplication
-                                Status after a new catalog entry is created.
-                              type: boolean
-                            metadata:
-                              description: Source asset metadata like asset name,
-                                owner, geography, etc Relevant when writing new asset.
+                                be cataloged.
                               properties:
-                                columns:
-                                  description: Columns associated with the asset
-                                  items:
-                                    description: ResourceColumn represents a column
-                                      in a tabular resource
-                                    properties:
-                                      name:
-                                        description: Name of the column
-                                        type: string
-                                      tags:
-                                        description: Tags associated with the column
-                                        type: object
-                                        x-kubernetes-preserve-unknown-fields: true
-                                    required:
-                                    - name
-                                    type: object
-                                  type: array
-                                geography:
-                                  description: Geography of the resource
+                                catalogID:
+                                  description: CatalogID specifies the catalog where
+                                    the data will be cataloged.
                                   type: string
-                                name:
-                                  description: Name of the resource
+                                service:
+                                  description: CatalogService specifies the datacatalog
+                                    service that will be used for catalogging the
+                                    data into.
                                   type: string
-                                owner:
-                                  description: Owner of the resource
-                                  type: string
-                                tags:
-                                  description: Tags associated with the asset
-                                  type: object
-                                  x-kubernetes-preserve-unknown-fields: true
                               type: object
-                            storageEstimate:
-                              description: Storage estimate indicates the estimated
-                                amount of storage in MB, GB, TB required when writing
-                                new data.
-                              format: int64
-                              type: integer
+                            required:
+                              description: Required indicates that the data must be
+                                copied.
+                              type: boolean
                           type: object
                         interface:
                           description: Interface indicates the protocol and format
@@ -152,6 +115,8 @@ spec:
                           required:
                           - protocol
                           type: object
+                      required:
+                      - interface
                       type: object
                   required:
                   - dataSetID
@@ -321,104 +286,10 @@ spec:
                       description: Reference to a Dataset resource containing the
                         request to provision storage
                       type: string
-                    details:
-                      description: Dataset information
-                      properties:
-                        connection:
-                          description: Connection has the relevant details for accesing
-                            the data (url, table, ssl, etc.)
-                          properties:
-                            name:
-                              type: string
-                          required:
-                          - name
-                          type: object
-                          x-kubernetes-preserve-unknown-fields: true
-                        format:
-                          description: Format represents data format (e.g. parquet)
-                            as received from catalog connectors
-                          type: string
-                        vault:
-                          additionalProperties:
-                            description: Holds details for retrieving credentials
-                              from Vault store.
-                            properties:
-                              address:
-                                description: Address is Vault address
-                                type: string
-                              authPath:
-                                description: AuthPath is the path to auth method i.e.
-                                  kubernetes
-                                type: string
-                              role:
-                                description: Role is the Vault role used for retrieving
-                                  the credentials
-                                type: string
-                              secretPath:
-                                description: SecretPath is the path of the secret
-                                  holding the Credentials in Vault
-                                type: string
-                            required:
-                            - address
-                            - authPath
-                            - role
-                            - secretPath
-                            type: object
-                          description: Holds details for retrieving credentials by
-                            the modules from Vault store. It is a map so that different
-                            credentials can be stored for the different DataFlow operations.
-                          type: object
-                      required:
-                      - connection
-                      type: object
-                    resourceMetadata:
-                      description: Resource Metadata
-                      properties:
-                        columns:
-                          description: Columns associated with the asset
-                          items:
-                            description: ResourceColumn represents a column in a tabular
-                              resource
-                            properties:
-                              name:
-                                description: Name of the column
-                                type: string
-                              tags:
-                                description: Tags associated with the column
-                                type: object
-                                x-kubernetes-preserve-unknown-fields: true
-                            required:
-                            - name
-                            type: object
-                          type: array
-                        geography:
-                          description: Geography of the resource
-                          type: string
-                        name:
-                          description: Name of the resource
-                          type: string
-                        owner:
-                          description: Owner of the resource
-                          type: string
-                        tags:
-                          description: Tags associated with the asset
-                          type: object
-                          x-kubernetes-preserve-unknown-fields: true
-                      type: object
                     secretRef:
                       description: Reference to a secret where the credentials are
                         stored
-                      properties:
-                        name:
-                          description: Secret name
-                          type: string
-                        namespace:
-                          description: Secret Namespace
-                          type: string
-                      required:
-                      - name
-                      - namespace
-                      type: object
+                      type: string
                   type: object
                 description: ProvisionedStorage maps a dataset (identified by AssetID)
                   to the new provisioned bucket. It allows FybrikApplication controller
@@ -441,8 +312,6 @@ spec:
                 format: int64
                 type: integer
             type: object
-        required:
-        - spec
         type: object
     served: true
     storage: true
