@@ -81,6 +81,16 @@ The issue can be resolved by restarting both pods.
 
 If the user is encountering issues starting their server and encounter errors pertaining to their Kernel, they can try restarting their Kernel by following steps [here][9].
 
+### Unable to spawn server with "username exceeded quota" error
+
+Jupyterhub can fail to spawn with an error message such as the following when the resource limits on the Jupyterhub namespace gets capped.
+
+```
+pods \"jupyterhub-nb-username\" is forbidden: exceeded quota: opf-jupyterhub-custom, requested: limits.cpu=3, used: limits.cpu=120, limited: limits.cpu=120"
+```
+
+To solve that, the cpu and memory limits on the jupyterhub namespace can be increased. You can do that by adding a PR [here](https://github.com/operate-first/apps/blob/master/cluster-scope/base/core/namespaces/opf-jupyterhub/resourcequota.yaml#L7-L8) and increasing the limits.
+
 [1]: https://console-openshift-console.apps.smaug.na.operate-first.cloud/k8s/ns/opf-jupyterhub/
 [2]: https://jupyterhub-opf-jupyterhub.apps.smaug.na.operate-first.cloud/hub/admin
 [3]: https://github.com/operate-first/odh-manifests/blob/smaug-v1.1.1/jupyterhub/jupyterhub/base/jupyterhub-groups-configmap.yaml#L9
