@@ -47,6 +47,7 @@ parts:
           - file: content/vault_eso/add_cluster_to_eso_and_vault.md
           - file: content/vault_eso/add_external_secrets_to_ns.md
           - file: content/vault_eso/add_eso_to_cluster.md
+          - file: content/vault_eso/restore_vault.md
 
       # Cluster Scope
       - file: content/cluster-scope/README.md
