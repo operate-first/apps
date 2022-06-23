@@ -7,6 +7,9 @@ Steps:
 1. Fork/Clone https://github.com/operate-first/apps
 2. Navigate to [this location][2].
 3. Add the github users to [this][3] ocp group. Make sure that the usernames are lowercase.
+
+> Note: To give a user admin access, add them to the [superset-admins][admingroup] instead.
+
 4. Make a PR
 
 If you would like to give another OCP `group` access to Superset follow the instructions [here][4].
@@ -30,3 +33,4 @@ If you would like to give another OCP `group` access to Superset follow the inst
 [6]: https://github.com/os-climate
 [7]: https://github.com/orgs/os-climate/teams/odh-env-users
 [slack]: https://join.slack.com/t/operatefirst/shared_invite/zt-o2gn4wn8-O39g7sthTAuPCvaCNRnLww
+[admingroup]: https://github.com/operate-first/apps/tree/master/cluster-scope/base/user.openshift.io/groups/superset-admins
