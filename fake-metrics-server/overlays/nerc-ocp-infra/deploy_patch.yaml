@@ -1,0 +1,17 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: fake-metrics-exporter
+spec:
+  template:
+    spec:
+      volumes:
+        - name: fake-metrics
+          configMap:
+            name: fake-metrics
+      containers:
+        - name: fake-metrics-exporter
+          volumeMounts:
+            - name: fake-metrics
+              mountPath: /metrics.json
+              subPath: metrics.json
