@@ -20,6 +20,7 @@ AUTH_USER_REGISTRATION_ROLE = "Public"
 # Thi will result in a SQL INSERT constraint violation in postgres
 AUTH_ROLES_MAPPING = {
     "odh-admin": ["Admin"],
+    "superset-admins": ["Admin"],
     "superset-user": ["Alpha"],
 }
 # if we should replace ALL the user's roles each login, or only on registration

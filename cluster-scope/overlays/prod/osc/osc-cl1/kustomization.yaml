@@ -1,9 +1,12 @@
-kind: Kustomization
 apiVersion: kustomize.config.k8s.io/v1beta1
+kind: Kustomization
 patchesStrategicMerge:
+- clusterrolebindings/cluster-readers.yaml
 - configmaps/cluster-monitoring-config.yaml
 - configmaps/user-workload-monitoring-config.yaml
 - groups/cluster-admins.yaml
+- groups/cluster-readers.yaml
+- groups/inception-admins.yaml
 - groups/kubeflow-admin.yaml
 - groups/odh-admin.yaml
 - groups/odh-users.yaml
@@ -16,6 +19,7 @@ resources:
 - ../../../../base/core/namespaces/datahub-linkedin
 - ../../../../base/core/namespaces/dex
 - ../../../../base/core/namespaces/dex-secondary
+- ../../../../base/core/namespaces/inception
 - ../../../../base/core/namespaces/kubeflow
 - ../../../../base/core/namespaces/multinode-demo
 - ../../../../base/core/namespaces/odh-jupyterhub
@@ -33,9 +37,12 @@ resources:
 - ../../../../base/rbac.authorization.k8s.io/clusterrolebindings/acme-operator
 - ../../../../base/rbac.authorization.k8s.io/clusterrolebindings/cluster-admins-rb
 - ../../../../base/rbac.authorization.k8s.io/clusterrolebindings/cluster-reader-k8s-annotations-exporter
+- ../../../../base/rbac.authorization.k8s.io/clusterrolebindings/cluster-readers
 - ../../../../base/rbac.authorization.k8s.io/clusterrolebindings/self-provisioners
 - ../../../../base/rbac.authorization.k8s.io/clusterroles/acme-operator
 - ../../../../base/user.openshift.io/groups/cluster-admins
+- ../../../../base/user.openshift.io/groups/cluster-readers
+- ../../../../base/user.openshift.io/groups/inception-admins
 - ../../../../base/user.openshift.io/groups/kubeflow-admin
 - ../../../../base/user.openshift.io/groups/multinode-demo
 - ../../../../base/user.openshift.io/groups/odh-admin
@@ -48,6 +55,7 @@ resources:
 - ../../../../bundles/training-operator
 - ../../../../bundles/openshift-pipelines
 - apiserver
+- externalsecrets
 - ingresscontroller
 - secretstores
 - serviceaccounts

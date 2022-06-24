@@ -1,0 +1,8 @@
+apiVersion: backstage.io/v1alpha1
+kind: User
+metadata:
+  name: operate-first
+spec:
+  profile:
+    email: community@lists.operate-first.cloud
+  memberOf: [operate-first]

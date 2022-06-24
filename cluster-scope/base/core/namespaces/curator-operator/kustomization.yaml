@@ -5,5 +5,5 @@ resources:
   - namespace.yaml
 components:
   - ../../../../components/project-admin-rolebindings/curator
-  - ../../../../components/resourcequotas/x-small
+  - ../../../../components/resourcequotas/medium
   - ../../../../components/limitranges/default
