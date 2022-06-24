@@ -1,7 +1,5 @@
 # Grafana
 
-![Logo](img/grafana_logo-web-white-text.svg)
-
 <font size="4"> 
 
 [Grafana][1] is a multi-platform open source analytics and interactive visualization tool. It allows you to query, create dashboards, explore, and alert on metrics when connected to supported data sources.
@@ -10,7 +8,7 @@
 
 <font size="3">
 
-We use Grafana to visualize the metrics that we source from our [User Workload Monitoring][../uwm]. These monitoring dashboards are useful for visualizing the metrics (such as Prometheus metrics) collected from the applications to track and analyze the system's overall health.
+We use Grafana to visualize the metrics that we source from our [User Workload Monitoring][10] (click to learn more). These monitoring dashboards are useful for visualizing the metrics (such as Prometheus metrics) collected from the applications to track and analyze the system's overall health.
 
 The dashboards can be altered, saved and reused as per your specific monitoring needs.
 
@@ -21,11 +19,15 @@ A dashboard can have a number of appearances and purposes. Here is a sample of w
 ![DashboardSample](img/dashboard-sample.png)
 This is the Operate First Grafana Dashboard landing page.
 
-## Get Access to Grafana
+## Get Access to the Grafana Instance
 
-Grafana can be accessed at: https://grafana.operate-first.cloud/
+In order to access the Grafana instance, you need to be in one of the **groups** found [here][11]. To add yourself to a group, add your GitHub username to its respective `group.yaml` file.
 
-From there, click **Sign in with OAuth** and then (in most cases) select **operate-first**.
+***(Note: Group permissions vary, but if you are an intern/co-op you'll most likely be in the **SRE** group.)***
+
+Once your pull request is merged, the Grafana instance can be accessed at: https://grafana.operate-first.cloud/
+
+From there, click **Sign in with OAuth**. This will bring you to the OpenShift login page, and then (in most cases) you can select **operate-first** to access the landing dashboard.
 
 <font size = 4> _Don't have access?_ </font>
 
@@ -44,6 +46,48 @@ You can import these dashboards in Grafana either by pasting the dashboard JSON 
 
 For more details on importing/exporting dashboards, you can refer to the Grafana documentation [here][9].
 
+## Creating Your First Dashboard
+
+If you've gained access to the Operate First Grafana instance, you should see the dashboard pictured above.
+
+On the left side bar there is a "+" button. Hover over it and click "Dashboard". This will create a new dashboard for you, where Grafana should redirect you immediately to.
+
+Once in your new dashboard, there are many options to create new visualizations (the usage of this is beyond the scope of this document). Once you've made a dashboard, you should save it. The save icon is located in the upper right-hand corner of the dashboard, and clicking it will prompt you for a name and a folder. Upon saving, your dashboard will be in the Grafana instance.
+
+## Backing Up and Exporting Your Dashboard
+
+Now that you saved your dashboard to our Grafana instance you will now have to backup your dashboard locally, what does this mean? The Grafana instance/operator on OpenShift can be restarted (whether it be for updates or a new dashboard added via a pull request). Whenever a restart happens all instance saved dashboards will be deleted (the dashboard you just created and saved). This means that any dashboard you save is ephemeral unless you add the dashboard to the apps repository found [here](https://github.com/operate-first/apps).
+
+Adding your dashboard can be done by following this guide from the [GitOps docs](https://www.operate-first.cloud/apps/content/grafana/add_grafana_dashboard.html). The process of adding a dashboard looks like this:
+- Export the dashboard via JSON
+  - Click the share icon on (left side of top bar), click on "Export" and then click "Save to file". You will now have a JSON file of your dashboard
+
+ Here you would want to follow the guide linked above, in your `<dashboard-name>.yaml` file you can paste the json like such
+```yaml
+---
+apiVersion: integreatly.org/v1alpha1
+kind: GrafanaDashboard
+metadata:
+  labels:
+    app: grafana
+  name: namespace-storage-overview
+spec:
+  customFolderName: Cluster Management
+  plugins:
+    - name: grafana-piechart-panel
+      version: 1.6.2
+  json: |
+    {
+      "annotations": {
+        "list": [
+          {
+  .............
+```
+
+Here is a list of links if you want to expand your understanding of Grafana
+- [Grafana Docs](https://grafana.com/docs/) - official Grafana documentation
+- [Grafana Plugins](https://grafana.com/grafana/plugins/) - official Grafana plugin site
+
 [1]: https://grafana.com/oss/grafana
 [2]: https://github.com/operate-first/apps/tree/master/grafana/overlays/moc/smaug/dashboards
 [3]: https://github.com/integr8ly/grafana-operator/blob/master/documentation/dashboards.md
@@ -53,5 +97,7 @@ For more details on importing/exporting dashboards, you can refer to the Grafana
 [7]: add_grafana_dashboard.md
 [8]: https://grafana.com/docs/grafana/latest/datasources/
 [9]: https://grafana.com/docs/grafana/latest/dashboards/export-import/
+[10]: https://github.com/operate-first/apps/tree/master/docs/content/uwm
+[11]: https://github.com/operate-first/apps/tree/master/cluster-scope/base/user.openshift.io/groups
 
 </font>
