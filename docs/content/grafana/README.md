@@ -12,7 +12,7 @@ We use Grafana to visualize the metrics that we source from our [User Workload M
 
 The dashboards can be altered, saved and reused as per your specific monitoring needs.
 
-Dashboards can be represented by the `GrafanaDashboard` custom resource or by their raw `JSON` files. You can find example monitoring dashboards defined in separate `JSON` files for each of the Operate First managed applications in our [apps repo][2]. For more information on how the Grafana dashboards are defined, please refer to [this documentation][3] (includes information regarding dashboard properties, creation, UIDs, error handling, plugins, dashboard discovery, datasource inputs, config map references, and dashboard folder support).
+Dashboards can be represented by the `GrafanaDashboard` custom resource or by their raw `JSON` files. You can find example monitoring dashboards defined in separate `JSON` files for each of the Operate First managed applications in our apps repo found [here][2]. For more information on how the Grafana dashboards are defined, please refer to [this documentation][3] (includes information regarding dashboard properties, creation, UIDs, error handling, plugins, dashboard discovery, datasource inputs, config map references, and dashboard folder support).
 
 A dashboard can have a number of appearances and purposes. Here is a sample of what a simple dashboard might look like (this is the Operate First Grafana Dashboard landing page):
 
