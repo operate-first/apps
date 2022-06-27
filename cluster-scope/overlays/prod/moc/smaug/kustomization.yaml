@@ -21,6 +21,7 @@ resources:
 - ../../../../base/core/namespaces/api-designer
 - ../../../../base/core/namespaces/apicurio-apicurio-registry
 - ../../../../base/core/namespaces/boatrockers
+- ../../../../base/core/namespaces/bu-cs-book-dev
 - ../../../../base/core/namespaces/bu-scsaol
 - ../../../../base/core/namespaces/chrisproject
 - ../../../../base/core/namespaces/chrisproject-dev
