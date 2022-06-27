@@ -84,7 +84,6 @@ parts:
       # Observatorium
       - file: content/observatorium/README.md
         sections:
-          - file: content/observatorium/loki/add_loki_grafana_datasource.md
           - file: content/observatorium/loki/README.md
           - file: content/observatorium/thanos/README.md
           - file: content/observatorium/thanos/request_grafana_access.md
