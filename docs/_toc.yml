@@ -154,6 +154,16 @@ parts:
         sections:
           - file: content/volsync/using-volsync.md
 
+      # Distributed Tracing Data Collection
+      - file: content/opentelemetry-collector/README.md
+        sections:
+          - file: content/opentelemetry-collector/using-opentelemetry-collector.md
+
+      # Distributed Tracing Platform
+      - file: content/jaeger/README.md
+        sections:
+          - file: content/jaeger/using-distributed-tracing-jaeger.md
+
       # Notebooks
       - file: content/notebooks/README.md
         sections:

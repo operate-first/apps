@@ -141,6 +141,7 @@ resources:
 - ../../../../bundles/meteor-operator
 - ../../../../bundles/nfd
 - ../../../../bundles/openshift-pipelines
+- ../../../../bundles/opentelemetry-collector-operator
 - ../../../../bundles/opf-grafana-public
 - ../../../../bundles/opf-vault
 - ../../../../bundles/reloader
