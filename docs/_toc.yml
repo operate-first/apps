@@ -154,6 +154,11 @@ parts:
         sections:
           - file: content/volsync/using-volsync.md
 
+      # Distributed Tracing Platform
+      - file: content/distributed-tracing-platform/README.md
+        sections:
+          - file: content/distributed-tracing-platform/using-distributed-tracing-jaeger.md
+
       # Notebooks
       - file: content/notebooks/README.md
         sections:
