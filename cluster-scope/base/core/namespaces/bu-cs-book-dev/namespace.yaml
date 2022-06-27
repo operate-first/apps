@@ -1,0 +1,9 @@
+---
+apiVersion: v1
+kind: Namespace
+metadata:
+  annotations:
+    openshift.io/display-name: "Operate First: bu-cs-book-dev"
+    openshift.io/requester: operate-first
+  name: bu-cs-book-dev
+spec: {}
