@@ -25,19 +25,30 @@ This is the endpoint that can be used to query logs from Loki.
 Example:
 
 ```bash
-curl -H "X-Scope-OrgID: opf-example" \
-  -H "Authorization: Bearer MY_BEARER_TOKEN" \
+MY_BEARER_TOKEN="sha256~1A...DW-id...NE-...lWM"
+curl -H "X-Scope-OrgID: cluster-infra-logs" \
+  -H "Authorization: Bearer $MY_BEARER_TOKEN" \
   -G -s  "https://loki-frontend-opf-observatorium.apps.smaug.na.operate-first.cloud/loki/api/v1/query_range" \
-  --data-urlencode 'query={app="my-app-1"}'
+  --data-urlencode 'query={cluster_log_level="infra-logs"}'
 ```
 
-This command queries logs from Loki using `"app="my-app-1"` label as the
-query.
-_Notice that we had to provide the same OrgID "opf-example" to be able to query for the logs that we pushed in._
+This command queries logs from Loki using `{cluster_log_level="infra-logs"}` label as the
+query. Notice that we had to provide the same OrgID "cluster-infra-logs" to be able to query for the logs that we pushed in.
+
+While querying Loki for logs, you will need to have a header `'X-Scope-OrgID'` set in your requests.
+This header is used to identify tenants in a [multi tenancy setup][7].
+To see which OrgID values are available look into the configured [Loki Grafana Datasources][5]
 
 More Info on [/query_range][4]
+
+Some documentation about the Loki Query API is available [here][6].
+
+You also need a [BEARER_TOKEN][../thanos/thanos_programmatic_access.md]
 
 [1]: https://github.com/operate-first/hitchhikers-guide/blob/main/pages/onboarding_project.ipynb
 [2]: https://github.com/operate-first/apps/blob/master/observatorium/overlays/moc/smaug/thanos/rolebindings/opf-observatorium-view.yaml#L10
 [3]: https://github.com/operate-first/apps/pull/1378
 [4]: https://grafana.com/docs/loki/latest/api/#get-lokiapiv1query_range
+[5]: https://github.com/operate-first/apps/blob/master/grafana/overlays/moc/smaug/datasources/cluster-logs.yaml
+[6]: https://grafana.com/docs/loki/latest/api/
+[7]: https://grafana.com/docs/loki/latest/operations/multi-tenancy/
