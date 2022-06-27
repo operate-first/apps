@@ -407,13 +407,8 @@ const thebe_selector_output = ".output, .cell_output"
   </label>
   <ul>
    <li class="toctree-l2">
-    <a class="reference internal" href="add_loki_grafana_datasource.html">
-     Add a Loki Data Source in OperateFirst Grafana
-    </a>
-   </li>
-   <li class="toctree-l2">
     <a class="reference internal" href="README.html">
-     Loki Access
+     Loki
     </a>
    </li>
    <li class="toctree-l2">
@@ -810,7 +805,7 @@ title="Source repository"
       </li>
       
       <li>
-        <a href="https://github.com/operate-first/apps/issues/new?title=Issue%20on%20page%20%2Fcontent/observatorium/loki/request_loki_access.html&body=Your%20issue%20content%20here."
+        <a href="https://github.com/operate-first/apps/issues/new?title=Issue%20on%20page%20%2Fcontent/observatorium/loki/loki_query_api.html&body=Your%20issue%20content%20here."
    class="headerbtn"
    data-toggle="tooltip"
 data-placement="left"
@@ -838,7 +833,7 @@ title="Open an issue"
   <div class="menu-dropdown__content">
     <ul>
       <li>
-        <a href="../../../_sources/content/observatorium/loki/request_loki_access.md"
+        <a href="../../../_sources/content/observatorium/loki/loki_query_api.md"
    class="headerbtn"
    data-toggle="tooltip"
 data-placement="left"
@@ -978,16 +973,21 @@ title="Print to PDF"
 </ul>
 <p>This is the endpoint that can be used to query logs from Loki.</p>
 <p>Example:</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>curl -H <span class="s2">&quot;X-Scope-OrgID: opf-example&quot;</span> <span class="se">\</span>
-  -H <span class="s2">&quot;Authorization: Bearer MY_BEARER_TOKEN&quot;</span> <span class="se">\</span>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="nv">MY_BEARER_TOKEN</span><span class="o">=</span><span class="s2">&quot;sha256~1A...DW-id...NE-...lWM&quot;</span>
+curl -H <span class="s2">&quot;X-Scope-OrgID: cluster-infra-logs&quot;</span> <span class="se">\</span>
+  -H <span class="s2">&quot;Authorization: Bearer </span><span class="nv">$MY_BEARER_TOKEN</span><span class="s2">&quot;</span> <span class="se">\</span>
   -G -s  <span class="s2">&quot;https://loki-frontend-opf-observatorium.apps.smaug.na.operate-first.cloud/loki/api/v1/query_range&quot;</span> <span class="se">\</span>
-  --data-urlencode <span class="s1">&#39;query={app=&quot;my-app-1&quot;}&#39;</span>
+  --data-urlencode <span class="s1">&#39;query={cluster_log_level=&quot;infra-logs&quot;}&#39;</span>
 </pre></div>
 </div>
-<p>This command queries logs from Loki using <code class="docutils literal notranslate"><span class="pre">&quot;app=&quot;my-app-1&quot;</span></code> label as the
-query.
-<em>Notice that we had to provide the same OrgID “opf-example” to be able to query for the logs that we pushed in.</em></p>
+<p>This command queries logs from Loki using <code class="docutils literal notranslate"><span class="pre">{cluster_log_level=&quot;infra-logs&quot;}</span></code> label as the
+query. Notice that we had to provide the same OrgID “cluster-infra-logs” to be able to query for the logs that we pushed in.</p>
+<p>While querying Loki for logs, you will need to have a header <code class="docutils literal notranslate"><span class="pre">'X-Scope-OrgID'</span></code> set in your requests.
+This header is used to identify tenants in a <a class="reference external" href="https://grafana.com/docs/loki/latest/operations/multi-tenancy/">multi tenancy setup</a>.
+To see which OrgID values are available look into the configured <a class="reference external" href="https://github.com/operate-first/apps/blob/master/grafana/overlays/moc/smaug/datasources/cluster-logs.yaml">Loki Grafana Datasources</a></p>
 <p>More Info on <a class="reference external" href="https://grafana.com/docs/loki/latest/api/#get-lokiapiv1query_range">/query_range</a></p>
+<p>Some documentation about the Loki Query API is available <a class="reference external" href="https://grafana.com/docs/loki/latest/api/">here</a>.</p>
+<p>You also need a [BEARER_TOKEN][../thanos/thanos_programmatic_access.md]</p>
 </section>
 </section>
 </section>
