@@ -75,11 +75,11 @@ Prerequisite:
 
 Resolution:
 
-Go to `Settings -> List users -> Edit Public role -> Permissions -> Select datasource drop down.`
+Go to `Settings -> List Roles -> Edit Public role -> Permissions -> Select datasource drop down`
 
 The datasource in the drop down should correspond to the one mentioned in the error. The name may not be exact, but
 will likely be of the form: `datasource access on [DATABASE].[$YOUR_DATASOURCE](id:##)` example:
-`datasource access on [Trino].[thoth_support_issues](id:83`
+`datasource access on [Trino].[thoth_support_issues](id:83)`
 
 [oauth-mapping]: https://github.com/operate-first/odh-manifests/blob/smaug-v1.1.1/superset/base/secret.yaml#L29
 [superset]: https://superset.operate-first.cloud
