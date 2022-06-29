@@ -103,6 +103,7 @@ resources:
 - ../../../../base/operators.coreos.com/subscriptions/grafana-operator
 - ../../../../base/operators.coreos.com/subscriptions/koku-metrics-operator
 - ../../../../base/operators.coreos.com/subscriptions/kubevirt-hyperconverged
+- ../../../../base/operators.coreos.com/subscriptions/minio-operator
 - ../../../../base/operators.coreos.com/subscriptions/ovms-operator
 - ../../../../base/operators.coreos.com/subscriptions/pulp-operator
 - ../../../../base/operators.coreos.com/subscriptions/rapidast
