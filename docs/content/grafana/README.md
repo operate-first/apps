@@ -40,9 +40,9 @@ To add your dashboards to Grafana, you will need to create a `GrafanaDashboard` 
 ## Using the Dashboards
 
 Grafana dashboards can easily be exported and imported, either from the UI or from the HTTP API.
-Dashboards are exported in Grafana JSON format, and contain everything you need (layout, variables, styles, data sources, queries, etc) to import the dashboard at a later time.
+Dashboards are exported in Grafana `JSON` format, and contain everything you need (layout, variables, styles, data sources, queries, etc) to import the dashboard at a later time.
 
-You can import these dashboards in Grafana either by pasting the dashboard JSON text directly into the text area or directly uploading the JSON file. Make sure to add/connect your [data sources][8] (official Grafana data source documentation) to Grafana and pick what data source you want the dashboard to use.
+You can import these dashboards in Grafana either by pasting the dashboard `JSON` text directly into the text area or directly uploading the `JSON` file. Make sure to add/connect your [data sources][8] (official Grafana data source documentation) to Grafana and pick what data source you want the dashboard to use.
 
 For more details on importing/exporting dashboards, you can refer to the Grafana documentation [here][9].
 
@@ -59,10 +59,10 @@ Once in your new dashboard, there are many options to create new visualizations 
 Now that you saved your dashboard to our Grafana instance you will now have to backup your dashboard locally, what does this mean? The Grafana instance/operator on OpenShift can be restarted (whether it be for updates or a new dashboard added via a pull request). Whenever a restart happens all instance saved dashboards will be deleted (the dashboard you just created and saved). This means that any dashboard you save is ephemeral unless you add the dashboard to the apps repository found [here](https://github.com/operate-first/apps).
 
 Adding your dashboard can be done by following this guide from the [GitOps docs](https://www.operate-first.cloud/apps/content/grafana/add_grafana_dashboard.html). The process of adding a dashboard looks like this:
-- Export the dashboard via JSON
-  - Click the share icon on (left side of top bar), click on "Export" and then click "Save to file". You will now have a JSON file of your dashboard
+- Export the dashboard via `JSON`
+  - Click the share icon on (left side of top bar), click on "Export" and then click "Save to file". You will now have a `JSON` file of your dashboard
 
- Here you would want to follow the guide linked above, in your `<dashboard-name>.yaml` file you can paste the json like such
+ Here you would want to follow the guide linked above, in your `<dashboard-name>.yaml` file you can paste the `JSON` like such
 ```yaml
 ---
 apiVersion: integreatly.org/v1alpha1
