@@ -5,6 +5,6 @@ metadata:
 spec:
   channel: stable
   name: minio-operator
-  source: operatorhub.io-operators
+  source: certified-operators
   sourceNamespace: openshift-marketplace
   installPlanApproval: Automatic
