@@ -21,6 +21,7 @@ resources:
 - ../../../../base/core/namespaces/aicoe-meteor
 - ../../../../base/core/namespaces/api-designer
 - ../../../../base/core/namespaces/apicurio-apicurio-registry
+- ../../../../base/core/namespaces/b4mad-minecraft
 - ../../../../base/core/namespaces/boatrockers
 - ../../../../base/core/namespaces/bu-cs-book-dev
 - ../../../../base/core/namespaces/bu-scsaol
