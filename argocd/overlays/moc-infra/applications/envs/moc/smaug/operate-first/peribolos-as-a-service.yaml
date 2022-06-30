@@ -7,14 +7,14 @@ spec:
   destination:
     name: smaug
     namespace: peribolos-as-a-service
-  project: peribolos-service
+  project: operate-first
   source:
     path: manifests/overlays/prod
-    repoURL: https://github.com/open-services-group/peribolos-as-a-service.git
+    repoURL: https://github.com/operate-first/peribolos-as-a-service.git
     targetRevision: main
   syncPolicy:
     automated:
       prune: true
       selfHeal: true
     syncOptions:
-    - Validate=false
+      - Validate=false

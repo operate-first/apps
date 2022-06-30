@@ -15,6 +15,7 @@ resources:
   - meteor-shower.yaml
   - meteor-operator-pipelines.yaml
   - meteor-operator-pushgateway.yaml
+  - peribolos-as-a-service.yaml
   - observatorium.yaml
   - opf-kafka.yaml
   - opf-vault.yaml
