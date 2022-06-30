@@ -16,5 +16,4 @@ resources:
   - thoth.yaml
   - tremor-demo.yaml
   - workshops.yaml
-  - peribolos-service.yaml
   - chris.yaml

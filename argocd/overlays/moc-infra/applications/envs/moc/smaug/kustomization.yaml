@@ -9,6 +9,5 @@ resources:
 - cluster-management
 - data-science
 - fybrik
-- open-services-group
 - operate-first
 - thoth
