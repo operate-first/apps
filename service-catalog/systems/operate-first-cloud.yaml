@@ -1,0 +1,7 @@
+apiVersion: backstage.io/v1alpha1
+kind: System
+metadata:
+  name: operate-first-cloud
+  description: The Operate First Community Cloud is a shared environment for Open Source projects and SRE practicioners
+spec:
+  owner: operate-first

@@ -1,0 +1,7 @@
+# Source: openmetadata/templates/serviceaccount.yaml
+apiVersion: v1
+kind: ServiceAccount
+metadata:
+  name: openmetadata
+  labels:
+    app.kubernetes.io/name: openmetadata

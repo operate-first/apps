@@ -15,12 +15,14 @@ resources:
   - meteor-shower.yaml
   - meteor-operator-pipelines.yaml
   - meteor-operator-pushgateway.yaml
+  - peribolos-as-a-service.yaml
   - observatorium.yaml
   - opf-kafka.yaml
   - opf-vault.yaml
   - prod-aicoe-ci.yaml
   - pulp.yaml
   - reloader.yaml
+  - service-catalog.yaml
   - slack-first.yaml
   - tekton-chains.yaml
   - triage-party.yaml

@@ -1,0 +1,40 @@
+apiVersion: batch/v1
+kind: CronJob
+metadata:
+  name: trigger-backup-job
+spec:
+  successfulJobsHistoryLimit: 1
+  failedJobsHistoryLimit: 1
+  schedule: "0 1,13 * * *"
+  jobTemplate:
+    spec:
+      template:
+        metadata:
+          name: trigger-backup-job
+        spec:
+          serviceAccountName: backup-job
+          volumes:
+            - name: backup-vault-run
+              configMap:
+                name: backup-vault-run
+          containers:
+            - name: submit-backup-job
+              image: quay.io/operate-first/opf-toolbox:v0.8.0
+              env:
+                - name: POD_NS
+                  valueFrom:
+                    fieldRef:
+                      fieldPath: metadata.namespace
+              command:
+                - "/bin/sh"
+                - "-ec"
+                - "oc create -f /backupjob/taskrun.yaml -n ${POD_NS}"
+              lifecycle:
+                preStop:
+                  exec:
+                    command:
+                      -
+              volumeMounts:
+                - mountPath: /backupjob
+                  name: backup-vault-run
+          restartPolicy: Never

@@ -1,0 +1,11 @@
+apiVersion: backstage.io/v1alpha1
+kind: Location
+metadata:
+  name: Services
+  description: A collection of all backstage definition files
+spec:
+  targets:
+    - ./all-components.yaml
+    - ./all-users.yaml
+    - ./all-groups.yaml
+    - ./all-systems.yaml

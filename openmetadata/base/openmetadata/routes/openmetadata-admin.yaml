@@ -1,0 +1,14 @@
+kind: Route
+apiVersion: route.openshift.io/v1
+metadata:
+  name: openmetadata-admin
+  namespace: openmetadata
+spec:
+  to:
+    kind: Service
+    name: openmetadata
+  port:
+    targetPort: http-admin
+  tls:
+    termination: edge
+    insecureEdgeTerminationPolicy: Redirect

@@ -1,0 +1,12 @@
+---
+apiVersion: v1
+kind: Namespace
+metadata:
+  annotations:
+    openshift.io/display-name: "Dex Secondary"
+    openshift.io/requester: operate-first
+    op1st/project-owner: operate-first
+    op1st/onboarding-issue: "N/A"
+    op1st/docs: "https://github.com/dexidp/dex"
+  name: dex-secondary
+spec: {}

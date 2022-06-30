@@ -6,4 +6,5 @@ resources:
 components:
 - ../../../../components/limitranges/default
 - ../../../../components/project-admin-rolebindings/peribolos-as-a-service
+- ../../../../components/project-view-public
 - ../../../../components/resourcequotas/large

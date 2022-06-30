@@ -1,0 +1,24 @@
+# permissions for end users to edit fetchdata.
+apiVersion: rbac.authorization.k8s.io/v1
+kind: ClusterRole
+metadata:
+  name: curator-operator-fetchdata-editor-role
+rules:
+- apiGroups:
+  - curator.operate-first.io
+  resources:
+  - fetchdata
+  verbs:
+  - create
+  - delete
+  - get
+  - list
+  - patch
+  - update
+  - watch
+- apiGroups:
+  - curator.operate-first.io
+  resources:
+  - fetchdata/status
+  verbs:
+  - get

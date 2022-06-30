@@ -41,10 +41,15 @@ parts:
         sections:
           - file: content/vault/add_cluster_to_eso_and_vault.md
 
-      # ESO
-      - file: content/external-secrets/README.md
+      # Vault
+      - file: content/vault_eso/README.md
         sections:
-          - file: content/external-secrets/add_eso_to_cluster.md
+          - file: content/vault_eso/add_cluster_to_eso_and_vault.md
+          - file: content/vault_eso/add_external_secrets_to_ns.md
+          - file: content/vault_eso/add_eso_to_cluster.md
+          - file: content/vault_eso/restore_vault.md
+          - file: content/vault_eso/vault_backup_job.md
+          - file: content/vault_eso/runbook.md
 
       # Cluster Scope
       - file: content/cluster-scope/README.md
@@ -81,7 +86,6 @@ parts:
       # Observatorium
       - file: content/observatorium/README.md
         sections:
-          - file: content/observatorium/loki/add_loki_grafana_datasource.md
           - file: content/observatorium/loki/README.md
           - file: content/observatorium/thanos/README.md
           - file: content/observatorium/thanos/request_grafana_access.md
@@ -131,6 +135,12 @@ parts:
 
           - file: content/odh/adding_kfdefs.md
 
+      # OpenMetaData
+      - file: content/openmetadata/README.md
+        sections:
+          - file: content/openmetadata/operator_manual/deployment.md
+          - file: content/openmetadata/operator_manual/updating_om.md
+
       # Reloader
       - file: content/reloader/README.md
         sections:
@@ -145,6 +155,16 @@ parts:
       - file: content/volsync/README.md
         sections:
           - file: content/volsync/using-volsync.md
+
+      # Distributed Tracing Data Collection
+      - file: content/opentelemetry-collector/README.md
+        sections:
+          - file: content/opentelemetry-collector/using-opentelemetry-collector.md
+
+      # Distributed Tracing Platform
+      - file: content/jaeger/README.md
+        sections:
+          - file: content/jaeger/using-distributed-tracing-jaeger.md
 
       # Notebooks
       - file: content/notebooks/README.md

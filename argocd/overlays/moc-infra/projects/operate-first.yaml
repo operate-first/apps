@@ -75,3 +75,5 @@ spec:
       kind: ThanosRuler
     - group: logging.openshift.io
       kind: ClusterLogForwarder
+    - group: postgres-operator.crunchydata.com
+      kind: PostgresCluster

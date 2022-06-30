@@ -1,0 +1,17 @@
+apiVersion: external-secrets.io/v1beta1
+kind: ExternalSecret
+metadata:
+  name: router-certs
+  namespace: openshift-ingress
+spec:
+  secretStoreRef:
+    name: openshift-ingress
+    kind: SecretStore
+  refreshInterval: "1h"
+  target:
+    name: router-certs
+    creationPolicy: 'Owner'
+    deletionPolicy: "Retain"
+  dataFrom:
+    - extract:
+        key: osc/osc-cl2/openshift-ingress/router-certs

@@ -22,6 +22,7 @@ resources:
 - ../../../base/user.openshift.io/groups/curator
 - ../../../base/user.openshift.io/groups/data-science
 - ../../../base/user.openshift.io/groups/debezium
+- ../../../base/user.openshift.io/groups/demolab_team
 - ../../../base/user.openshift.io/groups/drvbw
 - ../../../base/user.openshift.io/groups/eldritch-team13
 - ../../../base/user.openshift.io/groups/emea-sa
@@ -62,10 +63,12 @@ resources:
 - ../../../base/user.openshift.io/groups/sa-dach
 - ../../../base/user.openshift.io/groups/scsaol
 - ../../../base/user.openshift.io/groups/sdap-mslsp
+- ../../../base/user.openshift.io/groups/seldon-admin
 - ../../../base/user.openshift.io/groups/seraph
 - ../../../base/user.openshift.io/groups/sigstore
 - ../../../base/user.openshift.io/groups/sostrades
 - ../../../base/user.openshift.io/groups/sre
+- ../../../base/user.openshift.io/groups/superset-admins
 - ../../../base/user.openshift.io/groups/superset-user
 - ../../../base/user.openshift.io/groups/team-pixel
 - ../../../base/user.openshift.io/groups/thoth

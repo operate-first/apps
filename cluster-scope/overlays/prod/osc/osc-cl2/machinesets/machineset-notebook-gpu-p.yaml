@@ -6,7 +6,7 @@ metadata:
   labels:
     machine.openshift.io/cluster-api-cluster: odh-cl2-jlxqf
 spec:
-  replicas: 3
+  replicas: 4
   selector:
     matchLabels:
       machine.openshift.io/cluster-api-cluster: odh-cl2-jlxqf
