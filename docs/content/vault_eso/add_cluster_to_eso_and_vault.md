@@ -5,7 +5,7 @@ Follow the following steps to use External Secrets Operator with Vault to manage
 Note: This is to enable gitops workflow for secrets management for cluster operations, and not user workloads.
 
 ## Pre-requisites:
-- Know the name of the cluster (e.g. smaug, rick, infra). Referred to as `$cluster` in this doc.
+- Know the name of the cluster (e.g. smaug, infra). Referred to as `$cluster` in this doc.
 - Know the environment of the cluster (e.g. moc, osc, emea). Referred to as `$env` in this doc.
 - Cluster api/ingress must be secured
 - Must have cluster admin to said cluster

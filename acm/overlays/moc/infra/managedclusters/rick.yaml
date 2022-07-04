@@ -1,7 +1,0 @@
-apiVersion: cluster.open-cluster-management.io/v1
-kind: ManagedCluster
-metadata:
-  name: rick
-  labels:
-    cluster.open-cluster-management.io/clusterset: argocd-managed
-    authdeployment: primary
