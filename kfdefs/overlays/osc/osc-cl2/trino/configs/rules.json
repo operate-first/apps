@@ -20,6 +20,11 @@
             "allow": "all"
         },
         {
+            "user": "MichaelTiemannOSC",
+            "catalog": "osc_datacommons_dev",
+            "allow": "all"
+        },
+        {
             "allow": "read-only"
         }
     ],
@@ -44,6 +49,12 @@
             "catalog": "osc_datacommons_dev",
             "schema": "pcaf_sovereign_footprint",
             "group": "pcaf_sovereign_footprint.*",
+            "owner": true
+        },
+        {
+            "catalog": "osc_datacommons_dev",
+            "schema": "mdt_sandbox",
+            "user": "MichaelTiemannOSC",
             "owner": true
         },
         {
@@ -86,6 +97,17 @@
             "catalog": "osc_datacommons_dev",
             "schema": "pcaf_sovereign_footprint",
             "group": "pcaf_sovereign_footprint.*",
+            "privileges": [
+                "SELECT",
+                "INSERT",
+                "DELETE",
+                "OWNERSHIP"
+            ]
+        },
+        {
+            "catalog": "osc_datacommons_dev",
+            "schema": "mdt_sandbox",
+            "user": "MichaelTiemannOSC",
             "privileges": [
                 "SELECT",
                 "INSERT",
@@ -216,6 +238,13 @@
         {
             "catalog": "osc_datacommons_dev",
             "schema": "pcaf_sovereign_footprint",
+            "privileges": [
+                "SELECT"
+            ]
+        },
+        {
+            "catalog": "osc_datacommons_dev",
+            "schema": "mdt_sandbox",
             "privileges": [
                 "SELECT"
             ]
