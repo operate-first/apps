@@ -97,7 +97,7 @@ diagnose issues.
 * `namespaceResourceWhitelist` generally contains the list of resources a project `admin` has access to. In most cases
 the `namespaceResourceWhitelist` inherited from the [global project][4] should be sufficient. However, teams can add
 additional resources here if they are not covered by the global project.
-* `<cluster-name>` should be one of `smaug, infra, balrog, curator, osc-cl1, rick` (see `metadata.name` [here][19] for a
+* `<cluster-name>` should be one of `smaug, infra, balrog, curator, osc-cl1` (see `metadata.name` [here][19] for a
  full list).
 
 Ensure that the ArgoCD project is included in the `kustomization.yaml` [here][11].
