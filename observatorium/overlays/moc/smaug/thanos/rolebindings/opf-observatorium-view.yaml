@@ -33,9 +33,6 @@ subjects:
     name: remote-write-emea-balrog
     namespace: opf-observatorium
   - kind: ServiceAccount
-    name: remote-write-emea-rick
-    namespace: opf-observatorium
-  - kind: ServiceAccount
     name: remote-write-moc-infra
     namespace: opf-observatorium
   - kind: ServiceAccount

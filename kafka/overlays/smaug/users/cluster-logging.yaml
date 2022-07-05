@@ -24,13 +24,6 @@ spec:
       - host: '*'
         operation: All
         resource:
-          name: rick-prod.cluster-logs.
-          patternType: prefix
-          type: topic
-        type: allow
-      - host: '*'
-        operation: All
-        resource:
           name: smaug-prod.cluster-logs.
           patternType: prefix
           type: topic
