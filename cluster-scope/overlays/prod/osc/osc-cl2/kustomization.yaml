@@ -49,6 +49,7 @@ resources:
 - ../../../../base/user.openshift.io/groups/odh-users
 - ../../../../base/user.openshift.io/groups/pachyderm-admins
 - ../../../../base/user.openshift.io/groups/seldon-admin
+- ../../../../base/user.openshift.io/groups/sostrades
 - ../../../../bundles/external-secrets-operator
 - ../../../../bundles/kfp-tekton
 - ../../../../bundles/opendatahub-operator-manual
