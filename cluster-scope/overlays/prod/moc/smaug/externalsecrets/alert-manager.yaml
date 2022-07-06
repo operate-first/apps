@@ -5,7 +5,7 @@ metadata:
   namespace: openshift-monitoring
 spec:
   secretStoreRef:
-    name: openshift-monitoring
+    name: opf-vault-store
     kind: SecretStore
   refreshInterval: "1h"
   target:

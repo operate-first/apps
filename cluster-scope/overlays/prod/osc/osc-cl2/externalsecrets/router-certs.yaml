@@ -5,7 +5,7 @@ metadata:
   namespace: openshift-ingress
 spec:
   secretStoreRef:
-    name: openshift-ingress
+    name: opf-vault-store
     kind: SecretStore
   refreshInterval: "1h"
   target:

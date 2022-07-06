@@ -65,5 +65,4 @@ resources:
 - operators.coreos.com/operatorgroups/nvidia-gpu-operator
 - operators.coreos.com/subscriptions/nvidia-gpu-operator
 - nvidia-gpu
-- secretstores
-- serviceaccounts
+- secret-mgmt
