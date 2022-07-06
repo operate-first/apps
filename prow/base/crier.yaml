@@ -1,0 +1,121 @@
+---
+kind: ServiceAccount
+apiVersion: v1
+metadata:
+  name: crier
+---
+kind: Role
+apiVersion: rbac.authorization.k8s.io/v1
+metadata:
+  name: crier
+rules:
+  - apiGroups:
+      - "prow.k8s.io"
+    resources:
+      - "prowjobs"
+    verbs:
+      - "get"
+      - "watch"
+      - "list"
+      - "patch"
+  - apiGroups:
+      - ""
+    resources:
+      - "pods"
+      - "events"
+    verbs:
+      - "get"
+      - "list"
+  - apiGroups:
+      - ""
+    resources:
+      - "pods"
+    verbs:
+      - "patch"
+---
+kind: RoleBinding
+apiVersion: rbac.authorization.k8s.io/v1
+metadata:
+  name: crier
+roleRef:
+  apiGroup: rbac.authorization.k8s.io
+  kind: Role
+  name: crier
+subjects:
+  - kind: ServiceAccount
+    name: crier
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: crier
+  labels:
+    app: crier
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: crier
+  template:
+    metadata:
+      labels:
+        app: crier
+    spec:
+      serviceAccountName: crier
+      terminationGracePeriodSeconds: 30
+      containers:
+        - name: crier
+          image: crier
+          args:
+            - --blob-storage-workers=10
+            - --config-path=/etc/config/config.yaml
+            - --github-token-path=/etc/github/oauth
+            - --s3-credentials-file=/etc/s3-credentials/service-account.json
+            - --github-endpoint=http://ghproxy
+            - --github-endpoint=https://api.github.com
+            - --github-workers=10
+            - --kubernetes-blob-storage-workers=10
+          ports:
+            - name: metrics
+              containerPort: 9090
+          volumeMounts:
+            - name: oauth-token
+              mountPath: /etc/github
+              readOnly: true
+            - name: config
+              mountPath: /etc/config
+              readOnly: true
+            - name: s3-credentials
+              mountPath: /etc/s3-credentials
+              readOnly: true
+          resources:
+            requests:
+              memory: "128Mi"
+              cpu: "8m"
+            limits:
+              memory: "256Mi"
+              cpu: "8m"
+      volumes:
+        - name: config
+          configMap:
+            name: config
+        - name: s3-credentials
+          secret:
+            secretName: s3-credentials
+        - name: oauth-token
+          secret:
+            secretName: oauth-token
+---
+apiVersion: v1
+kind: Service
+metadata:
+  labels:
+    app: crier
+  name: crier
+spec:
+  ports:
+    - name: metrics
+      port: 9090
+      protocol: TCP
+  selector:
+    app: crier

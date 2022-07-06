@@ -1,0 +1,64 @@
+kind: Route
+apiVersion: route.openshift.io/v1
+metadata:
+  name: deck
+  annotations:
+    kubernetes.io/tls-acme: "true"
+    haproxy.router.openshift.io/timeout: 45s
+spec:
+  host: prow.operate-first.cloud
+  to:
+    kind: Service
+    name: deck
+    weight: 100
+  port:
+    targetPort: main
+---
+kind: Route
+apiVersion: route.openshift.io/v1
+metadata:
+  name: hook
+  annotations:
+    kubernetes.io/tls-acme: "true"
+    haproxy.router.openshift.io/timeout: 45s
+spec:
+  host: prow.operate-first.cloud
+  path: /hook
+  to:
+    kind: Service
+    name: hook
+    weight: 100
+  port:
+    targetPort: main
+---
+kind: Route
+apiVersion: route.openshift.io/v1
+metadata:
+  name: hook-metrics
+  annotations:
+    kubernetes.io/tls-acme: "true"
+    haproxy.router.openshift.io/timeout: 45s
+spec:
+  path: /metrics
+  to:
+    kind: Service
+    name: hook
+    weight: 100
+  port:
+    targetPort: metrics
+---
+kind: Route
+apiVersion: route.openshift.io/v1
+metadata:
+  name: deck-metrics
+  annotations:
+    kubernetes.io/tls-acme: "true"
+    haproxy.router.openshift.io/timeout: 45s
+spec:
+  path: /metrics
+  to:
+    kind: Service
+    name: deck
+    weight: 100
+  port:
+    targetPort: metrics

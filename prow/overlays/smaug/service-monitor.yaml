@@ -1,0 +1,15 @@
+apiVersion: monitoring.coreos.com/v1
+kind: ServiceMonitor
+metadata:
+  name: opf-prow-monitor
+  labels:
+    monitor-component: operate-first
+spec:
+  endpoints:
+    - interval: 30s
+      port: metrics
+      scheme: https
+  namespaceSelector:
+    matchNames:
+      - opf-ci-prow
+  selector: {}

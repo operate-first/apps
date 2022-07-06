@@ -1,0 +1,24 @@
+apiVersion: kustomize.config.k8s.io/v1beta1
+kind: Kustomization
+resources:
+  - ../../base
+  - ghproxy.yaml
+  - integration-test-configmap.yaml
+  - route-ghproxy-metrics.yaml
+  - routes.yaml
+  - s3-storage.yaml
+  - service-monitor.yaml
+patchesStrategicMerge:
+  - imagestreamtags.yaml
+  - unsuspend_branchprotector.yaml
+configMapGenerator:
+  - name: config
+    files:
+      - config.yaml
+  - name: plugins
+    files:
+      - plugins.yaml
+generatorOptions:
+  disableNameSuffixHash: true
+generators:
+  - secret-generator.yaml
