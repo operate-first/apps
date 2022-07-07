@@ -7,7 +7,7 @@ metadata:
     controller.receive.thanos.io/hashring: default
   name: observatorium-thanos-receive-default
 spec:
-  replicas: 5
+  replicas: 7
   selector:
     matchLabels:
       app.kubernetes.io/component: receive
