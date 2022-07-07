@@ -5,3 +5,4 @@ resources:
   - ../../base/core/namespaces/opf-kafka
   - ../../base/operators.coreos.com/operatorgroups/opf-kafka
   - ../../base/operators.coreos.com/subscriptions/strimzi
+  
