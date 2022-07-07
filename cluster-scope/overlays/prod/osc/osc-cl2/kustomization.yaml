@@ -56,6 +56,7 @@ resources:
 - ../../../../bundles/openshift-pipelines
 - ../../../../bundles/pachyderm-operator
 - ../../../../bundles/reloader
+- ../../../../bundles/kafka-operator
 - apiserver
 - externalsecrets
 - ingresscontroller
