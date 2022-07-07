@@ -31,3 +31,4 @@ g, fybrik, role:standard-user
 g, tremor-demo, role:standard-user
 g, osc-admins, role:standard-user
 g, chris-project, role:standard-user
+g, backstage, role:readonly
