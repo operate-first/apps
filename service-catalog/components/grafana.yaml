@@ -3,6 +3,8 @@ kind: Component
 metadata:
   name: Grafana
   description: Dashboard anything. Observe everything
+  annotations:
+    operate-first.cloud/logo-url: https://raw.githubusercontent.com/grafana/grafana/main/public/img/grafana_icon.svg
   links:
     - url: https://www.operate-first.cloud/apps/content/grafana/README.html
       title: Support path

@@ -3,6 +3,8 @@ kind: Component
 metadata:
   name: OpenShift-Data-Foundation
   description: ODF provides both persistent volumes and S3 compatible object storage via Rook Operator
+  annotations:
+    operate-first.cloud/logo-url: https://upload.wikimedia.org/wikipedia/commons/d/d8/Red_Hat_logo.svg
   links:
     - url: https://www.operate-first.cloud/apps/content/observatorium/README.html
       title: Support path
