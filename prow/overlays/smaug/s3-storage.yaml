@@ -1,0 +1,10 @@
+---
+apiVersion: objectbucket.io/v1alpha1
+kind: ObjectBucketClaim
+metadata:
+  name: ci-prow
+spec:
+  additionalConfig:
+    maxSize: "10G"
+  bucketName: ci-prow
+  storageClassName: openshift-storage.noobaa.io

@@ -1,0 +1,42 @@
+---
+apiVersion: batch/v1
+kind: Job
+metadata:
+  name: label-sync
+spec:
+  backoffLimit: 2
+  template:
+    metadata:
+      labels:
+        name: label-sync
+    spec:
+      restartPolicy: Never
+      containers:
+        - name: label-sync
+          image: label_sync:latest
+          args:
+            - --config=/etc/config/labels.yaml
+            - --confirm=true
+            - --orgs=thoth-station
+            - --token=/etc/github/oauth
+          resources:
+            requests:
+              memory: "64Mi"
+              cpu: "125m"
+            limits:
+              memory: "64Mi"
+              cpu: "125m"
+          volumeMounts:
+            - name: oauth
+              mountPath: /etc/github
+              readOnly: true
+            - name: config
+              mountPath: /etc/config
+              readOnly: true
+      volumes:
+        - name: oauth
+          secret:
+            secretName: oauth-token
+        - name: config
+          configMap:
+            name: label-config
