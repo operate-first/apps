@@ -3,6 +3,8 @@ kind: Component
 metadata:
   name: Dex-OIDC-Provider
   description: We manage an instance of Dex on the Smaug cluster to provide authentication for some of our services
+  annotations:
+    operate-first.cloud/logo-url: https://cncf-branding.netlify.app/img/projects/dex/icon/color/dex-icon-color.png
   links:
     - url: https://github.com/dexidp/dex
       title: Support path
