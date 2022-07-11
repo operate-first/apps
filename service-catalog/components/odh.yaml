@@ -5,6 +5,7 @@ metadata:
   description: We manage a deployment of Open Data Hub (ODH) on the Smaug cluster and OSC cluster
   annotations:
     operate-first.cloud/logo-url: https://raw.githubusercontent.com/opendatahub-io/opendatahub.io/master/assets/img/logos/datahub_mark_color-blkbg.png
+    argocd/app-name: opendatahub-operator-smaug
   links:
     - url: https://www.operate-first.cloud/apps/content/odh/README.html
       title: Support path

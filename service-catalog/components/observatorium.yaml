@@ -5,6 +5,7 @@ metadata:
   description: We have an instance of Observatorium currently being used to provision Thanos and Loki
   annotations:
     operate-first.cloud/logo-url: https://observatorium.io/logo.svg
+    argocd/app-name: opf-observatorium-smaug
   links:
     - url: https://www.operate-first.cloud/apps/content/observatorium/README.html
       title: Support path
