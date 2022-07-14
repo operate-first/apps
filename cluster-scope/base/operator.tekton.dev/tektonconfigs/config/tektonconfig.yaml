@@ -26,7 +26,7 @@ spec:
     metrics.pipelinerun.level: pipeline
     enable-api-fields: stable
     enable-custom-tasks: true
-    disable-creds-init: false
+    disable-creds-init: true
     disable-affinity-assistant: true
   config: {}
   params:
