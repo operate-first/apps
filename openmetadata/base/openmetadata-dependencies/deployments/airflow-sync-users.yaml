@@ -70,10 +70,8 @@ spec:
           volumeMounts:
             - name: dags-data
               mountPath: /opt/airflow/dags
-              subPath:
             - name: logs-data
               mountPath: /opt/airflow/logs
-              subPath:
         - name: wait-for-db-migrations
           image: quay.io/operate-first/om-airflow:0.10.3
           imagePullPolicy: IfNotPresent
@@ -103,10 +101,8 @@ spec:
           volumeMounts:
             - name: dags-data
               mountPath: /opt/airflow/dags
-              subPath:
             - name: logs-data
               mountPath: /opt/airflow/logs
-              subPath:
       containers:
         - name: sync-airflow-users
           image: quay.io/operate-first/om-airflow:0.10.3
@@ -140,10 +136,8 @@ spec:
           volumeMounts:
             - name: dags-data
               mountPath: /opt/airflow/dags
-              subPath:
             - name: logs-data
               mountPath: /opt/airflow/logs
-              subPath:
             - name: scripts
               mountPath: /mnt/scripts
               readOnly: true

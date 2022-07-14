@@ -4,7 +4,6 @@ kind: CustomResourceDefinition
 metadata:
   annotations:
     controller-gen.kubebuilder.io/version: v0.8.0
-  creationTimestamp: null
   name: curatorconfigs.curator.operatefirst.io
 spec:
   group: curator.operatefirst.io

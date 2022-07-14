@@ -6,7 +6,6 @@ metadata:
   labels:
     app.kubernetes.io/name: mysql
     app.kubernetes.io/component: primary
-  annotations:
 spec:
   type: ClusterIP
   clusterIP: None

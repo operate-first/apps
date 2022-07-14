@@ -7,7 +7,7 @@ spec:
   lookupPolicy:
     local: true
   tags:
-    - annotations: null
+    - annotations: {}
       name: latest
       from:
         kind: DockerImage

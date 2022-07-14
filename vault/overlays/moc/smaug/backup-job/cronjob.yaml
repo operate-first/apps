@@ -29,11 +29,6 @@ spec:
                 - "/bin/sh"
                 - "-ec"
                 - "oc create -f /backupjob/taskrun.yaml -n ${POD_NS}"
-              lifecycle:
-                preStop:
-                  exec:
-                    command:
-                      -
               volumeMounts:
                 - mountPath: /backupjob
                   name: backup-vault-run
