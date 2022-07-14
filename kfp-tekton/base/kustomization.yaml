@@ -35,8 +35,10 @@ resources:
   - ./serviceaccounts/pipeline-runner.yaml
 
   # Secrets
-  - ./secrets/mlpipeline-minio-artifact.yaml
   - ./secrets/mysql-secret.yaml
+  ## Implement in overlay
+  # - ./secrets/mlpipeline-minio-artifact.yaml
+
 
   # Configmaps
   - ./configmaps/kfp-tekton-config.yaml
