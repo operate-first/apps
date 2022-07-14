@@ -4,4 +4,4 @@ kind: Kustomization
 resources:
   - ../../base/core/namespaces/openshift-pipelines
   - ../../base/operators.coreos.com/subscriptions/openshift-pipelines-operator-rh
-  - ../../base/core/configmaps/openshift-pipelines-feature-flags
+  - ../../base/operator.tekton.dev/tektonconfigs/config
