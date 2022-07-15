@@ -71,6 +71,7 @@ resources:
 - ../../../../base/core/namespaces/rapidast
 - ../../../../base/core/namespaces/report-system
 - ../../../../base/core/namespaces/rh-curator-eval
+- ../../../../base/core/namespaces/aiops-tools-workshop
 - ../../../../base/core/namespaces/service-catalog
 - ../../../../base/core/namespaces/smart-village-view
 - ../../../../base/core/namespaces/tekton-pipelines

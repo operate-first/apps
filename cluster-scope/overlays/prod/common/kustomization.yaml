@@ -8,6 +8,7 @@ resources:
 - ../../../base/rbac.authorization.k8s.io/clusterroles/events-aggregate-to-edit
 - ../../../base/user.openshift.io/groups/adoptium
 - ../../../base/user.openshift.io/groups/ai-services
+- ../../../base/user.openshift.io/groups/aiops-tools-workshop-admins
 - ../../../base/user.openshift.io/groups/apicurio
 - ../../../base/user.openshift.io/groups/argocd-admins
 - ../../../base/user.openshift.io/groups/argocd-readonly
