@@ -1,0 +1,1910 @@
+# Source: Tray Keller
+apiVersion: v1
+kind: Namespace
+metadata:
+  name: stackrox
+
+---
+# Source: stackrox-central-services/templates/01-central-10-networkpolicy.yaml
+apiVersion: networking.k8s.io/v1
+kind: NetworkPolicy
+metadata:
+  name: allow-ext-to-central
+  namespace: stackrox
+  labels:
+    app.kubernetes.io/component: central
+    app.kubernetes.io/instance: stackrox-central-services
+    app.kubernetes.io/managed-by: Helm
+    app.kubernetes.io/name: stackrox
+    app.kubernetes.io/part-of: stackrox-central-services
+    app.kubernetes.io/version: 3.70.0
+    helm.sh/chart: stackrox-central-services-70.0.0
+  annotations:
+    email: support@stackrox.com
+    meta.helm.sh/release-name: stackrox-central-services
+    meta.helm.sh/release-namespace: stackrox
+    owner: stackrox
+spec:
+  ingress:
+    - ports:
+      - port: 8443
+        protocol: TCP
+  podSelector:
+    matchLabels:
+      app: central
+  policyTypes:
+  - Ingress
+---
+# Source: stackrox-central-services/templates/02-scanner-05-network-policy.yaml
+apiVersion: networking.k8s.io/v1
+kind: NetworkPolicy
+metadata:
+  name: scanner
+  namespace: stackrox
+  labels:
+    app.kubernetes.io/component: scanner
+    app.kubernetes.io/instance: stackrox-central-services
+    app.kubernetes.io/managed-by: Helm
+    app.kubernetes.io/name: stackrox
+    app.kubernetes.io/part-of: stackrox-central-services
+    app.kubernetes.io/version: 3.70.0
+    helm.sh/chart: stackrox-central-services-70.0.0
+  annotations:
+    email: support@stackrox.com
+    meta.helm.sh/release-name: stackrox-central-services
+    meta.helm.sh/release-namespace: stackrox
+    owner: stackrox
+spec:
+  podSelector:
+    matchLabels:
+      app: scanner
+  ingress:
+  - from:
+    - podSelector:
+        matchLabels:
+          app: central
+
+    ports:
+    - port: 8080
+      protocol: TCP
+    - port: 8443
+      protocol: TCP
+  policyTypes:
+    - Ingress
+---
+# Source: stackrox-central-services/templates/02-scanner-05-network-policy.yaml
+apiVersion: networking.k8s.io/v1
+kind: NetworkPolicy
+metadata:
+  name: scanner-db
+  namespace: stackrox
+  labels:
+    app.kubernetes.io/component: scanner
+    app.kubernetes.io/instance: stackrox-central-services
+    app.kubernetes.io/managed-by: Helm
+    app.kubernetes.io/name: stackrox
+    app.kubernetes.io/part-of: stackrox-central-services
+    app.kubernetes.io/version: 3.70.0
+    helm.sh/chart: stackrox-central-services-70.0.0
+  annotations:
+    email: support@stackrox.com
+    meta.helm.sh/release-name: stackrox-central-services
+    meta.helm.sh/release-namespace: stackrox
+    owner: stackrox
+spec:
+  podSelector:
+    matchLabels:
+      app: scanner-db
+  ingress:
+  - from:
+    - podSelector:
+        matchLabels:
+          app: scanner
+    ports:
+    - port: 5432
+      protocol: TCP
+  policyTypes:
+    - Ingress
+---
+# Source: stackrox-central-services/templates/01-central-02-security.yaml
+apiVersion: policy/v1beta1
+kind: PodSecurityPolicy
+metadata:
+  name: stackrox-central
+  labels:
+    app.kubernetes.io/component: central
+    app.kubernetes.io/instance: stackrox-central-services
+    app.kubernetes.io/managed-by: Helm
+    app.kubernetes.io/name: stackrox
+    app.kubernetes.io/part-of: stackrox-central-services
+    app.kubernetes.io/version: 3.70.0
+    helm.sh/chart: stackrox-central-services-70.0.0
+  annotations:
+    email: support@stackrox.com
+    meta.helm.sh/release-name: stackrox-central-services
+    meta.helm.sh/release-namespace: stackrox
+    owner: stackrox
+spec:
+  privileged: false
+  allowPrivilegeEscalation: false
+  volumes:
+    - 'configMap'
+    - 'emptyDir'
+    - 'projected'
+    - 'secret'
+    - 'downwardAPI'
+    - 'persistentVolumeClaim'
+    - 'hostPath'
+  
+  hostNetwork: false
+  hostIPC: false
+  hostPID: false
+  runAsUser:
+    rule: 'MustRunAs'
+    ranges:
+      - min: 4000
+        max: 4000
+  seLinux:
+    rule: 'RunAsAny'
+  supplementalGroups:
+    rule: 'RunAsAny'
+  fsGroup:
+    rule: 'MustRunAs'
+    ranges:
+      - min: 4000
+        max: 4000
+---
+# Source: stackrox-central-services/templates/02-scanner-01-security.yaml
+apiVersion: policy/v1beta1
+kind: PodSecurityPolicy
+metadata:
+  name: stackrox-scanner
+  labels:
+    app.kubernetes.io/component: scanner
+    app.kubernetes.io/instance: stackrox-central-services
+    app.kubernetes.io/managed-by: Helm
+    app.kubernetes.io/name: stackrox
+    app.kubernetes.io/part-of: stackrox-central-services
+    app.kubernetes.io/version: 3.70.0
+    helm.sh/chart: stackrox-central-services-70.0.0
+  annotations:
+    email: support@stackrox.com
+    meta.helm.sh/release-name: stackrox-central-services
+    meta.helm.sh/release-namespace: stackrox
+    owner: stackrox
+spec:
+  privileged: false
+  allowPrivilegeEscalation: false
+  volumes:
+    - 'configMap'
+    - 'emptyDir'
+    - 'projected'
+    - 'secret'
+    - 'downwardAPI'
+    - 'persistentVolumeClaim'
+  hostNetwork: false
+  hostIPC: false
+  hostPID: false
+  runAsUser:
+    rule: 'RunAsAny'
+  seLinux:
+    rule: 'RunAsAny'
+  supplementalGroups:
+    rule: 'RunAsAny'
+  fsGroup:
+    rule: 'RunAsAny'
+---
+# Source: stackrox-central-services/templates/01-central-00-serviceaccount.yaml
+apiVersion: v1
+kind: ServiceAccount
+metadata:
+  name: central
+  namespace: stackrox
+  labels:
+    app.kubernetes.io/component: central
+    app.kubernetes.io/instance: stackrox-central-services
+    app.kubernetes.io/managed-by: Helm
+    app.kubernetes.io/name: stackrox
+    app.kubernetes.io/part-of: stackrox-central-services
+    app.kubernetes.io/version: 3.70.0
+    helm.sh/chart: stackrox-central-services-70.0.0
+  annotations:
+    email: support@stackrox.com
+    meta.helm.sh/release-name: stackrox-central-services
+    meta.helm.sh/release-namespace: stackrox
+    owner: stackrox
+    serviceaccounts.openshift.io/oauth-redirectreference.main: '{"kind":"OAuthRedirectReference","apiVersion":"v1","reference":{"kind":"Route","name":"central"}}'
+    serviceaccounts.openshift.io/oauth-redirecturi.main: "sso/providers/openshift/callback"
+imagePullSecrets:
+- name: "stackrox"
+- name: "stackrox-scanner"
+---
+# Source: stackrox-central-services/templates/02-scanner-00-serviceaccount.yaml
+apiVersion: v1
+kind: ServiceAccount
+metadata:
+  name: scanner
+  namespace: stackrox
+  labels:
+    app.kubernetes.io/component: scanner
+    app.kubernetes.io/instance: stackrox-central-services
+    app.kubernetes.io/managed-by: Helm
+    app.kubernetes.io/name: stackrox
+    app.kubernetes.io/part-of: stackrox-central-services
+    app.kubernetes.io/version: 3.70.0
+    helm.sh/chart: stackrox-central-services-70.0.0
+  annotations:
+    email: support@stackrox.com
+    meta.helm.sh/release-name: stackrox-central-services
+    meta.helm.sh/release-namespace: stackrox
+    owner: stackrox
+imagePullSecrets:
+- name: "stackrox"
+- name: "stackrox-scanner"
+---
+# Source: stackrox-central-services/templates/01-central-08-configmap.yaml
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: central-config
+  namespace: stackrox
+  labels:
+    app.kubernetes.io/component: central
+    app.kubernetes.io/instance: stackrox-central-services
+    app.kubernetes.io/managed-by: Helm
+    app.kubernetes.io/name: stackrox
+    app.kubernetes.io/part-of: stackrox-central-services
+    app.kubernetes.io/version: 3.70.0
+    helm.sh/chart: stackrox-central-services-70.0.0
+  annotations:
+    email: support@stackrox.com
+    meta.helm.sh/release-name: stackrox-central-services
+    meta.helm.sh/release-namespace: stackrox
+    owner: stackrox
+data:
+  central-config.yaml: |
+    maintenance:
+      safeMode: false # When set to true, Central will sleep forever on the next restart
+      compaction:
+        enabled: true
+        bucketFillFraction: .5 # This controls how densely to compact the buckets. Usually not advised to modify
+        freeFractionThreshold: 0.75 # This is the threshold for free bytes / total bytes after which compaction will occur
+      forceRollbackVersion: none # This is the config and target rollback version after upgrade complete.
+---
+# Source: stackrox-central-services/templates/01-central-09-endpoints-config.yaml
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: central-endpoints
+  namespace: stackrox
+  labels:
+    app.kubernetes.io/component: central
+    app.kubernetes.io/instance: stackrox-central-services
+    app.kubernetes.io/managed-by: Helm
+    app.kubernetes.io/name: stackrox
+    app.kubernetes.io/part-of: stackrox-central-services
+    app.kubernetes.io/version: 3.70.0
+    helm.sh/chart: stackrox-central-services-70.0.0
+  annotations:
+    email: support@stackrox.com
+    meta.helm.sh/release-name: stackrox-central-services
+    meta.helm.sh/release-namespace: stackrox
+    owner: stackrox
+data:
+  endpoints.yaml: |
+    # Sample endpoints.yaml configuration for StackRox Central.
+    #
+    # # CAREFUL: If the following line is uncommented, do not expose the default endpoint on port 8443 by default.
+    # #          This will break normal operation.
+    # disableDefault: true # if true, don't serve on :8443
+    # endpoints:
+    #   # Serve plaintext HTTP only on port 8080
+    #   - listen: ":8080"
+    #     # Backend protocols, possible values are 'http' and 'grpc'. If unset or empty, assume both.
+    #     protocols:
+    #       - http
+    #     tls:
+    #       # Disable TLS. If this is not specified, assume TLS is enabled.
+    #       disable: true
+    #   # Serve HTTP and  gRPC for sensors only on port 8444
+    #   - listen: ":8444"
+    #     tls:
+    #       # Which TLS certificates to serve, possible values are 'service' (StackRox-generated service certificates)
+    #       # and 'default' (user-configured default TLS certificate). If unset or empty, assume both.
+    #       serverCerts:
+    #         - default
+    #         - service
+    #       # Client authentication settings.
+    #       clientAuth:
+    #         # Enforce TLS client authentication. If unset, do not enforce, only request certificates
+    #         # opportunistically.
+    #         required: true
+    #         # Which TLS client CAs to serve, possible values are 'service' (CA for StackRox-generated service
+    #         # certificates) and 'user' (CAs for PKI auth providers). If unset or empty, assume both.
+    #         certAuthorities: # if not set, assume ["user", "service"]
+    #           - service
+---
+# Source: stackrox-central-services/templates/02-scanner-04-scanner-config.yaml
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: scanner-config
+  namespace: stackrox
+  labels:
+    app.kubernetes.io/component: scanner
+    app.kubernetes.io/instance: stackrox-central-services
+    app.kubernetes.io/managed-by: Helm
+    app.kubernetes.io/name: stackrox
+    app.kubernetes.io/part-of: stackrox-central-services
+    app.kubernetes.io/version: 3.70.0
+    helm.sh/chart: stackrox-central-services-70.0.0
+  annotations:
+    email: support@stackrox.com
+    meta.helm.sh/release-name: stackrox-central-services
+    meta.helm.sh/release-namespace: stackrox
+    owner: stackrox
+data:
+  config.yaml: |
+    # Configuration file for scanner.
+    
+    scanner:
+      centralEndpoint: https://central.stackrox.svc
+      database:
+        # Database driver
+        type: pgsql
+        options:
+          # PostgreSQL Connection string
+          # https://www.postgresql.org/docs/current/static/libpq-connect.html#LIBPQ-CONNSTRING
+          source: host=scanner-db.stackrox.svc port=5432 user=postgres sslmode=verify-full statement_timeout=60000
+    
+          # Number of elements kept in the cache
+          # Values unlikely to change (e.g. namespaces) are cached in order to save prevent needless roundtrips to the database.
+          cachesize: 16384
+    
+      api:
+        httpsPort: 8080
+        grpcPort: 8443
+    
+      updater:
+        # Frequency with which the scanner will poll for vulnerability updates.
+        interval: 5m
+    
+      logLevel: INFO
+    
+      # The scanner intentionally avoids extracting or analyzing any files
+      # larger than the following default sizes to prevent DoS attacks.
+      # Leave these commented to use a reasonable default.
+    
+      # The max size of files in images that are extracted.
+      # Increasing this number increases memory pressure.
+      # maxExtractableFileSizeMB: 200
+      # The max size of ELF executable files that are analyzed.
+      # Increasing this number may increase disk pressure.
+      # maxELFExecutableFileSizeMB: 800
+      # The max size of image file reader buffer. Image file data beyond this limit are overflowed to temporary files on disk.
+      # maxImageFileReaderBufferSizeMB: 100
+---
+# Source: stackrox-central-services/templates/01-central-02-security.yaml
+kind: ClusterRole
+apiVersion: rbac.authorization.k8s.io/v1
+metadata:
+  name: stackrox-central-psp
+  labels:
+    app.kubernetes.io/component: central
+    app.kubernetes.io/instance: stackrox-central-services
+    app.kubernetes.io/managed-by: Helm
+    app.kubernetes.io/name: stackrox
+    app.kubernetes.io/part-of: stackrox-central-services
+    app.kubernetes.io/version: 3.70.0
+    helm.sh/chart: stackrox-central-services-70.0.0
+  annotations:
+    email: support@stackrox.com
+    meta.helm.sh/release-name: stackrox-central-services
+    meta.helm.sh/release-namespace: stackrox
+    owner: stackrox
+rules:
+  - apiGroups:
+      - policy
+    resources:
+      - podsecuritypolicies
+    resourceNames:
+      - stackrox-central
+    verbs:
+      - use
+---
+# Source: stackrox-central-services/templates/02-scanner-01-security.yaml
+kind: ClusterRole
+apiVersion: rbac.authorization.k8s.io/v1
+metadata:
+  name: stackrox-scanner-psp
+  labels:
+    app.kubernetes.io/component: scanner
+    app.kubernetes.io/instance: stackrox-central-services
+    app.kubernetes.io/managed-by: Helm
+    app.kubernetes.io/name: stackrox
+    app.kubernetes.io/part-of: stackrox-central-services
+    app.kubernetes.io/version: 3.70.0
+    helm.sh/chart: stackrox-central-services-70.0.0
+  annotations:
+    email: support@stackrox.com
+    meta.helm.sh/release-name: stackrox-central-services
+    meta.helm.sh/release-namespace: stackrox
+    owner: stackrox
+rules:
+- apiGroups:
+  - policy
+  resources:
+  - podsecuritypolicies
+  resourceNames:
+  - stackrox-scanner
+  verbs:
+  - use
+---
+# Source: stackrox-central-services/templates/01-central-03-diagnostics-rbac.yaml
+apiVersion: rbac.authorization.k8s.io/v1
+kind: Role
+metadata:
+  name: stackrox-central-diagnostics
+  namespace: stackrox
+  labels:
+    app.kubernetes.io/component: central
+    app.kubernetes.io/instance: stackrox-central-services
+    app.kubernetes.io/managed-by: Helm
+    app.kubernetes.io/name: stackrox
+    app.kubernetes.io/part-of: stackrox-central-services
+    app.kubernetes.io/version: 3.70.0
+    helm.sh/chart: stackrox-central-services-70.0.0
+  annotations:
+    email: support@stackrox.com
+    meta.helm.sh/release-name: stackrox-central-services
+    meta.helm.sh/release-namespace: stackrox
+    owner: stackrox
+rules:
+- apiGroups:
+  - '*'
+  resources:
+  - "deployments"
+  - "daemonsets"
+  - "replicasets"
+  - "configmaps"
+  - "services"
+  verbs:
+  - get
+  - list
+---
+# Source: stackrox-central-services/templates/01-central-02-security.yaml
+apiVersion: rbac.authorization.k8s.io/v1
+kind: RoleBinding
+metadata:
+  name: stackrox-central-psp
+  namespace: stackrox
+  labels:
+    app.kubernetes.io/component: central
+    app.kubernetes.io/instance: stackrox-central-services
+    app.kubernetes.io/managed-by: Helm
+    app.kubernetes.io/name: stackrox
+    app.kubernetes.io/part-of: stackrox-central-services
+    app.kubernetes.io/version: 3.70.0
+    helm.sh/chart: stackrox-central-services-70.0.0
+  annotations:
+    email: support@stackrox.com
+    meta.helm.sh/release-name: stackrox-central-services
+    meta.helm.sh/release-namespace: stackrox
+    owner: stackrox
+roleRef:
+  apiGroup: rbac.authorization.k8s.io
+  kind: ClusterRole
+  name: stackrox-central-psp
+subjects:
+  - kind: ServiceAccount
+    name: central
+    namespace: stackrox
+---
+# Source: stackrox-central-services/templates/01-central-03-diagnostics-rbac.yaml
+apiVersion: rbac.authorization.k8s.io/v1
+kind: RoleBinding
+metadata:
+  name: stackrox-central-diagnostics
+  namespace: stackrox
+  labels:
+    app.kubernetes.io/component: central
+    app.kubernetes.io/instance: stackrox-central-services
+    app.kubernetes.io/managed-by: Helm
+    app.kubernetes.io/name: stackrox
+    app.kubernetes.io/part-of: stackrox-central-services
+    app.kubernetes.io/version: 3.70.0
+    helm.sh/chart: stackrox-central-services-70.0.0
+  annotations:
+    email: support@stackrox.com
+    meta.helm.sh/release-name: stackrox-central-services
+    meta.helm.sh/release-namespace: stackrox
+    owner: stackrox
+roleRef:
+  apiGroup: rbac.authorization.k8s.io
+  kind: Role
+  name: stackrox-central-diagnostics
+subjects:
+  - kind: ServiceAccount
+    name: central
+    namespace: stackrox
+---
+# Source: stackrox-central-services/templates/02-scanner-01-security.yaml
+apiVersion: rbac.authorization.k8s.io/v1
+kind: RoleBinding
+metadata:
+  name: stackrox-scanner-psp
+  namespace: stackrox
+  labels:
+    app.kubernetes.io/component: scanner
+    app.kubernetes.io/instance: stackrox-central-services
+    app.kubernetes.io/managed-by: Helm
+    app.kubernetes.io/name: stackrox
+    app.kubernetes.io/part-of: stackrox-central-services
+    app.kubernetes.io/version: 3.70.0
+    helm.sh/chart: stackrox-central-services-70.0.0
+  annotations:
+    email: support@stackrox.com
+    meta.helm.sh/release-name: stackrox-central-services
+    meta.helm.sh/release-namespace: stackrox
+    owner: stackrox
+roleRef:
+  apiGroup: rbac.authorization.k8s.io
+  kind: ClusterRole
+  name: stackrox-scanner-psp
+subjects:
+  - kind: ServiceAccount
+    name: scanner
+    namespace: stackrox
+---
+# Source: stackrox-central-services/templates/01-central-14-service.yaml
+apiVersion: v1
+kind: Service
+metadata:
+  name: central
+  namespace: stackrox
+  labels:
+    app.kubernetes.io/component: central
+    app.kubernetes.io/instance: stackrox-central-services
+    app.kubernetes.io/managed-by: Helm
+    app.kubernetes.io/name: stackrox
+    app.kubernetes.io/part-of: stackrox-central-services
+    app.kubernetes.io/version: 3.70.0
+    helm.sh/chart: stackrox-central-services-70.0.0
+  annotations:
+    email: support@stackrox.com
+    meta.helm.sh/release-name: stackrox-central-services
+    meta.helm.sh/release-namespace: stackrox
+    owner: stackrox
+spec:
+  ports:
+    - name: https
+      port: 443
+      targetPort: api
+  selector:
+    app: central
+  type: ClusterIP
+---
+# Source: stackrox-central-services/templates/02-scanner-07-service.yaml
+apiVersion: v1
+kind: Service
+metadata:
+  name: scanner
+  namespace: stackrox
+  labels:
+    app.kubernetes.io/component: scanner
+    app.kubernetes.io/instance: stackrox-central-services
+    app.kubernetes.io/managed-by: Helm
+    app.kubernetes.io/name: stackrox
+    app.kubernetes.io/part-of: stackrox-central-services
+    app.kubernetes.io/version: 3.70.0
+    helm.sh/chart: stackrox-central-services-70.0.0
+  annotations:
+    email: support@stackrox.com
+    meta.helm.sh/release-name: stackrox-central-services
+    meta.helm.sh/release-namespace: stackrox
+    owner: stackrox
+spec:
+  ports:
+    - name: https-scanner
+      port: 8080
+      targetPort: 8080
+    - name: grpcs-scanner
+      port: 8443
+      targetPort: 8443
+  selector:
+    app: scanner
+  type: ClusterIP
+---
+# Source: stackrox-central-services/templates/02-scanner-07-service.yaml
+apiVersion: v1
+kind: Service
+metadata:
+  name: scanner-db
+  namespace: stackrox
+  labels:
+    app.kubernetes.io/component: scanner
+    app.kubernetes.io/instance: stackrox-central-services
+    app.kubernetes.io/managed-by: Helm
+    app.kubernetes.io/name: stackrox
+    app.kubernetes.io/part-of: stackrox-central-services
+    app.kubernetes.io/version: 3.70.0
+    helm.sh/chart: stackrox-central-services-70.0.0
+  annotations:
+    email: support@stackrox.com
+    meta.helm.sh/release-name: stackrox-central-services
+    meta.helm.sh/release-namespace: stackrox
+    owner: stackrox
+spec:
+  ports:
+    - name: tcp-db
+      port: 5432
+      targetPort: 5432
+  selector:
+    app: scanner-db
+  type: ClusterIP
+---
+# Source: stackrox-central-services/templates/01-central-13-deployment.yaml
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: central
+  namespace: stackrox
+  labels:
+    app.kubernetes.io/component: central
+    app.kubernetes.io/instance: stackrox-central-services
+    app.kubernetes.io/managed-by: Helm
+    app.kubernetes.io/name: stackrox
+    app.kubernetes.io/part-of: stackrox-central-services
+    app.kubernetes.io/version: 3.70.0
+    helm.sh/chart: stackrox-central-services-70.0.0
+    app: central
+  annotations:
+    email: support@stackrox.com
+    meta.helm.sh/release-name: stackrox-central-services
+    meta.helm.sh/release-namespace: stackrox
+    owner: stackrox
+spec:
+  replicas: 1
+  minReadySeconds: 15
+  selector:
+    matchLabels:
+      app: central
+  strategy:
+    type: Recreate
+  template:
+    metadata:
+      namespace: stackrox
+      labels:
+        app: central
+        app.kubernetes.io/component: central
+        app.kubernetes.io/instance: stackrox-central-services
+        app.kubernetes.io/managed-by: Helm
+        app.kubernetes.io/name: stackrox
+        app.kubernetes.io/part-of: stackrox-central-services
+        app.kubernetes.io/version: 3.70.0
+        helm.sh/chart: stackrox-central-services-70.0.0
+      annotations:
+        traffic.sidecar.istio.io/excludeInboundPorts: "8443"
+        email: support@stackrox.com
+        meta.helm.sh/release-name: stackrox-central-services
+        meta.helm.sh/release-namespace: stackrox
+        owner: stackrox
+    spec:
+      affinity:
+        nodeAffinity:
+          preferredDuringSchedulingIgnoredDuringExecution:
+            # Central is single-homed, so avoid preemptible nodes.
+            - weight: 100
+              preference:
+                matchExpressions:
+                  - key: cloud.google.com/gke-preemptible
+                    operator: NotIn
+                    values:
+                    - "true"
+      serviceAccountName: central
+      securityContext:
+        fsGroup: 4000
+        runAsUser: 4000
+      containers:
+      - name: central
+        image: "quay.io/stackrox-io/main:3.70.0"
+        command:
+          - /stackrox/central-entrypoint.sh
+        ports:
+          - containerPort: 8443
+            name: api
+        readinessProbe:
+          httpGet:
+            scheme: HTTPS
+            path: /v1/ping
+            port: 8443
+        resources:
+          limits:
+            cpu: 4000m
+            memory: 8Gi
+          requests:
+            cpu: 1500m
+            memory: 4Gi
+        securityContext:
+          capabilities:
+            drop: ["NET_RAW"]
+          readOnlyRootFilesystem: true
+        env:
+        - name: ROX_NAMESPACE
+          valueFrom:
+            fieldRef:
+              fieldPath: metadata.namespace
+        - name: ROX_INIT_TELEMETRY_ENABLED
+          value: "true"
+        - name: ROX_OFFLINE_MODE
+          value: "false"
+        
+        volumeMounts:
+        - name: varlog
+          mountPath: /var/log/stackrox/
+        - name: central-tmp-volume
+          mountPath: /tmp
+        - name: central-etc-ssl-volume
+          mountPath: /etc/ssl
+        - name: central-etc-pki-volume
+          mountPath: /etc/pki/ca-trust
+        - name: central-certs-volume
+          mountPath: /run/secrets/stackrox.io/certs/
+          readOnly: true
+        - name: central-default-tls-cert-volume
+          mountPath: /run/secrets/stackrox.io/default-tls-cert/
+          readOnly: true
+        - name: central-htpasswd-volume
+          mountPath: /run/secrets/stackrox.io/htpasswd/
+          readOnly: true
+        - name: central-jwt-volume
+          mountPath: /run/secrets/stackrox.io/jwt/
+          readOnly: true
+        - name: additional-ca-volume
+          mountPath: /usr/local/share/ca-certificates/
+          readOnly: true
+        - name: central-license-volume
+          mountPath: /run/secrets/stackrox.io/central-license/
+          readOnly: true
+        - name: stackrox-db
+          mountPath: /var/lib/stackrox
+        - name: central-config-volume
+          mountPath: /etc/stackrox
+        - name: proxy-config-volume
+          mountPath: /run/secrets/stackrox.io/proxy-config/
+          readOnly: true
+        - name: endpoints-config-volume
+          mountPath: /etc/stackrox.d/endpoints/
+          readOnly: true
+        
+        
+      volumes:
+      - name: varlog
+        emptyDir: {}
+      - name: central-tmp-volume
+        emptyDir: {}
+      - name: central-etc-ssl-volume
+        emptyDir: {}
+      - name: central-etc-pki-volume
+        emptyDir: {}
+      - name: central-certs-volume
+        secret:
+          secretName: central-tls
+      - name: central-default-tls-cert-volume
+        secret:
+          secretName: central-default-tls-cert
+          optional: true
+      - name: central-htpasswd-volume
+        secret:
+          secretName: central-htpasswd
+          optional: true
+      - name: central-jwt-volume
+        secret:
+          secretName: central-tls
+          items:
+            - key: jwt-key.pem
+              path: jwt-key.pem
+      - name: additional-ca-volume
+        secret:
+          secretName: additional-ca
+          optional: true
+      - name: central-license-volume
+        secret:
+          secretName: central-license
+          optional: true
+      - name: central-config-volume
+        configMap:
+          name: central-config
+          optional: true
+      - name: proxy-config-volume
+        secret:
+          secretName: proxy-config
+          optional: true
+      - name: endpoints-config-volume
+        configMap:
+          name: central-endpoints
+      - name: stackrox-db
+        persistentVolumeClaim:
+          claimName: stackrox-db
+---
+# Source: stackrox-central-services/templates/02-scanner-06-deployment.yaml
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: scanner
+  namespace: stackrox
+  labels:
+    app: scanner
+    app.kubernetes.io/component: scanner
+    app.kubernetes.io/instance: stackrox-central-services
+    app.kubernetes.io/managed-by: Helm
+    app.kubernetes.io/name: stackrox
+    app.kubernetes.io/part-of: stackrox-central-services
+    app.kubernetes.io/version: 3.70.0
+    helm.sh/chart: stackrox-central-services-70.0.0
+  annotations:
+    email: support@stackrox.com
+    meta.helm.sh/release-name: stackrox-central-services
+    meta.helm.sh/release-namespace: stackrox
+    owner: stackrox
+spec:
+  replicas: 3
+  minReadySeconds: 15
+  selector:
+    matchLabels:
+      app: scanner
+  strategy:
+    type: Recreate
+  template:
+    metadata:
+      namespace: stackrox
+      labels:
+        app: scanner
+        app.kubernetes.io/component: scanner
+        app.kubernetes.io/instance: stackrox-central-services
+        app.kubernetes.io/managed-by: Helm
+        app.kubernetes.io/name: stackrox
+        app.kubernetes.io/part-of: stackrox-central-services
+        app.kubernetes.io/version: 3.70.0
+        helm.sh/chart: stackrox-central-services-70.0.0
+      annotations:
+        traffic.sidecar.istio.io/excludeInboundPorts: "8080,8443"
+        email: support@stackrox.com
+        meta.helm.sh/release-name: stackrox-central-services
+        meta.helm.sh/release-namespace: stackrox
+        owner: stackrox
+    spec:
+      affinity:
+        podAntiAffinity:
+          preferredDuringSchedulingIgnoredDuringExecution:
+          - weight: 100
+            podAffinityTerm:
+              labelSelector:
+                matchLabels:
+                  app: scanner
+              topologyKey: kubernetes.io/hostname
+      containers:
+      - name: scanner
+        
+        image: "quay.io/stackrox-io/scanner:3.70.0"
+        env:
+        - name: POD_NAME
+          valueFrom:
+            fieldRef:
+              fieldPath: metadata.name
+        - name: POD_NAMESPACE
+          valueFrom:
+            fieldRef:
+              fieldPath: metadata.namespace
+        
+        resources:
+          limits:
+            cpu: 2000m
+            memory: 4Gi
+          requests:
+            cpu: 1000m
+            memory: 1500Mi
+        command:
+        - /entrypoint.sh
+        ports:
+        - name: https
+          containerPort: 8080
+        - name: grpc
+          containerPort: 8443
+        securityContext:
+          capabilities:
+            drop: ["NET_RAW"]
+          runAsUser: 65534
+        readinessProbe:
+          httpGet:
+            scheme: HTTPS
+            path: /scanner/ping
+            port: 8080
+          timeoutSeconds: 10
+          periodSeconds: 10
+          failureThreshold: 6
+          successThreshold: 1
+        volumeMounts:
+        - mountPath: /etc/ssl
+          name: scanner-etc-ssl-volume
+        - mountPath: /etc/pki/ca-trust
+          name: scanner-etc-pki-volume
+        - mountPath: /usr/local/share/ca-certificates/
+          name: additional-ca-volume
+          readOnly: true
+        - name: scanner-config-volume
+          mountPath: /etc/scanner
+          readOnly: true
+        - name: scanner-tls-volume
+          mountPath: /run/secrets/stackrox.io/certs/
+          readOnly: true
+        - name: vuln-temp-db
+          mountPath: /var/lib/stackrox
+        - name: proxy-config-volume
+          mountPath: /run/secrets/stackrox.io/proxy-config/
+          readOnly: true
+        - name: scanner-db-password
+          mountPath: /run/secrets/stackrox.io/secrets
+        
+        
+      serviceAccountName: scanner
+      volumes:
+      - name: additional-ca-volume
+        secret:
+          defaultMode: 420
+          optional: true
+          secretName: additional-ca
+      - emptyDir: {}
+        name: scanner-etc-ssl-volume
+      - emptyDir: {}
+        name: scanner-etc-pki-volume
+      - name: scanner-config-volume
+        configMap:
+          name: scanner-config
+      - name: scanner-tls-volume
+        secret:
+          secretName: scanner-tls
+      - name: vuln-temp-db
+        emptyDir: {}
+      - name: proxy-config-volume
+        secret:
+          secretName: proxy-config
+          optional: true
+      - name: scanner-db-password
+        secret:
+          secretName: scanner-db-password
+---
+# Source: stackrox-central-services/templates/02-scanner-06-deployment.yaml
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: scanner-db
+  namespace: stackrox
+  labels:
+    app: scanner-db
+    app.kubernetes.io/component: scanner
+    app.kubernetes.io/instance: stackrox-central-services
+    app.kubernetes.io/managed-by: Helm
+    app.kubernetes.io/name: stackrox
+    app.kubernetes.io/part-of: stackrox-central-services
+    app.kubernetes.io/version: 3.70.0
+    helm.sh/chart: stackrox-central-services-70.0.0
+  annotations:
+    email: support@stackrox.com
+    meta.helm.sh/release-name: stackrox-central-services
+    meta.helm.sh/release-namespace: stackrox
+    owner: stackrox
+spec:
+  replicas: 1
+  minReadySeconds: 15
+  selector:
+    matchLabels:
+      app: scanner-db
+  strategy:
+    type: Recreate
+  template:
+    metadata:
+      namespace: stackrox
+      labels:
+        app: scanner-db
+        app.kubernetes.io/component: scanner
+        app.kubernetes.io/instance: stackrox-central-services
+        app.kubernetes.io/managed-by: Helm
+        app.kubernetes.io/name: stackrox
+        app.kubernetes.io/part-of: stackrox-central-services
+        app.kubernetes.io/version: 3.70.0
+        helm.sh/chart: stackrox-central-services-70.0.0
+      annotations:
+        traffic.sidecar.istio.io/excludeInboundPorts: "5432"
+        email: support@stackrox.com
+        meta.helm.sh/release-name: stackrox-central-services
+        meta.helm.sh/release-namespace: stackrox
+        owner: stackrox
+    spec:
+      affinity:
+        nodeAffinity:
+          preferredDuringSchedulingIgnoredDuringExecution:
+            # ScannerDB is single-homed, so avoid preemptible nodes.
+            - weight: 100
+              preference:
+                matchExpressions:
+                  - key: cloud.google.com/gke-preemptible
+                    operator: NotIn
+                    values:
+                    - "true"
+            
+      initContainers:
+        - name: init-db
+          image: "quay.io/stackrox-io/scanner-db:3.70.0"
+          command:
+          - /bin/sh
+          - -c
+          - |
+            mkdir -p /var/lib/postgresql/data
+            chmod 700 /var/lib/postgresql/data
+            chown -R postgres:postgres /var/lib/postgresql
+          volumeMounts:
+            - name: db-data
+              mountPath: /var/lib/postgresql/data
+          securityContext:
+            runAsUser: 0
+      containers:
+      - name: db
+        command: ["/usr/local/bin/docker-entrypoint.sh", "postgres", "-c", "config_file=/etc/postgresql.conf"]
+        image: "quay.io/stackrox-io/scanner-db:3.70.0"
+        ports:
+        - name: https-db
+          containerPort: 5432
+        resources:
+          limits:
+            cpu: 2000m
+            memory: 4Gi
+          requests:
+            cpu: 200m
+            memory: 200Mi
+        env:
+          
+        securityContext:
+          runAsUser: 70
+          runAsGroup: 70
+        volumeMounts:
+          - name: db-data
+            mountPath: /var/lib/postgresql/data
+          - name: scanner-db-tls-volume
+            mountPath: /run/secrets/stackrox.io/certs
+          - name: scanner-db-password
+            mountPath: /run/secrets/stackrox.io/secrets
+      serviceAccountName: scanner
+      securityContext:
+        fsGroup: 70
+      volumes:
+      - name: scanner-config-volume
+        configMap:
+          name: scanner-config
+      - name: scanner-tls-volume
+        secret:
+          secretName: scanner-tls
+      - name: scanner-db-tls-volume
+        secret:
+          secretName: scanner-db-tls
+          defaultMode: 0640
+          items:
+          - key: cert.pem
+            path: server.crt
+          - key: key.pem
+            path: server.key
+          - key: ca.pem
+            path: root.crt
+      - name: db-data
+        emptyDir: {}
+      - name: scanner-db-password
+        secret:
+          secretName: scanner-db-password
+---
+# Source: stackrox-central-services/templates/02-scanner-08-hpa.yaml
+apiVersion: autoscaling/v1
+kind: HorizontalPodAutoscaler
+metadata:
+  name: scanner
+  namespace: stackrox
+  labels:
+    app.kubernetes.io/component: scanner
+    app.kubernetes.io/instance: stackrox-central-services
+    app.kubernetes.io/managed-by: Helm
+    app.kubernetes.io/name: stackrox
+    app.kubernetes.io/part-of: stackrox-central-services
+    app.kubernetes.io/version: 3.70.0
+    helm.sh/chart: stackrox-central-services-70.0.0
+  annotations:
+    email: support@stackrox.com
+    meta.helm.sh/release-name: stackrox-central-services
+    meta.helm.sh/release-namespace: stackrox
+    owner: stackrox
+spec:
+  minReplicas: 2
+  maxReplicas: 5
+  scaleTargetRef:
+    apiVersion: apps/v1
+    kind: Deployment
+    name: scanner
+  targetCPUUtilizationPercentage: 150
+---
+# Source: stackrox-central-services/templates/01-central-04-htpasswd-secret.yaml
+apiVersion: v1
+kind: Secret
+metadata:
+  name: central-htpasswd
+  namespace: stackrox
+  labels:
+    app.kubernetes.io/component: central
+    app.kubernetes.io/instance: stackrox-central-services
+    app.kubernetes.io/managed-by: Helm
+    app.kubernetes.io/name: stackrox
+    app.kubernetes.io/part-of: stackrox-central-services
+    app.kubernetes.io/version: 3.70.0
+    helm.sh/chart: stackrox-central-services-70.0.0
+  annotations:
+    email: support@stackrox.com
+    meta.helm.sh/release-name: stackrox-central-services
+    meta.helm.sh/release-namespace: stackrox
+    owner: stackrox
+    "helm.sh/hook": "pre-install,pre-upgrade"
+    "helm.sh/resource-policy": "keep"
+type: Opaque
+stringData:
+  htpasswd: |
+    admin:$2a$10$YkGBGV1CpHPw4oFOwb.b8elXuLFoBOixLnh6k.wtxOAcXbfNBi2NO
+---
+# Source: stackrox-central-services/templates/01-central-05-tls-secret.yaml
+apiVersion: v1
+kind: Secret
+metadata:
+  name: central-tls
+  namespace: stackrox
+  labels:
+    app.kubernetes.io/component: central
+    app.kubernetes.io/instance: stackrox-central-services
+    app.kubernetes.io/managed-by: Helm
+    app.kubernetes.io/name: stackrox
+    app.kubernetes.io/part-of: stackrox-central-services
+    app.kubernetes.io/version: 3.70.0
+    helm.sh/chart: stackrox-central-services-70.0.0
+  annotations:
+    email: support@stackrox.com
+    meta.helm.sh/release-name: stackrox-central-services
+    meta.helm.sh/release-namespace: stackrox
+    owner: stackrox
+    "helm.sh/hook": "pre-install,pre-upgrade"
+    "helm.sh/resource-policy": "keep"
+type: Opaque
+stringData:
+  ca.pem: |
+    -----BEGIN CERTIFICATE-----
+    MIIDPTCCAiWgAwIBAgIQG1xBdsu9sw126AS4/tf8eTANBgkqhkiG9w0BAQsFADAp
+    MScwJQYDVQQDEx5TdGFja1JveCBDZXJ0aWZpY2F0ZSBBdXRob3JpdHkwHhcNMjIw
+    NzEzMTg1MDI2WhcNMjcwNzEyMTg1MDI2WjApMScwJQYDVQQDEx5TdGFja1JveCBD
+    ZXJ0aWZpY2F0ZSBBdXRob3JpdHkwggEiMA0GCSqGSIb3DQEBAQUAA4IBDwAwggEK
+    AoIBAQDGa+ZiOiyJyVBQbo7LLvCnXuuE+KQUIE93C/LkGCsyjFIWiSD4NYIZG+g1
+    IjVZlAy9n74YUlZJGzPGhzdQL7zh4GiBDec5IAfIxCbtzdGj3OkTeeKzbBSz9oQH
+    Wo3kg8WTeES+SbxounF9EAxT4GPczijdQsHKcDTVCBWWeYIy5xLg8+PDn1aRymEp
+    OHCe3CNgdbG+K8ay8k6xO6JNwktREv4x6UD4hUqwfK0FKhKe3b/bBWJ0Mz6xP4OU
+    XNXvyHzpByGwARU7Ii5BX6jEqJoYmCV98gYQ4HlGtL+nJtQyzYF7QHuhs/0ngRhy
+    K8CKlaw8chqvuF86Od21BWJTNl9LAgMBAAGjYTBfMA4GA1UdDwEB/wQEAwICpDAd
+    BgNVHSUEFjAUBggrBgEFBQcDAQYIKwYBBQUHAwIwDwYDVR0TAQH/BAUwAwEB/zAd
+    BgNVHQ4EFgQU36JXsm4Prfj8dyzOuau2xtOZMPcwDQYJKoZIhvcNAQELBQADggEB
+    AHl8ceSg6oMHDJaqRX5cLaJDrxRDVH2fGdt5Pi7yXRpMPjnvYBdWMat3I+B346iy
+    cZbg5L7NdcdiUGI75vEp7YexirchhKxDr9kouEfTfVtL3FRVh5Akzzrac0TdUoIK
+    T3Axb79FDrAfH9snxdn51jLk6sGvJDIQrgkDhkFLfqsw4IsgtiHb33Xo6XmdVHRo
+    0yIIvMkjCiQ2i1XKvAvJzMMTix8tPF0qHR2xY24H480IIo8/ROyiTcptmbfRjF4t
+    +wzlZPbQ2F7Pd1JX6AQaEKNrTNYroOHLOUQ9mTuHC7oMU32Op29yWLselaL5UsXP
+    q/U5bkW4R71sKOoRnrx9Yr4=
+    -----END CERTIFICATE-----
+    
+  ca-key.pem: |
+    -----BEGIN RSA PRIVATE KEY-----
+    MIIEowIBAAKCAQEAxmvmYjosiclQUG6Oyy7wp17rhPikFCBPdwvy5BgrMoxSFokg
+    +DWCGRvoNSI1WZQMvZ++GFJWSRszxoc3UC+84eBogQ3nOSAHyMQm7c3Ro9zpE3ni
+    s2wUs/aEB1qN5IPFk3hEvkm8aLpxfRAMU+Bj3M4o3ULBynA01QgVlnmCMucS4PPj
+    w59WkcphKThwntwjYHWxvivGsvJOsTuiTcJLURL+MelA+IVKsHytBSoSnt2/2wVi
+    dDM+sT+DlFzV78h86QchsAEVOyIuQV+oxKiaGJglffIGEOB5RrS/pybUMs2Be0B7
+    obP9J4EYcivAipWsPHIar7hfOjndtQViUzZfSwIDAQABAoIBAQCXuTAcUkF2RsKs
+    Di4QPd91DAbp0bqdTSuWa0OamMSHTXcDlm3offnyOz2vS24iBixL31dbf7JNCojn
+    uMNaBHbY/WDLthblvpFVOnBODMDOHQD4jI4GBpI6HjlM6jhv0TcGEcP3AakZJ9/Z
+    8qiKhp213MqwjfhjVLOBZkIjotwlEOWqZotdjUb9Dus6AEzMvxQy8riKH8kOHL0L
+    xBNtgnz/JSL1DIdpN/yr5HC7gyA6l+RzChsy+qBoHsqBT/t2dlqkR8iJS55GLdNX
+    uLNyFNB+kOsIrlBno46pXHsDrL4dhKD7+REXc5UhJs/3vF3uul/tzg1XFmF8kxGk
+    ZnVzfojBAoGBAOi7U2+fjGeUxQmTykickrN0NiEIiMwMpzrs5jwkTeYtnSzT0l8I
+    ql/wzKo0kcA0zW3+3RqPgzknS0COPwMF/MphNuqDZpkgzoh5yQYHnSmZsIxzSAaK
+    55hH7wOdtGOCGcNDBfVeNh9Th8sEU0LW9AU1MbL4egV/tsEcFdA1H2urAoGBANpC
+    ar1NwCSmpcgrWwvsIyERj5Tk5f2rUOEuMLwVSXNohp54lu3CWiN1Vqkyi5UwOFgj
+    fS1Rld1HyyVRVLXUHHoS4O5rUbTyFkGxJuCOlkoWokczfoEayWopqYn+YiPjbi27
+    8IxxNXoLwiqSQH2aqOXjDus2OdD9o7fGSHa4nDrhAoGAKZ9/H6KQUOIpjznwXqYq
+    EpBBMg09sgi9S+ucjbsMd5NG3gKQSFDbb8c4Q2SdgJuw9fA0CRELrggaDFSkblz+
+    xg827CBOFCrq5TuquTpZYFxNWAEyK4FiRDjxRVtKLNXS17o/8Y9E7LtauPNwFK8u
+    +1N1LQYFhMA/pi/ostEdansCgYA6ZospHCTNqcmyReeWyRidQJWqwZTIy45YsoNX
+    0FpXByD+RkYcWGTGGB+YJm4y/TQWYWidN7dh/lPdKGYCQT9daq/FG/JA+IX8DerZ
+    K04LhQLnCmBPK1u5jGxRAEBCWhihJCi5a5FjlsHdokSfV0LaQGc9iMTvpu6nveal
+    3b/wAQKBgGPyEws8g5RxGHJTiEAxC+9K0PcPZTitlqSa9/qTYYKCz/WWUsvNWjJL
+    fz1H7jf1ybJDKpNrwEG1J7mNJB7n0btEr+GDCVsh9JrBFaphQ3WoPvNS03DGddiu
+    baxRF+lcijX5Vraa4GztF9FkR1aTczZ5ZHV3DuHILNxJ1VXySPHA
+    -----END RSA PRIVATE KEY-----
+    
+  jwt-key.pem: |
+    -----BEGIN RSA PRIVATE KEY-----
+    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
+    -----END RSA PRIVATE KEY-----
+    
+  cert.pem: |
+    -----BEGIN CERTIFICATE-----
+    MIIDkDCCAnigAwIBAgIRAIxwwsgmudCCK/2dtbjeFp0wDQYJKoZIhvcNAQELBQAw
+    KTEnMCUGA1UEAxMeU3RhY2tSb3ggQ2VydGlmaWNhdGUgQXV0aG9yaXR5MB4XDTIy
+    MDcxMzE4NTAyNloXDTIzMDcxMzE4NTAyNlowIzEhMB8GA1UEAwwYQ0VOVFJBTF9T
+    RVJWSUNFOiBDZW50cmFsMIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEA
+    xY0t2c7kpJbTWDtGGZtcsqRsKSH59iHbx9ZiKS9QSjw/LvtillzHljTj8oedPCSi
+    AJKzVLoOFnsCDXBKlN47ewG30gF+Bc+ATujiMm016zv5HTahEpOSyr10rftK1drb
+    BsEQCjxMz7Kw9UsWhF4gxj1hKsgcsGzjWSTP/1jGn9ww3dW4RX9CW8xIF81T+0va
+    YK9S2QdevYT2iUKIkuBEyMWEvRFed3ieSrolFVTk/hCFWY3cmZgrf+SGQpHn1laz
+    AYFEEHhPXwpgMC6PR83cIj1bzvysIDYS3b+QMJUic5t3PPyGDJ2HCA71SBpbKQhB
+    0mTOtt/FgF9bhygCZgWZVQIDAQABo4G4MIG1MA4GA1UdDwEB/wQEAwIFoDAdBgNV
+    HSUEFjAUBggrBgEFBQcDAQYIKwYBBQUHAwIwDAYDVR0TAQH/BAIwADAfBgNVHSME
+    GDAWgBTfoleybg+t+Px3LM65q7bG05kw9zBVBgNVHREETjBMghBjZW50cmFsLnN0
+    YWNrcm94ghRjZW50cmFsLnN0YWNrcm94LnN2Y4IiY2VudHJhbC5zdGFja3JveC5z
+    dmMuY2x1c3Rlci5sb2NhbDANBgkqhkiG9w0BAQsFAAOCAQEAM29hnwrcy3mwDCVM
+    hb6dMgV/pGSqp63Z3ICWVRUORpQuvjNut1WMMiOeeQBqa6j7htjhqjjnyfpyg+7w
+    z4Mk24UkGM+zqB8HEsw2fcuUjWxDCBTCuXhBxnxcSQifJThNMuruSGDtGURdRjVG
+    vyQRTsgZeF6L9rd6ooaxihjxcfnnY/u0bFAh9o+UEI7SgMAfCfAinDrFyazOh+u3
+    G0I1xlvAlus/TsllMQf9tU3kM1KG0UszMhxaqPQkWh6s0qYYdAlJk7+QreQNGVBI
+    uDbBKWNxaCL2a+nWdvjY+HE983Sk0sKGh9sVKqMIiQ6Qk3SgVXZu55g0G4seY9qf
+    nd5vqg==
+    -----END CERTIFICATE-----
+    
+  key.pem: |
+    -----BEGIN RSA PRIVATE KEY-----
+    MIIEowIBAAKCAQEAxY0t2c7kpJbTWDtGGZtcsqRsKSH59iHbx9ZiKS9QSjw/Lvti
+    llzHljTj8oedPCSiAJKzVLoOFnsCDXBKlN47ewG30gF+Bc+ATujiMm016zv5HTah
+    EpOSyr10rftK1drbBsEQCjxMz7Kw9UsWhF4gxj1hKsgcsGzjWSTP/1jGn9ww3dW4
+    RX9CW8xIF81T+0vaYK9S2QdevYT2iUKIkuBEyMWEvRFed3ieSrolFVTk/hCFWY3c
+    mZgrf+SGQpHn1lazAYFEEHhPXwpgMC6PR83cIj1bzvysIDYS3b+QMJUic5t3PPyG
+    DJ2HCA71SBpbKQhB0mTOtt/FgF9bhygCZgWZVQIDAQABAoIBAHoWU/3FpPwq0hY3
+    G417vIASqV2KR+Za6m7ICQYW3XHjZdDtPvJaCGbF7RHXyc5/fTcJcpasHUS7ZHtV
+    qGH0LaJJX4cDsRR6NnuN5Szw3V+xQrVRK55FYXS2PUPAh3E+vhmgev84YOgDMOWH
+    MDVBztN033YHEePeh2pyG7Fc9fOYkvj3vQ0QGB08GJ52CiksWxctuYX9QT0k7cKx
+    QJ0m+PlgKNwHRNqzYWv/+T6XxVJcAnhb7cojL02BRLXjR6IjEeDX19ApVwyd3uo0
+    IrEUg6X3PVHNerjcaYsRpM+xD0j5aj70blwZ9o6pgpp52hqb8jQ4LFcd47T390gS
+    J9R5zgECgYEAxwirRoXMn+21R2Xnj0GgXokK/hcb9EhwRQE2Win1vhN8/BzW1Ymx
+    Wi8nSiXevtLbiHsdDbTosMAiJ4BWAEqbnU5Z1G9e0upI9eRdFcWTu2bn6CO6Zwvn
+    xpWGzH+0gFYHjPSe1uczRYw3Gk2Qng+ZYF8envAqRvbvH2XA/Utr7BUCgYEA/hfl
+    HnmlE1WNOb3nFEhC0whegirDFQmG8/OUxoVJMky0+D9yFomU4Hj1idMtKJHfIpaf
+    Y/9j9q41nrd2sJW9AZNJdmE3LEwrxRX8GHqIk1KU+qjNKDROfCu7t4i9861k3nXv
+    Ceuap8YMKESZ0JbitU4+ybOoMLyP5l8OzyjGCEECgYEAsym4k+kJg8VE85pl0Wzv
+    4WlXfdZrkYBLn7IxrQQsdAey8Hc9ZEdoYJgls/dXBUtl1vuL8bSx6blqhUhfIjAG
+    2JmY/0Ophg7j0oTYzipmi8FcbHkM6Ims//PFvfwPDZ9jeJ0TBrxkSOypBYJg9gdw
+    t3GobMYgKHVMV2UPTnNAGOkCgYB4rrK02cPsvep4rViOio+qmcQBgPvtBvxg66US
+    8QVF7ababY/rYmcignDkiDdfmIDpda64mPlKlY2EF9E4p7YAhIsUvbGtyXPUhM+a
+    dMBfcI6vyvK+ELHiSgc7caf+j7Fj85GYHZ3z552oloSTzMZapJIvzLOqijSyjx2C
+    iPQdwQKBgDtxpd7Ty/Qn/+9Bciu9CGNTMiztl6m8h7mUE0sl18hsxBmVn17h+jSA
+    J4BRt82zXCCi1rX8ShM/PLAixezkjnYwTZ0rik2bxO3ZJXJ3UmAFR4iSJv0Iyawj
+    5sLZm3nPe/wzEQSewF7ytwlm2hO2WAuIvV5lBUPYttqirLtSbstG
+    -----END RSA PRIVATE KEY-----
+---
+# Source: stackrox-central-services/templates/02-scanner-02-db-password-secret.yaml
+apiVersion: v1
+kind: Secret
+metadata:
+  name: scanner-db-password
+  namespace: stackrox
+  labels:
+    app.kubernetes.io/component: scanner
+    app.kubernetes.io/instance: stackrox-central-services
+    app.kubernetes.io/managed-by: Helm
+    app.kubernetes.io/name: stackrox
+    app.kubernetes.io/part-of: stackrox-central-services
+    app.kubernetes.io/version: 3.70.0
+    helm.sh/chart: stackrox-central-services-70.0.0
+  annotations:
+    email: support@stackrox.com
+    meta.helm.sh/release-name: stackrox-central-services
+    meta.helm.sh/release-namespace: stackrox
+    owner: stackrox
+    "helm.sh/hook": "pre-install,pre-upgrade"
+    "helm.sh/resource-policy": keep
+type: Opaque
+stringData:
+  password: |
+    r78ceFrRWgYvmhOtttgA4XsF1biFfGN3
+---
+# Source: stackrox-central-services/templates/02-scanner-03-tls-secret.yaml
+apiVersion: v1
+kind: Secret
+metadata:
+  name: scanner-tls
+  namespace: stackrox
+  labels:
+    app.kubernetes.io/component: scanner
+    app.kubernetes.io/instance: stackrox-central-services
+    app.kubernetes.io/managed-by: Helm
+    app.kubernetes.io/name: stackrox
+    app.kubernetes.io/part-of: stackrox-central-services
+    app.kubernetes.io/version: 3.70.0
+    helm.sh/chart: stackrox-central-services-70.0.0
+  annotations:
+    email: support@stackrox.com
+    meta.helm.sh/release-name: stackrox-central-services
+    meta.helm.sh/release-namespace: stackrox
+    owner: stackrox
+    "helm.sh/hook": "pre-install,pre-upgrade"
+    "helm.sh/resource-policy": keep
+type: Opaque
+stringData:
+  ca.pem: |
+    -----BEGIN CERTIFICATE-----
+    MIIDPTCCAiWgAwIBAgIQG1xBdsu9sw126AS4/tf8eTANBgkqhkiG9w0BAQsFADAp
+    MScwJQYDVQQDEx5TdGFja1JveCBDZXJ0aWZpY2F0ZSBBdXRob3JpdHkwHhcNMjIw
+    NzEzMTg1MDI2WhcNMjcwNzEyMTg1MDI2WjApMScwJQYDVQQDEx5TdGFja1JveCBD
+    ZXJ0aWZpY2F0ZSBBdXRob3JpdHkwggEiMA0GCSqGSIb3DQEBAQUAA4IBDwAwggEK
+    AoIBAQDGa+ZiOiyJyVBQbo7LLvCnXuuE+KQUIE93C/LkGCsyjFIWiSD4NYIZG+g1
+    IjVZlAy9n74YUlZJGzPGhzdQL7zh4GiBDec5IAfIxCbtzdGj3OkTeeKzbBSz9oQH
+    Wo3kg8WTeES+SbxounF9EAxT4GPczijdQsHKcDTVCBWWeYIy5xLg8+PDn1aRymEp
+    OHCe3CNgdbG+K8ay8k6xO6JNwktREv4x6UD4hUqwfK0FKhKe3b/bBWJ0Mz6xP4OU
+    XNXvyHzpByGwARU7Ii5BX6jEqJoYmCV98gYQ4HlGtL+nJtQyzYF7QHuhs/0ngRhy
+    K8CKlaw8chqvuF86Od21BWJTNl9LAgMBAAGjYTBfMA4GA1UdDwEB/wQEAwICpDAd
+    BgNVHSUEFjAUBggrBgEFBQcDAQYIKwYBBQUHAwIwDwYDVR0TAQH/BAUwAwEB/zAd
+    BgNVHQ4EFgQU36JXsm4Prfj8dyzOuau2xtOZMPcwDQYJKoZIhvcNAQELBQADggEB
+    AHl8ceSg6oMHDJaqRX5cLaJDrxRDVH2fGdt5Pi7yXRpMPjnvYBdWMat3I+B346iy
+    cZbg5L7NdcdiUGI75vEp7YexirchhKxDr9kouEfTfVtL3FRVh5Akzzrac0TdUoIK
+    T3Axb79FDrAfH9snxdn51jLk6sGvJDIQrgkDhkFLfqsw4IsgtiHb33Xo6XmdVHRo
+    0yIIvMkjCiQ2i1XKvAvJzMMTix8tPF0qHR2xY24H480IIo8/ROyiTcptmbfRjF4t
+    +wzlZPbQ2F7Pd1JX6AQaEKNrTNYroOHLOUQ9mTuHC7oMU32Op29yWLselaL5UsXP
+    q/U5bkW4R71sKOoRnrx9Yr4=
+    -----END CERTIFICATE-----
+    
+  cert.pem: |
+    -----BEGIN CERTIFICATE-----
+    MIIDjzCCAnegAwIBAgIQQxGgRXsAEvtzCZa/jEv1BDANBgkqhkiG9w0BAQsFADAp
+    MScwJQYDVQQDEx5TdGFja1JveCBDZXJ0aWZpY2F0ZSBBdXRob3JpdHkwHhcNMjIw
+    NzEzMTg1MDI4WhcNMjMwNzEzMTg1MDI4WjAjMSEwHwYDVQQDDBhTQ0FOTkVSX1NF
+    UlZJQ0U6IFNjYW5uZXIwggEiMA0GCSqGSIb3DQEBAQUAA4IBDwAwggEKAoIBAQC2
+    DnJg3tzgy+GfA5YpP/ND4sUegkRHUQ241HgIsFDEp9vpuZYzdVIMEd3jXumyEVf4
+    2oXFu46fAqvYdoCiwMmS1PKsMpr8a+3ax0gulvTcF9wS1zfeYTmX7QPfwTGFap0m
+    LNvHzW2Jg+JAHygh/qx8upsy8SUFNE//dq1cf/AJeTrTRNEUbNI24qDJKEfxaeY+
+    es+DMI8kglgAgI0h6BzKCXnFvAWrFQ5YturXFBKjtV8qCTCULigTeLjM1EjryHxf
+    /bTm7N84guTYHbDnmMOR01qwlGa636WTUiHYhDGaackoKMdBTNhjECJ6aPDcS7z9
+    fj81cpw4xUYnI7Qfs2dPAgMBAAGjgbgwgbUwDgYDVR0PAQH/BAQDAgWgMB0GA1Ud
+    JQQWMBQGCCsGAQUFBwMBBggrBgEFBQcDAjAMBgNVHRMBAf8EAjAAMB8GA1UdIwQY
+    MBaAFN+iV7JuD634/HcszrmrtsbTmTD3MFUGA1UdEQROMEyCEHNjYW5uZXIuc3Rh
+    Y2tyb3iCFHNjYW5uZXIuc3RhY2tyb3guc3ZjgiJzY2FubmVyLnN0YWNrcm94LnN2
+    Yy5jbHVzdGVyLmxvY2FsMA0GCSqGSIb3DQEBCwUAA4IBAQAUKXQzGi9s6NC2+p0y
+    LZeLUYzZJW3SRAJL1PgPD4bILzxUg6eVnQsvIJsMe3X/wzCpFn/5UtG6S04DPg28
+    /L/KPQF+pybaXmIP/kqDLEBRaTe/WoyhI1FBAYvQeBen4jYEYzGs5dGjVqbKm7yo
+    gZLRq5gkFXzwq42AgQixxt6bkZZrNyzjkunqPIt/rZkyQtqX16/Z0nZytqXOIWZg
+    kLyeq2aQRH+hYWu+97FUHUGw/3GqWfmkwNiIM5go3MCkjXDTcnfZtp6INMwvY2A/
+    aukOguFII1TTGH7SkD1ZDKnxVR4jXEyc6/H3kkqJZLjGuOT8VbKUyfxzlUsolXKO
+    KkLs
+    -----END CERTIFICATE-----
+    
+  key.pem: |
+    -----BEGIN RSA PRIVATE KEY-----
+    MIIEpQIBAAKCAQEAtg5yYN7c4MvhnwOWKT/zQ+LFHoJER1ENuNR4CLBQxKfb6bmW
+    M3VSDBHd417pshFX+NqFxbuOnwKr2HaAosDJktTyrDKa/Gvt2sdILpb03BfcEtc3
+    3mE5l+0D38ExhWqdJizbx81tiYPiQB8oIf6sfLqbMvElBTRP/3atXH/wCXk600TR
+    FGzSNuKgyShH8WnmPnrPgzCPJIJYAICNIegcygl5xbwFqxUOWLbq1xQSo7VfKgkw
+    lC4oE3i4zNRI68h8X/205uzfOILk2B2w55jDkdNasJRmut+lk1Ih2IQxmmnJKCjH
+    QUzYYxAiemjw3Eu8/X4/NXKcOMVGJyO0H7NnTwIDAQABAoIBADuZqSo7a5YQSPG0
+    y+D/NZWA1MVzIgUy7MoYjJ9TkW2AAoeWoSyBePXIl5qLBPitot4uM+MSztMRnc6E
+    pQIjGRp/ql5jRsfiUYDxApl2A/1Vtk9Ys8qSi7dH+Z+z8JFb4MyRnPXhM730NgqF
+    6K6QYEmJEavwtAzrHlFkucZxf9SplHnKz4F/hfk7uA/uSrIZ6HJeOEN/X98wD/Wl
+    Xd8P/nLmyr0RSRBKsDtIwTuM1r+buK+adT3K30ig41WMnghfQrYPBBypg2ptUsYl
+    aLjubSbQAz8jH8E+H6eSWMQEROISaHHEMAY4Zqb7PYQaRe1O6usD+/sqlIp5E99Q
+    jbvz+lkCgYEA7Nstv8xvOqYUrdA1LCNTkFMubDK4hEbl6jsZ4SJhW9GmbwFMN1+8
+    67iN0tGzLog4b8RjTaWc2Yt+QTZomtl0QSVEKE1vck3lzfEQWaoZ+7eVfq949BbG
+    jAQmozjEgdLRl76c1F/puZOwc0zUrydK+lVL/u3EgYZp9VLR1gMF2bUCgYEAxMVm
+    Vv70bDU04e0GgKMjD3tF9gVirgpSI4KXFeapbAQZ50uaAfDa9n1a7WuZQQcvqQrb
+    JwxlaIBEry9ssvzZF7dSTM2jFO5T3FW+HTwlKKdQabHHeNdb8aBsaY9OXr7nkfOd
+    nEwdCJmiL+JHc0oPCkwYQFyaHyupVatH3jmtD3MCgYEAtE9qtX9JEcnLJkLBp9dA
+    zzczuPSn2TMr5jOV0PjeSwr/+7NuNR1x8bTuapZvJLZY2GUV/89a55W0yKpF2dQ/
+    FzTqfQ/uDoNUtYGVo9zFqQWqDeZBWvhXr9GdJFab6gT2v+FA/MADat4OzsenhauQ
+    /Z+fmfOhy8TqtvKUgaqNcp0CgYEAugW4k4QihO3kGbZgEFqp+afb4xMCUHDXaFS8
+    Cutuvfw+lOhnJ3CRQLgPryaq0sw9ZX0q5AaXFC03Qbr+81OQ1RftSUia5V3OkB3L
+    Ro4mvwE2R0XXw0kt1geIll7xgybNe7CpDyrxw8CikMxGKhsYju6Ter1QwykexCvS
+    HKfAETsCgYEAu7n04QZvZWZMOTEXsTaygYksxEO+qN3LMuYrSqtgqj408d6X2Yhw
+    ImBQvH9sx/g7eln8nHnbdGHURlQIWQpd3D+iB4JtV4BGVMmYfQXrEfEyKg0iqACC
+    uYYrXfNWBynMKsJ9nLi7dBEqrKAQDe20yqlvSauzJW8wcLKoCiuMFBE=
+    -----END RSA PRIVATE KEY-----
+---
+# Source: stackrox-central-services/templates/02-scanner-03-tls-secret.yaml
+apiVersion: v1
+kind: Secret
+metadata:
+  name: scanner-db-tls
+  namespace: stackrox
+  labels:
+    app.kubernetes.io/component: scanner
+    app.kubernetes.io/instance: stackrox-central-services
+    app.kubernetes.io/managed-by: Helm
+    app.kubernetes.io/name: stackrox
+    app.kubernetes.io/part-of: stackrox-central-services
+    app.kubernetes.io/version: 3.70.0
+    helm.sh/chart: stackrox-central-services-70.0.0
+  annotations:
+    email: support@stackrox.com
+    meta.helm.sh/release-name: stackrox-central-services
+    meta.helm.sh/release-namespace: stackrox
+    owner: stackrox
+    "helm.sh/hook": "pre-install,pre-upgrade"
+    "helm.sh/resource-policy": "keep"
+type: Opaque
+stringData:
+  ca.pem: |
+    -----BEGIN CERTIFICATE-----
+    MIIDPTCCAiWgAwIBAgIQG1xBdsu9sw126AS4/tf8eTANBgkqhkiG9w0BAQsFADAp
+    MScwJQYDVQQDEx5TdGFja1JveCBDZXJ0aWZpY2F0ZSBBdXRob3JpdHkwHhcNMjIw
+    NzEzMTg1MDI2WhcNMjcwNzEyMTg1MDI2WjApMScwJQYDVQQDEx5TdGFja1JveCBD
+    ZXJ0aWZpY2F0ZSBBdXRob3JpdHkwggEiMA0GCSqGSIb3DQEBAQUAA4IBDwAwggEK
+    AoIBAQDGa+ZiOiyJyVBQbo7LLvCnXuuE+KQUIE93C/LkGCsyjFIWiSD4NYIZG+g1
+    IjVZlAy9n74YUlZJGzPGhzdQL7zh4GiBDec5IAfIxCbtzdGj3OkTeeKzbBSz9oQH
+    Wo3kg8WTeES+SbxounF9EAxT4GPczijdQsHKcDTVCBWWeYIy5xLg8+PDn1aRymEp
+    OHCe3CNgdbG+K8ay8k6xO6JNwktREv4x6UD4hUqwfK0FKhKe3b/bBWJ0Mz6xP4OU
+    XNXvyHzpByGwARU7Ii5BX6jEqJoYmCV98gYQ4HlGtL+nJtQyzYF7QHuhs/0ngRhy
+    K8CKlaw8chqvuF86Od21BWJTNl9LAgMBAAGjYTBfMA4GA1UdDwEB/wQEAwICpDAd
+    BgNVHSUEFjAUBggrBgEFBQcDAQYIKwYBBQUHAwIwDwYDVR0TAQH/BAUwAwEB/zAd
+    BgNVHQ4EFgQU36JXsm4Prfj8dyzOuau2xtOZMPcwDQYJKoZIhvcNAQELBQADggEB
+    AHl8ceSg6oMHDJaqRX5cLaJDrxRDVH2fGdt5Pi7yXRpMPjnvYBdWMat3I+B346iy
+    cZbg5L7NdcdiUGI75vEp7YexirchhKxDr9kouEfTfVtL3FRVh5Akzzrac0TdUoIK
+    T3Axb79FDrAfH9snxdn51jLk6sGvJDIQrgkDhkFLfqsw4IsgtiHb33Xo6XmdVHRo
+    0yIIvMkjCiQ2i1XKvAvJzMMTix8tPF0qHR2xY24H480IIo8/ROyiTcptmbfRjF4t
+    +wzlZPbQ2F7Pd1JX6AQaEKNrTNYroOHLOUQ9mTuHC7oMU32Op29yWLselaL5UsXP
+    q/U5bkW4R71sKOoRnrx9Yr4=
+    -----END CERTIFICATE-----
+    
+  cert.pem: |
+    -----BEGIN CERTIFICATE-----
+    MIIDnzCCAoegAwIBAgIRAMGmK9MvZBszNZXKm1LfybkwDQYJKoZIhvcNAQELBQAw
+    KTEnMCUGA1UEAxMeU3RhY2tSb3ggQ2VydGlmaWNhdGUgQXV0aG9yaXR5MB4XDTIy
+    MDcxMzE4NTAyOFoXDTIzMDcxMzE4NTAyOFowKTEnMCUGA1UEAwweU0NBTk5FUl9E
+    Ql9TRVJWSUNFOiBTY2FubmVyIERCMIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIB
+    CgKCAQEAwu5PI3Ytfqb7DiRdyXRJwFeUvj1QEeQiwL5WpmQ/PeEIxoRYHI3IXqmB
+    R13YGU4kTzkNHUQ7Mcpk/OTzq/vk3h7DHfi4+WDDG67XXyPfsMR9Drz03xYlO2sb
+    4s7uYS9ac8QstoABIUWmXSTIi1fxw5YfvUaHGI0/mm2BhhmCaELfX4bO89QKGLdz
+    UsuDoADtXScrdBfKu8IMlBLcf0ZOhbctDSQ9N4QEW//VcufA3mM9YcyzZx305I7Y
+    K0IoiCdn0IbBZzlS/QreVblw35DquJ2RA0CndaWwZXhQ7vZxmaY/tMCGtAmYC896
+    s87YDYzp5yXRdMtMctDyJvrQwsNEjwIDAQABo4HBMIG+MA4GA1UdDwEB/wQEAwIF
+    oDAdBgNVHSUEFjAUBggrBgEFBQcDAQYIKwYBBQUHAwIwDAYDVR0TAQH/BAIwADAf
+    BgNVHSMEGDAWgBTfoleybg+t+Px3LM65q7bG05kw9zBeBgNVHREEVzBVghNzY2Fu
+    bmVyLWRiLnN0YWNrcm94ghdzY2FubmVyLWRiLnN0YWNrcm94LnN2Y4Ilc2Nhbm5l
+    ci1kYi5zdGFja3JveC5zdmMuY2x1c3Rlci5sb2NhbDANBgkqhkiG9w0BAQsFAAOC
+    AQEAqTYzHPJwtsiSYCAAA+W/YQmt456rCpe3v2+hJFYHcqB13DKytjj6dQpZkICl
+    mSvHbC9nTA4tdPcE/Ec0WIU0V4wY+QzHxOtyOi1ofdTHcCrk6W+BTlCyNtwryypk
+    OcB2QG0LX4/+w3dcgbn7S7Rt3k9+4F74bN+zrctwEfUtp7JjN19F5YPcOwMnt7Lx
+    C1S5U8ZxENLZhAEoWLY9R5HTfEDmjrEAJzBuL1ykW6S3LpRbhrs/9P694TcVrgL1
+    Y9xqKNZfbJCxyBv8C7b7Y6CHXhCnIL6oN3e27En92sgD0eEqpN1lHG9EwKlT0usX
+    nbOttBQW758SH9UtYNops6aBYA==
+    -----END CERTIFICATE-----
+    
+  key.pem: |
+    -----BEGIN RSA PRIVATE KEY-----
+    MIIEpAIBAAKCAQEAwu5PI3Ytfqb7DiRdyXRJwFeUvj1QEeQiwL5WpmQ/PeEIxoRY
+    HI3IXqmBR13YGU4kTzkNHUQ7Mcpk/OTzq/vk3h7DHfi4+WDDG67XXyPfsMR9Drz0
+    3xYlO2sb4s7uYS9ac8QstoABIUWmXSTIi1fxw5YfvUaHGI0/mm2BhhmCaELfX4bO
+    89QKGLdzUsuDoADtXScrdBfKu8IMlBLcf0ZOhbctDSQ9N4QEW//VcufA3mM9Ycyz
+    Zx305I7YK0IoiCdn0IbBZzlS/QreVblw35DquJ2RA0CndaWwZXhQ7vZxmaY/tMCG
+    tAmYC896s87YDYzp5yXRdMtMctDyJvrQwsNEjwIDAQABAoIBAFM/3ZKChRmDDNNU
+    Wq2PuXOos8CvhMOvT9xLLcxwIcY2lj3aBZtkPf+Xmru063abNcyTy/ME0dcI3ipX
+    SW3Y7TyjnKbvM2hll8351McwFfdzYwlpT5b66TnAG6+4unvM8m9gh8wFTPY9vbgn
+    3nIMRBdIxRNbzJSCtngoblmsCVKnBG2oOmV5yvolOfQjqZj3mEkp/PNHSoxysb9j
+    7ZGwu/m0V+PguKFMUo/TCDcDmfZFpKmqB00j2i0snkGHWynSzWBRgrL6kMk3nEbp
+    D0nB0NsQHwo2wqXgIOxMDmYvUuYu55vjxcOV1ayfn1fwZR4LfT0fvS38yGbjMzNN
+    JIj2vMkCgYEA/GIAc09g0QSSMjvp+FYen2TcvnFOSgvPj3sL7nGcreSADbhwr0cD
+    E8XDg/Id8qXF2dnN0vtOSX2P8Zx4ENmpkAZ1x0nxtTi4zYRhg9UHZrNBKnbB21B6
+    n9HJkKWdoVb32afOSMiCreLDPwDalwrR1g5fdidvulOX2/PzpREHuXUCgYEAxbmD
+    1UP0C+xY8vdY+xkkDARcjZQ2phuZRbvIL4ScAu6JV/IDxfhvH7CSbDXVtuYbuFyb
+    kJbhZHirJIO1HQWAh7hedNibFGz+64EuTsp7zwg2//Mz3vjPWupTvyjHaWBmXPOk
+    yKQWd0IpRgLXc4XB3JG1BXcaOZizXWQFvHabgXMCgYApZfHo+DZLUtKgRs+kGow/
+    XQ4Qdwl+f912DZrxa9VleLvAhGaHecB5d9EQTaC38pU3nNB0MSCwUVZRLXdMXEfC
+    Bi0/mVN6hGlb3MEaHNFv+StRSdWWoebbXFAR1/i5REi3fR0LN0ioOTAJn5w7dlzh
+    Hc5u1R0wlRGt1KA8jUSVGQKBgQChy5ixXxXI2/I9f2H0tzHkE32Y7Pt7GYJmqa66
+    E42GaKNCr+ueiBiGmfp3SeZD8DAmwMEbpBt0F7oT+yKtSN9QL/I7MzRTlo1TMTYv
+    i0mctGAtOVnszzT+dFlrR3dGJ3gb/9OLy5oGpMEZZSHgikeEskaq3jc7glTjywFW
+    osfFOQKBgQCVwVwG6xaoz7oL5hQiysA+ll1NoAfPEe33PI0QQzMrflAsqiLc+boW
+    bFQU9TSeo8l6MLejsi/YjwXiFPGs8j6XCOqBnI8OyrILdmjjpZKLxt9YEdGAOPo9
+    gaheL0oCIR6csz+gLR5F0mORCHs+31fPbvawOSgDq1+poXF3+zsF3A==
+    -----END RSA PRIVATE KEY-----
+---
+# Source: stackrox-central-services/templates/99-generated-values-secret.yaml
+apiVersion: v1
+kind: Secret
+metadata:
+  name: stackrox-generated-bbxixx
+  namespace: stackrox
+  labels:
+    app.kubernetes.io/instance: stackrox-central-services
+    app.kubernetes.io/managed-by: Helm
+    app.kubernetes.io/name: stackrox
+    app.kubernetes.io/part-of: stackrox-central-services
+    app.kubernetes.io/version: 3.70.0
+    helm.sh/chart: stackrox-central-services-70.0.0
+  annotations:
+    email: support@stackrox.com
+    meta.helm.sh/release-name: stackrox-central-services
+    meta.helm.sh/release-namespace: stackrox
+    owner: stackrox
+    "helm.sh/hook": "pre-install,pre-upgrade"
+    "helm.sh/resource-policy": "keep"
+    "helm.sh/hook-delete-policy": "never"
+stringData:
+  generated-values.yaml: |
+    # The following values were generated by the StackRox Central Services Helm chart.
+    # You can pass this file to `helm install` via the `-f` parameter, which in conjunction
+    # with your local values files and values specified via `--set` will allow you to
+    # deterministically reproduce the deployment.
+    ca:
+      cert: |
+        -----BEGIN CERTIFICATE-----
+        MIIDPTCCAiWgAwIBAgIQG1xBdsu9sw126AS4/tf8eTANBgkqhkiG9w0BAQsFADAp
+        MScwJQYDVQQDEx5TdGFja1JveCBDZXJ0aWZpY2F0ZSBBdXRob3JpdHkwHhcNMjIw
+        NzEzMTg1MDI2WhcNMjcwNzEyMTg1MDI2WjApMScwJQYDVQQDEx5TdGFja1JveCBD
+        ZXJ0aWZpY2F0ZSBBdXRob3JpdHkwggEiMA0GCSqGSIb3DQEBAQUAA4IBDwAwggEK
+        AoIBAQDGa+ZiOiyJyVBQbo7LLvCnXuuE+KQUIE93C/LkGCsyjFIWiSD4NYIZG+g1
+        IjVZlAy9n74YUlZJGzPGhzdQL7zh4GiBDec5IAfIxCbtzdGj3OkTeeKzbBSz9oQH
+        Wo3kg8WTeES+SbxounF9EAxT4GPczijdQsHKcDTVCBWWeYIy5xLg8+PDn1aRymEp
+        OHCe3CNgdbG+K8ay8k6xO6JNwktREv4x6UD4hUqwfK0FKhKe3b/bBWJ0Mz6xP4OU
+        XNXvyHzpByGwARU7Ii5BX6jEqJoYmCV98gYQ4HlGtL+nJtQyzYF7QHuhs/0ngRhy
+        K8CKlaw8chqvuF86Od21BWJTNl9LAgMBAAGjYTBfMA4GA1UdDwEB/wQEAwICpDAd
+        BgNVHSUEFjAUBggrBgEFBQcDAQYIKwYBBQUHAwIwDwYDVR0TAQH/BAUwAwEB/zAd
+        BgNVHQ4EFgQU36JXsm4Prfj8dyzOuau2xtOZMPcwDQYJKoZIhvcNAQELBQADggEB
+        AHl8ceSg6oMHDJaqRX5cLaJDrxRDVH2fGdt5Pi7yXRpMPjnvYBdWMat3I+B346iy
+        cZbg5L7NdcdiUGI75vEp7YexirchhKxDr9kouEfTfVtL3FRVh5Akzzrac0TdUoIK
+        T3Axb79FDrAfH9snxdn51jLk6sGvJDIQrgkDhkFLfqsw4IsgtiHb33Xo6XmdVHRo
+        0yIIvMkjCiQ2i1XKvAvJzMMTix8tPF0qHR2xY24H480IIo8/ROyiTcptmbfRjF4t
+        +wzlZPbQ2F7Pd1JX6AQaEKNrTNYroOHLOUQ9mTuHC7oMU32Op29yWLselaL5UsXP
+        q/U5bkW4R71sKOoRnrx9Yr4=
+        -----END CERTIFICATE-----
+      key: |
+        -----BEGIN RSA PRIVATE KEY-----
+        MIIEowIBAAKCAQEAxmvmYjosiclQUG6Oyy7wp17rhPikFCBPdwvy5BgrMoxSFokg
+        +DWCGRvoNSI1WZQMvZ++GFJWSRszxoc3UC+84eBogQ3nOSAHyMQm7c3Ro9zpE3ni
+        s2wUs/aEB1qN5IPFk3hEvkm8aLpxfRAMU+Bj3M4o3ULBynA01QgVlnmCMucS4PPj
+        w59WkcphKThwntwjYHWxvivGsvJOsTuiTcJLURL+MelA+IVKsHytBSoSnt2/2wVi
+        dDM+sT+DlFzV78h86QchsAEVOyIuQV+oxKiaGJglffIGEOB5RrS/pybUMs2Be0B7
+        obP9J4EYcivAipWsPHIar7hfOjndtQViUzZfSwIDAQABAoIBAQCXuTAcUkF2RsKs
+        Di4QPd91DAbp0bqdTSuWa0OamMSHTXcDlm3offnyOz2vS24iBixL31dbf7JNCojn
+        uMNaBHbY/WDLthblvpFVOnBODMDOHQD4jI4GBpI6HjlM6jhv0TcGEcP3AakZJ9/Z
+        8qiKhp213MqwjfhjVLOBZkIjotwlEOWqZotdjUb9Dus6AEzMvxQy8riKH8kOHL0L
+        xBNtgnz/JSL1DIdpN/yr5HC7gyA6l+RzChsy+qBoHsqBT/t2dlqkR8iJS55GLdNX
+        uLNyFNB+kOsIrlBno46pXHsDrL4dhKD7+REXc5UhJs/3vF3uul/tzg1XFmF8kxGk
+        ZnVzfojBAoGBAOi7U2+fjGeUxQmTykickrN0NiEIiMwMpzrs5jwkTeYtnSzT0l8I
+        ql/wzKo0kcA0zW3+3RqPgzknS0COPwMF/MphNuqDZpkgzoh5yQYHnSmZsIxzSAaK
+        55hH7wOdtGOCGcNDBfVeNh9Th8sEU0LW9AU1MbL4egV/tsEcFdA1H2urAoGBANpC
+        ar1NwCSmpcgrWwvsIyERj5Tk5f2rUOEuMLwVSXNohp54lu3CWiN1Vqkyi5UwOFgj
+        fS1Rld1HyyVRVLXUHHoS4O5rUbTyFkGxJuCOlkoWokczfoEayWopqYn+YiPjbi27
+        8IxxNXoLwiqSQH2aqOXjDus2OdD9o7fGSHa4nDrhAoGAKZ9/H6KQUOIpjznwXqYq
+        EpBBMg09sgi9S+ucjbsMd5NG3gKQSFDbb8c4Q2SdgJuw9fA0CRELrggaDFSkblz+
+        xg827CBOFCrq5TuquTpZYFxNWAEyK4FiRDjxRVtKLNXS17o/8Y9E7LtauPNwFK8u
+        +1N1LQYFhMA/pi/ostEdansCgYA6ZospHCTNqcmyReeWyRidQJWqwZTIy45YsoNX
+        0FpXByD+RkYcWGTGGB+YJm4y/TQWYWidN7dh/lPdKGYCQT9daq/FG/JA+IX8DerZ
+        K04LhQLnCmBPK1u5jGxRAEBCWhihJCi5a5FjlsHdokSfV0LaQGc9iMTvpu6nveal
+        3b/wAQKBgGPyEws8g5RxGHJTiEAxC+9K0PcPZTitlqSa9/qTYYKCz/WWUsvNWjJL
+        fz1H7jf1ybJDKpNrwEG1J7mNJB7n0btEr+GDCVsh9JrBFaphQ3WoPvNS03DGddiu
+        baxRF+lcijX5Vraa4GztF9FkR1aTczZ5ZHV3DuHILNxJ1VXySPHA
+        -----END RSA PRIVATE KEY-----
+    central:
+      adminPassword:
+        value: w1orBGmCnSMj5H5OVFlXODbvnLVe2pvh
+      jwtSigner:
+        key: |
+          -----BEGIN RSA PRIVATE KEY-----
+          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
+          -----END RSA PRIVATE KEY-----
+      serviceTLS:
+        cert: |
+          -----BEGIN CERTIFICATE-----
+          MIIDkDCCAnigAwIBAgIRAIxwwsgmudCCK/2dtbjeFp0wDQYJKoZIhvcNAQELBQAw
+          KTEnMCUGA1UEAxMeU3RhY2tSb3ggQ2VydGlmaWNhdGUgQXV0aG9yaXR5MB4XDTIy
+          MDcxMzE4NTAyNloXDTIzMDcxMzE4NTAyNlowIzEhMB8GA1UEAwwYQ0VOVFJBTF9T
+          RVJWSUNFOiBDZW50cmFsMIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEA
+          xY0t2c7kpJbTWDtGGZtcsqRsKSH59iHbx9ZiKS9QSjw/LvtillzHljTj8oedPCSi
+          AJKzVLoOFnsCDXBKlN47ewG30gF+Bc+ATujiMm016zv5HTahEpOSyr10rftK1drb
+          BsEQCjxMz7Kw9UsWhF4gxj1hKsgcsGzjWSTP/1jGn9ww3dW4RX9CW8xIF81T+0va
+          YK9S2QdevYT2iUKIkuBEyMWEvRFed3ieSrolFVTk/hCFWY3cmZgrf+SGQpHn1laz
+          AYFEEHhPXwpgMC6PR83cIj1bzvysIDYS3b+QMJUic5t3PPyGDJ2HCA71SBpbKQhB
+          0mTOtt/FgF9bhygCZgWZVQIDAQABo4G4MIG1MA4GA1UdDwEB/wQEAwIFoDAdBgNV
+          HSUEFjAUBggrBgEFBQcDAQYIKwYBBQUHAwIwDAYDVR0TAQH/BAIwADAfBgNVHSME
+          GDAWgBTfoleybg+t+Px3LM65q7bG05kw9zBVBgNVHREETjBMghBjZW50cmFsLnN0
+          YWNrcm94ghRjZW50cmFsLnN0YWNrcm94LnN2Y4IiY2VudHJhbC5zdGFja3JveC5z
+          dmMuY2x1c3Rlci5sb2NhbDANBgkqhkiG9w0BAQsFAAOCAQEAM29hnwrcy3mwDCVM
+          hb6dMgV/pGSqp63Z3ICWVRUORpQuvjNut1WMMiOeeQBqa6j7htjhqjjnyfpyg+7w
+          z4Mk24UkGM+zqB8HEsw2fcuUjWxDCBTCuXhBxnxcSQifJThNMuruSGDtGURdRjVG
+          vyQRTsgZeF6L9rd6ooaxihjxcfnnY/u0bFAh9o+UEI7SgMAfCfAinDrFyazOh+u3
+          G0I1xlvAlus/TsllMQf9tU3kM1KG0UszMhxaqPQkWh6s0qYYdAlJk7+QreQNGVBI
+          uDbBKWNxaCL2a+nWdvjY+HE983Sk0sKGh9sVKqMIiQ6Qk3SgVXZu55g0G4seY9qf
+          nd5vqg==
+          -----END CERTIFICATE-----
+        key: |
+          -----BEGIN RSA PRIVATE KEY-----
+          MIIEowIBAAKCAQEAxY0t2c7kpJbTWDtGGZtcsqRsKSH59iHbx9ZiKS9QSjw/Lvti
+          llzHljTj8oedPCSiAJKzVLoOFnsCDXBKlN47ewG30gF+Bc+ATujiMm016zv5HTah
+          EpOSyr10rftK1drbBsEQCjxMz7Kw9UsWhF4gxj1hKsgcsGzjWSTP/1jGn9ww3dW4
+          RX9CW8xIF81T+0vaYK9S2QdevYT2iUKIkuBEyMWEvRFed3ieSrolFVTk/hCFWY3c
+          mZgrf+SGQpHn1lazAYFEEHhPXwpgMC6PR83cIj1bzvysIDYS3b+QMJUic5t3PPyG
+          DJ2HCA71SBpbKQhB0mTOtt/FgF9bhygCZgWZVQIDAQABAoIBAHoWU/3FpPwq0hY3
+          G417vIASqV2KR+Za6m7ICQYW3XHjZdDtPvJaCGbF7RHXyc5/fTcJcpasHUS7ZHtV
+          qGH0LaJJX4cDsRR6NnuN5Szw3V+xQrVRK55FYXS2PUPAh3E+vhmgev84YOgDMOWH
+          MDVBztN033YHEePeh2pyG7Fc9fOYkvj3vQ0QGB08GJ52CiksWxctuYX9QT0k7cKx
+          QJ0m+PlgKNwHRNqzYWv/+T6XxVJcAnhb7cojL02BRLXjR6IjEeDX19ApVwyd3uo0
+          IrEUg6X3PVHNerjcaYsRpM+xD0j5aj70blwZ9o6pgpp52hqb8jQ4LFcd47T390gS
+          J9R5zgECgYEAxwirRoXMn+21R2Xnj0GgXokK/hcb9EhwRQE2Win1vhN8/BzW1Ymx
+          Wi8nSiXevtLbiHsdDbTosMAiJ4BWAEqbnU5Z1G9e0upI9eRdFcWTu2bn6CO6Zwvn
+          xpWGzH+0gFYHjPSe1uczRYw3Gk2Qng+ZYF8envAqRvbvH2XA/Utr7BUCgYEA/hfl
+          HnmlE1WNOb3nFEhC0whegirDFQmG8/OUxoVJMky0+D9yFomU4Hj1idMtKJHfIpaf
+          Y/9j9q41nrd2sJW9AZNJdmE3LEwrxRX8GHqIk1KU+qjNKDROfCu7t4i9861k3nXv
+          Ceuap8YMKESZ0JbitU4+ybOoMLyP5l8OzyjGCEECgYEAsym4k+kJg8VE85pl0Wzv
+          4WlXfdZrkYBLn7IxrQQsdAey8Hc9ZEdoYJgls/dXBUtl1vuL8bSx6blqhUhfIjAG
+          2JmY/0Ophg7j0oTYzipmi8FcbHkM6Ims//PFvfwPDZ9jeJ0TBrxkSOypBYJg9gdw
+          t3GobMYgKHVMV2UPTnNAGOkCgYB4rrK02cPsvep4rViOio+qmcQBgPvtBvxg66US
+          8QVF7ababY/rYmcignDkiDdfmIDpda64mPlKlY2EF9E4p7YAhIsUvbGtyXPUhM+a
+          dMBfcI6vyvK+ELHiSgc7caf+j7Fj85GYHZ3z552oloSTzMZapJIvzLOqijSyjx2C
+          iPQdwQKBgDtxpd7Ty/Qn/+9Bciu9CGNTMiztl6m8h7mUE0sl18hsxBmVn17h+jSA
+          J4BRt82zXCCi1rX8ShM/PLAixezkjnYwTZ0rik2bxO3ZJXJ3UmAFR4iSJv0Iyawj
+          5sLZm3nPe/wzEQSewF7ytwlm2hO2WAuIvV5lBUPYttqirLtSbstG
+          -----END RSA PRIVATE KEY-----
+    scanner:
+      dbPassword:
+        value: r78ceFrRWgYvmhOtttgA4XsF1biFfGN3
+      dbServiceTLS:
+        cert: |
+          -----BEGIN CERTIFICATE-----
+          MIIDnzCCAoegAwIBAgIRAMGmK9MvZBszNZXKm1LfybkwDQYJKoZIhvcNAQELBQAw
+          KTEnMCUGA1UEAxMeU3RhY2tSb3ggQ2VydGlmaWNhdGUgQXV0aG9yaXR5MB4XDTIy
+          MDcxMzE4NTAyOFoXDTIzMDcxMzE4NTAyOFowKTEnMCUGA1UEAwweU0NBTk5FUl9E
+          Ql9TRVJWSUNFOiBTY2FubmVyIERCMIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIB
+          CgKCAQEAwu5PI3Ytfqb7DiRdyXRJwFeUvj1QEeQiwL5WpmQ/PeEIxoRYHI3IXqmB
+          R13YGU4kTzkNHUQ7Mcpk/OTzq/vk3h7DHfi4+WDDG67XXyPfsMR9Drz03xYlO2sb
+          4s7uYS9ac8QstoABIUWmXSTIi1fxw5YfvUaHGI0/mm2BhhmCaELfX4bO89QKGLdz
+          UsuDoADtXScrdBfKu8IMlBLcf0ZOhbctDSQ9N4QEW//VcufA3mM9YcyzZx305I7Y
+          K0IoiCdn0IbBZzlS/QreVblw35DquJ2RA0CndaWwZXhQ7vZxmaY/tMCGtAmYC896
+          s87YDYzp5yXRdMtMctDyJvrQwsNEjwIDAQABo4HBMIG+MA4GA1UdDwEB/wQEAwIF
+          oDAdBgNVHSUEFjAUBggrBgEFBQcDAQYIKwYBBQUHAwIwDAYDVR0TAQH/BAIwADAf
+          BgNVHSMEGDAWgBTfoleybg+t+Px3LM65q7bG05kw9zBeBgNVHREEVzBVghNzY2Fu
+          bmVyLWRiLnN0YWNrcm94ghdzY2FubmVyLWRiLnN0YWNrcm94LnN2Y4Ilc2Nhbm5l
+          ci1kYi5zdGFja3JveC5zdmMuY2x1c3Rlci5sb2NhbDANBgkqhkiG9w0BAQsFAAOC
+          AQEAqTYzHPJwtsiSYCAAA+W/YQmt456rCpe3v2+hJFYHcqB13DKytjj6dQpZkICl
+          mSvHbC9nTA4tdPcE/Ec0WIU0V4wY+QzHxOtyOi1ofdTHcCrk6W+BTlCyNtwryypk
+          OcB2QG0LX4/+w3dcgbn7S7Rt3k9+4F74bN+zrctwEfUtp7JjN19F5YPcOwMnt7Lx
+          C1S5U8ZxENLZhAEoWLY9R5HTfEDmjrEAJzBuL1ykW6S3LpRbhrs/9P694TcVrgL1
+          Y9xqKNZfbJCxyBv8C7b7Y6CHXhCnIL6oN3e27En92sgD0eEqpN1lHG9EwKlT0usX
+          nbOttBQW758SH9UtYNops6aBYA==
+          -----END CERTIFICATE-----
+        key: |
+          -----BEGIN RSA PRIVATE KEY-----
+          MIIEpAIBAAKCAQEAwu5PI3Ytfqb7DiRdyXRJwFeUvj1QEeQiwL5WpmQ/PeEIxoRY
+          HI3IXqmBR13YGU4kTzkNHUQ7Mcpk/OTzq/vk3h7DHfi4+WDDG67XXyPfsMR9Drz0
+          3xYlO2sb4s7uYS9ac8QstoABIUWmXSTIi1fxw5YfvUaHGI0/mm2BhhmCaELfX4bO
+          89QKGLdzUsuDoADtXScrdBfKu8IMlBLcf0ZOhbctDSQ9N4QEW//VcufA3mM9Ycyz
+          Zx305I7YK0IoiCdn0IbBZzlS/QreVblw35DquJ2RA0CndaWwZXhQ7vZxmaY/tMCG
+          tAmYC896s87YDYzp5yXRdMtMctDyJvrQwsNEjwIDAQABAoIBAFM/3ZKChRmDDNNU
+          Wq2PuXOos8CvhMOvT9xLLcxwIcY2lj3aBZtkPf+Xmru063abNcyTy/ME0dcI3ipX
+          SW3Y7TyjnKbvM2hll8351McwFfdzYwlpT5b66TnAG6+4unvM8m9gh8wFTPY9vbgn
+          3nIMRBdIxRNbzJSCtngoblmsCVKnBG2oOmV5yvolOfQjqZj3mEkp/PNHSoxysb9j
+          7ZGwu/m0V+PguKFMUo/TCDcDmfZFpKmqB00j2i0snkGHWynSzWBRgrL6kMk3nEbp
+          D0nB0NsQHwo2wqXgIOxMDmYvUuYu55vjxcOV1ayfn1fwZR4LfT0fvS38yGbjMzNN
+          JIj2vMkCgYEA/GIAc09g0QSSMjvp+FYen2TcvnFOSgvPj3sL7nGcreSADbhwr0cD
+          E8XDg/Id8qXF2dnN0vtOSX2P8Zx4ENmpkAZ1x0nxtTi4zYRhg9UHZrNBKnbB21B6
+          n9HJkKWdoVb32afOSMiCreLDPwDalwrR1g5fdidvulOX2/PzpREHuXUCgYEAxbmD
+          1UP0C+xY8vdY+xkkDARcjZQ2phuZRbvIL4ScAu6JV/IDxfhvH7CSbDXVtuYbuFyb
+          kJbhZHirJIO1HQWAh7hedNibFGz+64EuTsp7zwg2//Mz3vjPWupTvyjHaWBmXPOk
+          yKQWd0IpRgLXc4XB3JG1BXcaOZizXWQFvHabgXMCgYApZfHo+DZLUtKgRs+kGow/
+          XQ4Qdwl+f912DZrxa9VleLvAhGaHecB5d9EQTaC38pU3nNB0MSCwUVZRLXdMXEfC
+          Bi0/mVN6hGlb3MEaHNFv+StRSdWWoebbXFAR1/i5REi3fR0LN0ioOTAJn5w7dlzh
+          Hc5u1R0wlRGt1KA8jUSVGQKBgQChy5ixXxXI2/I9f2H0tzHkE32Y7Pt7GYJmqa66
+          E42GaKNCr+ueiBiGmfp3SeZD8DAmwMEbpBt0F7oT+yKtSN9QL/I7MzRTlo1TMTYv
+          i0mctGAtOVnszzT+dFlrR3dGJ3gb/9OLy5oGpMEZZSHgikeEskaq3jc7glTjywFW
+          osfFOQKBgQCVwVwG6xaoz7oL5hQiysA+ll1NoAfPEe33PI0QQzMrflAsqiLc+boW
+          bFQU9TSeo8l6MLejsi/YjwXiFPGs8j6XCOqBnI8OyrILdmjjpZKLxt9YEdGAOPo9
+          gaheL0oCIR6csz+gLR5F0mORCHs+31fPbvawOSgDq1+poXF3+zsF3A==
+          -----END RSA PRIVATE KEY-----
+      serviceTLS:
+        cert: |
+          -----BEGIN CERTIFICATE-----
+          MIIDjzCCAnegAwIBAgIQQxGgRXsAEvtzCZa/jEv1BDANBgkqhkiG9w0BAQsFADAp
+          MScwJQYDVQQDEx5TdGFja1JveCBDZXJ0aWZpY2F0ZSBBdXRob3JpdHkwHhcNMjIw
+          NzEzMTg1MDI4WhcNMjMwNzEzMTg1MDI4WjAjMSEwHwYDVQQDDBhTQ0FOTkVSX1NF
+          UlZJQ0U6IFNjYW5uZXIwggEiMA0GCSqGSIb3DQEBAQUAA4IBDwAwggEKAoIBAQC2
+          DnJg3tzgy+GfA5YpP/ND4sUegkRHUQ241HgIsFDEp9vpuZYzdVIMEd3jXumyEVf4
+          2oXFu46fAqvYdoCiwMmS1PKsMpr8a+3ax0gulvTcF9wS1zfeYTmX7QPfwTGFap0m
+          LNvHzW2Jg+JAHygh/qx8upsy8SUFNE//dq1cf/AJeTrTRNEUbNI24qDJKEfxaeY+
+          es+DMI8kglgAgI0h6BzKCXnFvAWrFQ5YturXFBKjtV8qCTCULigTeLjM1EjryHxf
+          /bTm7N84guTYHbDnmMOR01qwlGa636WTUiHYhDGaackoKMdBTNhjECJ6aPDcS7z9
+          fj81cpw4xUYnI7Qfs2dPAgMBAAGjgbgwgbUwDgYDVR0PAQH/BAQDAgWgMB0GA1Ud
+          JQQWMBQGCCsGAQUFBwMBBggrBgEFBQcDAjAMBgNVHRMBAf8EAjAAMB8GA1UdIwQY
+          MBaAFN+iV7JuD634/HcszrmrtsbTmTD3MFUGA1UdEQROMEyCEHNjYW5uZXIuc3Rh
+          Y2tyb3iCFHNjYW5uZXIuc3RhY2tyb3guc3ZjgiJzY2FubmVyLnN0YWNrcm94LnN2
+          Yy5jbHVzdGVyLmxvY2FsMA0GCSqGSIb3DQEBCwUAA4IBAQAUKXQzGi9s6NC2+p0y
+          LZeLUYzZJW3SRAJL1PgPD4bILzxUg6eVnQsvIJsMe3X/wzCpFn/5UtG6S04DPg28
+          /L/KPQF+pybaXmIP/kqDLEBRaTe/WoyhI1FBAYvQeBen4jYEYzGs5dGjVqbKm7yo
+          gZLRq5gkFXzwq42AgQixxt6bkZZrNyzjkunqPIt/rZkyQtqX16/Z0nZytqXOIWZg
+          kLyeq2aQRH+hYWu+97FUHUGw/3GqWfmkwNiIM5go3MCkjXDTcnfZtp6INMwvY2A/
+          aukOguFII1TTGH7SkD1ZDKnxVR4jXEyc6/H3kkqJZLjGuOT8VbKUyfxzlUsolXKO
+          KkLs
+          -----END CERTIFICATE-----
+        key: |
+          -----BEGIN RSA PRIVATE KEY-----
+          MIIEpQIBAAKCAQEAtg5yYN7c4MvhnwOWKT/zQ+LFHoJER1ENuNR4CLBQxKfb6bmW
+          M3VSDBHd417pshFX+NqFxbuOnwKr2HaAosDJktTyrDKa/Gvt2sdILpb03BfcEtc3
+          3mE5l+0D38ExhWqdJizbx81tiYPiQB8oIf6sfLqbMvElBTRP/3atXH/wCXk600TR
+          FGzSNuKgyShH8WnmPnrPgzCPJIJYAICNIegcygl5xbwFqxUOWLbq1xQSo7VfKgkw
+          lC4oE3i4zNRI68h8X/205uzfOILk2B2w55jDkdNasJRmut+lk1Ih2IQxmmnJKCjH
+          QUzYYxAiemjw3Eu8/X4/NXKcOMVGJyO0H7NnTwIDAQABAoIBADuZqSo7a5YQSPG0
+          y+D/NZWA1MVzIgUy7MoYjJ9TkW2AAoeWoSyBePXIl5qLBPitot4uM+MSztMRnc6E
+          pQIjGRp/ql5jRsfiUYDxApl2A/1Vtk9Ys8qSi7dH+Z+z8JFb4MyRnPXhM730NgqF
+          6K6QYEmJEavwtAzrHlFkucZxf9SplHnKz4F/hfk7uA/uSrIZ6HJeOEN/X98wD/Wl
+          Xd8P/nLmyr0RSRBKsDtIwTuM1r+buK+adT3K30ig41WMnghfQrYPBBypg2ptUsYl
+          aLjubSbQAz8jH8E+H6eSWMQEROISaHHEMAY4Zqb7PYQaRe1O6usD+/sqlIp5E99Q
+          jbvz+lkCgYEA7Nstv8xvOqYUrdA1LCNTkFMubDK4hEbl6jsZ4SJhW9GmbwFMN1+8
+          67iN0tGzLog4b8RjTaWc2Yt+QTZomtl0QSVEKE1vck3lzfEQWaoZ+7eVfq949BbG
+          jAQmozjEgdLRl76c1F/puZOwc0zUrydK+lVL/u3EgYZp9VLR1gMF2bUCgYEAxMVm
+          Vv70bDU04e0GgKMjD3tF9gVirgpSI4KXFeapbAQZ50uaAfDa9n1a7WuZQQcvqQrb
+          JwxlaIBEry9ssvzZF7dSTM2jFO5T3FW+HTwlKKdQabHHeNdb8aBsaY9OXr7nkfOd
+          nEwdCJmiL+JHc0oPCkwYQFyaHyupVatH3jmtD3MCgYEAtE9qtX9JEcnLJkLBp9dA
+          zzczuPSn2TMr5jOV0PjeSwr/+7NuNR1x8bTuapZvJLZY2GUV/89a55W0yKpF2dQ/
+          FzTqfQ/uDoNUtYGVo9zFqQWqDeZBWvhXr9GdJFab6gT2v+FA/MADat4OzsenhauQ
+          /Z+fmfOhy8TqtvKUgaqNcp0CgYEAugW4k4QihO3kGbZgEFqp+afb4xMCUHDXaFS8
+          Cutuvfw+lOhnJ3CRQLgPryaq0sw9ZX0q5AaXFC03Qbr+81OQ1RftSUia5V3OkB3L
+          Ro4mvwE2R0XXw0kt1geIll7xgybNe7CpDyrxw8CikMxGKhsYju6Ter1QwykexCvS
+          HKfAETsCgYEAu7n04QZvZWZMOTEXsTaygYksxEO+qN3LMuYrSqtgqj408d6X2Yhw
+          ImBQvH9sx/g7eln8nHnbdGHURlQIWQpd3D+iB4JtV4BGVMmYfQXrEfEyKg0iqACC
+          uYYrXfNWBynMKsJ9nLi7dBEqrKAQDe20yqlvSauzJW8wcLKoCiuMFBE=
+          -----END RSA PRIVATE KEY-----
+---
+# Source: stackrox-central-services/templates/01-central-11-pvc.yaml
+apiVersion: v1
+kind: PersistentVolumeClaim
+metadata:
+  name: stackrox-db
+  namespace: stackrox
+  labels:
+    app.kubernetes.io/component: central
+    app.kubernetes.io/instance: stackrox-central-services
+    app.kubernetes.io/managed-by: Helm
+    app.kubernetes.io/name: stackrox
+    app.kubernetes.io/part-of: stackrox-central-services
+    app.kubernetes.io/version: 3.70.0
+    helm.sh/chart: stackrox-central-services-70.0.0
+  annotations:
+    email: support@stackrox.com
+    meta.helm.sh/release-name: stackrox-central-services
+    meta.helm.sh/release-namespace: stackrox
+    owner: stackrox
+    "helm.sh/hook": "pre-install,pre-upgrade"
+    "helm.sh/resource-policy": keep
+    "helm.sh/hook-delete-policy": never
+spec:
+  accessModes:
+    - ReadWriteOnce
+  resources:
+    requests:
+      storage: 100Gi
+
+---
+#Tray Keller:Creating a route for the stackrox central
+kind: Route
+apiVersion: route.openshift.io/v1
+metadata:
+  name: stackroxroute
+  namespace: stackrox
+  labels:
+    app.kubernetes.io/component: central
+    app.kubernetes.io/instance: stackrox-central-services
+    app.kubernetes.io/managed-by: Helm
+    app.kubernetes.io/name: stackrox
+    app.kubernetes.io/part-of: stackrox-central-services
+    app.kubernetes.io/version: 3.70.0
+    helm.sh/chart: stackrox-central-services-70.0.0
+  annotations:
+    openshift.io/host.generated: 'true'
+spec:
+  host: stackroxroute-stackrox.apps.helmtestdeployment.lab.pnq2.cee.redhat.com
+  to:
+    kind: Service
+    name: central
+    weight: 100
+  port:
+    targetPort: https
+  tls:
+    termination: passthrough
+    insecureEdgeTerminationPolicy: Redirect
+  wildcardPolicy: None
