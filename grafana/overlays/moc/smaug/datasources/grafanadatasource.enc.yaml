@@ -7,8 +7,8 @@ metadata:
 spec:
     datasources:
         - editable: false
-          name: thanos-frontend
           isDefault: true
+          name: thanos-frontend
           type: prometheus
           url: http://observatorium-thanos-query-frontend.opf-observatorium.svc.cluster.local:9090
         - editable: false
@@ -18,7 +18,7 @@ spec:
             tlsSkipVerify: true
           name: moc-smaug
           secureJsonData:
-            httpHeaderValue1: ENC[AES256_GCM,data:415M+QVlznEw0AMfR05ze13ZrkMVT4izMSe3tpzxhQ8YbkU+TiOdW0Z8yAAZzbtCO6itRqqQAGEEw0ayVDai661flqP6wCMktFvP2Ojvfq6QskjwBYKRcoMcN7iP6E8sDF8asq7dOiWhLQApphIjZ8ljEls2mvI1xVC/+SYBbzVtxNHg1276NGrGKD7krGyIvtUXWCQgUe2w8wx6h2DaE0iZRAJdX01jb3bjuKDfwRMeUvS3CY0cUsPzbDASekq0a3yQ/brl7HH/Jx9Mx5jrUWvHeGiZ8FwqYF8jG3tGYeRJr0ertAIawsqBl0Qqj8YwkWywzN1XHJ72Sr3m+XfsIYJsoreImfeh3aZzeihcxu2HI0Uuw4d0DYPbctDy5mFsvb0+Oho0nllMtCqYjlL6Ui9r6sUIbmRJQVb861/zW2SgXv7Xs6t4xRADzd1noffP8yNeAU5t/N0saQiaMTYlDBuk28g8ZrXoHEZLmDmseB4BSzshdAlOtcQ+62yzQBHQDXacTO2Qx212rg5oQ5FX0SdQJYLsUZIgrBW/cxks1cpwqsZrq27P12e4BXUv73xTJkqxAhh2+ilgLAog6HmOFmpR4RoRwCkDd6SwZuQDwRuuY9RZ0X5VLsl8uS1OcB9PbvJksQBLfX73+BmWCTyAPLr13mXKci64Dmdof1mdn5TXi17KfIRp0jubnedLGrp3BtSCHYXAl+erVbs0TqwmD//8pD8f47VxlLQvZmTP4NoXtfDiie/t9DMELsnXGw9nc6GcWcwjPgHpVTynkPeCds2/6V/P68s4TKsjAHnmwaprBly7ry5x3tuF73pL6T1Nb0uWByASMvii7+Wl51LycWYZ2Yxerc2Pt2lZ6J6cW/BTIPfuaha19AKu3gJozw4Q+jwe6QPyiNH4G03dKM0emQtXZ5L/EfKH07AyqwvJfjOvi993O++JP+ZhYkqQ0O6CQ9En+8LN82Zp1zfUsfF/SHzTv5uPzTJfkfSTSqsICcb9pYwVyFVbUkvFQI7lc/lYS+d9hJXAfvIih6wayOVnqXSuvIe+SYjZ5/7+S9pTNyT0GZ7bu2ybUyGwHvw5OGzXzLG7sXas52jgsIQYUR0w5nN4qF6ZOtjE/b4Bzkx9QfR57iOnRe/5DUDTl+c3f8q3B3mpGxusheGIPDbqpv4B1CHIhyF95TWoM/dkf9Z2C5zDWDt+OlgrKJGPOJxKyBP8rGB0AaRw+bCpcuWbDMQw9MyZQ2nVKH7gVDdR5NGz3IU9xIBoC/6WFykS0BU0OXYruvrW9/rztmAqlaIAJ/q3TxOlWIqtiLTe3a0S1kRvuGbTX+BexkR6lJA+Z+sbhtwPoaPEGhuB6Abk42PR6H0ZBF3L75Ozx7eBPZY4EFOwhV79He3ujD3ZaPYT/ICA6Xn5ORx+bXvGX9+L+vnotP4t/uAogFu/M8w7RQ7A7ejsK9/2hVTS8B9La/zsxpr0FbeylvaxWGVCCikhT4tcNeilNLtptGD0NKaGPSzT6kVS6mduX8aTyN4z0AbAgvvpa5YnXYfZxwIPi/Nu6mr1YgKvzYVnco/2/hSXgWDGartY0zbjiS3qphc7eCD79+4p2m+o/VFeezJPvbRKPk8kgkZR0dK7fPlIo7nHhSa0iyPAxVf4eaHiXrdbdAvxCXFCp13UYDBjFffYnxqk0zgUNuRN5ojFY6hpi8bcxi8UWMbaosayuKDun9SIDThJQTnPiEw9x+PWK52NNbERZL8sL3oOOI/1Jv1j+zhLZUOj3XhACAH16bRHf6QLLnPooLMeYLQh7sLEL3DYAj5pWKXmPDQJ8uzQ6NemPcaFYFzPhKlURAtmldMQDqyfD8v+G+s=,iv:X1IgiC7Bus87EUFP1R004d69FN+hvUi+rFoR2VdNoRY=,tag:PniAitoUvRzcfwIfEsurMw==,type:str]
+            httpHeaderValue1: ENC[AES256_GCM,data:APSaNRMGEzy3bL6fj5s7bW8LAvg+6pe20MmaSlqH3R4Dkoy7G4t+tukeE6MWaE0R5cZ6Zb5Ag38Q8vVilASzzfpWlKFfbfxjaxlRB6hb1M/g8rtypOoHb+qJE+u9FlGhOjOqMNDCoXgiX7lRpIhbcC/MFT5XzLNoQoR65954F9LywsUbOcZvOWPl9XK0sJmG52RAGYokPipChtTRNX/o/PiMiioqwlPF98mlstaEIeM5BPe6vawSOyKs83RULsq8JsI0bF318hr7sMlzKcLn5dBDB58Uc2SrXptLfAI6vpXDb8ft9bqq+KPhJG9rboXvxw7/fM2YJOQK0fu9gmiERr4IeDl/Ayjf+v6UzY2B94hbEK+EHjc+zJQsWV8CMnboKldVP4AByxgldI1rBAufWiJ+9nbfdRtqqjissJMnG+IuFqyzjoLGtctve05qV1WOA29YT5EV3Vd3GJnMntB5LPCRRSuJFnl5yDzvCkjWnt16Cv5w/QGqOuoA3lpxvKKtbjuijsDJUYyKn5AQ/qFRj40mdvNNipBWjBD+Pv1XuXNOW9ZZBs8mWsRUtuShNv5xCLQlk0k7cs6ZrCRyqqY4gB4KQHUGMOwT5B/IwSC+8cP94wL0t36kUymdvHsk9UUWEFduBMG/0nlmpnWzD2ulkKDtA7dJoRdVbu+NTa36sKmreVm9MpHiDhJWb8rmPN7nEz7Scke91UTovLtTn2eZagZ2MRPz2c0e7TsmuRGZxF313sY7B0hpgXAkGhknfZ6jU2ck/6E+tOYSC7u6Cj3Y37U9QF4KvYYzHVE7Clq25m5E8HnBVIMxeMscTHDU9mq0hgv1BC5ksl+woizv4T5GyVClBuo55W3LClfZFCT0SdgzDEK6a5ao0utF7l3/x+THa/RBocUK2bfc4RPjbkiXUqeXk/Aky2ambxvhcWlTENXcahutUli8amBaG34IYRIQO5N5CB3cQJK97NelAKkYIBISo5vhaEU2yKnUedXZw70Yyjd9UsRkns1YcSz7xNhLggEdKVOMpLO3oKM2wtkZjKuqGrrsjONEX1Cv8lAus2T3rc5KYoRh3LVcFOtxc5cIfdS+ZtK1AOI3qoNonSAmczy4OVe3LHe0JTp/kTkHSZZrWZ2Fj+TuFGlUe1uFe8wsaz/YAJEjYcw2oDHp/EVxmxiXDIzsbQmpnhMBMygqg5EkmZXxqnTMqi17odUefm8qDq7d9imf+0yfA1pxo/ILjeRQasbf8mKAjRy35PzDg6ciEwwm6cEbbeMOhQjF0a9NiKFBel5ayRP7tF7BCGy4VOgmeGOBafR1NnDu5Y8ZtHJA1zLpDI/Z4iaNpYzj1e1v9paG5g5cT2e3+3ehWeInsCrAIWbmF6HIlmxyJEbbruTs6dNR6+UvqoFEBh5G+ZMPNE33CzIuAk1D9UdPdOMgl8W0+BugsUyZkO7lG1rVzVPdbWuzSZju7WsHESn+Eyrl3N2n5m8MUNseL6oILJUWNANi7MuoeVAfT197gFvn3uzKsGcnRgErIbpVqNWBZ4mvpiUkmWaOkGT8mI1548GOH5NNflEpW0Nl9mopEDqkT5BZtpAzjdMTzhuK0fqO0wIGwXWJf7yPA6lYgebjJckoUXSe/NswO4Lg5qWwckXrQq84/Kn4q5vG+SY0Ejd5kNdf/q4GwwiKM7hTiOGTGxBJ9YOTufPhLRaZCCxMAdZiJiOrXCRGE87j/0LHFHrnENOLnrUK9ovNm48/rpmg6hOT+D9RhqfHe2QZ+rrbfaO+5IS5GmgCzPyMaYPr2AHCMAkndlBFalRcuIhcieDi1ykKRT1AP/eOr06PzWMR/HY4ozEywoYMpssPjP4Z7wg=,iv:/Wl9FRs+SZJTq67YZ1uiRFOLTuxJUhzO5jBFHkDOaOs=,tag:8hI/F5t3Gz6Oqr0qmPe48Q==,type:str]
           type: prometheus
           url: https://thanos-querier.openshift-monitoring.svc.cluster.local:9091
         - editable: false
@@ -28,7 +28,7 @@ spec:
             tlsSkipVerify: true
           name: moc-infra
           secureJsonData:
-            httpHeaderValue1: ENC[AES256_GCM,data:NfmUaKwYit8bL2NeC1Xn0FG4LvC5jJOMUke1dnuTcT98CdHikU4P0A/H5eTFLlGox0R1/+JFtdlWRpXWWe/srHdgyTynKN5zBXP1JCptLXMoOAIe6KbviIaGh4DBvJUbmMb15AkSfI6SvEEHLh93lHVeCuNebAeI7CSfPw784ZJTKNyGNTAPZj7OFgUfntq/stGeSPi6yvJUDpPFFFhJKPXW0TPrfjRkPr+IzIXzul8qStgpoISyXxDRDa+uTEIeR/IGtHZZ1e6jNKZfShtP5uWbI8kN0R19UJvOVU1/lqxFN4rJvoEj5zKsM2kG7WE8iAMGEjV+Opud3iqT5B8+CYvjW4GyDadObZHoIKaSiWryTj8yJfEZngfrz2yo7v/sK/Z/GvY74s6gi1uf5eiBWcQyggX95O4dUtqMv6rP6Gw+i4BdIhMDMfpYuLLIlVxOf6Ai9kVMLyL5Z9VWKmTnrXY44bbb1UAix7TL2rtLawvPXYAPDEtXTsd17Q7HCFaXt2RRomhpNmW34ozWBF5TE1s0eesbQS/1ySe/F3zLxzDvpVVY5rpcFtzvgDSqBznmpAZteRsD0/ZDk83BasGPLw9AuF86KgUCCnveiiJZy4GBUw1+kh2nhJDng29Pi5iM45orWqcWwsYTrttR/fJ5ZQY8az2jxPqsJEP4kB2FULZqrZX1H8RbOfK1YzbQA2xBKnHwrOmofyHxCfQBnw2qA3kU0LKIi1b1g5A33FypcdqCql5dNv/0U+rGtddMzmOCo6PJorkQluOjd3h9u4FBJpH/4DRBJJxh6YFIsW+JAADVqfVyMCsdLLa+qKZtFJpuYvxHJBvy4R0TkWVzOS+X+8zcVyhHdVDGdsL6OTCLPqDc7GMBlv7LvbMpWD2tFdK/3p+CZbPinVtHZi2MhYmlAa9el+oJO3pX05iaPAFPnpr/lTFtEIhUzyunz6Sdsa9KLHJva+BFwMhh3CQU7pFzB39ohcovx4q/dgXBWQ0EKEtH0/KdutVHASvk5PdktvgizTg0KV3iYlCSV2TxgZkIdNpz+YKOMJt9Nb3PXC65DNGI8TQ+GNLbDTfbKdfDE5+xWdnxODT9LtNM/vyAPE3vlQ2K8rOOOwBnISVd5vJ0FV4PqAyr0vUvxooCmow+SbbTPV+QrHgtNxClW7WLRPxBy3PBgqQADkqBcbZnQGcO9D/J8ypm7BPenH2isSus7BRdroujyw+LJAZ4nr1L14y/mqJp1JwOHF4HbSC/GwK7B62JL9PklzLtkGNEGDhXEzRgFl21SXZMqALX3fWB0ImuvWI=,iv:ugKwNdAWW+SIgf+O381z1xj/6VlwciR2kmAr0TysGio=,tag:JAGUTYGVRjZUb6zS8uGaCg==,type:str]
+            httpHeaderValue1: ENC[AES256_GCM,data:6AYCChee4xNIc4WTFYfA/7tmkj3Kzx/qZYLtKBMKtxWRx8mOai2hBGwkmjrJcaJ8eFa1EEuXit9RCL1mFfTcyUJZ4/eLpz9MfPneUppHfG8AJq4LfjkMgOOH86JIybNPV5qIDi0J8bUcNAs/aP82nhdN0lxBwTOmxsybZZdPEUU0he6V1tKT24y0NIMZ9OE4TrVV8/99UjsujQljefT7W08Y3F5x4523jN0mvb/6rTK7f9CiW8vaKbvEqYX/4HM40xzx2msq7/IlglBkX9TY6j3OxWGu5UwLIwsrqSjthCGAGj5bbw3Ru0hKfU0ahW8+HJLQhdCqB3Zws3qiEsMAzfv4UIulZs644Oq3xlNAIHfBGSJ/NqVHsk/bSC/EVHr0Uy4v3wr2zfPxn/CTW5bsVuy8k6BookRZjItmaVC0qGNTBESGV7oLhUQPbjVmbmIrFAZO+O/ccomgQrOv9Didt4sy+0DBGjdZpHmrvTsdtSxtO+Vu6eU1aKUXx2pbE/D0wvR6GTTZUUVtlL9Z9aFAviWuaGbm5q2jccbpcBe3hh8RCEJCdk5Hqqr0VWUmHgfOc8yc72rogGGMrWeh6A/gJpiAd2v17nskx/aXSDZQEkZvlwszRMkAH76tE8uEewyu75rUDG67oxfBz5DUVki+M+u3ilex1vUVJm6MQfp5z8Sg1ebvdTA2ULOOeQItpo7x7oA9/qqMFi5v5K4CSGXemLUdpVe9sJGMwPc6xspjWp2SU5+vl52wRhl3rtoQnsk7nELR+JVFL8pmJNRuFDYln14s5cgoycKEMmzX9ubAMe/0Kd7dfcOkdDssv2QeZXDPSawHcjMGHHzVE5984UYIC0aQz2ZJ/j/qBdWcps8G+zD/on1KMlk5PRWa5/IaXWmePStuiT6DWrQbgLFQEdYkauCQfqtlQY/UHMiLGJeZ2NTSw1gQMf2Oxj/biJ0iaoyQ6RYGLESzJtqxOunnIR2c0yxTy4g/sMsdyev7MXfvmuAcHIG12FZi6V8D7qp5wqgbOVR6Gg/LrdqCyuVFP4C7S1VGr0B2+PdFL6hYFJQaHRNmNEr0q1X9FZEGPPdfA+Imaw70wIzriDGjYRgsKaKRhDFVdKM5J/lnI9vFhfxehNrZh1w4ZKVcV/sXinJhc4RREpAsw9zgfC754G1j0PYqak8Z/rNBkqUyf2WL6KYPaKsorihiNk6FVR+HanzPqSYvq2K/4Cqi99+kNLQdXsHqSTPqooTw2OW6QYTm3slt0vzfFaR2nGCk12hbGuiMHCFB+Nfu6otN1a2/tA1eKu25Ykk=,iv:UuTU1CsN0bCkMnriEhTYK4TGnDyFw98bC3qzpEcj2+I=,tag:l7f5zBfAqYINp4YM4PObFg==,type:str]
           type: prometheus
           url: https://thanos-querier-openshift-monitoring.apps.moc-infra.massopen.cloud/
         - editable: false
@@ -38,7 +38,7 @@ spec:
             tlsSkipVerify: true
           name: aws-balrog
           secureJsonData:
-            httpHeaderValue1: ENC[AES256_GCM,data:vPD05E2ke6m8sNG815aAxGAyfgWpZ24/BdUrvLPmSJ1kyDd81YDETaoLQyPBJw1/EA3d8HUShl8e13GC7DrXQu0YZie/3WFmnAVoTzRqggEFBRYdxgpQwuFCpaDb/sekLdpxNp4eeVDFISB20s2NhbSgE+jqAa7z2pcG5AiDWKDyZAvpS++SXxq26hdUSmJThSdHAmftY12s48rBEWcZZRi7IpwHeeAEaSieT2qPMknzzFlJrdFHkqzg0Ne5enmBy4+mv79DjWy4mNqrY6u14FEWYlZRqmhtn2HgO38S9ZPuzuJur5W3/KAC71pEKuJ9IqaiY2Z66k3S8ob44WOr6YwvsiRGvvAHwMX2WzkuGarqPN2qMjhdPQ93+nxgNEOPbUWbRSUKNtDwF+gEIXbrlY0QG27PMmbKEVv3KvICBKI3Q4bUjnUlQd17mm26nOmm62bESUetWkiHEx2VKOPc/QziD1R0uVjCJvfXodxA9XIcIstap/BjpS8gzr99vQSgogcM5ETuMmYDgGFxU3YksWdAI/c3EqZweICyqp5PDSrNk8FOKkQ2+Q0duPMtLVDiPpjXw/AeLijISFwAQlwJCmUQ9HlNjSDNNOAkH0Gy/rGNhZHBa0jvA6AmNIW4K5l+6ibnKPyz4LIwpWrYVnkdDXPpU8M2tejezmQpJiFnqPLbKtrrueKLgGQeAIeeGZcJpE/EVTpL+2UuqK/7N7RSecLIBbiyr56dsjonWfjIkpdZbYkxOROfHfKdIf12IOEWfoYtj6VLGNno0h0RE5ZlCStQH+Qi3vUEhMFUU3BqrJr/zETrc2jCmOLTlRga1n0Oypcl2JVY2FvbmVfK5ds0v1BfhakI3oTMpPI4XxIPJO8MzzXucvcVUdesOSKiXzMLj/qLPrm/eRfAJaoy9wztSbyRH2AIEH18BKrCRJKC0eeGwWoKstqOXDpStsrLeBnxVr0scjnvXi/hOGIpPk0kLWSMnn8YFKbTTI6EazTnoY0uboLAbRt8YU4rNsYCHX/cnDQ9QXiocGURiDvByVu8KkJFHzPFnecy7JRlEU53m7iRSonElQrWyLpASwbcN3GmID5tS+5iMlrhogLR90uGhJG1onyW4AoHjp/bv4MBN1GCEPb9Zi5miDbceBc/8FeCKsHe6fCRFRV6nXfkiXb6CVOX5HtaiO0D9E2NFUDSS6Z+3WSu8zUvj3F39FIttIWtKZzVw2gVPvf7NK20hPgX9v92n/HiQn4A2BslRH47GL5Ov/Kdy1K6/fL2OCXprS/t8TkHRq8EpNYWw8CwK+FK1hZWcz8+I1lOvumsSqEQblOpVOorVqwFMM3n7oOHKUxwCjgq12Q6bj7GrOn+0Kx8PiiGlPvyPNwjVbR7vJghAbKDYfeMudaAFNP3IzUgwnlxXTv5kEzWSJbegJt+GwTrAcqwkXEgmFX5sHbqdbziVfK0FY/8oFrTL6Go99dbW1Vc0Q50Cjwj+2WRMZQrKcTIlB1kDfVvlJUcAjEDCl9deonc+Zp9wlmpxKeI1pjh/wESO+vL5M2C+49cv+kpcO8+U5gemLQqelow58I/Qttbb12p/gZfkJIwPq0FdC4eA4CoLVcwdzsG1KGX1dAfhElu3sojTuTub766pJKDUE20SrQfFYsvcfkX5PMAW/tW2YmJAkjpSW4QsI5FIyfZxKATUi23dpNToTLxnJEVY7d9+e5FmPH/u80AX2A0KbxXdN3mHLvRGGon6JEEMiMJ1ZwaC4P/Njmp1gIuwrmN7F/zrCR9K52Ow03S0x61gD4=,iv:wtmafHBYQp2Qu4jJi5jLXuPYdOZ4pdhvXH1dRxencyc=,tag:ZTModH5CRpZqejCRTAKcGw==,type:str]
+            httpHeaderValue1: ENC[AES256_GCM,data:U56K+9SrBFsxK7mjN67bYZm1A0iFjoudS66RDbgo3ewkiG+idT/ivRIrv/k61T3WMNHIoKD1WfdcWWepxVw4C2AS+7yomNI2aY0SP7tg3+QcgZvxEQDZh+PYQ+ONfe3Twpch+DK3GVmWAJzTvr08lGPXVlAQmkPj0NrieZBiNSb8h1FIAbeOoLVtSoStZPtkZN5Jqa1ZLFBcyMAgskNNFJRFwhXVRsS7BtKfKIC4e+3r/3VHeeLv80HNqqBk4tcdHf/3RVEeNrS7qwxzE7TnLWh7/htwB0XAgbFKNn6btWqWAEUOpnGKzwcIUCI6uHv+MykfhGBwSayfv9E8dMjfM9/CeQuWQHIgfn5rabrzz4SZbaaF1WKFqD6psn4vOyTvKfOazTG+RvyHIm9MKuaPsHOg0i3+jY8yX6X+Tzj+6y5RuDtKOOiUfdJTPVcu+bCnFE4BnsugDUkjYLB5GxNyJlK0jpzZmx7nFmZL6FeBguom5ftOl6aHqcptUWHNgS8BwZ/l2IEcne46XXAk8qikrJnqki69jboh0ZONvP7FZ+yg5ArmNocjpOgJT5aeGyFMqREwNMmnTBRgKW80z5q2WGgPcrYN+1hc86NQOV8gqm5RoZd92iMfC54mHbvF5GXQduwBugreuUy4Ww86Qx7yUl32zIIqYALQb+GIJuF6CFCtSKKJpltqcYkhpKZzVqYp5LjkAGKen3WDm8NSRnmF09fwJm60hLMRycv0fRCfQDFiM0Rc4vOj59ZpSWYxPVl368QfjvjUpfjc61UJ6roXtOlPeNCzFxAjICnKQLlh6g8CrdZz2jvadjFV5HphSPYHCPChdBAzC5mbRn/WG8L/XvrSkY1Bxu09+D3FZ8/SWiXRC2XkgpeDUpv12qXdYWUa2LweePOA392FHTivxCsDLPGM/H/2l+ayPh0W+HCh/DWAwAaLWM8H+JMr8gwgbI2gVH1/haIUnLIDkZMYmoXIHITWa/UcXnRvrfYcV2rP0Z4qE3vPCsCWmFJRnZNNRZVmoi+S26EtQujPcsTqaXEE3F8CaUKTqhNtk125ssxzGPWN+Fddpm6Uwra1OFGWngDDIyxeCQWDmQI37u0aDmyrQgbZpCRlsWzbiAZXtAW4xUcidv7wwoOuq03hxsfvaChebuv51S/vENMsg6FeNde9F36FxoOeBIRSOWg6VRcRKsRF2zBR59adEueBVoNp3xfRMyI0u6l7fTNKiw1ZKsX6/mYi0tmRSKSlzFfZ3XXhmJ3IOrUviAKjtxSQbNaWx904uXxc667XDqNW12bwGAroQhu6zvVQoXUHTjMgzUadSEqSe16oV7kKVDg9go3rINvW71x3aj5neCw0k/hQ2FSJTHTDOvSXlj/RMZTffqTQW8nU/qxXZ8E8ublO4D69tvVqEMicbzRZ3obbZiPlQjVYkKaj0Aj/HHq/h7XUH4pO4ju1iadoF2oRsg0pKvK/8ros45PV0PJ2wu6/2St+IR9R/ebWmaoskVRBoJHNRHiAKCPZhjn8LyJnhonCqxf1eGVoF9eopejgCuhvJU56MApxuUTqtvwAuAXJ5Pg63ThejaTorFVv3mChGW797AtnGriTEkGG575c1juDlSTGzTOt1q1VOqskNYeQ8+fiJCYuXxqEgaV6Yzs/fzhwrfShkpJeH0gJbuZA/3boUu1HblVF9Q6se2PlWdLeaB3lAKHxL79HIUfJdg6JFstSwLIIZFtUMOc4yNYTPRN1jQ+URKZwYIW3q2bhn5YMi1f7UyLBee+LSD/cBVxCnPSvqjw=,iv:5WUnWOq8polyyCKRZpzyIzzKS5MjQ/9WXtryee+EnNw=,tag:1mrGHa+ZRpNnwygcdcOLOw==,type:str]
           type: prometheus
           url: https://thanos-querier-openshift-monitoring.apps.balrog.aws.operate-first.cloud/
     name: prometheus-grafanadatasource.yaml
@@ -48,28 +48,28 @@ sops:
     azure_kv: []
     hc_vault: []
     age: []
-    lastmodified: "2022-07-12T18:51:11Z"
-    mac: ENC[AES256_GCM,data:Tj9aaTG4gDnnzkt0i2k/AFAcf3TWiQgJu2BXY+Y7B2S3DZrWiWw1vo46HaomaBEHxUZFfr2qIkBS/msQRu/0jzEuFW4P9zaNYuNSVkaeGaKFXIZtbffkPTU/qMgH5xyuV/bymO9BRnBhiuB3rPnW2bqg1ynlrLXeivNVMXeMJq4=,iv:Un4IBa/dM+z03VLQSFXwoJoBiLAVLRq5yvNXBFGCZZo=,tag:qBww2lxsy0kJGFgVncCs9w==,type:str]
+    lastmodified: "2022-07-15T07:32:41Z"
+    mac: ENC[AES256_GCM,data:Rusw4njHNPOQl9v/Ez1Ejv0Vc6ZPySsM/0YAePG8CWQoXrIveJjv4+dGZ7C2/VuNf5S3cpdYJ8heV0Lr8dkJf2JxbNg+uhKbGi2kHrMQyUQ+fsdYBRiVRLf+7ZguDt8dcFAQAgqnX3pAb15EBOi+QMOEiG3qxIbCl45Lo4RERs0=,iv:k+iN5gUSXNIIwkDReO/8AuozjCncLz8f4GHxw2FtIGE=,tag:jGY6kmN/273qMzYY6btkbA==,type:str]
     pgp:
-        - created_at: "2022-07-12T18:51:11Z"
+        - created_at: "2022-07-15T07:32:41Z"
           enc: |-
             -----BEGIN PGP MESSAGE-----
 
-            wcFMA9aKBcudqifiARAAbOsio6BasOFvTp2075HRWXhnInWjsqorbk/gvBD0VVlK
-            9jYJjocrTK7gRTGvvnvDbYso1759mgh38O2y9AeVqakBSVuyt27DOIqE5d3Uw0jx
-            dN+Q3zSAoWLQawTRgVGwO+SplaEMlZ5Z7fT5jr6rOU66akWzHCYU/Jz0QYB/EuAM
-            iIGKAkTruyhtd2TQZ++iXV8p/bK9ls9czG+grM/xokjfgpWnZunFODJfuJHnpCmC
-            8MYNV3/D1nBGzLDucTcu5dh2t/cpAYg7980Nq7xHyodl0cZNcehrMX17oc5Fs3kj
-            m/9COGZo+IpoZoWk8Y9RwnipSyHOualhfDhJ2nOkRSwimjE4rxcoyVhTvcLjh5Tt
-            rYl41uR0z7CV148PoqedyYU7j8kd7+HLKHV+dSx5cOvn1qb7YISv0eIOoNBrzNSC
-            gD7rdv/bHB1sDVyw51MK4kcyImfWPRti8I9l1/MiNHEvjzpOX6KgHre9E3EYsibX
-            vP//NSP/cS4Kf2YbUupWxVAcPxXugRFdEw6Kx7kdB3RB7xmBpxXuFJt0UVMaqC39
-            YbgdQ0n/iapbOP5IMw5aoSZjYQjSOTsO/zbtl5U/EgLGAIJIM6JzHNT3LoxQQNjz
-            XmSK7MHKrTIVA3qc3iiaToYC1EiI1JRF7MzpT85PrH+1woAvqy+bHrCRNKZvIizS
-            5gEn1dYq+RNv1JcOdz4Qwh9BovlGvbqcupDgQvzskIu/SPsKLrk/Pr98DcnyGcZ6
-            Yr2dr/YKLY4Y4HnmsFJV/eLk1ABLyI7ia/k0qbSwjaiA1OIqF20rAA==
-            =KYFm
+            wcFMA9aKBcudqifiAQ//Y1LlDOYvzmyr6U0G3EJdBJhgD248ihQHSGnJ1ekZTOFt
+            cF3HDB021/rF7HZqCmRo0arVzCbJ7DJ2OlLTQHPIsx8LPhpAvG/TGW9oSdoCvtNI
+            9g+9UJNpzKz87gRFxupNg4kb/qOsQQN6iXxkwzyuB+pdwzZxdX1O/6kV/3oLzIv9
+            0hjCkYqthcVKXVht/sVNQHTdG5ec2w6PUtKGY5NerVe8HwzS3HMesCtEN4GlXwWe
+            524psVePd061Gs84VJZahMQrYy5C6K7PT9Wy+tfR0dGytQnaRkQKpYSR51x1Qup9
+            tL1D3D8cxIaHSgSynyz3pj1U4zrC4Lb8fTdFZVjU+oRPYxDBYI+vid9l31/5urEN
+            rouH+pvnf/g1aRVgWtL/3MQLGdaq33ckrSGymUDJ8AKFoU1tjRp8EWaiybPMkVHW
+            gMhpnborfJpjL2eozgqJ/6iLvKbryjPW2uwJY3VYBpJQfd0j/EMnA0GAd1INekJl
+            p/v2OVVd+cYFa0wQKdpPGDqRmGfQhje1LZcrF7s0BiQQGc13JLB2jC8zbRIQFQEE
+            fI8cBTZd3CMihAkhVDYLAndEFcu1KnUyjdWtV8QTnUb48DPKh/lj72CIkROLshd8
+            8pQW7UtD21lMTY85dTDZWKzx0Z0EmXPNHFd/MnlSBFxRG4qmUdvqM5niZpE4E1nS
+            UQFfiUzYvMLnTaGC3jv4Vrri5SYDNmQqbK1/viasjJml0Th+LbXto/F9bi2wHXXE
+            HHOUzFXFerSH6MhLGSJsZYJzosO6vYQvudIdqPQJ/egQAQ==
+            =EgPX
             -----END PGP MESSAGE-----
           fp: 0508677DD04952D06A943D5B4DC4116D360E3276
     encrypted_regex: ^(users|data|stringData|httpHeaderValue1)$
-    version: 3.7.2
+    version: 3.7.3

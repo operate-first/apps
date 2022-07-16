@@ -1,6 +1,8 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
+  annotations:
+    configmap.reloader.stakater.com/reload: "kfp-tekton-config"
   labels:
     app: ml-pipeline
     application-crd-id: kubeflow-pipelines

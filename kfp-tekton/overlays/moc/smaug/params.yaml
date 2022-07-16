@@ -1,7 +1,0 @@
-apiVersion: v1
-data:
-  # Set custom secret to specify minio credentials
-  artifact_secret_name: mlpipeline-minio-artifact-custom
-kind: ConfigMap
-metadata:
-  name: kfp-tekton-params-config

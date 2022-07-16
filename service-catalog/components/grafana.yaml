@@ -5,6 +5,7 @@ metadata:
   description: Dashboard anything. Observe everything
   annotations:
     operate-first.cloud/logo-url: https://raw.githubusercontent.com/grafana/grafana/main/public/img/grafana_icon.svg
+    argocd/app-name: grafana-smaug
   links:
     - url: https://www.operate-first.cloud/apps/content/grafana/README.html
       title: Support path
