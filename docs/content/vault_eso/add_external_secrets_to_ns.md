@@ -19,7 +19,7 @@ There are 2 steps:
 
 The first step only needs to be done once per namespace.
 
-###1. Enable namespace to fetch secrets from vault
+### 1. Enable namespace to fetch secrets from vault
 
 These steps need to be followed only once per namespace:
 
@@ -55,7 +55,7 @@ Then include this directory in  `apps/cluster-scope/overlays/prod/${env}/${clust
 
 Commit your changes and make a PR.
 
-###2. Create External Secret
+### 2. Create External Secret
 
 Refer to [ESO Vault Docs][2] on how to create your secret.
 

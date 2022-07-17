@@ -165,6 +165,5 @@ resources:
 - nodenetworkconfigurationpolicies/vlan-211-nese.yaml
 - objectbucketclaims/openshift-image-registry-bucket.yaml
 - secrets
-- secretstores
-- serviceaccounts
+- secret-mgmt
 - snapshotschedules/schedule.yaml

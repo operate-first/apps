@@ -20,8 +20,7 @@ resources:
   - machineconfigs/50-ipmi-route.yaml
   - configmaps/admin-acks.yaml
   - ingresscontrollers
-  - secretstores
-  - serviceaccounts
+  - secret-mgmt
 generators:
   - secret-generator.yaml
 

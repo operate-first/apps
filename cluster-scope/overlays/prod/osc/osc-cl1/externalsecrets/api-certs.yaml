@@ -8,7 +8,7 @@ metadata:
     argocd.argoproj.io/sync-options: Prune=false
 spec:
   secretStoreRef:
-    name: openshift-config
+    name: opf-vault-store
     kind: SecretStore
   refreshInterval: "1h"
   target:
