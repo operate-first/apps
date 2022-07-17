@@ -1,0 +1,10 @@
+---
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  labels:
+    app: jupyterhub
+  name: jupyterhub-default-groups-config
+data:
+  admin_groups: "aiops-tools-workshop-admins"
+  allowed_groups: "aiops-tools-workshop-attendees"

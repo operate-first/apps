@@ -1,0 +1,74 @@
+---
+apiVersion: kfdef.apps.kubeflow.org/v1
+kind: KfDef
+metadata:
+  name: opendatahub
+spec:
+  applications:
+    - kustomizeConfig:
+        repoRef:
+          name: manifests
+          path: odh-common
+      name: odh-common
+
+    # JupyterHub
+    - kustomizeConfig:
+        overlays: []
+        parameters:
+          - name: notebook_destination
+            value: aiops-tools-workshop
+          - name: s3_endpoint_url
+            value: s3.odh.com
+        repoRef:
+          name: manifests
+          path: jupyterhub/jupyterhub
+      name: jupyterhub
+
+    # Superset
+    - kustomizeConfig:
+        parameters:
+          # Note: The admin username is admin
+          - name: superset_memory_requests
+            value: 8Gi
+          - name: superset_memory_limits
+            value: 16Gi
+          - name: superset_cpu_requests
+            value: '4'
+          - name: superset_cpu_limits
+            value: '6'
+          - name: superset_secret
+            value: superset-custom
+          - name: superset_db_secret
+            value: superset-db-custom
+        repoRef:
+          name: manifests
+          path: superset
+      name: superset
+
+    # Trino
+    - kustomizeConfig:
+        parameters:
+          - name: trino_memory_request
+            value: 8Gi
+          - name: trino_memory_limit
+            value: 16Gi
+          - name: trino_cpu_request
+            value: "4"
+          - name: trino_cpu_limit
+            value: "8"
+        repoRef:
+          name: manifests
+          path: trino
+      name: trino
+
+    # Seldon
+    - kustomizeConfig:
+        repoRef:
+          name: manifests
+          path: odhseldon/cluster
+      name: odhseldon
+
+  repos:
+    - name: manifests
+      uri: "https://github.com/operate-first/odh-manifests/tarball/aiops-tools-workshop-v1.1.2"
+  version: v1.1.2

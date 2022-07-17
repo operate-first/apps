@@ -1,0 +1,15 @@
+apiVersion: external-secrets.io/v1beta1
+kind: ExternalSecret
+metadata:
+    name: postgres-dbs
+spec:
+    dataFrom:
+        - extract:
+              key: moc/smaug/aiops-tools-workshop/postgres-dbs
+    secretStoreRef:
+        kind: SecretStore
+        name: opf-vault-store
+    target:
+        name: postgres-dbs
+        template:
+            engineVersion: v2
