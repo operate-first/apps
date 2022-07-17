@@ -3,6 +3,7 @@ kind: Kustomization
 resources:
   - aiops-tools-workshop
   - democratic-csi
+  - dex
   - kubeflow
   - openshift-config
   - openshift-image-registry
