@@ -1028,7 +1028,8 @@ title="Print to PDF"
 <section id="get-access-to-grafana">
 <h2>Get Access to Grafana<a class="headerlink" href="#get-access-to-grafana" title="Permalink to this headline">#</a></h2>
 <p>Grafana can be accessed at: <a class="reference external" href="https://grafana.operate-first.cloud/">https://grafana.operate-first.cloud/</a></p>
-<p>You will need to be onboarded to access the UI, this can be self serviced, please follow the instructions <a class="reference internal" href="map_groups_to_roles.html"><span class="doc std std-doc">here</span></a> to do so. You will need to belong to an OCP <code class="docutils literal notranslate"><span class="pre">group</span></code> in order to gain access, current list of groups and their belonging users can be found <a class="reference external" href="https://github.com/operate-first/apps/tree/master/cluster-scope/base/user.openshift.io/groups">here</a>. If you do not belong to one, please create one, and then include this group in the <code class="docutils literal notranslate"><span class="pre">smaug</span></code> cluster overlay <a class="reference external" href="https://github.com/operate-first/apps/blob/master/cluster-scope/overlays/prod/moc/smaug/kustomization.yaml">here</a>.</p>
+<p>For Grafana <strong>Viewer</strong> access please add your GitHub handle to: <a class="reference external" href="https://github.com/operate-first/apps/blob/master/cluster-scope/base/user.openshift.io/groups/grafana-viewer/group.yaml">grafana-viewer</a>
+For Grafana <strong>Editor</strong> access please add your GitHub handle to: <a class="reference external" href="https://github.com/operate-first/apps/blob/master/cluster-scope/base/user.openshift.io/groups/grafana-editor/group.yaml">grafana-editor</a></p>
 </section>
 <section id="adding-the-dashboards">
 <h2>Adding the Dashboards<a class="headerlink" href="#adding-the-dashboards" title="Permalink to this headline">#</a></h2>
