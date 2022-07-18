@@ -164,6 +164,5 @@ resources:
 - nodenetworkconfigurationpolicies/vlan-210-nfs.yaml
 - nodenetworkconfigurationpolicies/vlan-211-nese.yaml
 - objectbucketclaims/openshift-image-registry-bucket.yaml
-- secrets
 - secret-mgmt
 - snapshotschedules/schedule.yaml
