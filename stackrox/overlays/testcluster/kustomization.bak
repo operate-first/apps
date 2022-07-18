@@ -2,4 +2,3 @@ bases:
         - ../../base
 patches:
         - pv_none.yaml
-

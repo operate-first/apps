@@ -1,0 +1,1924 @@
+---
+# Source: stackrox-secured-cluster-services/templates/admission-controller-netpol.yaml
+apiVersion: networking.k8s.io/v1
+kind: NetworkPolicy
+metadata:
+  name: admission-control-no-ingress
+  namespace: stackrox
+  labels:
+    app.kubernetes.io/component: admission-control
+    app.kubernetes.io/instance: stackrox-secured-cluster-services
+    app.kubernetes.io/managed-by: Helm
+    app.kubernetes.io/name: stackrox
+    app.kubernetes.io/part-of: stackrox-secured-cluster-services
+    app.kubernetes.io/version: 3.70.0
+    helm.sh/chart: stackrox-secured-cluster-services-70.0.0
+    auto-upgrade.stackrox.io/component: "sensor"
+  annotations:
+    email: support@stackrox.com
+    meta.helm.sh/release-name: stackrox-secured-cluster-services
+    meta.helm.sh/release-namespace: stackrox
+    owner: stackrox
+spec:
+  podSelector:
+    matchLabels:
+      app: admission-control
+  ingress:
+    - ports:
+        - protocol: TCP
+          port: 8443
+  policyTypes:
+    - Ingress
+---
+# Source: stackrox-secured-cluster-services/templates/collector-netpol.yaml
+apiVersion: networking.k8s.io/v1
+kind: NetworkPolicy
+metadata:
+  name: collector-no-ingress
+  namespace: stackrox
+  labels:
+    app.kubernetes.io/component: collector
+    app.kubernetes.io/instance: stackrox-secured-cluster-services
+    app.kubernetes.io/managed-by: Helm
+    app.kubernetes.io/name: stackrox
+    app.kubernetes.io/part-of: stackrox-secured-cluster-services
+    app.kubernetes.io/version: 3.70.0
+    helm.sh/chart: stackrox-secured-cluster-services-70.0.0
+    auto-upgrade.stackrox.io/component: "sensor"
+  annotations:
+    email: support@stackrox.com
+    meta.helm.sh/release-name: stackrox-secured-cluster-services
+    meta.helm.sh/release-namespace: stackrox
+    owner: stackrox
+spec:
+  podSelector:
+    matchLabels:
+      app: collector
+  policyTypes:
+    - Ingress
+---
+# Source: stackrox-secured-cluster-services/templates/sensor-netpol.yaml
+apiVersion: networking.k8s.io/v1
+kind: NetworkPolicy
+metadata:
+  name: sensor
+  namespace: stackrox
+  labels:
+    app.kubernetes.io/component: sensor
+    app.kubernetes.io/instance: stackrox-secured-cluster-services
+    app.kubernetes.io/managed-by: Helm
+    app.kubernetes.io/name: stackrox
+    app.kubernetes.io/part-of: stackrox-secured-cluster-services
+    app.kubernetes.io/version: 3.70.0
+    helm.sh/chart: stackrox-secured-cluster-services-70.0.0
+    auto-upgrade.stackrox.io/component: "sensor"
+  annotations:
+    email: support@stackrox.com
+    meta.helm.sh/release-name: stackrox-secured-cluster-services
+    meta.helm.sh/release-namespace: stackrox
+    owner: stackrox
+spec:
+  ingress:
+  - from:
+      - podSelector:
+          matchLabels:
+            app: collector
+      - podSelector:
+          matchLabels:
+            service: collector
+      - podSelector:
+          matchLabels:
+            app: admission-control
+    ports:
+    - port: 8443
+      protocol: TCP
+  - ports:
+    - port: 9443
+      protocol: TCP
+  podSelector:
+    matchLabels:
+      app: sensor
+  policyTypes:
+    - Ingress
+---
+# Source: stackrox-secured-cluster-services/templates/admission-controller-pod-security.yaml
+apiVersion: policy/v1beta1
+kind: PodSecurityPolicy
+metadata:
+  name: stackrox-admission-control
+  labels:
+    app.kubernetes.io/component: admission-control
+    app.kubernetes.io/instance: stackrox-secured-cluster-services
+    app.kubernetes.io/managed-by: Helm
+    app.kubernetes.io/name: stackrox
+    app.kubernetes.io/part-of: stackrox-secured-cluster-services
+    app.kubernetes.io/version: 3.70.0
+    helm.sh/chart: stackrox-secured-cluster-services-70.0.0
+    auto-upgrade.stackrox.io/component: "sensor"
+  annotations:
+    email: support@stackrox.com
+    meta.helm.sh/release-name: stackrox-secured-cluster-services
+    meta.helm.sh/release-namespace: stackrox
+    owner: stackrox
+spec:
+  privileged: false
+  allowPrivilegeEscalation: false
+  volumes:
+    - 'configMap'
+    - 'emptyDir'
+    - 'secret'
+    - 'downwardAPI'
+  hostNetwork: false
+  hostIPC: false
+  hostPID: false
+  runAsUser:
+    rule: 'MustRunAs'
+    ranges:
+      - min: 4000
+        max: 4000
+  seLinux:
+    rule: 'RunAsAny'
+  supplementalGroups:
+    rule: 'RunAsAny'
+  fsGroup:
+    rule: 'MustRunAs'
+    ranges:
+      - min: 4000
+        max: 4000
+---
+# Source: stackrox-secured-cluster-services/templates/collector-pod-security.yaml
+apiVersion: policy/v1beta1
+kind: PodSecurityPolicy
+metadata:
+  name: stackrox-collector
+  labels:
+    app.kubernetes.io/component: collector
+    app.kubernetes.io/instance: stackrox-secured-cluster-services
+    app.kubernetes.io/managed-by: Helm
+    app.kubernetes.io/name: stackrox
+    app.kubernetes.io/part-of: stackrox-secured-cluster-services
+    app.kubernetes.io/version: 3.70.0
+    helm.sh/chart: stackrox-secured-cluster-services-70.0.0
+    auto-upgrade.stackrox.io/component: "sensor"
+  annotations:
+    email: support@stackrox.com
+    meta.helm.sh/release-name: stackrox-secured-cluster-services
+    meta.helm.sh/release-namespace: stackrox
+    owner: stackrox
+spec:
+  privileged: true
+  allowPrivilegeEscalation: true
+  allowedCapabilities:
+    - '*'
+  volumes:
+    - '*'
+  allowedHostPaths:
+    - pathPrefix: /
+      readOnly: true
+  hostNetwork: false
+  hostIPC: false
+  hostPID: true
+  runAsUser:
+    rule: 'RunAsAny'
+  seLinux:
+    rule: 'RunAsAny'
+  supplementalGroups:
+    rule: 'RunAsAny'
+  fsGroup:
+    rule: 'RunAsAny'
+---
+# Source: stackrox-secured-cluster-services/templates/sensor-pod-security.yaml
+apiVersion: policy/v1beta1
+kind: PodSecurityPolicy
+metadata:
+  name: stackrox-sensor
+  labels:
+    app.kubernetes.io/component: sensor
+    app.kubernetes.io/instance: stackrox-secured-cluster-services
+    app.kubernetes.io/managed-by: Helm
+    app.kubernetes.io/name: stackrox
+    app.kubernetes.io/part-of: stackrox-secured-cluster-services
+    app.kubernetes.io/version: 3.70.0
+    helm.sh/chart: stackrox-secured-cluster-services-70.0.0
+    auto-upgrade.stackrox.io/component: "sensor"
+  annotations:
+    email: support@stackrox.com
+    meta.helm.sh/release-name: stackrox-secured-cluster-services
+    meta.helm.sh/release-namespace: stackrox
+    owner: stackrox
+spec:
+  privileged: false
+  allowPrivilegeEscalation: false
+  volumes:
+    - 'configMap'
+    - 'emptyDir'
+    - 'projected'
+    - 'secret'
+    - 'downwardAPI'
+    - 'persistentVolumeClaim'
+    - 'hostPath'
+  hostNetwork: false
+  hostIPC: false
+  hostPID: false
+  runAsUser:
+    rule: 'MustRunAs'
+    ranges:
+      - min: 4000
+        max: 4000
+  seLinux:
+    rule: 'RunAsAny'
+  supplementalGroups:
+    rule: 'RunAsAny'
+  fsGroup:
+    rule: 'MustRunAs'
+    ranges:
+      - min: 4000
+        max: 4000
+---
+# Source: stackrox-secured-cluster-services/templates/admission-controller-rbac.yaml
+apiVersion: v1
+kind: ServiceAccount
+metadata:
+  name: admission-control
+  namespace: stackrox
+  labels:
+    app.kubernetes.io/component: admission-control
+    app.kubernetes.io/instance: stackrox-secured-cluster-services
+    app.kubernetes.io/managed-by: Helm
+    app.kubernetes.io/name: stackrox
+    app.kubernetes.io/part-of: stackrox-secured-cluster-services
+    app.kubernetes.io/version: 3.70.0
+    helm.sh/chart: stackrox-secured-cluster-services-70.0.0
+    auto-upgrade.stackrox.io/component: "sensor"
+  annotations:
+    email: support@stackrox.com
+    meta.helm.sh/release-name: stackrox-secured-cluster-services
+    meta.helm.sh/release-namespace: stackrox
+    owner: stackrox
+imagePullSecrets:
+- name: "secured-cluster-services-main"
+- name: "stackrox"
+---
+# Source: stackrox-secured-cluster-services/templates/collector-rbac.yaml
+apiVersion: v1
+kind: ServiceAccount
+metadata:
+  name: collector
+  namespace: stackrox
+  labels:
+    app.kubernetes.io/component: collector
+    app.kubernetes.io/instance: stackrox-secured-cluster-services
+    app.kubernetes.io/managed-by: Helm
+    app.kubernetes.io/name: stackrox
+    app.kubernetes.io/part-of: stackrox-secured-cluster-services
+    app.kubernetes.io/version: 3.70.0
+    helm.sh/chart: stackrox-secured-cluster-services-70.0.0
+    auto-upgrade.stackrox.io/component: "sensor"
+  annotations:
+    email: support@stackrox.com
+    meta.helm.sh/release-name: stackrox-secured-cluster-services
+    meta.helm.sh/release-namespace: stackrox
+    owner: stackrox
+imagePullSecrets:
+- name: "collector-stackrox"
+- name: "secured-cluster-services-collector"
+- name: "stackrox"
+- name: "secured-cluster-services-main"
+---
+# Source: stackrox-secured-cluster-services/templates/sensor-rbac.yaml
+apiVersion: v1
+kind: ServiceAccount
+metadata:
+  name: sensor
+  namespace: stackrox
+  labels:
+    app.kubernetes.io/component: sensor
+    app.kubernetes.io/instance: stackrox-secured-cluster-services
+    app.kubernetes.io/managed-by: Helm
+    app.kubernetes.io/name: stackrox
+    app.kubernetes.io/part-of: stackrox-secured-cluster-services
+    app.kubernetes.io/version: 3.70.0
+    helm.sh/chart: stackrox-secured-cluster-services-70.0.0
+    auto-upgrade.stackrox.io/component: "sensor"
+  annotations:
+    email: support@stackrox.com
+    meta.helm.sh/release-name: stackrox-secured-cluster-services
+    meta.helm.sh/release-namespace: stackrox
+    owner: stackrox
+imagePullSecrets:
+- name: "secured-cluster-services-main"
+- name: "stackrox"
+---
+# Source: stackrox-secured-cluster-services/templates/cluster-config.yaml
+apiVersion: v1
+kind: Secret
+metadata:
+  name: helm-cluster-config
+  namespace: stackrox
+  labels:
+    app.kubernetes.io/instance: stackrox-secured-cluster-services
+    app.kubernetes.io/managed-by: Helm
+    app.kubernetes.io/name: stackrox
+    app.kubernetes.io/part-of: stackrox-secured-cluster-services
+    app.kubernetes.io/version: 3.70.0
+    helm.sh/chart: stackrox-secured-cluster-services-70.0.0
+  annotations:
+    email: support@stackrox.com
+    meta.helm.sh/release-name: stackrox-secured-cluster-services
+    meta.helm.sh/release-namespace: stackrox
+    owner: stackrox
+stringData:
+  config.yaml: |
+    
+    clusterName: secured
+    managedBy: MANAGER_TYPE_HELM_CHART
+    notHelmManaged: false
+    clusterConfig:
+      staticConfig:
+        type: KUBERNETES_CLUSTER
+        mainImage: quay.io/stackrox-io/main
+        collectorImage: quay.io/stackrox-io/collector-slim
+        centralApiEndpoint: central.stackrox.svc:443
+        collectionMethod: KERNEL_MODULE
+        admissionController: false
+        admissionControllerUpdates: false
+        admissionControllerEvents: true
+        tolerationsConfig:
+          disabled: false
+        slimCollector: true
+      dynamicConfig:
+        disableAuditLogs: true
+        admissionControllerConfig:
+          enabled: false
+          timeoutSeconds: 20
+          scanInline: false
+          disableBypass: false
+          enforceOnUpdates: false
+        registryOverride: 
+      configFingerprint: 089ec077690f384c5473c69097a80464e27c2edcd1a601138dab445f9e26b1c5
+      clusterLabels:
+        null
+---
+# Source: stackrox-secured-cluster-services/templates/service-ca.yaml
+apiVersion: v1
+kind: Secret
+metadata:
+  name: service-ca
+  namespace: stackrox
+  labels:
+    app.kubernetes.io/instance: stackrox-secured-cluster-services
+    app.kubernetes.io/managed-by: Helm
+    app.kubernetes.io/name: stackrox
+    app.kubernetes.io/part-of: stackrox-secured-cluster-services
+    app.kubernetes.io/version: 3.70.0
+    helm.sh/chart: stackrox-secured-cluster-services-70.0.0
+    auto-upgrade.stackrox.io/component: sensor
+  annotations:
+    email: support@stackrox.com
+    meta.helm.sh/release-name: stackrox-secured-cluster-services
+    meta.helm.sh/release-namespace: stackrox
+    owner: stackrox
+type: Opaque
+stringData:
+  ca.pem: |
+    -----BEGIN CERTIFICATE-----
+    MIIDPTCCAiWgAwIBAgIQG1xBdsu9sw126AS4/tf8eTANBgkqhkiG9w0BAQsFADAp
+    MScwJQYDVQQDEx5TdGFja1JveCBDZXJ0aWZpY2F0ZSBBdXRob3JpdHkwHhcNMjIw
+    NzEzMTg1MDI2WhcNMjcwNzEyMTg1MDI2WjApMScwJQYDVQQDEx5TdGFja1JveCBD
+    ZXJ0aWZpY2F0ZSBBdXRob3JpdHkwggEiMA0GCSqGSIb3DQEBAQUAA4IBDwAwggEK
+    AoIBAQDGa+ZiOiyJyVBQbo7LLvCnXuuE+KQUIE93C/LkGCsyjFIWiSD4NYIZG+g1
+    IjVZlAy9n74YUlZJGzPGhzdQL7zh4GiBDec5IAfIxCbtzdGj3OkTeeKzbBSz9oQH
+    Wo3kg8WTeES+SbxounF9EAxT4GPczijdQsHKcDTVCBWWeYIy5xLg8+PDn1aRymEp
+    OHCe3CNgdbG+K8ay8k6xO6JNwktREv4x6UD4hUqwfK0FKhKe3b/bBWJ0Mz6xP4OU
+    XNXvyHzpByGwARU7Ii5BX6jEqJoYmCV98gYQ4HlGtL+nJtQyzYF7QHuhs/0ngRhy
+    K8CKlaw8chqvuF86Od21BWJTNl9LAgMBAAGjYTBfMA4GA1UdDwEB/wQEAwICpDAd
+    BgNVHSUEFjAUBggrBgEFBQcDAQYIKwYBBQUHAwIwDwYDVR0TAQH/BAUwAwEB/zAd
+    BgNVHQ4EFgQU36JXsm4Prfj8dyzOuau2xtOZMPcwDQYJKoZIhvcNAQELBQADggEB
+    AHl8ceSg6oMHDJaqRX5cLaJDrxRDVH2fGdt5Pi7yXRpMPjnvYBdWMat3I+B346iy
+    cZbg5L7NdcdiUGI75vEp7YexirchhKxDr9kouEfTfVtL3FRVh5Akzzrac0TdUoIK
+    T3Axb79FDrAfH9snxdn51jLk6sGvJDIQrgkDhkFLfqsw4IsgtiHb33Xo6XmdVHRo
+    0yIIvMkjCiQ2i1XKvAvJzMMTix8tPF0qHR2xY24H480IIo8/ROyiTcptmbfRjF4t
+    +wzlZPbQ2F7Pd1JX6AQaEKNrTNYroOHLOUQ9mTuHC7oMU32Op29yWLselaL5UsXP
+    q/U5bkW4R71sKOoRnrx9Yr4=
+    -----END CERTIFICATE-----
+---
+# Source: stackrox-secured-cluster-services/templates/admission-controller-pod-security.yaml
+kind: ClusterRole
+apiVersion: rbac.authorization.k8s.io/v1
+metadata:
+  name: stackrox-admission-control-psp
+  labels:
+    app.kubernetes.io/component: admission-control
+    app.kubernetes.io/instance: stackrox-secured-cluster-services
+    app.kubernetes.io/managed-by: Helm
+    app.kubernetes.io/name: stackrox
+    app.kubernetes.io/part-of: stackrox-secured-cluster-services
+    app.kubernetes.io/version: 3.70.0
+    helm.sh/chart: stackrox-secured-cluster-services-70.0.0
+    auto-upgrade.stackrox.io/component: "sensor"
+  annotations:
+    email: support@stackrox.com
+    meta.helm.sh/release-name: stackrox-secured-cluster-services
+    meta.helm.sh/release-namespace: stackrox
+    owner: stackrox
+rules:
+  - apiGroups:
+      - policy
+    resources:
+      - podsecuritypolicies
+    resourceNames:
+      - stackrox-admission-control
+    verbs:
+      - use
+---
+# Source: stackrox-secured-cluster-services/templates/collector-pod-security.yaml
+kind: ClusterRole
+apiVersion: rbac.authorization.k8s.io/v1
+metadata:
+  name: stackrox-collector-psp
+  labels:
+    app.kubernetes.io/component: collector
+    app.kubernetes.io/instance: stackrox-secured-cluster-services
+    app.kubernetes.io/managed-by: Helm
+    app.kubernetes.io/name: stackrox
+    app.kubernetes.io/part-of: stackrox-secured-cluster-services
+    app.kubernetes.io/version: 3.70.0
+    helm.sh/chart: stackrox-secured-cluster-services-70.0.0
+    auto-upgrade.stackrox.io/component: "sensor"
+  annotations:
+    email: support@stackrox.com
+    meta.helm.sh/release-name: stackrox-secured-cluster-services
+    meta.helm.sh/release-namespace: stackrox
+    owner: stackrox
+rules:
+  - apiGroups:
+      - policy
+    resources:
+      - podsecuritypolicies
+    resourceNames:
+      - stackrox-collector
+    verbs:
+      - use
+---
+# Source: stackrox-secured-cluster-services/templates/sensor-pod-security.yaml
+kind: ClusterRole
+apiVersion: rbac.authorization.k8s.io/v1
+metadata:
+  name: stackrox-sensor-psp
+  labels:
+    app.kubernetes.io/component: sensor
+    app.kubernetes.io/instance: stackrox-secured-cluster-services
+    app.kubernetes.io/managed-by: Helm
+    app.kubernetes.io/name: stackrox
+    app.kubernetes.io/part-of: stackrox-secured-cluster-services
+    app.kubernetes.io/version: 3.70.0
+    helm.sh/chart: stackrox-secured-cluster-services-70.0.0
+    auto-upgrade.stackrox.io/component: "sensor"
+  annotations:
+    email: support@stackrox.com
+    meta.helm.sh/release-name: stackrox-secured-cluster-services
+    meta.helm.sh/release-namespace: stackrox
+    owner: stackrox
+rules:
+  - apiGroups:
+      - policy
+    resources:
+      - podsecuritypolicies
+    resourceNames:
+      - stackrox-sensor
+    verbs:
+      - use
+---
+# Source: stackrox-secured-cluster-services/templates/sensor-rbac.yaml
+kind: ClusterRole
+apiVersion: rbac.authorization.k8s.io/v1
+metadata:
+  name: stackrox:view-cluster
+  labels:
+    app.kubernetes.io/component: sensor
+    app.kubernetes.io/instance: stackrox-secured-cluster-services
+    app.kubernetes.io/managed-by: Helm
+    app.kubernetes.io/name: stackrox
+    app.kubernetes.io/part-of: stackrox-secured-cluster-services
+    app.kubernetes.io/version: 3.70.0
+    helm.sh/chart: stackrox-secured-cluster-services-70.0.0
+    auto-upgrade.stackrox.io/component: "sensor"
+  annotations:
+    email: support@stackrox.com
+    meta.helm.sh/release-name: stackrox-secured-cluster-services
+    meta.helm.sh/release-namespace: stackrox
+    owner: stackrox
+rules:
+- apiGroups:
+  - '*'
+  resources:
+  - '*'
+  verbs:
+  - get
+  - watch
+  - list
+---
+# Source: stackrox-secured-cluster-services/templates/sensor-rbac.yaml
+kind: ClusterRole
+apiVersion: rbac.authorization.k8s.io/v1
+metadata:
+  name: stackrox:edit-workloads
+  labels:
+    app.kubernetes.io/component: sensor
+    app.kubernetes.io/instance: stackrox-secured-cluster-services
+    app.kubernetes.io/managed-by: Helm
+    app.kubernetes.io/name: stackrox
+    app.kubernetes.io/part-of: stackrox-secured-cluster-services
+    app.kubernetes.io/version: 3.70.0
+    helm.sh/chart: stackrox-secured-cluster-services-70.0.0
+    auto-upgrade.stackrox.io/component: "sensor"
+  annotations:
+    email: support@stackrox.com
+    meta.helm.sh/release-name: stackrox-secured-cluster-services
+    meta.helm.sh/release-namespace: stackrox
+    owner: stackrox
+rules:
+- resources:
+  - cronjobs
+  - jobs
+  - daemonsets
+  - deployments
+  - deployments/scale
+  - deploymentconfigs
+  - pods
+  - replicasets
+  - replicationcontrollers
+  - services
+  - statefulsets
+  apiGroups:
+  - '*'
+  verbs:
+  - update
+  - patch
+  - delete
+---
+# Source: stackrox-secured-cluster-services/templates/sensor-rbac.yaml
+kind: ClusterRole
+apiVersion: rbac.authorization.k8s.io/v1
+metadata:
+  name: stackrox:network-policies
+  labels:
+    app.kubernetes.io/component: sensor
+    app.kubernetes.io/instance: stackrox-secured-cluster-services
+    app.kubernetes.io/managed-by: Helm
+    app.kubernetes.io/name: stackrox
+    app.kubernetes.io/part-of: stackrox-secured-cluster-services
+    app.kubernetes.io/version: 3.70.0
+    helm.sh/chart: stackrox-secured-cluster-services-70.0.0
+    auto-upgrade.stackrox.io/component: "sensor"
+  annotations:
+    email: support@stackrox.com
+    meta.helm.sh/release-name: stackrox-secured-cluster-services
+    meta.helm.sh/release-namespace: stackrox
+    owner: stackrox
+rules:
+- resources:
+  - 'networkpolicies'
+  apiGroups:
+  - networking.k8s.io
+  - extensions
+  verbs:
+  - get
+  - watch
+  - list
+  - create
+  - update
+  - patch
+  - delete
+---
+# Source: stackrox-secured-cluster-services/templates/sensor-rbac.yaml
+kind: ClusterRole
+apiVersion: rbac.authorization.k8s.io/v1
+metadata:
+  name: stackrox:update-namespaces
+  labels:
+    app.kubernetes.io/component: sensor
+    app.kubernetes.io/instance: stackrox-secured-cluster-services
+    app.kubernetes.io/managed-by: Helm
+    app.kubernetes.io/name: stackrox
+    app.kubernetes.io/part-of: stackrox-secured-cluster-services
+    app.kubernetes.io/version: 3.70.0
+    helm.sh/chart: stackrox-secured-cluster-services-70.0.0
+    auto-upgrade.stackrox.io/component: "sensor"
+  annotations:
+    email: support@stackrox.com
+    meta.helm.sh/release-name: stackrox-secured-cluster-services
+    meta.helm.sh/release-namespace: stackrox
+    owner: stackrox
+rules:
+- resources:
+  - namespaces
+  apiGroups: [""]
+  verbs:
+  - update
+---
+# Source: stackrox-secured-cluster-services/templates/sensor-rbac.yaml
+kind: ClusterRole
+apiVersion: rbac.authorization.k8s.io/v1
+metadata:
+  name: stackrox:create-events
+  labels:
+    app.kubernetes.io/component: sensor
+    app.kubernetes.io/instance: stackrox-secured-cluster-services
+    app.kubernetes.io/managed-by: Helm
+    app.kubernetes.io/name: stackrox
+    app.kubernetes.io/part-of: stackrox-secured-cluster-services
+    app.kubernetes.io/version: 3.70.0
+    helm.sh/chart: stackrox-secured-cluster-services-70.0.0
+    auto-upgrade.stackrox.io/component: "sensor"
+  annotations:
+    email: support@stackrox.com
+    meta.helm.sh/release-name: stackrox-secured-cluster-services
+    meta.helm.sh/release-namespace: stackrox
+    owner: stackrox
+rules:
+- resources:
+  - events
+  apiGroups: [""]
+  verbs:
+  - create
+  - patch
+  - list
+---
+# Source: stackrox-secured-cluster-services/templates/sensor-rbac.yaml
+kind: ClusterRole
+apiVersion: rbac.authorization.k8s.io/v1
+metadata:
+  name: stackrox:review-tokens
+  labels:
+    app.kubernetes.io/component: sensor
+    app.kubernetes.io/instance: stackrox-secured-cluster-services
+    app.kubernetes.io/managed-by: Helm
+    app.kubernetes.io/name: stackrox
+    app.kubernetes.io/part-of: stackrox-secured-cluster-services
+    app.kubernetes.io/version: 3.70.0
+    helm.sh/chart: stackrox-secured-cluster-services-70.0.0
+    auto-upgrade.stackrox.io/component: "sensor"
+  annotations:
+    email: support@stackrox.com
+    meta.helm.sh/release-name: stackrox-secured-cluster-services
+    meta.helm.sh/release-namespace: stackrox
+    owner: stackrox
+rules:
+- resources:
+  - tokenreviews
+  apiGroups: ["authentication.k8s.io"]
+  verbs:
+  - create
+---
+# Source: stackrox-secured-cluster-services/templates/sensor-rbac.yaml
+kind: ClusterRoleBinding
+apiVersion: rbac.authorization.k8s.io/v1
+metadata:
+  name: stackrox:monitor-cluster
+  labels:
+    app.kubernetes.io/component: sensor
+    app.kubernetes.io/instance: stackrox-secured-cluster-services
+    app.kubernetes.io/managed-by: Helm
+    app.kubernetes.io/name: stackrox
+    app.kubernetes.io/part-of: stackrox-secured-cluster-services
+    app.kubernetes.io/version: 3.70.0
+    helm.sh/chart: stackrox-secured-cluster-services-70.0.0
+    auto-upgrade.stackrox.io/component: "sensor"
+  annotations:
+    email: support@stackrox.com
+    meta.helm.sh/release-name: stackrox-secured-cluster-services
+    meta.helm.sh/release-namespace: stackrox
+    owner: stackrox
+subjects:
+- kind: ServiceAccount
+  name: sensor
+  namespace: stackrox
+roleRef:
+  kind: ClusterRole
+  name: stackrox:view-cluster
+  apiGroup: rbac.authorization.k8s.io
+---
+# Source: stackrox-secured-cluster-services/templates/sensor-rbac.yaml
+kind: ClusterRoleBinding
+apiVersion: rbac.authorization.k8s.io/v1
+metadata:
+  name: stackrox:enforce-policies
+  labels:
+    app.kubernetes.io/component: sensor
+    app.kubernetes.io/instance: stackrox-secured-cluster-services
+    app.kubernetes.io/managed-by: Helm
+    app.kubernetes.io/name: stackrox
+    app.kubernetes.io/part-of: stackrox-secured-cluster-services
+    app.kubernetes.io/version: 3.70.0
+    helm.sh/chart: stackrox-secured-cluster-services-70.0.0
+    auto-upgrade.stackrox.io/component: "sensor"
+  annotations:
+    email: support@stackrox.com
+    meta.helm.sh/release-name: stackrox-secured-cluster-services
+    meta.helm.sh/release-namespace: stackrox
+    owner: stackrox
+subjects:
+- kind: ServiceAccount
+  name: sensor
+  namespace: stackrox
+roleRef:
+  kind: ClusterRole
+  name: stackrox:edit-workloads
+  apiGroup: rbac.authorization.k8s.io
+---
+# Source: stackrox-secured-cluster-services/templates/sensor-rbac.yaml
+kind: ClusterRoleBinding
+apiVersion: rbac.authorization.k8s.io/v1
+metadata:
+  name: stackrox:network-policies-binding
+  labels:
+    app.kubernetes.io/component: sensor
+    app.kubernetes.io/instance: stackrox-secured-cluster-services
+    app.kubernetes.io/managed-by: Helm
+    app.kubernetes.io/name: stackrox
+    app.kubernetes.io/part-of: stackrox-secured-cluster-services
+    app.kubernetes.io/version: 3.70.0
+    helm.sh/chart: stackrox-secured-cluster-services-70.0.0
+    auto-upgrade.stackrox.io/component: "sensor"
+  annotations:
+    email: support@stackrox.com
+    meta.helm.sh/release-name: stackrox-secured-cluster-services
+    meta.helm.sh/release-namespace: stackrox
+    owner: stackrox
+subjects:
+- kind: ServiceAccount
+  name: sensor
+  namespace: stackrox
+roleRef:
+  kind: ClusterRole
+  name: stackrox:network-policies
+  apiGroup: rbac.authorization.k8s.io
+---
+# Source: stackrox-secured-cluster-services/templates/sensor-rbac.yaml
+kind: ClusterRoleBinding
+apiVersion: rbac.authorization.k8s.io/v1
+metadata:
+  name: stackrox:update-namespaces-binding
+  labels:
+    app.kubernetes.io/component: sensor
+    app.kubernetes.io/instance: stackrox-secured-cluster-services
+    app.kubernetes.io/managed-by: Helm
+    app.kubernetes.io/name: stackrox
+    app.kubernetes.io/part-of: stackrox-secured-cluster-services
+    app.kubernetes.io/version: 3.70.0
+    helm.sh/chart: stackrox-secured-cluster-services-70.0.0
+    auto-upgrade.stackrox.io/component: "sensor"
+  annotations:
+    email: support@stackrox.com
+    meta.helm.sh/release-name: stackrox-secured-cluster-services
+    meta.helm.sh/release-namespace: stackrox
+    owner: stackrox
+subjects:
+- kind: ServiceAccount
+  name: sensor
+  namespace: stackrox
+roleRef:
+  kind: ClusterRole
+  name: stackrox:update-namespaces
+  apiGroup: rbac.authorization.k8s.io
+---
+# Source: stackrox-secured-cluster-services/templates/sensor-rbac.yaml
+kind: ClusterRoleBinding
+apiVersion: rbac.authorization.k8s.io/v1
+metadata:
+  name: stackrox:create-events-binding
+  labels:
+    app.kubernetes.io/component: sensor
+    app.kubernetes.io/instance: stackrox-secured-cluster-services
+    app.kubernetes.io/managed-by: Helm
+    app.kubernetes.io/name: stackrox
+    app.kubernetes.io/part-of: stackrox-secured-cluster-services
+    app.kubernetes.io/version: 3.70.0
+    helm.sh/chart: stackrox-secured-cluster-services-70.0.0
+    auto-upgrade.stackrox.io/component: "sensor"
+  annotations:
+    email: support@stackrox.com
+    meta.helm.sh/release-name: stackrox-secured-cluster-services
+    meta.helm.sh/release-namespace: stackrox
+    owner: stackrox
+subjects:
+- kind: ServiceAccount
+  name: sensor
+  namespace: stackrox
+roleRef:
+  kind: ClusterRole
+  name: stackrox:create-events
+  apiGroup: rbac.authorization.k8s.io
+---
+# Source: stackrox-secured-cluster-services/templates/sensor-rbac.yaml
+kind: ClusterRoleBinding
+apiVersion: rbac.authorization.k8s.io/v1
+metadata:
+  name: stackrox:review-tokens-binding
+  labels:
+    app.kubernetes.io/component: sensor
+    app.kubernetes.io/instance: stackrox-secured-cluster-services
+    app.kubernetes.io/managed-by: Helm
+    app.kubernetes.io/name: stackrox
+    app.kubernetes.io/part-of: stackrox-secured-cluster-services
+    app.kubernetes.io/version: 3.70.0
+    helm.sh/chart: stackrox-secured-cluster-services-70.0.0
+    auto-upgrade.stackrox.io/component: "sensor"
+  annotations:
+    email: support@stackrox.com
+    meta.helm.sh/release-name: stackrox-secured-cluster-services
+    meta.helm.sh/release-namespace: stackrox
+    owner: stackrox
+subjects:
+- kind: ServiceAccount
+  name: sensor
+  namespace: stackrox
+roleRef:
+  kind: ClusterRole
+  name: stackrox:review-tokens
+  apiGroup: rbac.authorization.k8s.io
+---
+# Source: stackrox-secured-cluster-services/templates/admission-controller-rbac.yaml
+kind: Role
+apiVersion: rbac.authorization.k8s.io/v1
+metadata:
+  name: watch-config
+  namespace: stackrox
+  labels:
+    app.kubernetes.io/component: admission-control
+    app.kubernetes.io/instance: stackrox-secured-cluster-services
+    app.kubernetes.io/managed-by: Helm
+    app.kubernetes.io/name: stackrox
+    app.kubernetes.io/part-of: stackrox-secured-cluster-services
+    app.kubernetes.io/version: 3.70.0
+    helm.sh/chart: stackrox-secured-cluster-services-70.0.0
+    auto-upgrade.stackrox.io/component: "sensor"
+  annotations:
+    email: support@stackrox.com
+    meta.helm.sh/release-name: stackrox-secured-cluster-services
+    meta.helm.sh/release-namespace: stackrox
+    owner: stackrox
+rules:
+  - apiGroups: ['']
+    resources: ['configmaps']
+    verbs: ['get', 'list', 'watch']
+---
+# Source: stackrox-secured-cluster-services/templates/sensor-rbac.yaml
+kind: Role
+apiVersion: rbac.authorization.k8s.io/v1
+metadata:
+  name: edit
+  namespace: stackrox
+  labels:
+    app.kubernetes.io/component: sensor
+    app.kubernetes.io/instance: stackrox-secured-cluster-services
+    app.kubernetes.io/managed-by: Helm
+    app.kubernetes.io/name: stackrox
+    app.kubernetes.io/part-of: stackrox-secured-cluster-services
+    app.kubernetes.io/version: 3.70.0
+    helm.sh/chart: stackrox-secured-cluster-services-70.0.0
+    auto-upgrade.stackrox.io/component: "sensor"
+  annotations:
+    email: support@stackrox.com
+    meta.helm.sh/release-name: stackrox-secured-cluster-services
+    meta.helm.sh/release-namespace: stackrox
+    owner: stackrox
+rules:
+- apiGroups:
+  - '*'
+  resources:
+  - '*'
+  verbs:
+  - '*'
+---
+# Source: stackrox-secured-cluster-services/templates/admission-controller-pod-security.yaml
+apiVersion: rbac.authorization.k8s.io/v1
+kind: RoleBinding
+metadata:
+  name: stackrox-admission-control-psp
+  namespace: stackrox
+  labels:
+    app.kubernetes.io/component: admission-control
+    app.kubernetes.io/instance: stackrox-secured-cluster-services
+    app.kubernetes.io/managed-by: Helm
+    app.kubernetes.io/name: stackrox
+    app.kubernetes.io/part-of: stackrox-secured-cluster-services
+    app.kubernetes.io/version: 3.70.0
+    helm.sh/chart: stackrox-secured-cluster-services-70.0.0
+    auto-upgrade.stackrox.io/component: "sensor"
+  annotations:
+    email: support@stackrox.com
+    meta.helm.sh/release-name: stackrox-secured-cluster-services
+    meta.helm.sh/release-namespace: stackrox
+    owner: stackrox
+roleRef:
+  apiGroup: rbac.authorization.k8s.io
+  kind: ClusterRole
+  name: stackrox-admission-control-psp
+subjects:
+  - kind: ServiceAccount
+    name: admission-control
+    namespace: stackrox
+---
+# Source: stackrox-secured-cluster-services/templates/admission-controller-rbac.yaml
+kind: RoleBinding
+apiVersion: rbac.authorization.k8s.io/v1
+metadata:
+  name: admission-control-watch-config
+  namespace: stackrox
+  labels:
+    app.kubernetes.io/component: admission-control
+    app.kubernetes.io/instance: stackrox-secured-cluster-services
+    app.kubernetes.io/managed-by: Helm
+    app.kubernetes.io/name: stackrox
+    app.kubernetes.io/part-of: stackrox-secured-cluster-services
+    app.kubernetes.io/version: 3.70.0
+    helm.sh/chart: stackrox-secured-cluster-services-70.0.0
+    auto-upgrade.stackrox.io/component: "sensor"
+  annotations:
+    email: support@stackrox.com
+    meta.helm.sh/release-name: stackrox-secured-cluster-services
+    meta.helm.sh/release-namespace: stackrox
+    owner: stackrox
+subjects:
+  - kind: ServiceAccount
+    name: admission-control
+    namespace: stackrox
+roleRef:
+  kind: Role
+  name: watch-config
+  apiGroup: rbac.authorization.k8s.io
+---
+# Source: stackrox-secured-cluster-services/templates/collector-pod-security.yaml
+apiVersion: rbac.authorization.k8s.io/v1
+kind: RoleBinding
+metadata:
+  name: stackrox-collector-psp
+  namespace: stackrox
+  labels:
+    app.kubernetes.io/component: collector
+    app.kubernetes.io/instance: stackrox-secured-cluster-services
+    app.kubernetes.io/managed-by: Helm
+    app.kubernetes.io/name: stackrox
+    app.kubernetes.io/part-of: stackrox-secured-cluster-services
+    app.kubernetes.io/version: 3.70.0
+    helm.sh/chart: stackrox-secured-cluster-services-70.0.0
+    auto-upgrade.stackrox.io/component: "sensor"
+  annotations:
+    email: support@stackrox.com
+    meta.helm.sh/release-name: stackrox-secured-cluster-services
+    meta.helm.sh/release-namespace: stackrox
+    owner: stackrox
+roleRef:
+  apiGroup: rbac.authorization.k8s.io
+  kind: ClusterRole
+  name: stackrox-collector-psp
+subjects:
+  - kind: ServiceAccount
+    name: collector
+    namespace: stackrox
+---
+# Source: stackrox-secured-cluster-services/templates/sensor-pod-security.yaml
+apiVersion: rbac.authorization.k8s.io/v1
+kind: RoleBinding
+metadata:
+  name: stackrox-sensor-psp
+  namespace: stackrox
+  labels:
+    app.kubernetes.io/component: sensor
+    app.kubernetes.io/instance: stackrox-secured-cluster-services
+    app.kubernetes.io/managed-by: Helm
+    app.kubernetes.io/name: stackrox
+    app.kubernetes.io/part-of: stackrox-secured-cluster-services
+    app.kubernetes.io/version: 3.70.0
+    helm.sh/chart: stackrox-secured-cluster-services-70.0.0
+    auto-upgrade.stackrox.io/component: "sensor"
+  annotations:
+    email: support@stackrox.com
+    meta.helm.sh/release-name: stackrox-secured-cluster-services
+    meta.helm.sh/release-namespace: stackrox
+    owner: stackrox
+roleRef:
+  apiGroup: rbac.authorization.k8s.io
+  kind: ClusterRole
+  name: stackrox-sensor-psp
+subjects:
+  - kind: ServiceAccount
+    name: sensor
+    namespace: stackrox
+  - kind: ServiceAccount
+    name: sensor-upgrader
+    namespace: stackrox
+---
+# Source: stackrox-secured-cluster-services/templates/sensor-rbac.yaml
+kind: RoleBinding
+apiVersion: rbac.authorization.k8s.io/v1
+metadata:
+  name: manage-namespace
+  namespace: stackrox
+  labels:
+    app.kubernetes.io/component: sensor
+    app.kubernetes.io/instance: stackrox-secured-cluster-services
+    app.kubernetes.io/managed-by: Helm
+    app.kubernetes.io/name: stackrox
+    app.kubernetes.io/part-of: stackrox-secured-cluster-services
+    app.kubernetes.io/version: 3.70.0
+    helm.sh/chart: stackrox-secured-cluster-services-70.0.0
+    auto-upgrade.stackrox.io/component: "sensor"
+  annotations:
+    email: support@stackrox.com
+    meta.helm.sh/release-name: stackrox-secured-cluster-services
+    meta.helm.sh/release-namespace: stackrox
+    owner: stackrox
+subjects:
+- kind: ServiceAccount
+  name: sensor
+  namespace: stackrox
+roleRef:
+  kind: Role
+  name: edit
+  apiGroup: rbac.authorization.k8s.io
+---
+# Source: stackrox-secured-cluster-services/templates/admission-controller.yaml
+apiVersion: v1
+kind: Service
+metadata:
+  name: admission-control
+  namespace: stackrox
+  labels:
+    app.kubernetes.io/component: admission-control
+    app.kubernetes.io/instance: stackrox-secured-cluster-services
+    app.kubernetes.io/managed-by: Helm
+    app.kubernetes.io/name: stackrox
+    app.kubernetes.io/part-of: stackrox-secured-cluster-services
+    app.kubernetes.io/version: 3.70.0
+    helm.sh/chart: stackrox-secured-cluster-services-70.0.0
+    auto-upgrade.stackrox.io/component: "sensor"
+  annotations:
+    email: support@stackrox.com
+    meta.helm.sh/release-name: stackrox-secured-cluster-services
+    meta.helm.sh/release-namespace: stackrox
+    owner: stackrox
+spec:
+  ports:
+    - name: https
+      port: 443
+      targetPort: webhook
+      protocol: TCP
+  selector:
+    app: admission-control
+  type: ClusterIP
+  sessionAffinity: None
+---
+# Source: stackrox-secured-cluster-services/templates/sensor.yaml
+apiVersion: v1
+kind: Service
+metadata:
+  name: sensor
+  namespace: stackrox
+  labels:
+    app.kubernetes.io/component: sensor
+    app.kubernetes.io/instance: stackrox-secured-cluster-services
+    app.kubernetes.io/managed-by: Helm
+    app.kubernetes.io/name: stackrox
+    app.kubernetes.io/part-of: stackrox-secured-cluster-services
+    app.kubernetes.io/version: 3.70.0
+    helm.sh/chart: stackrox-secured-cluster-services-70.0.0
+    auto-upgrade.stackrox.io/component: "sensor"
+  annotations:
+    email: support@stackrox.com
+    meta.helm.sh/release-name: stackrox-secured-cluster-services
+    meta.helm.sh/release-namespace: stackrox
+    owner: stackrox
+spec:
+  ports:
+  - name: https
+    port: 443
+    targetPort: api
+    protocol: TCP
+  selector:
+    app: sensor
+  type: ClusterIP
+  sessionAffinity: None
+---
+# Source: stackrox-secured-cluster-services/templates/sensor.yaml
+apiVersion: v1
+kind: Service
+metadata:
+  name: sensor-webhook
+  namespace: stackrox
+  labels:
+    app.kubernetes.io/component: sensor
+    app.kubernetes.io/instance: stackrox-secured-cluster-services
+    app.kubernetes.io/managed-by: Helm
+    app.kubernetes.io/name: stackrox
+    app.kubernetes.io/part-of: stackrox-secured-cluster-services
+    app.kubernetes.io/version: 3.70.0
+    helm.sh/chart: stackrox-secured-cluster-services-70.0.0
+    auto-upgrade.stackrox.io/component: "sensor"
+  annotations:
+    email: support@stackrox.com
+    meta.helm.sh/release-name: stackrox-secured-cluster-services
+    meta.helm.sh/release-namespace: stackrox
+    owner: stackrox
+spec:
+  ports:
+  - name: https
+    port: 443
+    targetPort: webhook
+    protocol: TCP
+  selector:
+    app: sensor
+  type: ClusterIP
+  sessionAffinity: None
+---
+# Source: stackrox-secured-cluster-services/templates/collector.yaml
+apiVersion: apps/v1
+kind: DaemonSet
+metadata:
+  labels:
+    app.kubernetes.io/component: collector
+    app.kubernetes.io/instance: stackrox-secured-cluster-services
+    app.kubernetes.io/managed-by: Helm
+    app.kubernetes.io/name: stackrox
+    app.kubernetes.io/part-of: stackrox-secured-cluster-services
+    app.kubernetes.io/version: 3.70.0
+    helm.sh/chart: stackrox-secured-cluster-services-70.0.0
+    service: collector
+    app: collector
+    auto-upgrade.stackrox.io/component: "sensor"
+  annotations:
+    email: support@stackrox.com
+    meta.helm.sh/release-name: stackrox-secured-cluster-services
+    meta.helm.sh/release-namespace: stackrox
+    owner: stackrox
+  name: collector
+  namespace: stackrox
+spec:
+  selector:
+    matchLabels:
+      service: collector
+  template:
+    metadata:
+      namespace: stackrox
+      labels:
+        service: collector
+        app: collector
+        app.kubernetes.io/component: collector
+        app.kubernetes.io/instance: stackrox-secured-cluster-services
+        app.kubernetes.io/managed-by: Helm
+        app.kubernetes.io/name: stackrox
+        app.kubernetes.io/part-of: stackrox-secured-cluster-services
+        app.kubernetes.io/version: 3.70.0
+        helm.sh/chart: stackrox-secured-cluster-services-70.0.0
+      annotations:
+        email: support@stackrox.com
+        meta.helm.sh/release-name: stackrox-secured-cluster-services
+        meta.helm.sh/release-namespace: stackrox
+        owner: stackrox
+    spec:
+      tolerations:
+      - operator: "Exists"
+      serviceAccountName: collector
+      containers:
+      - name: collector
+        image: "quay.io/stackrox-io/collector-slim:3.70.0"
+        imagePullPolicy: IfNotPresent
+        env:
+        - name: COLLECTOR_CONFIG
+          value: '{"tlsConfig":{"caCertPath":"/var/run/secrets/stackrox.io/certs/ca.pem","clientCertPath":"/var/run/secrets/stackrox.io/certs/cert.pem","clientKeyPath":"/var/run/secrets/stackrox.io/certs/key.pem"}}'
+        - name: COLLECTION_METHOD
+          value: KERNEL_MODULE
+        - name: GRPC_SERVER
+          value: sensor.stackrox.svc:443
+        - name: SNI_HOSTNAME
+          value: "sensor.stackrox.svc"
+        
+        resources:
+          limits:
+            cpu: 750m
+            memory: 1Gi
+          requests:
+            cpu: 50m
+            memory: 320Mi
+        securityContext:
+          capabilities:
+            drop:
+            - NET_RAW
+          privileged: true
+          readOnlyRootFilesystem: true
+        volumeMounts:
+        - mountPath: /host/var/run/docker.sock
+          name: var-run-docker-sock
+          readOnly: true
+        - mountPath: /host/proc
+          name: proc-ro
+          readOnly: true
+        - mountPath: /module
+          name: tmpfs-module
+        - mountPath: /host/etc
+          name: etc-ro
+          readOnly: true
+        - mountPath: /host/usr/lib
+          name: usr-lib-ro
+          readOnly: true
+        - mountPath: /host/sys
+          name: sys-ro
+          readOnly: true
+        - mountPath: /host/dev
+          name: dev-ro
+          readOnly: true
+        - mountPath: /run/secrets/stackrox.io/certs/
+          name: certs
+          readOnly: true
+      - command:
+        - stackrox/compliance
+        env:
+        - name: ROX_NODE_NAME
+          valueFrom:
+            fieldRef:
+              apiVersion: v1
+              fieldPath: spec.nodeName
+        - name: ROX_ADVERTISED_ENDPOINT
+          value: "sensor.stackrox.svc:443"
+        
+        image: "quay.io/stackrox-io/main:3.70.0"
+        imagePullPolicy: IfNotPresent
+        name: compliance
+        resources:
+          limits:
+            cpu: "1"
+            memory: 2Gi
+          requests:
+            cpu: 10m
+            memory: 10Mi
+        securityContext:
+          runAsUser: 0
+          readOnlyRootFilesystem: true
+          
+          seLinuxOptions:
+            type: "container_runtime_t"
+          
+        volumeMounts:
+        - mountPath: /etc/ssl/
+          name: etc-ssl
+        - mountPath: /etc/pki/ca-trust/
+          name: etc-pki-volume
+        - mountPath: /host
+          name: host-root-ro
+          readOnly: true
+        - mountPath: /run/secrets/stackrox.io/certs/
+          name: certs
+          readOnly: true
+      volumes:
+      - hostPath:
+          path: /var/run/docker.sock
+        name: var-run-docker-sock
+      - hostPath:
+          path: /proc
+        name: proc-ro
+      - emptyDir:
+          medium: Memory
+        name: tmpfs-module
+      - hostPath:
+          path: /etc
+        name: etc-ro
+      - hostPath:
+          path: /usr/lib
+        name: usr-lib-ro
+      - hostPath:
+          path: /sys/
+        name: sys-ro
+      - hostPath:
+          path: /dev
+        name: dev-ro
+      - name: certs
+        secret:
+          secretName: collector-tls
+          items:
+          - key: collector-cert.pem
+            path: cert.pem
+          - key: collector-key.pem
+            path: key.pem
+          - key: ca.pem
+            path: ca.pem
+      - hostPath:
+          path: /
+        name: host-root-ro
+      - name: etc-ssl
+        emptyDir: {}
+      - name: etc-pki-volume
+        emptyDir: {}
+---
+# Source: stackrox-secured-cluster-services/templates/admission-controller.yaml
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: admission-control
+  namespace: stackrox
+  labels:
+    app.kubernetes.io/component: admission-control
+    app.kubernetes.io/instance: stackrox-secured-cluster-services
+    app.kubernetes.io/managed-by: Helm
+    app.kubernetes.io/name: stackrox
+    app.kubernetes.io/part-of: stackrox-secured-cluster-services
+    app.kubernetes.io/version: 3.70.0
+    helm.sh/chart: stackrox-secured-cluster-services-70.0.0
+    app: admission-control
+    auto-upgrade.stackrox.io/component: "sensor"
+  annotations:
+    email: support@stackrox.com
+    meta.helm.sh/release-name: stackrox-secured-cluster-services
+    meta.helm.sh/release-namespace: stackrox
+    owner: stackrox
+spec:
+  replicas: 3
+  minReadySeconds: 0
+  selector:
+    matchLabels:
+      app: admission-control
+  template:
+    metadata:
+      namespace: stackrox
+      labels:
+        app: admission-control
+        app.kubernetes.io/component: admission-control
+        app.kubernetes.io/instance: stackrox-secured-cluster-services
+        app.kubernetes.io/managed-by: Helm
+        app.kubernetes.io/name: stackrox
+        app.kubernetes.io/part-of: stackrox-secured-cluster-services
+        app.kubernetes.io/version: 3.70.0
+        helm.sh/chart: stackrox-secured-cluster-services-70.0.0
+      annotations:
+        traffic.sidecar.istio.io/excludeInboundPorts: "8443"
+        email: support@stackrox.com
+        meta.helm.sh/release-name: stackrox-secured-cluster-services
+        meta.helm.sh/release-namespace: stackrox
+        owner: stackrox
+    spec:
+      # Attempt to schedule these on master nodes
+      affinity:
+        nodeAffinity:
+          preferredDuringSchedulingIgnoredDuringExecution:
+            - weight: 50
+              preference:
+                matchExpressions:
+                  - key: node-role.kubernetes.io/master
+                    operator: In
+                    values:
+                      - "true"
+        podAntiAffinity:
+          preferredDuringSchedulingIgnoredDuringExecution:
+            - weight: 60
+              podAffinityTerm:
+                namespaces: ["stackrox"]
+                topologyKey: "kubernetes.io/hostname"
+                labelSelector:
+                  matchLabels:
+                    app: admission-control
+      securityContext:
+        runAsUser: 4000
+        fsGroup: 4000
+      serviceAccountName: admission-control
+      containers:
+        - image: "quay.io/stackrox-io/main:3.70.0"
+          imagePullPolicy: IfNotPresent
+          name: admission-control
+          readinessProbe:
+            httpGet:
+              scheme: HTTPS
+              path: /ready
+              port: 8443
+            initialDelaySeconds: 5
+            periodSeconds: 5
+            failureThreshold: 1
+          ports:
+            - containerPort: 8443
+              name: webhook
+          command:
+            - admission-control
+          resources:
+            limits:
+              cpu: 500m
+              memory: 500Mi
+            requests:
+              cpu: 50m
+              memory: 100Mi
+          securityContext:
+            runAsNonRoot: true
+            readOnlyRootFilesystem: true
+          env:
+          - name: ROX_SENSOR_ENDPOINT
+            value: sensor.stackrox.svc:443
+          
+          volumeMounts:
+            - name: config
+              mountPath: /run/config/stackrox.io/admission-control/config/
+              readOnly: true
+            - name: config-store
+              mountPath: /var/lib/stackrox/admission-control/
+            - name: ca
+              mountPath: /run/secrets/stackrox.io/ca/
+              readOnly: true
+            - name: certs
+              mountPath: /run/secrets/stackrox.io/certs/
+              readOnly: true
+            - name: ssl
+              mountPath: /etc/ssl
+            - name: pki
+              mountPath: /etc/pki/ca-trust/
+            - name: additional-cas
+              mountPath: /usr/local/share/ca-certificates/
+              readOnly: true
+            
+            
+      volumes:
+        - name: certs
+          secret:
+            secretName: admission-control-tls
+            optional: true
+            items:
+              - key: admission-control-cert.pem
+                path: cert.pem
+              - key: admission-control-key.pem
+                path: key.pem
+              - key: ca.pem
+                path: ca.pem
+        - name: ca
+          secret:
+            secretName: service-ca
+            optional: true
+        - name: config
+          configMap:
+            name: admission-control
+            optional: true
+        - name: config-store
+          emptyDir: {}
+        - name: ssl
+          emptyDir: {}
+        - name: pki
+          emptyDir: {}
+        - name: additional-cas
+          secret:
+            secretName: additional-ca-sensor
+            optional: true
+---
+# Source: stackrox-secured-cluster-services/templates/sensor.yaml
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: sensor
+  namespace: stackrox
+  labels:
+    app.kubernetes.io/component: sensor
+    app.kubernetes.io/instance: stackrox-secured-cluster-services
+    app.kubernetes.io/managed-by: Helm
+    app.kubernetes.io/name: stackrox
+    app.kubernetes.io/part-of: stackrox-secured-cluster-services
+    app.kubernetes.io/version: 3.70.0
+    helm.sh/chart: stackrox-secured-cluster-services-70.0.0
+    app: sensor
+    auto-upgrade.stackrox.io/component: "sensor"
+  annotations:
+    email: support@stackrox.com
+    meta.helm.sh/release-name: stackrox-secured-cluster-services
+    meta.helm.sh/release-namespace: stackrox
+    owner: stackrox
+spec:
+  replicas: 1
+  minReadySeconds: 15
+  selector:
+    matchLabels:
+      app: sensor
+  strategy:
+    type: Recreate
+  template:
+    metadata:
+      labels:
+        app: sensor
+        app.kubernetes.io/component: sensor
+        app.kubernetes.io/instance: stackrox-secured-cluster-services
+        app.kubernetes.io/managed-by: Helm
+        app.kubernetes.io/name: stackrox
+        app.kubernetes.io/part-of: stackrox-secured-cluster-services
+        app.kubernetes.io/version: 3.70.0
+        helm.sh/chart: stackrox-secured-cluster-services-70.0.0
+      annotations:
+        traffic.sidecar.istio.io/excludeInboundPorts: "8443,9443"
+        email: support@stackrox.com
+        meta.helm.sh/release-name: stackrox-secured-cluster-services
+        meta.helm.sh/release-namespace: stackrox
+        owner: stackrox
+    spec:
+      affinity:
+        nodeAffinity:
+          preferredDuringSchedulingIgnoredDuringExecution:
+            # Sensor is single-homed, so avoid preemptible nodes.
+            - weight: 100
+              preference:
+                matchExpressions:
+                  - key: cloud.google.com/gke-preemptible
+                    operator: NotIn
+                    values:
+                    - "true"
+      securityContext:
+        runAsUser: 4000
+        fsGroup: 4000
+      serviceAccountName: sensor
+      containers:
+      - image: "quay.io/stackrox-io/main:3.70.0"
+        imagePullPolicy: IfNotPresent
+        name: sensor
+        readinessProbe:
+          httpGet:
+            scheme: HTTPS
+            path: /ready
+            port: 9443
+        ports:
+          - containerPort: 8443
+            name: api
+          - containerPort: 9443
+            name: webhook
+        command:
+          - kubernetes-sensor
+        resources:
+          limits:
+            cpu: "2"
+            memory: 4Gi
+          requests:
+            cpu: "1"
+            memory: 1Gi
+        securityContext:
+          runAsNonRoot: true
+          readOnlyRootFilesystem: true
+        env:
+        - name: K8S_NODE_NAME
+          valueFrom:
+            fieldRef:
+              fieldPath: spec.nodeName
+        - name: POD_NAMESPACE
+          valueFrom:
+            fieldRef:
+              fieldPath: metadata.namespace
+        - name: POD_NAME
+          valueFrom:
+            fieldRef:
+              fieldPath: metadata.name
+        - name: ROX_CENTRAL_ENDPOINT
+          value: central.stackrox.svc:443
+        - name: ROX_ADVERTISED_ENDPOINT
+          value: sensor.stackrox.svc:443
+        - name: ROX_HELM_CLUSTER_CONFIG_FP
+          value: "089ec077690f384c5473c69097a80464e27c2edcd1a601138dab445f9e26b1c5"
+        
+        volumeMounts:
+        - name: varlog
+          mountPath: /var/log/stackrox/
+        - name: sensor-etc-ssl-volume
+          mountPath: /etc/ssl/
+        - name: sensor-etc-pki-volume
+          mountPath: /etc/pki/ca-trust/
+        - name: certs
+          mountPath: /run/secrets/stackrox.io/certs/
+          readOnly: true
+        - name: additional-ca-volume
+          mountPath: /usr/local/share/ca-certificates/
+          readOnly: true
+        - name: cache
+          mountPath: /var/cache/stackrox
+        - name: helm-cluster-config
+          mountPath: /run/secrets/stackrox.io/helm-cluster-config/
+          readOnly: true
+        - name: helm-effective-cluster-name
+          mountPath: /run/secrets/stackrox.io/helm-effective-cluster-name/
+          readOnly: true
+        
+        
+      volumes:
+      - name: certs
+        secret:
+          secretName: sensor-tls
+          items:
+          - key: sensor-cert.pem
+            path: cert.pem
+          - key: sensor-key.pem
+            path: key.pem
+          - key: ca.pem
+            path: ca.pem
+      - name: sensor-etc-ssl-volume
+        emptyDir: {}
+      - name: sensor-etc-pki-volume
+        emptyDir: {}
+      - name: additional-ca-volume
+        secret:
+          secretName: additional-ca-sensor
+          optional: true
+      - name: varlog
+        emptyDir: {}
+      - name: cache
+        emptyDir: {}
+      - name: helm-cluster-config
+        secret:
+          secretName: helm-cluster-config
+          optional: true
+      - name: helm-effective-cluster-name
+        secret:
+          secretName: helm-effective-cluster-name
+          optional: true
+---
+# Source: stackrox-secured-cluster-services/templates/admission-controller.yaml
+apiVersion: admissionregistration.k8s.io/v1
+kind: ValidatingWebhookConfiguration
+metadata:
+  name: stackrox
+  labels:
+    app.kubernetes.io/component: admission-control
+    app.kubernetes.io/instance: stackrox-secured-cluster-services
+    app.kubernetes.io/managed-by: Helm
+    app.kubernetes.io/name: stackrox
+    app.kubernetes.io/part-of: stackrox-secured-cluster-services
+    app.kubernetes.io/version: 3.70.0
+    helm.sh/chart: stackrox-secured-cluster-services-70.0.0
+    auto-upgrade.stackrox.io/component: "sensor"
+  annotations:
+    email: support@stackrox.com
+    meta.helm.sh/release-name: stackrox-secured-cluster-services
+    meta.helm.sh/release-namespace: stackrox
+    owner: stackrox
+webhooks:
+  - name: k8sevents.stackrox.io
+    sideEffects: NoneOnDryRun
+    admissionReviewVersions: [ "v1", "v1beta1" ]
+    timeoutSeconds: 22
+    rules:
+      - apiGroups:
+        - '*'
+        apiVersions:
+        - '*'
+        operations:
+        - CONNECT
+        resources:
+          - pods
+          - pods/attach
+          - pods/exec
+          - pods/portforward
+    failurePolicy: Ignore
+    clientConfig:
+      caBundle: LS0tLS1CRUdJTiBDRVJUSUZJQ0FURS0tLS0tCk1JSURQVENDQWlXZ0F3SUJBZ0lRRzF4QmRzdTlzdzEyNkFTNC90ZjhlVEFOQmdrcWhraUc5dzBCQVFzRkFEQXAKTVNjd0pRWURWUVFERXg1VGRHRmphMUp2ZUNCRFpYSjBhV1pwWTJGMFpTQkJkWFJvYjNKcGRIa3dIaGNOTWpJdwpOekV6TVRnMU1ESTJXaGNOTWpjd056RXlNVGcxTURJMldqQXBNU2N3SlFZRFZRUURFeDVUZEdGamExSnZlQ0JEClpYSjBhV1pwWTJGMFpTQkJkWFJvYjNKcGRIa3dnZ0VpTUEwR0NTcUdTSWIzRFFFQkFRVUFBNElCRHdBd2dnRUsKQW9JQkFRREdhK1ppT2l5SnlWQlFibzdMTHZDblh1dUUrS1FVSUU5M0MvTGtHQ3N5akZJV2lTRDROWUlaRytnMQpJalZabEF5OW43NFlVbFpKR3pQR2h6ZFFMN3poNEdpQkRlYzVJQWZJeENidHpkR2ozT2tUZWVLemJCU3o5b1FICldvM2tnOFdUZUVTK1NieG91bkY5RUF4VDRHUGN6aWpkUXNIS2NEVFZDQldXZVlJeTV4TGc4K1BEbjFhUnltRXAKT0hDZTNDTmdkYkcrSzhheThrNnhPNkpOd2t0UkV2NHg2VUQ0aFVxd2ZLMEZLaEtlM2IvYkJXSjBNejZ4UDRPVQpYTlh2eUh6cEJ5R3dBUlU3SWk1Qlg2akVxSm9ZbUNWOThnWVE0SGxHdEwrbkp0UXl6WUY3UUh1aHMvMG5nUmh5Cks4Q0tsYXc4Y2hxdnVGODZPZDIxQldKVE5sOUxBZ01CQUFHallUQmZNQTRHQTFVZER3RUIvd1FFQXdJQ3BEQWQKQmdOVkhTVUVGakFVQmdnckJnRUZCUWNEQVFZSUt3WUJCUVVIQXdJd0R3WURWUjBUQVFIL0JBVXdBd0VCL3pBZApCZ05WSFE0RUZnUVUzNkpYc200UHJmajhkeXpPdWF1Mnh0T1pNUGN3RFFZSktvWklodmNOQVFFTEJRQURnZ0VCCkFIbDhjZVNnNm9NSERKYXFSWDVjTGFKRHJ4UkRWSDJmR2R0NVBpN3lYUnBNUGpudllCZFdNYXQzSStCMzQ2aXkKY1piZzVMN05kY2RpVUdJNzV2RXA3WWV4aXJjaGhLeERyOWtvdUVmVGZWdEwzRlJWaDVBa3p6cmFjMFRkVW9JSwpUM0F4Yjc5RkRyQWZIOXNueGRuNTFqTGs2c0d2SkRJUXJna0Roa0ZMZnFzdzRJc2d0aUhiMzNYbzZYbWRWSFJvCjB5SUl2TWtqQ2lRMmkxWEt2QXZKek1NVGl4OHRQRjBxSFIyeFkyNEg0ODBJSW84L1JPeWlUY3B0bWJmUmpGNHQKK3d6bFpQYlEyRjdQZDFKWDZBUWFFS05yVE5Zcm9PSExPVVE5bVR1SEM3b01VMzJPcDI5eVdMc2VsYUw1VXNYUApxL1U1YmtXNFI3MXNLT29SbnJ4OVlyND0KLS0tLS1FTkQgQ0VSVElGSUNBVEUtLS0tLQo=
+      service:
+        namespace: stackrox
+        name: admission-control
+        path: /events
+---
+# Source: stackrox-secured-cluster-services/templates/admission-controller-secret.yaml
+apiVersion: v1
+kind: Secret
+metadata:
+  name: admission-control-tls
+  namespace: stackrox
+  labels:
+    app.kubernetes.io/component: admission-control
+    app.kubernetes.io/instance: stackrox-secured-cluster-services
+    app.kubernetes.io/managed-by: Helm
+    app.kubernetes.io/name: stackrox
+    app.kubernetes.io/part-of: stackrox-secured-cluster-services
+    app.kubernetes.io/version: 3.70.0
+    helm.sh/chart: stackrox-secured-cluster-services-70.0.0
+    auto-upgrade.stackrox.io/component: sensor
+  annotations:
+    email: support@stackrox.com
+    meta.helm.sh/release-name: stackrox-secured-cluster-services
+    meta.helm.sh/release-namespace: stackrox
+    owner: stackrox
+    "helm.sh/hook": "pre-install,pre-upgrade"
+    "helm.sh/resource-policy": "keep"
+type: Opaque
+stringData:
+  ca.pem: |
+    -----BEGIN CERTIFICATE-----
+    MIIDPTCCAiWgAwIBAgIQG1xBdsu9sw126AS4/tf8eTANBgkqhkiG9w0BAQsFADAp
+    MScwJQYDVQQDEx5TdGFja1JveCBDZXJ0aWZpY2F0ZSBBdXRob3JpdHkwHhcNMjIw
+    NzEzMTg1MDI2WhcNMjcwNzEyMTg1MDI2WjApMScwJQYDVQQDEx5TdGFja1JveCBD
+    ZXJ0aWZpY2F0ZSBBdXRob3JpdHkwggEiMA0GCSqGSIb3DQEBAQUAA4IBDwAwggEK
+    AoIBAQDGa+ZiOiyJyVBQbo7LLvCnXuuE+KQUIE93C/LkGCsyjFIWiSD4NYIZG+g1
+    IjVZlAy9n74YUlZJGzPGhzdQL7zh4GiBDec5IAfIxCbtzdGj3OkTeeKzbBSz9oQH
+    Wo3kg8WTeES+SbxounF9EAxT4GPczijdQsHKcDTVCBWWeYIy5xLg8+PDn1aRymEp
+    OHCe3CNgdbG+K8ay8k6xO6JNwktREv4x6UD4hUqwfK0FKhKe3b/bBWJ0Mz6xP4OU
+    XNXvyHzpByGwARU7Ii5BX6jEqJoYmCV98gYQ4HlGtL+nJtQyzYF7QHuhs/0ngRhy
+    K8CKlaw8chqvuF86Od21BWJTNl9LAgMBAAGjYTBfMA4GA1UdDwEB/wQEAwICpDAd
+    BgNVHSUEFjAUBggrBgEFBQcDAQYIKwYBBQUHAwIwDwYDVR0TAQH/BAUwAwEB/zAd
+    BgNVHQ4EFgQU36JXsm4Prfj8dyzOuau2xtOZMPcwDQYJKoZIhvcNAQELBQADggEB
+    AHl8ceSg6oMHDJaqRX5cLaJDrxRDVH2fGdt5Pi7yXRpMPjnvYBdWMat3I+B346iy
+    cZbg5L7NdcdiUGI75vEp7YexirchhKxDr9kouEfTfVtL3FRVh5Akzzrac0TdUoIK
+    T3Axb79FDrAfH9snxdn51jLk6sGvJDIQrgkDhkFLfqsw4IsgtiHb33Xo6XmdVHRo
+    0yIIvMkjCiQ2i1XKvAvJzMMTix8tPF0qHR2xY24H480IIo8/ROyiTcptmbfRjF4t
+    +wzlZPbQ2F7Pd1JX6AQaEKNrTNYroOHLOUQ9mTuHC7oMU32Op29yWLselaL5UsXP
+    q/U5bkW4R71sKOoRnrx9Yr4=
+    -----END CERTIFICATE-----
+    
+  admission-control-cert.pem: |
+    -----BEGIN CERTIFICATE-----
+    MIIDZDCCAkygAwIBAgIILanRkLcUVPYwDQYJKoZIhvcNAQELBQAwKTEnMCUGA1UE
+    AxMeU3RhY2tSb3ggQ2VydGlmaWNhdGUgQXV0aG9yaXR5MB4XDTIyMDcxODE3NTUw
+    MFoXDTIzMDcxODE4NTUwMFowgbsxLTArBgNVBAoTJDBjMjdkZTc1LTdiMWEtNDFl
+    Mi05NGRiLTdmNzRmNTFkZjU3MzEiMCAGA1UECwwZQURNSVNTSU9OX0NPTlRST0xf
+    U0VSVklDRTFIMEYGA1UEAww/QURNSVNTSU9OX0NPTlRST0xfU0VSVklDRTogMDAw
+    MDAwMDAtMDAwMC0wMDAwLTAwMDAtMDAwMDAwMDAwMDAwMRwwGgYDVQQFExMzMjkw
+    MzkxNDIyMjQ3OTE2NzkwMFkwEwYHKoZIzj0CAQYIKoZIzj0DAQcDQgAE05RH5otS
+    sppOFGlmdFzTbuOfZ5mh51oHB/BYfI8znYE2h2Fu+RkxKzC1STBjOdFGNvhCx7rn
+    IWYuAUMeUgsl1aOBxzCBxDAOBgNVHQ8BAf8EBAMCBaAwHQYDVR0lBBYwFAYIKwYB
+    BQUHAwEGCCsGAQUFBwMCMAwGA1UdEwEB/wQCMAAwHQYDVR0OBBYEFP5epROZ7eQm
+    xMZXLqY3jTMgqtejMB8GA1UdIwQYMBaAFN+iV7JuD634/HcszrmrtsbTmTD3MEUG
+    A1UdEQQ+MDyCGmFkbWlzc2lvbi1jb250cm9sLnN0YWNrcm94gh5hZG1pc3Npb24t
+    Y29udHJvbC5zdGFja3JveC5zdmMwDQYJKoZIhvcNAQELBQADggEBAFmdFrILrCBn
+    +dd4OU8HvKv7Vy2BH7oOtqWsyyipmKq/tKdWDvoNmRPEFd81cXVplMdRCN1ED5PQ
+    5bYHChqyAFbXITlm9+5y6cGTauCsnkpQgOOVd6P6l11GMUEXvV7PqfpXs6/OfhH3
+    JE8Jvxk+XhITmyQ0NsRb2xQRWvlL7OXRD2Es7g6pbCePGB4KYLI9p19Mm8D4YxQn
+    w5Tp+WflpZUgZmEcJ+vbLCt0hc/HLbMG40JjxEUetcbQRIzeO4fQ30rJtNyjvYZo
+    vjkSSjRYbI2JWyPM6U0aIhQCQ4raSOsR6dtm83CpxhKTMZ3ZAOJm/HxEPSyfPXLK
+    zdztu1LCjGM=
+    -----END CERTIFICATE-----
+    
+  admission-control-key.pem: |
+    -----BEGIN EC PRIVATE KEY-----
+    MHcCAQEEILIfP30cGd6T3RTV4edaUerOwQLvJ4WvS5yaYhk1AebMoAoGCCqGSM49
+    AwEHoUQDQgAE05RH5otSsppOFGlmdFzTbuOfZ5mh51oHB/BYfI8znYE2h2Fu+Rkx
+    KzC1STBjOdFGNvhCx7rnIWYuAUMeUgsl1Q==
+    -----END EC PRIVATE KEY-----
+---
+# Source: stackrox-secured-cluster-services/templates/collector-secret.yaml
+apiVersion: v1
+kind: Secret
+metadata:
+  labels:
+    app.kubernetes.io/component: collector
+    app.kubernetes.io/instance: stackrox-secured-cluster-services
+    app.kubernetes.io/managed-by: Helm
+    app.kubernetes.io/name: stackrox
+    app.kubernetes.io/part-of: stackrox-secured-cluster-services
+    app.kubernetes.io/version: 3.70.0
+    helm.sh/chart: stackrox-secured-cluster-services-70.0.0
+    auto-upgrade.stackrox.io/component: sensor
+  annotations:
+    email: support@stackrox.com
+    meta.helm.sh/release-name: stackrox-secured-cluster-services
+    meta.helm.sh/release-namespace: stackrox
+    owner: stackrox
+    "helm.sh/hook": "pre-install,pre-upgrade"
+    "helm.sh/resource-policy": "keep"
+  name: collector-tls
+  namespace: stackrox
+type: Opaque
+stringData:
+  ca.pem: |
+    -----BEGIN CERTIFICATE-----
+    MIIDPTCCAiWgAwIBAgIQG1xBdsu9sw126AS4/tf8eTANBgkqhkiG9w0BAQsFADAp
+    MScwJQYDVQQDEx5TdGFja1JveCBDZXJ0aWZpY2F0ZSBBdXRob3JpdHkwHhcNMjIw
+    NzEzMTg1MDI2WhcNMjcwNzEyMTg1MDI2WjApMScwJQYDVQQDEx5TdGFja1JveCBD
+    ZXJ0aWZpY2F0ZSBBdXRob3JpdHkwggEiMA0GCSqGSIb3DQEBAQUAA4IBDwAwggEK
+    AoIBAQDGa+ZiOiyJyVBQbo7LLvCnXuuE+KQUIE93C/LkGCsyjFIWiSD4NYIZG+g1
+    IjVZlAy9n74YUlZJGzPGhzdQL7zh4GiBDec5IAfIxCbtzdGj3OkTeeKzbBSz9oQH
+    Wo3kg8WTeES+SbxounF9EAxT4GPczijdQsHKcDTVCBWWeYIy5xLg8+PDn1aRymEp
+    OHCe3CNgdbG+K8ay8k6xO6JNwktREv4x6UD4hUqwfK0FKhKe3b/bBWJ0Mz6xP4OU
+    XNXvyHzpByGwARU7Ii5BX6jEqJoYmCV98gYQ4HlGtL+nJtQyzYF7QHuhs/0ngRhy
+    K8CKlaw8chqvuF86Od21BWJTNl9LAgMBAAGjYTBfMA4GA1UdDwEB/wQEAwICpDAd
+    BgNVHSUEFjAUBggrBgEFBQcDAQYIKwYBBQUHAwIwDwYDVR0TAQH/BAUwAwEB/zAd
+    BgNVHQ4EFgQU36JXsm4Prfj8dyzOuau2xtOZMPcwDQYJKoZIhvcNAQELBQADggEB
+    AHl8ceSg6oMHDJaqRX5cLaJDrxRDVH2fGdt5Pi7yXRpMPjnvYBdWMat3I+B346iy
+    cZbg5L7NdcdiUGI75vEp7YexirchhKxDr9kouEfTfVtL3FRVh5Akzzrac0TdUoIK
+    T3Axb79FDrAfH9snxdn51jLk6sGvJDIQrgkDhkFLfqsw4IsgtiHb33Xo6XmdVHRo
+    0yIIvMkjCiQ2i1XKvAvJzMMTix8tPF0qHR2xY24H480IIo8/ROyiTcptmbfRjF4t
+    +wzlZPbQ2F7Pd1JX6AQaEKNrTNYroOHLOUQ9mTuHC7oMU32Op29yWLselaL5UsXP
+    q/U5bkW4R71sKOoRnrx9Yr4=
+    -----END CERTIFICATE-----
+    
+  collector-cert.pem: |
+    -----BEGIN CERTIFICATE-----
+    MIIDRjCCAi6gAwIBAgIJAL4L/RfbXPBOMA0GCSqGSIb3DQEBCwUAMCkxJzAlBgNV
+    BAMTHlN0YWNrUm94IENlcnRpZmljYXRlIEF1dGhvcml0eTAeFw0yMjA3MTgxNzU1
+    MDBaFw0yMzA3MTgxODU1MDBaMIGsMS0wKwYDVQQKEyQwYzI3ZGU3NS03YjFhLTQx
+    ZTItOTRkYi03Zjc0ZjUxZGY1NzMxGjAYBgNVBAsMEUNPTExFQ1RPUl9TRVJWSUNF
+    MUAwPgYDVQQDDDdDT0xMRUNUT1JfU0VSVklDRTogMDAwMDAwMDAtMDAwMC0wMDAw
+    LTAwMDAtMDAwMDAwMDAwMDAwMR0wGwYDVQQFExQxMzY5NDMxNzM3MDg1NjUwMTMy
+    NjBZMBMGByqGSM49AgEGCCqGSM49AwEHA0IABIBWId3jL+0nlHL0qw4hj/h/b4ad
+    lAeMnpOPoR8IjmXSCrfz17na6VY9ufV552f25E9J/HL7BJR5tGEoHs/Hum2jgbcw
+    gbQwDgYDVR0PAQH/BAQDAgWgMB0GA1UdJQQWMBQGCCsGAQUFBwMBBggrBgEFBQcD
+    AjAMBgNVHRMBAf8EAjAAMB0GA1UdDgQWBBSpk12bVVDscBD5zBPJ96ztXycToTAf
+    BgNVHSMEGDAWgBTfoleybg+t+Px3LM65q7bG05kw9zA1BgNVHREELjAsghJjb2xs
+    ZWN0b3Iuc3RhY2tyb3iCFmNvbGxlY3Rvci5zdGFja3JveC5zdmMwDQYJKoZIhvcN
+    AQELBQADggEBAMBekTqRVZnVpvFCqwyW/OicLL4fwHsDiCmNsioH4vMO4IXHp9fm
+    LPIWJuM8oyyUeDeomPhociUxmUB41zkpSt76Lr/vrd7qGjFpFoowMMCHLCYtLVN4
+    BD+4WkVwH4urjbZKPCmpwpkAqQN5rYoc+yFD56EcqLmo+w+S3X/a8ukepdvCc4NB
+    0Gs1/YpIkCDrKkkZ8/w/y5y6W1/I2w0qJGGxIz4Io03Yn1wB3OxMSK0QWWg/kTFp
+    cTO7fRh/9Wmq/KRkBxYbNy2iA8CKElL6SYUz7GnsXNAY66i/u75k6B1AQ7q6Wpdr
+    S6spFtoyikvLVxXZfDaL5uI6MkMQ3Cicdnk=
+    -----END CERTIFICATE-----
+    
+  collector-key.pem: |
+    -----BEGIN EC PRIVATE KEY-----
+    MHcCAQEEILttcuHljB5PFNk2Ff09LXo7kJojm9MXMk1GckT6WAIaoAoGCCqGSM49
+    AwEHoUQDQgAEgFYh3eMv7SeUcvSrDiGP+H9vhp2UB4yek4+hHwiOZdIKt/PXudrp
+    Vj259XnnZ/bkT0n8cvsElHm0YSgez8e6bQ==
+    -----END EC PRIVATE KEY-----
+---
+# Source: stackrox-secured-cluster-services/templates/sensor-secret.yaml
+apiVersion: v1
+kind: Secret
+metadata:
+  name: sensor-tls
+  namespace: stackrox
+  labels:
+    app.kubernetes.io/component: sensor
+    app.kubernetes.io/instance: stackrox-secured-cluster-services
+    app.kubernetes.io/managed-by: Helm
+    app.kubernetes.io/name: stackrox
+    app.kubernetes.io/part-of: stackrox-secured-cluster-services
+    app.kubernetes.io/version: 3.70.0
+    helm.sh/chart: stackrox-secured-cluster-services-70.0.0
+    auto-upgrade.stackrox.io/component: sensor
+  annotations:
+    email: support@stackrox.com
+    meta.helm.sh/release-name: stackrox-secured-cluster-services
+    meta.helm.sh/release-namespace: stackrox
+    owner: stackrox
+    "helm.sh/hook": "pre-install,pre-upgrade"
+    "helm.sh/resource-policy": "keep"
+type: Opaque
+stringData:
+  ca.pem: |
+    -----BEGIN CERTIFICATE-----
+    MIIDPTCCAiWgAwIBAgIQG1xBdsu9sw126AS4/tf8eTANBgkqhkiG9w0BAQsFADAp
+    MScwJQYDVQQDEx5TdGFja1JveCBDZXJ0aWZpY2F0ZSBBdXRob3JpdHkwHhcNMjIw
+    NzEzMTg1MDI2WhcNMjcwNzEyMTg1MDI2WjApMScwJQYDVQQDEx5TdGFja1JveCBD
+    ZXJ0aWZpY2F0ZSBBdXRob3JpdHkwggEiMA0GCSqGSIb3DQEBAQUAA4IBDwAwggEK
+    AoIBAQDGa+ZiOiyJyVBQbo7LLvCnXuuE+KQUIE93C/LkGCsyjFIWiSD4NYIZG+g1
+    IjVZlAy9n74YUlZJGzPGhzdQL7zh4GiBDec5IAfIxCbtzdGj3OkTeeKzbBSz9oQH
+    Wo3kg8WTeES+SbxounF9EAxT4GPczijdQsHKcDTVCBWWeYIy5xLg8+PDn1aRymEp
+    OHCe3CNgdbG+K8ay8k6xO6JNwktREv4x6UD4hUqwfK0FKhKe3b/bBWJ0Mz6xP4OU
+    XNXvyHzpByGwARU7Ii5BX6jEqJoYmCV98gYQ4HlGtL+nJtQyzYF7QHuhs/0ngRhy
+    K8CKlaw8chqvuF86Od21BWJTNl9LAgMBAAGjYTBfMA4GA1UdDwEB/wQEAwICpDAd
+    BgNVHSUEFjAUBggrBgEFBQcDAQYIKwYBBQUHAwIwDwYDVR0TAQH/BAUwAwEB/zAd
+    BgNVHQ4EFgQU36JXsm4Prfj8dyzOuau2xtOZMPcwDQYJKoZIhvcNAQELBQADggEB
+    AHl8ceSg6oMHDJaqRX5cLaJDrxRDVH2fGdt5Pi7yXRpMPjnvYBdWMat3I+B346iy
+    cZbg5L7NdcdiUGI75vEp7YexirchhKxDr9kouEfTfVtL3FRVh5Akzzrac0TdUoIK
+    T3Axb79FDrAfH9snxdn51jLk6sGvJDIQrgkDhkFLfqsw4IsgtiHb33Xo6XmdVHRo
+    0yIIvMkjCiQ2i1XKvAvJzMMTix8tPF0qHR2xY24H480IIo8/ROyiTcptmbfRjF4t
+    +wzlZPbQ2F7Pd1JX6AQaEKNrTNYroOHLOUQ9mTuHC7oMU32Op29yWLselaL5UsXP
+    q/U5bkW4R71sKOoRnrx9Yr4=
+    -----END CERTIFICATE-----
+    
+  sensor-cert.pem: |
+    -----BEGIN CERTIFICATE-----
+    MIIDVTCCAj2gAwIBAgIISgmO86R5wIgwDQYJKoZIhvcNAQELBQAwKTEnMCUGA1UE
+    AxMeU3RhY2tSb3ggQ2VydGlmaWNhdGUgQXV0aG9yaXR5MB4XDTIyMDcxODE3NTUw
+    MFoXDTIzMDcxODE4NTUwMFowgaUxLTArBgNVBAoTJDBjMjdkZTc1LTdiMWEtNDFl
+    Mi05NGRiLTdmNzRmNTFkZjU3MzEXMBUGA1UECwwOU0VOU09SX1NFUlZJQ0UxPTA7
+    BgNVBAMMNFNFTlNPUl9TRVJWSUNFOiAwMDAwMDAwMC0wMDAwLTAwMDAtMDAwMC0w
+    MDAwMDAwMDAwMDAxHDAaBgNVBAUTEzUzMzQ5NTI0MTA2ODQ3MDI4NTYwWTATBgcq
+    hkjOPQIBBggqhkjOPQMBBwNCAATZ2lgJ812paFPoE6XeWHW5RKy+nXqyVc0RJ9E/
+    TYG+qtenshymOAzkW4zftz2KgU86F5x1Shs9umWnVkquvKH2o4HOMIHLMA4GA1Ud
+    DwEB/wQEAwIFoDAdBgNVHSUEFjAUBggrBgEFBQcDAQYIKwYBBQUHAwIwDAYDVR0T
+    AQH/BAIwADAdBgNVHQ4EFgQUKJr8GAb1gLC7t+DUJXHUbwatOUkwHwYDVR0jBBgw
+    FoAU36JXsm4Prfj8dyzOuau2xtOZMPcwTAYDVR0RBEUwQ4IPc2Vuc29yLnN0YWNr
+    cm94ghNzZW5zb3Iuc3RhY2tyb3guc3ZjghtzZW5zb3Itd2ViaG9vay5zdGFja3Jv
+    eC5zdmMwDQYJKoZIhvcNAQELBQADggEBAJGM7d+Y1Zkjy0Ju0qYWDaa57FenPf/i
+    z0U/8T/YX7PCer2yGdsX2IpoNUTzCd9U7uIBZhdDuKFaMDOYw8AsWshOh7feVvpg
+    xOZqwfNhLJlCT5RwvCy4x9Dij4M9EwxNqAVYoBujmu20EXutIaBjPo71BYBTargl
+    n83HCVKY9pKNbmXDUvsRvP1Qd0ZHLgo/Q/Wc87ExudbhuijYJCKNdvjwZEcVaKHI
+    LFRd5FKWHdRk/A+s9+xbOOhpzWPhRMzbqzP3zQpWb85BB8/uMrYOw5b/IG4A8DZj
+    pkcjubq+hJrjuEgEd5Ox8Ils8lNOCTEQknnc4AB882VLcoSbTygTtxA=
+    -----END CERTIFICATE-----
+    
+  sensor-key.pem: |
+    -----BEGIN EC PRIVATE KEY-----
+    MHcCAQEEIPusomiXTFJ4xIxw3zTXUGP7nSXoY5NxnC6F+UU2OSiAoAoGCCqGSM49
+    AwEHoUQDQgAE2dpYCfNdqWhT6BOl3lh1uUSsvp16slXNESfRP02BvqrXp7IcpjgM
+    5FuM37c9ioFPOhecdUobPbplp1ZKrryh9g==
+    -----END EC PRIVATE KEY-----
+---
+# Source: stackrox-secured-cluster-services/templates/sensor.yaml
+apiVersion: v1
+kind: Secret
+metadata:
+  name: helm-effective-cluster-name
+  namespace: stackrox
+  labels:
+    app.kubernetes.io/component: sensor
+    app.kubernetes.io/instance: stackrox-secured-cluster-services
+    app.kubernetes.io/managed-by: Helm
+    app.kubernetes.io/name: stackrox
+    app.kubernetes.io/part-of: stackrox-secured-cluster-services
+    app.kubernetes.io/version: 3.70.0
+    helm.sh/chart: stackrox-secured-cluster-services-70.0.0
+    auto-upgrade.stackrox.io/component: sensor
+  annotations:
+    "helm.sh/hook": "pre-install,pre-upgrade"
+    "helm.sh/resource-policy": "keep"
+    email: support@stackrox.com
+    meta.helm.sh/release-name: stackrox-secured-cluster-services
+    meta.helm.sh/release-namespace: stackrox
+    owner: stackrox
+stringData:
+  cluster-name: |
+    secured

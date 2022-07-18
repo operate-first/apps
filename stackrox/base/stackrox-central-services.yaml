@@ -135,7 +135,7 @@ spec:
     - 'downwardAPI'
     - 'persistentVolumeClaim'
     - 'hostPath'
-  
+
   hostNetwork: false
   hostIPC: false
   hostPID: false
@@ -346,7 +346,7 @@ metadata:
 data:
   config.yaml: |
     # Configuration file for scanner.
-    
+
     scanner:
       centralEndpoint: https://central.stackrox.svc
       database:
@@ -356,25 +356,25 @@ data:
           # PostgreSQL Connection string
           # https://www.postgresql.org/docs/current/static/libpq-connect.html#LIBPQ-CONNSTRING
           source: host=scanner-db.stackrox.svc port=5432 user=postgres sslmode=verify-full statement_timeout=60000
-    
+
           # Number of elements kept in the cache
           # Values unlikely to change (e.g. namespaces) are cached in order to save prevent needless roundtrips to the database.
           cachesize: 16384
-    
+
       api:
         httpsPort: 8080
         grpcPort: 8443
-    
+
       updater:
         # Frequency with which the scanner will poll for vulnerability updates.
         interval: 5m
-    
+
       logLevel: INFO
-    
+
       # The scanner intentionally avoids extracting or analyzing any files
       # larger than the following default sizes to prevent DoS attacks.
       # Leave these commented to use a reasonable default.
-    
+
       # The max size of files in images that are extracted.
       # Increasing this number increases memory pressure.
       # maxExtractableFileSizeMB: 200
@@ -738,7 +738,7 @@ spec:
           value: "true"
         - name: ROX_OFFLINE_MODE
           value: "false"
-        
+
         volumeMounts:
         - name: varlog
           mountPath: /var/log/stackrox/
@@ -776,8 +776,8 @@ spec:
         - name: endpoints-config-volume
           mountPath: /etc/stackrox.d/endpoints/
           readOnly: true
-        
-        
+
+
       volumes:
       - name: varlog
         emptyDir: {}
@@ -885,7 +885,7 @@ spec:
               topologyKey: kubernetes.io/hostname
       containers:
       - name: scanner
-        
+
         image: "quay.io/stackrox-io/scanner:3.70.0"
         env:
         - name: POD_NAME
@@ -896,7 +896,7 @@ spec:
           valueFrom:
             fieldRef:
               fieldPath: metadata.namespace
-        
+
         resources:
           limits:
             cpu: 2000m
@@ -945,8 +945,8 @@ spec:
           readOnly: true
         - name: scanner-db-password
           mountPath: /run/secrets/stackrox.io/secrets
-        
-        
+
+
       serviceAccountName: scanner
       volumes:
       - name: additional-ca-volume
@@ -1032,7 +1032,7 @@ spec:
                     operator: NotIn
                     values:
                     - "true"
-            
+
       initContainers:
         - name: init-db
           image: "quay.io/stackrox-io/scanner-db:3.70.0"
@@ -1063,7 +1063,7 @@ spec:
             cpu: 200m
             memory: 200Mi
         env:
-          
+
         securityContext:
           runAsUser: 70
           runAsGroup: 70
@@ -1199,7 +1199,7 @@ stringData:
     +wzlZPbQ2F7Pd1JX6AQaEKNrTNYroOHLOUQ9mTuHC7oMU32Op29yWLselaL5UsXP
     q/U5bkW4R71sKOoRnrx9Yr4=
     -----END CERTIFICATE-----
-    
+
   ca-key.pem: |
     -----BEGIN RSA PRIVATE KEY-----
     MIIEowIBAAKCAQEAxmvmYjosiclQUG6Oyy7wp17rhPikFCBPdwvy5BgrMoxSFokg
@@ -1228,7 +1228,7 @@ stringData:
     fz1H7jf1ybJDKpNrwEG1J7mNJB7n0btEr+GDCVsh9JrBFaphQ3WoPvNS03DGddiu
     baxRF+lcijX5Vraa4GztF9FkR1aTczZ5ZHV3DuHILNxJ1VXySPHA
     -----END RSA PRIVATE KEY-----
-    
+
   jwt-key.pem: |
     -----BEGIN RSA PRIVATE KEY-----
     MIIJKAIBAAKCAgEA2yDMQCqDd2W6Lb6LYbWMJ/i+YJeKxOGYFVcy1nH2J1hM/p98
@@ -1281,7 +1281,7 @@ stringData:
     8Gfxcn5pNB6yH/sTlCKahw+7qxIAd8X7J6IgM2bVnFBufkoIV7Uunwc0GTs4SN/Q
     F4cid6bHDWzN4tLXbHiH5wN4Mfa7FUlRWxs/9sHfQDaRF97EciVvD6HOTfQ=
     -----END RSA PRIVATE KEY-----
-    
+
   cert.pem: |
     -----BEGIN CERTIFICATE-----
     MIIDkDCCAnigAwIBAgIRAIxwwsgmudCCK/2dtbjeFp0wDQYJKoZIhvcNAQELBQAw
@@ -1305,7 +1305,7 @@ stringData:
     uDbBKWNxaCL2a+nWdvjY+HE983Sk0sKGh9sVKqMIiQ6Qk3SgVXZu55g0G4seY9qf
     nd5vqg==
     -----END CERTIFICATE-----
-    
+
   key.pem: |
     -----BEGIN RSA PRIVATE KEY-----
     MIIEowIBAAKCAQEAxY0t2c7kpJbTWDtGGZtcsqRsKSH59iHbx9ZiKS9QSjw/Lvti
@@ -1405,7 +1405,7 @@ stringData:
     +wzlZPbQ2F7Pd1JX6AQaEKNrTNYroOHLOUQ9mTuHC7oMU32Op29yWLselaL5UsXP
     q/U5bkW4R71sKOoRnrx9Yr4=
     -----END CERTIFICATE-----
-    
+
   cert.pem: |
     -----BEGIN CERTIFICATE-----
     MIIDjzCCAnegAwIBAgIQQxGgRXsAEvtzCZa/jEv1BDANBgkqhkiG9w0BAQsFADAp
@@ -1429,7 +1429,7 @@ stringData:
     aukOguFII1TTGH7SkD1ZDKnxVR4jXEyc6/H3kkqJZLjGuOT8VbKUyfxzlUsolXKO
     KkLs
     -----END CERTIFICATE-----
-    
+
   key.pem: |
     -----BEGIN RSA PRIVATE KEY-----
     MIIEpQIBAAKCAQEAtg5yYN7c4MvhnwOWKT/zQ+LFHoJER1ENuNR4CLBQxKfb6bmW
@@ -1503,7 +1503,7 @@ stringData:
     +wzlZPbQ2F7Pd1JX6AQaEKNrTNYroOHLOUQ9mTuHC7oMU32Op29yWLselaL5UsXP
     q/U5bkW4R71sKOoRnrx9Yr4=
     -----END CERTIFICATE-----
-    
+
   cert.pem: |
     -----BEGIN CERTIFICATE-----
     MIIDnzCCAoegAwIBAgIRAMGmK9MvZBszNZXKm1LfybkwDQYJKoZIhvcNAQELBQAw
@@ -1527,7 +1527,7 @@ stringData:
     Y9xqKNZfbJCxyBv8C7b7Y6CHXhCnIL6oN3e27En92sgD0eEqpN1lHG9EwKlT0usX
     nbOttBQW758SH9UtYNops6aBYA==
     -----END CERTIFICATE-----
-    
+
   key.pem: |
     -----BEGIN RSA PRIVATE KEY-----
     MIIEpAIBAAKCAQEAwu5PI3Ytfqb7DiRdyXRJwFeUvj1QEeQiwL5WpmQ/PeEIxoRY
