@@ -25,7 +25,6 @@ spec:
     spec:
       serviceAccountName: mysql
       affinity:
-        podAffinity:
         podAntiAffinity:
           preferredDuringSchedulingIgnoredDuringExecution:
             - podAffinityTerm:
@@ -37,7 +36,6 @@ spec:
                   - "openmetadata"
                 topologyKey: kubernetes.io/hostname
               weight: 1
-        nodeAffinity:
       containers:
         - name: mysql
           image: docker.io/bitnami/mysql:8.0.28-debian-10-r0

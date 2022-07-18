@@ -30,7 +30,6 @@ spec:
       name: "elasticsearch"
       labels:
         app: "elasticsearch"
-      annotations:
     spec:
       affinity:
         podAntiAffinity:
@@ -43,7 +42,6 @@ spec:
                       - "elasticsearch"
               topologyKey: kubernetes.io/hostname
       terminationGracePeriodSeconds: 120
-      volumes:
       enableServiceLinks: true
       containers:
         - name: "elasticsearch"

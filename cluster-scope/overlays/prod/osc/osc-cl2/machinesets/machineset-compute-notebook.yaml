@@ -36,8 +36,6 @@ spec:
           credentialsSecret:
             name: aws-cloud-credentials
           instanceType: c5.4xlarge
-          metadata:
-            creationTimestamp: null
           blockDevices:
             - ebs:
                 encrypted: true

@@ -38,8 +38,6 @@ spec:
           credentialsSecret:
             name: aws-cloud-credentials
           instanceType: g4dn.xlarge
-          metadata:
-            creationTimestamp: null
           blockDevices:
             - ebs:
                 encrypted: true
