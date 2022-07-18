@@ -43,6 +43,7 @@ spec:
         contains(groups[*], 'thoth')          && 'Editor' ||
         contains(groups[*], 'opf-alerting')          && 'Admin' ||
         contains(groups[*], 'grafana-viewer')   && 'Viewer' ||
+        contains(groups[*], 'grafana-editor')   && 'Editor' ||
         contains(groups[*], 'scsaol')   && 'Viewer' ||
         'Deny'
       role_attribute_strict: true
