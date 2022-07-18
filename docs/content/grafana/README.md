@@ -12,7 +12,8 @@ Dashboards can be represented by the `GrafanaDashboard` custom resource or by th
 
 Grafana can be accessed at: https://grafana.operate-first.cloud/
 
-You will need to be onboarded to access the UI, this can be self serviced, please follow the instructions [here][4] to do so. You will need to belong to an OCP `group` in order to gain access, current list of groups and their belonging users can be found [here][5]. If you do not belong to one, please create one, and then include this group in the `smaug` cluster overlay [here][6].
+For Grafana **Viewer** access please add your GitHub handle to: [grafana-viewer][10]
+For Grafana **Editor** access please add your GitHub handle to: [grafana-editor][11]
 
 ## Adding the Dashboards
 
@@ -36,3 +37,5 @@ For more details on importing/exporting dashboards, you can refer to the Grafana
 [7]: add_grafana_dashboard.md
 [8]: https://grafana.com/docs/grafana/latest/datasources/
 [9]: https://grafana.com/docs/grafana/latest/dashboards/export-import/
+[10]: https://github.com/operate-first/apps/blob/master/cluster-scope/base/user.openshift.io/groups/grafana-viewer/group.yaml
+[11]: https://github.com/operate-first/apps/blob/master/cluster-scope/base/user.openshift.io/groups/grafana-editor/group.yaml
