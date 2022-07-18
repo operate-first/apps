@@ -24,7 +24,7 @@ spec:
     enable-tekton-oci-bundles: false
     metrics.taskrun.level: task
     metrics.pipelinerun.level: pipeline
-    enable-api-fields: stable
+    enable-api-fields: alpha
     enable-custom-tasks: true
     disable-creds-init: true
     disable-affinity-assistant: true
