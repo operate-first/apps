@@ -6,6 +6,7 @@ metadata:
   annotations:
     operate-first.cloud/logo-url: https://cncf-branding.netlify.app/img/projects/argo/icon/color/argo-icon-color.png
     argocd/app-name: opf-app-of-apps-smaug
+    github.com/project-slug: operate-first/apps
   links:
     - url: https://www.operate-first.cloud/apps/content/argocd-gitops/README.html
       title: Support path

@@ -6,6 +6,7 @@ metadata:
   annotations:
     operate-first.cloud/logo-url: https://cncf-branding.netlify.app/img/projects/dex/icon/color/dex-icon-color.png
     argocd/app-name: dex-smaug
+    github.com/project-slug: operate-first/apps
   links:
     - url: https://github.com/dexidp/dex
       title: Support path

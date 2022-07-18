@@ -6,6 +6,7 @@ metadata:
   annotations:
     operate-first.cloud/logo-url: https://observatorium.io/logo.svg
     argocd/app-name: opf-observatorium-smaug
+    github.com/project-slug: operate-first/apps
   links:
     - url: https://www.operate-first.cloud/apps/content/observatorium/README.html
       title: Support path
