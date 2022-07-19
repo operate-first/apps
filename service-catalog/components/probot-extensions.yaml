@@ -1,0 +1,29 @@
+apiVersion: backstage.io/v1alpha1
+kind: Component
+metadata:
+  name: Probot-extensions
+  description: Extensions to Probot App when run as a service
+  annotations:
+    operate-first.cloud/logo-url: https://raw.githubusercontent.com/operate-first/probot-extensions/main/static/robot.png
+    github.com/project-slug: operate-first/probot-extensions
+    backstage.io/adr-location: https://github.com/operate-first/probot-template/tree/main/docs/adrs
+  links:
+    - url: https://www.npmjs.com/package/@operate-first/probot-metrics
+      title: Metrics npm package
+      icon: web
+    - url: https://www.npmjs.com/package/@operate-first/probot-issue-form
+      title: Issue forms npm package
+      icon: web
+    - url: https://www.npmjs.com/package/@operate-first/probot-kubernetes
+      title: Kubernetes npm package
+      icon: web
+    - url: https://github.com/operate-first/peribolos-as-a-service/issues/new
+      title: Support path
+      icon: user
+  tags:
+    - typescript
+spec:
+  type: service
+  lifecycle: production
+  owner: group:operate-first
+  system: system:operate-first-cloud
