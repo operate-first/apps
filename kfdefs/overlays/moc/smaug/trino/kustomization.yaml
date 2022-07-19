@@ -10,5 +10,6 @@ resources:
   - secrets
   - servicemonitor.yaml
   - vpa
+  - alerts.yaml
 generatorOptions:
   disableNameSuffixHash: true
