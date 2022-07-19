@@ -122,6 +122,7 @@ resources:
 - ../../../../base/rbac.authorization.k8s.io/clusterrolebindings/node-labeler
 - ../../../../base/rbac.authorization.k8s.io/clusterrolebindings/oauth-token-access-review-opf-observatorium
 - ../../../../base/rbac.authorization.k8s.io/clusterrolebindings/scc-privileged-opf-ci-pipelines-aicoe-ci
+- ../../../../base/rbac.authorization.k8s.io/clusterrolebindings/service-catalog-k8s-plugin
 - ../../../../base/rbac.authorization.k8s.io/clusterrolebindings/tekton-dashboard
 - ../../../../base/rbac.authorization.k8s.io/clusterrolebindings/vault-server-binding
 - ../../../../base/rbac.authorization.k8s.io/clusterroles/apirequest-count-read-cr
@@ -129,6 +130,7 @@ resources:
 - ../../../../base/rbac.authorization.k8s.io/clusterroles/moc-nfs-democratic-csi-node-cr
 - ../../../../base/rbac.authorization.k8s.io/clusterroles/node-labeler
 - ../../../../base/rbac.authorization.k8s.io/clusterroles/oauth-token-access-review
+- ../../../../base/rbac.authorization.k8s.io/clusterroles/service-catalog-k8s-plugin
 - ../../../../base/rbac.authorization.k8s.io/clusterroles/tekton-dashboard
 - ../../../../base/storage.k8s.io/csidrivers/org.democratic-csi.nfs
 - ../../../../base/storage.k8s.io/storageclasses/moc-nfs-csi
