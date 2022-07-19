@@ -1,0 +1,19 @@
+apiVersion: external-secrets.io/v1beta1
+kind: ExternalSecret
+metadata:
+  name: image-registry-private-configuration-user
+  namespace: openshift-image-registry
+spec:
+  secretStoreRef:
+    name: opf-vault-store
+    kind: SecretStore
+  refreshInterval: "1h"
+  target:
+    name: image-registry-private-configuration-user
+    creationPolicy: 'Owner'
+    deletionPolicy: "Retain"
+    template:
+      engineVersion: v2
+  dataFrom:
+    - extract:
+        key: moc/smaug/openshift-image-registry/image-registry-private-configuration-user
