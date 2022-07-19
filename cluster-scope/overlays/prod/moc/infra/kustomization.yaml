@@ -45,6 +45,7 @@ resources:
   - ../../../../bundles/idp-mgmt-operator
   - apiserver/api_server_cert.yaml
   - clusterversion.yaml
+  - externalsecrets
   - nodenetworkconfigurationpolicies/crc-provisioning-vlan.yaml
   - kubeletconfigs/increase-worker-system-reserved-memory.yaml
   - metal3.io/provisionings/provisioning-configuration.yaml
