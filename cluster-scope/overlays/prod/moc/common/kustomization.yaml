@@ -6,6 +6,3 @@ resources:
   - ../../common
   - ../../../../base/machineconfiguration.openshift.io/machineconfigs/99-master-ssh
   - ../../../../base/machineconfiguration.openshift.io/machineconfigs/99-worker-ssh
-
-generators:
-  - secret-generator.yaml
