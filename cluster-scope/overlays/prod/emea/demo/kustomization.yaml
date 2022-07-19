@@ -12,7 +12,3 @@ resources:
 
 patchesStrategicMerge:
 - groups/cluster-admins.yaml
-- oauths/cluster_patch.yaml
-
-generators:
-- secret-generator.yaml
