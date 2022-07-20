@@ -3,6 +3,7 @@ kind: CustomResourceDefinition
 metadata:
   annotations:
     controller-gen.kubebuilder.io/version: v0.7.0
+  creationTimestamp: null
   name: assets.katalog.fybrik.io
 spec:
   group: katalog.fybrik.io
