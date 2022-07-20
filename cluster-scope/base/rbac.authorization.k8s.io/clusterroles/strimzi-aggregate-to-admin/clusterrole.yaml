@@ -1,0 +1,29 @@
+---
+apiVersion: rbac.authorization.k8s.io/v1
+kind: ClusterRole
+metadata:
+  name: strimzi-aggregate-to-admin
+  labels:
+    rbac.authorization.k8s.io/aggregate-to-admin: "true"
+rules:
+  - apiGroups:
+      - kafka.strimzi.io
+    resources:
+      - kafkabridges
+      - kafkaconnectors
+      - kafkaconnects
+      - kafkamirrormaker2s
+      - kafkamirrormakers
+      - kafkarebalances
+      - kafkas
+      - kafkatopics
+      - kafkausers
+    verbs:
+      - create
+      - delete
+      - deletecollection
+      - get
+      - list
+      - patch
+      - update
+      - watch
