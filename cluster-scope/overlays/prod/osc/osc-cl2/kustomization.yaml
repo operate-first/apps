@@ -26,6 +26,7 @@ resources:
 - ../../../../base/core/namespaces/inception
 - ../../../../base/core/namespaces/kafka
 - ../../../../base/core/namespaces/kubeflow
+- ../../../../base/core/namespaces/markets-svc-dev
 - ../../../../base/core/namespaces/odh-jupyterhub
 - ../../../../base/core/namespaces/odh-seldon
 - ../../../../base/core/namespaces/odh-superset

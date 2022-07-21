@@ -1,0 +1,12 @@
+---
+apiVersion: v1
+kind: Namespace
+metadata:
+  annotations:
+    openshift.io/display-name: "Kafka testing / playground"
+    openshift.io/requester: bryonbaker
+    openshift.io/description: >-
+      For testing Kafka creation ref issue -
+      https://github.com/os-climate/os_c_data_commons/issues/191
+  name: markets-svc-dev
+spec: {}
