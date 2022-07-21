@@ -8,7 +8,7 @@ roleRef:
   name: curator-operator-manager-role
 subjects:
 - kind: ServiceAccount
-  name: controller-manager
+  name: curator-operator-controller-manager
   namespace: curator-operator-system
 - kind: Group
   name: curator
