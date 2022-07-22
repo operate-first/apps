@@ -1,0 +1,13 @@
+apiVersion: operators.coreos.com/v1alpha1
+kind: Subscription
+metadata:
+  labels:
+    operators.coreos.com/vault.vault: ""
+  name: banzaicloud-vault
+  namespace: banzaicloud-vault
+spec:
+  channel: beta
+  installPlanApproval: Automatic
+  name: vault
+  source: operatorhubio-operators
+  sourceNamespace: openshift-marketplace
