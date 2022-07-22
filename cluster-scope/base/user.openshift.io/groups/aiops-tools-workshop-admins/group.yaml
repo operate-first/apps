@@ -3,6 +3,8 @@ kind: Group
 metadata:
     name: aiops-tools-workshop-admins
 users:
+    - HumairAK
     - oindrillac
     - aakankshaduggal
     - suppathak
+    - cdolfi
