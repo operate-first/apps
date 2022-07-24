@@ -7,7 +7,7 @@ spec:
   destination:
     name: smaug
     namespace: aiops-tools-workshop
-  project: worksohps
+  project: workshops
   source:
     path: workshops/aiops-tools/smaug
     repoURL: https://github.com/operate-first/apps.git
