@@ -1,0 +1,10 @@
+apiVersion: objectbucket.io/v1alpha1
+kind: ObjectBucketClaim
+metadata:
+  name: aiops-tools-workshop-2
+spec:
+  additionalConfig:
+    maxSize: 60G
+  bucketName: aiops-tools-workshop-2
+  objectBucketName: aiops-tools-workshop-2
+  storageClassName: openshift-storage.noobaa.io

@@ -1,0 +1,23 @@
+apiVersion: kustomize.config.k8s.io/v1beta1
+kind: Kustomization
+namespace: aiops-tools-workshop
+resources:
+  - ../base/administration/rbac
+  - ../base/odh-configs
+  - ../base/odh-kfdefs
+  - ../base/cloudbeaver
+  - ../base/dex
+  - configmaps
+  - externalsecrets
+
+# Already included in smaug via other apps
+#  - ../base/administration/groups
+#  - ../base/administration/namespace
+#  - ../base/kfp-tekton
+#  - ../base/odh-operator
+#  - ../base/openshift-pipelines
+#  - ../base/rbac
+
+patchesStrategicMerge:
+  - patches/dex-clients_patch.yaml
+  - patches/cb_resources_patch.yaml

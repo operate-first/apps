@@ -5,3 +5,4 @@ resources:
     - namespace.yaml
 components:
     - ../../../../components/project-admin-rolebindings/aiops-tools-workshop-admins
+    - ../../../../components/project-view-rolebindings/aiops-tools-workshop-view
