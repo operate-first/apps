@@ -54,6 +54,20 @@ spec:
               databaseUser:
                 description: Value for the Database User Environment Variable
                 type: string
+              emailPassword:
+                description: Sender email password which does not need 2FA
+                type: string
+              emailRecepients:
+                description: Recepients email who will receive the reports, should
+                  be in the format {"user1@gmail.com":{"cc":["cc1@gmail.com"]}}
+                type: string
+              emailReports:
+                description: If email has to be sent then this value should be set
+                  to true
+                type: boolean
+              emailUser:
+                description: Sender email address which will be used as a mail address
+                type: string
               reportFrequency:
                 description: Frequency of the report generation
                 type: string

@@ -33,8 +33,18 @@ spec:
           spec:
             description: FetchDataSpec defines the desired state of FetchData
             properties:
+              aws_access_key_id:
+                description: 'Access key Id for S3 bucket Default value: nil'
+                type: string
+              aws_secret_access_key:
+                description: 'Secret access key Id for S3 bucket Default value: nil'
+                type: string
               backupSrc:
                 description: Koku metrics pvc zipped files storage path
+                type: string
+              bucket_name:
+                description: 'Bucket name where you want data to be stored Default
+                  value: nil'
                 type: string
               cronjobNamespace:
                 description: Namespace in which cron job is created
@@ -55,6 +65,14 @@ spec:
                 type: string
               databaseUser:
                 description: Value for the Database User Environment Variable
+                type: string
+              has_s3_access:
+                description: If data has to be stored in one more additional storage
+                  similar to or any S3 Storage True if you wish to store data or False
+                  if you don't want data to leave the openshift cluster.
+                type: string
+              s3_host_name:
+                description: 'Host name to access the S3 bucket Default value: nil'
                 type: string
               schedule:
                 description: Schedule period for the CronJob
