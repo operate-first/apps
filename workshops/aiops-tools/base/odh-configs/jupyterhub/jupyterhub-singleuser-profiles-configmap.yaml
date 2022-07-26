@@ -12,7 +12,7 @@ data:
         resources:
           requests:
             memory: 6Gi
-            cpu: 1m
+            cpu: 1
           limits:
             memory: 12Gi
-            cpu: 4
+            cpu: 2
