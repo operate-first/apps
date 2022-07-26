@@ -4,7 +4,6 @@ kind: CustomResourceDefinition
 metadata:
   annotations:
     controller-gen.kubebuilder.io/version: v0.8.0
-  creationTimestamp: null
   name: reportapis.curator.operatefirst.io
 spec:
   group: curator.operatefirst.io
@@ -52,7 +51,7 @@ spec:
                   - pod_limit_memory_byte_seconds
                   - node_capacity_cpu_cores
                   type: string
-                maxItems: 11
+                maxItems: 12
                 minItems: 1
                 type: array
               namespace:

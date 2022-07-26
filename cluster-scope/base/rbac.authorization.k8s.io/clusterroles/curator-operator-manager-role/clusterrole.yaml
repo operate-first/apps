@@ -122,6 +122,32 @@ rules:
 - apiGroups:
   - curator.operatefirst.io
   resources:
+  - reportapis
+  verbs:
+  - create
+  - delete
+  - get
+  - list
+  - patch
+  - update
+  - watch
+- apiGroups:
+  - curator.operatefirst.io
+  resources:
+  - reportapis/finalizers
+  verbs:
+  - update
+- apiGroups:
+  - curator.operatefirst.io
+  resources:
+  - reportapis/status
+  verbs:
+  - get
+  - patch
+  - update
+- apiGroups:
+  - curator.operatefirst.io
+  resources:
   - reports
   verbs:
   - create
