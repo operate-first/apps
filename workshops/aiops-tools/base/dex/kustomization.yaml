@@ -3,3 +3,5 @@ kind: Kustomization
 namespace: aiops-tools-workshop
 resources:
   - ../../../../dex/base
+# Implement this in the overlay
+# - configmaps
