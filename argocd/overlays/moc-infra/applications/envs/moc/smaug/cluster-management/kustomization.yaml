@@ -13,3 +13,4 @@ resources:
   - nfd.yaml
   - kubevirt-hyperconverged.yaml
   - volsync.yaml
+  - kepler.yaml

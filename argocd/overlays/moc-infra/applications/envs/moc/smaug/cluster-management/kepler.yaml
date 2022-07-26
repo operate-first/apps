@@ -1,0 +1,20 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: kepler
+  namespace: argocd
+spec:
+  project: cluster-management
+  source:
+    path: kepler/overlays/moc/smaug
+    repoURL: https://github.com/operate-first/apps.git
+    targetRevision: HEAD
+  destination:
+    name: smaug
+    namespace: monitoring
+  syncPolicy:
+    automated:
+      prune: true
+      selfHeal: true
+    syncOptions:
+      - Validate=false
