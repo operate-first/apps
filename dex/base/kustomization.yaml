@@ -6,7 +6,6 @@ resources:
 - externalsecrets
 - routes
 - secrets
-- secretstores
 - serviceaccounts
 - services
 # Implement this in overlay

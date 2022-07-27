@@ -11,3 +11,5 @@ spec:
     - ./components/observatorium.yaml
     - ./components/odh.yaml
     - ./components/odf.yaml
+    - ./components/peribolos-as-a-service.yaml
+    - ./components/probot-extensions.yaml

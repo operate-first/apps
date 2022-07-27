@@ -57,5 +57,4 @@ resources:
 - apiserver
 - externalsecrets
 - ingresscontroller
-- secretstores
-- serviceaccounts
+- secret-mgmt

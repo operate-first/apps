@@ -1,0 +1,573 @@
+plank:
+  report_templates:
+    "*": "[Full PR test history](https://prow.operate-first.cloud/pr-history?org={{.Spec.Refs.Org}}&repo={{.Spec.Refs.Repo}}&pr={{with index .Spec.Refs.Pulls 0}}{{.Number}}{{end}}). [Your PR dashboard](https://prow.operate-first.cloud/pr?query=is%3Apr%20state%3Aopen%20author%3A{{with index .Spec.Refs.Pulls 0}}{{.Author}}{{end}}). Please help us and [open an issue](https://github.com/{{.Spec.Refs.Org}}/{{.Spec.Refs.Repo}}/issues?q=is:issue+is:open) when you hit one in your PR."
+  job_url_prefix_config:
+    "*": https://prow.operate-first.cloud/view/
+  default_decoration_configs:
+    "*":
+      gcs_configuration:
+        bucket: s3://ci-prow/prow-logs
+        path_strategy: explicit
+      s3_credentials_secret: s3-credentials
+      ssh_key_secrets:
+        - ssh-secret
+      utility_images:
+        clonerefs: clonerefs
+        entrypoint: entrypoint
+        initupload: initupload
+        sidecar: sidecar
+sinker:
+  max_pod_age: 6h
+  max_prowjob_age: 12h
+  resync_period: 1m
+  terminated_pod_ttl: 120m
+
+prowjob_namespace: opf-ci-prow
+pod_namespace: opf-ci-prow
+log_level: debug
+
+in_repo_config:
+  enabled:
+    aicoe-aiops: true
+    AICoE: true
+    b4mad: true
+    open-services-group: true
+    operate-first: true
+    os-climate: true
+    thoth-station: true
+
+  allowed_clusters:
+    "AICoE": ["api.smaug.na.operate-first.cloud:6443"]
+    "aicoe-aiops": ["api.smaug.na.operate-first.cloud:6443"]
+    "b4mad": ["api.smaug.na.operate-first.cloud:6443"]
+    "operate-first": ["api.smaug.na.operate-first.cloud:6443"]
+    "open-services-group": ["api.smaug.na.operate-first.cloud:6443"]
+    "os-climate": ["api.smaug.na.operate-first.cloud:6443"]
+    "thoth-station": ["api.smaug.na.operate-first.cloud:6443"]
+
+branch-protection:
+  allow_disabled_policies: true
+  orgs:
+    AICoE:
+      protect: true
+      allow_force_pushes: false
+      required_status_checks:
+        contexts:
+          - aicoe-ci/prow/pre-commit
+      repos:
+        Varangian:
+          protect: true
+          allow_force_pushes: false
+          required_status_checks:
+            contexts:
+              - aicoe-ci/prow/pre-commit
+          exclude:
+            - "^revert-"
+            - "^kebechet-"
+            - "^dependabot/"
+        meteor:
+          protect: true
+          allow_force_pushes: false
+          required_status_checks:
+            contexts:
+              - aicoe-ci/prow/pre-commit
+          exclude:
+            - "^revert-"
+            - "^kebechet-"
+            - "^dependabot/"
+        okr:
+          protect: false
+      restrictions:
+        users: []
+        teams:
+          - sourceops
+        required_pull_request_reviews:
+          dismiss_stale_reviews: false
+          required_approving_review_count: 1
+    b4mad:
+      repos:
+        minecraft:
+          protect: true
+          allow_force_pushes: false
+          required_status_checks:
+            contexts:
+              - aicoe-ci/prow/pre-commit
+          exclude:
+            - "^revert-"
+            - "^kebechet-"
+            - "^dependabot/"
+    thoth-station:
+      protect: true
+      allow_force_pushes: false
+      required_status_checks:
+        contexts:
+          - aicoe-ci/prow/pre-commit
+      exclude:
+        - "^revert-"
+        - "^kebechet-"
+        - "^dependabot/"
+        - "^pres-"
+        - "^gh-pages"
+      restrictions:
+        users: []
+        teams:
+          - sourceops
+        required_pull_request_reviews:
+          dismiss_stale_reviews: false
+          required_approving_review_count: 1
+      repos:
+        tensorflow:
+          protect: false
+        contra-env-infra:
+          protect: false
+        statusfy:
+          protect: false
+        statusfy-ops:
+          protect: false
+        website-tooling:
+          protect: false
+        cuda:
+          protect: false
+        stub-api:
+          protect: false
+        nvidia-usage-dashboard:
+          protect: false
+        template-project:
+          protect: false
+        pipelines-catalog:
+          protect: false
+        bz1816214-example:
+          protect: false
+    open-services-group:
+      protect: true
+      allow_force_pushes: false
+      required_status_checks:
+        contexts:
+          - pre-commit
+      exclude:
+        - "^revert-"
+        - "^kebechet-"
+        - "^dependabot/"
+        - "^pres-"
+        - "^gh-pages"
+      restrictions:
+        users: []
+        teams:
+          - sourceops
+        required_pull_request_reviews:
+          dismiss_stale_reviews: false
+          required_approving_review_count: 1
+    os-climate:
+      protect: true
+      allow_force_pushes: false
+      required_status_checks:
+        contexts:
+          - aicoe-ci/prow/pre-commit
+      repos:
+        aicoe-osc-demo:
+          protect: true
+          allow_force_pushes: false
+          required_status_checks:
+            contexts:
+              - aicoe-ci/prow/pre-commit
+          exclude:
+            - "^revert-"
+            - "^kebechet-"
+            - "^dependabot/"
+      restrictions:
+        users: []
+        teams:
+          - sourceops
+        required_pull_request_reviews:
+          dismiss_stale_reviews: false
+          required_approving_review_count: 1
+deck:
+  spyglass:
+    size_limit: 100000000    # 100MB
+    # gcs_browser_prefix: https://gcsweb.k8s.io/gcs/
+    # testgrid_config: gs://k8s-testgrid/config
+    # testgrid_root: https://testgrid.k8s.io/
+    lenses:
+      - lens:
+          name: metadata
+        required_files:
+          - ^(?:started|finished)\.json$
+        optional_files:
+          - ^(?:podinfo|prowjob)\.json$
+      - lens:
+          name: buildlog
+          config:
+            highlight_regexes:
+              - timed out
+              - "ERROR:"
+              - (FAIL|Failure \[)\b
+              - panic\b
+              - ^E\d{4} \d\d:\d\d:\d\d\.\d\d\d]
+              - "^INFO: Analyzed \\d+ targets"
+        required_files:
+          - ^.*build-log\.txt$
+      - lens:
+          name: podinfo
+        required_files:
+          - ^podinfo\.json$
+  additional_allowed_buckets:
+    - ci-prow
+  tide_update_period: 1s
+
+tide:
+  sync_period: 2m
+
+  pr_status_base_urls:
+    "*": https://prow.operate-first.cloud/pr
+
+  merge_method:
+    aicoe-aiops: merge
+    AICoE: squash
+    b4mad: squash
+    open-services-group: merge
+    operate-first: squash
+    os-climate: merge
+    thoth-station: merge
+
+  queries:
+    - orgs:
+        - aicoe-aiops
+        - b4mad
+        - open-services-group
+        - thoth-station
+      excludedRepos:
+        - thoth-station/dgraph-thoth-config
+        - thoth-station/workload-operator
+        - thoth-station/tensorflow
+        - thoth-station/contra-env-infra
+        - thoth-station/ansible-role-core-imagestreams
+        - thoth-station/ansible-role-core-templates
+        - thoth-station/ansible-role-core-cronjob
+        - thoth-station/ansible-role-metrics-exporter
+        - thoth-station/ansible-role-cronjob
+        - thoth-station/ansible-role-argo-workflows
+        - thoth-station/ansible-role-postgresql
+        - thoth-station/ansible-role-kebechet
+        - thoth-station/ansible-role-postgresql-metrics-exporter
+        - thoth-station/statusfy
+        - thoth-station/statusfy-ops
+        - thoth-station/website-tooling
+        - thoth-station/cuda
+        - thoth-station/stub-api
+        - thoth-station/nvidia-usage-dashboard
+        - thoth-station/pipelines-catalog
+        - thoth-station/bz1816214-example
+        - b4mad/sirius
+        - b4mad/airdata
+        - b4mad/auddress
+      labels:
+        - approved
+      missingLabels:
+        - do-not-merge
+        - do-not-merge/hold
+        - do-not-merge/invalid-owners-file
+        - do-not-merge/work-in-progress
+        - needs-rebase
+    - orgs:
+        - operate-first
+        - os-climate
+      labels:
+        - approved
+        - lgtm
+      missingLabels:
+        - do-not-merge
+        - do-not-merge/hold
+        - do-not-merge/invalid-owners-file
+        - do-not-merge/work-in-progress
+        - needs-rebase
+    - repos:
+        - AICoE/aicoe-cd
+        - AICoE/aicoe-ci
+        - AICoE/aicoe-sre
+        - AICoE/content-pipeline
+        - AICoE/data-driven-development
+        - AICoE/donkeycar
+        - AICoE/elyra-aidevsecops-tutorial
+        - AICoE/idh-manifests
+        - AICoE/internal-data-hub
+        - AICoE/jpegio
+        - AICoE/manage-dependencies-tutorial
+        - AICoE/overlays-for-ai-pipeline-tutorial
+        - AICoE/prometheus-anomaly-detector
+        - AICoE/prometheus-api-client-python
+        - AICoE/pyIFD
+        - AICoE/recommend-base-image-tutorial
+        - AICoE/summit-2021-octo-keynote
+        - AICoE/s2i-custom-notebook
+        - AICoE/sefkhet-abwy
+        - AICoE/Varangian
+        - AICoE/seraph
+      labels:
+        - approved
+      missingLabels:
+        - do-not-merge
+        - do-not-merge/hold
+        - do-not-merge/invalid-owners-file
+        - do-not-merge/work-in-progress
+        - needs-rebase
+    - repos:
+        - AICoE/common
+        - AICoE/meteor
+        - AICoE/meteor-operator
+      labels:
+        - approved
+        - lgtm
+      missingLabels:
+        - do-not-merge
+        - do-not-merge/hold
+        - do-not-merge/invalid-owners-file
+        - do-not-merge/work-in-progress
+        - needs-rebase
+
+  blocker_label: tide/merge-blocker
+  squash_label: tide/merge-method-squash
+  rebase_label: tide/merge-method-rebase
+  merge_label: tide/merge-method-merge
+
+  context_options:
+    from-branch-protection: true
+    skip-unknown-contexts: true
+    orgs:
+      AICoE:
+        repos:
+          prometheus-api-client-python:
+            required-contexts:
+              - aicoe-ci/pre-commit-check
+              - aicoe-ci/pytest-check
+          sefkhet-abwy:
+            required-contexts:
+              - aicoe-ci/pre-commit-check
+              - aicoe-ci/build-check
+      thoth-station:
+        repos:
+          adviser:
+            required-contexts:
+              - aicoe-ci/build-check
+          amun-api:
+            required-contexts:
+              - aicoe-ci/build-check
+          buildlog-parser:
+            required-contexts:
+              - aicoe-ci/build-check
+          init-job:
+            required-contexts:
+              - aicoe-ci/build-check
+          integration-tests:
+            required-contexts:
+              - aicoe-ci/prow/pytest
+              - aicoe-ci/build-check
+          kebechet:
+            required-contexts:
+              - aicoe-ci/build-check
+          management-api:
+            required-contexts:
+              - aicoe-ci/build-check
+          user-api:
+            required-contexts:
+              - aicoe-ci/build-check
+          package-extract:
+            required-contexts:
+              - aicoe-ci/build-check
+          si-aggregator:
+            required-contexts:
+              - aicoe-ci/build-check
+          si-bandit:
+            required-contexts:
+              - aicoe-ci/build-check
+          si-cloc:
+            required-contexts:
+              - aicoe-ci/build-check
+          investigator:
+            required-contexts:
+              - aicoe-ci/build-check
+          workflow-helpers:
+            required-contexts:
+              - aicoe-ci/build-check
+      operate-first:
+        repos:
+          peribolos-as-a-service:
+            skip-unknown-contexts: false
+          probot-extensions:
+            skip-unknown-contexts: false
+          probot-template:
+            skip-unknown-contexts: false
+
+periodics:
+  - name: integration-tests-prod
+    interval: 6h
+    decorate: true
+    spec:
+      containers:
+        - image: quay.io/thoth-station/integration-tests:v0.11.1
+          imagePullPolicy: Always
+          command:
+            - python3
+            - app.py
+          env:
+            - name: MAIL_REPORT
+              valueFrom:
+                configMapKeyRef:
+                  key: mail-report
+                  name: integration-tests
+            - name: GENERATE_REPORT
+              valueFrom:
+                configMapKeyRef:
+                  key: generate-report
+                  name: integration-tests
+            - name: THOTH_DEPLOYMENT_NAME
+              valueFrom:
+                configMapKeyRef:
+                  key: deployment-name
+                  name: integration-tests
+            - name: THOTH_LOGGING_NO_JSON
+              valueFrom:
+                configMapKeyRef:
+                  key: logging-no-json
+                  name: integration-tests
+            - name: THOTH_USER_API_HOST
+              valueFrom:
+                configMapKeyRef:
+                  key: user-api
+                  name: integration-tests
+            - name: THOTH_MANAGEMENT_API_HOST
+              valueFrom:
+                configMapKeyRef:
+                  key: management-api
+                  name: integration-tests
+            - name: THOTH_AMUN_API_HOST
+              valueFrom:
+                configMapKeyRef:
+                  key: amun-api
+                  name: integration-tests
+            - name: THOTH_MANAGEMENT_API_SECRET
+              valueFrom:
+                secretKeyRef:
+                  key: management-api-token
+                  name: integration-tests
+            - name: THOTH_INTEGRATION_TESTS_TAGS
+              valueFrom:
+                configMapKeyRef:
+                  key: tags
+                  name: integration-tests
+          resources:
+            requests:
+              memory: "256Mi"
+              cpu: "1"
+            limits:
+              memory: "512"
+              cpu: "2"
+    annotations:
+      description: Periodic e2e tests against MOC deployment
+
+  - name: periodic-close-rotten
+    interval: 3h
+    decorate: true
+    annotations:
+      description: Closes rotten issues after 30d of inactivity
+    spec:
+      containers:
+        - image: commenter
+          command:
+            - /app/robots/commenter/app.binary
+          args:
+            - |-
+              --query=org:thoth-station org:AICoE org:operate-first org:open-services-group
+              -label:lifecycle/frozen
+              label:lifecycle/rotten
+            - --updated=720h
+            - --token=/etc/token/oauth
+            - |-
+              --comment=Rotten issues close after 30d of inactivity.
+              Reopen the issue with `/reopen`.
+              Mark the issue as fresh with `/remove-lifecycle rotten`.
+
+              /close
+            - --template
+            - --ceiling=10
+            - --confirm
+          volumeMounts:
+            - name: token
+              mountPath: /etc/token
+      volumes:
+        - name: token
+          secret:
+            secretName: oauth-token
+
+  - name: periodic-rotten
+    interval: 3h
+    decorate: true
+    annotations:
+      description: Adds lifecycle/rotten to stale issues after 30d of inactivity
+    spec:
+      containers:
+        - image: commenter
+          command:
+            - /app/robots/commenter/app.binary
+          args:
+            - |-
+              --query=org:thoth-station org:AICoE org:operate-first org:open-services-group
+              -label:lifecycle/frozen
+              label:lifecycle/stale
+              -label:lifecycle/rotten
+            - --updated=720h
+            - --token=/etc/token/oauth
+            - |-
+              --comment=Stale issues rot after 30d of inactivity.
+              Mark the issue as fresh with `/remove-lifecycle rotten`.
+              Rotten issues close after an additional 30d of inactivity.
+
+              If this issue is safe to close now please do so with `/close`.
+
+              /lifecycle rotten
+            - --template
+            - --ceiling=10
+            - --confirm
+          volumeMounts:
+            - name: token
+              mountPath: /etc/token
+      volumes:
+        - name: token
+          secret:
+            secretName: oauth-token
+
+  - name: periodic-stale
+    interval: 3h
+    decorate: true
+    annotations:
+      description: Adds lifecycle/stale to issues after 90d of inactivity
+    spec:
+      containers:
+        - image: commenter
+          command:
+            - /app/robots/commenter/app.binary
+          args:
+            - |-
+              --query=org:thoth-station org:AICoE org:operate-first org:open-services-group
+              -label:lifecycle/frozen
+              -label:lifecycle/stale
+              -label:lifecycle/rotten
+            - --updated=2160h
+            - --token=/etc/token/oauth
+            - |-
+              --comment=Issues go stale after 90d of inactivity.
+              Mark the issue as fresh with `/remove-lifecycle stale`.
+              Stale issues rot after an additional 30d of inactivity and eventually close.
+
+              If this issue is safe to close now please do so with `/close`.
+
+              /lifecycle stale
+            - --template
+            - --ceiling=10
+            - --confirm
+          volumeMounts:
+            - name: token
+              mountPath: /etc/token
+      volumes:
+        - name: token
+          secret:
+            secretName: oauth-token

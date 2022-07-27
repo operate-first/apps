@@ -11,6 +11,8 @@ resources:
   - ../../base/rbac.authorization.k8s.io/clusterroles/curator-operator-fetchdata-viewer-role
   - ../../base/rbac.authorization.k8s.io/clusterroles/curator-operator-manager-role
   - ../../base/rbac.authorization.k8s.io/clusterroles/curator-operator-metrics-reader
+  - ../../base/rbac.authorization.k8s.io/clusterroles/curator-operator-report-api-editor-role
+  - ../../base/rbac.authorization.k8s.io/clusterroles/curator-operator-report-api-viewer-role
   - ../../base/rbac.authorization.k8s.io/clusterroles/curator-operator-report-editor-role
   - ../../base/rbac.authorization.k8s.io/clusterroles/curator-operator-report-viewer-role
   - ../../base/rbac.authorization.k8s.io/clusterroles/curator-report-editor-role

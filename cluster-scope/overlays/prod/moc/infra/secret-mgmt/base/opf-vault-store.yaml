@@ -1,0 +1,16 @@
+apiVersion: external-secrets.io/v1beta1
+kind: SecretStore
+metadata:
+  name: opf-vault-store
+spec:
+  provider:
+    vault:
+      auth:
+        kubernetes:
+          mountPath: infra-k8s
+          role: moc-ops
+          serviceAccountRef:
+            name: vault-secret-fetcher
+      path: k8s_secrets
+      server: 'https://vault-ui-vault.apps.smaug.na.operate-first.cloud'
+      version: v2

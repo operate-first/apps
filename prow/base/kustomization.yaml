@@ -1,0 +1,19 @@
+apiVersion: kustomize.config.k8s.io/v1beta1
+kind: Kustomization
+resources:
+  - branchprotector.yaml
+  - crier.yaml
+  - deck.yaml
+  - hook.yaml
+  - horologium.yaml
+  - imagestreams.yaml
+  - needs-rebase.yaml
+  - plank.yaml
+  - prow-controller-manager.yaml
+  - sinker.yaml
+  - statusreconciler.yaml
+  - tide.yaml
+commonLabels:
+  app.kubernetes.io/name: aicoe-prow
+  app.kubernetes.io/component: prow
+  app.kubernetes.io/managed-by: aicoe-thoth-devops

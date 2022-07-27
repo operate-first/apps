@@ -2,12 +2,14 @@ apiVersion: kustomize.config.k8s.io/v1beta1
 kind: Kustomization
 resources:
 - ../../../base/config.openshift.io/projects/cluster
+- ../../../base/core/serviceaccounts/schemastore-ci
 - ../../../base/rbac.authorization.k8s.io/clusterrolebindings/cluster-admins-rb
 - ../../../base/rbac.authorization.k8s.io/clusterrolebindings/self-provisioners
 - ../../../base/rbac.authorization.k8s.io/clusterrolebindings/sre
 - ../../../base/rbac.authorization.k8s.io/clusterroles/events-aggregate-to-edit
 - ../../../base/user.openshift.io/groups/adoptium
 - ../../../base/user.openshift.io/groups/ai-services
+- ../../../base/user.openshift.io/groups/aiops-tools-workshop-admins
 - ../../../base/user.openshift.io/groups/apicurio
 - ../../../base/user.openshift.io/groups/argocd-admins
 - ../../../base/user.openshift.io/groups/argocd-readonly
@@ -33,6 +35,7 @@ resources:
 - ../../../base/user.openshift.io/groups/fedora
 - ../../../base/user.openshift.io/groups/fybrik
 - ../../../base/user.openshift.io/groups/grafana-viewer
+- ../../../base/user.openshift.io/groups/grafana-editor
 - ../../../base/user.openshift.io/groups/lab-cicd
 - ../../../base/user.openshift.io/groups/logs-insights
 - ../../../base/user.openshift.io/groups/manageiq

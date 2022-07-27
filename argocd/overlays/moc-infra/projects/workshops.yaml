@@ -6,8 +6,10 @@ metadata:
     project-template: global
 spec:
   destinations:
-    - namespace: "elyra-aidevsecops-tutorial"
-      server: "https://api.devconfus2021.aws.operate-first.cloud:6443"
+    - namespace: "aiops-tools-workshop"
+      server: "https://api.smaug.na.operate-first.cloud:6443"
+    - namespace: "aiops-tools-workshop"
+      server: "https://api.morty.emea.operate-first.cloud:6443"
   sourceRepos:
     - "*"
   roles:
@@ -22,6 +24,11 @@ spec:
         - p, proj:workshops:project-admin, applications, override, workshops/*, allow
         - p, proj:workshops:project-admin, applications, action/*, workshops/*, allow
       groups:
-        - data-science
-        - operate-first
-        - workshops
+        - aiops-tools-workshop-admins
+  namespaceResourceWhitelist:
+    - group: external-secrets.io
+      kind: ExternalSecret
+    - group: kfdef.apps.kubeflow.org
+      kind: KfDef
+    - group: objectbucket.io
+      kind: ObjectBucketClaim

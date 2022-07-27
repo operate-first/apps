@@ -55,5 +55,4 @@ resources:
 - apiserver/api_server_cert.yaml
 - ingresscontrollers/default.yaml
 - secrets
-- secretstores
-- serviceaccounts
+- secret-mgmt

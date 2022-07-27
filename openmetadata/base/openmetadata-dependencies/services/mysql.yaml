@@ -6,7 +6,6 @@ metadata:
   labels:
     app.kubernetes.io/name: mysql
     app.kubernetes.io/component: primary
-  annotations:
 spec:
   type: ClusterIP
   ports:
@@ -14,7 +13,6 @@ spec:
       port: 3306
       protocol: TCP
       targetPort: mysql
-      nodePort: null
   selector:
     app.kubernetes.io/name: mysql
     app.kubernetes.io/component: primary

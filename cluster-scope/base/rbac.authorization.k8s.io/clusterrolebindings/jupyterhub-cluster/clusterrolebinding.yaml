@@ -12,6 +12,9 @@ subjects:
   - kind: ServiceAccount
     name: jupyterhub-hub
     namespace: ds-ml-workflows-ws
+  - kind: ServiceAccount
+    name: jupyterhub-hub
+    namespace: aiops-tools-workshop
 roleRef:
   apiGroup: rbac.authorization.k8s.io
   kind: ClusterRole

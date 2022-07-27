@@ -17,13 +17,11 @@ resources:
   - ../../../../base/user.openshift.io/groups/cluster-admins
   - ../../../../bundles/external-secrets-operator
   - apiserver
+  - externalsecrets
   - machineconfigs/50-ipmi-route.yaml
   - configmaps/admin-acks.yaml
   - ingresscontrollers
-  - secretstores
-  - serviceaccounts
-generators:
-  - secret-generator.yaml
+  - secret-mgmt
 
 patchesStrategicMerge:
   - subscriptions/kubevirt-hyperconverged_patch.yaml

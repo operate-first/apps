@@ -5,8 +5,6 @@ metadata:
   name: openmetadata-db-migrations-hook
 spec:
   template:
-    metadata:
-      creationTimestamp: null
     spec:
       containers:
         - command:

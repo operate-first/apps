@@ -1,0 +1,19 @@
+apiVersion: external-secrets.io/v1beta1
+kind: ExternalSecret
+metadata:
+  name: rook-ceph-external-cluster-details
+  namespace: openshift-storage
+spec:
+  secretStoreRef:
+    name: opf-vault-store
+    kind: SecretStore
+  refreshInterval: "1h"
+  target:
+    name: rook-ceph-external-cluster-details
+    creationPolicy: 'Owner'
+    deletionPolicy: "Retain"
+    template:
+      engineVersion: v2
+  dataFrom:
+    - extract:
+        key: moc/smaug/openshift-storage/rook-ceph-external-cluster-details

@@ -12,8 +12,9 @@ patchesStrategicMerge:
 resources:
 - ../../../../base/apiextensions.k8s.io/customresourcedefinitions/curatorconfig.curatoroperator.io
 - ../../../../base/apiextensions.k8s.io/customresourcedefinitions/extensions.dashboard.tekton.dev
-- ../../../../base/apiextensions.k8s.io/customresourcedefinitions/fetchdata.curatoropertor.openshift.io
+- ../../../../base/apiextensions.k8s.io/customresourcedefinitions/fetchdata.curator.operatefirst.io
 - ../../../../base/apiextensions.k8s.io/customresourcedefinitions/prowjobs.prow.k8s.io
+- ../../../../base/apiextensions.k8s.io/customresourcedefinitions/reportapis.curator.operatefirst.io
 - ../../../../base/apiextensions.k8s.io/customresourcedefinitions/reports.batch.curator.openshift.io
 - ../../../../base/apiextensions.k8s.io/customresourcedefinitions/reports.curator.operatefirst.io
 - ../../../../base/core/namespaces/ai-services-thanos-grpc
@@ -71,6 +72,7 @@ resources:
 - ../../../../base/core/namespaces/rapidast
 - ../../../../base/core/namespaces/report-system
 - ../../../../base/core/namespaces/rh-curator-eval
+- ../../../../base/core/namespaces/aiops-tools-workshop
 - ../../../../base/core/namespaces/service-catalog
 - ../../../../base/core/namespaces/smart-village-view
 - ../../../../base/core/namespaces/tekton-pipelines
@@ -121,6 +123,7 @@ resources:
 - ../../../../base/rbac.authorization.k8s.io/clusterrolebindings/node-labeler
 - ../../../../base/rbac.authorization.k8s.io/clusterrolebindings/oauth-token-access-review-opf-observatorium
 - ../../../../base/rbac.authorization.k8s.io/clusterrolebindings/scc-privileged-opf-ci-pipelines-aicoe-ci
+- ../../../../base/rbac.authorization.k8s.io/clusterrolebindings/service-catalog-k8s-plugin
 - ../../../../base/rbac.authorization.k8s.io/clusterrolebindings/tekton-dashboard
 - ../../../../base/rbac.authorization.k8s.io/clusterrolebindings/vault-server-binding
 - ../../../../base/rbac.authorization.k8s.io/clusterroles/apirequest-count-read-cr
@@ -128,6 +131,7 @@ resources:
 - ../../../../base/rbac.authorization.k8s.io/clusterroles/moc-nfs-democratic-csi-node-cr
 - ../../../../base/rbac.authorization.k8s.io/clusterroles/node-labeler
 - ../../../../base/rbac.authorization.k8s.io/clusterroles/oauth-token-access-review
+- ../../../../base/rbac.authorization.k8s.io/clusterroles/service-catalog-k8s-plugin
 - ../../../../base/rbac.authorization.k8s.io/clusterroles/tekton-dashboard
 - ../../../../base/storage.k8s.io/csidrivers/org.democratic-csi.nfs
 - ../../../../base/storage.k8s.io/storageclasses/moc-nfs-csi
@@ -163,7 +167,5 @@ resources:
 - nodenetworkconfigurationpolicies/vlan-210-nfs.yaml
 - nodenetworkconfigurationpolicies/vlan-211-nese.yaml
 - objectbucketclaims/openshift-image-registry-bucket.yaml
-- secrets
-- secretstores
-- serviceaccounts
+- secret-mgmt
 - snapshotschedules/schedule.yaml

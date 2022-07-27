@@ -45,6 +45,7 @@ resources:
   - ../../../../bundles/idp-mgmt-operator
   - apiserver/api_server_cert.yaml
   - clusterversion.yaml
+  - externalsecrets
   - nodenetworkconfigurationpolicies/crc-provisioning-vlan.yaml
   - kubeletconfigs/increase-worker-system-reserved-memory.yaml
   - metal3.io/provisionings/provisioning-configuration.yaml
@@ -54,8 +55,7 @@ resources:
   - nodenetworkconfigurationpolicies/zero-provisioning-vlan.yaml
   - oauth
   - secrets
-  - secretstores
-  - serviceaccounts
+  - secret-mgmt
 generators:
   - secret-generator.yaml
 

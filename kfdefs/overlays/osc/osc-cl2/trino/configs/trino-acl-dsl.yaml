@@ -28,6 +28,12 @@ schemas:
       - group: 'pcaf_sovereign_footprint.*'
     public: true
 
+  - schema: mdt_sandbox
+    catalog: osc_datacommons_dev
+    admin:
+      - user: 'MichaelTiemannOSC'
+    public: true
+
 tables:
   - table: demo_dv_backend
     schema: demo_dv

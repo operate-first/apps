@@ -13,6 +13,9 @@ subjects:
     namespace: opf-monitoring
   - kind: Group
     apiGroup: rbac.authorization.k8s.io
+    name: scsaol
+  - kind: Group
+    apiGroup: rbac.authorization.k8s.io
     name: apicurio
   - kind: Group
     apiGroup: rbac.authorization.k8s.io
@@ -34,9 +37,6 @@ subjects:
     name: boston-university-redhat
   - kind: ServiceAccount
     name: remote-write-emea-balrog
-    namespace: opf-observatorium
-  - kind: ServiceAccount
-    name: remote-write-emea-rick
     namespace: opf-observatorium
   - kind: ServiceAccount
     name: remote-write-moc-infra

@@ -1,0 +1,14 @@
+---
+kind: ConfigMap
+apiVersion: v1
+metadata:
+  name: integration-tests
+data:
+  mail-report: "0"
+  generate-report: "0"
+  logging-no-json: "1"
+  deployment-name: "smaug-prod"
+  user-api: "api.moc.thoth-station.ninja"
+  management-api: "management.moc.thoth-station.ninja"
+  amun-api: "amun.moc.thoth-station.ninja"
+  tags: ""

@@ -13,3 +13,4 @@ resources:
   - thoth-station
   - kubeflow
   - odh
+  - workshops

@@ -6,4 +6,3 @@ resources:
   - configmaps
 patchesStrategicMerge:
   - externalsecrets/dex-clients_patch.yaml
-  - secretstores/opf-vault-store.yaml

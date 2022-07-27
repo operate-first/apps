@@ -19,7 +19,7 @@ spec:
   project: operate-first
   source:
     path: prow/overlays/smaug
-    repoURL: https://github.com/thoth-station/thoth-application.git
+    repoURL: https://github.com/operate-first/apps.git
     targetRevision: master
   syncPolicy:
     automated:
