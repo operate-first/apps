@@ -38,8 +38,6 @@ spec:
           credentialsSecret:
             name: aws-cloud-credentials
           instanceType: p3.2xlarge
-          metadata:
-            creationTimestamp: null
           blockDevices:
             - ebs:
                 encrypted: true
