@@ -7,6 +7,7 @@ resources:
   - cloudbeaver.yaml
   - cloudbeaver-stage.yaml
   - cluster-logging.yaml
+  - curator-operator.yaml
   - grafana.yaml
   - grafana-public.yaml
   - jh-idle-culler.yaml
