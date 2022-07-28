@@ -75,6 +75,7 @@ resources:
 - ../../../../base/core/namespaces/aiops-tools-workshop
 - ../../../../base/core/namespaces/service-catalog
 - ../../../../base/core/namespaces/smart-village-view
+- ../../../../base/core/namespaces/stackrox
 - ../../../../base/core/namespaces/tekton-pipelines
 - ../../../../base/core/namespaces/thoth-amun-api-prod
 - ../../../../base/core/namespaces/thoth-amun-inspection-prod
