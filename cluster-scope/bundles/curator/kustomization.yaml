@@ -7,6 +7,8 @@ resources:
   - ../../base/rbac.authorization.k8s.io/clusterrolebindings/curator-operator-manager-rb
   - ../../base/rbac.authorization.k8s.io/clusterrolebindings/curator-operator-oauth-proxy-rb
   - ../../base/rbac.authorization.k8s.io/clusterroles/curator-auth-proxy-role
+  - ../../base/rbac.authorization.k8s.io/clusterroles/curator-operator-curatorconfig-editor-role
+  - ../../base/rbac.authorization.k8s.io/clusterroles/curator-operator-curatorconfig-viewer-role
   - ../../base/rbac.authorization.k8s.io/clusterroles/curator-operator-fetchdata-editor-role
   - ../../base/rbac.authorization.k8s.io/clusterroles/curator-operator-fetchdata-viewer-role
   - ../../base/rbac.authorization.k8s.io/clusterroles/curator-operator-manager-role

@@ -1,0 +1,20 @@
+# permissions for end users to view curatorconfigs.
+apiVersion: rbac.authorization.k8s.io/v1
+kind: ClusterRole
+metadata:
+  name: curatorconfig-viewer-role
+rules:
+- apiGroups:
+  - curator.operatefirst.io
+  resources:
+  - curatorconfigs
+  verbs:
+  - get
+  - list
+  - watch
+- apiGroups:
+  - curator.operatefirst.io
+  resources:
+  - curatorconfigs/status
+  verbs:
+  - get

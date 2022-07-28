@@ -1,0 +1,24 @@
+# permissions for end users to edit curatorconfigs.
+apiVersion: rbac.authorization.k8s.io/v1
+kind: ClusterRole
+metadata:
+  name: curatorconfig-editor-role
+rules:
+- apiGroups:
+  - curator.operatefirst.io
+  resources:
+  - curatorconfigs
+  verbs:
+  - create
+  - delete
+  - get
+  - list
+  - patch
+  - update
+  - watch
+- apiGroups:
+  - curator.operatefirst.io
+  resources:
+  - curatorconfigs/status
+  verbs:
+  - get
