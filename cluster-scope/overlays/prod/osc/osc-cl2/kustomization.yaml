@@ -67,6 +67,8 @@ resources:
 - ../../../../bundles/openshift-pipelines
 - ../../../../bundles/pachyderm-operator
 - ../../../../bundles/reloader
+- ../../../../bundles/fybrik
+- ../../../../base/user.openshift.io/groups/fybrik
 - apiserver
 - externalsecrets
 - ingresscontroller
