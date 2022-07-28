@@ -1,0 +1,17 @@
+apiVersion: user.openshift.io/v1
+kind: Group
+metadata:
+  name: okd-wg
+users:
+  - aleskandro
+  - bdlink
+  - binnes
+  - cheesesashimi
+  - dmueller2001
+  - JaimeMagiera
+  - lmzuccarelli
+  - LorbusChris
+  - sandrobonazzola
+  - sherine-k
+  - travier
+  - vrutkovs
