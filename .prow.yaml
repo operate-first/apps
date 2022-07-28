@@ -18,6 +18,25 @@ presubmits:
               memory: "500Mi"
               cpu: "1"
 
+  - name: kubeval-validation
+    decorate: true
+    max_concurrency: 1
+    run_if_changed: ".*yaml"
+    skip_report: false
+    context: aicoe-ci/prow/kubeval-validation
+    spec:
+      containers:
+        - image: quay.io/operate-first/opf-toolbox:latest
+          command:
+            - "test-kubeval-validation"
+          resources:
+            requests:
+              memory: "256Mi"
+              cpu: "200m"
+            limits:
+              memory: "1Gi"
+              cpu: "1"
+
   - name: pre-commit
     decorate: true
     skip_report: false
