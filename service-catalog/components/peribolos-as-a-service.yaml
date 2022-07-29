@@ -7,6 +7,7 @@ metadata:
     operate-first.cloud/logo-url: https://raw.githubusercontent.com/operate-first/peribolos-as-a-service/main/static/robot.png
     argocd/app-name: peribolos-as-a-service-smaug
     github.com/project-slug: operate-first/peribolos-as-a-service
+    backstage.io/kubernetes-label-selector: 'app.kubernetes.io/name=peribolos-as-service'
   links:
     - url: https://github.com/apps/peribolos
       title: GitHub App
