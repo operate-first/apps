@@ -5,4 +5,8 @@ resources:
 - namespace.yaml
 components:
 - ../../../../components/project-admin-rolebindings/operate-first
+<<<<<<< HEAD
 - ../../../../components/project-admin-rolebindings/openmetadata-admins
+=======
+- ../../../../components/project-admin-rolebindings/openmetadata-admins
+>>>>>>> 7ff1dfdf9011d475e24f56ff0257b24d1dca1162
