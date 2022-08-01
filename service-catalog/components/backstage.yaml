@@ -1,0 +1,37 @@
+apiVersion: backstage.io/v1alpha1
+kind: Component
+metadata:
+  name: backstage
+  description: Operate first instance of the backstage app used for creating this service catalog
+  annotations:
+    operate-first.cloud/logo-url: https://backstage.io/logo_assets/svg/Icon_Black.svg
+    argocd/app-name: service-catalog-smaug
+    github.com/project-slug: operate-first/service-catalog
+    backstage.io/kubernetes-label-selector: 'app.kubernetes.io/name=service-catalog'
+    backstage.io/techdocs-ref: url:https://github.com/operate-first/service-catalog/tree/main/docs
+  links:
+    - url: https://github.com/operate-first/service-catalog/issues/new
+      title: GitHub Issues
+      icon: user
+    - url: https://backstage.io
+      title: Backstage documentation
+      icon: web
+    - url: https://service-catalog.operate-first.cloud/
+      title: Backstage instance
+      icon: web
+  tags:
+    - typescript
+spec:
+  type: service
+  lifecycle: production
+  owner: group:operate-first
+  system: service-catalog
+  dependsOn:
+    - resource:s3-bucket
+    - resource:crunchy-postgres
+    - resource:smaug
+  providesApis:
+    - backstage
+  consumesApis:
+    - argocd
+    - grafana

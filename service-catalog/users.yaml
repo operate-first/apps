@@ -1,7 +1,7 @@
 apiVersion: backstage.io/v1alpha1
 kind: Location
 metadata:
-  name: Users
+  name: users
   description: A collection of all operate-first users
 spec:
   targets:

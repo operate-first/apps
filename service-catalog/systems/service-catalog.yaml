@@ -1,0 +1,14 @@
+apiVersion: backstage.io/v1alpha1
+kind: System
+metadata:
+  name: service-catalog
+  description: Service catalog for the operate-first community cloud
+  links:
+    - url: https://service-catalog.operate-first.cloud/
+      title: Service Catalog
+      icon: web
+spec:
+  owner: group:operate-first
+  domain: sre
+dependsOn:
+  - resource:smaug

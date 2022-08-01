@@ -1,0 +1,15 @@
+apiVersion: backstage.io/v1alpha1
+kind: Resource
+metadata:
+  name: crunchy-postgres
+  description: Postgres database using crunchy postgres operator
+  links:
+    - url: https://www.crunchydata.com/products/crunchy-high-availability-postgresql
+      title: Crunchy Postgres Operator
+      icon: web
+spec:
+  type: database
+  lifecycle: production
+  owner: group:operate-first
+  dependsOn:
+    - resource:smaug
