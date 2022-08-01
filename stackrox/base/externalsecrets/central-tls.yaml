@@ -1,0 +1,15 @@
+apiVersion: external-secrets.io/v1beta1
+kind: ExternalSecret
+metadata:
+    name: central-tls
+spec:
+    dataFrom:
+        - extract:
+              key: moc/smaug/stackrox/central-tls
+    secretStoreRef:
+        kind: SecretStore
+        name: opf-vault-store
+    target:
+        name: central-tls
+        template:
+            engineVersion: v2

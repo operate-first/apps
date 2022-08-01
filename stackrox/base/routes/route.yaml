@@ -1,0 +1,22 @@
+# Tray Keller:Creating a route for the stackrox central. This does not come with it by default
+kind: Route
+apiVersion: route.openshift.io/v1
+metadata:
+  name: stackroxroute
+  namespace: stackrox
+  labels:
+    app.kubernetes.io/component: central
+  annotations:
+    openshift.io/host.generated: 'true'
+spec:
+  host: stackroxroute-stackrox.apps.helmtestdeployment.lab.pnq2.cee.redhat.com
+  to:
+    kind: Service
+    name: central
+    weight: 100
+  port:
+    targetPort: https
+  tls:
+    termination: passthrough
+    insecureEdgeTerminationPolicy: Redirect
+  wildcardPolicy: None

@@ -1,0 +1,13 @@
+apiVersion: kustomize.config.k8s.io/v1beta1
+kind: Kustomization
+resources:
+  - scanner-service.yaml
+  - scanner-db-service.yaml
+  - central-service.yaml
+commonLabels:
+  app.kubernetes.io/instance: stackrox-central-services
+  app.kubernetes.io/managed-by: Helm
+  app.kubernetes.io/name: stackrox
+  app.kubernetes.io/part-of: stackrox-central-services
+  app.kubernetes.io/version: 3.70.0
+  helm.sh/chart: stackrox-central-services-70.0.0

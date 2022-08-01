@@ -1,0 +1,25 @@
+# Source: stackrox-central-services/templates/01-central-03-diagnostics-rbac.yaml
+apiVersion: rbac.authorization.k8s.io/v1
+kind: Role
+metadata:
+  name: stackrox-central-diagnostics
+  namespace: stackrox
+  labels:
+    app.kubernetes.io/component: central
+  annotations:
+    email: support@stackrox.com
+    meta.helm.sh/release-name: stackrox-central-services
+    meta.helm.sh/release-namespace: stackrox
+    owner: stackrox
+rules:
+- apiGroups:
+  - '*'
+  resources:
+  - "deployments"
+  - "daemonsets"
+  - "replicasets"
+  - "configmaps"
+  - "services"
+  verbs:
+  - get
+  - list

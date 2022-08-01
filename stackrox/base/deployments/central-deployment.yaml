@@ -1,0 +1,168 @@
+# Source: stackrox-central-services/templates/01-central-13-deployment.yaml
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: central
+  namespace: stackrox
+  labels:
+    app.kubernetes.io/component: central
+spec:
+  replicas: 1
+  minReadySeconds: 15
+  selector:
+    matchLabels:
+      app: central
+  strategy:
+    type: Recreate
+  template:
+    metadata:
+      namespace: stackrox
+      labels:
+        app: central
+        app.kubernetes.io/component: central
+        app.kubernetes.io/instance: stackrox-central-services
+        app.kubernetes.io/managed-by: Helm
+        app.kubernetes.io/name: stackrox
+        app.kubernetes.io/part-of: stackrox-central-services
+        app.kubernetes.io/version: 3.70.0
+        helm.sh/chart: stackrox-central-services-70.0.0
+      annotations:
+        traffic.sidecar.istio.io/excludeInboundPorts: "8443"
+        email: support@stackrox.com
+        meta.helm.sh/release-name: stackrox-central-services
+        meta.helm.sh/release-namespace: stackrox
+        owner: stackrox
+    spec:
+      affinity:
+        nodeAffinity:
+          preferredDuringSchedulingIgnoredDuringExecution:
+            # Central is single-homed, so avoid preemptible nodes.
+            - weight: 100
+              preference:
+                matchExpressions:
+                  - key: cloud.google.com/gke-preemptible
+                    operator: NotIn
+                    values:
+                    - "true"
+      serviceAccountName: central
+      securityContext:
+        fsGroup: 4000
+        runAsUser: 4000
+      containers:
+      - name: central
+        image: "quay.io/stackrox-io/main:3.70.0"
+        command:
+          - /stackrox/central-entrypoint.sh
+        ports:
+          - containerPort: 8443
+            name: api
+        readinessProbe:
+          httpGet:
+            scheme: HTTPS
+            path: /v1/ping
+            port: 8443
+        resources:
+          limits:
+            cpu: 4000m
+            memory: 8Gi
+          requests:
+            cpu: 1500m
+            memory: 4Gi
+        securityContext:
+          capabilities:
+            drop: ["NET_RAW"]
+          readOnlyRootFilesystem: true
+        env:
+        - name: ROX_NAMESPACE
+          valueFrom:
+            fieldRef:
+              fieldPath: metadata.namespace
+        - name: ROX_INIT_TELEMETRY_ENABLED
+          value: "true"
+        - name: ROX_OFFLINE_MODE
+          value: "false"
+        volumeMounts:
+        - name: varlog
+          mountPath: /var/log/stackrox/
+        - name: central-tmp-volume
+          mountPath: /tmp
+        - name: central-etc-ssl-volume
+          mountPath: /etc/ssl
+        - name: central-etc-pki-volume
+          mountPath: /etc/pki/ca-trust
+        - name: central-certs-volume
+          mountPath: /run/secrets/stackrox.io/certs/
+          readOnly: true
+        - name: central-default-tls-cert-volume
+          mountPath: /run/secrets/stackrox.io/default-tls-cert/
+          readOnly: true
+        - name: central-htpasswd-volume
+          mountPath: /run/secrets/stackrox.io/htpasswd/
+          readOnly: true
+        - name: central-jwt-volume
+          mountPath: /run/secrets/stackrox.io/jwt/
+          readOnly: true
+        - name: additional-ca-volume
+          mountPath: /usr/local/share/ca-certificates/
+          readOnly: true
+        - name: central-license-volume
+          mountPath: /run/secrets/stackrox.io/central-license/
+          readOnly: true
+        - name: stackrox-db
+          mountPath: /var/lib/stackrox
+        - name: central-config-volume
+          mountPath: /etc/stackrox
+        - name: proxy-config-volume
+          mountPath: /run/secrets/stackrox.io/proxy-config/
+          readOnly: true
+        - name: endpoints-config-volume
+          mountPath: /etc/stackrox.d/endpoints/
+          readOnly: true
+      volumes:
+      - name: varlog
+        emptyDir: {}
+      - name: central-tmp-volume
+        emptyDir: {}
+      - name: central-etc-ssl-volume
+        emptyDir: {}
+      - name: central-etc-pki-volume
+        emptyDir: {}
+      - name: central-certs-volume
+        secret:
+          secretName: central-tls
+      - name: central-default-tls-cert-volume
+        secret:
+          secretName: central-default-tls-cert
+          optional: true
+      - name: central-htpasswd-volume
+        secret:
+          secretName: central-htpasswd
+          optional: true
+      - name: central-jwt-volume
+        secret:
+          secretName: central-tls
+          items:
+            - key: jwt-key.pem
+              path: jwt-key.pem
+      - name: additional-ca-volume
+        secret:
+          secretName: additional-ca
+          optional: true
+      - name: central-license-volume
+        secret:
+          secretName: central-license
+          optional: true
+      - name: central-config-volume
+        configMap:
+          name: central-config
+          optional: true
+      - name: proxy-config-volume
+        secret:
+          secretName: proxy-config
+          optional: true
+      - name: endpoints-config-volume
+        configMap:
+          name: central-endpoints
+      - name: stackrox-db
+        persistentVolumeClaim:
+          claimName: stackrox-db

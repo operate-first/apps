@@ -1,0 +1,118 @@
+# Source: stackrox-central-services/templates/02-scanner-06-deployment.yaml
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: scanner-db
+  namespace: stackrox
+  labels:
+    app: scanner-db
+    app.kubernetes.io/component: scanner
+    helm.sh/chart: stackrox-central-services-70.0.0
+  annotations:
+    email: support@stackrox.com
+    meta.helm.sh/release-name: stackrox-central-services
+    meta.helm.sh/release-namespace: stackrox
+    owner: stackrox
+spec:
+  replicas: 1
+  minReadySeconds: 15
+  selector:
+    matchLabels:
+      app: scanner-db
+  strategy:
+    type: Recreate
+  template:
+    metadata:
+      namespace: stackrox
+      labels:
+        app: scanner-db
+        app.kubernetes.io/component: scanner
+        app.kubernetes.io/instance: stackrox-central-services
+        app.kubernetes.io/managed-by: Helm
+        app.kubernetes.io/name: stackrox
+        app.kubernetes.io/part-of: stackrox-central-services
+        app.kubernetes.io/version: 3.70.0
+        helm.sh/chart: stackrox-central-services-70.0.0
+      annotations:
+        traffic.sidecar.istio.io/excludeInboundPorts: "5432"
+        email: support@stackrox.com
+        meta.helm.sh/release-name: stackrox-central-services
+        meta.helm.sh/release-namespace: stackrox
+        owner: stackrox
+    spec:
+      affinity:
+        nodeAffinity:
+          preferredDuringSchedulingIgnoredDuringExecution:
+            # ScannerDB is single-homed, so avoid preemptible nodes.
+            - weight: 100
+              preference:
+                matchExpressions:
+                  - key: cloud.google.com/gke-preemptible
+                    operator: NotIn
+                    values:
+                    - "true"
+      initContainers:
+        - name: init-db
+          image: "quay.io/stackrox-io/scanner-db:3.70.0"
+          command:
+          - /bin/sh
+          - -c
+          - |
+            mkdir -p /var/lib/postgresql/data
+            chmod 700 /var/lib/postgresql/data
+            chown -R postgres:postgres /var/lib/postgresql
+          volumeMounts:
+            - name: db-data
+              mountPath: /var/lib/postgresql/data
+          securityContext:
+            runAsUser: 0
+      containers:
+      - name: db
+        command: ["/usr/local/bin/docker-entrypoint.sh", "postgres", "-c", "config_file=/etc/postgresql.conf"]
+        image: "quay.io/stackrox-io/scanner-db:3.70.0"
+        ports:
+        - name: https-db
+          containerPort: 5432
+        resources:
+          limits:
+            cpu: 2000m
+            memory: 4Gi
+          requests:
+            cpu: 200m
+            memory: 200Mi
+        securityContext:
+          runAsUser: 70
+          runAsGroup: 70
+        volumeMounts:
+          - name: db-data
+            mountPath: /var/lib/postgresql/data
+          - name: scanner-db-tls-volume
+            mountPath: /run/secrets/stackrox.io/certs
+          - name: scanner-db-password
+            mountPath: /run/secrets/stackrox.io/secrets
+      serviceAccountName: scanner
+      securityContext:
+        fsGroup: 70
+      volumes:
+      - name: scanner-config-volume
+        configMap:
+          name: scanner-config
+      - name: scanner-tls-volume
+        secret:
+          secretName: scanner-tls
+      - name: scanner-db-tls-volume
+        secret:
+          secretName: scanner-db-tls
+          defaultMode: 0640
+          items:
+          - key: cert.pem
+            path: server.crt
+          - key: key.pem
+            path: server.key
+          - key: ca.pem
+            path: root.crt
+      - name: db-data
+        emptyDir: {}
+      - name: scanner-db-password
+        secret:
+          secretName: scanner-db-password

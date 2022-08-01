@@ -1,0 +1,43 @@
+# Source: stackrox-central-services/templates/01-central-02-security.yaml
+apiVersion: policy/v1beta1
+kind: PodSecurityPolicy
+metadata:
+  name: stackrox-central
+  labels:
+    app.kubernetes.io/component: central
+    app.kubernetes.io/instance: stackrox-central-services
+    app.kubernetes.io/managed-by: Helm
+    app.kubernetes.io/name: stackrox
+    app.kubernetes.io/part-of: stackrox-central-services
+    meta.helm.sh/release-name: stackrox-central-services
+    meta.helm.sh/release-namespace: stackrox
+    owner: stackrox
+spec:
+  privileged: false
+  allowPrivilegeEscalation: false
+  volumes:
+    - 'configMap'
+    - 'emptyDir'
+    - 'projected'
+    - 'secret'
+    - 'downwardAPI'
+    - 'persistentVolumeClaim'
+    - 'hostPath'
+
+  hostNetwork: false
+  hostIPC: false
+  hostPID: false
+  runAsUser:
+    rule: 'MustRunAs'
+    ranges:
+      - min: 4000
+        max: 4000
+  seLinux:
+    rule: 'RunAsAny'
+  supplementalGroups:
+    rule: 'RunAsAny'
+  fsGroup:
+    rule: 'MustRunAs'
+    ranges:
+      - min: 4000
+        max: 4000

@@ -2,5 +2,11 @@
 apiVersion: v1
 kind: Namespace
 metadata:
+  annotations:
+    openshift.io/display-name: "Stackrox: Kubernetes Native Security Solution"
+    openshift.io/requester: operate-first
+    op1st/project-owner: operate-first
+    op1st/onboarding-issue: "https://github.com/operate-first/support/issues/614"
+    op1st/docs: "https://www.stackrox.io/docs/"
   name: stackrox
 spec: {}

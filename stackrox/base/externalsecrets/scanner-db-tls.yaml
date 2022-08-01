@@ -1,0 +1,15 @@
+apiVersion: external-secrets.io/v1beta1
+kind: ExternalSecret
+metadata:
+    name: scanner-db-tls
+spec:
+    dataFrom:
+        - extract:
+              key: moc/smaug/stackrox/scanner-db-tls
+    secretStoreRef:
+        kind: SecretStore
+        name: opf-vault-store
+    target:
+        name: scanner-db-tls
+        template:
+            engineVersion: v2

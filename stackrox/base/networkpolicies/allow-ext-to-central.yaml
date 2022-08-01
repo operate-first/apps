@@ -1,0 +1,18 @@
+# Source: stackrox-central-services/templates/01-central-10-networkpolicy.yaml
+apiVersion: networking.k8s.io/v1
+kind: NetworkPolicy
+metadata:
+  name: allow-ext-to-central
+  namespace: stackrox
+  labels:
+    app.kubernetes.io/component: central
+spec:
+  ingress:
+    - ports:
+      - port: 8443
+        protocol: TCP
+  podSelector:
+    matchLabels:
+      app: central
+  policyTypes:
+  - Ingress

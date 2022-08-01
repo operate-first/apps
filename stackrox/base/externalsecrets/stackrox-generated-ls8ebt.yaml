@@ -1,0 +1,15 @@
+apiVersion: external-secrets.io/v1beta1
+kind: ExternalSecret
+metadata:
+    name: stackrox-generated-ls8ebt
+spec:
+    dataFrom:
+        - extract:
+              key: moc/smaug/stackrox/stackrox-generated-ls8ebt
+    secretStoreRef:
+        kind: SecretStore
+        name: opf-vault-store
+    target:
+        name: stackrox-generated-ls8ebt
+        template:
+            engineVersion: v2

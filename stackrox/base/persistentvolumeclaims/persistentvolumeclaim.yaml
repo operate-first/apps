@@ -1,0 +1,18 @@
+# Source: stackrox-central-services/templates/01-central-11-pvc.yaml
+apiVersion: v1
+kind: PersistentVolumeClaim
+metadata:
+  name: stackrox-db
+  namespace: stackrox
+  labels:
+    app.kubernetes.io/component: central
+    owner: stackrox
+    "helm.sh/hook": "pre-install,pre-upgrade"
+    "helm.sh/resource-policy": keep
+    "helm.sh/hook-delete-policy": never
+spec:
+  accessModes:
+    - ReadWriteOnce
+  resources:
+    requests:
+      storage: 100Gi

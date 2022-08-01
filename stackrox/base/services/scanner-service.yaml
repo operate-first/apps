@@ -1,0 +1,23 @@
+# Source: stackrox-central-services/templates/02-scanner-07-service.yaml
+apiVersion: v1
+kind: Service
+metadata:
+  name: scanner
+  labels:
+    app.kubernetes.io/component: scanner
+  annotations:
+    email: support@stackrox.com
+    meta.helm.sh/release-name: stackrox-central-services
+    meta.helm.sh/release-namespace: stackrox
+    owner: stackrox
+spec:
+  ports:
+    - name: https-scanner
+      port: 8080
+      targetPort: 8080
+    - name: grpcs-scanner
+      port: 8443
+      targetPort: 8443
+  selector:
+    app: scanner
+  type: ClusterIP

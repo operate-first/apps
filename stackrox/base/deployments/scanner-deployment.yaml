@@ -1,0 +1,138 @@
+# Source: stackrox-central-services/templates/02-scanner-06-deployment.yaml
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: scanner
+  namespace: stackrox
+  labels:
+    app: scanner
+    app.kubernetes.io/component: scanner
+    helm.sh/chart: stackrox-central-services-70.0.0
+  annotations:
+    email: support@stackrox.com
+    meta.helm.sh/release-name: stackrox-central-services
+    meta.helm.sh/release-namespace: stackrox
+    owner: stackrox
+spec:
+  replicas: 3
+  minReadySeconds: 15
+  selector:
+    matchLabels:
+      app: scanner
+  strategy:
+    type: Recreate
+  template:
+    metadata:
+      namespace: stackrox
+      labels:
+        app: scanner
+        app.kubernetes.io/component: scanner
+        app.kubernetes.io/instance: stackrox-central-services
+        app.kubernetes.io/managed-by: Helm
+        app.kubernetes.io/name: stackrox
+        app.kubernetes.io/part-of: stackrox-central-services
+        app.kubernetes.io/version: 3.70.0
+        helm.sh/chart: stackrox-central-services-70.0.0
+      annotations:
+        traffic.sidecar.istio.io/excludeInboundPorts: "8080,8443"
+        email: support@stackrox.com
+        meta.helm.sh/release-name: stackrox-central-services
+        meta.helm.sh/release-namespace: stackrox
+        owner: stackrox
+    spec:
+      affinity:
+        podAntiAffinity:
+          preferredDuringSchedulingIgnoredDuringExecution:
+          - weight: 100
+            podAffinityTerm:
+              labelSelector:
+                matchLabels:
+                  app: scanner
+              topologyKey: kubernetes.io/hostname
+      containers:
+      - name: scanner
+        image: "quay.io/stackrox-io/scanner:3.70.0"
+        env:
+        - name: POD_NAME
+          valueFrom:
+            fieldRef:
+              fieldPath: metadata.name
+        - name: POD_NAMESPACE
+          valueFrom:
+            fieldRef:
+              fieldPath: metadata.namespace
+
+        resources:
+          limits:
+            cpu: 2000m
+            memory: 4Gi
+          requests:
+            cpu: 1000m
+            memory: 1500Mi
+        command:
+        - /entrypoint.sh
+        ports:
+        - name: https
+          containerPort: 8080
+        - name: grpc
+          containerPort: 8443
+        securityContext:
+          capabilities:
+            drop: ["NET_RAW"]
+          runAsUser: 65534
+        readinessProbe:
+          httpGet:
+            scheme: HTTPS
+            path: /scanner/ping
+            port: 8080
+          timeoutSeconds: 10
+          periodSeconds: 10
+          failureThreshold: 6
+          successThreshold: 1
+        volumeMounts:
+        - mountPath: /etc/ssl
+          name: scanner-etc-ssl-volume
+        - mountPath: /etc/pki/ca-trust
+          name: scanner-etc-pki-volume
+        - mountPath: /usr/local/share/ca-certificates/
+          name: additional-ca-volume
+          readOnly: true
+        - name: scanner-config-volume
+          mountPath: /etc/scanner
+          readOnly: true
+        - name: scanner-tls-volume
+          mountPath: /run/secrets/stackrox.io/certs/
+          readOnly: true
+        - name: vuln-temp-db
+          mountPath: /var/lib/stackrox
+        - name: proxy-config-volume
+          mountPath: /run/secrets/stackrox.io/proxy-config/
+          readOnly: true
+        - name: scanner-db-password
+          mountPath: /run/secrets/stackrox.io/secrets
+      serviceAccountName: scanner
+      volumes:
+      - name: additional-ca-volume
+        secret:
+          defaultMode: 420
+          optional: true
+          secretName: additional-ca
+      - emptyDir: {}
+        name: scanner-etc-ssl-volume
+      - emptyDir: {}
+        name: scanner-etc-pki-volume
+      - name: scanner-config-volume
+        configMap:
+          name: scanner-config
+      - name: scanner-tls-volume
+        secret:
+          secretName: scanner-tls
+      - name: vuln-temp-db
+        emptyDir: {}
+      - name: proxy-config-volume
+        secret:
+          secretName: proxy-config
+          optional: true
+      - name: scanner-db-password
+        secret:
+          secretName: scanner-db-password

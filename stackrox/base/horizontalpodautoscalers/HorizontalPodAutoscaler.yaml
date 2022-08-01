@@ -1,0 +1,16 @@
+# Source: stackrox-central-services/templates/02-scanner-08-hpa.yaml
+apiVersion: autoscaling/v1
+kind: HorizontalPodAutoscaler
+metadata:
+  name: scanner
+  namespace: stackrox
+  labels:
+    app.kubernetes.io/component: scanner
+spec:
+  minReplicas: 2
+  maxReplicas: 5
+  scaleTargetRef:
+    apiVersion: apps/v1
+    kind: Deployment
+    name: scanner
+  targetCPUUtilizationPercentage: 100

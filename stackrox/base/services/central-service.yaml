@@ -1,0 +1,21 @@
+# Source: stackrox-central-services/templates/01-central-14-service.yaml
+apiVersion: v1
+kind: Service
+metadata:
+  name: central
+  namespace: stackrox
+  labels:
+    app.kubernetes.io/component: central
+  annotations:
+    email: support@stackrox.com
+    meta.helm.sh/release-name: stackrox-central-services
+    meta.helm.sh/release-namespace: stackrox
+    owner: stackrox
+spec:
+  ports:
+    - name: https
+      port: 443
+      targetPort: api
+  selector:
+    app: central
+  type: ClusterIP

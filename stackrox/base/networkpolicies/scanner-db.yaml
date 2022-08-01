@@ -1,0 +1,22 @@
+# Source: stackrox-central-services/templates/02-scanner-05-network-policy.yaml
+apiVersion: networking.k8s.io/v1
+kind: NetworkPolicy
+metadata:
+  name: scanner-db
+  namespace: stackrox
+  labels:
+    app.kubernetes.io/component: scanner
+spec:
+  podSelector:
+    matchLabels:
+      app: scanner-db
+  ingress:
+  - from:
+    - podSelector:
+        matchLabels:
+          app: scanner
+    ports:
+    - port: 5432
+      protocol: TCP
+  policyTypes:
+    - Ingress

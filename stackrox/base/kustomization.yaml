@@ -1,0 +1,14 @@
+apiVersion: kustomize.config.k8s.io/v1beta1
+kind: Kustomization
+resources:
+- configmaps/
+- deployments/
+- persistentvolumeclaims/
+- networkpolicies/
+- rolebindings/
+- roles/
+- routes/
+- externalsecrets/
+- serviceaccounts/
+- services/
+- horizontalpodautoscalers/
