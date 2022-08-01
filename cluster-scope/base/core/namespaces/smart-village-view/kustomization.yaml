@@ -6,4 +6,4 @@ resources:
 components:
     - ../../../../components/limitranges/default
     - ../../../../components/project-admin-rolebindings/boston-university-redhat
-    - ../../../../components/resourcequotas/medium
+    - ../../../../components/resourcequotas/large
