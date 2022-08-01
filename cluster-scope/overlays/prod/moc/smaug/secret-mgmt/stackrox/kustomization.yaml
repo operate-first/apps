@@ -2,4 +2,8 @@ apiVersion: kustomize.config.k8s.io/v1beta1
 kind: Kustomization
 namespace: stackrox  # replace with your namespace
 resources:
+<<<<<<< HEAD
   - ../base
+=======
+  - ../base
+>>>>>>> 83913a543254fc67fc2686916b12d8d6a7cfcb98
