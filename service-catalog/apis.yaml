@@ -8,3 +8,4 @@ spec:
     - ./apis/argocd.yaml
     - ./apis/grafana.yaml
     - ./apis/backstage.yaml
+    - ./apis/dex.yaml

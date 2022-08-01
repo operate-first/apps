@@ -1,0 +1,12 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: dex
+  description: Dex api of our operate first instance
+spec:
+  type: grpc
+  lifecycle: production
+  owner: group:operate-first
+  system: dex
+  definition:
+    $text: https://github.com/dexidp/dex/blob/master/api/v2/api.proto

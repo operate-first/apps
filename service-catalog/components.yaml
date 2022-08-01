@@ -6,6 +6,8 @@ metadata:
 spec:
   targets:
     - ./components/argocd.yaml
-    - ./components/grafana.yaml
+    - ./components/dex.yaml
+    - ./components/grafana/grafana-oauth.yaml
+    - ./components/grafana/grafana-public.yaml
     - ./components/backstage.yaml
     - ./components/crunchy-postgres-db.yaml
