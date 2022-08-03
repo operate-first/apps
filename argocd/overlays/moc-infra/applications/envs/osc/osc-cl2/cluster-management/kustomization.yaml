@@ -15,3 +15,11 @@ resources:
   - openmetadata.yaml
   - pachyderm.yaml
   - reloader.yaml
+patches:
+  - patch: |
+      - op: replace
+        path: /spec/project
+        value: os-climate
+    target:
+      group: argoproj.io
+      kind: Application
