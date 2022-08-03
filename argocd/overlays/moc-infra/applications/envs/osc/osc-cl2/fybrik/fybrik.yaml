@@ -1,0 +1,19 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: fybrik
+spec:
+  destination:
+    name: osc-cl2
+    namespace: fybrik-system
+  source:
+    path: charts/fybrik
+    repoURL: 'https://github.com/fybrik/charts'
+    targetRevision: HEAD
+    helm:
+      parameters:
+        - name: clusterScoped
+          value: "false"
+        - name: applicationNamespace
+          value: fybrik-applications
+  project: fybrik
