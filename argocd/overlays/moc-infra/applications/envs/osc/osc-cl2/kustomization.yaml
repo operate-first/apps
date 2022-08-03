@@ -4,6 +4,7 @@ namespace: argocd
 nameSuffix: -osc-cl2
 resources:
 - cluster-management
+- fybrik
 patches:
   - patch: |
       - op: replace
