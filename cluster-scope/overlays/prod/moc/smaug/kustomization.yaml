@@ -139,6 +139,7 @@ resources:
 - ../../../../base/storage.k8s.io/storageclasses/ocs-external-storagecluster-ceph-rbd
 - ../../../../base/user.openshift.io/groups/cluster-admins
 - ../../../../bundles/acme-operator
+- ../../../../bundles/banzaicloud-vault
 - ../../../../bundles/b4mad-racing
 - ../../../../bundles/curator
 - ../../../../bundles/external-secrets-operator

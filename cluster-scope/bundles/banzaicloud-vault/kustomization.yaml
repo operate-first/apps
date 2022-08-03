@@ -1,0 +1,7 @@
+apiVersion: kustomize.config.k8s.io/v1beta1
+kind: Kustomization
+namespace: banzaicloud-vault
+resources:
+  - ../../base/core/namespaces/banzaicloud-vault
+  - ../../base/operators.coreos.com/subscriptions/banzaicloud-vault
+  - ../../base/operators.coreos.com/operatorgroups/banzaicloud-vault
