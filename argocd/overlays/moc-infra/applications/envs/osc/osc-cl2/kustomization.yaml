@@ -5,11 +5,3 @@ nameSuffix: -osc-cl2
 resources:
 - cluster-management
 - fybrik
-patches:
-  - patch: |
-      - op: replace
-        path: /spec/project
-        value: os-climate
-    target:
-      group: argoproj.io
-      kind: Application
