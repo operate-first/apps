@@ -3,6 +3,7 @@ kind: CustomResourceDefinition
 metadata:
   annotations:
     controller-gen.kubebuilder.io/version: v0.7.0
+  creationTimestamp: null
   name: plotters.app.fybrik.io
 spec:
   group: app.fybrik.io
@@ -23,7 +24,7 @@ spec:
     - jsonPath: .status.readyTimestamp
       name: ReadySince
       type: string
-    name: v1alpha1
+    name: v1beta1
     schema:
       openAPIV3Schema:
         description: Plotter is the Schema for the plotters API

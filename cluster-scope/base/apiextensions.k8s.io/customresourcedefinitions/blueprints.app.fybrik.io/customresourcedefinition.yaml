@@ -3,6 +3,7 @@ kind: CustomResourceDefinition
 metadata:
   annotations:
     controller-gen.kubebuilder.io/version: v0.7.0
+  creationTimestamp: null
   name: blueprints.app.fybrik.io
 spec:
   group: app.fybrik.io
@@ -20,7 +21,7 @@ spec:
     - jsonPath: .status.observedState.ready
       name: Ready
       type: string
-    name: v1alpha1
+    name: v1beta1
     schema:
       openAPIV3Schema:
         description: Blueprint is the Schema for the blueprints API

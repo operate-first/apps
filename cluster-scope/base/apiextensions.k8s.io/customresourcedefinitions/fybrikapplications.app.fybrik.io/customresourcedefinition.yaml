@@ -3,6 +3,7 @@ kind: CustomResourceDefinition
 metadata:
   annotations:
     controller-gen.kubebuilder.io/version: v0.7.0
+  creationTimestamp: null
   name: fybrikapplications.app.fybrik.io
 spec:
   group: app.fybrik.io
@@ -13,7 +14,7 @@ spec:
     singular: fybrikapplication
   scope: Namespaced
   versions:
-  - name: v1alpha1
+  - name: v1beta1
     schema:
       openAPIV3Schema:
         description: FybrikApplication provides information about the application
