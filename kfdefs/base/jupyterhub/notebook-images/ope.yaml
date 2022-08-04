@@ -9,21 +9,21 @@ metadata:
     opendatahub.io/notebook-image: 'true'
   annotations:
     opendatahub.io/notebook-image-name:
-      "Under the Covers: The Secret Life of Software"
+      "Open Education (OPE)"
     opendatahub.io/notebook-image-url:
       "https://github.com/jappavoo/UndertheCovers"
     opendatahub.io/notebook-image-desc:
-      "Image for Under the Covers: The Secret Live of Software"
+      "Template Image for Open Education (OPE)"
 spec:
   lookupPolicy:
     local: true
   tags:
     - annotations:
-        openshift.io/imported-from: quay.io/ucsls/ucsls
+        openshift.io/imported-from: quay.io/ope/ope_book
       name: stable-opf
       from:
         kind: DockerImage
-        name: 'quay.io/ucsls/ucsls:stable-opf'
+        name: 'quay.io/ope/ope_book:stable-opf'
       importPolicy:
         scheduled: true
       referencePolicy:
