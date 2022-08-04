@@ -6,4 +6,5 @@ components:
   - ../../../../components/project-admin-rolebindings/octo-otel-dev
   - ../../../../components/limitranges/default
   - ../../../../components/resourcequotas/large
+  - ../../../../components/project-view-public
 namespace: otel-dev
