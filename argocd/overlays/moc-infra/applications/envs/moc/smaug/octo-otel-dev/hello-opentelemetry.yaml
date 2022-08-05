@@ -1,0 +1,17 @@
+---
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: octo-otel-dev
+spec:
+  project: octo-otel-dev
+  destination:
+    name: smaug
+    namespace: otel-dev
+  source:
+    repoURL: 'https://github.com/sallyom/hello-opentelemetry'
+    path: opentelemetry-sample-app/charts/hello-opentelemetry
+    targetRevision: HEAD
+    helm:
+      valueFiles:
+        values.yaml
