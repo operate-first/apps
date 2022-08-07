@@ -23,3 +23,6 @@ configMapGenerator:
       - group-mapping.properties
       - access-control.properties
       - rules.json
+  - name: kafka-table-description-dir
+    files:
+      - kafka-table-description-dir/fx.json
