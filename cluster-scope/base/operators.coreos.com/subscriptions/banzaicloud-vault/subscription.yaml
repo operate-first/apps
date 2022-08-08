@@ -9,5 +9,5 @@ spec:
   channel: beta
   installPlanApproval: Automatic
   name: vault
-  source: operatorhubio-operators
+  source: operatorhubio-catalog
   sourceNamespace: openshift-marketplace
