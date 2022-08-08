@@ -11,7 +11,7 @@ metadata:
     opendatahub.io/notebook-image-name:
       "Open Education (OPE)"
     opendatahub.io/notebook-image-url:
-      "https://github.com/jappavoo/UndertheCovers"
+      "https://github.com/OPEFFORT/ope"
     opendatahub.io/notebook-image-desc:
       "Template Image for Open Education (OPE)"
 spec:
@@ -23,7 +23,7 @@ spec:
       name: stable-opf
       from:
         kind: DockerImage
-        name: 'quay.io/ope/ope_book:stable-opf'
+        name: 'quay.io/opeffort/ope_book:stable-opf'
       importPolicy:
         scheduled: true
       referencePolicy:
