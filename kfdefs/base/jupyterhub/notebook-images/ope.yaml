@@ -2,7 +2,7 @@
 kind: ImageStream
 apiVersion: image.openshift.io/v1
 metadata:
-  name: ucsls
+  name: ope
   labels:
     component.opendatahub.io/name: jupyterhub
     opendatahub.io/component: 'true'
