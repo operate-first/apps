@@ -26,7 +26,7 @@ data:
               - name: ray-cluster-template
                 path: rayDashboardRouteTemplate
             configuration:
-              ray_image: 'quay.io/thoth-station/ray-ml-worker:v0.2.0'
+              ray_image: 'quay.io/thoth-station/ray-ml-worker:v0.2.1'
               # number of workers currently disabled due to json/jinja bug in JH launcher
               #max_workers: 5
               memory_request: '3Gi'
