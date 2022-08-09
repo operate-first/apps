@@ -4,3 +4,4 @@ kind: Kustomization
 namespace: odh-trino
 resources:
   - OSC_DataCommons_Dev
+  - osc_datacommons_hive_ingest
