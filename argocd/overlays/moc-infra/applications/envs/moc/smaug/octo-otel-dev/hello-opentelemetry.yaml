@@ -14,4 +14,4 @@ spec:
     targetRevision: HEAD
     helm:
       valueFiles:
-        values.yaml
+      - values.yaml
