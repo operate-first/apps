@@ -121,9 +121,7 @@ $ sed -i 's/<catalog_name>/some-catalog/g' kustomization.yaml
 $ sed -i 's/<catalog_name_upercase>/SOME_CATALOG/g' kustomization.yaml
 ```
 
-Add this file to the `kustomization.yaml` in `apps/kfdefs/overlays/$ENV/$CLUSTER/trino/hive-metastores`.
-
-Also add the path to this file to the `kustomization.yaml` located at `kfdefs/overlays/$ENV/$CLUSTER/trino/hive-metastores/kustomization.yaml`
+Also add this directory to the `kustomization.yaml` located at `kfdefs/overlays/$ENV/$CLUSTER/trino/hive-metastores`.
 
 Next add the following to the `s3buckets` secret found at `apps/kfdefs/overlays/$ENV/$CLUSTER/trino/secrets/s3buckets.yaml`.
 
