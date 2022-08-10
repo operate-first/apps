@@ -4,8 +4,8 @@ kind: Kustomization
 namespace: odh-superset
 resources:
   - configmaps
+  - externalsecrets
   - kfdef.yaml
   - secure-route.yaml
-  - secrets
 generatorOptions:
   disableNameSuffixHash: true
