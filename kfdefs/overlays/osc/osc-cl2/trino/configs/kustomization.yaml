@@ -8,6 +8,7 @@ configMapGenerator:
     files:
       - jmx.properties
       - catalogs/osc_datacommons_dev.properties
+      - catalogs/osc_datacommons_hive_ingest.properties
       - catalogs/kafka_fx.properties
   - name: trino-configfiles
     files:
