@@ -4,8 +4,6 @@ metadata:
   name: thoth-devops
 users:
   - goern
-  - pacospace
-  - fridex
   - harshad16
   - codificat
   - kpostoffice
@@ -14,3 +12,4 @@ users:
   - Gregory-Pereira
   - mayacostantini
   - mayaCostantini
+  - VannTen
