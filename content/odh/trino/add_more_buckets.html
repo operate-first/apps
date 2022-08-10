@@ -1152,7 +1152,7 @@ s3 bucket details.</p>
 <p>Navigate to: <code class="docutils literal notranslate"><span class="pre">apps/kfdefs/overlays/$ENV/$CLUSTER/trino/configs/catalogs/</span></code>, create a file called
 <code class="docutils literal notranslate"><span class="pre">&lt;catalog_name_underscored&gt;.properties</span></code>. With the following contents:</p>
 <div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="l l-Scalar l-Scalar-Plain">connector.name=hive-hadoop2</span><span class="w"></span>
-<span class="l l-Scalar l-Scalar-Plain">hive.metastore.uri=thrift://&lt;catalog_name&gt;:9083</span><span class="w"></span>
+<span class="l l-Scalar l-Scalar-Plain">hive.metastore.uri=thrift://hive-metastore-&lt;catalog_name&gt;:9083</span><span class="w"></span>
 <span class="l l-Scalar l-Scalar-Plain">hive.s3.endpoint=${ENV:&lt;catalog_name_upercase&gt;_S3_ENDPOINT_URL_PREFIX}${ENV:&lt;catalog_name_upercase&gt;_S3_ENDPOINT}</span><span class="w"></span>
 <span class="l l-Scalar l-Scalar-Plain">hive.s3.signer-type=S3SignerType</span><span class="w"></span>
 <span class="l l-Scalar l-Scalar-Plain">hive.s3.path-style-access=true</span><span class="w"></span>

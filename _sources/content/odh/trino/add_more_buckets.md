@@ -146,7 +146,7 @@ Navigate to: `apps/kfdefs/overlays/$ENV/$CLUSTER/trino/configs/catalogs/`, creat
 
 ```yaml
 connector.name=hive-hadoop2
-hive.metastore.uri=thrift://<catalog_name>:9083
+hive.metastore.uri=thrift://hive-metastore-<catalog_name>:9083
 hive.s3.endpoint=${ENV:<catalog_name_upercase>_S3_ENDPOINT_URL_PREFIX}${ENV:<catalog_name_upercase>_S3_ENDPOINT}
 hive.s3.signer-type=S3SignerType
 hive.s3.path-style-access=true
