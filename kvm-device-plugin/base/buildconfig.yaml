@@ -1,0 +1,44 @@
+---
+apiVersion: build.openshift.io/v1
+kind: BuildConfig
+metadata:
+  labels:
+    app: kvm-device-plugin
+  name: kvm-device-plugin
+  namespace: kvm-device-plugin
+spec:
+  successfulBuildsHistoryLimit: 1
+  failedBuildsHistoryLimit: 2
+  source:
+    git:
+      ref: master
+      uri: https://github.com/cgwalters/kvm-device-plugin
+    type: Git
+    dockerfile: |
+      FROM image-registry.openshift-image-registry.svc:5000/centos/centos:okd-golang-builder AS builder
+      WORKDIR /go/src/github.com/cgwalters/kvm-device-plugin
+      COPY . .
+      RUN make
+      FROM image-registry.openshift-image-registry.svc:5000/centos/centos:stream9
+      COPY --from=builder /go/src/github.com/cgwalters/kvm-device-plugin/cmd/kvm/kvm /usr/bin/device-plugin-kvm
+      CMD ["/usr/bin/device-plugin-kvm"]
+  strategy:
+    type: Docker
+  output:
+    to:
+      kind: ImageStreamTag
+      name: kvm-device-plugin:latest
+  triggers:
+  - type: ConfigChange
+  - imageChange:
+      from:
+        kind: ImageStreamTag
+        name: "centos:stream9"
+        namespace: okd-centos
+    type: ImageChange
+  - imageChange:
+      from:
+        kind: ImageStreamTag
+        name: "centos:okd-golang-builder"
+        namespace: okd-centos
+    type: ImageChange
