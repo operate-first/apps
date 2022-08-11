@@ -3,17 +3,18 @@ kind: Group
 metadata:
   name: odh-admin
 users:
-  - anishasthana
+  - 4n4nd
   - accorvin
-  - maulikjs
-  - vpavlin
-  - lavlas
-  - LaVLaS
+  - anishasthana
+  - codificat
   - crobby
-  - nakfour
-  - rimolive
+  - hemajv
   - humairak
   - HumairAK
-  - 4n4nd
+  - lavlas
+  - LaVLaS
+  - maulikjs
+  - nakfour
+  - rimolive
   - tumido
-  - hemajv
+  - vpavlin
