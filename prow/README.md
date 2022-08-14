@@ -5,9 +5,24 @@ This is a standalone ArgoCD Application for PROW. It is meant to be deployed int
 
 ## Validation/Compliance
 
-`kustomize build --enable_alpha_plugins overlays/thoth-station | conftest test --policy ../policy -`
+Kustomize is used for deployment of prow.
+`kustomize build --enable_alpha_plugins overlays/smaug | conftest test --policy ../policy -`
 
-## How to know on which environment are tests running on Prow?
+## Where can the additional prow images be found?
 
 The images used to run tests using Prow are listed in the [thoth-station/thoth-ops-infra](https://github.com/thoth-station/thoth-ops-infra) repository.
-For each repository where Prow is configured, the tests run by Prow and the base container image they use are available in the `.prow.yaml` file.
+For each repository where Prow is configured, the tests are run by Prow and the base container image they use are available in the `.prow.yaml` file.
+
+## How to update the images of prow components?
+
+The images used in prow component deployment uses imagestreams, there is [script](./update-imagestreams.py) in the directory to update the imagestreams.
+
+- Grab the tag from prow images with the following command:
+    `curl -s https://raw.githubusercontent.com/kubernetes/test-infra/master/config/prow/cluster/deck_deployment.yaml | grep gcr.io/k8s-prow/`
+- Execute the python script inside the directory prow with tag as an argument.
+    `python update-imagestreams.py v20220812-9414716697`
+
+More information on the prow component images:
+- https://console.cloud.google.com/gcr/images/k8s-prow/GLOBAL?pli=1
+- https://github.com/kubernetes/test-infra/tree/master/config/prow/cluster
+- https://github.com/kubernetes/test-infra/blob/master/prow/cmd/README.md

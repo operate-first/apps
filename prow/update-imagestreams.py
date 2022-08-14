@@ -18,7 +18,7 @@
 
 """GitOps tool to add an ImageStreamTag."""
 
-
+import sys
 import logging
 
 from yaml import load_all, dump_all
@@ -47,7 +47,7 @@ def add_tag(imagestream: dict, tag_name: str) -> None:
     image_name = imagestream["metadata"]["name"]
     imagestream["spec"]["tags"].append(
         {
-            "annotations": None,
+            "annotations": {},
             "name": tag_name,
             "from": {
                 "kind": "DockerImage",
@@ -62,8 +62,7 @@ with open("overlays/smaug/imagestreamtags.yaml") as ist:
     stream = load_all(ist.read(), Loader=Loader)
 
 updated_imagestream_tags = []
-current_tag = "v20211027-fe152eb205"
-
+current_tag = sys.argv[1] if len(sys.argv) > 1 else "v20220812-9414716697"
 for data in stream:
     logging.info(f"updating ImageStream '{data['metadata']['name']}'")
     add_tag(data, current_tag)
@@ -71,5 +70,5 @@ for data in stream:
 
     updated_imagestream_tags.append(data)
 
-with open("overlays/smaug/imagestreamtags.yaml.new", "w") as ist:
+with open("overlays/smaug/imagestreamtags.yaml", "w") as ist:
     ist.write(dump_all(updated_imagestream_tags, Dumper=Dumper, sort_keys=True))
