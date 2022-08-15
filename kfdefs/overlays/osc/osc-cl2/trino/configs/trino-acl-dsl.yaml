@@ -9,6 +9,9 @@ catalogs:
   - catalog: osc_datacommons_dev
     public: true
 
+  - catalog: osc_datacommons_hive_ingest
+    public: true
+
 schemas:
   - schema: sandbox
     catalog: osc_datacommons_dev
@@ -33,6 +36,12 @@ schemas:
     admin:
       - user: 'MichaelTiemannOSC'
     public: true
+
+  - schema: ingest
+    catalog: osc_datacommons_hive_ingest
+    admin:
+      - group: hive_ingest
+    public: false
 
 tables:
   - table: demo_dv_backend
