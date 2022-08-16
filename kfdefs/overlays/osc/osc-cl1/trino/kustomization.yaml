@@ -5,7 +5,7 @@ namespace: odh-trino
 resources:
   - kfdef.yaml
   - secure-route.yaml
-  - secrets
+  - externalsecrets
   - hive-metastores
   - configs
 generatorOptions:
