@@ -6,28 +6,23 @@ spec:
   lookupPolicy:
     local: true
   tags:
-  - annotations: {}
-    from:
+  - from:
       kind: ImageStreamTag
       name: v20220812-9414716697
     name: latest
-  - annotations: {}
-    from:
+  - from:
       kind: DockerImage
       name: gcr.io/k8s-prow/clonerefs:v20211019-b0788a9d38
     name: v20211019-b0788a9d38
-  - annotations: {}
-    from:
+  - from:
       kind: DockerImage
       name: gcr.io/k8s-prow/clonerefs:v20211025-c04ea2035e
     name: v20211025-c04ea2035e
-  - annotations: {}
-    from:
+  - from:
       kind: DockerImage
       name: gcr.io/k8s-prow/clonerefs:v20211027-fe152eb205
     name: v20211027-fe152eb205
-  - annotations: {}
-    from:
+  - from:
       kind: DockerImage
       name: gcr.io/k8s-prow/clonerefs:v20220812-9414716697
     name: v20220812-9414716697
@@ -40,28 +35,23 @@ spec:
   lookupPolicy:
     local: true
   tags:
-  - annotations: {}
-    from:
+  - from:
       kind: ImageStreamTag
       name: v20220812-9414716697
     name: latest
-  - annotations: {}
-    from:
+  - from:
       kind: DockerImage
       name: gcr.io/k8s-prow/commenter:v20211019-b0788a9d38
     name: v20211019-b0788a9d38
-  - annotations: {}
-    from:
+  - from:
       kind: DockerImage
       name: gcr.io/k8s-prow/commenter:v20211025-c04ea2035e
     name: v20211025-c04ea2035e
-  - annotations: {}
-    from:
+  - from:
       kind: DockerImage
       name: gcr.io/k8s-prow/commenter:v20211027-fe152eb205
     name: v20211027-fe152eb205
-  - annotations: {}
-    from:
+  - from:
       kind: DockerImage
       name: gcr.io/k8s-prow/commenter:v20220812-9414716697
     name: v20220812-9414716697
@@ -74,28 +64,23 @@ spec:
   lookupPolicy:
     local: true
   tags:
-  - annotations: {}
-    from:
+  - from:
       kind: ImageStreamTag
       name: v20220812-9414716697
     name: latest
-  - annotations: {}
-    from:
+  - from:
       kind: DockerImage
       name: gcr.io/k8s-prow/crier:v20211019-b0788a9d38
     name: v20211019-b0788a9d38
-  - annotations: {}
-    from:
+  - from:
       kind: DockerImage
       name: gcr.io/k8s-prow/crier:v20211025-c04ea2035e
     name: v20211025-c04ea2035e
-  - annotations: {}
-    from:
+  - from:
       kind: DockerImage
       name: gcr.io/k8s-prow/crier:v20211027-fe152eb205
     name: v20211027-fe152eb205
-  - annotations: {}
-    from:
+  - from:
       kind: DockerImage
       name: gcr.io/k8s-prow/crier:v20220812-9414716697
     name: v20220812-9414716697
@@ -108,28 +93,23 @@ spec:
   lookupPolicy:
     local: true
   tags:
-  - annotations: {}
-    from:
+  - from:
       kind: ImageStreamTag
       name: v20220812-9414716697
     name: latest
-  - annotations: {}
-    from:
+  - from:
       kind: DockerImage
       name: gcr.io/k8s-prow/deck:v20211019-b0788a9d38
     name: v20211019-b0788a9d38
-  - annotations: {}
-    from:
+  - from:
       kind: DockerImage
       name: gcr.io/k8s-prow/deck:v20211025-c04ea2035e
     name: v20211025-c04ea2035e
-  - annotations: {}
-    from:
+  - from:
       kind: DockerImage
       name: gcr.io/k8s-prow/deck:v20211027-fe152eb205
     name: v20211027-fe152eb205
-  - annotations: {}
-    from:
+  - from:
       kind: DockerImage
       name: gcr.io/k8s-prow/deck:v20220812-9414716697
     name: v20220812-9414716697
@@ -142,28 +122,23 @@ spec:
   lookupPolicy:
     local: true
   tags:
-  - annotations: {}
-    from:
+  - from:
       kind: ImageStreamTag
       name: v20220812-9414716697
     name: latest
-  - annotations: {}
-    from:
+  - from:
       kind: DockerImage
       name: gcr.io/k8s-prow/entrypoint:v20211019-b0788a9d38
     name: v20211019-b0788a9d38
-  - annotations: {}
-    from:
+  - from:
       kind: DockerImage
       name: gcr.io/k8s-prow/entrypoint:v20211025-c04ea2035e
     name: v20211025-c04ea2035e
-  - annotations: {}
-    from:
+  - from:
       kind: DockerImage
       name: gcr.io/k8s-prow/entrypoint:v20211027-fe152eb205
     name: v20211027-fe152eb205
-  - annotations: {}
-    from:
+  - from:
       kind: DockerImage
       name: gcr.io/k8s-prow/entrypoint:v20220812-9414716697
     name: v20220812-9414716697
@@ -176,28 +151,23 @@ spec:
   lookupPolicy:
     local: true
   tags:
-  - annotations: {}
-    from:
+  - from:
       kind: ImageStreamTag
       name: v20220812-9414716697
     name: latest
-  - annotations: {}
-    from:
+  - from:
       kind: DockerImage
       name: gcr.io/k8s-prow/hook:v20211019-b0788a9d38
     name: v20211019-b0788a9d38
-  - annotations: {}
-    from:
+  - from:
       kind: DockerImage
       name: gcr.io/k8s-prow/hook:v20211025-c04ea2035e
     name: v20211025-c04ea2035e
-  - annotations: {}
-    from:
+  - from:
       kind: DockerImage
       name: gcr.io/k8s-prow/hook:v20211027-fe152eb205
     name: v20211027-fe152eb205
-  - annotations: {}
-    from:
+  - from:
       kind: DockerImage
       name: gcr.io/k8s-prow/hook:v20220812-9414716697
     name: v20220812-9414716697
@@ -210,28 +180,23 @@ spec:
   lookupPolicy:
     local: true
   tags:
-  - annotations: {}
-    from:
+  - from:
       kind: ImageStreamTag
       name: v20220812-9414716697
     name: latest
-  - annotations: {}
-    from:
+  - from:
       kind: DockerImage
       name: gcr.io/k8s-prow/horologium:v20211019-b0788a9d38
     name: v20211019-b0788a9d38
-  - annotations: {}
-    from:
+  - from:
       kind: DockerImage
       name: gcr.io/k8s-prow/horologium:v20211025-c04ea2035e
     name: v20211025-c04ea2035e
-  - annotations: {}
-    from:
+  - from:
       kind: DockerImage
       name: gcr.io/k8s-prow/horologium:v20211027-fe152eb205
     name: v20211027-fe152eb205
-  - annotations: {}
-    from:
+  - from:
       kind: DockerImage
       name: gcr.io/k8s-prow/horologium:v20220812-9414716697
     name: v20220812-9414716697
@@ -244,28 +209,23 @@ spec:
   lookupPolicy:
     local: true
   tags:
-  - annotations: {}
-    from:
+  - from:
       kind: ImageStreamTag
       name: v20220812-9414716697
     name: latest
-  - annotations: {}
-    from:
+  - from:
       kind: DockerImage
       name: gcr.io/k8s-prow/initupload:v20211019-b0788a9d38
     name: v20211019-b0788a9d38
-  - annotations: {}
-    from:
+  - from:
       kind: DockerImage
       name: gcr.io/k8s-prow/initupload:v20211025-c04ea2035e
     name: v20211025-c04ea2035e
-  - annotations: {}
-    from:
+  - from:
       kind: DockerImage
       name: gcr.io/k8s-prow/initupload:v20211027-fe152eb205
     name: v20211027-fe152eb205
-  - annotations: {}
-    from:
+  - from:
       kind: DockerImage
       name: gcr.io/k8s-prow/initupload:v20220812-9414716697
     name: v20220812-9414716697
@@ -278,31 +238,26 @@ spec:
   lookupPolicy:
     local: true
   tags:
-  - annotations: {}
-    from:
+  - from:
       kind: ImageStreamTag
       name: v20220812-9414716697
     importPolicy: {}
     name: latest
     referencePolicy:
       type: Source
-  - annotations: {}
-    from:
+  - from:
       kind: DockerImage
       name: gcr.io/k8s-prow/label_sync:v20211019-b0788a9d38
     name: v20211019-b0788a9d38
-  - annotations: {}
-    from:
+  - from:
       kind: DockerImage
       name: gcr.io/k8s-prow/label_sync:v20211025-c04ea2035e
     name: v20211025-c04ea2035e
-  - annotations: {}
-    from:
+  - from:
       kind: DockerImage
       name: gcr.io/k8s-prow/label_sync:v20211027-fe152eb205
     name: v20211027-fe152eb205
-  - annotations: {}
-    from:
+  - from:
       kind: DockerImage
       name: gcr.io/k8s-prow/label_sync:v20220812-9414716697
     name: v20220812-9414716697
@@ -315,28 +270,23 @@ spec:
   lookupPolicy:
     local: true
   tags:
-  - annotations: {}
-    from:
+  - from:
       kind: ImageStreamTag
       name: v20220812-9414716697
     name: latest
-  - annotations: {}
-    from:
+  - from:
       kind: DockerImage
       name: gcr.io/k8s-prow/needs-rebase:v20211019-b0788a9d38
     name: v20211019-b0788a9d38
-  - annotations: {}
-    from:
+  - from:
       kind: DockerImage
       name: gcr.io/k8s-prow/needs-rebase:v20211025-c04ea2035e
     name: v20211025-c04ea2035e
-  - annotations: {}
-    from:
+  - from:
       kind: DockerImage
       name: gcr.io/k8s-prow/needs-rebase:v20211027-fe152eb205
     name: v20211027-fe152eb205
-  - annotations: {}
-    from:
+  - from:
       kind: DockerImage
       name: gcr.io/k8s-prow/needs-rebase:v20220812-9414716697
     name: v20220812-9414716697
@@ -349,28 +299,23 @@ spec:
   lookupPolicy:
     local: true
   tags:
-  - annotations: {}
-    from:
+  - from:
       kind: ImageStreamTag
       name: v20220812-9414716697
     name: latest
-  - annotations: {}
-    from:
+  - from:
       kind: DockerImage
       name: gcr.io/k8s-prow/pipeline:v20211019-b0788a9d38
     name: v20211019-b0788a9d38
-  - annotations: {}
-    from:
+  - from:
       kind: DockerImage
       name: gcr.io/k8s-prow/pipeline:v20211025-c04ea2035e
     name: v20211025-c04ea2035e
-  - annotations: {}
-    from:
+  - from:
       kind: DockerImage
       name: gcr.io/k8s-prow/pipeline:v20211027-fe152eb205
     name: v20211027-fe152eb205
-  - annotations: {}
-    from:
+  - from:
       kind: DockerImage
       name: gcr.io/k8s-prow/pipeline:v20220812-9414716697
     name: v20220812-9414716697
@@ -383,28 +328,23 @@ spec:
   lookupPolicy:
     local: true
   tags:
-  - annotations: {}
-    from:
+  - from:
       kind: ImageStreamTag
       name: v20220812-9414716697
     name: latest
-  - annotations: {}
-    from:
+  - from:
       kind: DockerImage
       name: gcr.io/k8s-prow/prow-controller-manager:v20211019-b0788a9d38
     name: v20211019-b0788a9d38
-  - annotations: {}
-    from:
+  - from:
       kind: DockerImage
       name: gcr.io/k8s-prow/prow-controller-manager:v20211025-c04ea2035e
     name: v20211025-c04ea2035e
-  - annotations: {}
-    from:
+  - from:
       kind: DockerImage
       name: gcr.io/k8s-prow/prow-controller-manager:v20211027-fe152eb205
     name: v20211027-fe152eb205
-  - annotations: {}
-    from:
+  - from:
       kind: DockerImage
       name: gcr.io/k8s-prow/prow-controller-manager:v20220812-9414716697
     name: v20220812-9414716697
@@ -417,28 +357,23 @@ spec:
   lookupPolicy:
     local: true
   tags:
-  - annotations: {}
-    from:
+  - from:
       kind: ImageStreamTag
       name: v20220812-9414716697
     name: latest
-  - annotations: {}
-    from:
+  - from:
       kind: DockerImage
       name: gcr.io/k8s-prow/sidecar:v20211019-b0788a9d38
     name: v20211019-b0788a9d38
-  - annotations: {}
-    from:
+  - from:
       kind: DockerImage
       name: gcr.io/k8s-prow/sidecar:v20211025-c04ea2035e
     name: v20211025-c04ea2035e
-  - annotations: {}
-    from:
+  - from:
       kind: DockerImage
       name: gcr.io/k8s-prow/sidecar:v20211027-fe152eb205
     name: v20211027-fe152eb205
-  - annotations: {}
-    from:
+  - from:
       kind: DockerImage
       name: gcr.io/k8s-prow/sidecar:v20220812-9414716697
     name: v20220812-9414716697
@@ -451,28 +386,23 @@ spec:
   lookupPolicy:
     local: true
   tags:
-  - annotations: {}
-    from:
+  - from:
       kind: ImageStreamTag
       name: v20220812-9414716697
     name: latest
-  - annotations: {}
-    from:
+  - from:
       kind: DockerImage
       name: gcr.io/k8s-prow/sinker:v20211019-b0788a9d38
     name: v20211019-b0788a9d38
-  - annotations: {}
-    from:
+  - from:
       kind: DockerImage
       name: gcr.io/k8s-prow/sinker:v20211025-c04ea2035e
     name: v20211025-c04ea2035e
-  - annotations: {}
-    from:
+  - from:
       kind: DockerImage
       name: gcr.io/k8s-prow/sinker:v20211027-fe152eb205
     name: v20211027-fe152eb205
-  - annotations: {}
-    from:
+  - from:
       kind: DockerImage
       name: gcr.io/k8s-prow/sinker:v20220812-9414716697
     name: v20220812-9414716697
@@ -485,28 +415,23 @@ spec:
   lookupPolicy:
     local: true
   tags:
-  - annotations: {}
-    from:
+  - from:
       kind: ImageStreamTag
       name: v20220812-9414716697
     name: latest
-  - annotations: {}
-    from:
+  - from:
       kind: DockerImage
       name: gcr.io/k8s-prow/status-reconciler:v20211019-b0788a9d38
     name: v20211019-b0788a9d38
-  - annotations: {}
-    from:
+  - from:
       kind: DockerImage
       name: gcr.io/k8s-prow/status-reconciler:v20211025-c04ea2035e
     name: v20211025-c04ea2035e
-  - annotations: {}
-    from:
+  - from:
       kind: DockerImage
       name: gcr.io/k8s-prow/status-reconciler:v20211027-fe152eb205
     name: v20211027-fe152eb205
-  - annotations: {}
-    from:
+  - from:
       kind: DockerImage
       name: gcr.io/k8s-prow/status-reconciler:v20220812-9414716697
     name: v20220812-9414716697
@@ -519,28 +444,23 @@ spec:
   lookupPolicy:
     local: true
   tags:
-  - annotations: {}
-    from:
+  - from:
       kind: ImageStreamTag
       name: v20220812-9414716697
     name: latest
-  - annotations: {}
-    from:
+  - from:
       kind: DockerImage
       name: gcr.io/k8s-prow/tide:v20211019-b0788a9d38
     name: v20211019-b0788a9d38
-  - annotations: {}
-    from:
+  - from:
       kind: DockerImage
       name: gcr.io/k8s-prow/tide:v20211025-c04ea2035e
     name: v20211025-c04ea2035e
-  - annotations: {}
-    from:
+  - from:
       kind: DockerImage
       name: gcr.io/k8s-prow/tide:v20211027-fe152eb205
     name: v20211027-fe152eb205
-  - annotations: {}
-    from:
+  - from:
       kind: DockerImage
       name: gcr.io/k8s-prow/tide:v20220812-9414716697
     name: v20220812-9414716697
