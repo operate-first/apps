@@ -5,6 +5,8 @@ metadata:
   name: slack-first
   labels:
     app: slack-first
+  annotations:
+    configmap.reloader.stakater.com/reload: "slack-first"
 spec:
   selector:
     matchLabels:
