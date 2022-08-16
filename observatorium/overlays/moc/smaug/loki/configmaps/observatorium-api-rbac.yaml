@@ -1,0 +1,33 @@
+kind: ConfigMap
+apiVersion: v1
+metadata:
+  name: observatorium-api
+data:
+  rbac.yaml: |-
+    roles:
+    - name: cluster-app-logs-read-write
+      resources:
+      - logs
+      tenants:
+      - cluster-app-logs
+      permissions:
+      - read
+      - write
+    - name: moc-infra-metrics-read-write
+      resources:
+      - metrics
+      tenants:
+      - moc-infra-metrics
+      permissions:
+      - read
+      - write
+    roleBindings:
+    - name: cluster-logs-read-write
+      roles:
+      - cluster-logs-read-write
+      - moc-infra-metrics-read-write
+      subjects:
+      - kind: group
+        name: operate-first
+      - kind: user
+        name: admin@example.com

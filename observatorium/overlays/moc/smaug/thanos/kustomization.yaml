@@ -6,7 +6,6 @@ commonLabels:
   app.kubernetes.io/part-of: observatorium
   app.kubernetes.io/name: thanos
 resources:
-  - ../../../../base/instance/thanos
   - deployments
   - horizontalpodautoscalers
   - rolebindings
@@ -15,7 +14,5 @@ resources:
   - serviceaccounts
   - servicemonitors
   - services
-  - obcs
-
-generators:
-  - secrets/secrets-generator.yaml
+patchesStrategicMerge:
+  - deployments/observatorium-thanos-query.yaml

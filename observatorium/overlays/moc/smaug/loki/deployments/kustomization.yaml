@@ -1,0 +1,12 @@
+apiVersion: kustomize.config.k8s.io/v1beta1
+kind: Kustomization
+metadata:
+  labels:
+    app.kubernetes.io/component: api
+    app.kubernetes.io/instance: observatorium
+    app.kubernetes.io/name: observatorium-api
+resources:
+- loki-query-frontend-oauth-proxy.yaml
+- observatorium-api.yaml
+- observatorium-loki-distributor.yaml
+- observatorium-loki-query-frontend.yaml

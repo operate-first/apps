@@ -1,0 +1,61 @@
+kind: Deployment
+apiVersion: apps/v1
+metadata:
+  name: loki-query-frontend-oauth-proxy
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: loki-query-frontend-oauth-proxy
+  template:
+    metadata:
+      labels:
+        app: loki-query-frontend-oauth-proxy
+    spec:
+      restartPolicy: Always
+      serviceAccountName: loki-query-frontend-oauth-proxy
+      schedulerName: default-scheduler
+      terminationGracePeriodSeconds: 30
+      securityContext: {}
+      containers:
+        - resources:
+            limits:
+              cpu: '1'
+              memory: 1Gi
+            requests:
+              cpu: 100m
+              memory: 200Mi
+          terminationMessagePath: /dev/termination-log
+          name: oauth-proxy
+          ports:
+            - name: oauth-proxy
+              containerPort: 9091
+              protocol: TCP
+          imagePullPolicy: IfNotPresent
+          volumeMounts:
+            - name: loki-query-frontend-tls
+              mountPath: /etc/tls/private
+          terminationMessagePolicy: File
+          image: 'registry.redhat.io/openshift4/ose-oauth-proxy:v4.8'
+          args:
+            - '-provider=openshift'
+            - '-pass-basic-auth=false'
+            - '-https-address=:9091'
+            - '-http-address='
+            - '-email-domain=*'
+            - 'upstream=http://observatorium-loki-query-frontend-http.opf-observatorium.svc.cluster.local:3100'
+            - '-openshift-service-account=loki-query-frontend-oauth-proxy'
+            - '-openshift-ca=/etc/pki/tls/cert.pem'
+            - '-openshift-ca=/var/run/secrets/kubernetes.io/serviceaccount/ca.crt'
+            - '-tls-cert=/etc/tls/private/tls.crt'
+            - '-tls-key=/etc/tls/private/tls.key'
+            - '-cookie-secret=SECRET'
+            - '-skip-auth-regex=^/metrics'
+            - '-openshift-sar={"resource": "namespaces", "verb": "get", "resourceName": "opf-observatorium", "namespace": "opf-observatorium"}'
+            - '-openshift-delegate-urls={"/":{"resource": "namespaces", "verb": "get", "resourceName": "opf-observatorium", "namespace": "opf-observatorium"}}'
+      serviceAccount: loki-query-frontend-oauth-proxy
+      volumes:
+        - name: loki-query-frontend-tls
+          secret:
+            secretName: loki-query-frontend-tls
+            defaultMode: 420

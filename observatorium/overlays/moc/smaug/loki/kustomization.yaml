@@ -6,12 +6,12 @@ commonLabels:
   app.kubernetes.io/part-of: observatorium
   app.kubernetes.io/name: loki
 resources:
-  - ../../../../base/instance/loki
   - servicemonitors
   - obcs
+  - routes
+  - deployments
+bases:
+  - ../../../../base/instance/loki/common
 
 patchesStrategicMerge:
   - configmaps/observatorium-loki-configmap_patch.yaml
-
-generators:
-  - secrets/secrets-generator.yaml

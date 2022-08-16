@@ -1,0 +1,13 @@
+apiVersion: external-secrets.io/v1beta1
+kind: ExternalSecret
+metadata:
+  name: clo-kafka
+spec:
+  secretStoreRef:
+    name: opf-vault-store
+    kind: SecretStore
+  target:
+    name: clo-kafka
+  dataFrom:
+    - extract:
+        key: moc/smaug/opf-observatorium/clo-kafka

@@ -1,0 +1,15 @@
+kind: Route
+apiVersion: route.openshift.io/v1
+metadata:
+  name: loki-frontend
+  namespace: opf-observatorium
+  annotations:
+    kubernetes.io/tls-acme: "true"
+spec:
+  host: loki-frontend-opf-observatorium.apps.smaug.na.operate-first.cloud
+  to:
+    kind: Service
+    name: loki-query-frontend-oauth-proxy
+    weight: 100
+  port:
+    targetPort: oauth-proxy

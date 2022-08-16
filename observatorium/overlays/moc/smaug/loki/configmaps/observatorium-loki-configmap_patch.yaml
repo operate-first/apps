@@ -120,12 +120,6 @@ data:
           "consistent_hash": true
     "tracing":
       "enabled": false
-  overrides.yaml: '{}'
 kind: ConfigMap
 metadata:
-  labels:
-    app.kubernetes.io/instance: observatorium
-    app.kubernetes.io/name: loki
-    app.kubernetes.io/part-of: observatorium
-    app.kubernetes.io/version: 2.3.0
   name: observatorium-loki

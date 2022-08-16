@@ -1,0 +1,65 @@
+kind: Deployment
+apiVersion: apps/v1
+metadata:
+  name: observatorium-thanos-receive-controller
+  namespace: opf-observatorium
+  labels:
+    app.kubernetes.io/component: receive-controller
+    app.kubernetes.io/instance: opf-observatorium-smaug
+    app.kubernetes.io/name: thanos
+    app.kubernetes.io/part-of: observatorium
+    app.kubernetes.io/version: master-2021-04-28-ee165b6
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app.kubernetes.io/component: receive-controller
+      app.kubernetes.io/instance: opf-observatorium-smaug
+      app.kubernetes.io/name: thanos
+      app.kubernetes.io/part-of: observatorium
+      app.kubernetes.io/version: master-2021-04-28-ee165b6
+  template:
+    metadata:
+      labels:
+        app.kubernetes.io/component: receive-controller
+        app.kubernetes.io/instance: opf-observatorium-smaug
+        app.kubernetes.io/name: thanos
+        app.kubernetes.io/part-of: observatorium
+        app.kubernetes.io/version: master-2021-04-28-ee165b6
+    spec:
+      containers:
+        - resources:
+            limits:
+              cpu: 64m
+              memory: 128Mi
+            requests:
+              cpu: 10m
+              memory: 24Mi
+          terminationMessagePath: /dev/termination-log
+          name: thanos-receive-controller
+          env:
+            - name: NAMESPACE
+              valueFrom:
+                fieldRef:
+                  apiVersion: v1
+                  fieldPath: metadata.namespace
+          securityContext: {}
+          ports:
+            - name: http
+              containerPort: 8080
+              protocol: TCP
+          imagePullPolicy: IfNotPresent
+          terminationMessagePolicy: File
+          image: 'quay.io/observatorium/thanos-receive-controller:master-2021-04-28-ee165b6'
+          args:
+            - '--configmap-name=observatorium-thanos-receive-controller-tenants'
+            - '--configmap-generated-name=observatorium-thanos-receive-controller-tenants-generated'
+            - '--file-name=hashrings.json'
+            - '--namespace=$(NAMESPACE)'
+      restartPolicy: Always
+      terminationGracePeriodSeconds: 30
+      dnsPolicy: ClusterFirst
+      serviceAccountName: observatorium-thanos-receive-controller
+      serviceAccount: observatorium-thanos-receive-controller
+      securityContext: {}
+      schedulerName: default-scheduler

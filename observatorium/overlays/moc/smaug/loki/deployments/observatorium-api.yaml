@@ -1,0 +1,94 @@
+kind: Deployment
+apiVersion: apps/v1
+metadata:
+  name: observatorium-api
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app.kubernetes.io/component: api
+      app.kubernetes.io/instance: observatorium
+      app.kubernetes.io/name: observatorium-api
+      app.kubernetes.io/part-of: observatorium
+  template:
+    metadata:
+      labels:
+        app.kubernetes.io/component: api
+        app.kubernetes.io/instance: observatorium
+        app.kubernetes.io/name: observatorium-api
+        app.kubernetes.io/part-of: observatorium
+    spec:
+      restartPolicy: Always
+      serviceAccountName: observatorium-api
+      schedulerName: default-scheduler
+      terminationGracePeriodSeconds: 30
+      securityContext: {}
+      containers:
+        - resources:
+            limits:
+              cpu: '1'
+              memory: 1Gi
+            requests:
+              cpu: 100m
+              memory: 256Mi
+          readinessProbe:
+            httpGet:
+              path: /ready
+              port: 8081
+              scheme: HTTP
+            timeoutSeconds: 1
+            periodSeconds: 5
+            successThreshold: 1
+            failureThreshold: 12
+          terminationMessagePath: /dev/termination-log
+          name: observatorium-api
+          livenessProbe:
+            httpGet:
+              path: /live
+              port: 8081
+              scheme: HTTP
+            timeoutSeconds: 1
+            periodSeconds: 30
+            successThreshold: 1
+            failureThreshold: 10
+          ports:
+            - name: internal
+              containerPort: 8081
+              protocol: TCP
+            - name: public
+              containerPort: 8080
+              protocol: TCP
+          imagePullPolicy: IfNotPresent
+          volumeMounts:
+            - name: rbac
+              readOnly: true
+              mountPath: /etc/observatorium/rbac.yaml
+              subPath: rbac.yaml
+            - name: tenants
+              readOnly: true
+              mountPath: /etc/observatorium/tenants.yaml
+              subPath: tenants.yaml
+          terminationMessagePolicy: File
+          image: 'quay.io/observatorium/api:main-2021-11-12-v0.1.2-103-g008c48f'
+          args:
+            - '--web.listen=0.0.0.0:8080'
+            - '--web.internal.listen=0.0.0.0:8081'
+            - '--metrics.read.endpoint=http://observatorium-thanos-query-frontend.opf-observatorium.svc.cluster.local:9090'
+            - '--metrics.write.endpoint=http://observatorium-thanos-receive.opf-observatorium.svc.cluster.local:19291'
+            - '--log.level=info'
+            - '--logs.read.endpoint=http://observatorium-loki-query-frontend-http.opf-observatorium.svc.cluster.local:3100'
+            - '--logs.tail.endpoint=http://observatorium-loki-querier-http.opf-observatorium.svc.cluster.local:3100'
+            - '--logs.write.endpoint=http://observatorium-loki-distributor-http.opf-observatorium.svc.cluster.local:3100'
+            - '--rbac.config=/etc/observatorium/rbac.yaml'
+            - '--tenants.config=/etc/observatorium/tenants.yaml'
+      serviceAccount: observatorium-api
+      volumes:
+        - name: rbac
+          configMap:
+            name: observatorium-api
+            defaultMode: 420
+        - name: tenants
+          secret:
+            secretName: observatorium-api
+            defaultMode: 420
+      dnsPolicy: ClusterFirst

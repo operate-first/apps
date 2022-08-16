@@ -3,6 +3,9 @@ apiVersion: route.openshift.io/v1
 kind: Route
 metadata:
   name: thanos-receive
+  namespace: opf-observatorium
+  annotations:
+    kubernetes.io/tls-acme: "true"
 spec:
   to:
     kind: Service

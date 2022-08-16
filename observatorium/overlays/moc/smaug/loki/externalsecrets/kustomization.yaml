@@ -1,0 +1,6 @@
+apiVersion: kustomize.config.k8s.io/v1beta1
+kind: Kustomization
+resources:
+- loki-objectstorage-secret.yaml
+- loki-query-frontend-tls.yaml
+- observatorium-api-tenants.yaml
