@@ -1,5 +1,8 @@
 # PROW
 
+![Argocd](https://argocd.operate-first.cloud/api/badge?name=ci-prow-prod-smaug&revision=true)
+
+
 This is a standalone ArgoCD Application for PROW. It is meant to be deployed into a separate OpenShift Project, therefore it is not references from the `kustomization.yaml` file at the root directory of this repository.
 
 
@@ -26,3 +29,8 @@ More information on the prow component images:
 - https://console.cloud.google.com/gcr/images/k8s-prow/GLOBAL?pli=1
 - https://github.com/kubernetes/test-infra/tree/master/config/prow/cluster
 - https://github.com/kubernetes/test-infra/blob/master/prow/cmd/README.md
+
+
+**NOTE**:
+As noted in the [release note](https://github.com/kubernetes/test-infra/blob/master/prow/ANNOUNCEMENTS.md#breaking-changes) of prow, as per feb 22,2022. The utility images such as clonerefs, init-upload, sidecars and enrtypoint.
+Testing is required before these image are upgraded, as it impacts presubmit jobs.

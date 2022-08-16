@@ -7,8 +7,7 @@ spec:
   lookupPolicy:
     local: true
   tags:
-    - annotations: {}
-      name: latest
+    - name: latest
       from:
         kind: DockerImage
         name: gcr.io/k8s-prow/ghproxy:latest
