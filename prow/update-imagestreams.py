@@ -47,7 +47,6 @@ def add_tag(imagestream: dict, tag_name: str) -> None:
     image_name = imagestream["metadata"]["name"]
     imagestream["spec"]["tags"].append(
         {
-            "annotations": {},
             "name": tag_name,
             "from": {
                 "kind": "DockerImage",
