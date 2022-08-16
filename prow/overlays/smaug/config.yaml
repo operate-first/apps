@@ -54,29 +54,9 @@ branch-protection:
       required_status_checks:
         contexts:
           - aicoe-ci/prow/pre-commit
-      repos:
-        Varangian:
-          protect: true
-          allow_force_pushes: false
-          required_status_checks:
-            contexts:
-              - aicoe-ci/prow/pre-commit
-          exclude:
-            - "^revert-"
-            - "^kebechet-"
-            - "^dependabot/"
-        meteor:
-          protect: true
-          allow_force_pushes: false
-          required_status_checks:
-            contexts:
-              - aicoe-ci/prow/pre-commit
-          exclude:
-            - "^revert-"
-            - "^kebechet-"
-            - "^dependabot/"
-        okr:
-          protect: false
+      include:
+        - "^master"
+        - "^main"
       restrictions:
         users: []
         teams:
@@ -102,12 +82,9 @@ branch-protection:
       required_status_checks:
         contexts:
           - aicoe-ci/prow/pre-commit
-      exclude:
-        - "^revert-"
-        - "^kebechet-"
-        - "^dependabot/"
-        - "^pres-"
-        - "^gh-pages"
+      include:
+        - "^main"
+        - "^master"
       restrictions:
         users: []
         teams:
@@ -144,12 +121,9 @@ branch-protection:
       required_status_checks:
         contexts:
           - pre-commit
-      exclude:
-        - "^revert-"
-        - "^kebechet-"
-        - "^dependabot/"
-        - "^pres-"
-        - "^gh-pages"
+      include:
+        - "^main"
+        - "^master"
       restrictions:
         users: []
         teams:
@@ -163,17 +137,9 @@ branch-protection:
       required_status_checks:
         contexts:
           - aicoe-ci/prow/pre-commit
-      repos:
-        aicoe-osc-demo:
-          protect: true
-          allow_force_pushes: false
-          required_status_checks:
-            contexts:
-              - aicoe-ci/prow/pre-commit
-          exclude:
-            - "^revert-"
-            - "^kebechet-"
-            - "^dependabot/"
+      include:
+        - "^master"
+        - "^main"
       restrictions:
         users: []
         teams:
@@ -227,7 +193,7 @@ tide:
     open-services-group: merge
     operate-first: squash
     os-climate: merge
-    thoth-station: merge
+    thoth-station: squash
 
   queries:
     - orgs:
@@ -335,10 +301,6 @@ tide:
     orgs:
       AICoE:
         repos:
-          prometheus-api-client-python:
-            required-contexts:
-              - aicoe-ci/pre-commit-check
-              - aicoe-ci/pytest-check
           sefkhet-abwy:
             required-contexts:
               - aicoe-ci/pre-commit-check
@@ -398,72 +360,6 @@ tide:
             skip-unknown-contexts: false
 
 periodics:
-  - name: integration-tests-prod
-    interval: 6h
-    decorate: true
-    spec:
-      containers:
-        - image: quay.io/thoth-station/integration-tests:v0.11.1
-          imagePullPolicy: Always
-          command:
-            - python3
-            - app.py
-          env:
-            - name: MAIL_REPORT
-              valueFrom:
-                configMapKeyRef:
-                  key: mail-report
-                  name: integration-tests
-            - name: GENERATE_REPORT
-              valueFrom:
-                configMapKeyRef:
-                  key: generate-report
-                  name: integration-tests
-            - name: THOTH_DEPLOYMENT_NAME
-              valueFrom:
-                configMapKeyRef:
-                  key: deployment-name
-                  name: integration-tests
-            - name: THOTH_LOGGING_NO_JSON
-              valueFrom:
-                configMapKeyRef:
-                  key: logging-no-json
-                  name: integration-tests
-            - name: THOTH_USER_API_HOST
-              valueFrom:
-                configMapKeyRef:
-                  key: user-api
-                  name: integration-tests
-            - name: THOTH_MANAGEMENT_API_HOST
-              valueFrom:
-                configMapKeyRef:
-                  key: management-api
-                  name: integration-tests
-            - name: THOTH_AMUN_API_HOST
-              valueFrom:
-                configMapKeyRef:
-                  key: amun-api
-                  name: integration-tests
-            - name: THOTH_MANAGEMENT_API_SECRET
-              valueFrom:
-                secretKeyRef:
-                  key: management-api-token
-                  name: integration-tests
-            - name: THOTH_INTEGRATION_TESTS_TAGS
-              valueFrom:
-                configMapKeyRef:
-                  key: tags
-                  name: integration-tests
-          resources:
-            requests:
-              memory: "256Mi"
-              cpu: "1"
-            limits:
-              memory: "512"
-              cpu: "2"
-    annotations:
-      description: Periodic e2e tests against MOC deployment
-
   - name: periodic-close-rotten
     interval: 3h
     decorate: true
