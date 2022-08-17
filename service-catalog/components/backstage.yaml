@@ -28,7 +28,7 @@ spec:
   system: service-catalog
   dependsOn:
     - resource:s3-bucket
-    - resource:crunchy-postgres
+    - component:crunchy-postgres-db
     - resource:smaug
   providesApis:
     - backstage

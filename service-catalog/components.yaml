@@ -8,3 +8,4 @@ spec:
     - ./components/argocd.yaml
     - ./components/grafana.yaml
     - ./components/backstage.yaml
+    - ./components/crunchy-postgres-db.yaml

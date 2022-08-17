@@ -10,5 +10,5 @@ metadata:
 spec:
   owner: group:operate-first
   domain: sre
-dependsOn:
-  - resource:smaug
+  dependsOn:
+    - resource:smaug
