@@ -369,7 +369,7 @@ periodics:
       containers:
         - image: commenter
           command:
-            - /app/robots/commenter/app.binary
+            - /ko-app/commenter
           args:
             - |-
               --query=org:thoth-station org:AICoE org:operate-first org:open-services-group
@@ -403,7 +403,7 @@ periodics:
       containers:
         - image: commenter
           command:
-            - /app/robots/commenter/app.binary
+            - /ko-app/commenter
           args:
             - |-
               --query=org:thoth-station org:AICoE org:operate-first org:open-services-group
@@ -440,7 +440,7 @@ periodics:
       containers:
         - image: commenter
           command:
-            - /app/robots/commenter/app.binary
+            - /ko-app/commenter
           args:
             - |-
               --query=org:thoth-station org:AICoE org:operate-first org:open-services-group
