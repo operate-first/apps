@@ -1,0 +1,16 @@
+apiVersion: objectbucket.io/v1alpha1
+kind: ObjectBucketClaim
+metadata:
+  name: opf-datacatalog-noobaa
+  finalizers:
+    - objectbucket.io/finalizer
+  labels:
+    app: noobaa
+    bucket-provisioner: openshift-storage.noobaa.io-obc
+    noobaa-domain: openshift-storage.noobaa.io
+spec:
+  additionalConfig:
+    maxSize: 50G
+  bucketName: opf-datacatalog-noobaa
+  objectBucketName: obc-opf-datacatalog
+  storageClassName: openshift-storage.noobaa.io
