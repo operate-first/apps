@@ -1,0 +1,19 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: kvm-device-plugin
+spec:
+  destination:
+    name: smaug
+    namespace: kvm-device-plugin
+  project: okd-team
+  source:
+    path: kvm-device-plugin/overlays/smaug
+    repoURL: https://github.com/operate-first/apps.git
+    targetRevision: HEAD
+  syncPolicy:
+    automated:
+      prune: true
+      selfHeal: true
+    syncOptions:
+      - Validate=false

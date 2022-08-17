@@ -43,6 +43,9 @@ resources:
 - ../../../../base/core/namespaces/manageiq
 - ../../../../base/core/namespaces/neu-cs6620
 - ../../../../base/core/namespaces/od-demo
+- ../../../../base/core/namespaces/okd-centos
+- ../../../../base/core/namespaces/okd-team
+- ../../../../base/core/namespaces/okd-wg
 - ../../../../base/core/namespaces/openshift-cnv
 - ../../../../base/core/namespaces/openshift-logging
 - ../../../../base/core/namespaces/openshift-operators
@@ -146,6 +149,7 @@ resources:
 - ../../../../bundles/fybrik
 - ../../../../bundles/jaeger-operator
 - ../../../../bundles/kfp-tekton
+- ../../../../bundles/kvm-device-plugin
 - ../../../../bundles/meteor-operator
 - ../../../../bundles/nfd
 - ../../../../bundles/openshift-pipelines

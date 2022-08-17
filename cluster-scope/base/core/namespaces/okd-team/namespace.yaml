@@ -1,0 +1,10 @@
+---
+apiVersion: v1
+kind: Namespace
+metadata:
+  annotations:
+    openshift.io/display-name: "OKD Team (internal)"
+    openshift.io/requester: okd-team
+    op1st/project-owner: okd-team
+  name: okd-team
+spec: {}

@@ -10,6 +10,7 @@ resources:
   - lab-cicd.yaml
   - mocops.yaml
   - octo-ushift-dev.yaml
+  - okd-team.yaml
   - operate-first.yaml
   - os-climate.yaml
   - rekor.yaml

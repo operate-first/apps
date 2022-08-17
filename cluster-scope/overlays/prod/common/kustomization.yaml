@@ -47,6 +47,8 @@ resources:
 - ../../../base/user.openshift.io/groups/octo-training-model
 - ../../../base/user.openshift.io/groups/octo-ushift-dev
 - ../../../base/user.openshift.io/groups/odh-admin
+- ../../../base/user.openshift.io/groups/okd-team
+- ../../../base/user.openshift.io/groups/okd-wg
 - ../../../base/user.openshift.io/groups/open-aiops
 - ../../../base/user.openshift.io/groups/operate-first
 - ../../../base/user.openshift.io/groups/opf-alerting
