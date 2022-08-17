@@ -3,13 +3,14 @@ kind: Group
 metadata:
   name: odh-admin
 users:
-  - redmikhail
-  - HumairAK
-  - erikerlandson
   - 4n4nd
-  - rimolive
   - caldeirav
-  - myeung18
-  - harshad16
-  - Gregory-Pereira
+  - codificat
+  - erikerlandson
   - Gkrumbach07
+  - Gregory-Pereira
+  - harshad16
+  - HumairAK
+  - myeung18
+  - redmikhail
+  - rimolive
