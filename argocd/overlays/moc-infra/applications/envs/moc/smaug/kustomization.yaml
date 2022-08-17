@@ -9,6 +9,7 @@ resources:
 - cluster-management
 - data-science
 - fybrik
+- okd-team
 - operate-first
 - thoth
 - workshops
