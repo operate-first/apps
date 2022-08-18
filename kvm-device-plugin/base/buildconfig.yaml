@@ -15,11 +15,11 @@ spec:
       uri: https://github.com/cgwalters/kvm-device-plugin
     type: Git
     dockerfile: |
-      FROM image-registry.openshift-image-registry.svc:5000/centos/centos:okd-golang-builder AS builder
+      FROM image-registry.openshift-image-registry.svc:5000/okd-centos/centos:okd-golang-builder AS builder
       WORKDIR /go/src/github.com/cgwalters/kvm-device-plugin
       COPY . .
       RUN make
-      FROM image-registry.openshift-image-registry.svc:5000/centos/centos:stream9
+      FROM image-registry.openshift-image-registry.svc:5000/okd-centos/centos:stream9
       COPY --from=builder /go/src/github.com/cgwalters/kvm-device-plugin/cmd/kvm/kvm /usr/bin/device-plugin-kvm
       CMD ["/usr/bin/device-plugin-kvm"]
   strategy:
