@@ -3,10 +3,10 @@ kind: Group
 metadata:
   name: argocd-readonly
 users:
-  - naved001
-  - larsks
-  - rbo
-  - margarethaley
-  - gkrumbach07
   - Gkrumbach07
+  - gkrumbach07
+  - larsks
+  - margarethaley
+  - naved001
   - ravitejamanepalli
+  - rbo
