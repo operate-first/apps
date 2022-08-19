@@ -64,6 +64,9 @@ branch-protection:
         required_pull_request_reviews:
           dismiss_stale_reviews: false
           required_approving_review_count: 1
+      repos:
+        okr:
+          protect: false
     b4mad:
       repos:
         minecraft:
@@ -93,27 +96,33 @@ branch-protection:
           dismiss_stale_reviews: false
           required_approving_review_count: 1
       repos:
-        tensorflow:
-          protect: false
-        contra-env-infra:
-          protect: false
         statusfy:
           protect: false
         statusfy-ops:
           protect: false
+        stress-tests:
+          protect: false
+        thoth-ops:
+          protect: false
+        twitter-together:
+          protect: false
         website-tooling:
+          protect: false
+        bz1816214-example:
+          protect: false
+        contra-env-infra:
           protect: false
         cuda:
           protect: false
-        stub-api:
-          protect: false
         nvidia-usage-dashboard:
-          protect: false
-        template-project:
           protect: false
         pipelines-catalog:
           protect: false
-        bz1816214-example:
+        stub-api:
+          protect: false
+        template-project:
+          protect: false
+        tensorflow:
           protect: false
     open-services-group:
       protect: true
@@ -132,21 +141,25 @@ branch-protection:
           dismiss_stale_reviews: false
           required_approving_review_count: 1
     os-climate:
-      protect: true
-      allow_force_pushes: false
-      required_status_checks:
-        contexts:
-          - aicoe-ci/prow/pre-commit
-      include:
-        - "^master"
-        - "^main"
-      restrictions:
-        users: []
-        teams:
-          - sourceops
-        required_pull_request_reviews:
-          dismiss_stale_reviews: false
-          required_approving_review_count: 1
+      protect: false
+      repos:
+        aicoe-osc-demo:
+          protect: true
+          allow_force_pushes: false
+          required_status_checks:
+            contexts:
+              - aicoe-ci/prow/pre-commit
+          include:
+            - "^master"
+            - "^main"
+          restrictions:
+            users: []
+            teams:
+              - sourceops
+            required_pull_request_reviews:
+              dismiss_stale_reviews: false
+              required_approving_review_count: 1
+
 deck:
   spyglass:
     size_limit: 100000000    # 100MB
