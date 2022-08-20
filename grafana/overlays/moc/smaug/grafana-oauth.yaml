@@ -45,5 +45,6 @@ spec:
         contains(groups[*], 'grafana-viewer')   && 'Viewer' ||
         contains(groups[*], 'grafana-editor')   && 'Editor' ||
         contains(groups[*], 'scsaol')   && 'Viewer' ||
+        contains(groups[*], 'apicurio') && 'Editor' ||
         'Deny'
       role_attribute_strict: true
