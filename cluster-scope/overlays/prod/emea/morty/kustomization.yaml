@@ -24,6 +24,7 @@ resources:
 - ../../../../base/core/configmaps/cluster-monitoring-config
 - ../../../../base/core/namespaces/examples-openshift-pub
 - ../../../../base/core/namespaces/keylime
+- ../../../../base/core/namespaces/kepler
 - ../../../../base/core/namespaces/opf-obcs
 - ../../../../base/core/namespaces/openshift-cnv
 - ../../../../base/core/namespaces/openshift-local-storage
