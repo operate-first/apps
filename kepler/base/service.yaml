@@ -6,7 +6,7 @@ metadata:
     app.kubernetes.io/name: kepler-exporter
     sustainable-computing.io/app: kepler
   name: kepler-exporter
-  namespace: monitoring
+  namespace: kepler-monitoring
 spec:
   selector:
     app.kubernetes.io/component: exporter

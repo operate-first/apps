@@ -11,7 +11,7 @@ spec:
     targetRevision: HEAD
   destination:
     name: morty
-    namespace: monitoring
+    namespace: kepler-monitoring
   syncPolicy:
     automated:
       prune: true

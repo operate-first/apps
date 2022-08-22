@@ -4,7 +4,7 @@ metadata:
   labels:
     sustainable-computing.io/app: kepler
   name: kepler-leader-election
-  namespace: monitoring
+  namespace: kepler-monitoring
 rules:
   - apiGroups:
       - ''
