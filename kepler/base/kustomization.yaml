@@ -7,4 +7,3 @@ resources:
 - service.yaml
 - rolebinding.yaml
 - role.yaml
-- scc.yaml
