@@ -84,10 +84,10 @@ parts:
           - file: content/kubeval/updating_schema_store.md
 
       # Grafana
-      - file: content/grafana/README.md
+      - file: content/grafana/docs/README.md
         sections:
-          - file: content/grafana/add_grafana_dashboard.md
-          - file: content/grafana/map_groups_to_roles.md
+          - file: content/grafana/docs/add_grafana_dashboard.md
+          - file: content/grafana/docs/map_groups_to_roles.md
 
       # Prometheus / Alerting
       - file: content/prometheus/README.md
