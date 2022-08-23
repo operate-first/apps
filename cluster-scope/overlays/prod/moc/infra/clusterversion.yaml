@@ -7,5 +7,5 @@ spec:
   clusterID: 91976abd-8b8e-47b9-82d3-e84793396ed7
   upstream: https://api.openshift.com/api/upgrades_info/v1/graph
   desiredUpdate:
-    image: quay.io/openshift-release-dev/ocp-release@sha256:5d396ad7d5f3cb527580c735e87dfd3b853bbb531e7f03e3a184d0accc223cdf
-    version: 4.8.13
+    image: quay.io/openshift-release-dev/ocp-release@sha256:cc74abac76c51be6798df097930848b36e41e98806d78c56a08f6db46aec0ce4
+    version: 4.8.47
