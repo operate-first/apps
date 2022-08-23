@@ -31,6 +31,12 @@ schemas:
       - group: 'pcaf_sovereign_footprint.*'
     public: true
 
+  - schema: aicoe_osc_demo_results
+    catalog: osc_datacommons_dev
+    admin:
+      - group: 'aicoe-osc-demo'
+    public: true
+
   - schema: mdt_sandbox
     catalog: osc_datacommons_dev
     admin:
