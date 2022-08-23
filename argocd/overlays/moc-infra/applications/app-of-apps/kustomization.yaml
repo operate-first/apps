@@ -13,3 +13,4 @@ resources:
   - app-of-apps-smaug.yaml
   - workshops-app-of-apps.yaml
   - app-of-apps-morty.yaml
+  - app-of-apps-jerry.yaml
