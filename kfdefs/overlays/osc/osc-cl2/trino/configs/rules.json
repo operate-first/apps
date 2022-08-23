@@ -10,6 +10,11 @@
             "allow": "all"
         },
         {
+            "group": "aicoe-osc-demo",
+            "catalog": "osc_datacommons_dev",
+            "allow": "all"
+        },
+        {
             "group": "demo_dv_dev",
             "catalog": "osc_datacommons_dev",
             "allow": "all"
@@ -54,6 +59,12 @@
             "catalog": "osc_datacommons_dev",
             "schema": "pcaf_sovereign_footprint",
             "group": "pcaf_sovereign_footprint.*",
+            "owner": true
+        },
+        {
+            "catalog": "osc_datacommons_dev",
+            "schema": "aicoe_osc_demo_results",
+            "group": "aicoe-osc-demo",
             "owner": true
         },
         {
@@ -108,6 +119,17 @@
             "catalog": "osc_datacommons_dev",
             "schema": "pcaf_sovereign_footprint",
             "group": "pcaf_sovereign_footprint.*",
+            "privileges": [
+                "SELECT",
+                "INSERT",
+                "DELETE",
+                "OWNERSHIP"
+            ]
+        },
+        {
+            "catalog": "osc_datacommons_dev",
+            "schema": "aicoe_osc_demo_results",
+            "group": "aicoe-osc-demo",
             "privileges": [
                 "SELECT",
                 "INSERT",
@@ -260,6 +282,13 @@
         {
             "catalog": "osc_datacommons_dev",
             "schema": "pcaf_sovereign_footprint",
+            "privileges": [
+                "SELECT"
+            ]
+        },
+        {
+            "catalog": "osc_datacommons_dev",
+            "schema": "aicoe_osc_demo_results",
             "privileges": [
                 "SELECT"
             ]
