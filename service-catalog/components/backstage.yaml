@@ -4,6 +4,7 @@ metadata:
   name: backstage
   description: Operate first instance of the backstage app used for creating this service catalog
   annotations:
+    operate-first.cloud/featured: 'true'
     operate-first.cloud/logo-url: https://backstage.io/logo_assets/svg/Icon_Black.svg
     argocd/app-name: service-catalog-smaug
     github.com/project-slug: operate-first/service-catalog

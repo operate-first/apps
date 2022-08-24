@@ -4,6 +4,7 @@ metadata:
   name: grafana
   description: Dashboard anything. Observe everything
   annotations:
+    operate-first.cloud/featured: 'true'
     operate-first.cloud/logo-url: https://raw.githubusercontent.com/grafana/grafana/main/public/img/grafana_icon.svg
     argocd/app-name: grafana-smaug
     github.com/project-slug: operate-first/apps
