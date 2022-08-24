@@ -24,7 +24,6 @@ resources:
 - ../../../../base/core/configmaps/cluster-monitoring-config
 - ../../../../base/core/namespaces/examples-openshift-pub
 - ../../../../base/core/namespaces/keylime
-- ../../../../base/core/namespaces/kepler
 - ../../../../base/core/namespaces/opf-obcs
 - ../../../../base/core/namespaces/openshift-cnv
 - ../../../../base/core/namespaces/openshift-local-storage
@@ -51,6 +50,7 @@ resources:
 - ../../../../base/user.openshift.io/groups/cluster-admins
 - ../../../../base/user.openshift.io/groups/sudoers
 - ../../../../bundles/external-secrets-operator
+- ../../../../bundles/kepler
 - ../../../../bundles/nfd
 - ../common
 - apiserver/api_server_cert.yaml

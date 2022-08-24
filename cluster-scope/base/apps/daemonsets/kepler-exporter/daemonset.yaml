@@ -2,7 +2,6 @@ apiVersion: apps/v1
 kind: DaemonSet
 metadata:
   name: kepler-exporter
-  namespace: kepler-monitoring
 spec:
   selector:
     matchLabels:
