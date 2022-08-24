@@ -9,4 +9,3 @@ metadata:
 spec:
     externalStorage:
         enable: true
-    version: 4.8.0

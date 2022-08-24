@@ -37,6 +37,7 @@ resources:
   - ../../../../bundles/acme-operator
   - ../../../../bundles/external-secrets-operator
   - ../../../../bundles/idp-mgmt-operator
+  - ../../../../bundles/odf-external
   - apiserver/api_server_cert.yaml
   - configmaps/service-catalog-k8s-plugin.yaml
   - clusterversion.yaml
@@ -56,6 +57,7 @@ generators:
 patchesStrategicMerge:
   - subscriptions/cluster-logging-operator_patch.yaml
   - subscriptions/kubernetes-nmstate-operator_patch.yaml
+  - subscriptions/odf-operator_patch.yaml
   - subscriptions/web-terminal_patch.yaml
   - groups/cluster-admins.yaml
   - clusterrolebindings/self-provisioners_patch.yaml
