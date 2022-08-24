@@ -31,10 +31,10 @@ presubmits:
             - "test-kubeval-validation"
           resources:
             requests:
-              memory: "256Mi"
+              memory: "512Mi"
               cpu: "200m"
             limits:
-              memory: "1Gi"
+              memory: "2Gi"
               cpu: "1"
 
   - name: pre-commit
