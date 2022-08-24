@@ -18,8 +18,11 @@ spec:
       serviceAccountName: kepler-sa
       containers:
       - name: kepler-exporter
-        image: quay.io/sustainable_computing_io/kepler:latest
+        image: quay.io/sustainable_computing_io/kepler:operate-first
         imagePullPolicy: Always
+        requests:
+          memory: "400MiB"
+          cpu: "100m"
         securityContext:
           privileged: true
         command:
