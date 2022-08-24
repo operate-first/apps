@@ -34,7 +34,7 @@ schemas:
   - schema: aicoe_osc_demo_results
     catalog: osc_datacommons_dev
     admin:
-      - group: 'aicoe-osc-demo'
+      - group: 'aicoe_osc_demo'
     public: true
 
   - schema: mdt_sandbox
