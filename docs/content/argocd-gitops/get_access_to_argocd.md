@@ -1,7 +1,7 @@
 # Get access to ArgoCD
 
-To get access to the Operate First ArgoCD instance (found [here][argocd]), you need to belong to an OpenShift `Group` that has
-access to an `ArgoCD Project`. You can find which groups have access by checking the contents of [this file][dex_cm].
+To get access to the Operate First ArgoCD instance (found [here][argocd]), there are two requirements. Firstly, you need to belong to an OpenShift `Group` that has
+access to an `ArgoCD Project`. You can find which groups have access by checking the contents of [this file][dex_cm]. Secondly, you need to be a member of the `Operate-First` github ogranization. Documentation on doing this is available [here](https://github.com/operate-first/common/blob/main/docs/add_gh_member_and_access.md#become-a-github-member).
 
 If your OCP `Group` is not listed here then please follow [these instructions][argocd_onboarding] to get your team
 onboarded.
