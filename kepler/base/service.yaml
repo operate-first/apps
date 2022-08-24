@@ -1,17 +1,17 @@
-apiVersion: v1
 kind: Service
+apiVersion: v1
 metadata:
+  name: kepler-exporter
+  namespace: kepler-monitoring
   labels:
     app.kubernetes.io/component: exporter
     app.kubernetes.io/name: kepler-exporter
-    sustainable-computing.io/app: kepler
-  name: kepler-exporter
-  namespace: kepler-monitoring
 spec:
+  clusterIP: None
   selector:
     app.kubernetes.io/component: exporter
     app.kubernetes.io/name: kepler-exporter
   ports:
-    - name: kepler-exporter
-      port: 9102
-      targetPort: 9102
+  - name: http
+    port: 9102
+    targetPort: http

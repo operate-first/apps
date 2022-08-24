@@ -14,8 +14,7 @@ spec:
         app.kubernetes.io/component: exporter
         app.kubernetes.io/name: kepler-exporter
     spec:
-      nodeSelector:
-        sustainable-computing.io/kepler: ""
+      hostNetwork: true
       serviceAccountName: kepler-sa
       containers:
       - name: kepler-exporter
@@ -27,11 +26,12 @@ spec:
         - /usr/bin/kepler
         - -address
         - 0.0.0.0:9102
-        - -enable-gpu
-        - "false"
+        - -enable-gpu=true
+        - -enable-cgroup-id=true
         ports:
         - containerPort: 9102
-          name: kepler-exporter
+          hostPort: 9102
+          name: http
         volumeMounts:
         - mountPath: /lib/modules
           name: lib-modules
@@ -41,6 +41,8 @@ spec:
           mountPath: /usr/src/kernels
         - name: kernel-debug
           mountPath: /sys/kernel/debug
+        - mountPath: /proc
+          name: proc
         env:
         - name: NODE_NAME
           valueFrom:
@@ -62,4 +64,8 @@ spec:
       - name: kernel-src
         hostPath:
           path: /usr/src/kernels
+          type: Directory
+      - name: proc
+        hostPath:
+          path: /proc
           type: Directory
