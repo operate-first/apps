@@ -6,7 +6,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
 
-    <title>OpenShift Container Storage (OCS) Runbook &#8212; GitOps Docs</title>
+    <title>Accessing buckets from outside the cluster &#8212; GitOps Docs</title>
     
   <!-- Loaded before other Sphinx assets -->
   <link href="../../_static/styles/theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
@@ -53,8 +53,8 @@ const thebe_selector_output = ".output, .cell_output"
     <link rel="shortcut icon" href="../../_static/favicon.png"/>
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
-    <link rel="next" title="Open Data Hub (ODH)" href="../odh/README.html" />
-    <link rel="prev" title="Claiming S3-compatible object store buckets" href="claiming_object_store.html" />
+    <link rel="next" title="Claiming S3-compatible object store buckets" href="claiming_object_store.html" />
+    <link rel="prev" title="OpenShift Data Foundation" href="README.html" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="None">
     
@@ -474,7 +474,7 @@ const thebe_selector_output = ".output, .cell_output"
  </li>
  <li class="toctree-l1 current active has-children">
   <a class="reference internal" href="README.html">
-   OpenShift Container Storage
+   OpenShift Data Foundation
   </a>
   <input checked="" class="toctree-checkbox" id="toctree-checkbox-12" name="toctree-checkbox-12" type="checkbox"/>
   <label for="toctree-checkbox-12">
@@ -482,8 +482,8 @@ const thebe_selector_output = ".output, .cell_output"
    </i>
   </label>
   <ul class="current">
-   <li class="toctree-l2">
-    <a class="reference internal" href="buckets-external-access.html">
+   <li class="toctree-l2 current active">
+    <a class="current reference internal" href="#">
      Accessing buckets from outside the cluster
     </a>
    </li>
@@ -492,9 +492,9 @@ const thebe_selector_output = ".output, .cell_output"
      Claiming S3-compatible object store buckets
     </a>
    </li>
-   <li class="toctree-l2 current active">
-    <a class="current reference internal" href="#">
-     OpenShift Container Storage (OCS) Runbook
+   <li class="toctree-l2">
+    <a class="reference internal" href="runbook.html">
+     OpenShift Data Foundation (ODF) Runbook
     </a>
    </li>
   </ul>
@@ -873,7 +873,7 @@ title="Source repository"
       </li>
       
       <li>
-        <a href="https://github.com/operate-first/apps/issues/new?title=Issue%20on%20page%20%2Fcontent/ocs/runbook.html&body=Your%20issue%20content%20here."
+        <a href="https://github.com/operate-first/apps/issues/new?title=Issue%20on%20page%20%2Fcontent/odf/buckets-external-access.html&body=Your%20issue%20content%20here."
    class="headerbtn"
    data-toggle="tooltip"
 data-placement="left"
@@ -901,7 +901,7 @@ title="Open an issue"
   <div class="menu-dropdown__content">
     <ul>
       <li>
-        <a href="../../_sources/content/ocs/runbook.md"
+        <a href="../../_sources/content/odf/buckets-external-access.md"
    class="headerbtn"
    data-toggle="tooltip"
 data-placement="left"
@@ -961,50 +961,38 @@ title="Print to PDF"
     <nav id="bd-toc-nav" aria-label="Page">
         <ul class="visible nav section-nav flex-column">
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#prerequisites">
-   Prerequisites
+  <a class="reference internal nav-link" href="#creating-a-bucket">
+   Creating a bucket
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#identify-the-problem">
-   Identify the problem
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#troubleshooting-software-problems">
-   Troubleshooting software problems
+  <a class="reference internal nav-link" href="#accessing-a-bucket-from-outside-the-cluster">
+   Accessing a bucket from outside the cluster
   </a>
   <ul class="nav section-nav flex-column">
    <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#noobaa-object-storage">
-     Noobaa object storage
-    </a>
-   </li>
-  </ul>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#troubleshooting-ceph-connectivity">
-   Troubleshooting Ceph connectivity
-  </a>
-  <ul class="nav section-nav flex-column">
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#configure-credentials">
-     Configure credentials
+    <a class="reference internal nav-link" href="#getting-the-api-endpoint">
+     Getting the API endpoint
     </a>
    </li>
    <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#check-ceph-status">
-     Check ceph status
+    <a class="reference internal nav-link" href="#extract-bucket-information">
+     Extract bucket information
     </a>
    </li>
    <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#check-rbd-access">
-     Check RBD access
+    <a class="reference internal nav-link" href="#accessing-a-bucket-using-the-aws-cli">
+     Accessing a bucket using the AWS CLI
     </a>
    </li>
    <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#check-that-you-can-create-and-delete-rbd-volumes">
-     Check that you can create and delete RBD volumes
+    <a class="reference internal nav-link" href="#accessing-a-bucket-using-the-minio-cli">
+     Accessing a bucket using the MinIO CLI
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#accessing-a-bucket-using-s3cmd">
+     Accessing a bucket using s3cmd
     </a>
    </li>
   </ul>
@@ -1018,7 +1006,7 @@ title="Print to PDF"
         <div class="col pl-md-3 pl-lg-5 content-container">
             <!-- Table of contents that is only displayed when printing the page -->
             <div id="jb-print-docs-body" class="onlyprint">
-                <h1>OpenShift Container Storage (OCS) Runbook</h1>
+                <h1>Accessing buckets from outside the cluster</h1>
                 <!-- Table of contents -->
                 <div id="print-main-content">
                     <div id="jb-print-toc">
@@ -1029,50 +1017,38 @@ title="Print to PDF"
                         <nav aria-label="Page">
                             <ul class="visible nav section-nav flex-column">
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#prerequisites">
-   Prerequisites
+  <a class="reference internal nav-link" href="#creating-a-bucket">
+   Creating a bucket
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#identify-the-problem">
-   Identify the problem
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#troubleshooting-software-problems">
-   Troubleshooting software problems
+  <a class="reference internal nav-link" href="#accessing-a-bucket-from-outside-the-cluster">
+   Accessing a bucket from outside the cluster
   </a>
   <ul class="nav section-nav flex-column">
    <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#noobaa-object-storage">
-     Noobaa object storage
-    </a>
-   </li>
-  </ul>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#troubleshooting-ceph-connectivity">
-   Troubleshooting Ceph connectivity
-  </a>
-  <ul class="nav section-nav flex-column">
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#configure-credentials">
-     Configure credentials
+    <a class="reference internal nav-link" href="#getting-the-api-endpoint">
+     Getting the API endpoint
     </a>
    </li>
    <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#check-ceph-status">
-     Check ceph status
+    <a class="reference internal nav-link" href="#extract-bucket-information">
+     Extract bucket information
     </a>
    </li>
    <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#check-rbd-access">
-     Check RBD access
+    <a class="reference internal nav-link" href="#accessing-a-bucket-using-the-aws-cli">
+     Accessing a bucket using the AWS CLI
     </a>
    </li>
    <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#check-that-you-can-create-and-delete-rbd-volumes">
-     Check that you can create and delete RBD volumes
+    <a class="reference internal nav-link" href="#accessing-a-bucket-using-the-minio-cli">
+     Accessing a bucket using the MinIO CLI
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#accessing-a-bucket-using-s3cmd">
+     Accessing a bucket using s3cmd
     </a>
    </li>
   </ul>
@@ -1087,158 +1063,166 @@ title="Print to PDF"
                 
               <div>
                 
-  <section class="tex2jax_ignore mathjax_ignore" id="openshift-container-storage-ocs-runbook">
-<h1>OpenShift Container Storage (OCS) Runbook<a class="headerlink" href="#openshift-container-storage-ocs-runbook" title="Permalink to this headline">#</a></h1>
-<section id="prerequisites">
-<h2>Prerequisites<a class="headerlink" href="#prerequisites" title="Permalink to this headline">#</a></h2>
-<p>You must be a cluster admin on the target OpenShift cluster.</p>
-</section>
-<section id="identify-the-problem">
-<h2>Identify the problem<a class="headerlink" href="#identify-the-problem" title="Permalink to this headline">#</a></h2>
+  <section class="tex2jax_ignore mathjax_ignore" id="accessing-buckets-from-outside-the-cluster">
+<h1>Accessing buckets from outside the cluster<a class="headerlink" href="#accessing-buckets-from-outside-the-cluster" title="Permalink to this headline">#</a></h1>
+<section id="creating-a-bucket">
+<h2>Creating a bucket<a class="headerlink" href="#creating-a-bucket" title="Permalink to this headline">#</a></h2>
+<p>To create a bucket, submit an <code class="docutils literal notranslate"><span class="pre">ObjectBucketClaim</span></code> manifest such as:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">apiVersion</span><span class="p">:</span> <span class="n">objectbucket</span><span class="o">.</span><span class="n">io</span><span class="o">/</span><span class="n">v1alpha1</span>
+<span class="n">kind</span><span class="p">:</span> <span class="n">ObjectBucketClaim</span>
+<span class="n">metadata</span><span class="p">:</span>
+  <span class="n">name</span><span class="p">:</span> <span class="n">example</span><span class="o">-</span><span class="n">obc</span>
+<span class="n">spec</span><span class="p">:</span>
+  <span class="n">generateBucketName</span><span class="p">:</span> <span class="n">example</span><span class="o">-</span><span class="n">obc</span>
+  <span class="n">storageClassName</span><span class="p">:</span> <span class="n">openshift</span><span class="o">-</span><span class="n">storage</span><span class="o">.</span><span class="n">noobaa</span><span class="o">.</span><span class="n">io</span>
+</pre></div>
+</div>
+<p>After submitting this to the cluster, it should shortly become
+<code class="docutils literal notranslate"><span class="pre">Bound</span></code>:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ oc get objectbucketclaim
+NAME          STORAGE-CLASS                 PHASE   AGE
+example-obc   openshift-storage.noobaa.io   Bound   9m9s
+</pre></div>
+</div>
+<p>Once your claim is bound, you will find two additional resources in
+your target namespace:</p>
 <ul class="simple">
-<li><p>Are existing PVs available?</p></li>
-<li><p>If you create a new <code class="docutils literal notranslate"><span class="pre">PersistentVolumeClaim</span></code>, does it bind immediately to a PV?</p></li>
-<li><p>Are you able to access existing object buckets?</p>
-<ul>
-<li><p>From inside the cluster?</p></li>
-<li><p>From outside the cluster?</p></li>
+<li><p>A <code class="docutils literal notranslate"><span class="pre">ConfigMap</span></code> named after your claim</p></li>
+<li><p>A <code class="docutils literal notranslate"><span class="pre">Secret</span></code> named after your bucket</p></li>
 </ul>
-</li>
-<li><p>If you create a new <code class="docutils literal notranslate"><span class="pre">ObjectBucketClaim</span></code>, does it bind immediately to
-a new bucket?</p></li>
-</ul>
-<p>If <em>some</em> of the above steps work, there is (probably) a software
-problem on the cluster. Continue with “Troubleshooting software
-problems”.</p>
-<p>If <em>none</em> of the above steps work, it may be a connectivity problem
-with the Ceph service; continue with “Troubleshooting Ceph
-connectivity”.</p>
-</section>
-<section id="troubleshooting-software-problems">
-<h2>Troubleshooting software problems<a class="headerlink" href="#troubleshooting-software-problems" title="Permalink to this headline">#</a></h2>
-<p>Generally, troubleshooting problems with the storage subsystem is
-going to be very much like troubleshooting issues with any other
-application running on OpenShift:</p>
-<ul class="simple">
-<li><p>Look for unhealthy pods (<code class="docutils literal notranslate"><span class="pre">oc</span> <span class="pre">get</span> <span class="pre">pod</span> <span class="pre">|</span> <span class="pre">grep</span> <span class="pre">-Evi</span> <span class="pre">'running|completed'</span></code>).</p></li>
-<li><p>Inspect the logs of unhealthy pods (<code class="docutils literal notranslate"><span class="pre">oc</span> <span class="pre">logs</span> <span class="pre">...</span></code>).</p></li>
-<li><p>Inspect events for any errors (<code class="docutils literal notranslate"><span class="pre">oc</span> <span class="pre">get</span> <span class="pre">events</span></code>).</p></li>
-</ul>
-<section id="noobaa-object-storage">
-<h3>Noobaa object storage<a class="headerlink" href="#noobaa-object-storage" title="Permalink to this headline">#</a></h3>
-<p>To check the status of the Noobaa object storage service, install the
-Noobaa CLI from the <a class="reference external" href="https://github.com/noobaa/noobaa-operator/releases">releases
-page</a> and then
-run:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">noobaa</span> <span class="o">-</span><span class="n">n</span> <span class="n">openshift</span><span class="o">-</span><span class="n">storage</span> <span class="n">status</span>
+<p>The <code class="docutils literal notranslate"><span class="pre">ConfigMap</span></code> contains the internal hostname for the object storage
+API endpoint and the name of your bucket:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">apiVersion</span><span class="p">:</span> <span class="n">v1</span>
+<span class="n">kind</span><span class="p">:</span> <span class="n">ConfigMap</span>
+<span class="n">metadata</span><span class="p">:</span>
+  <span class="n">labels</span><span class="p">:</span>
+    <span class="n">app</span><span class="p">:</span> <span class="n">noobaa</span>
+    <span class="n">bucket</span><span class="o">-</span><span class="n">provisioner</span><span class="p">:</span> <span class="n">openshift</span><span class="o">-</span><span class="n">storage</span><span class="o">.</span><span class="n">noobaa</span><span class="o">.</span><span class="n">io</span><span class="o">-</span><span class="n">obc</span>
+    <span class="n">noobaa</span><span class="o">-</span><span class="n">domain</span><span class="p">:</span> <span class="n">openshift</span><span class="o">-</span><span class="n">storage</span><span class="o">.</span><span class="n">noobaa</span><span class="o">.</span><span class="n">io</span>
+  <span class="n">name</span><span class="p">:</span> <span class="n">example</span><span class="o">-</span><span class="n">obc</span>
+  <span class="n">namespace</span><span class="p">:</span> <span class="n">default</span>
+<span class="n">data</span><span class="p">:</span>
+  <span class="n">BUCKET_HOST</span><span class="p">:</span> <span class="n">s3</span><span class="o">.</span><span class="n">openshift</span><span class="o">-</span><span class="n">storage</span><span class="o">.</span><span class="n">svc</span>
+  <span class="n">BUCKET_NAME</span><span class="p">:</span> <span class="n">example</span><span class="o">-</span><span class="n">obc</span><span class="o">-</span><span class="n">a8f2836a</span><span class="o">-</span><span class="n">f80a</span><span class="o">-</span><span class="mi">4</span><span class="n">d52</span><span class="o">-</span><span class="n">b6f9</span><span class="o">-</span><span class="mi">16</span><span class="n">fdc8004b59</span>
+  <span class="n">BUCKET_PORT</span><span class="p">:</span> <span class="s2">&quot;443&quot;</span>
+  <span class="n">BUCKET_REGION</span><span class="p">:</span> <span class="s2">&quot;&quot;</span>
+  <span class="n">BUCKET_SUBREGION</span><span class="p">:</span> <span class="s2">&quot;&quot;</span>
 </pre></div>
 </div>
-<p>This will emit a variety of validation messages on <em>stderr</em> and some
-status information on <em>stdout</em>.  The validation messages look
-something like:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">time</span><span class="o">=</span><span class="s2">&quot;2021-11-23T17:07:41-05:00&quot;</span> <span class="n">level</span><span class="o">=</span><span class="n">info</span> <span class="n">msg</span><span class="o">=</span><span class="s2">&quot;CRD Status:&quot;</span>
-<span class="n">time</span><span class="o">=</span><span class="s2">&quot;2021-11-23T17:07:41-05:00&quot;</span> <span class="n">level</span><span class="o">=</span><span class="n">info</span> <span class="n">msg</span><span class="o">=</span><span class="s2">&quot;✅ Exists: CustomResourceDefinition </span><span class="se">\&quot;</span><span class="s2">noobaas.noobaa.io</span><span class="se">\&quot;\n</span><span class="s2">&quot;</span>
-<span class="p">[</span><span class="o">...</span><span class="p">]</span>
-<span class="n">time</span><span class="o">=</span><span class="s2">&quot;2021-11-23T17:07:41-05:00&quot;</span> <span class="n">level</span><span class="o">=</span><span class="n">info</span> <span class="n">msg</span><span class="o">=</span><span class="s2">&quot;Operator Status:&quot;</span>
-<span class="n">time</span><span class="o">=</span><span class="s2">&quot;2021-11-23T17:07:41-05:00&quot;</span> <span class="n">level</span><span class="o">=</span><span class="n">info</span> <span class="n">msg</span><span class="o">=</span><span class="s2">&quot;✅ Exists: Namespace </span><span class="se">\&quot;</span><span class="s2">openshift-storage</span><span class="se">\&quot;\n</span><span class="s2">&quot;</span>
-<span class="n">time</span><span class="o">=</span><span class="s2">&quot;2021-11-23T17:07:41-05:00&quot;</span> <span class="n">level</span><span class="o">=</span><span class="n">info</span> <span class="n">msg</span><span class="o">=</span><span class="s2">&quot;✅ Exists: ServiceAccount </span><span class="se">\&quot;</span><span class="s2">noobaa</span><span class="se">\&quot;\n</span><span class="s2">&quot;</span>
-<span class="n">time</span><span class="o">=</span><span class="s2">&quot;2021-11-23T17:07:41-05:00&quot;</span> <span class="n">level</span><span class="o">=</span><span class="n">info</span> <span class="n">msg</span><span class="o">=</span><span class="s2">&quot;✅ Exists: ServiceAccount </span><span class="se">\&quot;</span><span class="s2">noobaa-endpoint</span><span class="se">\&quot;\n</span><span class="s2">&quot;</span>
-<span class="p">[</span><span class="o">...</span><span class="p">]</span>
-<span class="n">time</span><span class="o">=</span><span class="s2">&quot;2021-11-23T17:07:41-05:00&quot;</span> <span class="n">level</span><span class="o">=</span><span class="n">info</span> <span class="n">msg</span><span class="o">=</span><span class="s2">&quot;System Wait Ready:&quot;</span>
-<span class="n">time</span><span class="o">=</span><span class="s2">&quot;2021-11-23T17:07:41-05:00&quot;</span> <span class="n">level</span><span class="o">=</span><span class="n">info</span> <span class="n">msg</span><span class="o">=</span><span class="s2">&quot;✅ System Phase is </span><span class="se">\&quot;</span><span class="s2">Ready</span><span class="se">\&quot;</span><span class="s2">.</span><span class="se">\n</span><span class="s2">&quot;</span>
-<span class="n">time</span><span class="o">=</span><span class="s2">&quot;2021-11-23T17:07:41-05:00&quot;</span> <span class="n">level</span><span class="o">=</span><span class="n">info</span>
-<span class="n">time</span><span class="o">=</span><span class="s2">&quot;2021-11-23T17:07:41-05:00&quot;</span> <span class="n">level</span><span class="o">=</span><span class="n">info</span>
-<span class="n">time</span><span class="o">=</span><span class="s2">&quot;2021-11-23T17:07:41-05:00&quot;</span> <span class="n">level</span><span class="o">=</span><span class="n">info</span> <span class="n">msg</span><span class="o">=</span><span class="s2">&quot;System Status:&quot;</span>
-<span class="n">time</span><span class="o">=</span><span class="s2">&quot;2021-11-23T17:07:41-05:00&quot;</span> <span class="n">level</span><span class="o">=</span><span class="n">info</span> <span class="n">msg</span><span class="o">=</span><span class="s2">&quot;✅ Exists: NooBaa </span><span class="se">\&quot;</span><span class="s2">noobaa</span><span class="se">\&quot;\n</span><span class="s2">&quot;</span>
-<span class="n">time</span><span class="o">=</span><span class="s2">&quot;2021-11-23T17:07:41-05:00&quot;</span> <span class="n">level</span><span class="o">=</span><span class="n">info</span> <span class="n">msg</span><span class="o">=</span><span class="s2">&quot;✅ Exists: StatefulSet </span><span class="se">\&quot;</span><span class="s2">noobaa-core</span><span class="se">\&quot;\n</span><span class="s2">&quot;</span>
-<span class="p">[</span><span class="o">...</span><span class="p">]</span>
-<span class="n">time</span><span class="o">=</span><span class="s2">&quot;2021-11-23T17:07:42-05:00&quot;</span> <span class="n">level</span><span class="o">=</span><span class="n">info</span> <span class="n">msg</span><span class="o">=</span><span class="s2">&quot;✅ System Phase is </span><span class="se">\&quot;</span><span class="s2">Ready</span><span class="se">\&quot;\n</span><span class="s2">&quot;</span>
-<span class="n">time</span><span class="o">=</span><span class="s2">&quot;2021-11-23T17:07:42-05:00&quot;</span> <span class="n">level</span><span class="o">=</span><span class="n">info</span> <span class="n">msg</span><span class="o">=</span><span class="s2">&quot;✅ Exists:  </span><span class="se">\&quot;</span><span class="s2">noobaa-admin</span><span class="se">\&quot;\n</span><span class="s2">&quot;</span>
-</pre></div>
-</div>
-<p>The status information includes various configuration details,
-including the external URL for the Noobaa management interface. You
-should be able to log into that UI using your OpenShift credentials.</p>
-</section>
-</section>
-<section id="troubleshooting-ceph-connectivity">
-<h2>Troubleshooting Ceph connectivity<a class="headerlink" href="#troubleshooting-ceph-connectivity" title="Permalink to this headline">#</a></h2>
-<p>You can log into the <code class="docutils literal notranslate"><span class="pre">rook-ceph-tools</span></code> container to run Ceph commands
-to diagnose Ceph cluster health and connectivity problems. To log into
-the pod:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">oc</span> <span class="o">-</span><span class="n">n</span> <span class="n">openshift</span><span class="o">-</span><span class="n">storage</span> <span class="n">rsh</span> <span class="n">deploy</span><span class="o">/</span><span class="n">rook</span><span class="o">-</span><span class="n">ceph</span><span class="o">-</span><span class="n">tools</span>
-</pre></div>
-</div>
-<p>If this deployment isn’t available, you can enable it by <a class="reference external" href="https://access.redhat.com/articles/4628891">editing the
-<code class="docutils literal notranslate"><span class="pre">OCSInitialization</span></code>
-object</a> (accessing that
-link requires a Red Hat account).</p>
-<section id="configure-credentials">
-<h3>Configure credentials<a class="headerlink" href="#configure-credentials" title="Permalink to this headline">#</a></h3>
-<p>You will
-first need to make sure that appropriate credentials exist in
-<code class="docutils literal notranslate"><span class="pre">/etc/ceph</span></code>. Look at <code class="docutils literal notranslate"><span class="pre">/etc/ceph/keyring</span></code>; if it only contains…</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">[</span><span class="n">client</span><span class="o">.</span><span class="n">admin</span><span class="p">]</span>
-<span class="n">key</span> <span class="o">=</span> <span class="n">admin</span><span class="o">-</span><span class="n">secret</span>
-</pre></div>
-</div>
-<p>…then you will need to add credentials for the user we use to
-authenticate to the ceph cluster.  You can obtain the appropriate
-credentials by running:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">oc</span> <span class="o">-</span><span class="n">n</span> <span class="n">openshift</span><span class="o">-</span><span class="n">storage</span> <span class="n">get</span> <span class="n">secret</span> <span class="n">rook</span><span class="o">-</span><span class="n">ceph</span><span class="o">-</span><span class="n">external</span><span class="o">-</span><span class="n">cluster</span><span class="o">-</span><span class="n">details</span> <span class="o">-</span><span class="n">o</span> <span class="n">json</span> <span class="o">|</span>
-  <span class="n">jq</span> <span class="o">-</span><span class="n">r</span> <span class="s1">&#39;.data.external_cluster_details|@base64d&#39;</span> <span class="o">|</span>
-  <span class="n">jq</span> <span class="s1">&#39;.[]|select(.name == &quot;rook-csi-rbd-provisioner&quot;)|.data&#39;</span>
-</pre></div>
-</div>
-<p>This will return a JSON block that looks like:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
-  <span class="s2">&quot;userID&quot;</span><span class="p">:</span> <span class="s2">&quot;...&quot;</span><span class="p">,</span>
-  <span class="s2">&quot;userKey&quot;</span><span class="p">:</span> <span class="s2">&quot;...&quot;</span>
-<span class="p">}</span>
-</pre></div>
-</div>
-<p>Replace the contents of <code class="docutils literal notranslate"><span class="pre">/etc/ceph/keyring</span></code> with:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">[</span><span class="n">client</span><span class="o">.&lt;</span><span class="n">value</span> <span class="kn">from</span> <span class="nn">userID</span><span class="o">&gt;</span><span class="p">]</span>
-<span class="n">key</span> <span class="o">=</span> <span class="o">&lt;</span><span class="n">value</span> <span class="kn">from</span> <span class="nn">userKey</span><span class="o">&gt;</span>
+<p>The <code class="docutils literal notranslate"><span class="pre">Secret</span></code> contains your credentials:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">kind</span><span class="p">:</span> <span class="n">Secret</span>
+<span class="n">metadata</span><span class="p">:</span>
+  <span class="n">labels</span><span class="p">:</span>
+    <span class="n">app</span><span class="p">:</span> <span class="n">noobaa</span>
+    <span class="n">bucket</span><span class="o">-</span><span class="n">provisioner</span><span class="p">:</span> <span class="n">openshift</span><span class="o">-</span><span class="n">storage</span><span class="o">.</span><span class="n">noobaa</span><span class="o">.</span><span class="n">io</span><span class="o">-</span><span class="n">obc</span>
+    <span class="n">noobaa</span><span class="o">-</span><span class="n">domain</span><span class="p">:</span> <span class="n">openshift</span><span class="o">-</span><span class="n">storage</span><span class="o">.</span><span class="n">noobaa</span><span class="o">.</span><span class="n">io</span>
+  <span class="n">name</span><span class="p">:</span> <span class="n">example</span><span class="o">-</span><span class="n">obc</span>
+  <span class="n">namespace</span><span class="p">:</span> <span class="n">default</span>
+<span class="nb">type</span><span class="p">:</span> <span class="n">Opaque</span>
+<span class="n">apiVersion</span><span class="p">:</span> <span class="n">v1</span>
+<span class="n">data</span><span class="p">:</span>
+  <span class="n">AWS_ACCESS_KEY_ID</span><span class="p">:</span> <span class="o">...</span>
+  <span class="n">AWS_SECRET_ACCESS_KEY</span><span class="p">:</span> <span class="o">...</span>
 </pre></div>
 </div>
 </section>
-<section id="check-ceph-status">
-<h3>Check ceph status<a class="headerlink" href="#check-ceph-status" title="Permalink to this headline">#</a></h3>
-<p>Run the <code class="docutils literal notranslate"><span class="pre">ceph</span> <span class="pre">health</span></code> command:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ ceph --id provisioner-moc-rbd-1 health
-HEALTH_WARN 5 clients failing to respond to cache pressure; 12 nearfull osd(s); 1 pool(s) full; 23 pool(s) nearfull; 1 pgs not deep-scrubbed in time; 19 pgs not scrubbed in time
+<section id="accessing-a-bucket-from-outside-the-cluster">
+<h2>Accessing a bucket from outside the cluster<a class="headerlink" href="#accessing-a-bucket-from-outside-the-cluster" title="Permalink to this headline">#</a></h2>
+<section id="getting-the-api-endpoint">
+<h3>Getting the API endpoint<a class="headerlink" href="#getting-the-api-endpoint" title="Permalink to this headline">#</a></h3>
+<p>The <code class="docutils literal notranslate"><span class="pre">ConfigMap</span></code> associated with your bucket claim provides the
+<em>internal</em> hostname for the object storage API. To access the bucket
+from outside the cluster, you will need to replace that with with the
+externally visible hosting.</p>
+<p>With appropriate access, you can run:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ oc -n openshift-storage get route s3 -o jsonpath=&#39;{.spec.host}{&quot;\n&quot;}&#39;
 </pre></div>
 </div>
-<p>What we care about here is that we get a valid response back from the
-Ceph cluster (that is, the command returns information about the
-health of the ceph cluster, rather than some sort of communication or
-authentication error, etc). In general we don’t care about the actual
-status value, because it might be in <code class="docutils literal notranslate"><span class="pre">WARN</span></code> or <code class="docutils literal notranslate"><span class="pre">ERROR</span></code> states due to
-problems that don’t actually impact our usage of the cluster.</p>
+<p>On the <code class="docutils literal notranslate"><span class="pre">smaug</span></code> cluster, this will return:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">s3</span><span class="o">-</span><span class="n">openshift</span><span class="o">-</span><span class="n">storage</span><span class="o">.</span><span class="n">apps</span><span class="o">.</span><span class="n">smaug</span><span class="o">.</span><span class="n">na</span><span class="o">.</span><span class="n">operate</span><span class="o">-</span><span class="n">first</span><span class="o">.</span><span class="n">cloud</span>
+</pre></div>
+</div>
+<p>If you are unable to query the <code class="docutils literal notranslate"><span class="pre">openshift-storage</span></code> namespace, you may
+be able to replace <code class="docutils literal notranslate"><span class="pre">apps.smaug.na.operate-first.cloud</span></code> with the
+domain appropriate to your cluster.</p>
 </section>
-<section id="check-rbd-access">
-<h3>Check RBD access<a class="headerlink" href="#check-rbd-access" title="Permalink to this headline">#</a></h3>
-<p>Ensure that you can list volumes in our RBD pool:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ rbd --id provisioner-moc-rbd-1 --pool moc_rbd_1 ls
-</pre></div>
-</div>
-<p>This should return a list of CSI volumes, like:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">csi</span><span class="o">-</span><span class="n">vol</span><span class="o">-</span><span class="mi">0</span><span class="n">b5f9497</span><span class="o">-</span><span class="mi">40</span><span class="n">cb</span><span class="o">-</span><span class="mi">11</span><span class="n">ec</span><span class="o">-</span><span class="n">ac60</span><span class="o">-</span><span class="mi">0</span><span class="n">a580a8005aa</span>
-<span class="n">csi</span><span class="o">-</span><span class="n">vol</span><span class="o">-</span><span class="mi">15</span><span class="n">aac588</span><span class="o">-</span><span class="mi">3</span><span class="n">cdc</span><span class="o">-</span><span class="mi">11</span><span class="n">ec</span><span class="o">-</span><span class="n">ac60</span><span class="o">-</span><span class="mi">0</span><span class="n">a580a8005aa</span>
-<span class="n">csi</span><span class="o">-</span><span class="n">vol</span><span class="o">-</span><span class="mi">16</span><span class="n">bd1d89</span><span class="o">-</span><span class="mi">436</span><span class="n">a</span><span class="o">-</span><span class="mi">11</span><span class="n">ec</span><span class="o">-</span><span class="n">ac60</span><span class="o">-</span><span class="mi">0</span><span class="n">a580a8005aa</span>
-<span class="o">...</span>
+<section id="extract-bucket-information">
+<h3>Extract bucket information<a class="headerlink" href="#extract-bucket-information" title="Permalink to this headline">#</a></h3>
+<p>Extract information from your <code class="docutils literal notranslate"><span class="pre">Secret</span></code> and <code class="docutils literal notranslate"><span class="pre">ConfigMap</span></code> into
+environment variables:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">export</span> <span class="n">BUCKET_ENDPOINT</span><span class="o">=</span><span class="n">https</span><span class="p">:</span><span class="o">//</span><span class="n">s3</span><span class="o">-</span><span class="n">openshift</span><span class="o">-</span><span class="n">storage</span><span class="o">.</span><span class="n">apps</span><span class="o">.</span><span class="n">smaug</span><span class="o">.</span><span class="n">na</span><span class="o">.</span><span class="n">operate</span><span class="o">-</span><span class="n">first</span><span class="o">.</span><span class="n">cloud</span>
+<span class="n">export</span> <span class="n">BUCKET_NAME</span><span class="o">=</span><span class="s2">&quot;$(oc get configmap example-obc </span><span class="se">\</span>
+<span class="s2">  -o jsonpath=&#39;{.data.BUCKET_NAME}&#39;)&quot;</span>
+<span class="n">export</span> <span class="n">AWS_ACCESS_KEY_ID</span><span class="o">=</span><span class="s2">&quot;$(oc get secret example-obc </span><span class="se">\</span>
+<span class="s2">  -o jsonpath=&#39;{.data.AWS_ACCESS_KEY_ID}&#39; | base64 -d)&quot;</span>
+<span class="n">export</span> <span class="n">AWS_SECRET_ACCESS_KEY</span><span class="o">=</span><span class="s2">&quot;$(oc get secret example-obc </span><span class="se">\</span>
+<span class="s2">  -o jsonpath=&#39;{.data.AWS_SECRET_ACCESS_KEY}&#39; | base64 -d)&quot;</span>
 </pre></div>
 </div>
 </section>
-<section id="check-that-you-can-create-and-delete-rbd-volumes">
-<h3>Check that you can create and delete RBD volumes<a class="headerlink" href="#check-that-you-can-create-and-delete-rbd-volumes" title="Permalink to this headline">#</a></h3>
-<p>Try creating an RBD volume:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">rbd</span> <span class="o">--</span><span class="nb">id</span> <span class="n">provisioner</span><span class="o">-</span><span class="n">moc</span><span class="o">-</span><span class="n">rbd</span><span class="o">-</span><span class="mi">1</span> <span class="o">--</span><span class="n">pool</span> <span class="n">moc_rbd_1</span> <span class="n">create</span> <span class="n">testvol</span> <span class="o">--</span><span class="n">size</span> <span class="mi">1</span><span class="n">G</span>
+<section id="accessing-a-bucket-using-the-aws-cli">
+<h3>Accessing a bucket using the AWS CLI<a class="headerlink" href="#accessing-a-bucket-using-the-aws-cli" title="Permalink to this headline">#</a></h3>
+<p>Assuming you have configured the environment variables described in
+the “Extract bucket information” section, you can use the following
+<code class="docutils literal notranslate"><span class="pre">aws</span></code> commands to interact with your bucket.</p>
+<p>To upload an object to your bucket:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>aws --endpoint-url $BUCKET_ENDPOINT s3 cp README.md s3://$BUCKET_NAME
 </pre></div>
 </div>
-<p>And try to delete it:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">rbd</span> <span class="o">--</span><span class="nb">id</span> <span class="n">provisioner</span><span class="o">-</span><span class="n">moc</span><span class="o">-</span><span class="n">rbd</span><span class="o">-</span><span class="mi">1</span> <span class="o">--</span><span class="n">pool</span> <span class="n">moc_rbd_1</span> <span class="n">rm</span> <span class="n">testvol</span>
+<p>To list objects in your bucket:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>aws --endpoint-url $BUCKET_ENDPOINT s3 ls $BUCKET_NAME
+</pre></div>
+</div>
+<p>To download an object from your bucket to a local file:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>aws --endpoint-url $BUCKET_ENDPOINT s3 cp s3://$BUCKET_NAME/README.md README.md
+</pre></div>
+</div>
+</section>
+<section id="accessing-a-bucket-using-the-minio-cli">
+<h3>Accessing a bucket using the MinIO CLI<a class="headerlink" href="#accessing-a-bucket-using-the-minio-cli" title="Permalink to this headline">#</a></h3>
+<p>Assuming you have configured the environment variables described in
+the “Extract bucket information” section, create a MinIO alias
+definition for your bucket:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>mcli alias set example-obc $BUCKET_ENDPOINT $AWS_ACCESS_KEY_ID $AWS_SECRET_ACCESS_KEY
+</pre></div>
+</div>
+<p>To upload an object to your bucket:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>mcli cp README.md example-obc/$BUCKET_NAME/
+</pre></div>
+</div>
+<p>To list objects in your bucket:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>mcli ls example-obc/$BUCKET_NAME
+</pre></div>
+</div>
+<p>To download an object from your bucket to a local file:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>mcli cp example-obc/$BUCKET_NAME/README.md README.md
+</pre></div>
+</div>
+</section>
+<section id="accessing-a-bucket-using-s3cmd">
+<h3>Accessing a bucket using s3cmd<a class="headerlink" href="#accessing-a-bucket-using-s3cmd" title="Permalink to this headline">#</a></h3>
+<p>Assuming you have configured the environment variables described in
+the “Extract bucket information” section, create a configuration file
+for accessing your bucket:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>cat &lt;&lt;EOF &gt; s3cfg
+[default]
+access_key = $AWS_ACCESS_KEY_ID
+secret_key = $AWS_SECRET_ACCESS_KEY
+host_base = ${BUCKET_ENDPOINT##*/}
+host_bucket =
+EOF
+</pre></div>
+</div>
+<p>To upload an object to your bucket:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>s3cmd -c s3cfg put README.md s3://$BUCKET_NAME/
+</pre></div>
+</div>
+<p>To list objects in your bucket:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>s3cmd -c s3cfg ls s3://$BUCKET_NAME
+</pre></div>
+</div>
+<p>To download an object from your bucket to a local file:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>s3cmd -c s3cfg get s3://$BUCKET_NAME/README.md README.md
 </pre></div>
 </div>
 </section>
@@ -1258,7 +1242,7 @@ problems that don’t actually impact our usage of the cluster.</p>
         },
         kernelOptions: {
             kernelName: "python3",
-            path: "./content/ocs"
+            path: "./content/odf"
         },
         predefinedOutput: true
     }
@@ -1272,17 +1256,17 @@ problems that don’t actually impact our usage of the cluster.</p>
                 
     <!-- Previous / next buttons -->
 <div class='prev-next-area'>
-    <a class='left-prev' id="prev-link" href="claiming_object_store.html" title="previous page">
+    <a class='left-prev' id="prev-link" href="README.html" title="previous page">
         <i class="fas fa-angle-left"></i>
         <div class="prev-next-info">
             <p class="prev-next-subtitle">previous</p>
-            <p class="prev-next-title">Claiming S3-compatible object store buckets</p>
+            <p class="prev-next-title">OpenShift Data Foundation</p>
         </div>
     </a>
-    <a class='right-next' id="next-link" href="../odh/README.html" title="next page">
+    <a class='right-next' id="next-link" href="claiming_object_store.html" title="next page">
     <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title">Open Data Hub (ODH)</p>
+        <p class="prev-next-title">Claiming S3-compatible object store buckets</p>
     </div>
     <i class="fas fa-angle-right"></i>
     </a>

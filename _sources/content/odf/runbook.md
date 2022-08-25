@@ -1,4 +1,4 @@
-# OpenShift Container Storage (OCS) Runbook
+# OpenShift Data Foundation (ODF) Runbook
 
 ## Prerequisites
 
