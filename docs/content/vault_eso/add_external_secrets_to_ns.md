@@ -27,6 +27,9 @@ These steps need to be followed only once per namespace:
 
 Navigate to vault: https://vault-ui-vault.apps.smaug.na.operate-first.cloud/ui/vault/access
 
+> Note: If you see Not authorized - permission denied instead of a populated window, please check your membership in the
+> appropriate `apps/cluster-scope/overlays/prod/moc/smaug/groups/vault-*` group(s).
+
 Click this cluster's *Auth Method*, example for MOC/Smaug, click `smaug-k8s`.
 
 Find the role `${env}-ops`, for example for Smaug/Infra/Curator clusters this is `moc-ops`, for OSC-Cl1/OSC-Cl2 clusters
