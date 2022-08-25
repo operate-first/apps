@@ -10,11 +10,6 @@
             "allow": "all"
         },
         {
-            "group": "aicoe_osc_demo",
-            "catalog": "osc_datacommons_dev",
-            "allow": "all"
-        },
-        {
             "group": "demo_dv_dev",
             "catalog": "osc_datacommons_dev",
             "allow": "all"
@@ -64,7 +59,7 @@
         {
             "catalog": "osc_datacommons_dev",
             "schema": "aicoe_osc_demo_results",
-            "group": "aicoe_osc_demo",
+            "group": ".*",
             "owner": true
         },
         {
@@ -129,7 +124,7 @@
         {
             "catalog": "osc_datacommons_dev",
             "schema": "aicoe_osc_demo_results",
-            "group": "aicoe_osc_demo",
+            "group": ".*",
             "privileges": [
                 "SELECT",
                 "INSERT",
