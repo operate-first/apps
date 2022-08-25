@@ -25,6 +25,7 @@ resources:
   - ../../../../base/operators.coreos.com/subscriptions/cluster-logging
   - ../../../../base/operators.coreos.com/subscriptions/kubernetes-nmstate-operator
   - ../../../../base/operators.coreos.com/subscriptions/rhsso-operator
+  - ../../../../base/operators.coreos.com/subscriptions/web-terminal
   - ../../../../base/rbac.authorization.k8s.io/clusterrolebindings/cluster-reader-k8s-annotations-exporter
   - ../../../../base/rbac.authorization.k8s.io/clusterrolebindings/moc-nfs-democratic-csi-controller-rb
   - ../../../../base/rbac.authorization.k8s.io/clusterrolebindings/moc-nfs-democratic-csi-node-rb
@@ -63,6 +64,7 @@ patchesStrategicMerge:
   - storageclasses/moc-nfs-csi_patch.yaml
   - subscriptions/cluster-logging-operator_patch.yaml
   - subscriptions/kubernetes-nmstate-operator_patch.yaml
+  - subscriptions/web-terminal_patch.yaml
   - groups/cluster-admins.yaml
   - clusterrolebindings/self-provisioners_patch.yaml
   - clusterrolebindings/klusteraddonconfig-editor.yaml
