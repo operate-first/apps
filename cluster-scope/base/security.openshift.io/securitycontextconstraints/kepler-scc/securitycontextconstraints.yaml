@@ -19,8 +19,8 @@ fsGroup:
   type: RunAsAny
 volumes:
   - configMap
-  - projected
   - emptyDir
   - hostPath
+  - projected
 users:
   - system:serviceaccount:kepler-monitoring:kepler-sa
