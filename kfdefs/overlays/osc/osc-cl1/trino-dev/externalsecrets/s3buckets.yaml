@@ -1,0 +1,13 @@
+apiVersion: external-secrets.io/v1beta1
+kind: ExternalSecret
+metadata:
+  name: s3buckets
+spec:
+  secretStoreRef:
+    name: opf-vault-store
+    kind: SecretStore
+  target:
+    name: s3buckets
+  dataFrom:
+    - extract:
+        key: osc/osc-cl1/odh-trino-dev/s3buckets

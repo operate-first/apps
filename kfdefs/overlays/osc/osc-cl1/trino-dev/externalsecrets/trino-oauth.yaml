@@ -1,0 +1,13 @@
+apiVersion: external-secrets.io/v1beta1
+kind: ExternalSecret
+metadata:
+  name: trino-oauth
+spec:
+  secretStoreRef:
+    name: opf-vault-store
+    kind: SecretStore
+  target:
+    name: trino-oauth
+  dataFrom:
+    - extract:
+        key: osc/osc-cl1/odh-trino-dev/trino-oauth
