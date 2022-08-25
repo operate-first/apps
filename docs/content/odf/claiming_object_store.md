@@ -1,6 +1,6 @@
 # Claiming S3-compatible object store buckets
 
-This doc brings a brief summary on how to request a hosted S3 buckets within the Operate First managed deployments. We use the [OCS](https://github.com/red-hat-storage/ocs-operator) operator to manage our Ceph storage. We use [Nooba operator](https://github.com/noobaa/noobaa-operator) as part of the OCS platform to provide S3 object store. As such all buckets are to be provisioned using the Nooba storage class.
+This doc brings a brief summary on how to request a hosted S3 buckets within the Operate First managed deployments. We use the [ODF](https://github.com/red-hat-storage/odf-operator) operator to manage our Ceph storage. We use [Nooba operator](https://github.com/noobaa/noobaa-operator) as part of the OCS platform to provide S3 object store. As such all buckets are to be provisioned using the Noobaa storage class.
 
 ## Claim a new bucket
 
@@ -77,4 +77,4 @@ s3-openshift-storage.apps.smaug.na.operate-first.cloud
 
 ## Resources and links
 
-- [OpenShift Container Storage Documentation](https://access.redhat.com/documentation/en-us/red_hat_openshift_container_storage/4.8/html/managing_hybrid_and_multicloud_resources/object-bucket-claim)
+- [OpenShift Data Foundation Documentation](https://access.redhat.com/documentation/en-us/red_hat_openshift_data_foundation/4.10/html/managing_hybrid_and_multicloud_resources/object-bucket-claim)
