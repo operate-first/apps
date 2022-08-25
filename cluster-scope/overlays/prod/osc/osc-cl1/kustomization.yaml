@@ -51,10 +51,12 @@ resources:
 - ../../../../base/user.openshift.io/groups/seldon-admin
 - ../../../../base/user.openshift.io/groups/sostrades
 - ../../../../bundles/external-secrets-operator
+- ../../../../bundles/kepler
 - ../../../../bundles/opendatahub-operator-manual
 - ../../../../bundles/training-operator
 - ../../../../bundles/openshift-pipelines
 - apiserver
 - externalsecrets
 - ingresscontroller
+- machineconfigs/kepler
 - secret-mgmt

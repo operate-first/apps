@@ -8,6 +8,7 @@ resources:
   - dex.yaml
   - dex-secondary.yaml
   - external-secrets.yaml
+  - kepler.yaml
   - k8s-annotations-exporter.yaml
   - kfdefs.yaml
   - odh-operator.yaml

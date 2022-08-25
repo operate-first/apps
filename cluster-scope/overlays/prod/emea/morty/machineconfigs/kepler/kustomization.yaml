@@ -1,0 +1,5 @@
+apiVersion: kustomize.config.k8s.io/v1beta1
+kind: Kustomization
+resources:
+- 50-master-kernel-devel-cgroupv2.yaml
+- 50-worker-kernel-devel-cgroupv2.yaml
