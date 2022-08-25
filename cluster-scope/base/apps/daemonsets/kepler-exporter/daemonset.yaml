@@ -21,7 +21,7 @@ spec:
         imagePullPolicy: Always
         resources:
           requests:
-            memory: "400MiB"
+            memory: "400Mi"
             cpu: "100m"
         securityContext:
           privileged: true
