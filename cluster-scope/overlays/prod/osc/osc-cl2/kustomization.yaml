@@ -7,6 +7,9 @@ patchesStrategicMerge:
 - configmaps/user-workload-monitoring-config.yaml
 - groups/cluster-admins.yaml
 - groups/cluster-readers.yaml
+- groups/grafana-admin.yaml
+- groups/grafana-editor.yaml
+- groups/grafana-viewer.yaml
 - groups/inception-admins.yaml
 - groups/kafka-admins.yaml
 - groups/kubeflow-admin.yaml
@@ -45,6 +48,9 @@ resources:
 - ../../../../base/rbac.authorization.k8s.io/clusterrolebindings/cluster-admins-rb
 - ../../../../base/rbac.authorization.k8s.io/clusterrolebindings/cluster-reader-k8s-annotations-exporter
 - ../../../../base/rbac.authorization.k8s.io/clusterrolebindings/cluster-readers
+- ../../../../base/user.openshift.io/groups/grafana-admin
+- ../../../../base/user.openshift.io/groups/grafana-editor
+- ../../../../base/user.openshift.io/groups/grafana-viewer
 - ../../../../base/rbac.authorization.k8s.io/clusterrolebindings/self-provisioners
 - ../../../../base/rbac.authorization.k8s.io/clusterroles/acme-operator
 - ../../../../base/rbac.authorization.k8s.io/clusterroles/pytorchjobs-create-aggregate-to-admin
@@ -62,6 +68,7 @@ resources:
 - ../../../../base/user.openshift.io/groups/seldon-admin
 - ../../../../base/user.openshift.io/groups/sostrades
 - ../../../../bundles/external-secrets-operator
+- ../../../../bundles/grafana-operator
 - ../../../../bundles/kfp-tekton
 - ../../../../bundles/opendatahub-operator-manual
 - ../../../../bundles/openshift-pipelines

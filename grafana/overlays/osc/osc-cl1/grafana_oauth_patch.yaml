@@ -1,0 +1,38 @@
+---
+apiVersion: integreatly.org/v1alpha1
+kind: Grafana
+metadata:
+  annotations:
+    argocd.argoproj.io/sync-wave: "1"
+  name: grafana
+spec:
+  baseImage: quay.io/operate-first/grafana:9.1.1
+  deployment:
+    envFrom:
+      - secretRef:
+          name: grafana-secret-config
+      - configMapRef:
+          name: grafana-config-overrides
+  configMaps:
+    - grafana-landing-page
+  serviceAccount:
+    labels:
+      app.kubernetes.io/instance: cluster-resources-osc
+  config:
+    server:
+      root_url: https://grafana-opf-monitoring.apps.odh-cl1.apps.os-climate.org
+    dashboards:
+      default_home_dashboard_path: "/etc/grafana-configmaps/grafana-landing-page/landingpage.json"
+    auth.generic_oauth:
+      enabled: true
+      scopes: openid email groups profile
+      email_attribute_path: name
+      client_id: grafana
+      client_secret: "${GRAFANA_CLIENT_SECRET}"
+      api_url: https://dex-dex.apps.odh-cl1.apps.os-climate.org/userinfo
+      auth_url: https://dex-dex.apps.odh-cl1.apps.os-climate.org/auth
+      token_url: https://dex-dex.apps.odh-cl1.apps.os-climate.org/token
+      role_attribute_path: >-
+        contains(groups[*], 'cluster-admins') && 'Admin' ||
+        'Deny'
+      role_attribute_strict: true

@@ -46,6 +46,13 @@ staticClients:
       - https://das-odh-trino.apps.odh-cl2.apps.os-climate.org/callback
     secretEnv: DAS_SECRET
 
+  - id: grafana
+    name: Grafana
+    redirectURIs:
+      - https://grafana-opf-monitoring.apps.odh-cl2.apps.os-climate.org/login/generic_oauth
+      - http://grafana-opf-monitoring.apps.odh-cl2.apps.os-climate.org/login/generic_oauth
+    secretEnv: GRAFANA_SECRET
+
 expiry:
   idTokens: "168h"
 
