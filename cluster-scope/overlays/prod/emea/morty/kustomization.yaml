@@ -51,6 +51,7 @@ resources:
 - ../../../../base/user.openshift.io/groups/sudoers
 - ../../../../bundles/external-secrets-operator
 - ../../../../bundles/kepler
+- ../../../../bundles/grafana-operator
 - ../../../../bundles/nfd
 - ../common
 - apiserver/api_server_cert.yaml
