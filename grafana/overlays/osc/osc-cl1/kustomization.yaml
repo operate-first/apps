@@ -11,6 +11,7 @@ resources:
   - ../../../base
   - dashboards
   - landingpage.yaml
+  - externalsecrets
 
 patchesStrategicMerge:
   - ./grafana_oauth_patch.yaml
