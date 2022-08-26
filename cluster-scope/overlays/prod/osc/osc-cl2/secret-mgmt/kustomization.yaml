@@ -10,4 +10,5 @@ resources:
   - openshift-config
   - openshift-ingress
   - openshift-monitoring
+  - opf-monitoring
   - pachyderm
