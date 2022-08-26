@@ -6,6 +6,9 @@ patchesStrategicMerge:
 - configmaps/user-workload-monitoring-config.yaml
 - groups/cluster-admins.yaml
 - groups/cluster-readers.yaml
+- groups/grafana-admin.yaml
+- groups/grafana-editor.yaml
+- groups/grafana-viewer.yaml
 - groups/inception-admins.yaml
 - groups/kubeflow-admin.yaml
 - groups/odh-admin.yaml
@@ -42,6 +45,9 @@ resources:
 - ../../../../base/rbac.authorization.k8s.io/clusterroles/acme-operator
 - ../../../../base/user.openshift.io/groups/cluster-admins
 - ../../../../base/user.openshift.io/groups/cluster-readers
+- ../../../../base/user.openshift.io/groups/grafana-admin
+- ../../../../base/user.openshift.io/groups/grafana-editor
+- ../../../../base/user.openshift.io/groups/grafana-viewer
 - ../../../../base/user.openshift.io/groups/inception-admins
 - ../../../../base/user.openshift.io/groups/kubeflow-admin
 - ../../../../base/user.openshift.io/groups/multinode-demo
@@ -52,9 +58,10 @@ resources:
 - ../../../../base/user.openshift.io/groups/sostrades
 - ../../../../bundles/external-secrets-operator
 - ../../../../bundles/kepler
+- ../../../../bundles/grafana-operator
 - ../../../../bundles/opendatahub-operator-manual
-- ../../../../bundles/training-operator
 - ../../../../bundles/openshift-pipelines
+- ../../../../bundles/training-operator
 - apiserver
 - externalsecrets
 - ingresscontroller
