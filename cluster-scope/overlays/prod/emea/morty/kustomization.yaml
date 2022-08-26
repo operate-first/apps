@@ -56,5 +56,6 @@ resources:
 - ../common
 - apiserver/api_server_cert.yaml
 - ingresscontrollers/default.yaml
+- machineconfigs/kepler
 - secrets
 - secret-mgmt
