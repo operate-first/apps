@@ -7,7 +7,6 @@ metadata:
     app.kubernetes.io/component: exporter
     app.kubernetes.io/name: kepler-exporter
 spec:
-  clusterIP: None
   selector:
     app.kubernetes.io/component: exporter
     app.kubernetes.io/name: kepler-exporter
