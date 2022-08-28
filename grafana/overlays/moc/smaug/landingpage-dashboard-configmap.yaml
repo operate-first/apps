@@ -136,18 +136,6 @@ data:
               {
                 "matcher": {
                   "id": "byName",
-                  "options": "emea/rick"
-                },
-                "properties": [
-                  {
-                    "id": "max",
-                    "value": 24
-                  }
-                ]
-              },
-              {
-                "matcher": {
-                  "id": "byName",
                   "options": "moc/infra"
                 },
                 "properties": [
@@ -245,18 +233,6 @@ data:
               "min": 0
             },
             "overrides": [
-              {
-                "matcher": {
-                  "id": "byName",
-                  "options": "emea-rick Free Cores"
-                },
-                "properties": [
-                  {
-                    "id": "max",
-                    "value": 24
-                  }
-                ]
-              },
               {
                 "matcher": {
                   "id": "byName",
@@ -371,166 +347,6 @@ data:
           "type": "piechart"
         },
         {
-          "datasource": {
-            "type": "prometheus",
-            "uid": "P977C9E54D3ADBCDE"
-          },
-          "description": "Cores currently not in use on both the Controller and Worker nodes. This does not take into account ResourceQuotas, rather -- it takes into account cores available for the scheduler to reserve for pods.",
-          "fieldConfig": {
-            "defaults": {
-              "color": {
-                "fixedColor": "orange",
-                "mode": "palette-classic"
-              },
-              "custom": {
-                "hideFrom": {
-                  "legend": false,
-                  "tooltip": false,
-                  "viz": false
-                }
-              },
-              "mappings": [],
-              "min": 0
-            },
-            "overrides": [
-              {
-                "matcher": {
-                  "id": "byName",
-                  "options": "emea-rick Free Cores"
-                },
-                "properties": [
-                  {
-                    "id": "max",
-                    "value": 24
-                  }
-                ]
-              },
-              {
-                "matcher": {
-                  "id": "byName",
-                  "options": "moc-infra Free Cores"
-                },
-                "properties": [
-                  {
-                    "id": "max",
-                    "value": 96
-                  }
-                ]
-              },
-              {
-                "matcher": {
-                  "id": "byName",
-                  "options": "moc-smaug Free Cores"
-                },
-                "properties": [
-                  {
-                    "id": "max",
-                    "value": 144
-                  }
-                ]
-              },
-              {
-                "matcher": {
-                  "id": "byName",
-                  "options": "balrog Free Cores"
-                },
-                "properties": [
-                  {
-                    "id": "max",
-                    "value": 24
-                  }
-                ]
-              }
-            ]
-          },
-          "gridPos": {
-            "h": 6,
-            "w": 8,
-            "x": 16,
-            "y": 13
-          },
-          "id": 97,
-          "options": {
-            "displayLabels": [],
-            "legend": {
-              "displayMode": "table",
-              "placement": "right",
-              "values": [
-                "value",
-                "percent"
-              ]
-            },
-            "pieType": "pie",
-            "reduceOptions": {
-              "calcs": [
-                "first"
-              ],
-              "fields": "",
-              "values": false
-            },
-            "tooltip": {
-              "mode": "single",
-              "sort": "none"
-            }
-          },
-          "pluginVersion": "8.1.1",
-          "targets": [
-            {
-              "datasource": {
-                "type": "prometheus",
-                "uid": "P977C9E54D3ADBCDE"
-              },
-              "exemplar": true,
-              "expr": "sum(cluster:capacity_cpu_cores:sum{label_node_role_kubernetes_io=\"master\"}) - (sum(kube_pod_resource_request{resource=\"cpu\"} * on (node) group_left kube_node_role{role=\"master\"})) ",
-              "hide": false,
-              "instant": false,
-              "interval": "",
-              "legendFormat": "Controller Free Cores",
-              "refId": "A"
-            },
-            {
-              "datasource": {
-                "type": "prometheus",
-                "uid": "P977C9E54D3ADBCDE"
-              },
-              "exemplar": true,
-              "expr": "sum(cluster:capacity_cpu_cores:sum{label_node_role_kubernetes_io!~\".+\"}) - (sum(kube_pod_resource_request{resource=\"cpu\"} * on (node) group_left kube_node_role{role=\"worker\"}))",
-              "hide": false,
-              "instant": false,
-              "interval": "",
-              "legendFormat": "Worker Free Nodes",
-              "refId": "B"
-            },
-            {
-              "datasource": {
-                "type": "prometheus",
-                "uid": "P977C9E54D3ADBCDE"
-              },
-              "exemplar": true,
-              "expr": "sum(cluster:capacity_cpu_cores:sum{label_node_role_kubernetes_io=\"master\"}) ",
-              "hide": false,
-              "interval": "",
-              "legendFormat": "Total ControllerCores",
-              "refId": "C"
-            },
-            {
-              "datasource": {
-                "type": "prometheus",
-                "uid": "P977C9E54D3ADBCDE"
-              },
-              "exemplar": true,
-              "expr": "sum(cluster:capacity_cpu_cores:sum{label_node_role_kubernetes_io!~\".+\"})",
-              "hide": false,
-              "interval": "",
-              "legendFormat": "Total Worker Cores",
-              "refId": "D"
-            }
-          ],
-          "title": "Emea-rick Actual Free Cores",
-          "transformations": [],
-          "type": "piechart"
-        },
-        {
           "description": "Cores currently in use on each cluster (Worker nodes). This does not take into account ResourceQuotas, rather -- it takes into account cores available for the scheduler to reserve for pods.",
           "fieldConfig": {
             "defaults": {
@@ -571,18 +387,6 @@ data:
                   {
                     "id": "max",
                     "value": 80
-                  }
-                ]
-              },
-              {
-                "matcher": {
-                  "id": "byName",
-                  "options": "emea/rick"
-                },
-                "properties": [
-                  {
-                    "id": "max",
-                    "value": 36
                   }
                 ]
               },
@@ -660,18 +464,6 @@ data:
               "min": 0
             },
             "overrides": [
-              {
-                "matcher": {
-                  "id": "byName",
-                  "options": "emea-rick Free Cores"
-                },
-                "properties": [
-                  {
-                    "id": "max",
-                    "value": 24
-                  }
-                ]
-              },
               {
                 "matcher": {
                   "id": "byName",
@@ -820,18 +612,6 @@ data:
               "min": 0
             },
             "overrides": [
-              {
-                "matcher": {
-                  "id": "byName",
-                  "options": "emea-rick Free Cores"
-                },
-                "properties": [
-                  {
-                    "id": "max",
-                    "value": 24
-                  }
-                ]
-              },
               {
                 "matcher": {
                   "id": "byName",
@@ -1018,18 +798,6 @@ data:
               {
                 "matcher": {
                   "id": "byName",
-                  "options": "emea/rick"
-                },
-                "properties": [
-                  {
-                    "id": "max",
-                    "value": 99000000000
-                  }
-                ]
-              },
-              {
-                "matcher": {
-                  "id": "byName",
                   "options": "moc/infra"
                 },
                 "properties": [
@@ -1197,104 +965,6 @@ data:
           "type": "piechart"
         },
         {
-          "datasource": {
-            "type": "prometheus",
-            "uid": "P977C9E54D3ADBCDE"
-          },
-          "fieldConfig": {
-            "defaults": {
-              "color": {
-                "mode": "palette-classic"
-              },
-              "custom": {
-                "hideFrom": {
-                  "legend": false,
-                  "tooltip": false,
-                  "viz": false
-                }
-              },
-              "decimals": 0,
-              "mappings": [],
-              "unit": "decbytes"
-            },
-            "overrides": []
-          },
-          "gridPos": {
-            "h": 6,
-            "w": 8,
-            "x": 16,
-            "y": 26
-          },
-          "id": 100,
-          "links": [],
-          "options": {
-            "displayLabels": [],
-            "legend": {
-              "calcs": [],
-              "displayMode": "table",
-              "placement": "right",
-              "values": [
-                "value"
-              ]
-            },
-            "pieType": "pie",
-            "reduceOptions": {
-              "calcs": [
-                "lastNotNull"
-              ],
-              "fields": "",
-              "values": false
-            },
-            "tooltip": {
-              "mode": "single",
-              "sort": "none"
-            }
-          },
-          "targets": [
-            {
-              "datasource": {
-                "type": "prometheus",
-                "uid": "P977C9E54D3ADBCDE"
-              },
-              "exemplar": true,
-              "expr": "sum(cluster:capacity_memory_bytes:sum{label_node_role_kubernetes_io=\"master\"}) - (sum(kube_pod_resource_request{resource=\"memory\"} * on (node) group_left kube_node_role{role=\"master\"}))",
-              "interval": "",
-              "legendFormat": "Controller Free Memory",
-              "refId": "A"
-            },
-            {
-              "exemplar": true,
-              "expr": "sum(cluster:capacity_memory_bytes:sum{label_node_role_kubernetes_io!~\"master\"}) - (sum(kube_pod_resource_request{resource=\"memory\"} * on (node) group_left kube_node_role{role=\"worker\"}))",
-              "hide": false,
-              "interval": "",
-              "legendFormat": "Worker Free Memory",
-              "refId": "C"
-            },
-            {
-              "datasource": {
-                "type": "prometheus",
-                "uid": "P977C9E54D3ADBCDE"
-              },
-              "exemplar": true,
-              "expr": "cluster:capacity_memory_bytes:sum{label_node_role_kubernetes_io=\"master\"}",
-              "hide": false,
-              "interval": "",
-              "legendFormat": "Controller Total Memory",
-              "refId": "B"
-            },
-            {
-              "exemplar": true,
-              "expr": "cluster:capacity_memory_bytes:sum{label_node_role_kubernetes_io!~\".+\"}",
-              "hide": false,
-              "interval": "",
-              "legendFormat": "Worker Total Memory",
-              "refId": "D"
-            }
-          ],
-          "title": "emea-rick Memory Overview ",
-          "type": "piechart"
-        },
-        {
           "description": "Memory currently in use on each cluster (Worker nodes). This does not take into account ResourceQuotas, rather -- it takes into account memory available for the scheduler to reserve for pods.",
           "fieldConfig": {
             "defaults": {
@@ -1348,18 +1018,6 @@ data:
                   {
                     "id": "max",
                     "value": 164000000000
-                  }
-                ]
-              },
-              {
-                "matcher": {
-                  "id": "byName",
-                  "options": "emea/rick"
-                },
-                "properties": [
-                  {
-                    "id": "max",
-                    "value": 811000000000
                   }
                 ]
               },
@@ -1747,79 +1405,6 @@ data:
           "gridPos": {
             "h": 8,
             "w": 6,
-            "x": 6,
-            "y": 39
-          },
-          "id": 85,
-          "links": [],
-          "options": {
-            "legend": {
-              "calcs": [],
-              "displayMode": "table",
-              "placement": "right",
-              "values": [
-                "value",
-                "percent"
-              ]
-            },
-            "pieType": "pie",
-            "reduceOptions": {
-              "calcs": [
-                "lastNotNull"
-              ],
-              "fields": "",
-              "values": false
-            },
-            "tooltip": {
-              "mode": "single",
-              "sort": "none"
-            }
-          },
-          "pluginVersion": "7.1.1",
-          "targets": [
-            {
-              "datasource": {
-                "type": "prometheus",
-                "uid": "P977C9E54D3ADBCDE"
-              },
-              "exemplar": true,
-              "expr": "sum(kube_pod_status_phase == 1) by (phase)",
-              "instant": true,
-              "interval": "",
-              "legendFormat": "{{phase}}",
-              "refId": "A"
-            }
-          ],
-          "title": "Pods Aggregated by Phase (emea-rick)",
-          "type": "piechart"
-        },
-        {
-          "datasource": {
-            "type": "datasource",
-            "uid": "-- Mixed --"
-          },
-          "description": "",
-          "fieldConfig": {
-            "defaults": {
-              "color": {
-                "mode": "palette-classic"
-              },
-              "custom": {
-                "hideFrom": {
-                  "legend": false,
-                  "tooltip": false,
-                  "viz": false
-                }
-              },
-              "decimals": 0,
-              "mappings": [],
-              "unit": "short"
-            },
-            "overrides": []
-          },
-          "gridPos": {
-            "h": 8,
-            "w": 6,
             "x": 12,
             "y": 39
           },
@@ -2022,78 +1607,6 @@ data:
             }
           ],
           "title": "PVC's by Namespace (emea-balrog)",
-          "type": "piechart"
-        },
-        {
-          "datasource": {
-            "type": "datasource",
-            "uid": "-- Mixed --"
-          },
-          "description": "This graph shows the sum of PVC storage requested by namespace.",
-          "fieldConfig": {
-            "defaults": {
-              "color": {
-                "mode": "palette-classic"
-              },
-              "custom": {
-                "hideFrom": {
-                  "legend": false,
-                  "tooltip": false,
-                  "viz": false
-                }
-              },
-              "decimals": 0,
-              "mappings": [],
-              "unit": "decbytes"
-            },
-            "overrides": []
-          },
-          "gridPos": {
-            "h": 6,
-            "w": 12,
-            "x": 12,
-            "y": 48
-          },
-          "id": 88,
-          "links": [],
-          "options": {
-            "legend": {
-              "calcs": [],
-              "displayMode": "table",
-              "placement": "right",
-              "values": [
-                "value",
-                "percent"
-              ]
-            },
-            "pieType": "pie",
-            "reduceOptions": {
-              "calcs": [
-                "lastNotNull"
-              ],
-              "fields": "",
-              "values": false
-            },
-            "tooltip": {
-              "mode": "single",
-              "sort": "none"
-            }
-          },
-          "targets": [
-            {
-              "datasource": {
-                "type": "prometheus",
-                "uid": "P977C9E54D3ADBCDE"
-              },
-              "exemplar": true,
-              "expr": "sum(kube_persistentvolumeclaim_resource_requests_storage_bytes) by (namespace)",
-              "instant": true,
-              "interval": "",
-              "legendFormat": "{{namespace}}",
-              "refId": "A"
-            }
-          ],
-          "title": "PVC's by Namespace (emea-rick)",
           "type": "piechart"
         },
         {

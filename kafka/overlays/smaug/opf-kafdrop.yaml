@@ -19,8 +19,7 @@ spec:
           imagePullPolicy: Always
           env:
             - name: KAFKA_BROKERCONNECT
-              value: >-
-                opf-kafka-bootstrap-opf-kafka.apps.rick.emea.operate-first.cloud:443
+              value: kafdrop-route-opf-kafka.apps.smaug.na.operate-first.cloud
             - name: KAFKA_TRUSTSTORE_FILE
               value: /mnt/secrets/truststore.jks
             - name: KAFKA_KEYSTORE_FILE
