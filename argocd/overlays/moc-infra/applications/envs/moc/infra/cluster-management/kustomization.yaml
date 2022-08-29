@@ -11,4 +11,3 @@ resources:
   - external-secrets.yaml
   - keycloak.yaml
   - kubevirt-hyperconverged.yaml
-  - moc-nfs-democratic-csi.yaml
