@@ -8,6 +8,7 @@ resources:
   - dex.yaml
   - dex-secondary.yaml
   - external-secrets.yaml
+  - grafana.yaml
   - k8s-annotations-exporter.yaml
   - kfdefs.yaml
   - kfp-tekton.yaml

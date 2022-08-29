@@ -11,3 +11,6 @@ configMapGenerator:
   - files:
       - json/landingpage.json
     name: grafana-landing-page
+  - files:
+      - json/kepler.json
+    name: kepler
