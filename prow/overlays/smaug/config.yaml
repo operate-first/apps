@@ -432,7 +432,11 @@ periodics:
     decorate: true
     annotations:
       description: Updates pre-commit image version and pre-commit hooks
-    spec: {} # TODO. Ideally a tekton pipeline if that's possible (gh query for all concerned repo + one updater per repo ?)
+    spec: # TODO. Ideally a tekton pipeline if that's possible (gh query for all concerned repo + one updater per repo ?)
+    initContainers: #PROTO
+      - name: repo-lister
+        image: github-cli
+        command:  gh search repos --owner thoth-station --update ">$(date -Idate -d '2 months ago')"
   - name: periodic-close-rotten
     interval: 3h
     decorate: true
