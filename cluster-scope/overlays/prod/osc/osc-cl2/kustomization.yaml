@@ -12,6 +12,7 @@ patchesStrategicMerge:
 - groups/grafana-viewer.yaml
 - groups/inception-admins.yaml
 - groups/kafka-admins.yaml
+- groups/kepler-admins.yaml
 - groups/kubeflow-admin.yaml
 - groups/odh-admin.yaml
 - groups/odh-users.yaml
@@ -59,6 +60,7 @@ resources:
 - ../../../../base/user.openshift.io/groups/cluster-readers
 - ../../../../base/user.openshift.io/groups/inception-admins
 - ../../../../base/user.openshift.io/groups/kafka-admins
+- ../../../../base/user.openshift.io/groups/kepler-admins
 - ../../../../base/user.openshift.io/groups/kubeflow-admin
 - ../../../../base/user.openshift.io/groups/odh-admin
 - ../../../../base/user.openshift.io/groups/odh-users
