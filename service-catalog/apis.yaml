@@ -1,0 +1,10 @@
+apiVersion: backstage.io/v1alpha1
+kind: Location
+metadata:
+  name: apis
+  description: A collection of all operate-first apis
+spec:
+  targets:
+    - ./apis/argocd.yaml
+    - ./apis/grafana.yaml
+    - ./apis/backstage.yaml

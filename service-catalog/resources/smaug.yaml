@@ -1,0 +1,13 @@
+apiVersion: backstage.io/v1alpha1
+kind: Resource
+metadata:
+  name: smaug
+  description: Public operate first cluster for deploying applications
+  links:
+    - url: https://console-openshift-console.apps.smaug.na.operate-first.cloud/
+      title: Smaug cluster
+      icon: web
+spec:
+  type: cluster
+  lifecycle: production
+  owner: group:operate-first

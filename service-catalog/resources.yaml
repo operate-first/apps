@@ -1,0 +1,10 @@
+apiVersion: backstage.io/v1alpha1
+kind: Location
+metadata:
+  name: resources
+  description: A collection of all operate-first resources
+spec:
+  targets:
+    - ./resources/smaug.yaml
+    - ./resources/s3-bucket.yaml
+    - ./resources/crunchy-postgres-operator.yaml

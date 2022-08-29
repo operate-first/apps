@@ -50,9 +50,12 @@ resources:
 - ../../../../base/user.openshift.io/groups/cluster-admins
 - ../../../../base/user.openshift.io/groups/sudoers
 - ../../../../bundles/external-secrets-operator
+- ../../../../bundles/kepler
+- ../../../../bundles/grafana-operator
 - ../../../../bundles/nfd
 - ../common
 - apiserver/api_server_cert.yaml
 - ingresscontrollers/default.yaml
+- machineconfigs/kepler
 - secrets
 - secret-mgmt

@@ -78,6 +78,11 @@ parts:
           - file: content/kafka/add_kafka_users.md
           - file: content/kafka/runbook.md
 
+      # Kubeval
+      - file: content/kubeval/README.md
+        sections:
+          - file: content/kubeval/updating_schema_store.md
+
       # Grafana
       - file: content/grafana/README.md
         sections:
@@ -97,12 +102,12 @@ parts:
           - file: content/observatorium/thanos/thanos_programmatic_access.md
           - file: content/observatorium/vector/README.md
 
-      #  Openshift Container Storage
-      - file: content/ocs/README.md
+      #  Openshift Data Foundation
+      - file: content/odf/README.md
         sections:
-          - file: content/ocs/buckets-external-access.md
-          - file: content/ocs/claiming_object_store.md
-          - file: content/ocs/runbook.md
+          - file: content/odf/buckets-external-access.md
+          - file: content/odf/claiming_object_store.md
+          - file: content/odf/runbook.md
 
       # ODH
       - file: content/odh/README.md

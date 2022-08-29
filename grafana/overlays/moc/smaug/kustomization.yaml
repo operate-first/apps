@@ -16,7 +16,8 @@ resources:
   - landingpage-dashboard-configmap.yaml
 
 patchesStrategicMerge:
-  - ./grafana-oauth.yaml
+  - grafana-oauth.yaml
+  - route_patch.yaml
 
 generators:
   - secrets-generator.yaml

@@ -5,7 +5,6 @@ metadata:
   annotations:
     kubernetes.io/tls-acme: "true"
 spec:
-  host: grafana.operate-first.cloud
   to:
     kind: Service
     name: grafana-service

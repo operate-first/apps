@@ -1,0 +1,14 @@
+apiVersion: backstage.io/v1alpha1
+kind: Domain
+metadata:
+  name: SRE
+  description: SRE (Site Reliability Engineering) domain containing all monitoring applications, CI/CD, Service Catalog etc.
+  links:
+    - url: https://github.com/operate-first/sre
+      title: SRE content repo
+      icon: web
+    - url: https://github.com/operate-first/operations
+      title: Operations repo
+      icon: web
+spec:
+  owner: group:operate-first

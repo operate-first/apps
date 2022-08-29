@@ -9,3 +9,4 @@ resources:
 - external-secrets.yaml
 - nfd.yaml
 - kubevirt-hyperconverged.yaml
+- kepler.yaml

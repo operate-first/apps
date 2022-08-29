@@ -1,0 +1,28 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: backstage
+  description: Backend API of the backstage backend
+spec:
+  type: openapi
+  lifecycle: production
+  owner: group:operate-first
+  system: service-catalog
+  # This is not the complete API definition since they don't have an OPENAPI reference
+  # file and I don't think writing it manually is the option since it might change and
+  # we would need to update it manually each time
+  definition: |
+    openapi: 3.0.0
+    info:
+      description: "Full backstage API documentation is located here: https://backstage.io/docs/features/software-catalog/software-catalog-api"
+      version: 1.2.2
+      title: Backstage API
+    servers:
+      - url: https://service-catalog.operate-first.cloud/api/catalog
+    paths:
+      /entities:
+        get:
+          tags: [
+            Entities
+          ]
+          summary: List all entities

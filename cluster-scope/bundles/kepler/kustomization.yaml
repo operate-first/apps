@@ -1,0 +1,8 @@
+apiVersion: kustomize.config.k8s.io/v1beta1
+kind: Kustomization
+resources:
+  - ../../base/core/namespaces/kepler-monitoring
+  - ../../base/security.openshift.io/securitycontextconstraints/kepler-scc
+  - ../../base/apps/daemonsets/kepler-exporter
+  - ../../base/rbac.authorization.k8s.io/clusterrolebindings/kepler-clusterrole-binding
+  - ../../base/rbac.authorization.k8s.io/clusterroles/kepler-clusterrole

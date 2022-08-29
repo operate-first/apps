@@ -1,6 +1,6 @@
 ---
 kind: RoleBinding
-apiVersion: authorization.openshift.io/v1
+apiVersion: rbac.authorization.k8s.io/v1
 metadata:
   name: kvm-device-plugin
   namespace: kvm-device-plugin
@@ -9,6 +9,6 @@ subjects:
   name: kvm-device-plugin
   namespace: kvm-device-plugin
 roleRef:
+  apiGroup: rbac.authorization.k8s.io
   kind: Role
-  namespace: kvm-device-plugin
   name: kvm-device-plugin

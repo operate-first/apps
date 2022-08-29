@@ -1,8 +1,0 @@
-apiVersion: backstage.io/v1alpha1
-kind: Location
-metadata:
-  name: Systems
-  description: A collection of all operate-first systems
-spec:
-  targets:
-    - ./systems/operate-first-cloud.yaml
