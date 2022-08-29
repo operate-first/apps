@@ -1,0 +1,13 @@
+apiVersion: external-secrets.io/v1beta1
+kind: ExternalSecret
+metadata:
+  name: supersetdb
+spec:
+  secretStoreRef:
+    name: opf-vault-store
+    kind: SecretStore
+  target:
+    name: supersetdb
+  dataFrom:
+    - extract:
+        key: osc/osc-cl1/odh-superset/supersetdb
