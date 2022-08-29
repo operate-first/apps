@@ -81,6 +81,7 @@ resources:
 - ../../../base/user.openshift.io/groups/thoth
 - ../../../base/user.openshift.io/groups/thoth-devops
 - ../../../base/user.openshift.io/groups/tremor-demo
+- ../../../base/user.openshift.io/groups/ttm-as-a-service
 - ../../../base/user.openshift.io/groups/uky-redhat
 - ../../../base/user.openshift.io/groups/varangian
 - ../../../base/user.openshift.io/groups/workshops

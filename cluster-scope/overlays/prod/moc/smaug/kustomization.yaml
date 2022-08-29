@@ -91,6 +91,7 @@ resources:
 - ../../../../base/core/namespaces/thoth-middletier-prod
 - ../../../../base/core/namespaces/training-model
 - ../../../../base/core/namespaces/tremor-demo
+- ../../../../base/core/namespaces/ttm-as-a-service
 - ../../../../base/core/namespaces/ushift-dev
 - ../../../../base/core/namespaces/varangian-test
 - ../../../../base/imageregistry.operator.openshift.io/configs/cluster

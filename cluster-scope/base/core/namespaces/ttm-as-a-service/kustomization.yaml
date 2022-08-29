@@ -1,0 +1,10 @@
+kind: Kustomization
+apiVersion: kustomize.config.k8s.io/v1beta1
+namespace: ttm-as-a-service
+resources:
+- namespace.yaml
+components:
+- ../../../../components/limitranges/default
+- ../../../../components/project-admin-rolebindings/ttm-as-a-service
+- ../../../../components/project-view-public
+- ../../../../components/resourcequotas/medium
