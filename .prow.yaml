@@ -2,7 +2,7 @@ presubmits:
   - name: kustomize-build
     decorate: true
     max_concurrency: 1
-    run_if_changed: ".*yaml"
+    skip_if_only_changed: "^docs/|\\.md$|^(OWNERS|LICENSE)$|^\\."
     skip_report: false
     context: aicoe-ci/prow/kustomize-build
     spec:
@@ -21,7 +21,7 @@ presubmits:
   - name: kubeval-validation
     decorate: true
     max_concurrency: 1
-    run_if_changed: ".*yaml"
+    skip_if_only_changed: "^docs/|\\.md$|^(OWNERS|LICENSE)$|^\\."
     skip_report: false
     context: aicoe-ci/prow/kubeval-validation
     spec:
