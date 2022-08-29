@@ -6,7 +6,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
 
-    <title>Adding Managed Cluster to Identitatem &#8212; GitOps Docs</title>
+    <title>Kubeval validation &#8212; GitOps Docs</title>
     
   <!-- Loaded before other Sphinx assets -->
   <link href="../../_static/styles/theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
@@ -53,8 +53,8 @@ const thebe_selector_output = ".output, .cell_output"
     <link rel="shortcut icon" href="../../_static/favicon.png"/>
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
-    <link rel="next" title="Managing your team’s ocp clusters via ACM" href="manage_your_teams_ocp_clusters_via_acm.html" />
-    <link rel="prev" title="Adding Managed Cluster to ArgoCD" href="adding_managed_cluster_to_argocd.html" />
+    <link rel="next" title="Updating schemas in schema store" href="updating_schema_store.html" />
+    <link rel="prev" title="Kafka Runbook" href="../kafka/runbook.html" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="None">
     
@@ -137,28 +137,28 @@ const thebe_selector_output = ".output, .cell_output"
    </li>
   </ul>
  </li>
- <li class="toctree-l1 current active has-children">
-  <a class="reference internal" href="README.html">
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../acm/README.html">
    ACM
   </a>
-  <input checked="" class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/>
+  <input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/>
   <label for="toctree-checkbox-2">
    <i class="fas fa-chevron-down">
    </i>
   </label>
-  <ul class="current">
+  <ul>
    <li class="toctree-l2">
-    <a class="reference internal" href="adding_managed_cluster_to_argocd.html">
+    <a class="reference internal" href="../acm/adding_managed_cluster_to_argocd.html">
      Adding Managed Cluster to ArgoCD
     </a>
    </li>
-   <li class="toctree-l2 current active">
-    <a class="current reference internal" href="#">
+   <li class="toctree-l2">
+    <a class="reference internal" href="../acm/adding_managed_cluster_to_identitatem.html">
      Adding Managed Cluster to Identitatem
     </a>
    </li>
    <li class="toctree-l2">
-    <a class="reference internal" href="manage_your_teams_ocp_clusters_via_acm.html">
+    <a class="reference internal" href="../acm/manage_your_teams_ocp_clusters_via_acm.html">
      Managing your team’s ocp clusters via ACM
     </a>
    </li>
@@ -403,18 +403,18 @@ const thebe_selector_output = ".output, .cell_output"
    </li>
   </ul>
  </li>
- <li class="toctree-l1 has-children">
-  <a class="reference internal" href="../kubeval/README.html">
+ <li class="toctree-l1 current active has-children">
+  <a class="current reference internal" href="#">
    Kubeval validation
   </a>
-  <input class="toctree-checkbox" id="toctree-checkbox-10" name="toctree-checkbox-10" type="checkbox"/>
+  <input checked="" class="toctree-checkbox" id="toctree-checkbox-10" name="toctree-checkbox-10" type="checkbox"/>
   <label for="toctree-checkbox-10">
    <i class="fas fa-chevron-down">
    </i>
   </label>
   <ul>
    <li class="toctree-l2">
-    <a class="reference internal" href="../kubeval/updating_schema_store.html">
+    <a class="reference internal" href="updating_schema_store.html">
      Updating schemas in schema store
     </a>
    </li>
@@ -890,7 +890,7 @@ title="Source repository"
       </li>
       
       <li>
-        <a href="https://github.com/operate-first/apps/issues/new?title=Issue%20on%20page%20%2Fcontent/acm/adding_managed_cluster_to_identitatem.html&body=Your%20issue%20content%20here."
+        <a href="https://github.com/operate-first/apps/issues/new?title=Issue%20on%20page%20%2Fcontent/kubeval/README.html&body=Your%20issue%20content%20here."
    class="headerbtn"
    data-toggle="tooltip"
 data-placement="left"
@@ -918,7 +918,7 @@ title="Open an issue"
   <div class="menu-dropdown__content">
     <ul>
       <li>
-        <a href="../../_sources/content/acm/adding_managed_cluster_to_identitatem.md"
+        <a href="../../_sources/content/kubeval/README.md"
    class="headerbtn"
    data-toggle="tooltip"
 data-placement="left"
@@ -955,23 +955,60 @@ title="Print to PDF"
     </ul>
   </div>
 </div>
+<label for="__page-toc"
+  class="headerbtn headerbtn-page-toc"
+  
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-list"></i>
+  </span>
+
+</label>
 
     </div>
 </div>
 
 <!-- Table of contents -->
 <div class="col-md-3 bd-toc show noprint">
+    <div class="tocsection onthispage pt-5 pb-3">
+        <i class="fas fa-list"></i> Contents
+    </div>
+    <nav id="bd-toc-nav" aria-label="Page">
+        <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#usage">
+   Usage
+  </a>
+ </li>
+</ul>
+
+    </nav>
 </div>
     </div>
     <div class="article row">
         <div class="col pl-md-3 pl-lg-5 content-container">
             <!-- Table of contents that is only displayed when printing the page -->
             <div id="jb-print-docs-body" class="onlyprint">
-                <h1>Adding Managed Cluster to Identitatem</h1>
+                <h1>Kubeval validation</h1>
                 <!-- Table of contents -->
                 <div id="print-main-content">
                     <div id="jb-print-toc">
                         
+                        <div>
+                            <h2> Contents </h2>
+                        </div>
+                        <nav aria-label="Page">
+                            <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#usage">
+   Usage
+  </a>
+ </li>
+</ul>
+
+                        </nav>
                     </div>
                 </div>
             </div>
@@ -979,24 +1016,30 @@ title="Print to PDF"
                 
               <div>
                 
-  <section class="tex2jax_ignore mathjax_ignore" id="adding-managed-cluster-to-identitatem">
-<h1>Adding Managed Cluster to Identitatem<a class="headerlink" href="#adding-managed-cluster-to-identitatem" title="Permalink to this headline">#</a></h1>
-<p>You can use our <a class="reference external" href="https://identitatem.github.io/idp-mgmt-docs-upstream/">Identitatem</a> instance to automatically configure your cluster’s authenticatiion using the Operate First
-<a class="reference external" href="https://github.com/operate-first/apps/blob/master/acm/overlays/moc/infra/identitatem/authrealms/primary.yaml">Authrealm</a>.</p>
-<p>Doing this would allow users to authenticate your cluster via Operate First Organization’s GitHub authentication.</p>
-<p>To do this you need to first ensure your <code class="docutils literal notranslate"><span class="pre">ManagedCluster</span></code> exists in the <a class="reference external" href="https://github.com/operate-first/apps/tree/master/acm/overlays/moc/infra/managedclusters">apps</a> repo.</p>
-<p>Add the label <code class="docutils literal notranslate"><span class="pre">authdeployment:</span> <span class="pre">primary</span></code> to this <code class="docutils literal notranslate"><span class="pre">ManagedCluster</span></code> resource.</p>
-<p>Ensure your <code class="docutils literal notranslate"><span class="pre">ManagedCluster</span></code> is part of a <code class="docutils literal notranslate"><span class="pre">ManagedClusterSet</span></code> that is bound to the namespace <code class="docutils literal notranslate"><span class="pre">idp-auth-primary</span></code>.</p>
-<p>An easy way to do this would be to add the label <code class="docutils literal notranslate"><span class="pre">cluster.open-cluster-management.io/clusterset:</span> <span class="pre">argocd-managed</span></code> to
-your <code class="docutils literal notranslate"><span class="pre">ManagedCluster</span></code> resource. Just know that this will also add ArgoCD integration to this cluster (i.e. the OPF
-ArgoCD will be able to deploy to this cluster.).</p>
-<p>You can also create a new <code class="docutils literal notranslate"><span class="pre">ManagedClusterSet</span></code>, for this you will need to:</p>
-<ul class="simple">
-<li><p>Add the <code class="docutils literal notranslate"><span class="pre">ManagedClusterSet</span></code> <a class="reference external" href="https://github.com/operate-first/apps/tree/master/acm/overlays/moc/infra/managedclustersets">here</a>.</p></li>
-<li><p>Suppose it’s named <code class="docutils literal notranslate"><span class="pre">$CLUSTERSET</span></code> then add the label <code class="docutils literal notranslate"><span class="pre">cluster.open-cluster-management.io/clusterset:</span> <span class="pre">$CLUSTERSET</span></code> to
-your <code class="docutils literal notranslate"><span class="pre">ManagedCluster</span></code> resource (similar to above).</p></li>
-<li><p>Create a <code class="docutils literal notranslate"><span class="pre">ManagedClusterSetBinding</span></code> and add this new <code class="docutils literal notranslate"><span class="pre">$CLUSTERSET</span></code> to its <code class="docutils literal notranslate"><span class="pre">clusterSet</span></code> field. Add this binding <a class="reference external" href="https://github.com/operate-first/apps/tree/master/acm/overlays/moc/infra/managedclustersetbindings/base">here</a>.</p></li>
-</ul>
+  <section class="tex2jax_ignore mathjax_ignore" id="kubeval-validation">
+<h1>Kubeval validation<a class="headerlink" href="#kubeval-validation" title="Permalink to this headline">#</a></h1>
+<p>As a part of our CI pipelines in <code class="docutils literal notranslate"><span class="pre">apps</span></code> repository we are using kubeval to validate our schemas. Kubeval checks validity of the CRDs against the schemas stored in schema-store repository. If there are any errors, it is reported. This approach will check for api errors that can sneak through the <code class="docutils literal notranslate"><span class="pre">kustomize</span> <span class="pre">build</span></code> command. For example in following manifest <code class="docutils literal notranslate"><span class="pre">spec.port.targetPort</span></code> is not valid:</p>
+<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="nt">apiVersion</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">route.openshift.io/v1</span><span class="w"></span>
+<span class="nt">kind</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Route</span><span class="w"></span>
+<span class="nt">metadata</span><span class="p">:</span><span class="w"></span>
+<span class="w">  </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">kafdrop-route</span><span class="w"></span>
+<span class="nt">spec</span><span class="p">:</span><span class="w"></span>
+<span class="w">  </span><span class="nt">port</span><span class="p">:</span><span class="w"></span>
+<span class="w">    </span><span class="nt">targetPort</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">null</span><span class="w"></span>
+<span class="w">  </span><span class="nt">to</span><span class="p">:</span><span class="w"></span>
+<span class="w">    </span><span class="nt">kind</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Service</span><span class="w"></span>
+<span class="w">    </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">kafdrop</span><span class="w"></span>
+</pre></div>
+</div>
+<p>This manifest will be properly build using <code class="docutils literal notranslate"><span class="pre">kustomize</span> <span class="pre">build</span></code> but <code class="docutils literal notranslate"><span class="pre">kubeval</span></code> will be able to catch this issue and report it back.</p>
+<section id="usage">
+<h2>Usage<a class="headerlink" href="#usage" title="Permalink to this headline">#</a></h2>
+<p>We can use kubeval on manifests which are either stored in files or we can input manifests from stdin. This is useful in our case, because we can pipe output from <code class="docutils literal notranslate"><span class="pre">kustomize</span> <span class="pre">build</span></code> to kubeval and check if manifests are correct.</p>
+<p>By default <code class="docutils literal notranslate"><span class="pre">kubeval</span></code> uses default schemas which can be found <a class="reference external" href="https://kubernetesjsonschema.dev">here</a>. This is not ideal in our case because we have many CRDs which do not have schemas in default repository. For this reason we are generating our own schemas and using them in kubeval (more about how we are generating and updating schemas can be found <a class="reference external" href="https://www.operate-first.cloud/apps/content/kubeval/updating_schema_store.html">here</a> and script used for generating schemas can be found <a class="reference external" href="https://github.com/operate-first/toolbox/blob/master/scripts/test-kubeval-validation">here</a>). To use generated schemas we are using <code class="docutils literal notranslate"><span class="pre">--schema-location</span></code> option.</p>
+<p>We are also using <code class="docutils literal notranslate"><span class="pre">--strict</span></code> option which allows no additional properties in schema. Last option we specify is <code class="docutils literal notranslate"><span class="pre">--skip-kinds</span></code> which allows us to skip validation of CRDs which don’t have valid schemas.</p>
+</section>
+<div class="toctree-wrapper compound">
+</div>
 </section>
 
     <script type="text/x-thebe-config">
@@ -1012,7 +1055,7 @@ your <code class="docutils literal notranslate"><span class="pre">ManagedCluster
         },
         kernelOptions: {
             kernelName: "python3",
-            path: "./content/acm"
+            path: "./content/kubeval"
         },
         predefinedOutput: true
     }
@@ -1026,17 +1069,17 @@ your <code class="docutils literal notranslate"><span class="pre">ManagedCluster
                 
     <!-- Previous / next buttons -->
 <div class='prev-next-area'>
-    <a class='left-prev' id="prev-link" href="adding_managed_cluster_to_argocd.html" title="previous page">
+    <a class='left-prev' id="prev-link" href="../kafka/runbook.html" title="previous page">
         <i class="fas fa-angle-left"></i>
         <div class="prev-next-info">
             <p class="prev-next-subtitle">previous</p>
-            <p class="prev-next-title">Adding Managed Cluster to ArgoCD</p>
+            <p class="prev-next-title">Kafka Runbook</p>
         </div>
     </a>
-    <a class='right-next' id="next-link" href="manage_your_teams_ocp_clusters_via_acm.html" title="next page">
+    <a class='right-next' id="next-link" href="updating_schema_store.html" title="next page">
     <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title">Managing your team’s ocp clusters via ACM</p>
+        <p class="prev-next-title">Updating schemas in schema store</p>
     </div>
     <i class="fas fa-angle-right"></i>
     </a>
