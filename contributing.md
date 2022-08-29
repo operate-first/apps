@@ -114,4 +114,14 @@ The following is a list of some common commands and their uses, but more can be 
 
 ## Tests
 
+### Linting
+
 To run linting tests, we use [pre-commit](https://pre-commit.com/). Run `pre-commit install` after you clone the repo. Then, `pre-commit` will run automatically on git commit. If any one of the tests fail, add and commit the changes made by pre-commit. Once the pre-commit check passes, you can make your PR.
+
+### Kustomize build
+
+We are using `kustomize build` in our CI pipeline to test if the syntax of overlays is correct. This command is run against changes which are found between commit in PR and latest commit in master branch in `apps` repository.
+
+### Kubeval validation
+
+As the last step in our validation pipeline we are using `kubeval`. `Kubeval` checks if the manifests are valid against schemas which we store in [schema-store](https://github.com/operate-first/schema-store). These schemas were extracted from clusters using [script](https://github.com/operate-first/schema-store/blob/main/build_schema.py) which uses OpenAPI spec. More information about how we are using kubeval validation can be found in [documentation](https://www.operate-first.cloud/apps/content/kubeval/README.html).
