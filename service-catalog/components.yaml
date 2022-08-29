@@ -1,0 +1,11 @@
+apiVersion: backstage.io/v1alpha1
+kind: Location
+metadata:
+  name: components
+  description: A collection of all operate-first services
+spec:
+  targets:
+    - ./components/argocd.yaml
+    - ./components/grafana.yaml
+    - ./components/backstage.yaml
+    - ./components/crunchy-postgres-db.yaml

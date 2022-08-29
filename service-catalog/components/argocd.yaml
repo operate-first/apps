@@ -1,9 +1,10 @@
 apiVersion: backstage.io/v1alpha1
 kind: Component
 metadata:
-  name: ArgoCD
+  name: argocd
   description: Kubernetes native workflows, events, CI and CD. We manage a multi-tenant deployment of ArgoCD on the MOC Infra cluster
   annotations:
+    operate-first.cloud/featured: 'true'
     operate-first.cloud/logo-url: https://cncf-branding.netlify.app/img/projects/argo/icon/color/argo-icon-color.png
     argocd/app-name: opf-app-of-apps-smaug
     github.com/project-slug: operate-first/apps
@@ -11,8 +12,13 @@ metadata:
     - url: https://www.operate-first.cloud/apps/content/argocd-gitops/README.html
       title: Support path
       icon: user
+    - url: https://argocd.operate-first.cloud/
+      title: Instance of ArgoCD
+      icon: web
 spec:
   type: service
   lifecycle: production
   owner: group:operate-first
-  system: system:operate-first-cloud
+  system: argocd
+  providesApis:
+    - argocd

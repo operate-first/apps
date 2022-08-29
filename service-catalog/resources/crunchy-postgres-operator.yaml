@@ -1,0 +1,19 @@
+apiVersion: backstage.io/v1alpha1
+kind: Resource
+metadata:
+  name: crunchy-postgres-operator
+  description: Postgres Crunchy OpenShift operator responsible for deploying a postgres database
+  annotations:
+    # This selector only queries for pods since the pod and deployment have no common
+    # labels and the k8s label selector syntax doesn't support `or` operatation
+    backstage.io/kubernetes-label-selector: 'postgres-operator.crunchydata.com/control-plane=postgres-operator'
+  links:
+    - url: https://www.crunchydata.com/products/crunchy-high-availability-postgresql
+      title: Crunchy Postgres Operator
+      icon: web
+spec:
+  type: operator
+  lifecycle: production
+  owner: group:operate-first
+  dependsOn:
+    - resource:smaug

@@ -1,0 +1,8 @@
+apiVersion: backstage.io/v1alpha1
+kind: System
+metadata:
+  name: grafana
+  description: Grafana system
+spec:
+  owner: group:operate-first
+  domain: sre

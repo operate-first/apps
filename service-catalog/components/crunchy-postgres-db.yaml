@@ -1,0 +1,20 @@
+apiVersion: backstage.io/v1alpha1
+kind: Component
+metadata:
+  name: crunchy-postgres-db
+  description: Postgres database deployed using crunchy postgres operator
+  annotations:
+    operate-first.cloud/logo-url: https://raw.githubusercontent.com/CrunchyData/postgres-operator/master/docs/static/crunchy_logo.png
+    backstage.io/kubernetes-label-selector: 'postgres-operator.crunchydata.com/cluster=service-catalog'
+  links:
+    - url: https://www.crunchydata.com/products/crunchy-high-availability-postgresql
+      title: Crunchy Postgres Operator
+      icon: web
+spec:
+  type: service
+  lifecycle: production
+  owner: group:operate-first
+  system: service-catalog
+  dependsOn:
+    - resource:smaug
+    - resource:crunchy-postgres-operator
