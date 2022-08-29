@@ -34,5 +34,6 @@ spec:
       token_url: https://dex-dex.apps.odh-cl1.apps.os-climate.org/token
       role_attribute_path: >-
         contains(groups[*], 'cluster-admins') && 'Admin' ||
+        contains(groups[*], 'kepler-admins') && 'Editor' ||
         'Deny'
       role_attribute_strict: true
