@@ -372,7 +372,67 @@ tide:
           probot-template:
             skip-unknown-contexts: false
 
+presets:
+- labels:
+  preset-xdg-cache: "true"
+  env:
+    - name: XDG_CACHE_HOME
+      value: /var/cache/xdg
+  volumesMount:
+    - name: cache
+      mountPath: /var/cache/xdg
+  volumes:
+    - name: cache
+      persistentVolumeClaim:
+        claimName: ci-xdg-cache
+
+presubmits:
+  thoth-station:
+  - name: pre-commit # This should be overridable(by in_repo_config). Check https://github.com/kubernetes-sigs/prow/issues/18
+    labels:
+      preset-xdg-cache: "true"
+    decorate: true
+    skip_report: false
+    always_run: true
+    context: aicoe-ci/prow/pre-commit
+    spec:
+      containers:
+        - image: quay.io/thoth-station/thoth-precommit-py38:latest
+          command:
+            - "pre-commit"
+            - "run"
+            - "--all-files"
+      resources:
+        requests:
+          memory: "150Mi"
+          cpu: 0.5 # We don't set a CPU limit since it's a compressible resource
+        limits:
+          memory: "300Mi"
+# overrides would look like
+#presubmits:
+#- name: pre-commit
+#  labels:
+#    preset-xdg-cache: "true"
+#  decorate: true
+#  skip_report: false
+#  always_run: true
+#  context: aicoe-ci/prow/pre-commit
+#  spec:
+#    containers:
+#      - image: quay.io/thoth-station/thoth-precommit-py38:latest
+#        command:
+#          - "pre-commit"
+#          - "run"
+#          - "--from-ref origin/HEAD"
+#          - "--to-ref HEAD"
+
 periodics:
+  - name: pre-commit-hooks-update
+    interval: 7d
+    decorate: true
+    annotations:
+      description: Updates pre-commit image version and pre-commit hooks
+    spec: {} # TODO. Ideally a tekton pipeline if that's possible (gh query for all concerned repo + one updater per repo ?)
   - name: periodic-close-rotten
     interval: 3h
     decorate: true
