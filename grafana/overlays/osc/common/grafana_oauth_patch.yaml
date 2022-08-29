@@ -1,0 +1,31 @@
+apiVersion: integreatly.org/v1alpha1
+kind: Grafana
+metadata:
+  annotations:
+    argocd.argoproj.io/sync-wave: "1"
+  name: grafana
+spec:
+  baseImage: quay.io/operate-first/grafana:9.1.1
+  deployment:
+    envFrom:
+      - secretRef:
+          name: grafana-secret-config
+  configMaps:
+    - grafana-landing-page
+  serviceAccount:
+    labels:
+      app.kubernetes.io/instance: cluster-resources-osc
+  config:
+    dashboards:
+      default_home_dashboard_path: "/etc/grafana-configmaps/grafana-landing-page/landingpage.json"
+    auth.generic_oauth:
+      enabled: true
+      scopes: openid email groups profile
+      email_attribute_path: name
+      client_id: grafana
+      client_secret: "${GRAFANA_CLIENT_SECRET}"
+      role_attribute_path: >-
+        contains(groups[*], 'cluster-admins') && 'Admin' ||
+        contains(groups[*], 'kepler-admins') && 'Editor' ||
+        'Deny'
+      role_attribute_strict: true
