@@ -1,0 +1,10 @@
+site_name: 'Grafana documentation'
+
+nav:
+  - Home: README.md
+  - Add grafana dashboard: add_grafana_dashboard.md
+  - Map groups to roles: map_groups_to_roles.md
+
+plugins:
+  - techdocs-core
+  - search

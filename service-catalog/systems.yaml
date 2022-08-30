@@ -7,4 +7,5 @@ spec:
   targets:
     - ./systems/argocd.yaml
     - ./systems/grafana.yaml
+    - ./systems/dex.yaml
     - ./systems/service-catalog.yaml
