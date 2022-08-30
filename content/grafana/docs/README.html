@@ -6,55 +6,55 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
 
-    <title>Add a Grafana dashboard to OperateFirst Grafana &#8212; GitOps Docs</title>
+    <title>Grafana &#8212; GitOps Docs</title>
     
   <!-- Loaded before other Sphinx assets -->
-  <link href="../../_static/styles/theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
-<link href="../../_static/styles/pydata-sphinx-theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
+  <link href="../../../_static/styles/theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
+<link href="../../../_static/styles/pydata-sphinx-theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
 
     
   <link rel="stylesheet"
-    href="../../_static/vendor/fontawesome/5.13.0/css/all.min.css">
+    href="../../../_static/vendor/fontawesome/5.13.0/css/all.min.css">
   <link rel="preload" as="font" type="font/woff2" crossorigin
-    href="../../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+    href="../../../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
   <link rel="preload" as="font" type="font/woff2" crossorigin
-    href="../../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+    href="../../../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
 
-    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css" />
-    <link rel="stylesheet" href="../../_static/styles/sphinx-book-theme.css?digest=5115cc725059bd94278eecd172e13a965bf8f5a9" type="text/css" />
-    <link rel="stylesheet" type="text/css" href="../../_static/togglebutton.css" />
-    <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css" />
-    <link rel="stylesheet" type="text/css" href="../../_static/mystnb.css" />
-    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-thebe.css" />
-    <link rel="stylesheet" type="text/css" href="../../_static/design-style.b7bb847fb20b106c3d81b95245e65545.min.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css" />
+    <link rel="stylesheet" href="../../../_static/styles/sphinx-book-theme.css?digest=5115cc725059bd94278eecd172e13a965bf8f5a9" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/design-style.b7bb847fb20b106c3d81b95245e65545.min.css" />
     
   <!-- Pre-loaded scripts that we'll load fully later -->
-  <link rel="preload" as="script" href="../../_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf">
+  <link rel="preload" as="script" href="../../../_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf">
 
-    <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
-    <script src="../../_static/jquery.js"></script>
-    <script src="../../_static/underscore.js"></script>
-    <script src="../../_static/doctools.js"></script>
-    <script src="../../_static/clipboard.min.js"></script>
-    <script src="../../_static/copybutton.js"></script>
-    <script src="../../_static/scripts/sphinx-book-theme.js?digest=9c920249402e914e316237a7dbc6769907cce411"></script>
+    <script data-url_root="../../../" id="documentation_options" src="../../../_static/documentation_options.js"></script>
+    <script src="../../../_static/jquery.js"></script>
+    <script src="../../../_static/underscore.js"></script>
+    <script src="../../../_static/doctools.js"></script>
+    <script src="../../../_static/clipboard.min.js"></script>
+    <script src="../../../_static/copybutton.js"></script>
+    <script src="../../../_static/scripts/sphinx-book-theme.js?digest=9c920249402e914e316237a7dbc6769907cce411"></script>
     <script>let toggleHintShow = 'Click to show';</script>
     <script>let toggleHintHide = 'Click to hide';</script>
     <script>let toggleOpenOnPrint = 'true';</script>
-    <script src="../../_static/togglebutton.js"></script>
+    <script src="../../../_static/togglebutton.js"></script>
     <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
-    <script src="../../_static/design-tabs.js"></script>
+    <script src="../../../_static/design-tabs.js"></script>
     <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
 const thebe_selector = ".thebe,.cell"
 const thebe_selector_input = "pre"
 const thebe_selector_output = ".output, .cell_output"
 </script>
-    <script async="async" src="../../_static/sphinx-thebe.js"></script>
-    <link rel="shortcut icon" href="../../_static/favicon.png"/>
-    <link rel="index" title="Index" href="../../genindex.html" />
-    <link rel="search" title="Search" href="../../search.html" />
-    <link rel="next" title="Adding permissions in Grafana" href="map_groups_to_roles.html" />
-    <link rel="prev" title="Grafana" href="README.html" />
+    <script async="async" src="../../../_static/sphinx-thebe.js"></script>
+    <link rel="shortcut icon" href="../../../_static/favicon.png"/>
+    <link rel="index" title="Index" href="../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../search.html" />
+    <link rel="next" title="Add a Grafana dashboard to OperateFirst Grafana" href="add_grafana_dashboard.html" />
+    <link rel="prev" title="Updating schemas in schema store" href="../../kubeval/updating_schema_store.html" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="None">
     
@@ -89,19 +89,19 @@ const thebe_selector_output = ".output, .cell_output"
 <div class="bd-sidebar noprint" id="site-navigation">
     <div class="bd-sidebar__content">
         <div class="bd-sidebar__top"><div class="navbar-brand-box">
-    <a class="navbar-brand text-wrap" href="../../index.html">
+    <a class="navbar-brand text-wrap" href="../../../index.html">
       
         <!-- `logo` is deprecated in Sphinx 4.0, so remove this when we stop supporting 3 -->
         
       
       
-      <img src="../../_static/icon.png" class="logo" alt="logo">
+      <img src="../../../_static/icon.png" class="logo" alt="logo">
       
       
       <h1 class="site-logo" id="site-title">GitOps Docs</h1>
       
     </a>
-</div><form class="bd-search d-flex align-items-center" action="../../search.html" method="get">
+</div><form class="bd-search d-flex align-items-center" action="../../../search.html" method="get">
   <i class="icon fas fa-search"></i>
   <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
 </form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
@@ -109,7 +109,7 @@ const thebe_selector_output = ".output, .cell_output"
         
         <ul class="nav bd-sidenav bd-sidenav__home-link">
             <li class="toctree-l1">
-                <a class="reference internal" href="../README.html">
+                <a class="reference internal" href="../../README.html">
                     GitOps Documentation
                 </a>
             </li>
@@ -121,7 +121,7 @@ const thebe_selector_output = ".output, .cell_output"
 </p>
 <ul class="current nav bd-sidenav">
  <li class="toctree-l1 has-children">
-  <a class="reference internal" href="../about/README.html">
+  <a class="reference internal" href="../../about/README.html">
    About
   </a>
   <input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/>
@@ -131,14 +131,14 @@ const thebe_selector_output = ".output, .cell_output"
   </label>
   <ul>
    <li class="toctree-l2">
-    <a class="reference internal" href="../about/intro.html">
+    <a class="reference internal" href="../../about/intro.html">
      Getting started with Operate First
     </a>
    </li>
   </ul>
  </li>
  <li class="toctree-l1 has-children">
-  <a class="reference internal" href="../acm/README.html">
+  <a class="reference internal" href="../../acm/README.html">
    ACM
   </a>
   <input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/>
@@ -148,24 +148,24 @@ const thebe_selector_output = ".output, .cell_output"
   </label>
   <ul>
    <li class="toctree-l2">
-    <a class="reference internal" href="../acm/adding_managed_cluster_to_argocd.html">
+    <a class="reference internal" href="../../acm/adding_managed_cluster_to_argocd.html">
      Adding Managed Cluster to ArgoCD
     </a>
    </li>
    <li class="toctree-l2">
-    <a class="reference internal" href="../acm/adding_managed_cluster_to_identitatem.html">
+    <a class="reference internal" href="../../acm/adding_managed_cluster_to_identitatem.html">
      Adding Managed Cluster to Identitatem
     </a>
    </li>
    <li class="toctree-l2">
-    <a class="reference internal" href="../acm/manage_your_teams_ocp_clusters_via_acm.html">
+    <a class="reference internal" href="../../acm/manage_your_teams_ocp_clusters_via_acm.html">
      Managing your team’s ocp clusters via ACM
     </a>
    </li>
   </ul>
  </li>
  <li class="toctree-l1 has-children">
-  <a class="reference internal" href="../acme/README.html">
+  <a class="reference internal" href="../../acme/README.html">
    ACME
   </a>
   <input class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"/>
@@ -175,14 +175,14 @@ const thebe_selector_output = ".output, .cell_output"
   </label>
   <ul>
    <li class="toctree-l2">
-    <a class="reference internal" href="../acme/issuing_certificates.html">
+    <a class="reference internal" href="../../acme/issuing_certificates.html">
      Issuing certificates
     </a>
    </li>
   </ul>
  </li>
  <li class="toctree-l1 has-children">
-  <a class="reference internal" href="../argocd-gitops/README.html">
+  <a class="reference internal" href="../../argocd-gitops/README.html">
    ArgoCD
   </a>
   <input class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" type="checkbox"/>
@@ -192,64 +192,64 @@ const thebe_selector_output = ".output, .cell_output"
   </label>
   <ul>
    <li class="toctree-l2">
-    <a class="reference internal" href="../argocd-gitops/add_application.html">
+    <a class="reference internal" href="../../argocd-gitops/add_application.html">
      Adding ArgoCD Applications
     </a>
    </li>
    <li class="toctree-l2">
-    <a class="reference internal" href="../argocd-gitops/add_permissions_to_project.html">
+    <a class="reference internal" href="../../argocd-gitops/add_permissions_to_project.html">
      Requesting more permissions for an ArgoCD Project (MOC)
     </a>
    </li>
    <li class="toctree-l2">
-    <a class="reference internal" href="../argocd-gitops/encrypting_applications.html">
+    <a class="reference internal" href="../../argocd-gitops/encrypting_applications.html">
      How to encrypt apps in this repo
     </a>
    </li>
    <li class="toctree-l2">
-    <a class="reference internal" href="../argocd-gitops/get_access_to_argocd.html">
+    <a class="reference internal" href="../../argocd-gitops/get_access_to_argocd.html">
      Get access to ArgoCD
     </a>
    </li>
    <li class="toctree-l2">
-    <a class="reference internal" href="../argocd-gitops/import_dev_gpg.html">
+    <a class="reference internal" href="../../argocd-gitops/import_dev_gpg.html">
      Import Development GPG Key
     </a>
    </li>
    <li class="toctree-l2">
-    <a class="reference internal" href="../argocd-gitops/onboarding_to_argocd.html">
+    <a class="reference internal" href="../../argocd-gitops/onboarding_to_argocd.html">
      ArgoCD onboarding procedure
     </a>
    </li>
    <li class="toctree-l2">
-    <a class="reference internal" href="../argocd-gitops/secret_management.html">
+    <a class="reference internal" href="../../argocd-gitops/secret_management.html">
      Secret management for applications
     </a>
    </li>
    <li class="toctree-l2">
-    <a class="reference internal" href="../argocd-gitops/setup_argocd_dev_environment.html">
+    <a class="reference internal" href="../../argocd-gitops/setup_argocd_dev_environment.html">
      Deploying a development environment
     </a>
    </li>
    <li class="toctree-l2">
-    <a class="reference internal" href="../argocd-gitops/update_argocd.html">
+    <a class="reference internal" href="../../argocd-gitops/update_argocd.html">
      Steps for Upgrading ArgoCD
     </a>
    </li>
    <li class="toctree-l2">
-    <a class="reference internal" href="../argocd-gitops/update_gpg_key.html">
+    <a class="reference internal" href="../../argocd-gitops/update_gpg_key.html">
      Update gpg key
     </a>
    </li>
    <li class="toctree-l2">
-    <a class="reference internal" href="../argocd-gitops/argocd_notifications.html">
+    <a class="reference internal" href="../../argocd-gitops/argocd_notifications.html">
      Where and How do I add notifications to my ArgoCD apps?
     </a>
    </li>
   </ul>
  </li>
  <li class="toctree-l1 has-children">
-  <a class="reference internal" href="../vault_eso/README.html">
+  <a class="reference internal" href="../../vault_eso/README.html">
    Secret Management
   </a>
   <input class="toctree-checkbox" id="toctree-checkbox-5" name="toctree-checkbox-5" type="checkbox"/>
@@ -259,39 +259,39 @@ const thebe_selector_output = ".output, .cell_output"
   </label>
   <ul>
    <li class="toctree-l2">
-    <a class="reference internal" href="../vault_eso/add_cluster_to_eso_and_vault.html">
+    <a class="reference internal" href="../../vault_eso/add_cluster_to_eso_and_vault.html">
      Enable Cluster to use External Secrets with Vault
     </a>
    </li>
    <li class="toctree-l2">
-    <a class="reference internal" href="../vault_eso/add_external_secrets_to_ns.html">
+    <a class="reference internal" href="../../vault_eso/add_external_secrets_to_ns.html">
      Add External Secrets to a namespace
     </a>
    </li>
    <li class="toctree-l2">
-    <a class="reference internal" href="../vault_eso/add_eso_to_cluster.html">
+    <a class="reference internal" href="../../vault_eso/add_eso_to_cluster.html">
      Add External Secrets Operator to an OPF cluster
     </a>
    </li>
    <li class="toctree-l2">
-    <a class="reference internal" href="../vault_eso/restore_vault.html">
+    <a class="reference internal" href="../../vault_eso/restore_vault.html">
      Restoring vault
     </a>
    </li>
    <li class="toctree-l2">
-    <a class="reference internal" href="../vault_eso/vault_backup_job.html">
+    <a class="reference internal" href="../../vault_eso/vault_backup_job.html">
      Vault Backup Job
     </a>
    </li>
    <li class="toctree-l2">
-    <a class="reference internal" href="../vault_eso/runbook.html">
+    <a class="reference internal" href="../../vault_eso/runbook.html">
      Vault Runbook
     </a>
    </li>
   </ul>
  </li>
  <li class="toctree-l1 has-children">
-  <a class="reference internal" href="../cluster-scope/README.html">
+  <a class="reference internal" href="../../cluster-scope/README.html">
    Cluster Management
   </a>
   <input class="toctree-checkbox" id="toctree-checkbox-6" name="toctree-checkbox-6" type="checkbox"/>
@@ -301,37 +301,37 @@ const thebe_selector_output = ".output, .cell_output"
   </label>
   <ul>
    <li class="toctree-l2">
-    <a class="reference internal" href="../cluster-scope/add_resource_quotas.html">
+    <a class="reference internal" href="../../cluster-scope/add_resource_quotas.html">
      Adding Resource Quotas
     </a>
    </li>
    <li class="toctree-l2">
-    <a class="reference internal" href="../cluster-scope/create_ocp_group.html">
+    <a class="reference internal" href="../../cluster-scope/create_ocp_group.html">
      Adding an OCP group to Operate First Cloud
     </a>
    </li>
    <li class="toctree-l2">
-    <a class="reference internal" href="../cluster-scope/add_user_to_group.html">
+    <a class="reference internal" href="../../cluster-scope/add_user_to_group.html">
      Adding User to an OCP team
     </a>
    </li>
    <li class="toctree-l2">
-    <a class="reference internal" href="../cluster-scope/offboarding_cluster.html">
+    <a class="reference internal" href="../../cluster-scope/offboarding_cluster.html">
      Remove a Cluster from Operate First
     </a>
    </li>
    <li class="toctree-l2">
-    <a class="reference internal" href="../cluster-scope/onboarding_project.html">
+    <a class="reference internal" href="../../cluster-scope/onboarding_project.html">
      Onboard Project
     </a>
    </li>
    <li class="toctree-l2">
-    <a class="reference internal" href="../cluster-scope/quotas.html">
+    <a class="reference internal" href="../../cluster-scope/quotas.html">
      Resource Quota Tiers
     </a>
    </li>
    <li class="toctree-l2 has-children">
-    <a class="reference internal" href="../cluster-scope/runbooks/runbook.html">
+    <a class="reference internal" href="../../cluster-scope/runbooks/runbook.html">
      Runbooks
     </a>
     <input class="toctree-checkbox" id="toctree-checkbox-7" name="toctree-checkbox-7" type="checkbox"/>
@@ -341,12 +341,12 @@ const thebe_selector_output = ".output, .cell_output"
     </label>
     <ul>
      <li class="toctree-l3">
-      <a class="reference internal" href="../cluster-scope/runbooks/emea/runbook.html">
+      <a class="reference internal" href="../../cluster-scope/runbooks/emea/runbook.html">
        EMEA clusters
       </a>
      </li>
      <li class="toctree-l3">
-      <a class="reference internal" href="../cluster-scope/runbooks/moc/runbook.html">
+      <a class="reference internal" href="../../cluster-scope/runbooks/moc/runbook.html">
        MOC Clusters
       </a>
      </li>
@@ -355,7 +355,7 @@ const thebe_selector_output = ".output, .cell_output"
   </ul>
  </li>
  <li class="toctree-l1 has-children">
-  <a class="reference internal" href="../development/README.html">
+  <a class="reference internal" href="../../development/README.html">
    Development
   </a>
   <input class="toctree-checkbox" id="toctree-checkbox-8" name="toctree-checkbox-8" type="checkbox"/>
@@ -365,19 +365,19 @@ const thebe_selector_output = ".output, .cell_output"
   </label>
   <ul>
    <li class="toctree-l2">
-    <a class="reference internal" href="../development/crc-disk-size.html">
+    <a class="reference internal" href="../../development/crc-disk-size.html">
      Increasing CRC disk space
     </a>
    </li>
    <li class="toctree-l2">
-    <a class="reference internal" href="../development/setup_quicklab.html">
+    <a class="reference internal" href="../../development/setup_quicklab.html">
      Quicklab
     </a>
    </li>
   </ul>
  </li>
  <li class="toctree-l1 has-children">
-  <a class="reference internal" href="../kafka/README.html">
+  <a class="reference internal" href="../../kafka/README.html">
    Kafka
   </a>
   <input class="toctree-checkbox" id="toctree-checkbox-9" name="toctree-checkbox-9" type="checkbox"/>
@@ -387,24 +387,24 @@ const thebe_selector_output = ".output, .cell_output"
   </label>
   <ul>
    <li class="toctree-l2">
-    <a class="reference internal" href="../kafka/add_kafka_topics.html">
+    <a class="reference internal" href="../../kafka/add_kafka_topics.html">
      Add Kafka Topics
     </a>
    </li>
    <li class="toctree-l2">
-    <a class="reference internal" href="../kafka/add_kafka_users.html">
+    <a class="reference internal" href="../../kafka/add_kafka_users.html">
      Add Kafka Users
     </a>
    </li>
    <li class="toctree-l2">
-    <a class="reference internal" href="../kafka/runbook.html">
+    <a class="reference internal" href="../../kafka/runbook.html">
      Kafka Runbook
     </a>
    </li>
   </ul>
  </li>
  <li class="toctree-l1 has-children">
-  <a class="reference internal" href="../kubeval/README.html">
+  <a class="reference internal" href="../../kubeval/README.html">
    Kubeval validation
   </a>
   <input class="toctree-checkbox" id="toctree-checkbox-10" name="toctree-checkbox-10" type="checkbox"/>
@@ -414,14 +414,14 @@ const thebe_selector_output = ".output, .cell_output"
   </label>
   <ul>
    <li class="toctree-l2">
-    <a class="reference internal" href="../kubeval/updating_schema_store.html">
+    <a class="reference internal" href="../../kubeval/updating_schema_store.html">
      Updating schemas in schema store
     </a>
    </li>
   </ul>
  </li>
  <li class="toctree-l1 current active has-children">
-  <a class="reference internal" href="README.html">
+  <a class="current reference internal" href="#">
    Grafana
   </a>
   <input checked="" class="toctree-checkbox" id="toctree-checkbox-11" name="toctree-checkbox-11" type="checkbox"/>
@@ -429,9 +429,9 @@ const thebe_selector_output = ".output, .cell_output"
    <i class="fas fa-chevron-down">
    </i>
   </label>
-  <ul class="current">
-   <li class="toctree-l2 current active">
-    <a class="current reference internal" href="#">
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="add_grafana_dashboard.html">
      Add a Grafana dashboard to OperateFirst Grafana
     </a>
    </li>
@@ -443,12 +443,12 @@ const thebe_selector_output = ".output, .cell_output"
   </ul>
  </li>
  <li class="toctree-l1">
-  <a class="reference internal" href="../prometheus/README.html">
+  <a class="reference internal" href="../../prometheus/README.html">
    Prometheus
   </a>
  </li>
  <li class="toctree-l1 has-children">
-  <a class="reference internal" href="../observatorium/README.html">
+  <a class="reference internal" href="../../observatorium/README.html">
    Observatorium
   </a>
   <input class="toctree-checkbox" id="toctree-checkbox-12" name="toctree-checkbox-12" type="checkbox"/>
@@ -458,39 +458,39 @@ const thebe_selector_output = ".output, .cell_output"
   </label>
   <ul>
    <li class="toctree-l2">
-    <a class="reference internal" href="../observatorium/loki/README.html">
+    <a class="reference internal" href="../../observatorium/loki/README.html">
      Loki
     </a>
    </li>
    <li class="toctree-l2">
-    <a class="reference internal" href="../observatorium/thanos/README.html">
+    <a class="reference internal" href="../../observatorium/thanos/README.html">
      Thanos Access
     </a>
    </li>
    <li class="toctree-l2">
-    <a class="reference internal" href="../observatorium/thanos/request_grafana_access.html">
+    <a class="reference internal" href="../../observatorium/thanos/request_grafana_access.html">
      Grafana
     </a>
    </li>
    <li class="toctree-l2">
-    <a class="reference internal" href="../observatorium/thanos/request_thanos_access.html">
+    <a class="reference internal" href="../../observatorium/thanos/request_thanos_access.html">
      Thanos Query API
     </a>
    </li>
    <li class="toctree-l2">
-    <a class="reference internal" href="../observatorium/thanos/thanos_programmatic_access.html">
+    <a class="reference internal" href="../../observatorium/thanos/thanos_programmatic_access.html">
      Thanos Programmatic Access
     </a>
    </li>
    <li class="toctree-l2">
-    <a class="reference internal" href="../observatorium/vector/README.html">
+    <a class="reference internal" href="../../observatorium/vector/README.html">
      Vector on Operate First
     </a>
    </li>
   </ul>
  </li>
  <li class="toctree-l1 has-children">
-  <a class="reference internal" href="../odf/README.html">
+  <a class="reference internal" href="../../odf/README.html">
    OpenShift Data Foundation
   </a>
   <input class="toctree-checkbox" id="toctree-checkbox-13" name="toctree-checkbox-13" type="checkbox"/>
@@ -500,24 +500,24 @@ const thebe_selector_output = ".output, .cell_output"
   </label>
   <ul>
    <li class="toctree-l2">
-    <a class="reference internal" href="../odf/buckets-external-access.html">
+    <a class="reference internal" href="../../odf/buckets-external-access.html">
      Accessing buckets from outside the cluster
     </a>
    </li>
    <li class="toctree-l2">
-    <a class="reference internal" href="../odf/claiming_object_store.html">
+    <a class="reference internal" href="../../odf/claiming_object_store.html">
      Claiming S3-compatible object store buckets
     </a>
    </li>
    <li class="toctree-l2">
-    <a class="reference internal" href="../odf/runbook.html">
+    <a class="reference internal" href="../../odf/runbook.html">
      OpenShift Data Foundation (ODF) Runbook
     </a>
    </li>
   </ul>
  </li>
  <li class="toctree-l1 has-children">
-  <a class="reference internal" href="../odh/README.html">
+  <a class="reference internal" href="../../odh/README.html">
    Open Data Hub (ODH)
   </a>
   <input class="toctree-checkbox" id="toctree-checkbox-14" name="toctree-checkbox-14" type="checkbox"/>
@@ -527,7 +527,7 @@ const thebe_selector_output = ".output, .cell_output"
   </label>
   <ul>
    <li class="toctree-l2 has-children">
-    <a class="reference internal" href="../odh/jupyterhub/README.html">
+    <a class="reference internal" href="../../odh/jupyterhub/README.html">
      JupyterHub
     </a>
     <input class="toctree-checkbox" id="toctree-checkbox-15" name="toctree-checkbox-15" type="checkbox"/>
@@ -537,44 +537,44 @@ const thebe_selector_output = ".output, .cell_output"
     </label>
     <ul>
      <li class="toctree-l3">
-      <a class="reference internal" href="../odh/jupyterhub/access_jupyterhub.html">
+      <a class="reference internal" href="../../odh/jupyterhub/access_jupyterhub.html">
        Access JupyterHub
       </a>
      </li>
      <li class="toctree-l3">
-      <a class="reference internal" href="../odh/jupyterhub/add_imagestream_to_jh.html">
+      <a class="reference internal" href="../../odh/jupyterhub/add_imagestream_to_jh.html">
        Provision a new ImageStream
       </a>
      </li>
      <li class="toctree-l3">
-      <a class="reference internal" href="../odh/jupyterhub/analyze_storage.html">
+      <a class="reference internal" href="../../odh/jupyterhub/analyze_storage.html">
        Analyze Storage for a Notebook
       </a>
      </li>
      <li class="toctree-l3">
-      <a class="reference internal" href="../odh/jupyterhub/increase_pvc_size_jh.html">
+      <a class="reference internal" href="../../odh/jupyterhub/increase_pvc_size_jh.html">
        Increase PVC size for JupyterHub
       </a>
      </li>
      <li class="toctree-l3">
-      <a class="reference internal" href="../odh/jupyterhub/reinstall_kernel.html">
+      <a class="reference internal" href="../../odh/jupyterhub/reinstall_kernel.html">
        How to restart a Notebook Kernel
       </a>
      </li>
      <li class="toctree-l3">
-      <a class="reference internal" href="../odh/jupyterhub/runbook.html">
+      <a class="reference internal" href="../../odh/jupyterhub/runbook.html">
        JupyterHub Runbook
       </a>
      </li>
      <li class="toctree-l3">
-      <a class="reference internal" href="../odh/jupyterhub/user_profiles.html">
+      <a class="reference internal" href="../../odh/jupyterhub/user_profiles.html">
        Managing user profiles
       </a>
      </li>
     </ul>
    </li>
    <li class="toctree-l2 has-children">
-    <a class="reference internal" href="../odh/superset/README.html">
+    <a class="reference internal" href="../../odh/superset/README.html">
      Superset
     </a>
     <input class="toctree-checkbox" id="toctree-checkbox-16" name="toctree-checkbox-16" type="checkbox"/>
@@ -584,29 +584,29 @@ const thebe_selector_output = ".output, .cell_output"
     </label>
     <ul>
      <li class="toctree-l3">
-      <a class="reference internal" href="../odh/superset/add_superset_users.html">
+      <a class="reference internal" href="../../odh/superset/add_superset_users.html">
        Provision Superset Access
       </a>
      </li>
      <li class="toctree-l3">
-      <a class="reference internal" href="../odh/superset/add_trino_db.html">
+      <a class="reference internal" href="../../odh/superset/add_trino_db.html">
        Add Trino database
       </a>
      </li>
      <li class="toctree-l3">
-      <a class="reference internal" href="../odh/superset/map_groups_to_roles.html">
+      <a class="reference internal" href="../../odh/superset/map_groups_to_roles.html">
        Map OCP Group to Superset Role
       </a>
      </li>
      <li class="toctree-l3">
-      <a class="reference internal" href="../odh/superset/runbook.html">
+      <a class="reference internal" href="../../odh/superset/runbook.html">
        Superset Runbook
       </a>
      </li>
     </ul>
    </li>
    <li class="toctree-l2 has-children">
-    <a class="reference internal" href="../odh/trino/README.html">
+    <a class="reference internal" href="../../odh/trino/README.html">
      Trino
     </a>
     <input class="toctree-checkbox" id="toctree-checkbox-17" name="toctree-checkbox-17" type="checkbox"/>
@@ -616,36 +616,36 @@ const thebe_selector_output = ".output, .cell_output"
     </label>
     <ul>
      <li class="toctree-l3">
-      <a class="reference internal" href="../odh/trino/access_public_bucket.html">
+      <a class="reference internal" href="../../odh/trino/access_public_bucket.html">
        Operate-First Public Bucket
       </a>
      </li>
      <li class="toctree-l3">
-      <a class="reference internal" href="../odh/trino/add_more_buckets.html">
+      <a class="reference internal" href="../../odh/trino/add_more_buckets.html">
        Adding buckets to Trino
       </a>
      </li>
      <li class="toctree-l3">
-      <a class="reference internal" href="../odh/trino/add_more_postgress_catalogs.html">
+      <a class="reference internal" href="../../odh/trino/add_more_postgress_catalogs.html">
        Adding additional Postgres catalogs to Trino
       </a>
      </li>
      <li class="toctree-l3">
-      <a class="reference internal" href="../odh/trino/trino_superset_user_guide.html">
+      <a class="reference internal" href="../../odh/trino/trino_superset_user_guide.html">
        How To Guide: Ceph -&gt; Trino -&gt; Superset
       </a>
      </li>
     </ul>
    </li>
    <li class="toctree-l2">
-    <a class="reference internal" href="../odh/adding_kfdefs.html">
+    <a class="reference internal" href="../../odh/adding_kfdefs.html">
      Add a new Kfdef
     </a>
    </li>
   </ul>
  </li>
  <li class="toctree-l1 has-children">
-  <a class="reference internal" href="../openmetadata/README.html">
+  <a class="reference internal" href="../../openmetadata/README.html">
    OpenMetaData
   </a>
   <input class="toctree-checkbox" id="toctree-checkbox-18" name="toctree-checkbox-18" type="checkbox"/>
@@ -655,19 +655,19 @@ const thebe_selector_output = ".output, .cell_output"
   </label>
   <ul>
    <li class="toctree-l2">
-    <a class="reference internal" href="../openmetadata/operator_manual/deployment.html">
+    <a class="reference internal" href="../../openmetadata/operator_manual/deployment.html">
      OpenMetaData Deployment on Operate First
     </a>
    </li>
    <li class="toctree-l2">
-    <a class="reference internal" href="../openmetadata/operator_manual/updating_om.html">
+    <a class="reference internal" href="../../openmetadata/operator_manual/updating_om.html">
      Updating OpenMetaData
     </a>
    </li>
   </ul>
  </li>
  <li class="toctree-l1 has-children">
-  <a class="reference internal" href="../reloader/README.html">
+  <a class="reference internal" href="../../reloader/README.html">
    Reloader
   </a>
   <input class="toctree-checkbox" id="toctree-checkbox-19" name="toctree-checkbox-19" type="checkbox"/>
@@ -677,14 +677,14 @@ const thebe_selector_output = ".output, .cell_output"
   </label>
   <ul>
    <li class="toctree-l2">
-    <a class="reference internal" href="../reloader/monitoring-secrets-configmaps.html">
+    <a class="reference internal" href="../../reloader/monitoring-secrets-configmaps.html">
      Monitoring secrets and configMaps for changes with Reloader
     </a>
    </li>
   </ul>
  </li>
  <li class="toctree-l1 has-children">
-  <a class="reference internal" href="../uwm/README.html">
+  <a class="reference internal" href="../../uwm/README.html">
    User WorkLoad Monitoring
   </a>
   <input class="toctree-checkbox" id="toctree-checkbox-20" name="toctree-checkbox-20" type="checkbox"/>
@@ -694,14 +694,14 @@ const thebe_selector_output = ".output, .cell_output"
   </label>
   <ul>
    <li class="toctree-l2">
-    <a class="reference internal" href="../uwm/overview.html">
+    <a class="reference internal" href="../../uwm/overview.html">
      Overview
     </a>
    </li>
   </ul>
  </li>
  <li class="toctree-l1 has-children">
-  <a class="reference internal" href="../volsync/README.html">
+  <a class="reference internal" href="../../volsync/README.html">
    Volsync
   </a>
   <input class="toctree-checkbox" id="toctree-checkbox-21" name="toctree-checkbox-21" type="checkbox"/>
@@ -711,14 +711,14 @@ const thebe_selector_output = ".output, .cell_output"
   </label>
   <ul>
    <li class="toctree-l2">
-    <a class="reference internal" href="../volsync/using-volsync.html">
+    <a class="reference internal" href="../../volsync/using-volsync.html">
      Using Volsync to back up persistent volumes
     </a>
    </li>
   </ul>
  </li>
  <li class="toctree-l1 has-children">
-  <a class="reference internal" href="../opentelemetry-collector/README.html">
+  <a class="reference internal" href="../../opentelemetry-collector/README.html">
    OpenTelemetry Collector
   </a>
   <input class="toctree-checkbox" id="toctree-checkbox-22" name="toctree-checkbox-22" type="checkbox"/>
@@ -728,14 +728,14 @@ const thebe_selector_output = ".output, .cell_output"
   </label>
   <ul>
    <li class="toctree-l2">
-    <a class="reference internal" href="../opentelemetry-collector/using-opentelemetry-collector.html">
+    <a class="reference internal" href="../../opentelemetry-collector/using-opentelemetry-collector.html">
      Collecting OpenTelemetry data
     </a>
    </li>
   </ul>
  </li>
  <li class="toctree-l1 has-children">
-  <a class="reference internal" href="../jaeger/README.html">
+  <a class="reference internal" href="../../jaeger/README.html">
    Jaeger
   </a>
   <input class="toctree-checkbox" id="toctree-checkbox-23" name="toctree-checkbox-23" type="checkbox"/>
@@ -745,14 +745,14 @@ const thebe_selector_output = ".output, .cell_output"
   </label>
   <ul>
    <li class="toctree-l2">
-    <a class="reference internal" href="../jaeger/using-distributed-tracing-jaeger.html">
+    <a class="reference internal" href="../../jaeger/using-distributed-tracing-jaeger.html">
      Jaeger for visualizing traces
     </a>
    </li>
   </ul>
  </li>
  <li class="toctree-l1 has-children">
-  <a class="reference internal" href="../notebooks/README.html">
+  <a class="reference internal" href="../../notebooks/README.html">
    Notebooks
   </a>
   <input class="toctree-checkbox" id="toctree-checkbox-24" name="toctree-checkbox-24" type="checkbox"/>
@@ -762,24 +762,24 @@ const thebe_selector_output = ".output, .cell_output"
   </label>
   <ul>
    <li class="toctree-l2">
-    <a class="reference internal" href="../notebooks/increase_pvc_size.html">
+    <a class="reference internal" href="../../notebooks/increase_pvc_size.html">
      Increase size of a PVC in JupyterHub
     </a>
    </li>
    <li class="toctree-l2">
-    <a class="reference internal" href="../notebooks/onboarding_new_cluster.html">
+    <a class="reference internal" href="../../notebooks/onboarding_new_cluster.html">
      How to add a new cluster to Operate First
     </a>
    </li>
    <li class="toctree-l2">
-    <a class="reference internal" href="../notebooks/onboarding_project.html">
+    <a class="reference internal" href="../../notebooks/onboarding_project.html">
      How to onboard a new project to a cluster on Operate First Cloud
     </a>
    </li>
   </ul>
  </li>
  <li class="toctree-l1 has-children">
-  <a class="reference internal" href="../templates/README.html">
+  <a class="reference internal" href="../../templates/README.html">
    Templates
   </a>
   <input class="toctree-checkbox" id="toctree-checkbox-25" name="toctree-checkbox-25" type="checkbox"/>
@@ -789,14 +789,14 @@ const thebe_selector_output = ".output, .cell_output"
   </label>
   <ul>
    <li class="toctree-l2">
-    <a class="reference internal" href="../templates/runbook.html">
+    <a class="reference internal" href="../../templates/runbook.html">
      &lt;Application/Service Name&gt; Runbook
     </a>
    </li>
   </ul>
  </li>
  <li class="toctree-l1">
-  <a class="reference internal" href="../../CONTRIBUTING.html">
+  <a class="reference internal" href="../../../CONTRIBUTING.html">
    Contributing to GitOps Docs
   </a>
  </li>
@@ -890,7 +890,7 @@ title="Source repository"
       </li>
       
       <li>
-        <a href="https://github.com/operate-first/apps/issues/new?title=Issue%20on%20page%20%2Fcontent/grafana/add_grafana_dashboard.html&body=Your%20issue%20content%20here."
+        <a href="https://github.com/operate-first/apps/issues/new?title=Issue%20on%20page%20%2Fcontent/grafana/docs/README.html&body=Your%20issue%20content%20here."
    class="headerbtn"
    data-toggle="tooltip"
 data-placement="left"
@@ -918,7 +918,7 @@ title="Open an issue"
   <div class="menu-dropdown__content">
     <ul>
       <li>
-        <a href="../../_sources/content/grafana/add_grafana_dashboard.md"
+        <a href="../../../_sources/content/grafana/docs/README.md"
    class="headerbtn"
    data-toggle="tooltip"
 data-placement="left"
@@ -978,8 +978,18 @@ title="Print to PDF"
     <nav id="bd-toc-nav" aria-label="Page">
         <ul class="visible nav section-nav flex-column">
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#backing-up-your-dashboard">
-   Backing Up Your Dashboard:
+  <a class="reference internal nav-link" href="#get-access-to-grafana">
+   Get Access to Grafana
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#adding-the-dashboards">
+   Adding the Dashboards
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#using-the-dashboards">
+   Using the Dashboards
   </a>
  </li>
 </ul>
@@ -991,7 +1001,7 @@ title="Print to PDF"
         <div class="col pl-md-3 pl-lg-5 content-container">
             <!-- Table of contents that is only displayed when printing the page -->
             <div id="jb-print-docs-body" class="onlyprint">
-                <h1>Add a Grafana dashboard to OperateFirst Grafana</h1>
+                <h1>Grafana</h1>
                 <!-- Table of contents -->
                 <div id="print-main-content">
                     <div id="jb-print-toc">
@@ -1002,8 +1012,18 @@ title="Print to PDF"
                         <nav aria-label="Page">
                             <ul class="visible nav section-nav flex-column">
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#backing-up-your-dashboard">
-   Backing Up Your Dashboard:
+  <a class="reference internal nav-link" href="#get-access-to-grafana">
+   Get Access to Grafana
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#adding-the-dashboards">
+   Adding the Dashboards
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#using-the-dashboards">
+   Using the Dashboards
   </a>
  </li>
 </ul>
@@ -1016,46 +1036,31 @@ title="Print to PDF"
                 
               <div>
                 
-  <section class="tex2jax_ignore mathjax_ignore" id="add-a-grafana-dashboard-to-operatefirst-grafana">
-<h1>Add a Grafana dashboard to OperateFirst Grafana<a class="headerlink" href="#add-a-grafana-dashboard-to-operatefirst-grafana" title="Permalink to this headline">#</a></h1>
-<p>To be able to include your dashboards in Grafana, you will need to add a <code class="docutils literal notranslate"><span class="pre">GrafanaDashboard</span></code> custom resource. This custom resource is defined as a yaml file that can remotely reference the dashboard contents from a specified URL and falls back to an embedded json only if the URL can not be resolved.</p>
-<p>An example <code class="docutils literal notranslate"><span class="pre">grafana-dashboard-example.yaml</span></code> template is shown below:</p>
-<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="nn">---</span><span class="w"></span>
-<span class="nt">apiVersion</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">integreatly.org/v1alpha1</span><span class="w"></span>
-<span class="nt">kind</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">GrafanaDashboard</span><span class="w"></span>
-<span class="nt">metadata</span><span class="p">:</span><span class="w"></span>
-<span class="w">  </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">grafana-dashboard-from-url</span><span class="w"></span>
-<span class="w">  </span><span class="nt">labels</span><span class="p">:</span><span class="w"></span>
-<span class="w">    </span><span class="nt">app</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">grafana</span><span class="w"></span>
-<span class="nt">spec</span><span class="p">:</span><span class="w"></span>
-<span class="w">  </span><span class="nt">customFolderName</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">${DASHBOARD_FOLDER}</span><span class="w"> </span><span class="c1"># Pi</span><span class="w"></span>
-<span class="w">  </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">grafana-dashboard-from-url.json</span><span class="w"></span>
-<span class="w">  </span><span class="nt">url</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">https://raw.githubusercontent.com/integr8ly/grafana-operator/master/deploy/examples/remote/grafana-dashboard.json</span><span class="w"></span>
-</pre></div>
-</div>
-<p>In this template, all you need to do is update:</p>
-<ol class="simple">
-<li><p><code class="docutils literal notranslate"><span class="pre">metadata.name</span></code> - the dashboard name</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">spec.url</span></code> - the URL pointing to the location of your dashboard JSON file</p></li>
-</ol>
-<p>Pick a suitable <code class="docutils literal notranslate"><span class="pre">metadata.name</span></code>, ensure that its unique in the <a class="reference external" href="https://github.com/operate-first/apps/tree/master/grafana/overlays/moc/smaug/dashboards"><code class="docutils literal notranslate"><span class="pre">grafana/overlays/moc/smaug/dashboards</span></code></a> folder.</p>
-<p>Save this file under <code class="docutils literal notranslate"><span class="pre">grafana/overlays/moc/smaug/dashboards/${DASHBOARD_FOLDER}/grafana-dashboard-example.yaml</span></code>.</p>
-<p>Make sure to create a kustomization inside your ‘${DASHBOARD_FOLDER}’</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$ <span class="nb">cd</span> <span class="si">${</span><span class="nv">DASHBOARD_FOLDER</span><span class="si">}</span>
-$ kustomize create --autodetect
-</pre></div>
-</div>
-<p>Then add it to <code class="docutils literal notranslate"><span class="pre">grafana/overlays/moc/smaug/dashboards/kustomization.yaml</span></code> by running the following:</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$ <span class="nb">cd</span> grafana/overlays/moc/smaug/dashboards
-$ kustomize edit add resource <span class="si">${</span><span class="nv">DASHBOARD_FOLDER</span><span class="si">}</span>
-</pre></div>
-</div>
-<section id="backing-up-your-dashboard">
-<h2>Backing Up Your Dashboard:<a class="headerlink" href="#backing-up-your-dashboard" title="Permalink to this headline">#</a></h2>
-<p>Grafana is redeployed frequently, such as during an automatic operator update or when a new dashboard is added via a pull request. Please make sure to backup any dashboards you have created through the Grafana UI.</p>
-<p>To export your dashboard click the share icon <img alt="" src="../../_images/share-icon.png" /> at the top dashboard menu. Click the “Export” tab and you can now save a JSON file of your dashboard.</p>
-<p>To import your dashboard click the “+” icon in the side menu, and then click “Import.” There you can either import via JSON file, dashboard url, or via panel json. For more details on how to import/export see <a class="reference external" href="https://grafana.com/docs/grafana/latest/dashboards/export-import/">the Grafana documentation</a>.</p>
+  <section class="tex2jax_ignore mathjax_ignore" id="grafana">
+<h1>Grafana<a class="headerlink" href="#grafana" title="Permalink to this headline">#</a></h1>
+<p><a class="reference external" href="https://grafana.com/oss/grafana">Grafana</a> is a multi-platform open source analytics and interactive visualization tool. It allows you to query, create dashboards, explore, and alert on metrics when connected to supported data sources.</p>
+<p>We use Grafana to visualize the metrics that we source from our [User Workload Monitoring][../uwm]. These monitoring dashboards are useful for visualizing the metrics (such as Prometheus metrics) collected from the applications to track and analyze the system’s overall health.</p>
+<p>The dashboards can be altered, saved and reused as per your specific monitoring needs.</p>
+<p>Dashboards can be represented by the <code class="docutils literal notranslate"><span class="pre">GrafanaDashboard</span></code> custom resource or by their raw <code class="docutils literal notranslate"><span class="pre">JSON</span></code> files. You can find example monitoring dashboards defined in separate <code class="docutils literal notranslate"><span class="pre">JSON</span></code> files for each of the Operate First managed applications in our <a class="reference external" href="https://github.com/operate-first/apps/tree/master/grafana/overlays/moc/smaug/dashboards">apps repo</a>. For more information on how the Grafana dashboards are defined, please refer to <a class="reference external" href="https://github.com/integr8ly/grafana-operator/blob/master/documentation/dashboards.md">this documentation</a>.</p>
+<section id="get-access-to-grafana">
+<h2>Get Access to Grafana<a class="headerlink" href="#get-access-to-grafana" title="Permalink to this headline">#</a></h2>
+<p>Grafana can be accessed at: <a class="reference external" href="https://grafana.operate-first.cloud/">https://grafana.operate-first.cloud/</a></p>
+<p>For Grafana <strong>Viewer</strong> access please add your GitHub handle to: <a class="reference external" href="https://github.com/operate-first/apps/blob/master/cluster-scope/base/user.openshift.io/groups/grafana-viewer/group.yaml">grafana-viewer</a>
+For Grafana <strong>Editor</strong> access please add your GitHub handle to: <a class="reference external" href="https://github.com/operate-first/apps/blob/master/cluster-scope/base/user.openshift.io/groups/grafana-editor/group.yaml">grafana-editor</a></p>
 </section>
+<section id="adding-the-dashboards">
+<h2>Adding the Dashboards<a class="headerlink" href="#adding-the-dashboards" title="Permalink to this headline">#</a></h2>
+<p>To add your dashboards to Grafana, you will need to create a <code class="docutils literal notranslate"><span class="pre">GrafanaDashboard</span></code> custom resource. To do this, you can follow the instructions available <a class="reference internal" href="add_grafana_dashboard.html"><span class="doc std std-doc">here</span></a>.</p>
+</section>
+<section id="using-the-dashboards">
+<h2>Using the Dashboards<a class="headerlink" href="#using-the-dashboards" title="Permalink to this headline">#</a></h2>
+<p>Grafana dashboards can easily be exported and imported, either from the UI or from the HTTP API.
+Dashboards are exported in Grafana JSON format, and contain everything you need (layout, variables, styles, data sources, queries, etc) to import the dashboard at a later time.</p>
+<p>You can import these dashboards in Grafana either by pasting the dashboard JSON text directly into the text area or directly uploading the JSON file. Make sure to add/connect your <a class="reference external" href="https://grafana.com/docs/grafana/latest/datasources/">data sources</a> to Grafana and pick what data source you want the dashboard to use.</p>
+<p>For more details on importing/exporting dashboards, you can refer to the Grafana documentation <a class="reference external" href="https://grafana.com/docs/grafana/latest/dashboards/export-import/">here</a>.</p>
+</section>
+<div class="toctree-wrapper compound">
+</div>
 </section>
 
     <script type="text/x-thebe-config">
@@ -1071,7 +1076,7 @@ $ kustomize edit add resource <span class="si">${</span><span class="nv">DASHBOA
         },
         kernelOptions: {
             kernelName: "python3",
-            path: "./content/grafana"
+            path: "./content/grafana/docs"
         },
         predefinedOutput: true
     }
@@ -1085,17 +1090,17 @@ $ kustomize edit add resource <span class="si">${</span><span class="nv">DASHBOA
                 
     <!-- Previous / next buttons -->
 <div class='prev-next-area'>
-    <a class='left-prev' id="prev-link" href="README.html" title="previous page">
+    <a class='left-prev' id="prev-link" href="../../kubeval/updating_schema_store.html" title="previous page">
         <i class="fas fa-angle-left"></i>
         <div class="prev-next-info">
             <p class="prev-next-subtitle">previous</p>
-            <p class="prev-next-title">Grafana</p>
+            <p class="prev-next-title">Updating schemas in schema store</p>
         </div>
     </a>
-    <a class='right-next' id="next-link" href="map_groups_to_roles.html" title="next page">
+    <a class='right-next' id="next-link" href="add_grafana_dashboard.html" title="next page">
     <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title">Adding permissions in Grafana</p>
+        <p class="prev-next-title">Add a Grafana dashboard to OperateFirst Grafana</p>
     </div>
     <i class="fas fa-angle-right"></i>
     </a>
@@ -1120,7 +1125,7 @@ $ kustomize edit add resource <span class="si">${</span><span class="nv">DASHBOA
     </div>
   
   <!-- Scripts loaded after <body> so the DOM is not blocked -->
-  <script src="../../_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf"></script>
+  <script src="../../../_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf"></script>
 
 
   </body>
