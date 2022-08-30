@@ -7,6 +7,11 @@ configMapGenerator:
   - files:
       - taskrun.yaml
     name: backup-vault-run
+  - files:
+      - scripts/backup-snapshot-to-s3.sh
+      - scripts/cleanup-old-taskruns.sh
+      - scripts/create-snapshot.sh
+    name: utility-scripts
 resources:
   - cronjob.yaml
   - pvc.yaml

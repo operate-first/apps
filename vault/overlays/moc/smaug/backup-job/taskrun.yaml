@@ -13,3 +13,7 @@ spec:
     - name: backup-job
       secret:
         secretName: backup-job
+    - name: utility-scripts
+      configMap:
+        name: utility-scripts
+        defaultMode: 111

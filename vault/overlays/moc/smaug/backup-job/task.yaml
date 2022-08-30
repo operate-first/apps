@@ -12,92 +12,24 @@ spec:
       mountPath: /snapshots
     - name: backup-job
       mountPath: /backup-job
+    - name: utility-scripts
+      mountPath: /utility-scripts
   steps:
     - name: create-snapshot
       image: quay.io/operate-first/opf-toolbox:v0.8.0
       workingDir: /workspace
-      script: |
-        #!/bin/sh
-        set -e
-
-        echo 'Logging into opf-vault-0 to retrieve leader'
-        oc exec -i opf-vault-0 -- vault operator raft list-peers --format=json > /tmp/peers.json
-        leader=$(yq e '.data.config.servers.[] | select(.leader == "true") | .address' -P /tmp/peers.json | cut -d '.' -f1)
-
-        echo retrieved leader: ${leader}
-        echo Creating Snapshot in leader pod ${leader}...
-
-        export snapshot_file_path=$(echo snapshot-"`date +"%F_T%H-%M-%S"`".snap)
-        oc exec -i $leader -- vault operator raft snapshot save /tmp/backup_job_snapshot.snap
-
-        echo Snapshot created in Vault Leader pod. Moving snapshot from pod to backup PVC.
-
-        snapshot_pvc_path=$(workspaces.snapshots.path)
-        oc cp $(context.taskRun.namespace)/$leader:/tmp/backup_job_snapshot.snap ${snapshot_pvc_path}/${snapshot_file_path}
-        oc exec -i $leader -- rm /tmp/backup_job_snapshot.snap
-
-        echo Backup Snapshot saved at ${snapshot_pvc_path}/$snapshot_file_path
-        echo Listing current snapshots in backedup PVC
-
-        echo --------------------------------------------
-        ls -lha ${snapshot_pvc_path}
-        echo --------------------------------------------
-
-        echo "Done!"
+      command:
+        - '/utility-scripts/create-snapshot.sh'
+        - $(workspaces.snapshots.path)
+        - $(context.taskRun.namespace)
     - name: backup-snapshot-to-s3
       image: quay.io/operate-first/mc:RELEASE.2022-06-17T02-52-50Z
       workingDir: /workspace
-      script: |
-        #!/bin/sh
-        set -e
-
-        mortyS3EndPoint=$(cat /backup-job/mortyS3EndPoint)
-        mortyS3AccessKey=$(cat /backup-job/mortyS3AccessKey)
-        mortyS3SecretKey=$(cat /backup-job/mortyS3SecretKey)
-        mortyS3Bucket=$(cat /backup-job/mortyS3BucketName)
-        mortyS3Retention=$(cat /backup-job/mortyS3Retention)
-        PVCRetention=$(cat /backup-job/PVCRetention)
-
-        snapshot_pvc_path=$(workspaces.snapshots.path)
-
-        echo Setting up mc connection to S3 Bucket
-        mc alias set store ${mortyS3EndPoint} ${mortyS3AccessKey} ${mortyS3SecretKey} --api S3v4
-
-        echo Syncing contents of ${snapshot_pvc_path}/ to Bucket ${mortyS3Bucket} that are newer than ${mortyS3Retention}
-        mc mirror ${snapshot_pvc_path}/ store/${mortyS3Bucket}/ --newer-than ${mortyS3Retention}
-
-        echo Removing files from Bucket ${mortyS3Bucket} that are older than ${mortyS3Retention}
-
-        mc rm -r --force --older-than ${mortyS3Retention} store/${mortyS3Bucket}
-
-        echo Printing contents of Bucket ${mortyS3Bucket}
-
-        echo --------------------------------------------
-        mc ls store/${mortyS3Bucket}
-        echo --------------------------------------------
-
-        echo Removing files from PVC that are older than ${PVCRetention} in path ${snapshot_pvc_path}
-        mc rm -r --force --older-than ${PVCRetention} ${snapshot_pvc_path}/
-
-        echo Printing contents of PVC
-
-        echo --------------------------------------------
-        ls ${snapshot_pvc_path} -lha
-        echo --------------------------------------------
-
-        echo "Done!"
+      command:
+        - '/utility-scripts/backup-snapshot-to-s3.sh'
+        - $(workspaces.snapshots.path)
     - name: cleanup-old-taskruns
       image: quay.io/operate-first/opf-toolbox:v0.8.0
       workingDir: /workspace
-      script: |
-        #!/bin/sh
-        set -e
-        NUM_TO_KEEP=$(cat /backup-job/OldJobsToKeepCount)
-        while read -r TASK; do
-          while read -r TASK_TO_REMOVE; do
-            test -n "${TASK_TO_REMOVE}" || continue;
-            oc delete ${TASK_TO_REMOVE} \
-                && echo "$(date -Is) TaskRun ${TASK_TO_REMOVE} deleted." \
-                || echo "$(date -Is) Unable to delete TaskRun ${TASK_TO_REMOVE}.";
-          done < <(oc get taskrun -l tekton.dev/task=${TASK} --sort-by=.metadata.creationTimestamp -o name | head -n -${NUM_TO_KEEP});
-        done < <(oc get taskrun -o go-template='{{range .items}}{{index .metadata.labels "tekton.dev/task"}}{{"\n"}}{{end}}' | uniq);
+      command:
+        - '/utility-scripts/cleanup-old-taskruns.sh'
