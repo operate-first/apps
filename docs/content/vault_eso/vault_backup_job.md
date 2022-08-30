@@ -11,7 +11,7 @@ All configuration files can be accessed at [this location][backupjob].
 
 The backup job is a tekton `TaskRun`, that consists of 3 steps:
 - Create a vault snapshot using `vault operator raft snapshot save...`
-- Sync this snapshot to back up stores (currently we back up to an [OBC][mortys3bucket] and [PVC][pvc])
+- Sync this snapshot to back up stores (currently we back up to an [OBC][smaugS3Bucket] and [PVC][pvc])
 - Clean up old Task Run jobs (we retain a capped number of jobs).
 
 The `TaskRun` is submitted periodically via a CronJob. The Frequency of this Job can be adjusted by directly updating
@@ -71,7 +71,7 @@ Done.
 [backupjob-task]: https://github.com/operate-first/apps/blob/master/vault/overlays/moc/smaug/backup-job/task.yaml
 [CronJob]: https://github.com/operate-first/apps/blob/master/vault/overlays/moc/smaug/backup-job/cronjob.yaml
 [config secret]: https://github.com/operate-first/apps/blob/master/vault/overlays/moc/smaug/backup-job/secret.yaml
-[mortys3bucket]: https://console-openshift-console.apps.morty.emea.operate-first.cloud/k8s/ns/opf-obcs/objectbucket.io~v1alpha1~ObjectBucketClaim/opf-vault-snapshots
+[smaugS3Bucket]: https://console-openshift-console.apps.smaug.na.operate-first.cloud/k8s/ns/vault/objectbucket.io~v1alpha1~ObjectBucketClaim/opf-vault-snapshots
 [pvc]: https://console-openshift-console.apps.smaug.na.operate-first.cloud/k8s/ns/vault/persistentvolumeclaims/vault-snapshots
 [snapshot bug]: https://github.com/hashicorp/vault/issues/15258
 [restore vault docs]: ./restore_vault.md

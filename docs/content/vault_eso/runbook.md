@@ -30,7 +30,7 @@ encountered:
 
 ```txt
 "could not get provider client: unable to log in to auth method: unable to log in with Kubernetes auth: Error making API request.
-URL: PUT https://vault-ui-vault.apps.smaug.na.operate-first.cloud/v1/auth/morty-k8s/login
+URL: PUT https://vault-ui-vault.apps.smaug.na.operate-first.cloud/v1/auth/infra-k8s/login
 ```
 
 One of the causes of this could be the JWT token used to configure
