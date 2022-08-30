@@ -9,6 +9,7 @@ resources:
   - ../../../../base/core/configmaps/user-workload-monitoring-config
   - ../../../../base/core/namespaces/acm
   - ../../../../base/core/namespaces/keycloak
+  - ../../../../base/core/namespaces/open-cluster-management-observability
   - ../../../../base/core/namespaces/openshift-cnv
   - ../../../../base/core/namespaces/openshift-logging
   - ../../../../base/core/namespaces/openshift-nmstate
@@ -42,9 +43,9 @@ resources:
   - configmaps/service-catalog-k8s-plugin.yaml
   - clusterversion.yaml
   - externalsecrets
-  - nodenetworkconfigurationpolicies/crc-provisioning-vlan.yaml
   - kubeletconfigs/increase-worker-system-reserved-memory.yaml
   - metal3.io/provisionings/provisioning-configuration.yaml
+  - multiclusterobservability/observability.yaml
   - nodenetworkconfigurationpolicies/ocp-prod-provisioning-vlan.yaml
   - nodenetworkconfigurationpolicies/vlan-211-nese.yaml
   - nodenetworkconfigurationpolicies/zero-provisioning-vlan.yaml
