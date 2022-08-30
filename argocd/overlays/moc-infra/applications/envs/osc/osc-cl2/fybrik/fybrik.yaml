@@ -16,4 +16,6 @@ spec:
           value: "false"
         - name: applicationNamespace
           value: fybrik-applications
+        - name: modulesNamespace.managedByFybrik
+          value: "false"
   project: fybrik
