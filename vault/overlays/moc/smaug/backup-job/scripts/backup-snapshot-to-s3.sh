@@ -17,10 +17,10 @@ mc mirror ${snapshot_pvc_path}/ store/${s3Bucket}/ --newer-than ${s3Retention}
 
 echo "Removing files from Bucket ${s3Bucket} that are older than ${s3Retention}"
 mc rm -r --force --older-than ${s3Retention} store/${s3Bucket}
+echo "Done."
 
 echo "Printing contents of Bucket ${s3Bucket}"
 echo "--------------------------------------------"
 mc ls store/${s3Bucket}
 echo "--------------------------------------------"
-
 echo "Done!"

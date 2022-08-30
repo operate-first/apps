@@ -16,4 +16,4 @@ spec:
     - name: utility-scripts
       configMap:
         name: utility-scripts
-        defaultMode: 111
+        defaultMode: 110
