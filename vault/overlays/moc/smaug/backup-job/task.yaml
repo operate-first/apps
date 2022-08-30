@@ -28,6 +28,12 @@ spec:
       command:
         - '/utility-scripts/backup-snapshot-to-s3.sh'
         - $(workspaces.snapshots.path)
+    - name: prune-old-snapshots
+      image: quay.io/operate-first/opf-toolbox:v0.8.0
+      workingDir: /workspace
+      command:
+        - '/utility-scripts/prune-old-snapshots.shh'
+        - $(workspaces.snapshots.path)
     - name: cleanup-old-taskruns
       image: quay.io/operate-first/opf-toolbox:v0.8.0
       workingDir: /workspace

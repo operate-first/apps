@@ -11,6 +11,7 @@ configMapGenerator:
       - scripts/backup-snapshot-to-s3.sh
       - scripts/cleanup-old-taskruns.sh
       - scripts/create-snapshot.sh
+      - scripts/prune-old-snapshots.sh
     name: utility-scripts
 resources:
   - cronjob.yaml
