@@ -70,6 +70,7 @@ resources:
 - ../../../../base/user.openshift.io/groups/seldon-admin
 - ../../../../base/user.openshift.io/groups/sostrades
 - ../../../../bundles/external-secrets-operator
+- ../../../../bundles/kepler
 - ../../../../bundles/grafana-operator
 - ../../../../bundles/kfp-tekton
 - ../../../../bundles/opendatahub-operator-manual
@@ -85,5 +86,6 @@ resources:
 - nodefeaturediscovery
 - operators.coreos.com/operatorgroups/nvidia-gpu-operator
 - operators.coreos.com/subscriptions/nvidia-gpu-operator
+- machineconfigs/kepler
 - nvidia-gpu
 - secret-mgmt
