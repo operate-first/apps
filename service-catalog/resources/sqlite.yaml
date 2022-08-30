@@ -1,9 +1,0 @@
-apiVersion: backstage.io/v1alpha1
-kind: Resource
-metadata:
-  name: sqlite
-  description: Sqlite database running in the same environment as the dependent component
-spec:
-  type: database
-  lifecycle: production
-  owner: group:operate-first

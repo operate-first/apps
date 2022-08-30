@@ -6,6 +6,7 @@ metadata:
 spec:
   targets:
     - ./apis/argocd.yaml
-    - ./apis/grafana.yaml
     - ./apis/backstage.yaml
     - ./apis/dex.yaml
+    - ./apis/grafana-public.yaml
+    - ./apis/grafana.yaml

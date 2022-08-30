@@ -1,10 +1,10 @@
 apiVersion: backstage.io/v1alpha1
 kind: Component
 metadata:
-  name: dex
-  description: We manage an instance of Dex on the Smaug cluster to provide authentication for some of our services
+  name: dex-smaug
+  title: Dex
+  description: Dex is an identity service that uses OpenID Connect to drive authentication for other apps.
   annotations:
-    operate-first.cloud/featured: 'true'
     operate-first.cloud/logo-url: https://cncf-branding.netlify.app/img/projects/dex/icon/color/dex-icon-color.png
     argocd/app-name: dex-smaug
     github.com/project-slug: operate-first/apps
@@ -22,3 +22,5 @@ spec:
   system: dex
   providesApis:
     - dex
+  dependsOn:
+    - resource:smaug
