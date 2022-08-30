@@ -89,6 +89,11 @@ On the `smaug` cluster, this will return:
 s3-openshift-storage.apps.smaug.na.operate-first.cloud
 ```
 
+> Note: Sometimes there are multiple types of storage installed on a cluster. This means there are also multiple routes for managed storage instances. For reference this was the case on a (retired) Morty cluster. If you have tried authenticating and issues persists, navigate to the "Storage" tab, and then the "Object Bucket Claims" tab in OpenShift Console. Find the OBC which you are attempting to get external access to and check its backing `storageClass`. Then navigate to the `openshift-storage` namespace, and find the route exposing the corresponding storage service.
+
+In the Morty example, there were two routes for s3 buckets: `https://s3-rook-openshift-storage.apps.morty.emea.operate-first.cloud/`, and `https://s3-openshift-storage.apps.morty.emea.operate-first.cloud/`.
+
+
 If you are unable to query the `openshift-storage` namespace, you may
 be able to replace `apps.smaug.na.operate-first.cloud` with the
 domain appropriate to your cluster.
@@ -159,6 +164,25 @@ To download an object from your bucket to a local file:
 ```
 mcli cp example-obc/$BUCKET_NAME/README.md README.md
 ```
+
+> NOTE: mcli refers to the Minio client and should not be confused with anything else, for more information on conflicts, [see here.](https://github.com/minio/mc/blob/master/CONFLICT.md)
+
+### Backing up or verifying Bucket contents
+
+1. Verify that the bucket has data.
+  - Follow the above steps to get access to the bucket.
+  - You can verify the size of used space on the bucket using minIO: `mcli ls -r $ALIASNAME/$BUCKET_NAME --summarize`, or S3 CLI: `aws s3 ls s3://$BUCKET_NAME --recursive --human-readable --summarize --profile $PROFILE_NAME`
+2. Setup MinIO alias if didn't already
+  - If you used S3 in the step above, setup an `mcli alias` as specified in [the above section](./buckets-external-access.md#Accessing-a-bucket-using-the-MinIO-CLI)
+3. Finally follow the minIO documentation on [`mirror`ing](https://docs.min.io/minio/baremetal/reference/minio-mcli/mcli-mirror.html)
+
+It is important to note that if you are attempting to backup a bucket,
+or verify its contents that S3 buckets do not paginate.
+This means that you could attempt to `ls` the top folder in a bucket
+which could show that it has `0B` of used storage,
+but if you navigate through its nested directories, you may find data or files.
+Therefore, your should use the recursive flag (`-r`) when listing the entire buckets contents.
+
 
 ### Accessing a bucket using s3cmd
 
