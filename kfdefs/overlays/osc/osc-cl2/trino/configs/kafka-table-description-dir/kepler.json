@@ -1,0 +1,24 @@
+{
+  "tableName": "KeplerExporterMetrics",
+  "schemaName": "kepler",
+  "topicName": "kepler-metrics",
+  "key": {
+    "dataFormat": "raw",
+    "fields": [
+      {
+        "name": "kafka_key",
+        "type": "VARCHAR",
+        "hidden": "false"
+      }
+    ]
+  },
+  "message": {
+    "dataFormat" :"json",
+    "fields" : [
+      {"name": "labels", "mapping": "labels", "type": "VARCHAR"},
+      {"name": "name", "mapping": "name", "type": "VARCHAR"},
+      {"name": "timestamp", "mapping": "timestamp", "type": "VARCHAR"},
+      {"name": "value", "mapping": "value", "type": "VARCHAR"}
+    ]
+  }
+}
