@@ -3,6 +3,8 @@ kind: Kustomization
 resources:
   - dex
   - dex-secondary
+  - kafka
+  - kepler-monitoring
   - kubeflow
   - odh-superset
   - odh-trino

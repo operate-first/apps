@@ -1,0 +1,46 @@
+# Source: prometheus-kafka-adapter/templates/deployment.yaml
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: prometheus-kafka-adapter
+  labels:
+    app.kubernetes.io/name: prometheus-kafka-adapter
+    app.kubernetes.io/instance: kepler
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app.kubernetes.io/name: prometheus-kafka-adapter
+      app.kubernetes.io/instance: kepler
+  template:
+    metadata:
+      labels:
+        app.kubernetes.io/name: prometheus-kafka-adapter
+        app.kubernetes.io/instance: kepler
+      annotations:
+        prometheus.io/port: "8080"
+        prometheus.io/scrape: "true"
+    spec:
+      serviceAccountName: prometheus-kafka-adapter
+      securityContext: {}
+      containers:
+        - name: prometheus-kafka-adapter
+          securityContext: {}
+          image: "telefonica/prometheus-kafka-adapter:1.8.0"
+          imagePullPolicy: IfNotPresent
+          envFrom:
+            - secretRef:
+                name: prometheus-kafka-adapter
+          ports:
+            - name: http
+              containerPort: 8080
+              protocol: TCP
+          livenessProbe:
+            httpGet:
+              path: /healthz
+              port: http
+          readinessProbe:
+            httpGet:
+              path: /healthz
+              port: http
+          resources: {}

@@ -9,6 +9,7 @@ resources:
   - dex-secondary.yaml
   - external-secrets.yaml
   - grafana.yaml
+  - kafka.yaml
   - kepler.yaml
   - k8s-annotations-exporter.yaml
   - kfdefs.yaml
