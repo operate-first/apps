@@ -10,10 +10,3 @@ data:
     prometheusK8s:
       externalLabels:
         cluster: osc/osc-cl2
-      remoteWrite:
-        - url: "http://prometheus-kafka-adapter.kafka.svc.cluster.local/receive"
-          writeRelabelConfigs:
-          - sourceLabels: [service]
-            name: prometheus-kafka-adapter
-            regex: 'kepler-exporter'
-            action: keep
