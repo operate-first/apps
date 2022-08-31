@@ -33,12 +33,6 @@ spec:
   - imageChange:
       from:
         kind: ImageStreamTag
-        name: "centos:stream9"
-        namespace: okd-centos
-    type: ImageChange
-  - imageChange:
-      from:
-        kind: ImageStreamTag
         name: "centos:okd-golang-builder"
         namespace: okd-centos
     type: ImageChange
