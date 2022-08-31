@@ -6,7 +6,6 @@ metadata:
   labels:
     app.kubernetes.io/name: prometheus-kafka-adapter
     helm.sh/chart: prometheus-kafka-adapter-0.1.0
-    app.kubernetes.io/instance: kepler
 spec:
   type: ClusterIP
   ports:
@@ -16,4 +15,3 @@ spec:
       name: http
   selector:
     app.kubernetes.io/name: prometheus-kafka-adapter
-    app.kubernetes.io/instance: kepler

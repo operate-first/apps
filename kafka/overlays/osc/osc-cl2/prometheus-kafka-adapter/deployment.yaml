@@ -5,18 +5,15 @@ metadata:
   name: prometheus-kafka-adapter
   labels:
     app.kubernetes.io/name: prometheus-kafka-adapter
-    app.kubernetes.io/instance: kepler
 spec:
   replicas: 1
   selector:
     matchLabels:
       app.kubernetes.io/name: prometheus-kafka-adapter
-      app.kubernetes.io/instance: kepler
   template:
     metadata:
       labels:
         app.kubernetes.io/name: prometheus-kafka-adapter
-        app.kubernetes.io/instance: kepler
       annotations:
         prometheus.io/port: "8080"
         prometheus.io/scrape: "true"
