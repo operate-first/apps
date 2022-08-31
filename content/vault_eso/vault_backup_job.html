@@ -955,12 +955,36 @@ title="Print to PDF"
     </ul>
   </div>
 </div>
+<label for="__page-toc"
+  class="headerbtn headerbtn-page-toc"
+  
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-list"></i>
+  </span>
+
+</label>
 
     </div>
 </div>
 
 <!-- Table of contents -->
 <div class="col-md-3 bd-toc show noprint">
+    <div class="tocsection onthispage pt-5 pb-3">
+        <i class="fas fa-list"></i> Contents
+    </div>
+    <nav id="bd-toc-nav" aria-label="Page">
+        <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#add-another-s3-bucket-to-back-up-vault-in">
+   Add another s3 bucket to back up vault in
+  </a>
+ </li>
+</ul>
+
+    </nav>
 </div>
     </div>
     <div class="article row">
@@ -972,6 +996,19 @@ title="Print to PDF"
                 <div id="print-main-content">
                     <div id="jb-print-toc">
                         
+                        <div>
+                            <h2> Contents </h2>
+                        </div>
+                        <nav aria-label="Page">
+                            <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#add-another-s3-bucket-to-back-up-vault-in">
+   Add another s3 bucket to back up vault in
+  </a>
+ </li>
+</ul>
+
+                        </nav>
                     </div>
                 </div>
             </div>
@@ -1000,6 +1037,44 @@ the <a class="reference external" href="https://github.com/operate-first/apps/bl
 live cluster, as it is not managed by ArgoCD (it would create a circular dependency on Vault).</p>
 <p>The TaskRun Step that creates the snapshot does so by directly running commands from the Vault leader pod, this is due
 to a <a class="reference external" href="https://github.com/hashicorp/vault/issues/15258">snapshot bug</a>, requiring that we take the snapshot from the leader node.</p>
+<section id="add-another-s3-bucket-to-back-up-vault-in">
+<h2>Add another s3 bucket to back up vault in<a class="headerlink" href="#add-another-s3-bucket-to-back-up-vault-in" title="Permalink to this headline">#</a></h2>
+<p>Identify a unique prefix <code class="docutils literal notranslate"><span class="pre">&lt;bucket-prefix&gt;</span></code> for your bucket. The prefix can be whatever you would like, as long as it’s
+unique and does not collide with other prefixes in the configurations. We will refer to this prefix as <code class="docutils literal notranslate"><span class="pre">&lt;bucket-prefix&gt;</span></code>.</p>
+<p>Navigate to <a class="reference external" href="https://github.com/operate-first/apps/blob/master/vault/overlays/moc/smaug/backup-job/task.yaml">backupjob-task</a>. Append the <code class="docutils literal notranslate"><span class="pre">task.spec</span></code> field with the following entry:</p>
+<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">backup-snapshot-to-s3-&lt;bucket-prefix&gt;</span><span class="w"></span>
+<span class="w">      </span><span class="nt">image</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">quay.io/operate-first/mc:RELEASE.2022-06-17T02-52-50Z</span><span class="w"></span>
+<span class="w">      </span><span class="nt">workingDir</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">/workspace</span><span class="w"></span>
+<span class="w">      </span><span class="nt">onError</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">continue</span><span class="w"></span>
+<span class="w">      </span><span class="nt">command</span><span class="p">:</span><span class="w"></span>
+<span class="w">        </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="s">&#39;/utility-scripts/backup-snapshot-to-s3.sh&#39;</span><span class="w"></span>
+<span class="w">        </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">$(workspaces.snapshots.path)</span><span class="w"></span>
+<span class="w">        </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">&lt;bucket-prefix&gt;</span><span class="w"></span>
+</pre></div>
+</div>
+<blockquote>
+<div><p>If appending, do not add <code class="docutils literal notranslate"><span class="pre">onError:</span> <span class="pre">continue</span></code> for the final entry, but ensure that the preceding entries have this set.
+We do not currently have alerts configured to notify us when sync job fails, but we also don’t want to fail the
+entire job because of issues with backup to one bucket. A workaround is to let the last one fail the task if the step
+fails. Making it visible from the namespace view that something is wrong. If all steps have <code class="docutils literal notranslate"><span class="pre">onError:</span> <span class="pre">continue</span></code> set
+then all bucket syncs could fail, and the task may still show as a success.</p>
+</div></blockquote>
+<p>In the snippet above, replace <code class="docutils literal notranslate"><span class="pre">&lt;bucket-prefix&gt;</span></code> with your chosen prefix.</p>
+<p>Navigate to the backup-config secret within the Vault ocp <code class="docutils literal notranslate"><span class="pre">namespace</span></code>. Find this <a class="reference external" href="https://console-openshift-console.apps.smaug.na.operate-first.cloud/k8s/ns/vault/secrets/backup-job">here</a>.</p>
+<p>Add the following entries:</p>
+<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="nt">&lt;bucket-prefix&gt;-s3AccessKey</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;&quot;</span><span class="w"></span>
+<span class="nt">&lt;bucket-prefix&gt;-s3SecretKey</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;&quot;</span><span class="w"></span>
+<span class="nt">&lt;bucket-prefix&gt;-s3BucketName</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;&quot;</span><span class="w"></span>
+<span class="nt">&lt;bucket-prefix&gt;-s3EndPoint</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;&quot;</span><span class="w"></span>
+<span class="nt">&lt;bucket-prefix&gt;-s3Retention</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;&quot;</span><span class="w">  </span><span class="c1"># e.g. 1d</span><span class="w"></span>
+</pre></div>
+</div>
+<blockquote>
+<div><p>Note: this must be done on live, because we do not maintain this secret in git, to do so would require to use ESO
+with vault, and that would introduce a circular dependency on the vault backup job.</p>
+</div></blockquote>
+<p>Done.</p>
+</section>
 </section>
 
     <script type="text/x-thebe-config">
