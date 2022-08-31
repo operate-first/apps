@@ -41,6 +41,7 @@ resources:
 - ../../../../base/core/namespaces/kubeflow
 - ../../../../base/core/namespaces/manageiq
 - ../../../../base/core/namespaces/neu-cs6620
+- ../../../../base/core/namespaces/octo-et-security-demo-next
 - ../../../../base/core/namespaces/od-demo
 - ../../../../base/core/namespaces/okd-centos
 - ../../../../base/core/namespaces/okd-team
