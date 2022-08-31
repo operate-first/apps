@@ -53,7 +53,6 @@ We suggest ramping up on the following before attempting to work with the [Apps 
 We encourage you to browse around the following repos for issues you would be interested in tackling:
 
 - https://github.com/operate-first/apps
-- https://github.com/operate-first/SRE
 - https://github.com/operate-first/support
 
 Beginner friendly issues are marked ["Good first issue"][good_first_issue]. Though you are welcome to take on any issue
