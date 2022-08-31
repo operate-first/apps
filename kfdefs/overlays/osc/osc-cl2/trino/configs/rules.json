@@ -35,6 +35,11 @@
             "allow": "all"
         },
         {
+            "group": "admins",
+            "catalog": "riskthinking",
+            "allow": "all"
+        },
+        {
             "allow": "read-only"
         }
     ],
@@ -77,6 +82,12 @@
             "catalog": "osc_datacommons_hive_ingest",
             "schema": "ingest",
             "group": "hive_ingest",
+            "owner": true
+        },
+        {
+            "catalog": "riskthinking",
+            "schema": "riskthinking_osclimate_big_query",
+            "group": "admins",
             "owner": true
         },
         {
@@ -152,6 +163,17 @@
             "catalog": "osc_datacommons_hive_ingest",
             "schema": "ingest",
             "group": "hive_ingest",
+            "privileges": [
+                "SELECT",
+                "INSERT",
+                "DELETE",
+                "OWNERSHIP"
+            ]
+        },
+        {
+            "catalog": "riskthinking",
+            "schema": "riskthinking_osclimate_big_query",
+            "group": "admins",
             "privileges": [
                 "SELECT",
                 "INSERT",
@@ -306,6 +328,13 @@
             "privileges": []
         },
         {
+            "catalog": "riskthinking",
+            "schema": "riskthinking_osclimate_big_query",
+            "privileges": [
+                "SELECT"
+            ]
+        },
+        {
             "catalog": "osc_datacommons_dev",
             "privileges": [
                 "SELECT"
@@ -313,6 +342,12 @@
         },
         {
             "catalog": "osc_datacommons_hive_ingest",
+            "privileges": [
+                "SELECT"
+            ]
+        },
+        {
+            "catalog": "riskthinking",
             "privileges": [
                 "SELECT"
             ]

@@ -12,6 +12,9 @@ catalogs:
   - catalog: osc_datacommons_hive_ingest
     public: true
 
+  - catalog: riskthinking
+    public: true
+
 schemas:
   - schema: sandbox
     catalog: osc_datacommons_dev
@@ -48,6 +51,12 @@ schemas:
     admin:
       - group: hive_ingest
     public: false
+
+  - schema: riskthinking_osclimate_big_query
+    catalog: riskthinking
+    admin:
+      - group: admins
+    public: true
 
 tables:
   - table: demo_dv_backend
