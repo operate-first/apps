@@ -206,7 +206,7 @@ tide:
     open-services-group: merge
     operate-first: squash
     os-climate: merge
-    thoth-station: squash
+    thoth-station: merge
 
   queries:
     - orgs:
