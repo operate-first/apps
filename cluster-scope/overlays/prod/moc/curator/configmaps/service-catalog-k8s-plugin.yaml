@@ -1,0 +1,7 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: service-catalog-k8s-plugin
+data:
+  ENV: moc
+  CLUSTER: curator

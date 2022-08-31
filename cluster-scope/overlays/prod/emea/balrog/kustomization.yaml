@@ -26,6 +26,7 @@ resources:
     - ../../../../bundles/acme-operator
     - ../../../../bundles/external-secrets-operator
     - apiserver
+    - configmaps/service-catalog-k8s-plugin.yaml
     - machineautoscalers.yaml
     - ingresscontrollers
     - secret-mgmt

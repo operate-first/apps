@@ -80,6 +80,7 @@ resources:
 - ../../../../bundles/fybrik
 - ../../../../base/user.openshift.io/groups/fybrik
 - apiserver
+- configmaps/service-catalog-k8s-plugin.yaml
 - externalsecrets
 - ingresscontroller
 - machinesets

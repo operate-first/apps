@@ -38,6 +38,7 @@ resources:
   - ../../../../bundles/external-secrets-operator
   - ../../../../bundles/idp-mgmt-operator
   - apiserver/api_server_cert.yaml
+  - configmaps/service-catalog-k8s-plugin.yaml
   - clusterversion.yaml
   - externalsecrets
   - nodenetworkconfigurationpolicies/crc-provisioning-vlan.yaml
