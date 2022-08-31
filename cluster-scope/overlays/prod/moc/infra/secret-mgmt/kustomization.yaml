@@ -3,7 +3,6 @@ kind: Kustomization
 resources:
   - acm
   - argocd
-  - democratic-csi
   - idp-auth-primary
   - openshift-config
   - openshift-ingress

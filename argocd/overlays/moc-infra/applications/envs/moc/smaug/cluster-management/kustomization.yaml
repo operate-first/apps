@@ -7,7 +7,6 @@ resources:
   - dex.yaml
   - external-secrets.yaml
   - kfdefs.yaml
-  - moc-nfs-democratic-csi.yaml
   - node-labeler.yaml
   - odh-operator.yaml
   - nfd.yaml
