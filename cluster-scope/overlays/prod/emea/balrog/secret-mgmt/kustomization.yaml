@@ -7,3 +7,4 @@ resources:
   - openshift-logging
   - openshift-monitoring
   - openshift-user-workload-monitoring
+  - service-catalog-k8s-plugin
