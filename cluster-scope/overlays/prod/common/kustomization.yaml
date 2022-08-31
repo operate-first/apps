@@ -1,6 +1,7 @@
 apiVersion: kustomize.config.k8s.io/v1beta1
 kind: Kustomization
 resources:
+- ../../../base/batch/cronjobs/service-catalog-k8s-plugin
 - ../../../base/config.openshift.io/projects/cluster
 - ../../../base/core/namespaces/service-catalog-k8s-plugin
 - ../../../base/core/secrets/service-catalog-k8s-plugin-token
