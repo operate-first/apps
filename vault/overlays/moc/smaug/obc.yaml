@@ -4,5 +4,5 @@ metadata:
   name: opf-vault-snapshots
 spec:
   bucketName: opf-vault-snapshots
-  objectBucketName: obc-opf-obcs-opf-vault-snapshots
+  objectBucketName: obc-vault-opf-vault-snapshots
   storageClassName: openshift-storage.noobaa.io
