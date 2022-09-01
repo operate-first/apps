@@ -432,11 +432,29 @@ periodics:
     decorate: true
     annotations:
       description: Updates pre-commit image version and pre-commit hooks
-    spec: # TODO. Ideally a tekton pipeline if that's possible (gh query for all concerned repo + one updater per repo ?)
-    initContainers: #PROTO
-      - name: repo-lister
-        image: github-cli
-        command:  gh search repos --owner thoth-station --update ">$(date -Idate -d '2 months ago')"
+    spec:
+      initContainers: #PROTO: Image names are incorrect as is syntax
+        - name: repo-getter
+          image: github-cli
+          command: >
+            for repo in $(gh search repos --owner thoth-station --update ">$(date -Idate -d '2 months ago')")
+              do gh repo clone repo -- --depth 1
+          volumesMount:
+            - name: git-repos
+              mountPath: /working/git-repos
+        - name: quay.io/thoth-station/thoth-precommit-py38:latest
+          command: /usr/bind/find /working/git-repos -maxdepth 1 -type d -exec sh -c 'cd $1; precommit autoupdate' _ {} ;
+          volumesMount:
+            - name: git-repos
+              mountPath: /working/git-repos
+      containers:
+        - name: github-cli
+          command: /usr/bind/find /working/git-repos -maxdepth 1 -type d -exec sh -c 'cd $1; gh pr create --fill' _ {} ; # Probably something needed to create a fork / avoid prompting
+          volumesMount:
+            - name: git-repos
+              mountPath: /working/git-repos
+
+
   - name: periodic-close-rotten
     interval: 3h
     decorate: true
