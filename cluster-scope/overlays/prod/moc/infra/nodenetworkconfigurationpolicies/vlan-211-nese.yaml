@@ -7,6 +7,9 @@ spec:
     node-role.kubernetes.io/worker: ""
   desiredState:
     interfaces:
+      - name: eno1
+        state: up
+        type: ethernet
       - name: eno1.211
         description: zero cluster provisioning network
         type: vlan
