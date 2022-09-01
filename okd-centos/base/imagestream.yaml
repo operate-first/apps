@@ -12,7 +12,11 @@ spec:
       from:
         kind: DockerImage
         name: quay.io/centos/centos:stream8
+      importPolicy:
+        scheduled: true
     - name: stream9
       from:
         kind: DockerImage
         name: quay.io/centos/centos:stream9
+      importPolicy:
+        scheduled: true
