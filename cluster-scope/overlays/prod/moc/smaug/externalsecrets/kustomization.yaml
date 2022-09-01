@@ -5,3 +5,4 @@ resources:
 - image-registry-private-configuration-user.yaml
 - pull-secret.yaml
 - rook-ceph-external-cluster-details.yaml
+- service-catalog-k8s-plugin-tokens.yaml

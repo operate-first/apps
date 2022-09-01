@@ -19,4 +19,5 @@ resources:
   - opf-triage-party
   - opf-trino
   - opf-trino-stage
+  - service-catalog
   - stackrox
