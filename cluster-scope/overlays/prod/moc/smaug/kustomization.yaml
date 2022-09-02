@@ -27,6 +27,7 @@ resources:
 - ../../../../base/core/namespaces/chrisproject
 - ../../../../base/core/namespaces/chrisproject-dev
 - ../../../../base/core/namespaces/chrisproject-staging
+- ../../../../base/core/namespaces/copilot-ops
 - ../../../../base/core/namespaces/curator-operator
 - ../../../../base/core/namespaces/ddas-proj
 - ../../../../base/core/namespaces/debezium-ui
