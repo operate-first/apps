@@ -1,0 +1,9 @@
+apiVersion: user.openshift.io/v1
+kind: Group
+metadata:
+    name: copilot-ops
+users:
+    - cooktheryan
+    - guymguym
+    - djach7
+    - RobotSail
