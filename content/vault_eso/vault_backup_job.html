@@ -1028,7 +1028,7 @@ snapshot. Please read <a class="reference internal" href="restore_vault.html"><s
 <p>The backup job is a tekton <code class="docutils literal notranslate"><span class="pre">TaskRun</span></code>, that consists of 3 steps:</p>
 <ul class="simple">
 <li><p>Create a vault snapshot using <code class="docutils literal notranslate"><span class="pre">vault</span> <span class="pre">operator</span> <span class="pre">raft</span> <span class="pre">snapshot</span> <span class="pre">save...</span></code></p></li>
-<li><p>Sync this snapshot to back up stores (currently we back up to an <a class="reference external" href="https://console-openshift-console.apps.morty.emea.operate-first.cloud/k8s/ns/opf-obcs/objectbucket.io~v1alpha1~ObjectBucketClaim/opf-vault-snapshots">OBC</a> and <a class="reference external" href="https://console-openshift-console.apps.smaug.na.operate-first.cloud/k8s/ns/vault/persistentvolumeclaims/vault-snapshots">PVC</a>)</p></li>
+<li><p>Sync this snapshot to back up stores (currently we back up to an <a class="reference external" href="https://console-openshift-console.apps.smaug.na.operate-first.cloud/k8s/ns/vault/objectbucket.io~v1alpha1~ObjectBucketClaim/opf-vault-snapshots">OBC</a> and <a class="reference external" href="https://console-openshift-console.apps.smaug.na.operate-first.cloud/k8s/ns/vault/persistentvolumeclaims/vault-snapshots">PVC</a>)</p></li>
 <li><p>Clean up old Task Run jobs (we retain a capped number of jobs).</p></li>
 </ul>
 <p>The <code class="docutils literal notranslate"><span class="pre">TaskRun</span></code> is submitted periodically via a CronJob. The Frequency of this Job can be adjusted by directly updating
