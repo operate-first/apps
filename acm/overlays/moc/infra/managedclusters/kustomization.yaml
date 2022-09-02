@@ -8,5 +8,4 @@ resources:
 - osc-cl1.yaml
 - osc-cl2.yaml
 - smaug.yaml
-- morty.yaml
 - jerry.yaml

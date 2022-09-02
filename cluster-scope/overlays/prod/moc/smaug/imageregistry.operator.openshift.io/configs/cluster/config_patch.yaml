@@ -8,6 +8,6 @@ spec:
     $patch: replace
     managementState: Unmanaged
     s3:
-      bucket: openshift-image-registry-bucket
-      regionEndpoint: "https://s3-rook-openshift-storage.apps.morty.emea.operate-first.cloud/"
+      bucket: "openshift-image-registry-760235ec-9dc0-46a8-88e1-1f8e96908c63"
+      regionEndpoint: "https://s3-openshift-storage.apps.smaug.na.operate-first.cloud"
       region: "-"
