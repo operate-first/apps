@@ -56,3 +56,23 @@ presubmits:
             limits:
               memory: "1Gi"
               cpu: "300m"
+
+  - name: tekton-hello-world
+    decorate: true
+    skip_report: false
+    max_concurrency: 10
+    path_alias: https://github.com/Gregory-Pereira/aicoe-ci/tree/opf-hello-world-pipeline
+    agent: tekton-pipeline
+    run_if_changed: "^\\.test\\.yml"
+    labels:
+      preset-dind-enabled: "true"
+      preset-quay-credentials: "true"
+    pipeline_run_spec:
+        pipelineRef:
+          name: opf-tekton-hello-world
+        resources:
+        - name: testing
+          resourceRef:
+            name: PROW_IMPLICIT_GIT_REF
+    trigger: "(?m)^/build opf-hello-world,?(\\s+|$)"
+    rerun_command: "/rebuild opf-hello-world"
