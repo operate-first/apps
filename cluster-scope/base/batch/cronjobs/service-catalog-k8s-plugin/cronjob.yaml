@@ -1,0 +1,49 @@
+apiVersion: batch/v1
+kind: CronJob
+metadata:
+  name: upload-token-to-vault
+  namespace: service-catalog-k8s-plugin
+  labels:
+    app.kubernetes.io/name: service-catalog
+spec:
+  schedule: "0 * * * *"
+  concurrencyPolicy: Replace
+  successfulJobsHistoryLimit: 0
+  failedJobsHistoryLimit: 3
+  jobTemplate:
+    spec:
+      ttlSecondsAfterFinished: 0
+      template:
+        spec:
+          containers:
+          - name: upload-token-to-vault
+            image: quay.io/operate-first/opf-toolbox
+            imagePullPolicy: Always
+            command:
+            - /bin/sh
+            - -c
+            - |
+              echo "Authenticating with vault using SA JWT token ..."
+              VAULT_AUTH_TOKEN=$(cat /var/run/secrets/kubernetes.io/serviceaccount/token)
+              VAULT_CLIENT_TOKEN=$(vault write auth/$CLUSTER-k8s/login role=$ENV-ops jwt="$VAULT_AUTH_TOKEN" -format=json | jq -r '.auth.client_token')
+              vault login -no-print $VAULT_CLIENT_TOKEN
+
+              echo "Pushing k8s plugin SA token to vault ..."
+              vault kv put -mount=k8s_secrets moc/smaug/service-catalog/k8s-plugin-tokens $ENV_$CLUSTER_token=$token
+            env:
+            - name: VAULT_ADDR
+              value: https://vault-ui-vault.apps.smaug.na.operate-first.cloud
+            envFrom:
+            - secretRef:
+                name: service-catalog-k8s-plugin-token
+            - configMapRef:
+                name: service-catalog-k8s-plugin
+            resources:
+              limits:
+                cpu: 50m
+                memory: 128Mi
+              requests:
+                cpu: 50m
+                memory: 128Mi
+          serviceAccountName: vault-secret-fetcher
+          restartPolicy: OnFailure

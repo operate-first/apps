@@ -20,6 +20,7 @@ resources:
   - externalsecrets
   - machineconfigs/50-ipmi-route.yaml
   - configmaps/admin-acks.yaml
+  - configmaps/service-catalog-k8s-plugin.yaml
   - ingresscontrollers
   - secret-mgmt
 

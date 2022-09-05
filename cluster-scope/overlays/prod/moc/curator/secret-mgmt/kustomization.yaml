@@ -4,3 +4,4 @@ resources:
   - openshift-config
   - openshift-ingress
   - openshift-monitoring
+  - service-catalog-k8s-plugin

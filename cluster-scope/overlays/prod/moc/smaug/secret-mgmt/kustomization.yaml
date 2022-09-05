@@ -20,4 +20,5 @@ resources:
   - opf-trino
   - opf-trino-stage
   - service-catalog
+  - service-catalog-k8s-plugin
   - stackrox

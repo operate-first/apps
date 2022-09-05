@@ -65,6 +65,7 @@ resources:
 - ../../../../bundles/openshift-pipelines
 - ../../../../bundles/training-operator
 - apiserver
+- configmaps/service-catalog-k8s-plugin.yaml
 - externalsecrets
 - ingresscontroller
 - machineconfigs/kepler
