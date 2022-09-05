@@ -5,6 +5,7 @@ resources:
 - ../../../base/config.openshift.io/projects/cluster
 - ../../../base/core/namespaces/service-catalog-k8s-plugin
 - ../../../base/core/secrets/service-catalog-k8s-plugin-token
+- ../../../base/core/serviceaccounts/service-catalog-k8s-plugin
 - ../../../base/core/serviceaccounts/schemastore-ci
 - ../../../base/rbac.authorization.k8s.io/clusterrolebindings/cluster-admins-rb
 - ../../../base/rbac.authorization.k8s.io/clusterrolebindings/self-provisioners
