@@ -2,7 +2,11 @@ apiVersion: backstage.io/v1alpha1
 kind: System
 metadata:
   name: dex
-  description: Dex system
+  title: Dex
+  description: Dex is an identity service that uses OpenID Connect to drive authentication for other apps.
+  annotations:
+    operate-first.cloud/featured: "true"
+    operate-first.cloud/logo-url: https://cncf-branding.netlify.app/img/projects/dex/icon/color/dex-icon-color.png
 spec:
   owner: group:operate-first
   domain: sre

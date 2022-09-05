@@ -6,8 +6,12 @@ metadata:
 spec:
   targets:
     - ./components/argocd.yaml
-    - ./components/dex.yaml
-    - ./components/grafana/grafana-oauth.yaml
-    - ./components/grafana/grafana-public.yaml
     - ./components/backstage.yaml
-    - ./components/crunchy-postgres-db.yaml
+    - ./components/dex-smaug.yaml
+    - ./components/odf-operator-smaug.yaml
+    - ./components/opf-grafana-public-grafana-operator.yaml
+    - ./components/opf-grafana-public.yaml
+    - ./components/opf-monitoring-grafana-operator.yaml
+    - ./components/opf-monitoring-grafana.yaml
+    - ./components/service-catalog-crunchy-postgres-operator.yaml
+    - ./components/service-catalog-pg-cluster.yaml

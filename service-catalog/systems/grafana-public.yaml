@@ -1,14 +1,14 @@
 apiVersion: backstage.io/v1alpha1
 kind: System
 metadata:
-  name: grafana
-  title: Grafana (private)
-  description: Grafana is a multi-platform open source analytics and interactive visualization web application. This instance is available to community members only.
+  name: grafana-public
+  title: Grafana (public)
+  description: Grafana is a multi-platform open source analytics and interactive visualization web application. This instance is available to public.
   annotations:
     operate-first.cloud/featured: "true"
     operate-first.cloud/logo-url: https://raw.githubusercontent.com/grafana/grafana/main/public/img/grafana_icon.svg
   links:
-    - url: https://grafana.operate-first.cloud/
+    - url: https://grafana-public.operate-first.cloud/
       title: Grafana (public) instance
       icon: web
 spec:

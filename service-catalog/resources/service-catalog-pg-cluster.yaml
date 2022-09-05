@@ -1,0 +1,20 @@
+apiVersion: backstage.io/v1alpha1
+kind: Resource
+metadata:
+  name: service-catalog-pg-cluster
+  title: PostgreSQL cluster
+  description: PostgreSQL is a powerful, open source object-relational database system. PostgreSQL cluster is created by Crunchy Postgres for Kubernetes operator
+  links:
+    - url: https://www.crunchydata.com/products/crunchy-high-availability-postgresql
+      title: Crunchy product pages
+      icon: web
+    - url: https://access.crunchydata.com/documentation/postgres-operator/v5/
+      title: Documentation
+      icon: web
+spec:
+  type: database
+  lifecycle: production
+  owner: group:operate-first
+  system: service-catalog
+  dependsOn:
+    - component:service-catalog-pg-cluster

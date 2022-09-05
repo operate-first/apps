@@ -1,14 +1,15 @@
 apiVersion: backstage.io/v1alpha1
 kind: Component
 metadata:
-  name: grafana-public
-  description: The public instance of grafana in operate first
+  name: opf-grafana-public-grafana-operator
+  title: Grafana operator
+  description: A Kubernetes Operator based on the Operator SDK for creating and managing Grafana instances
   annotations:
-    operate-first.cloud/featured: 'true'
     operate-first.cloud/logo-url: https://raw.githubusercontent.com/grafana/grafana/main/public/img/grafana_icon.svg
     argocd/app-name: grafana-public-smaug
     github.com/project-slug: operate-first/apps
-    backstage.io/kubernetes-label-selector: 'app.kubernetes.io/name=grafana-public'
+    backstage.io/kubernetes-label-selector: "control-plane=controller-manager"
+    backstage.io/kubernetes-namespace: opf-grafana-public
     backstage.io/techdocs-ref: url:https://github.com/operate-first/apps/tree/master/docs/content/grafana
   links:
     - url: https://github.com/operate-first/apps/issues/new
@@ -24,13 +25,9 @@ metadata:
       title: Manifests
       icon: web
 spec:
-  type: service
+  type: operator
   lifecycle: production
   owner: group:operate-first
-  system: grafana
+  system: grafana-public
   dependsOn:
     - resource:smaug
-    - resource:sqlite
-    - component:grafana-oauth
-  providesApis:
-    - grafana

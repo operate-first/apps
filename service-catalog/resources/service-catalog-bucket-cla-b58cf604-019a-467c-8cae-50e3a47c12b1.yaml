@@ -1,15 +1,16 @@
 apiVersion: backstage.io/v1alpha1
 kind: Resource
 metadata:
-  name: s3-bucket
-  description: AWS S3 bucket deployed using OpenShift
+  name: service-catalog-bucket-cla-b58cf604-019a-467c-8cae-50e3a47c12b1
+  description: S3 bucket for Service catalog on NESE
   links:
     - url: https://www.operate-first.cloud/apps/content/ocs/claiming_object_store.html
       title: Documentation
       icon: web
 spec:
   type: s3-bucket
+  system: service-catalog
   lifecycle: production
   owner: group:operate-first
   dependsOn:
-    - resource:smaug
+    - resource:odf-external-cluster-smaug

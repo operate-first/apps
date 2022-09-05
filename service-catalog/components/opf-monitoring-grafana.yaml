@@ -1,0 +1,36 @@
+apiVersion: backstage.io/v1alpha1
+kind: Component
+metadata:
+  name: opf-monitoring-grafana
+  title: Grafana
+  description: A Grafana instance to surface aggregated monitoring in Operate First Community Cloud
+  annotations:
+    operate-first.cloud/logo-url: https://raw.githubusercontent.com/grafana/grafana/main/public/img/grafana_icon.svg
+    argocd/app-name: grafana-smaug
+    github.com/project-slug: operate-first/apps
+    backstage.io/kubernetes-label-selector: "app.kubernetes.io/name=grafana"
+    backstage.io/kubernetes-namespace: opf-monitoring
+    backstage.io/techdocs-ref: url:https://github.com/operate-first/apps/tree/master/docs/content/grafana
+  links:
+    - url: https://github.com/operate-first/apps/issues/new
+      title: Support path
+      icon: user
+    - url: https://www.operate-first.cloud/apps/content/grafana/README.html
+      title: Grafana documentation in OPF
+      icon: web
+    - url: https://grafana.operate-first.cloud/
+      title: Instance of Grafana
+      icon: web
+    - url: https://github.com/operate-first/apps/tree/master/grafana/overlays/moc/smaug
+      title: Manifests
+      icon: web
+spec:
+  type: service
+  lifecycle: production
+  owner: group:operate-first
+  system: grafana
+  dependsOn:
+    - resource:smaug
+    - component:opf-monitoring-grafana-operator
+  providesApis:
+    - grafana
