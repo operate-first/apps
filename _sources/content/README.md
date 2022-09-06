@@ -1,32 +1,41 @@
 # GitOps Documentation
 
-This JupyterBook is intended to serve as a main resource for all Operate First GitHub Org contributors.
+This documentation is intended to serve as a main resource for all Operate First GitHub Org contributors.
 
 It contains documentation on how to perform GitHub contributor-related tasks and encourages input and contributions from
-the community. JupyterBook format combines easy readability with efficient methods on how to apply newly acquired
-knowledge.
+the community.
+
+# Getting started with Operate First
+
+Visit the [Getting Started](https://www.operate-first.cloud/getting-started) page on the Operate First website to learn more about the project.
 
 ## Environments
 
-If you would like to use one of our clusters, please create an issue [here][3].
+If you would like to use one of our clusters, please create an [issue][3].
+To access clusters, select `operate-first` from the login screen and authenticate with your GitHub account or get a token for [command line access](#command-line-access).
 
-### [MOC][14]
+### MOC
 
-The Operate First initiative currently manages two clusters within the MOC environment.
+We manage two clusters within the [MOC](http://massopen.cloud)) environment.
 
-- [`Smaug` cluster][smaug] for all user workloads
-- [`Infra` cluster][infra] for cluster management, housing ACM and ArgoCD
+- [Smaug][smaug] for all user workloads
+- [Infra][infra] for cluster management, housing ACM and ArgoCD
 
-### [EMEA][23]
+### EMEA
 
-The Operate First community deploys the following cluster within the EMEA region.
+We manage one cluster within the [IONOS](https://www.ionos.de/) environment.
 
-Currently, there are no clusters supporting user workloads in EMEA,
-although the Jerry cluster will be opperational in the region soon.
+- [Jerry](https://console-openshift-console.apps.jerry.ionos.emea.operate-first.cloud/) for all user workloads
 
-### [OS-Climate][24]
+see [operate-first/ionos-openshift](https://github.com/operate-first/ionos-openshift) for more information.
 
-OS-Climate (OSC) provides a unified, open Multimodal Data Processing platform used by OS-Climate members to collect, normalize and integrate climate and ESG data from public and private sources.
+### AWS
+
+- [Balrog](https://console-openshift-console.apps.balrog.aws.operate-first.cloud/) mostly for [Thoth](https://thoth-station.ninja/) workloads
+
+### OS-Climate
+
+[OS-Climate][24] (OSC) provides a unified, open Multimodal Data Processing platform used by OS-Climate members to collect, normalize and integrate climate and ESG data from public and private sources.
 
 - [OSC cluster][osc-cl] for all OSC workloads
 
@@ -70,6 +79,24 @@ Operate First manages various applications and services in the environments list
     * We manage an instance of Dex on the Smaug cluster to provide authentication for some of our services
     * Our Dex instance can also be used to drive authentication for other users. While documents are not yet available for this, experienced users can find the configurations [here][11]
 
+## Command line access
+
+If you want to access the cluster via the command line, login to a cluster and visit the
+command-line-tools navigation item under the `?` dropdown menu.
+
+### Personal token
+
+You can use your personal token for testing and ad-hoc scripts, but it will expire in ~24 hours.
+
+1. Login to the web console using `operate-first` single sign on login
+2. Copy the token from the User dropdown menu
+3. Use this token as your oauth bearer token
+   * Eg:
+```bash
+curl --insecure -H "Authorization: Bearer sha256~zGN...CyEnmU" "https://api.jerry.ionos.emea.operate-first.cloud:6443/apis/user.openshift.io/v1/users/~"
+```
+
+
 [3]: https://github.com/operate-first/support/issues/new?assignees=&labels=onboarding&template=onboarding_to_cluster.yaml&title=
 [4]: https://github.com/operate-first/support/issues/new?assignees=&labels=onboarding&template=onboarding_to_cluster.yaml&title=
 [5]: https://github.com/operate-first/support/issues/new?assignees=&labels=onboarding&template=onboarding_argocd.yaml&title=
@@ -87,7 +114,6 @@ Operate First manages various applications and services in the environments list
 [18]: https://github.com/observatorium
 [20]: https://cloud.redhat.com/products/container-storage/?extIdCarryOver=true&sc_cid=701f2000001Css5AAC
 [21]: https://github.com/dexidp/dex
-[23]: https://www.hetzner.com/
 [24]: https://github.com/os-climate/os_c_data_commons
 [smaug]: https://console-openshift-console.apps.smaug.na.operate-first.cloud/
 [infra]: https://console-openshift-console.apps.moc-infra.massopen.cloud/
