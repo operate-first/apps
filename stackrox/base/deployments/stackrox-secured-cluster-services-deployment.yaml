@@ -1,0 +1,16 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: stackrox-secured-cluster-services-deployment
+  namespace: stackrox
+spec:
+  project: stackrox
+  source:
+    chart: stackrox/stackrox-secured-cluster-services
+    repoURL: https://raw.githubusercontent.com/stackrox/helm-charts/main/opensource/
+    targetRevision: 71.0.0
+    helm:
+      releaseName: stackrox-secured-cluster-services
+  destination:
+    server: " "
+    namespace: stackrox

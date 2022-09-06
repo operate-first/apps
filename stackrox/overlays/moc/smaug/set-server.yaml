@@ -1,0 +1,10 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: stackrox-central-deployment
+  namespace: stackrox
+spec:
+  destination:
+    server: "smaug"
+    namespace: stackrox
+
