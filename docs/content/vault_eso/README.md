@@ -6,7 +6,7 @@ We use Vault and External Secrets Operator for managing secrets confidentially i
 This section contains documentations/instructions on how to interact with the Operate First Cloud Vault and ESO
 instance.
 
-Vault URL: https://vault-ui-vault.apps.smaug.na.operate-first.cloud
+Vault URL: https://vault-ui-vault.apps.smaug.na.operate-first.cloud - login with OIDC provider method.
 
 We use [External Secrets Operator (ESO)][external secrets] to manage our secrets declaratively in git.
 
