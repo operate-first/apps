@@ -161,6 +161,7 @@ resources:
 - bucketclasses/noobaa-default-bucket-class.yaml
 - clusterversion.yaml
 - configmaps
+- configmaps/service-catalog-k8s-plugin.yaml
 - externalsecrets
 - groups
 - ingresscontrollers/default.yaml
