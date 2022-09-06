@@ -8,5 +8,6 @@ resources:
   - openshift-ingress
   - openshift-logging
   - openshift-monitoring
+  - openshift-storage
   - opf-alertreceiver
   - service-catalog-k8s-plugin

@@ -3,3 +3,4 @@ kind: Kustomization
 resources:
 - github-client-secret.yaml
 - pull-secret.yaml
+- rook-ceph-external-cluster-details.yaml
