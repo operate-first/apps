@@ -4,7 +4,7 @@ metadata:
   name: cert-manager
 spec:
   destination:
-    name: morty
+    name: jerry
     namespace: openshift-ingress
   project: cluster-management
   source:
