@@ -12,4 +12,3 @@ resources:
   - openshift-ingress
   - openshift-monitoring
   - opf-monitoring
-  - service-catalog-k8s-plugin

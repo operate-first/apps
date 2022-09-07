@@ -14,4 +14,3 @@ resources:
   - openshift-monitoring
   - opf-monitoring
   - pachyderm
-  - service-catalog-k8s-plugin
