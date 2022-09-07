@@ -1,0 +1,13 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: fake-metrics-exporter
+spec:
+  template:
+    spec:
+      containers:
+        - name: fake-metrics-exporter
+          image: quay.io/larsks/fake-metrics-exporter:v0.1.0
+          ports:
+            - name: metrics
+              containerPort: 9283

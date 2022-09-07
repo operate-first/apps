@@ -1,0 +1,16 @@
+{
+  "ceph_health_status": 0.0,
+  "ceph_osd_flag_noup": 0.0,
+  "ceph_osd_flag_nodown": 0.0,
+  "ceph_osd_flag_noout": 0.0,
+  "ceph_osd_flag_noin": 0.0,
+  "ceph_osd_flag_nobackfill": 0.0,
+  "ceph_osd_flag_norebalance": 0.0,
+  "ceph_osd_flag_norecover": 0.0,
+  "ceph_osd_flag_noscrub": 0.0,
+  "ceph_osd_flag_nodeep_scrub": 0.0,
+  "ceph_num_objects_degraded": 0.0,
+  "ceph_num_objects_misplaced": 0.0,
+  "ceph_num_objects_unfound": 0.0,
+  "ceph_healthcheck_slow_ops": 0.0
+}

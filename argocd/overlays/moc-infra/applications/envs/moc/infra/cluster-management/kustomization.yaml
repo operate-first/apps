@@ -11,3 +11,4 @@ resources:
   - external-secrets.yaml
   - keycloak.yaml
   - kubevirt-hyperconverged.yaml
+  - odf-fake-metrics-exporter.yaml
