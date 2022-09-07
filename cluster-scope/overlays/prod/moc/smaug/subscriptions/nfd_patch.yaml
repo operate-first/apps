@@ -5,4 +5,4 @@ metadata:
   name: nfd
   namespace: openshift-nfd
 spec:
-  channel: "4.8"
+  channel: stable
