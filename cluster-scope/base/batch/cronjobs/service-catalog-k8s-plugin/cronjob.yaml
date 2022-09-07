@@ -26,10 +26,10 @@ spec:
               echo "Authenticating with vault using SA JWT token ..."
               VAULT_AUTH_TOKEN=$(cat /var/run/secrets/kubernetes.io/serviceaccount/token)
               VAULT_CLIENT_TOKEN=$(vault write auth/$CLUSTER-k8s/login role=$ENV-ops-rw jwt="$VAULT_AUTH_TOKEN" -format=json | yq e '.auth.client_token' -)
-              VAULT_TOKEN=$(vault login -token-only $VAULT_CLIENT_TOKEN)
+              export VAULT_TOKEN=$(vault login -token-only $VAULT_CLIENT_TOKEN)
 
               echo "Pushing k8s plugin SA token to vault ..."
-              vault kv put -mount=k8s_secrets moc/smaug/service-catalog/k8s-plugin-tokens $ENV_$CLUSTER_token=$token
+              vault kv put -mount=k8s_secrets moc/smaug/service-catalog/k8s-plugin-tokens "${ENV}_${CLUSTER}_token"=$token
             env:
             - name: VAULT_ADDR
               value: https://vault-ui-vault.apps.smaug.na.operate-first.cloud
