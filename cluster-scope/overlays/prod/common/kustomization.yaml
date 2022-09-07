@@ -7,6 +7,7 @@ resources:
 - ../../../base/core/secrets/service-catalog-k8s-plugin-token
 - ../../../base/core/serviceaccounts/service-catalog-k8s-plugin
 - ../../../base/core/serviceaccounts/schemastore-ci
+- ../../../base/core/serviceaccounts/vault-secret-writer
 - ../../../base/rbac.authorization.k8s.io/clusterrolebindings/cluster-admins-rb
 - ../../../base/rbac.authorization.k8s.io/clusterrolebindings/self-provisioners
 - ../../../base/rbac.authorization.k8s.io/clusterrolebindings/sre

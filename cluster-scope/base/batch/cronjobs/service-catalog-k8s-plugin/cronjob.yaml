@@ -25,8 +25,8 @@ spec:
             - |
               echo "Authenticating with vault using SA JWT token ..."
               VAULT_AUTH_TOKEN=$(cat /var/run/secrets/kubernetes.io/serviceaccount/token)
-              VAULT_CLIENT_TOKEN=$(vault write auth/$CLUSTER-k8s/login role=$ENV-ops jwt="$VAULT_AUTH_TOKEN" -format=json | jq -r '.auth.client_token')
-              vault login -no-print $VAULT_CLIENT_TOKEN
+              VAULT_CLIENT_TOKEN=$(vault write auth/$CLUSTER-k8s/login role=$ENV-ops-rw jwt="$VAULT_AUTH_TOKEN" -format=json | yq e '.auth.client_token' -)
+              VAULT_TOKEN=$(vault login -token-only $VAULT_CLIENT_TOKEN)
 
               echo "Pushing k8s plugin SA token to vault ..."
               vault kv put -mount=k8s_secrets moc/smaug/service-catalog/k8s-plugin-tokens $ENV_$CLUSTER_token=$token
@@ -45,5 +45,5 @@ spec:
               requests:
                 cpu: 50m
                 memory: 128Mi
-          serviceAccountName: vault-secret-fetcher
+          serviceAccountName: vault-secret-writer
           restartPolicy: OnFailure

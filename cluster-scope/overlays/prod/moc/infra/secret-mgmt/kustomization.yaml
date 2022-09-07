@@ -10,4 +10,3 @@ resources:
   - openshift-monitoring
   - openshift-storage
   - opf-alertreceiver
-  - service-catalog-k8s-plugin
