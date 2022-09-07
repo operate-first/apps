@@ -1,8 +1,7 @@
 apiVersion: kustomize.config.k8s.io/v1beta1
 kind: Kustomization
-namespace: openshift-storage
 commonLabels:
-  app: fake-metrics-server
+  app.kubernetes.io/name: fake-metrics-server
 resources:
-- deploy.yaml
+- deployment.yaml
 - service.yaml
