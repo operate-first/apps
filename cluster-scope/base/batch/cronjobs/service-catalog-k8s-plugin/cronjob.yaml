@@ -45,5 +45,5 @@ spec:
               requests:
                 cpu: 50m
                 memory: 128Mi
-          serviceAccountName: vault-secret-fetcher
+          serviceAccountName: vault-secret-writer
           restartPolicy: OnFailure
