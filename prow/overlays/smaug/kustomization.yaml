@@ -4,7 +4,6 @@ resources:
   - ../../base
   - ghproxy.yaml
   - integration-test-configmap.yaml
-  - route-ghproxy-metrics.yaml
   - routes.yaml
   - s3-storage.yaml
   - service-monitor.yaml
