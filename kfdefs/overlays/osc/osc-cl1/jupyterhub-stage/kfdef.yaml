@@ -36,7 +36,14 @@ spec:
           name: manifests
           path: odh-dashboard
       name: odh-dashboard
+    - kustomizeConfig:
+        repoRef:
+          name: meteor-operator
+          path: config/default
+      name: cnbi-operator
   repos:
     - name: manifests
       uri: https://github.com/operate-first/odh-manifests/tarball/osc-cl1-byon
+    - name: meteor-operator
+      uri: https://github.com/AICoE/meteor-operator/tarball/spike-cnbi-crd
   version: v1.1.0
