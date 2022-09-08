@@ -1,0 +1,12 @@
+---
+apiVersion: v1
+kind: Namespace
+metadata:
+  annotations:
+    openshift.io/display-name: "Operate First: ACM Multi-cluster Observability"
+    openshift.io/requester: operate-first
+    op1st/project-owner: operate-first
+    op1st/onboarding-issue: "https://github.com/operate-first/apps/issues/2337"
+    op1st/docs: "https://access.redhat.com/documentation/en-us/red_hat_advanced_cluster_management_for_kubernetes/2.5/html-single/observability/index"
+  name: open-cluster-management-observability
+spec: {}
