@@ -63,6 +63,7 @@ resources:
 - ../../../../bundles/grafana-operator
 - ../../../../bundles/opendatahub-operator-manual
 - ../../../../bundles/openshift-pipelines
+- ../../../../bundles/service-catalog-k8s-plugin
 - ../../../../bundles/training-operator
 - apiserver
 - configmaps/service-catalog-k8s-plugin.yaml
