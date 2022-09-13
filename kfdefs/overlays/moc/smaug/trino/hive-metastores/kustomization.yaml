@@ -3,6 +3,4 @@ apiVersion: kustomize.config.k8s.io/v1beta1
 kind: Kustomization
 namespace: odh-trino
 resources:
-  - data-science_general
-  - data_science_general_morty
   - operate-first_general
