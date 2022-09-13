@@ -1,0 +1,7 @@
+apiVersion: v1
+kind: Namespace
+metadata:
+    name: openshift-tuning
+    annotations:
+        openshift.io/display-name: Kruize HPO
+        openshift.io/requester: kruize
