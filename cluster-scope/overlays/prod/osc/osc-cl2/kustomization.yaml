@@ -77,6 +77,7 @@ resources:
 - ../../../../bundles/openshift-pipelines
 - ../../../../bundles/pachyderm-operator
 - ../../../../bundles/reloader
+- ../../../../bundles/service-catalog-k8s-plugin
 - ../../../../bundles/fybrik
 - ../../../../base/user.openshift.io/groups/fybrik
 - apiserver
