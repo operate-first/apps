@@ -29,7 +29,7 @@ spec:
               export VAULT_TOKEN=$(vault login -token-only $VAULT_CLIENT_TOKEN)
 
               echo "Pushing k8s plugin SA token to vault ..."
-              vault kv put -mount=k8s_secrets moc/smaug/service-catalog/k8s-plugin-tokens "${ENV}_${CLUSTER}_token"=$token
+              vault kv patch -mount=k8s_secrets moc/smaug/service-catalog/k8s-plugin-tokens "${ENV}_${CLUSTER}_token"=$token
             env:
             - name: VAULT_ADDR
               value: https://vault-ui-vault.apps.smaug.na.operate-first.cloud
