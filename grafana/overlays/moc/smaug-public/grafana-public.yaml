@@ -6,7 +6,7 @@ metadata:
 spec:
   deployment:
     labels:
-      app.kubernetes.io/name=grafana-public
+      app.kubernetes.io/name: grafana-public
   baseImage: quay.io/operate-first/grafana:8.4.3
   config:
     security:
