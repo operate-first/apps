@@ -170,3 +170,6 @@ resources:
 - objectbucketclaims/openshift-image-registry-bucket.yaml
 - secret-mgmt
 - snapshotschedules/schedule.yaml
+- nodes/oct-03-00-compute.yaml
+- nodes/oct-03-01-compute.yaml
+- nodes/oct-03-03-compute.yaml
