@@ -1,4 +1,3 @@
-# Source: openmetadata/templates/serviceaccount.yaml
 apiVersion: v1
 kind: ServiceAccount
 metadata:

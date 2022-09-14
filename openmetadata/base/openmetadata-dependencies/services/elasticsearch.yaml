@@ -1,4 +1,3 @@
-# Source: openmetadata-dependencies/charts/elasticsearch/templates/service.yaml
 kind: Service
 apiVersion: v1
 metadata:

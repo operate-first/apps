@@ -24,7 +24,7 @@ spec:
     []
   containers:
     - name: base
-      image: quay.io/operate-first/om-airflow:0.10.3
+      image: quay.io/operate-first/om-airflow:0.12.0
       imagePullPolicy: IfNotPresent
       envFrom:
         - secretRef:
@@ -32,9 +32,7 @@ spec:
         - configMapRef:
             name: openmetadata-dependencies-config-envs
       env:
-        ## enable the `/entrypoint` db connection check
-        - name: CONNECTION_CHECK_MAX_COUNT
-          value: "20"
+
         ## KubernetesExecutor Pods use LocalExecutor internally
         - name: AIRFLOW__CORE__EXECUTOR
           value: LocalExecutor
@@ -43,18 +41,16 @@ spec:
             secretKeyRef:
               name: airflow-mysql-secrets
               key: airflow-mysql-password
-        - name: REDIS_PASSWORD
-          value: ""
+        - name: CONNECTION_CHECK_MAX_COUNT
+          value: "20"
       ports: []
       command: []
       args: []
       volumeMounts:
         - name: dags-data
           mountPath: /opt/airflow/dags
-          subPath:
         - name: logs-data
           mountPath: /opt/airflow/logs
-          subPath:
   volumes:
     - name: dags-data
       persistentVolumeClaim:

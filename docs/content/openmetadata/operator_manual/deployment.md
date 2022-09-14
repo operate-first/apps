@@ -29,7 +29,7 @@ Dependencies should be applied first, they consist of Elasticsearch, Mysql, and 
 
 # ReadWriteMany Access Mode
 
-The OpenMetaData Dependencies require [ReadWriteMany Access Mode]. These pods will attempt to bind the same pvcs for
+The OpenMetaData Dependencies require [ReadWriteMany Access Mode][11]. These pods will attempt to bind the same pvcs for
 DAGs and Logs. Operate First Clusters do not have any storage providers that support this. However, we workaround this
 by ensuring all such pods are scheduled on the same node allowing them to treat a pvc with `ReadWriteOnce` accessmode
 as `ReadWriteMany`, see [here][4] for more info.
@@ -46,9 +46,12 @@ configuration can be found [here][7]. And the configuration is patched [here][9]
 
 ## Ingestion
 
-Ingestion authentication is done through JWT tokens. For OM to generate tokens, it needs a JWT configuration:
+Ingestion authentication is done through JWT tokens. Airflow is used to perform ingestion, and Airflow authenticates
+with OM via a JWT token that is generated via the OM UI.
 
-As of this writing, this is not documented. You can find these fields [here][8].
+First, for OM to be able to generate tokens, it needs JWT configuration:
+
+This is documented [here][12]. You can find these fields in our configuration manifests [here][8].
 ```yaml
 jwtTokenConfiguration:
   rsapublicKeyFilePath: ${RSA_PUBLIC_KEY_FILE_PATH:-""}
@@ -66,44 +69,31 @@ openssl pkcs8 -topk8 -inform PEM -outform DER -in private_key.pem -out private_k
 openssl rsa -in private_key.pem -pubout -outform DER -out public_key.der
 ```
 
-Then added to a k8s secret for consumption by the OM pod. Once configured you should be able to generate a new token
+Then add these to a k8s secret for consumption by the OM pod. Once configured you should be able to generate a new token
 via OM ui.
 
 The token is received from OM through the UI after logging in using the method as described above. Once done, the user
 needs to navigate to `Settings > Bots > ingestion-bot` and generate a new token from this ui. You will need to be
 using OM +0.11 to generate an infinite token, until then the longest expiry that can be selected is *7 days*.
 
-This token also needs to be added to the OpenMetaData configuration, as of `v0.10.1` this is not exposed in the OM
-config so as a workaround we mount the OM config directly on the pod, this can be found [here][10]. The field added
-is:
-
-```yaml
-airflowConfiguration:
-  authConfig:
-    openMetadataJWTClientConfig:
-      jwtToken: ${OPENMETADATA_JWT_TOKEN:-""}
-```
-
-By doing this we can now set `OPENMETADATA_JWT_TOKEN` in the OM pod [here][9]. We also set `AIRFLOW_AUTH_PROVIDER`
-as such:
+We set `OM_AUTH_JWT_TOKEN` in the OM pod [here][9]. We also set `AIRFLOW_AUTH_PROVIDER` as such:
 
 ```yaml
 - name: AIRFLOW_AUTH_PROVIDER
   value: openmetadata
-- name: OPENMETADATA_JWT_TOKEN
+- name: OM_AUTH_JWT_TOKEN
   value: <omitted>
 ```
 
-We mention this here, as this is not currently documented in the OM docs (v0.10.1).
-
-
 [1]: https://docs.open-metadata.org/deploy/deploy-on-kubernetes
-[2]: ../../../../openmetadata
+[2]: https://github.com/operate-first/apps/tree/master/openmetadata
 [3]: https://docs.open-metadata.org/deploy/deploy-on-kubernetes#quickstart
 [4]: https://kubernetes.io/docs/concepts/storage/persistent-volumes/#access-modes
-[5]: ../../../../dex/overlays/osc/osc-cl2
+[5]: https://github.com/operate-first/apps/tree/master/dex/overlays/osc/osc-cl2
 [6]: https://github.com/open-metadata/OpenMetadata/issues/5224
 [7]: https://docs.open-metadata.org/deploy/secure-openmetadata/google-sso-1
 [8]: https://github.com/open-metadata/OpenMetadata/blob/main/conf/openmetadata.yaml
-[9]: ../../../../openmetadata/overlays/osc/osc-cl2/patches
-[10]: ../../../../openmetadata/overlays/osc/osc-cl2/config/files/openmetadata.yaml
+[9]: https://github.com/operate-first/apps/tree/master/openmetadata/overlays/osc/osc-cl2/patches
+[10]: https://github.com/operate-first/apps/blob/master/openmetadata/base/openmetadata/configmaps/files/openmetadata.yaml
+[11]: https://kubernetes.io/docs/concepts/storage/persistent-volumes/#access-modes
+[12]: https://docs.open-metadata.org/deployment/security/enable-jwt-tokens#enable-jwt-tokens

@@ -4,7 +4,6 @@ namespace: openmetadata
 resources:
 - configmaps
 - deployments
-- jobs
 - pods
 - routes
 - serviceaccounts

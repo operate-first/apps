@@ -1,4 +1,3 @@
-# Source: openmetadata-dependencies/charts/airflow/templates/scheduler/scheduler-deployment.yaml
 apiVersion: apps/v1
 kind: Deployment
 metadata:
@@ -21,9 +20,6 @@ spec:
   template:
     metadata:
       annotations:
-        checksum/secret-config-envs: be70a40407f09d2cd3540c5bafa9065c3d67d2cab36f7085c20a5e5bfa0de4c8
-        checksum/secret-local-settings: e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855
-        checksum/config-pod-template: 5bdc6fcb2099bc480b3dea97f6a7c8594d809e089e08f8c35462afd7d8e92347
         cluster-autoscaler.kubernetes.io/safe-to-evict: "true"
       labels:
         app: airflow
@@ -45,7 +41,7 @@ spec:
       serviceAccountName: airflow
       initContainers:
         - name: check-db
-          image: quay.io/operate-first/om-airflow:0.10.3
+          image: quay.io/operate-first/om-airflow:0.12.0
           imagePullPolicy: IfNotPresent
           envFrom:
             - secretRef:
@@ -58,8 +54,6 @@ spec:
                 secretKeyRef:
                   name: airflow-mysql-secrets
                   key: airflow-mysql-password
-            - name: REDIS_PASSWORD
-              value: ""
             - name: CONNECTION_CHECK_MAX_COUNT
               value: "0"
           command:
@@ -76,7 +70,7 @@ spec:
             - name: logs-data
               mountPath: /opt/airflow/logs
         - name: wait-for-db-migrations
-          image: quay.io/operate-first/om-airflow:0.10.3
+          image: quay.io/operate-first/om-airflow:0.12.0
           imagePullPolicy: IfNotPresent
           envFrom:
             - secretRef:
@@ -89,8 +83,6 @@ spec:
                 secretKeyRef:
                   name: airflow-mysql-secrets
                   key: airflow-mysql-password
-            - name: REDIS_PASSWORD
-              value: ""
             - name: CONNECTION_CHECK_MAX_COUNT
               value: "0"
           command:
@@ -108,7 +100,7 @@ spec:
               mountPath: /opt/airflow/logs
       containers:
         - name: airflow-scheduler
-          image: quay.io/operate-first/om-airflow:0.10.3
+          image: quay.io/operate-first/om-airflow:0.12.0
           imagePullPolicy: IfNotPresent
           resources: {}
           envFrom:
@@ -122,8 +114,6 @@ spec:
                 secretKeyRef:
                   name: airflow-mysql-secrets
                   key: airflow-mysql-password
-            - name: REDIS_PASSWORD
-              value: ""
             - name: CONNECTION_CHECK_MAX_COUNT
               value: "0"
           command:
@@ -141,34 +131,39 @@ spec:
             timeoutSeconds: 60
             exec:
               command:
+                - "/usr/bin/dumb-init"
+                - "--"
+                - "/entrypoint"
                 - "python"
                 - "-Wignore"
                 - "-c"
                 - |
+                  import os
                   import sys
-                  from typing import List
+
+                  # suppress logs triggered from importing airflow packages
+                  os.environ["AIRFLOW__LOGGING__LOGGING_LEVEL"] = "ERROR"
+
                   from airflow.jobs.scheduler_job import SchedulerJob
                   from airflow.utils.db import create_session
                   from airflow.utils.net import get_hostname
-                  from airflow.utils.state import State
 
                   with create_session() as session:
+                      ########################
+                      # heartbeat check
+                      ########################
+                      # ensure the SchedulerJob with most recent heartbeat for this `hostname` is alive
                       hostname = get_hostname()
-                      query = session \
+                      scheduler_job = session \
                           .query(SchedulerJob) \
-                          .filter_by(state=State.RUNNING, hostname=hostname) \
-                          .order_by(SchedulerJob.latest_heartbeat.desc())
-                      jobs: List[SchedulerJob] = query.all()
-                      alive_jobs = [job for job in jobs if job.is_alive()]
-                      count_alive_jobs = len(alive_jobs)
-
-                  if count_alive_jobs == 1:
-                      # scheduler is healthy - we expect one SchedulerJob per scheduler
-                      pass
-                  elif count_alive_jobs == 0:
-                      sys.exit(f"UNHEALTHY - 0 alive SchedulerJob for: {hostname}")
-                  else:
-                      sys.exit(f"UNHEALTHY - {count_alive_jobs} (more than 1) alive SchedulerJob for: {hostname}")
+                          .filter_by(hostname=hostname) \
+                          .order_by(SchedulerJob.latest_heartbeat.desc()) \
+                          .limit(1) \
+                          .first()
+                      if (scheduler_job is not None) and scheduler_job.is_alive():
+                          pass
+                      else:
+                          sys.exit(f"The SchedulerJob (id={scheduler_job.id}) for hostname '{hostname}' is not alive")
           volumeMounts:
             - name: dags-data
               mountPath: /opt/airflow/dags
