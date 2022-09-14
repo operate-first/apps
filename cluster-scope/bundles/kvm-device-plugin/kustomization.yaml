@@ -6,3 +6,5 @@ resources:
   - ../../base/core/namespaces/kvm-device-plugin
   - ../../base/rbac.authorization.k8s.io/rolebindings/kvm-device-plugin
   - ../../base/rbac.authorization.k8s.io/roles/kvm-device-plugin
+  - ../../base/machineconfiguration.openshift.io/machineconfigs/80-enable-nested-virt
+  - ../../base/machineconfiguration.openshift.io/machineconfigpools/mcp-kvm-device-plugin
