@@ -1,4 +1,3 @@
-# Source: openmetadata-dependencies/charts/airflow/templates/webserver/webserver-service.yaml
 apiVersion: v1
 kind: Service
 metadata:

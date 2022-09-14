@@ -5,3 +5,4 @@ resources:
 - airflow-scheduler.yaml
 - airflow-sync-users.yaml
 - airflow-web.yaml
+- airlfow-triggerer.yaml

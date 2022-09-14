@@ -1,4 +1,3 @@
-# Source: openmetadata-dependencies/charts/mysql/templates/serviceaccount.yaml
 apiVersion: v1
 kind: ServiceAccount
 metadata:

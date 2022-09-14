@@ -1,4 +1,3 @@
-# Source: openmetadata-dependencies/charts/mysql/templates/primary/configmap.yaml
 apiVersion: v1
 kind: ConfigMap
 metadata:

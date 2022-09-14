@@ -1,4 +1,3 @@
-# Source: openmetadata-dependencies/charts/airflow/templates/sync/sync-users-deployment.yaml
 apiVersion: apps/v1
 kind: Deployment
 metadata:
@@ -18,9 +17,6 @@ spec:
   template:
     metadata:
       annotations:
-        checksum/secret-config-envs: be70a40407f09d2cd3540c5bafa9065c3d67d2cab36f7085c20a5e5bfa0de4c8
-        checksum/secret-local-settings: e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855
-        checksum/sync-users-script: 80247a2673881e3ea97ff7029b92fcda1684776bfcd337ad5380e0f84a45483a
         cluster-autoscaler.kubernetes.io/safe-to-evict: "true"
       labels:
         app: airflow
@@ -42,7 +38,7 @@ spec:
       serviceAccountName: airflow
       initContainers:
         - name: check-db
-          image: quay.io/operate-first/om-airflow:0.10.3
+          image: quay.io/operate-first/om-airflow:0.12.0
           imagePullPolicy: IfNotPresent
           envFrom:
             - secretRef:
@@ -55,8 +51,6 @@ spec:
                 secretKeyRef:
                   name: airflow-mysql-secrets
                   key: airflow-mysql-password
-            - name: REDIS_PASSWORD
-              value: ""
             - name: CONNECTION_CHECK_MAX_COUNT
               value: "0"
           command:
@@ -73,7 +67,7 @@ spec:
             - name: logs-data
               mountPath: /opt/airflow/logs
         - name: wait-for-db-migrations
-          image: quay.io/operate-first/om-airflow:0.10.3
+          image: quay.io/operate-first/om-airflow:0.12.0
           imagePullPolicy: IfNotPresent
           envFrom:
             - secretRef:
@@ -86,8 +80,6 @@ spec:
                 secretKeyRef:
                   name: airflow-mysql-secrets
                   key: airflow-mysql-password
-            - name: REDIS_PASSWORD
-              value: ""
             - name: CONNECTION_CHECK_MAX_COUNT
               value: "0"
           command:
@@ -105,7 +97,7 @@ spec:
               mountPath: /opt/airflow/logs
       containers:
         - name: sync-airflow-users
-          image: quay.io/operate-first/om-airflow:0.10.3
+          image: quay.io/operate-first/om-airflow:0.12.0
           imagePullPolicy: IfNotPresent
           resources: {}
           envFrom:
@@ -121,8 +113,6 @@ spec:
                 secretKeyRef:
                   name: airflow-mysql-secrets
                   key: airflow-mysql-password
-            - name: REDIS_PASSWORD
-              value: ""
             - name: CONNECTION_CHECK_MAX_COUNT
               value: "0"
           command:

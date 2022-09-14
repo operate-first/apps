@@ -5,9 +5,6 @@ generatorOptions:
   disableNameSuffixHash: true
 configMapGenerator:
   - files:
-      - files/check_db_migrations.sh
-    name: db-migrations-cm-hook
-  - files:
       - files/openmetadata.yaml
       - files/openmetadata-env.sh
     name: openmetadata-configuration

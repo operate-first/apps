@@ -1,4 +1,3 @@
-# Source: openmetadata-dependencies/charts/mysql/templates/primary/svc-headless.yaml
 apiVersion: v1
 kind: Service
 metadata:
