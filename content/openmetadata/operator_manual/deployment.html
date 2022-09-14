@@ -1060,7 +1060,7 @@ tar -xvzf openmetadata-<span class="si">${</span><span class="nv">chart</span><s
 helm template --name-template<span class="o">=</span>openmetadata .
 </pre></div>
 </div>
-<p>Further additions/amendments are made to these renders. For the resulting manifests you can find them <span class="xref myst">here</span>.</p>
+<p>Further additions/amendments are made to these renders. For the resulting manifests you can find them <a class="reference external" href="https://github.com/operate-first/apps/tree/master/openmetadata">here</a>.</p>
 <p>Some examples of additions include:</p>
 <ul class="simple">
 <li><p>Addition of OCP routes</p></li>
@@ -1072,7 +1072,7 @@ helm template --name-template<span class="o">=</span>openmetadata .
 </section>
 <section class="tex2jax_ignore mathjax_ignore" id="readwritemany-access-mode">
 <h1>ReadWriteMany Access Mode<a class="headerlink" href="#readwritemany-access-mode" title="Permalink to this headline">#</a></h1>
-<p>The OpenMetaData Dependencies require [ReadWriteMany Access Mode]. These pods will attempt to bind the same pvcs for
+<p>The OpenMetaData Dependencies require <a class="reference external" href="https://kubernetes.io/docs/concepts/storage/persistent-volumes/#access-modes">ReadWriteMany Access Mode</a>. These pods will attempt to bind the same pvcs for
 DAGs and Logs. Operate First Clusters do not have any storage providers that support this. However, we workaround this
 by ensuring all such pods are scheduled on the same node allowing them to treat a pvc with <code class="docutils literal notranslate"><span class="pre">ReadWriteOnce</span></code> accessmode
 as <code class="docutils literal notranslate"><span class="pre">ReadWriteMany</span></code>, see <a class="reference external" href="https://kubernetes.io/docs/concepts/storage/persistent-volumes/#access-modes">here</a> for more info.</p>
@@ -1082,14 +1082,16 @@ as <code class="docutils literal notranslate"><span class="pre">ReadWriteMany</s
 <p>There are 2 access points that require authentication. They are as follows:</p>
 <section id="openmetadata-ui">
 <h2>OpenMetaData UI<a class="headerlink" href="#openmetadata-ui" title="Permalink to this headline">#</a></h2>
-<p>This is configured using the Operate First <span class="xref myst">OSC-Cl2 Dex Connector</span>. Only the direct GitHub Authentication is supported,
+<p>This is configured using the Operate First <a class="reference external" href="https://github.com/operate-first/apps/tree/master/dex/overlays/osc/osc-cl2">OSC-Cl2 Dex Connector</a>. Only the direct GitHub Authentication is supported,
 as of now. Authentication via Dex -&gt; Openshift will not work (<a class="reference external" href="https://github.com/open-metadata/OpenMetadata/issues/5224">issue</a> here). The OM documentation for this
-configuration can be found <a class="reference external" href="https://docs.open-metadata.org/deploy/secure-openmetadata/google-sso-1">here</a>. And the configuration is patched <span class="xref myst">here</span>.</p>
+configuration can be found <a class="reference external" href="https://docs.open-metadata.org/deploy/secure-openmetadata/google-sso-1">here</a>. And the configuration is patched <a class="reference external" href="https://github.com/operate-first/apps/tree/master/openmetadata/overlays/osc/osc-cl2/patches">here</a>.</p>
 </section>
 <section id="ingestion">
 <h2>Ingestion<a class="headerlink" href="#ingestion" title="Permalink to this headline">#</a></h2>
-<p>Ingestion authentication is done through JWT tokens. For OM to generate tokens, it needs a JWT configuration:</p>
-<p>As of this writing, this is not documented. You can find these fields <a class="reference external" href="https://github.com/open-metadata/OpenMetadata/blob/main/conf/openmetadata.yaml">here</a>.</p>
+<p>Ingestion authentication is done through JWT tokens. Airflow is used to perform ingestion, and Airflow authenticates
+with OM via a JWT token that is generated via the OM UI.</p>
+<p>First, for OM to be able to generate tokens, it needs JWT configuration:</p>
+<p>This is documented <a class="reference external" href="https://docs.open-metadata.org/deployment/security/enable-jwt-tokens#enable-jwt-tokens">here</a>. You can find these fields in our configuration manifests <a class="reference external" href="https://github.com/open-metadata/OpenMetadata/blob/main/conf/openmetadata.yaml">here</a>.</p>
 <div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="nt">jwtTokenConfiguration</span><span class="p">:</span><span class="w"></span>
 <span class="w">  </span><span class="nt">rsapublicKeyFilePath</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">${RSA_PUBLIC_KEY_FILE_PATH:-&quot;&quot;}</span><span class="w"></span>
 <span class="w">  </span><span class="nt">rsaprivateKeyFilePath</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">${RSA_PRIVATE_KEY_FILE_PATH:-&quot;&quot;}</span><span class="w"></span>
@@ -1098,35 +1100,24 @@ configuration can be found <a class="reference external" href="https://docs.open
 </pre></div>
 </div>
 <p>Note the <code class="docutils literal notranslate"><span class="pre">RSA_PUBLIC_KEY_FILE_PATH</span></code> and <code class="docutils literal notranslate"><span class="pre">RSA_PRIVATE_KEY_FILE_PATH</span></code>, these are env variables made available in the
-deployment patch <span class="xref myst">here</span>. The values were generated using <code class="docutils literal notranslate"><span class="pre">openssl</span></code>:</p>
+deployment patch <a class="reference external" href="https://github.com/operate-first/apps/tree/master/openmetadata/overlays/osc/osc-cl2/patches">here</a>. The values were generated using <code class="docutils literal notranslate"><span class="pre">openssl</span></code>:</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>openssl genrsa -out private_key.pem <span class="m">2048</span>
 openssl pkcs8 -topk8 -inform PEM -outform DER -in private_key.pem -out private_key.der -nocrypt
 openssl rsa -in private_key.pem -pubout -outform DER -out public_key.der
 </pre></div>
 </div>
-<p>Then added to a k8s secret for consumption by the OM pod. Once configured you should be able to generate a new token
+<p>Then add these to a k8s secret for consumption by the OM pod. Once configured you should be able to generate a new token
 via OM ui.</p>
 <p>The token is received from OM through the UI after logging in using the method as described above. Once done, the user
 needs to navigate to <code class="docutils literal notranslate"><span class="pre">Settings</span> <span class="pre">&gt;</span> <span class="pre">Bots</span> <span class="pre">&gt;</span> <span class="pre">ingestion-bot</span></code> and generate a new token from this ui. You will need to be
 using OM +0.11 to generate an infinite token, until then the longest expiry that can be selected is <em>7 days</em>.</p>
-<p>This token also needs to be added to the OpenMetaData configuration, as of <code class="docutils literal notranslate"><span class="pre">v0.10.1</span></code> this is not exposed in the OM
-config so as a workaround we mount the OM config directly on the pod, this can be found <span class="xref myst">here</span>. The field added
-is:</p>
-<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="nt">airflowConfiguration</span><span class="p">:</span><span class="w"></span>
-<span class="w">  </span><span class="nt">authConfig</span><span class="p">:</span><span class="w"></span>
-<span class="w">    </span><span class="nt">openMetadataJWTClientConfig</span><span class="p">:</span><span class="w"></span>
-<span class="w">      </span><span class="nt">jwtToken</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">${OPENMETADATA_JWT_TOKEN:-&quot;&quot;}</span><span class="w"></span>
-</pre></div>
-</div>
-<p>By doing this we can now set <code class="docutils literal notranslate"><span class="pre">OPENMETADATA_JWT_TOKEN</span></code> in the OM pod <span class="xref myst">here</span>. We also set <code class="docutils literal notranslate"><span class="pre">AIRFLOW_AUTH_PROVIDER</span></code>
-as such:</p>
+<p>We set <code class="docutils literal notranslate"><span class="pre">OM_AUTH_JWT_TOKEN</span></code> in the OM pod <a class="reference external" href="https://github.com/operate-first/apps/tree/master/openmetadata/overlays/osc/osc-cl2/patches">here</a>. We also set <code class="docutils literal notranslate"><span class="pre">AIRFLOW_AUTH_PROVIDER</span></code> as such:</p>
 <div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">AIRFLOW_AUTH_PROVIDER</span><span class="w"></span>
 <span class="w">  </span><span class="nt">value</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">openmetadata</span><span class="w"></span>
-<span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">OPENMETADATA_JWT_TOKEN</span><span class="w"></span>
+<span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">OM_AUTH_JWT_TOKEN</span><span class="w"></span>
 <span class="w">  </span><span class="nt">value</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">&lt;omitted&gt;</span><span class="w"></span>
 </pre></div>
 </div>
-<p>We mention this here, as this is not currently documented in the OM docs (v0.10.1).</p>
 </section>
 </section>
 
