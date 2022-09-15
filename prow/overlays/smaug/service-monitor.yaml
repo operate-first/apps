@@ -6,9 +6,8 @@ metadata:
     monitor-component: operate-first
 spec:
   endpoints:
-    - interval: 30s
+    - path: /metrics
       port: metrics
-      scheme: https
   namespaceSelector:
     matchNames:
       - opf-ci-prow
