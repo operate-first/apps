@@ -480,3 +480,35 @@ periodics:
         - name: token
           secret:
             secretName: oauth-token
+
+
+  - name: periodic-close-needs-input
+    interval: 3h
+    decorate: true
+    annotations:
+      description: Close issues needing input which have not been updated in 60 days
+    spec:
+      containers:
+        - image: commenter
+          command:
+            - /ko-app/commenter
+          args:
+            - |-
+              --query=org:thoth-station
+              -label:lifecycle/frozen label:triage/needs-information,triage/not-reproducible
+            - --updated=4320h
+            - --token=/etc/token/oauth
+            - |-
+              --comment=Issues needing reporter input close after 60d,
+
+              If there is new input, reopen with `/reopen`.
+            - --template
+            - --ceiling=10
+            - --confirm
+          volumeMounts:
+            - name: token
+              mountPath: /etc/token
+      volumes:
+        - name: token
+          secret:
+            secretName: oauth-token
