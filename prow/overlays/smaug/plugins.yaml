@@ -111,6 +111,11 @@ external_plugins:
       events:
         - issue_comment
         - pull_request
+  redhat-et/homomorphic-learning:
+    - name: needs-rebase
+      events:
+        - issue_comment
+        - pull_request
 
 welcome:
   - repos:
@@ -131,6 +136,7 @@ lgtm:
       - operate-first
       - os-climate
       - thoth-station
+      - redhat-et/homomorphic-learning
 
 approve:
   - repos:
@@ -141,6 +147,7 @@ approve:
       - operate-first
       - os-climate
       - thoth-station
+      - redhat-et/homomorphic-learning
     require_self_approval: true
     ignore_review_state: false
     lgtm_acts_as_approve: false
@@ -310,6 +317,22 @@ plugins:
       - verify-owners
       - wip
   aicoe-aiops:
+    plugins:
+      - approve
+      - assign
+      - blockade
+      - blunderbuss
+      - help
+      - hold
+      - label
+      - lgtm
+      - lifecycle
+      - override
+      - size
+      - trigger
+      - verify-owners
+      - wip
+  redhat-et/homomorphic-learning:
     plugins:
       - approve
       - assign
