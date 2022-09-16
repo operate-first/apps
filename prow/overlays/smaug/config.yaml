@@ -35,6 +35,7 @@ in_repo_config:
     operate-first: true
     os-climate: true
     thoth-station: true
+    redhat-et/homomorphic-learning: true
 
   allowed_clusters:
     "AICoE": ["api.smaug.na.operate-first.cloud:6443"]
@@ -44,6 +45,7 @@ in_repo_config:
     "open-services-group": ["api.smaug.na.operate-first.cloud:6443"]
     "os-climate": ["api.smaug.na.operate-first.cloud:6443"]
     "thoth-station": ["api.smaug.na.operate-first.cloud:6443"]
+    "redhat-et/homomorphic-learning": ["api.smaug.na.operate-first.cloud:6443"]
 
 branch-protection:
   allow_disabled_policies: true
@@ -207,6 +209,7 @@ tide:
     operate-first: squash
     os-climate: merge
     thoth-station: merge
+    redhat-et/homomorphic-learning: merge
 
   queries:
     - orgs:
@@ -302,6 +305,18 @@ tide:
         - do-not-merge/invalid-owners-file
         - do-not-merge/work-in-progress
         - needs-rebase
+    - repos:
+        - redhat-et/homomorphic-learning
+      labels:
+        - approved
+        - lgtm
+      missingLabels:
+        - do-not-merge
+        - do-not-merge/hold
+        - do-not-merge/invalid-owners-file
+        - do-not-merge/work-in-progress
+        - needs-rebase
+
 
   blocker_label: tide/merge-blocker
   squash_label: tide/merge-method-squash
