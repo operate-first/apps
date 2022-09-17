@@ -5,6 +5,7 @@ kind: Kustomization
 resources:
   - ../common
   - ../../../../base/user.openshift.io/groups/cluster-admins
+  - ../../../../base/operators.coreos.com/subscriptions/cert-manager
 
 patchesStrategicMerge:
   - groups/cluster-admins.yaml
