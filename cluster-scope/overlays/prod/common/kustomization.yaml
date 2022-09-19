@@ -22,6 +22,7 @@ resources:
 - ../../../base/user.openshift.io/groups/chris-project
 - ../../../base/user.openshift.io/groups/cnv-testing
 - ../../../base/user.openshift.io/groups/codait-advo
+- ../../../base/user.openshift.io/groups/copilot-ops
 - ../../../base/user.openshift.io/groups/curator
 - ../../../base/user.openshift.io/groups/data-science
 - ../../../base/user.openshift.io/groups/debezium
@@ -34,8 +35,9 @@ resources:
 - ../../../base/user.openshift.io/groups/fde
 - ../../../base/user.openshift.io/groups/fedora
 - ../../../base/user.openshift.io/groups/fybrik
-- ../../../base/user.openshift.io/groups/grafana-viewer
 - ../../../base/user.openshift.io/groups/grafana-editor
+- ../../../base/user.openshift.io/groups/grafana-viewer
+- ../../../base/user.openshift.io/groups/jetsons
 - ../../../base/user.openshift.io/groups/lab-cicd
 - ../../../base/user.openshift.io/groups/logs-insights
 - ../../../base/user.openshift.io/groups/manageiq
@@ -47,7 +49,6 @@ resources:
 - ../../../base/user.openshift.io/groups/octo-otel-dev
 - ../../../base/user.openshift.io/groups/octo-training-model
 - ../../../base/user.openshift.io/groups/octo-ushift-dev
-- ../../../base/user.openshift.io/groups/copilot-ops
 - ../../../base/user.openshift.io/groups/odh-admin
 - ../../../base/user.openshift.io/groups/okd-team
 - ../../../base/user.openshift.io/groups/okd-wg

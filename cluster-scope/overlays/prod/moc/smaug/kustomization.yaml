@@ -19,6 +19,7 @@ resources:
 - ../../../../base/apiextensions.k8s.io/customresourcedefinitions/reports.curator.operatefirst.io
 - ../../../../base/core/namespaces/ai-services-thanos-grpc
 - ../../../../base/core/namespaces/aicoe-meteor
+- ../../../../base/core/namespaces/aiops-tools-workshop
 - ../../../../base/core/namespaces/api-designer
 - ../../../../base/core/namespaces/apicurio-apicurio-registry
 - ../../../../base/core/namespaces/b4mad-minecraft
@@ -39,6 +40,7 @@ resources:
 - ../../../../base/core/namespaces/ds-github-labeler
 - ../../../../base/core/namespaces/ds-ml-workflows-ws
 - ../../../../base/core/namespaces/fedora
+- ../../../../base/core/namespaces/jet-linite
 - ../../../../base/core/namespaces/koku-metrics-operator
 - ../../../../base/core/namespaces/kubeflow
 - ../../../../base/core/namespaces/manageiq
@@ -77,7 +79,6 @@ resources:
 - ../../../../base/core/namespaces/rapidast
 - ../../../../base/core/namespaces/report-system
 - ../../../../base/core/namespaces/rh-curator-eval
-- ../../../../base/core/namespaces/aiops-tools-workshop
 - ../../../../base/core/namespaces/service-catalog
 - ../../../../base/core/namespaces/smart-village-view
 - ../../../../base/core/namespaces/stackrox
@@ -137,8 +138,8 @@ resources:
 - ../../../../base/storage.k8s.io/storageclasses/ocs-external-storagecluster-ceph-rbd
 - ../../../../base/user.openshift.io/groups/cluster-admins
 - ../../../../bundles/acme-operator
-- ../../../../bundles/banzaicloud-vault
 - ../../../../bundles/b4mad-racing
+- ../../../../bundles/banzaicloud-vault
 - ../../../../bundles/curator
 - ../../../../bundles/external-secrets-operator
 - ../../../../bundles/fybrik
@@ -168,9 +169,9 @@ resources:
 - ingresscontrollers/default.yaml
 - nodenetworkconfigurationpolicies/vlan-210-nfs.yaml
 - nodenetworkconfigurationpolicies/vlan-211-nese.yaml
-- objectbucketclaims/openshift-image-registry-bucket.yaml
-- secret-mgmt
-- snapshotschedules/schedule.yaml
 - nodes/oct-03-00-compute.yaml
 - nodes/oct-03-01-compute.yaml
 - nodes/oct-03-03-compute.yaml
+- objectbucketclaims/openshift-image-registry-bucket.yaml
+- secret-mgmt
+- snapshotschedules/schedule.yaml
