@@ -16,6 +16,7 @@ resources:
   - ../../../../base/storage.k8s.io/storageclasses/hostpath-provisioner
   - ../../../../base/user.openshift.io/groups/cluster-admins
   - ../../../../bundles/external-secrets-operator
+  - ../../../../bundles/service-catalog-k8s-plugin
   - apiserver
   - externalsecrets
   - machineconfigs/50-ipmi-route.yaml
