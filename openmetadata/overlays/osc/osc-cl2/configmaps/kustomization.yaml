@@ -1,0 +1,11 @@
+apiVersion: kustomize.config.k8s.io/v1beta1
+kind: Kustomization
+generatorOptions:
+  disableNameSuffixHash: true
+configMapGenerator:
+  - files:
+      - files/auth_roles_mapping.json
+    name: auth-roles-mapping
+  - files:
+      - files/dex_provider_cfg.json
+    name: dex-provider-cfg-template

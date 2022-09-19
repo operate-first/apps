@@ -1,0 +1,7 @@
+apiVersion: apps/v1
+kind: StatefulSet
+metadata:
+  name: elasticsearch
+  annotations:
+    configmap.reloader.stakater.com/reload: ""
+    secret.reloader.stakater.com/reload: ""
