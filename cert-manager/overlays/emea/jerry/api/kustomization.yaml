@@ -4,4 +4,4 @@ namespace: openshift-config
 resources:
   - issuer.yaml
   - certificate.yaml
-  - ../secrets
+  - externalsecrets
