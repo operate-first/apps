@@ -2,7 +2,11 @@ apiVersion: backstage.io/v1alpha1
 kind: User
 metadata:
   name: operate-first
+  title: Operate First
+  description: Arbitrary Operate First user representing the community
 spec:
   profile:
     email: community@lists.operate-first.cloud
+    displayName: Operate First
+    picture: https://avatars.githubusercontent.com/u/70260562?s=200&v=4
   memberOf: [operate-first]
