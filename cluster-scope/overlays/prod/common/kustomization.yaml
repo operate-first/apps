@@ -44,6 +44,7 @@ resources:
 - ../../../base/user.openshift.io/groups/neu-students
 - ../../../base/user.openshift.io/groups/ocp-pipelines-sre
 - ../../../base/user.openshift.io/groups/octo-et-security
+- ../../../base/user.openshift.io/groups/octo-et-platform
 - ../../../base/user.openshift.io/groups/octo-otel-dev
 - ../../../base/user.openshift.io/groups/octo-training-model
 - ../../../base/user.openshift.io/groups/octo-ushift-dev

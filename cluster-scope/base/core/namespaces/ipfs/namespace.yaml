@@ -1,0 +1,7 @@
+apiVersion: v1
+kind: Namespace
+metadata:
+    name: ipfs
+    annotations:
+        openshift.io/requester: octo-et-platform
+        op1st/onboarding-issue: "https://github.com/operate-first/support/issues/971"

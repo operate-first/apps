@@ -96,6 +96,7 @@ resources:
 - ../../../../base/core/namespaces/ttm-as-a-service
 - ../../../../base/core/namespaces/ushift-dev
 - ../../../../base/core/namespaces/varangian-test
+- ../../../../base/core/namespaces/ipfs
 - ../../../../base/imageregistry.operator.openshift.io/configs/cluster
 - ../../../../base/noobaa.io/backingstores
 - ../../../../base/operators.coreos.com/catalogsources/operatorhubio-catalog/
