@@ -12,10 +12,10 @@ AUTH_TYPE = AUTH_OAUTH
 AUTH_ROLE_ADMIN = 'Admin'
 AUTH_USER_REGISTRATION = True
 AUTH_USER_REGISTRATION_ROLE = 'Public'
+AUTH_ROLES_SYNC_AT_LOGIN = True
 
 OAUTH_PROVIDERS = []
 DEX_PROVIDER_FILE = 'dex_provider_cfg.json'
-
 
 AUTH_ROLES_MAPPING_FILE = 'auth_roles_mapping.json'
 with open(AUTH_ROLES_MAPPING_FILE) as f:
@@ -36,8 +36,7 @@ class CustomSsoSecurityManager(AirflowSecurityManager):
             me = self.appbuilder.sm.oauth_remotes[provider].get('userinfo')
             logging.debug("response: {0}".format(me))
             me = me.json()
-            logging.debug("user_data: {0}".format(me))
-            logging.debug("groups: {0}".format(me.get("groups", [])))
+            logging.info("User {0} logging in. Groups: {1}".format(me['email'], me.get("groups", [])))
             return {
                 'name': me['email'],
                 'email': me['email'],
