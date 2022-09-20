@@ -5,6 +5,6 @@ generatorOptions:
 resources:
   - ../../../base
   - dashboards
+  - datasources
 patchesStrategicMerge:
-  - datasources/grafanadatasource.yaml
   - grafana_oauth_patch.yaml
