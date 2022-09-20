@@ -1,0 +1,10 @@
+apiVersion: user.openshift.io/v1
+kind: Group
+metadata:
+  name: octo-et-platform
+users:
+  - sallyom
+  - djach7
+  - cooktheryan
+  - guymguym
+  - jsawaya
