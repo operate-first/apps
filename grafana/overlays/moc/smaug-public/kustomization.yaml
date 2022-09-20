@@ -11,6 +11,3 @@ patchesStrategicMerge:
   - ./grafana-public.yaml
   - ./grafana-route-public.yaml
   - ./servicemonitor.yaml
-
-generators:
-  - secrets-generator.yaml
