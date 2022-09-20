@@ -13,6 +13,7 @@ resources:
   - openshift-monitoring
   - openshift-storage
   - opf-alertreceiver
+  - opf-grafana-public
   - opf-jupyterhub
   - opf-monitoring
   - opf-observatorium
