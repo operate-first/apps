@@ -19,3 +19,4 @@ resources:
   - workshops.yaml
   - chris.yaml
   - otel-dev.yaml
+  - copilot-ops.yaml
