@@ -8,6 +8,7 @@ commonLabels:
 resources:
   - ../../../../base/instance/thanos
   - deployments
+  - externalsecrets
   - horizontalpodautoscalers
   - rolebindings
   - roles
@@ -16,6 +17,3 @@ resources:
   - servicemonitors
   - services
   - obcs
-
-generators:
-  - secrets/secrets-generator.yaml
