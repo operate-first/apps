@@ -3,6 +3,6 @@ kind: Kustomization
 namespace: odh-trino
 resources:
   - ../../base
-  - secret.yaml
+  - externalsecret.yaml
 patchesStrategicMerge:
   - configmap.yaml
