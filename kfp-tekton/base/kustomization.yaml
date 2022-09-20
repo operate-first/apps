@@ -34,9 +34,10 @@ resources:
   - ./serviceaccounts/mysql.yaml
   - ./serviceaccounts/pipeline-runner.yaml
 
-  # Secrets
-  - ./secrets/mysql-secret.yaml
   ## Implement in overlay
+  # Secrets
+  # - ./secrets/mysql-secret.yaml
+
   # - ./secrets/mlpipeline-minio-artifact.yaml
 
 
