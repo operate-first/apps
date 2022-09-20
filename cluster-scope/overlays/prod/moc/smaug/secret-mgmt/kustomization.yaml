@@ -2,6 +2,8 @@ apiVersion: kustomize.config.k8s.io/v1beta1
 kind: Kustomization
 resources:
   - aiops-tools-workshop
+  - api-designer
+  - apicurio-apicurio-registry
   - dex
   - kubeflow
   - openshift-config
