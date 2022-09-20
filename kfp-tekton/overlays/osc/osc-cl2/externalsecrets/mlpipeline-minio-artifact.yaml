@@ -1,0 +1,13 @@
+apiVersion: external-secrets.io/v1beta1
+kind: ExternalSecret
+metadata:
+  name: mlpipeline-minio-artifact
+spec:
+  secretStoreRef:
+    name: opf-vault-store
+    kind: SecretStore
+  target:
+    name: mlpipeline-minio-artifact
+  dataFrom:
+    - extract:
+        key: osc/osc-cl2/kubeflow/mlpipeline-minio-artifact
