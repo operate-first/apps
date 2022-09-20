@@ -6,6 +6,8 @@ resources:
   - ../common
   - ../../../../base/user.openshift.io/groups/cluster-admins
   - ../../../../base/operators.coreos.com/subscriptions/cert-manager
+  - ../../../../bundles/external-secrets-operator
+  - secret-mgmt
 
 patchesStrategicMerge:
   - groups/cluster-admins.yaml
