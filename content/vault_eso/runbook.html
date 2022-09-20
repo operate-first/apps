@@ -960,14 +960,26 @@ title="Print to PDF"
     </div>
     <nav id="bd-toc-nav" aria-label="Page">
         <ul class="visible nav section-nav flex-column">
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#missing-client-token">
-   Missing Client token
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#">
+   Vault Runbook
   </a>
+  <ul class="visible nav section-nav flex-column">
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#missing-client-token">
+     Missing Client token
+    </a>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#service-account-unauthorized">
+     Service account unauthorized
+    </a>
+   </li>
+  </ul>
  </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#service-account-unauthorized">
-   Service account unauthorized
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#could-not-get-provider-client-unable-to-log-in-to-auth-method">
+   Could not get provider client: unable to log in to auth method
   </a>
  </li>
 </ul>
@@ -989,14 +1001,26 @@ title="Print to PDF"
                         </div>
                         <nav aria-label="Page">
                             <ul class="visible nav section-nav flex-column">
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#missing-client-token">
-   Missing Client token
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#">
+   Vault Runbook
   </a>
+  <ul class="visible nav section-nav flex-column">
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#missing-client-token">
+     Missing Client token
+    </a>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#service-account-unauthorized">
+     Service account unauthorized
+    </a>
+   </li>
+  </ul>
  </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#service-account-unauthorized">
-   Service account unauthorized
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#could-not-get-provider-client-unable-to-log-in-to-auth-method">
+   Could not get provider client: unable to log in to auth method
   </a>
  </li>
 </ul>
@@ -1049,6 +1073,21 @@ this cluster’s auth method has expired.</p>
 <li><p>Try creating the secret store again.</p></li>
 </ol>
 </section>
+</section>
+<section class="tex2jax_ignore mathjax_ignore" id="could-not-get-provider-client-unable-to-log-in-to-auth-method">
+<h1>Could not get provider client: unable to log in to auth method<a class="headerlink" href="#could-not-get-provider-client-unable-to-log-in-to-auth-method" title="Permalink to this headline">#</a></h1>
+<p>This error may be seen in the ESO logs when looking to setup a secretstore that fails to authenticate against vault.</p>
+<p>One reason this may happen is the serviceaccount <a class="reference external" href="https://www.vaultproject.io/api-docs/auth/kubernetes#parameters">JWT</a> for the target cluster (where the ESO in question resides)
+that is used to access the <code class="docutils literal notranslate"><span class="pre">TokenReview</span></code> API to validate other JWT may have been rotated.</p>
+<p>There is no clear way to confirm this, but you can run the following command when logged in to the cluster where this
+ESO is deployed. Log in to vault via cli, and run:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>vault write auth/${cluster}-k8s/config \
+token_reviewer_jwt=$(oc sa get-token eso-vault-auth -n external-secrets-operator) \
+kubernetes_host=$(oc whoami --show-server)
+</pre></div>
+</div>
+<p>This will update the <code class="docutils literal notranslate"><span class="pre">token_reviewer_jwt</span></code> with the new ESO SA that vault can use to validate other JWTs. Try creating
+the secretstore again and see if it successfully authenticates (by checking the <code class="docutils literal notranslate"><span class="pre">.status</span></code> field).</p>
 </section>
 
     <script type="text/x-thebe-config">
