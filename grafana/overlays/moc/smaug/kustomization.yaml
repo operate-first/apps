@@ -10,12 +10,11 @@ configMapGenerator:
       - GF_AUTH_GENERIC_OAUTH_ROLE_ATTRIBUTE_STRICT=true
 resources:
   - ../../../base
+  - ../common/dashboards
+  - ../common/datasources
   - blackbox-exporter
-  - dashboards
-  - datasources
+  - externalsecrets
   - landingpage-dashboard-configmap.yaml
-  - oauth-client-secret.yaml
-
 patchesStrategicMerge:
   - grafana-oauth.yaml
   - route_patch.yaml
