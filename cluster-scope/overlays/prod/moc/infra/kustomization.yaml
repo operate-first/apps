@@ -63,3 +63,4 @@ patchesStrategicMerge:
   - groups/cluster-admins.yaml
   - clusterrolebindings/self-provisioners_patch.yaml
   - clusterrolebindings/klusteraddonconfig-editor.yaml
+  - consoles/cluster_patch.yaml
