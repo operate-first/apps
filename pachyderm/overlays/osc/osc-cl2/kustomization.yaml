@@ -3,5 +3,4 @@ kind: Kustomization
 namespace: pachyderm
 resources:
 - ../../../base
-generators:
-  - secret-generator.yaml
+- externalsecret.yaml

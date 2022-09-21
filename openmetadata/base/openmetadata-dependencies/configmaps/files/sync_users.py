@@ -135,11 +135,16 @@ def main(sync_forever: bool):
 ## Imports ##
 #############
 import sys
-from flask_appbuilder.security.sqla.models import User, Role
 from werkzeug.security import check_password_hash, generate_password_hash
 import airflow.www.app as www_app
 flask_app = www_app.create_app()
 flask_appbuilder = flask_app.appbuilder
+
+# airflow uses its own incompatible FAB models in 2.3.0+
+try:
+    from airflow.www.fab_security.sqla.models import User, Role
+except ModuleNotFoundError:
+    from flask_appbuilder.security.sqla.models import User, Role
 
 
 #############
@@ -152,14 +157,14 @@ class UserWrapper(object):
             first_name: Optional[str] = None,
             last_name: Optional[str] = None,
             email: Optional[str] = None,
-            role: Optional[str] = None,
+            roles: Optional[List[str]] = None,
             password: Optional[str] = None
     ):
         self.username = username
         self._first_name = first_name
         self._last_name = last_name
         self._email = email
-        self.role = role
+        self.roles = roles
         self._password = password
 
     @property
@@ -184,7 +189,7 @@ class UserWrapper(object):
             "first_name": self.first_name,
             "last_name": self.last_name,
             "email": self.email,
-            "role": find_role(role_name=self.role),
+            "roles": [find_role(role_name=role_name) for role_name in self.roles],
             "password": self.password
         }
 
@@ -202,7 +207,7 @@ VAR__USER_WRAPPERS = {
         first_name=os.getenv('AIRFLOW_FNAME', 'Peter'),
         last_name=os.getenv('AIRFLOW_LNAME', 'Parker'),
         email=os.getenv('AIRFLOW_EMAIL', 'spiderman@marvel.com'),
-        role=os.getenv('AIRFLOW_ROLE', 'Admin'),
+        roles=[os.getenv('AIRFLOW_ROLE', 'Admin')],
         password=os.getenv('AIRFLOW_PASSWORD', 'admin')
     ),
 }
@@ -224,6 +229,16 @@ def find_role(role_name: str) -> Role:
         sys.exit(1)
 
 
+def compare_role_lists(role_list_1: List[Role], role_list_2: List[Role]) -> bool:
+    """
+    Check if two lists of FAB Roles contain the same roles (ignores duplicates and order).
+    """
+    name_set_1 = set(role.name for role in role_list_1)
+    name_set_2 = set(role.name for role in role_list_2)
+    return name_set_1 == name_set_2
+
+
+
 def compare_users(user_dict: Dict, user_model: User) -> bool:
     """
     Check if user info (stored in dict) is identical to a FAB User model.
@@ -233,7 +248,7 @@ def compare_users(user_dict: Dict, user_model: User) -> bool:
             and user_dict["first_name"] == user_model.first_name
             and user_dict["last_name"] == user_model.last_name
             and user_dict["email"] == user_model.email
-            and [user_dict["role"]] == user_model.roles
+            and compare_role_lists(user_dict["roles"], user_model.roles)
             and check_password_hash(pwhash=user_model.password, password=user_dict["password"])
     )
 
@@ -248,14 +263,19 @@ def sync_user(user_wrapper: UserWrapper) -> None:
 
     if not u_old:
         logging.info(f"User=`{username}` is missing, adding...")
-        if flask_appbuilder.sm.add_user(
-                username=u_new["username"],
-                first_name=u_new["first_name"],
-                last_name=u_new["last_name"],
-                email=u_new["email"],
-                role=u_new["role"],
-                password=u_new["password"]
-        ):
+        created_user = flask_appbuilder.sm.add_user(
+            username=u_new["username"],
+            first_name=u_new["first_name"],
+            last_name=u_new["last_name"],
+            email=u_new["email"],
+            # in old versions of flask_appbuilder `add_user(role=` can only add exactly one role
+            # (unchecked 0 index is safe because we require at least one role using helm values validation)
+            role=u_new["roles"][0],
+            password=u_new["password"]
+        )
+        if created_user:
+            # add the full list of roles (we only added the first one above)
+            created_user.roles = u_new["roles"]
             logging.info(f"User=`{username}` was successfully added.")
         else:
             logging.error(f"Failed to add User=`{username}`")
@@ -268,7 +288,7 @@ def sync_user(user_wrapper: UserWrapper) -> None:
             u_old.first_name = u_new["first_name"]
             u_old.last_name = u_new["last_name"]
             u_old.email = u_new["email"]
-            u_old.roles = [u_new["role"]]
+            u_old.roles = u_new["roles"]
             u_old.password = generate_password_hash(u_new["password"])
             # strange check for False is because update_user() returns None for success
             # but in future might return the User model

@@ -17,7 +17,8 @@ spec:
       serviceAccountName: openmetadata
       containers:
         - name: openmetadata
-          image: "quay.io/operate-first/om-server:0.10.3"
+          image: "quay.io/operate-first/om-server:0.12.0"
+          imagePullPolicy: Always
           ports:
             - name: http
               containerPort: 8585
@@ -30,8 +31,8 @@ spec:
             periodSeconds: 30
             failureThreshold: 5
             httpGet:
-              path: /api/v1/health-check
-              port: http
+              path: /healthcheck
+              port: http-admin
           readinessProbe:
             initialDelaySeconds: 60
             periodSeconds: 30
@@ -40,6 +41,10 @@ spec:
               path: /
               port: http
           env:
+            - name: OPENMETADATA_CLUSTER_NAME
+              value: "openmetadata"
+            - name: LOG_LEVEL
+              value: "INFO"
             - name: SERVER_HOST
               value: "openmetadata"
             - name: SERVER_PORT
@@ -56,6 +61,8 @@ spec:
               value: ""
             - name: AUTHENTICATION_CALLBACK_URL
               value: ""
+            - name: AUTHENTICATION_JWT_PRINCIPAL_CLAIMS
+              value: "[email,preferred_username,sub]"
             - name: AUTHORIZER_CLASS_NAME
               value: "org.openmetadata.catalog.security.NoopAuthorizer"
             - name: AUTHORIZER_REQUEST_FILTER
@@ -66,31 +73,47 @@ spec:
               value: "[ingestion-bot]"
             - name: AUTHORIZER_PRINCIPAL_DOMAIN
               value: "open-metadata.org"
+            - name: AUTHORIZER_ENFORCE_PRINCIPAL_DOMAIN
+              value: "false"
+            - name: AUTHORIZER_ENABLE_SECURE_SOCKET
+              value: "false"
             - name: ELASTICSEARCH_HOST
               value: "elasticsearch"
             - name: ELASTICSEARCH_PORT
               value: "9200"
             - name: ELASTICSEARCH_SCHEME
               value: "http"
-            - name: MYSQL_HOST
+            - name: DB_HOST
               value: "mysql"
-            - name: MYSQL_PORT
+            - name: DB_PORT
               value: "3306"
-            - name: MYSQL_USER
-              value: "openmetadata"
-            - name: MYSQL_USER_PASSWORD
+            - name: DB_USER
+              value: "openmetadata_user"
+            - name: DB_USER_PASSWORD
               valueFrom:
                 secretKeyRef:
                   name: mysql-secrets
-                  key: OPENMETADATA_DB_PASSWORD
-            - name: MYSQL_DATABASE
+                  key: openmetadata-mysql-password
+            - name: OM_DATABASE
               value: "openmetadata_db"
+            - name: DB_DRIVER_CLASS
+              value: "com.mysql.cj.jdbc.Driver"
+            - name: DB_SCHEME
+              value: "mysql"
+            - name: DB_USE_SSL
+              value: "false"
             - name: AIRFLOW_HOST
-              value: "http://airflow.openmetadata.svc.cluster.local:8080"
+              value: "http://openmetadata-dependencies-web.default.svc.cluster.local:8080"
+            - name: AIRFLOW_USERNAME
             - name: AIRFLOW_PASSWORD
               valueFrom:
                 secretKeyRef:
                   name: airflow-secrets
-                  key: AIRFLOW_PASSWORD
+                  key: openmetadata-airflow-password
             - name: SERVER_HOST_API_URL
-              value: "http://openmetadata.openmetadata.svc.cluster.local:8585/api"
+              value: "http://openmetadata.default.svc.cluster.local:8585/api"
+            - name: AIRFLOW_AUTH_PROVIDER
+              value: "no-auth"
+            - name: SECRET_MANAGER
+              value: "noop"
+          resources: {}

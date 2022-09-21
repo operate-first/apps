@@ -5,4 +5,4 @@ metadata:
   namespace: service-catalog-k8s-plugin
 data:
   ENV: osc
-  CLUSTER: osc-cli2
+  CLUSTER: osc-cl2

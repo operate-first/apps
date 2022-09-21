@@ -22,6 +22,7 @@ resources:
 - ../../../../base/core/namespaces/aiops-tools-workshop
 - ../../../../base/core/namespaces/api-designer
 - ../../../../base/core/namespaces/apicurio-apicurio-registry
+- ../../../../base/core/namespaces/b4mad-minecraft
 - ../../../../base/core/namespaces/boatrockers
 - ../../../../base/core/namespaces/bu-cs-book-dev
 - ../../../../base/core/namespaces/bu-scsaol
@@ -39,6 +40,7 @@ resources:
 - ../../../../base/core/namespaces/ds-github-labeler
 - ../../../../base/core/namespaces/ds-ml-workflows-ws
 - ../../../../base/core/namespaces/fedora
+- ../../../../base/core/namespaces/jet-linite
 - ../../../../base/core/namespaces/koku-metrics-operator
 - ../../../../base/core/namespaces/kubeflow
 - ../../../../base/core/namespaces/manageiq
@@ -96,6 +98,7 @@ resources:
 - ../../../../base/core/namespaces/ttm-as-a-service
 - ../../../../base/core/namespaces/ushift-dev
 - ../../../../base/core/namespaces/varangian-test
+- ../../../../base/core/namespaces/ipfs
 - ../../../../base/imageregistry.operator.openshift.io/configs/cluster
 - ../../../../base/noobaa.io/backingstores
 - ../../../../base/operators.coreos.com/catalogsources/operatorhubio-catalog/
@@ -168,6 +171,9 @@ resources:
 - ingresscontrollers/default.yaml
 - nodenetworkconfigurationpolicies/vlan-210-nfs.yaml
 - nodenetworkconfigurationpolicies/vlan-211-nese.yaml
+- nodes/oct-03-00-compute.yaml
+- nodes/oct-03-01-compute.yaml
+- nodes/oct-03-03-compute.yaml
 - objectbucketclaims/openshift-image-registry-bucket.yaml
 - secret-mgmt
 - snapshotschedules/schedule.yaml

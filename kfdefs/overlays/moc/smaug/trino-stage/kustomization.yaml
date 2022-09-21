@@ -3,11 +3,11 @@ kind: Kustomization
 namespace: opf-trino-stage
 resources:
   - configs
+  - externalsecrets
   - hive-metastores
   - kfdef.yaml
   - obcs
   - routes
-  - secrets
   - vpa
 generatorOptions:
   disableNameSuffixHash: true

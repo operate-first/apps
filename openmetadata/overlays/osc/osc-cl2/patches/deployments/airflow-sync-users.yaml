@@ -1,0 +1,7 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: airflow-sync-users
+  annotations:
+    configmap.reloader.stakater.com/reload: "openmetadata-dependencies-config-envs, airflow-sync-users"
+    secret.reloader.stakater.com/reload: "openmetadata-dependencies-config-envs, airflow-mysql-secrets, airflow-secrets"

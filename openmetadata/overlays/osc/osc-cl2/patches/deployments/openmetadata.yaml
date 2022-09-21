@@ -2,6 +2,9 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: openmetadata
+  annotations:
+    configmap.reloader.stakater.com/reload: "openmetadata-config"
+    secret.reloader.stakater.com/reload: "airflow-secrets, mysql-secrets, openmetadata-envs"
 spec:
   template:
     spec:
@@ -23,21 +26,21 @@ spec:
       # Decode it onto an emptydir volume which is read by OM.
       initContainers:
         - name: openmetadata-init
-          image: "quay.io/operate-first/om-server:0.10.3"
+          image: "quay.io/operate-first/om-server:0.12.0"
           volumeMounts:
-            - mountPath: /openmetadata-0.10.3/jwt
+            - mountPath: /openmetadata-0.12.0/jwt
               name: rsakeys
             - mountPath: /tmp/rsakeys
               name: openmetadata-auth
-          command: ["/bin/sh", "-c", "base64 -d /tmp/rsakeys/private_key.der > /openmetadata-0.10.3/jwt/private_key.der && base64 -d /tmp/rsakeys/public_key.der > /openmetadata-0.10.3/jwt/public_key.der"]
+          command: ["/bin/sh", "-c", "base64 -d /tmp/rsakeys/private_key.der > /openmetadata-0.12.0/jwt/private_key.der && base64 -d /tmp/rsakeys/public_key.der > /openmetadata-0.12.0/jwt/public_key.der"]
       containers:
         - name: openmetadata
           volumeMounts:
-            - mountPath: /openmetadata-0.10.3/logs
+            - mountPath: /openmetadata-0.12.0/logs
               name: logs
-            - mountPath: /openmetadata-0.10.3/jwt
+            - mountPath: /openmetadata-0.12.0/jwt
               name: rsakeys
-            - mountPath: /openmetadata-0.10.3/conf/
+            - mountPath: /openmetadata-0.12.0/conf/
               name: openmetadata-config
           envFrom:
             - secretRef:
@@ -63,6 +66,8 @@ spec:
               value: '[ingestion-bot]'
             - name: AUTHORIZER_PRINCIPAL_DOMAIN
               value: open-metadata.org
+            - name: AIRFLOW_HOST
+              value: "http://airflow.openmetadata.svc.cluster.local:8080"
             - name: AIRFLOW_AUTH_PROVIDER
               value: openmetadata
             - name: AIRFLOW_USERNAME
@@ -70,13 +75,25 @@ spec:
                 secretKeyRef:
                   key: AIRFLOW_USERNAME
                   name: airflow-secrets
-            - name: RSA_PUBLIC_KEY_FILE_PATH
-              value: /openmetadata-0.10.3/jwt/public_key.der
-            - name: RSA_PRIVATE_KEY_FILE_PATH
-              value: /openmetadata-0.10.3/jwt/private_key.der
-            - name: OPENMETADATA_JWT_TOKEN
+            - name: AIRFLOW_PASSWORD
+              valueFrom:
+                secretKeyRef:
+                  name: airflow-secrets
+                  key: AIRFLOW_PASSWORD
+            - name: OM_AUTH_JWT_TOKEN
               valueFrom:
                 secretKeyRef:
                   key: openmetadata_jwt_token
                   name: openmetadata-auth
+            - name: SERVER_HOST_API_URL
+              value: "http://openmetadata.openmetadata.svc.cluster.local:8585/api"
+            - name: RSA_PUBLIC_KEY_FILE_PATH
+              value: /openmetadata-0.12.0/jwt/public_key.der
+            - name: RSA_PRIVATE_KEY_FILE_PATH
+              value: /openmetadata-0.12.0/jwt/private_key.der
+            - name: DB_USER_PASSWORD
+              valueFrom:
+                secretKeyRef:
+                  name: mysql-secrets
+                  key: OPENMETADATA_DB_PASSWORD
           resources: {}

@@ -1,4 +1,3 @@
-# Source: openmetadata-dependencies/charts/mysql/templates/primary/statefulset.yaml
 apiVersion: apps/v1
 kind: StatefulSet
 metadata:
@@ -17,8 +16,6 @@ spec:
     type: RollingUpdate
   template:
     metadata:
-      annotations:
-        checksum/configuration: 8fb471463bc0fece623892fc500a412385083f18363ecfe351227aceeef11824
       labels:
         app.kubernetes.io/name: mysql
         app.kubernetes.io/component: primary

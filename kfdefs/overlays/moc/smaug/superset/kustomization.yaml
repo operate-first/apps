@@ -5,4 +5,4 @@ namespace: opf-superset
 resources:
   - configmaps
   - kfdef.yaml
-  - secrets
+  - externalsecrets

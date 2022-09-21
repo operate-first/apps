@@ -8,8 +8,6 @@ configMapGenerator:
     files:
       - jmx.properties
       - catalogs/curator_general.properties
-      - catalogs/data_science_general.properties
-      - catalogs/data_science_general_morty.properties
       - catalogs/operate_first_general.properties
       - catalogs/ospo_sandiego.properties
   - name: trino-configfiles

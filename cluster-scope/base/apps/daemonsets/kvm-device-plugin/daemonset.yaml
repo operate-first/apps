@@ -43,6 +43,17 @@ spec:
           - name: device-plugin
             mountPath: /var/lib/kubelet/device-plugins
       volumes:
-        - name: device-plugin
-          hostPath:
-            path: /var/lib/kubelet/device-plugins
+      - name: device-plugin
+        hostPath:
+          path: /var/lib/kubelet/device-plugins
+      nodeSelector:
+        node-role.kubernetes.io/mcp-kvm-device-plugin: ""
+        # This label should match the one in the machineConfigPool
+        # so that the daemonset is only deployed
+        # to nodes where nested-virt is applied as a
+        # machineconfig
+        # ATTENTION: OperateFirst operations can choose to use
+        # a different label, but we need to keep the link to the
+        # machineconfigpool.
+        # Applying this machineconfig to the selected nodes will
+        # cause those nodes to restart

@@ -8,10 +8,12 @@ metadata:
 spec:
   deployment:
     labels:
-      app.kubernetes.io/name=grafana-oauth
+      app.kubernetes.io/name: grafana-oauth
     envFrom:
       - secretRef:
           name: oauth-client-secret
+      - secretRef:
+          name: grafana-secret-config
       - configMapRef:
           name: grafana-config-overrides
   configMaps:

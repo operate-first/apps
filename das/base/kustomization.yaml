@@ -4,6 +4,5 @@ namespace: odh-trino
 resources:
   - deployment.yaml
   - configmap.yaml
-  - secret.yaml
   - service.yaml
   - route.yaml
