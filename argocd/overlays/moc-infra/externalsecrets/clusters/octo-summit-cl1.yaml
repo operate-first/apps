@@ -8,6 +8,13 @@ spec:
     kind: SecretStore
   target:
     name: octo-summit-cl1-secret
+    template:
+      engineVersion: v2
+      metadata:
+        labels:
+          argocd.argoproj.io/secret-type: cluster
+        annotations:
+          managed-by: argocd.argoproj.io
   dataFrom:
     - extract:
         key: moc/infra/argocd/octo-summit-cl1-secret
