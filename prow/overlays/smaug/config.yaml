@@ -191,8 +191,8 @@ deck:
           name: podinfo
         required_files:
           - ^podinfo\.json$
-  # additional_allowed_buckets:
-  #   - prow
+  additional_allowed_buckets:
+    - prow
   tide_update_period: 1s
 
 tide:
