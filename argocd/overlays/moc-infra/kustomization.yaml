@@ -24,3 +24,5 @@ configMapGenerator:
   - configs/argo_rbac_cm/policy.default
 generatorOptions:
   disableNameSuffixHash: true
+patchesStrategicMerge:
+  - serviceaccounts/argocd-dex-server.yaml
