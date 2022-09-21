@@ -53,6 +53,7 @@ resources:
 - ../../../../base/core/namespaces/openshift-cnv
 - ../../../../base/core/namespaces/openshift-logging
 - ../../../../base/core/namespaces/openshift-operators
+- ../../../../base/core/namespaces/openshift-tuning
 - ../../../../base/core/namespaces/openshift-vertical-pod-autoscaler
 - ../../../../base/core/namespaces/opf-alertreceiver
 - ../../../../base/core/namespaces/opf-argo

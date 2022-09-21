@@ -38,6 +38,7 @@ resources:
 - ../../../base/user.openshift.io/groups/fybrik
 - ../../../base/user.openshift.io/groups/grafana-editor
 - ../../../base/user.openshift.io/groups/grafana-viewer
+- ../../../base/user.openshift.io/groups/kruize
 - ../../../base/user.openshift.io/groups/jetsons
 - ../../../base/user.openshift.io/groups/lab-cicd
 - ../../../base/user.openshift.io/groups/logs-insights
