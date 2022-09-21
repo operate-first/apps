@@ -3,3 +3,5 @@ kind: Kustomization
 namespace: api-designer
 resources:
   - ../base
+patches:
+  - opf-vault-store.yaml

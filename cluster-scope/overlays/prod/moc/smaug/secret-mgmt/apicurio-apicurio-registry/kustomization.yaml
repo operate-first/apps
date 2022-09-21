@@ -3,3 +3,5 @@ kind: Kustomization
 namespace: apicurio-apicurio-registry
 resources:
   - ../base
+patches:
+  - opf-vault-store.yaml
