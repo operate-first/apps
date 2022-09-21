@@ -4,6 +4,7 @@ resources:
   - aiops-tools-workshop
   - api-designer
   - apicurio-apicurio-registry
+  - copilot-ops
   - dex
   - kubeflow
   - openshift-config
