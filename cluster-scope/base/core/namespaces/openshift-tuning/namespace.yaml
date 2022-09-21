@@ -4,4 +4,7 @@ metadata:
     name: openshift-tuning
     annotations:
         openshift.io/display-name: Kruize HPO
+        op1st/project-owner: kruize
+        op1st/onboarding-issue: "https://github.com/operate-first/support/issues/972"
+        op1st/docs: "https://github.com/kruize/hpo"
         openshift.io/requester: kruize
