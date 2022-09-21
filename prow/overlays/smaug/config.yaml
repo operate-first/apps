@@ -400,7 +400,7 @@ periodics:
             - /ko-app/commenter
           args:
             - |-
-              --query=org:thoth-station org:AICoE org:operate-first org:open-services-group
+              --query=org:AICoE org:operate-first org:open-services-group
               -label:lifecycle/frozen
               label:lifecycle/rotten
             - --updated=720h
@@ -434,7 +434,7 @@ periodics:
             - /ko-app/commenter
           args:
             - |-
-              --query=org:thoth-station org:AICoE org:operate-first org:open-services-group
+              --query=org:AICoE org:operate-first org:open-services-group
               -label:lifecycle/frozen
               label:lifecycle/stale
               -label:lifecycle/rotten
@@ -471,7 +471,7 @@ periodics:
             - /ko-app/commenter
           args:
             - |-
-              --query=org:thoth-station org:AICoE org:operate-first org:open-services-group
+              --query=org:AICoE org:operate-first org:open-services-group
               -label:lifecycle/frozen
               -label:lifecycle/stale
               -label:lifecycle/rotten
