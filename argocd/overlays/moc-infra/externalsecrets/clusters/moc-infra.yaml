@@ -8,6 +8,13 @@ spec:
     kind: SecretStore
   target:
     name: cluster-spec-moc-infra
+    template:
+      engineVersion: v2
+      metadata:
+        labels:
+          argocd.argoproj.io/secret-type: cluster
+        annotations:
+          managed-by: argocd.argoproj.io
   dataFrom:
     - extract:
         key: moc/infra/argocd/cluster-spec-moc-infra
