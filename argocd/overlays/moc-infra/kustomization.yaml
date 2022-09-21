@@ -5,7 +5,7 @@ resources:
 - ../../base
 - ../../cluster-resources
 - applications
-- secrets/auth/dex-server-sa.yaml
+- externalsecrets
 - routes/argocd-google.yaml
 configMapGenerator:
 - name: argocd-cm
@@ -24,9 +24,3 @@ configMapGenerator:
   - configs/argo_rbac_cm/policy.default
 generatorOptions:
   disableNameSuffixHash: true
-generators:
-- secrets/gpg/secret-generator.yaml
-- secrets/clusters/secret-generator.yaml
-patchesStrategicMerge:
-- serviceaccounts/argocd-dex-server.yaml
-- secrets/auth/argocd-secret.yaml

@@ -1,0 +1,13 @@
+apiVersion: external-secrets.io/v1beta1
+kind: ExternalSecret
+metadata:
+  name: cluster-spec-moc-infra
+spec:
+  secretStoreRef:
+    name: opf-vault-store
+    kind: SecretStore
+  target:
+    name: cluster-spec-moc-infra
+  dataFrom:
+    - extract:
+        key: moc/infra/argocd/cluster-spec-moc-infra

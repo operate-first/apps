@@ -1,0 +1,13 @@
+apiVersion: external-secrets.io/v1beta1
+kind: ExternalSecret
+metadata:
+  name: octo-summit-cl1-secret
+spec:
+  secretStoreRef:
+    name: opf-vault-store
+    kind: SecretStore
+  target:
+    name: octo-summit-cl1-secret
+  dataFrom:
+    - extract:
+        key: moc/infra/argocd/octo-summit-cl1-secret
