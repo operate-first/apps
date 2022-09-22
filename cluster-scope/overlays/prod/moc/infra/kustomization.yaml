@@ -16,6 +16,7 @@ resources:
   - ../../../../base/core/namespaces/vault
   - ../../../../base/nmstate.io/nmstates/nmstate
   - ../../../../base/operator.openshift.io/ingresscontrollers/default
+  - ../../../../base/operator.openshift.io/networks/cluster
   - ../../../../base/operators.coreos.com/operatorgroups/openshift-nmstate
   - ../../../../base/operators.coreos.com/operatorgroups/operator-acm-group
   - ../../../../base/operators.coreos.com/subscriptions/acm-operator-subscription
@@ -61,3 +62,4 @@ patchesStrategicMerge:
   - clusterrolebindings/self-provisioners_patch.yaml
   - clusterrolebindings/klusteraddonconfig-editor.yaml
   - consoles/cluster_patch.yaml
+  - networks/cluster_patch.yaml
