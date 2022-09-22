@@ -3,7 +3,7 @@ kind: Kustomization
 resources:
 - ../../../base/config.openshift.io/projects/cluster
 - ../../../base/core/serviceaccounts/schemastore-ci
-- ../../../base/operator.openshift.io/console/cluster
+- ../../../base/operator.openshift.io/consoles/cluster
 - ../../../base/rbac.authorization.k8s.io/clusterrolebindings/cluster-admins-rb
 - ../../../base/rbac.authorization.k8s.io/clusterrolebindings/self-provisioners
 - ../../../base/rbac.authorization.k8s.io/clusterrolebindings/sre
