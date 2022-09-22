@@ -8,6 +8,14 @@ spec:
     kind: SecretStore
   target:
     name: clo-kafka
+    template:
+      engineVersion: v2
+      data:
+        ca-bundle.crt: '{{ index . "ca-bundle.crt" }}'
+        tls.crt: '{{ index . "tls.crt" }}'
+        tls.key: '{{ index . "tls.key" }}'
+        user.p12: '{{ index . "user.p12" | b64dec }}'
+        user.password: '{{ index . "user.password" }}'
   dataFrom:
     - extract:
         key: moc/smaug/opf-observatorium/clo-kafka
