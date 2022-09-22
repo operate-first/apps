@@ -1,0 +1,13 @@
+apiVersion: external-secrets.io/v1beta1
+kind: ExternalSecret
+metadata:
+  name: hmac-token
+spec:
+  secretStoreRef:
+    name: opf-vault-store
+    kind: SecretStore
+  target:
+    name: hmac-token
+  dataFrom:
+    - extract:
+        key: moc/smaug/opf-ci-prow/hmac-token
