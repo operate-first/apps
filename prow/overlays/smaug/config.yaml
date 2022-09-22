@@ -295,7 +295,6 @@ tide:
     - repos:
         - AICoE/common
         - AICoE/meteor
-        - AICoE/meteor-operator
       labels:
         - approved
         - lgtm
