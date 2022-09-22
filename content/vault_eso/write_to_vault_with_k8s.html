@@ -6,7 +6,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
 
-    <title>ArgoCD &#8212; GitOps Docs</title>
+    <title>Secret creation using vault CLI and k8s auth &#8212; GitOps Docs</title>
     
   <!-- Loaded before other Sphinx assets -->
   <link href="../../_static/styles/theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
@@ -53,8 +53,8 @@ const thebe_selector_output = ".output, .cell_output"
     <link rel="shortcut icon" href="../../_static/favicon.png"/>
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
-    <link rel="next" title="Adding ArgoCD Applications" href="add_application.html" />
-    <link rel="prev" title="Issuing certificates" href="../acme/issuing_certificates.html" />
+    <link rel="next" title="Vault Runbook" href="runbook.html" />
+    <link rel="prev" title="Vault Backup Job" href="vault_backup_job.html" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="None">
     
@@ -164,115 +164,115 @@ const thebe_selector_output = ".output, .cell_output"
    </li>
   </ul>
  </li>
- <li class="toctree-l1 current active has-children">
-  <a class="current reference internal" href="#">
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../argocd-gitops/README.html">
    ArgoCD
   </a>
-  <input checked="" class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"/>
+  <input class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"/>
   <label for="toctree-checkbox-3">
    <i class="fas fa-chevron-down">
    </i>
   </label>
   <ul>
    <li class="toctree-l2">
-    <a class="reference internal" href="add_application.html">
+    <a class="reference internal" href="../argocd-gitops/add_application.html">
      Adding ArgoCD Applications
     </a>
    </li>
    <li class="toctree-l2">
-    <a class="reference internal" href="add_permissions_to_project.html">
+    <a class="reference internal" href="../argocd-gitops/add_permissions_to_project.html">
      Requesting more permissions for an ArgoCD Project (MOC)
     </a>
    </li>
    <li class="toctree-l2">
-    <a class="reference internal" href="encrypting_applications.html">
+    <a class="reference internal" href="../argocd-gitops/encrypting_applications.html">
      How to encrypt apps in this repo
     </a>
    </li>
    <li class="toctree-l2">
-    <a class="reference internal" href="get_access_to_argocd.html">
+    <a class="reference internal" href="../argocd-gitops/get_access_to_argocd.html">
      Get access to ArgoCD
     </a>
    </li>
    <li class="toctree-l2">
-    <a class="reference internal" href="import_dev_gpg.html">
+    <a class="reference internal" href="../argocd-gitops/import_dev_gpg.html">
      Import Development GPG Key
     </a>
    </li>
    <li class="toctree-l2">
-    <a class="reference internal" href="onboarding_to_argocd.html">
+    <a class="reference internal" href="../argocd-gitops/onboarding_to_argocd.html">
      ArgoCD onboarding procedure
     </a>
    </li>
    <li class="toctree-l2">
-    <a class="reference internal" href="secret_management.html">
+    <a class="reference internal" href="../argocd-gitops/secret_management.html">
      Secret management for applications
     </a>
    </li>
    <li class="toctree-l2">
-    <a class="reference internal" href="setup_argocd_dev_environment.html">
+    <a class="reference internal" href="../argocd-gitops/setup_argocd_dev_environment.html">
      Deploying a development environment
     </a>
    </li>
    <li class="toctree-l2">
-    <a class="reference internal" href="update_argocd.html">
+    <a class="reference internal" href="../argocd-gitops/update_argocd.html">
      Steps for Upgrading ArgoCD
     </a>
    </li>
    <li class="toctree-l2">
-    <a class="reference internal" href="update_gpg_key.html">
+    <a class="reference internal" href="../argocd-gitops/update_gpg_key.html">
      Update gpg key
     </a>
    </li>
    <li class="toctree-l2">
-    <a class="reference internal" href="argocd_notifications.html">
+    <a class="reference internal" href="../argocd-gitops/argocd_notifications.html">
      Where and How do I add notifications to my ArgoCD apps?
     </a>
    </li>
   </ul>
  </li>
- <li class="toctree-l1 has-children">
-  <a class="reference internal" href="../vault_eso/README.html">
+ <li class="toctree-l1 current active has-children">
+  <a class="reference internal" href="README.html">
    Secret Management
   </a>
-  <input class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" type="checkbox"/>
+  <input checked="" class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" type="checkbox"/>
   <label for="toctree-checkbox-4">
    <i class="fas fa-chevron-down">
    </i>
   </label>
-  <ul>
+  <ul class="current">
    <li class="toctree-l2">
-    <a class="reference internal" href="../vault_eso/add_cluster_to_eso_and_vault.html">
+    <a class="reference internal" href="add_cluster_to_eso_and_vault.html">
      Enable Cluster to use External Secrets with Vault
     </a>
    </li>
    <li class="toctree-l2">
-    <a class="reference internal" href="../vault_eso/add_external_secrets_to_ns.html">
+    <a class="reference internal" href="add_external_secrets_to_ns.html">
      Add External Secrets to a namespace
     </a>
    </li>
    <li class="toctree-l2">
-    <a class="reference internal" href="../vault_eso/add_eso_to_cluster.html">
+    <a class="reference internal" href="add_eso_to_cluster.html">
      Add External Secrets Operator to an OPF cluster
     </a>
    </li>
    <li class="toctree-l2">
-    <a class="reference internal" href="../vault_eso/restore_vault.html">
+    <a class="reference internal" href="restore_vault.html">
      Restoring vault
     </a>
    </li>
    <li class="toctree-l2">
-    <a class="reference internal" href="../vault_eso/vault_backup_job.html">
+    <a class="reference internal" href="vault_backup_job.html">
      Vault Backup Job
     </a>
    </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="../vault_eso/write_to_vault_with_k8s.html">
+   <li class="toctree-l2 current active">
+    <a class="current reference internal" href="#">
      Secret creation using vault CLI and k8s auth
     </a>
    </li>
    <li class="toctree-l2">
-    <a class="reference internal" href="../vault_eso/runbook.html">
+    <a class="reference internal" href="runbook.html">
      Vault Runbook
     </a>
    </li>
@@ -878,7 +878,7 @@ title="Source repository"
       </li>
       
       <li>
-        <a href="https://github.com/operate-first/apps/issues/new?title=Issue%20on%20page%20%2Fcontent/argocd-gitops/README.html&body=Your%20issue%20content%20here."
+        <a href="https://github.com/operate-first/apps/issues/new?title=Issue%20on%20page%20%2Fcontent/vault_eso/write_to_vault_with_k8s.html&body=Your%20issue%20content%20here."
    class="headerbtn"
    data-toggle="tooltip"
 data-placement="left"
@@ -906,7 +906,7 @@ title="Open an issue"
   <div class="menu-dropdown__content">
     <ul>
       <li>
-        <a href="../../_sources/content/argocd-gitops/README.md"
+        <a href="../../_sources/content/vault_eso/write_to_vault_with_k8s.md"
    class="headerbtn"
    data-toggle="tooltip"
 data-placement="left"
@@ -943,23 +943,104 @@ title="Print to PDF"
     </ul>
   </div>
 </div>
+<label for="__page-toc"
+  class="headerbtn headerbtn-page-toc"
+  
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-list"></i>
+  </span>
+
+</label>
 
     </div>
 </div>
 
 <!-- Table of contents -->
 <div class="col-md-3 bd-toc show noprint">
+    <div class="tocsection onthispage pt-5 pb-3">
+        <i class="fas fa-list"></i> Contents
+    </div>
+    <nav id="bd-toc-nav" aria-label="Page">
+        <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#pre-requisites">
+   Pre-requisites
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#steps">
+   Steps
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#create-new-role-policy">
+     Create new role/policy
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#enable-namespace-and-service-account-to-write-secrets-to-vault">
+     Enable namespace and service account to write secrets to vault
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#login-via-vault-cli-and-create-secret">
+     Login via vault CLI and create secret
+    </a>
+   </li>
+  </ul>
+ </li>
+</ul>
+
+    </nav>
 </div>
     </div>
     <div class="article row">
         <div class="col pl-md-3 pl-lg-5 content-container">
             <!-- Table of contents that is only displayed when printing the page -->
             <div id="jb-print-docs-body" class="onlyprint">
-                <h1>ArgoCD</h1>
+                <h1>Secret creation using vault CLI and k8s auth</h1>
                 <!-- Table of contents -->
                 <div id="print-main-content">
                     <div id="jb-print-toc">
                         
+                        <div>
+                            <h2> Contents </h2>
+                        </div>
+                        <nav aria-label="Page">
+                            <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#pre-requisites">
+   Pre-requisites
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#steps">
+   Steps
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#create-new-role-policy">
+     Create new role/policy
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#enable-namespace-and-service-account-to-write-secrets-to-vault">
+     Enable namespace and service account to write secrets to vault
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#login-via-vault-cli-and-create-secret">
+     Login via vault CLI and create secret
+    </a>
+   </li>
+  </ul>
+ </li>
+</ul>
+
+                        </nav>
                     </div>
                 </div>
             </div>
@@ -967,10 +1048,75 @@ title="Print to PDF"
                 
               <div>
                 
-  <section class="tex2jax_ignore mathjax_ignore" id="argocd">
-<h1>ArgoCD<a class="headerlink" href="#argocd" title="Permalink to this headline">#</a></h1>
-<div class="toctree-wrapper compound">
+  <section class="tex2jax_ignore mathjax_ignore" id="secret-creation-using-vault-cli-and-k8s-auth">
+<h1>Secret creation using vault CLI and k8s auth<a class="headerlink" href="#secret-creation-using-vault-cli-and-k8s-auth" title="Permalink to this headline">#</a></h1>
+<p>These are instructions on how you can write to our vault instance via the vault CLI using Kubernetes auth. This might be useful for creating secrets dynamically during a <code class="docutils literal notranslate"><span class="pre">CronJob</span></code> or a <code class="docutils literal notranslate"><span class="pre">Tekton</span> <span class="pre">Task</span></code>.</p>
+<section id="pre-requisites">
+<h2>Pre-requisites<a class="headerlink" href="#pre-requisites" title="Permalink to this headline">#</a></h2>
+<ul class="simple">
+<li><p>Install <a class="reference external" href="https://developer.hashicorp.com/vault/docs/install">vault CLI</a> and <a class="reference external" href="https://stedolan.github.io/jq/download/">jq</a></p></li>
+<li><p>Cluster should be <a class="reference internal" href="add_cluster_to_eso_and_vault.html"><span class="doc std std-doc">integrated with opf vault instance</span></a></p></li>
+<li><p>Admin access to <a class="reference external" href="https://vault-ui-vault.apps.smaug.na.operate-first.cloud">vault</a></p></li>
+<li><p>Know your cluster, namespace and service account (referred to as <code class="docutils literal notranslate"><span class="pre">${cluster}</span></code>, <code class="docutils literal notranslate"><span class="pre">${namespace}</span></code> and <code class="docutils literal notranslate"><span class="pre">${service_account}</span></code> in this doc)</p></li>
+</ul>
+</section>
+<section id="steps">
+<h2>Steps<a class="headerlink" href="#steps" title="Permalink to this headline">#</a></h2>
+<p>There are 3 steps:</p>
+<ol class="simple">
+<li><p>Create new role/policy</p></li>
+<li><p>Enable namespace and service account to write secrets to vault</p></li>
+<li><p>Login via vault CLI and create secret</p></li>
+</ol>
+<section id="create-new-role-policy">
+<h3>Create new role/policy<a class="headerlink" href="#create-new-role-policy" title="Permalink to this headline">#</a></h3>
+<p>Navigate to vault: <a class="reference external" href="https://vault-ui-vault.apps.smaug.na.operate-first.cloud/ui/vault/access">https://vault-ui-vault.apps.smaug.na.operate-first.cloud/ui/vault/access</a></p>
+<p>Click the <code class="docutils literal notranslate"><span class="pre">${cluster}</span></code>’s <em>Auth Method</em>, example for MOC/Smaug, click <code class="docutils literal notranslate"><span class="pre">smaug-k8s</span></code>.</p>
+<blockquote>
+<div><p>Note: If an existing role with a desired policy is present, you don’t need to create a new role, just skip to step 2</p>
+</div></blockquote>
+<p>Click <code class="docutils literal notranslate"><span class="pre">Create</span> <span class="pre">Role</span></code>.</p>
+<p>Fill in the <code class="docutils literal notranslate"><span class="pre">Name</span></code> and <code class="docutils literal notranslate"><span class="pre">Alias</span> <span class="pre">name</span> <span class="pre">source</span></code> with the following values:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Name</span><span class="o">=&lt;</span><span class="n">your_distinct_role_name</span><span class="o">&gt;</span>
+<span class="n">Alias</span> <span class="n">name</span> <span class="n">source</span><span class="o">=</span><span class="n">serviceaccount_uid</span>
+</pre></div>
 </div>
+<p>Navigate to <code class="docutils literal notranslate"><span class="pre">Generated</span> <span class="pre">Token's</span> <span class="pre">Policies</span></code> and enter the name of an existing policy or create a new one.</p>
+<blockquote>
+<div><p>Note: If your configuration requires write access to secrets, you most likely need to create a new policy that permits write access</p>
+</div></blockquote>
+<p>Policies can be viewed or created in the <code class="docutils literal notranslate"><span class="pre">Policies</span></code> tab in the top navigation bar.</p>
+<p>For a reference no how to create policies check the <a class="reference external" href="https://developer.hashicorp.com/vault/docs/concepts/policies">vault documentation on policies</a>.</p>
+<p>Click <code class="docutils literal notranslate"><span class="pre">Tokens</span></code> at the bottom and then click <code class="docutils literal notranslate"><span class="pre">Generated</span> <span class="pre">Token's</span> <span class="pre">Initial</span> <span class="pre">TTL</span></code> and set it to <code class="docutils literal notranslate"><span class="pre">3600</span></code></p>
+</section>
+<section id="enable-namespace-and-service-account-to-write-secrets-to-vault">
+<h3>Enable namespace and service account to write secrets to vault<a class="headerlink" href="#enable-namespace-and-service-account-to-write-secrets-to-vault" title="Permalink to this headline">#</a></h3>
+<p>In your desired role click <code class="docutils literal notranslate"><span class="pre">Edit</span> <span class="pre">Role</span></code>.</p>
+<p>Navigate to <code class="docutils literal notranslate"><span class="pre">Bound</span> <span class="pre">service</span> <span class="pre">account</span> <span class="pre">namespaces</span></code>.</p>
+<p>Enter your <code class="docutils literal notranslate"><span class="pre">${namespace}</span></code> you would like to integrate with vault.</p>
+<p>Do the same thing for <code class="docutils literal notranslate"><span class="pre">Bound</span> <span class="pre">service</span> <span class="pre">account</span> <span class="pre">names</span></code> but enter your <code class="docutils literal notranslate"><span class="pre">${service_account}</span></code> that you created in your namespace.</p>
+</section>
+<section id="login-via-vault-cli-and-create-secret">
+<h3>Login via vault CLI and create secret<a class="headerlink" href="#login-via-vault-cli-and-create-secret" title="Permalink to this headline">#</a></h3>
+<p>Login to a cluster your namespace belongs to with <code class="docutils literal notranslate"><span class="pre">oc</span> <span class="pre">login</span></code>.</p>
+<p>Get the service account token with</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="nb">export</span> <span class="nv">SA_TOKEN</span><span class="o">=</span><span class="k">$(</span>oc sa get-token <span class="si">${</span><span class="nv">service_account</span><span class="si">}</span> -n <span class="si">${</span><span class="nv">namespace</span><span class="si">}</span><span class="k">)</span>
+</pre></div>
+</div>
+<p>Set the vault instance address to our instance by exporting the <code class="docutils literal notranslate"><span class="pre">VAULT_ADDR</span></code> environmental variable:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="nb">export</span> <span class="nv">VAULT_ADDR</span><span class="o">=</span>https://vault-ui-vault.apps.smaug.na.operate-first.cloud
+</pre></div>
+</div>
+<p>Get client token with vault cli using the following command:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>vault write auth/<span class="si">${</span><span class="nv">cluster</span><span class="si">}</span>-k8s/login <span class="nv">role</span><span class="o">=</span>&lt;existing_or_created_role&gt; <span class="nv">jwt</span><span class="o">=</span><span class="nv">$SA_TOKEN</span> -format<span class="o">=</span>json <span class="p">|</span> jq -r <span class="s1">&#39;.auth.client_token&#39;</span>
+</pre></div>
+</div>
+<p>This is the only time you will see the token, unless you generate a new one. Make sure you save it in a safe place for future use.</p>
+<p>The token can now be used to login via the vault CLI: <code class="docutils literal notranslate"><span class="pre">vault</span> <span class="pre">login</span> <span class="pre">${client_token}</span></code></p>
+<p>You can now check if the process worked by issuing this command: <code class="docutils literal notranslate"><span class="pre">vault</span> <span class="pre">status</span></code>.</p>
+<p>You should now be able to write secrets using the vault cli. To see how to write secrets check the <a class="reference external" href="https://developer.hashicorp.com/vault/docs/commands/kv">vault upstream documentation</a>.</p>
+</section>
+</section>
 </section>
 
     <script type="text/x-thebe-config">
@@ -986,7 +1132,7 @@ title="Print to PDF"
         },
         kernelOptions: {
             kernelName: "python3",
-            path: "./content/argocd-gitops"
+            path: "./content/vault_eso"
         },
         predefinedOutput: true
     }
@@ -1000,17 +1146,17 @@ title="Print to PDF"
                 
     <!-- Previous / next buttons -->
 <div class='prev-next-area'>
-    <a class='left-prev' id="prev-link" href="../acme/issuing_certificates.html" title="previous page">
+    <a class='left-prev' id="prev-link" href="vault_backup_job.html" title="previous page">
         <i class="fas fa-angle-left"></i>
         <div class="prev-next-info">
             <p class="prev-next-subtitle">previous</p>
-            <p class="prev-next-title">Issuing certificates</p>
+            <p class="prev-next-title">Vault Backup Job</p>
         </div>
     </a>
-    <a class='right-next' id="next-link" href="add_application.html" title="next page">
+    <a class='right-next' id="next-link" href="runbook.html" title="next page">
     <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title">Adding ArgoCD Applications</p>
+        <p class="prev-next-title">Vault Runbook</p>
     </div>
     <i class="fas fa-angle-right"></i>
     </a>

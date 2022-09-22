@@ -64,3 +64,21 @@ This will update the `token_reviewer_jwt` with the new ESO SA that vault can use
 the secretstore again and see if it successfully authenticates (by checking the `.status` field).
 
 [1]: https://www.vaultproject.io/api-docs/auth/kubernetes#parameters
+
+## Failed to look up namespace from the token
+
+When creating a `client_token` via k8s JWT service account token you might get this error message:
+
+```
+Error writing data to auth/smaug-k8s/login: Error making API request.
+
+URL: PUT https://vault-ui-vault.apps.smaug.na.operate-first.cloud/v1/auth/smaug-k8s/login
+Code: 500. Errors:
+
+* error performing token check: failed to look up namespace from the token: no namespace
+
+```
+
+One of the causes of this might be the creation of a new `client_token` while the cached `client_token` at `$HOME/.vault_token` has been in invalidated.
+
+To fix this just remove the old token with: `rm ~/.vault_token`.

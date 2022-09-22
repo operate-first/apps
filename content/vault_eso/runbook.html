@@ -54,7 +54,7 @@ const thebe_selector_output = ".output, .cell_output"
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
     <link rel="next" title="Cluster Management" href="../cluster-scope/README.html" />
-    <link rel="prev" title="Vault Backup Job" href="vault_backup_job.html" />
+    <link rel="prev" title="Secret creation using vault CLI and k8s auth" href="write_to_vault_with_k8s.html" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="None">
     
@@ -264,6 +264,11 @@ const thebe_selector_output = ".output, .cell_output"
    <li class="toctree-l2">
     <a class="reference internal" href="vault_backup_job.html">
      Vault Backup Job
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="write_to_vault_with_k8s.html">
+     Secret creation using vault CLI and k8s auth
     </a>
    </li>
    <li class="toctree-l2 current active">
@@ -981,6 +986,13 @@ title="Print to PDF"
   <a class="reference internal nav-link" href="#could-not-get-provider-client-unable-to-log-in-to-auth-method">
    Could not get provider client: unable to log in to auth method
   </a>
+  <ul class="visible nav section-nav flex-column">
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#failed-to-look-up-namespace-from-the-token">
+     Failed to look up namespace from the token
+    </a>
+   </li>
+  </ul>
  </li>
 </ul>
 
@@ -1022,6 +1034,13 @@ title="Print to PDF"
   <a class="reference internal nav-link" href="#could-not-get-provider-client-unable-to-log-in-to-auth-method">
    Could not get provider client: unable to log in to auth method
   </a>
+  <ul class="visible nav section-nav flex-column">
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#failed-to-look-up-namespace-from-the-token">
+     Failed to look up namespace from the token
+    </a>
+   </li>
+  </ul>
  </li>
 </ul>
 
@@ -1088,6 +1107,21 @@ kubernetes_host=$(oc whoami --show-server)
 </div>
 <p>This will update the <code class="docutils literal notranslate"><span class="pre">token_reviewer_jwt</span></code> with the new ESO SA that vault can use to validate other JWTs. Try creating
 the secretstore again and see if it successfully authenticates (by checking the <code class="docutils literal notranslate"><span class="pre">.status</span></code> field).</p>
+<section id="failed-to-look-up-namespace-from-the-token">
+<h2>Failed to look up namespace from the token<a class="headerlink" href="#failed-to-look-up-namespace-from-the-token" title="Permalink to this headline">#</a></h2>
+<p>When creating a <code class="docutils literal notranslate"><span class="pre">client_token</span></code> via k8s JWT service account token you might get this error message:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Error</span> <span class="n">writing</span> <span class="n">data</span> <span class="n">to</span> <span class="n">auth</span><span class="o">/</span><span class="n">smaug</span><span class="o">-</span><span class="n">k8s</span><span class="o">/</span><span class="n">login</span><span class="p">:</span> <span class="n">Error</span> <span class="n">making</span> <span class="n">API</span> <span class="n">request</span><span class="o">.</span>
+
+<span class="n">URL</span><span class="p">:</span> <span class="n">PUT</span> <span class="n">https</span><span class="p">:</span><span class="o">//</span><span class="n">vault</span><span class="o">-</span><span class="n">ui</span><span class="o">-</span><span class="n">vault</span><span class="o">.</span><span class="n">apps</span><span class="o">.</span><span class="n">smaug</span><span class="o">.</span><span class="n">na</span><span class="o">.</span><span class="n">operate</span><span class="o">-</span><span class="n">first</span><span class="o">.</span><span class="n">cloud</span><span class="o">/</span><span class="n">v1</span><span class="o">/</span><span class="n">auth</span><span class="o">/</span><span class="n">smaug</span><span class="o">-</span><span class="n">k8s</span><span class="o">/</span><span class="n">login</span>
+<span class="n">Code</span><span class="p">:</span> <span class="mf">500.</span> <span class="n">Errors</span><span class="p">:</span>
+
+<span class="o">*</span> <span class="n">error</span> <span class="n">performing</span> <span class="n">token</span> <span class="n">check</span><span class="p">:</span> <span class="n">failed</span> <span class="n">to</span> <span class="n">look</span> <span class="n">up</span> <span class="n">namespace</span> <span class="kn">from</span> <span class="nn">the</span> <span class="n">token</span><span class="p">:</span> <span class="n">no</span> <span class="n">namespace</span>
+
+</pre></div>
+</div>
+<p>One of the causes of this might be the creation of a new <code class="docutils literal notranslate"><span class="pre">client_token</span></code> while the cached <code class="docutils literal notranslate"><span class="pre">client_token</span></code> at <code class="docutils literal notranslate"><span class="pre">$HOME/.vault_token</span></code> has been in invalidated.</p>
+<p>To fix this just remove the old token with: <code class="docutils literal notranslate"><span class="pre">rm</span> <span class="pre">~/.vault_token</span></code>.</p>
+</section>
 </section>
 
     <script type="text/x-thebe-config">
@@ -1117,11 +1151,11 @@ the secretstore again and see if it successfully authenticates (by checking the 
                 
     <!-- Previous / next buttons -->
 <div class='prev-next-area'>
-    <a class='left-prev' id="prev-link" href="vault_backup_job.html" title="previous page">
+    <a class='left-prev' id="prev-link" href="write_to_vault_with_k8s.html" title="previous page">
         <i class="fas fa-angle-left"></i>
         <div class="prev-next-info">
             <p class="prev-next-subtitle">previous</p>
-            <p class="prev-next-title">Vault Backup Job</p>
+            <p class="prev-next-title">Secret creation using vault CLI and k8s auth</p>
         </div>
     </a>
     <a class='right-next' id="next-link" href="../cluster-scope/README.html" title="next page">
