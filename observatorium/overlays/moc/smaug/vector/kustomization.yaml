@@ -7,6 +7,4 @@ resources:
   - balrog
   - infra
   - smaug
-
-generators:
-  - ./secret-generator.yaml
+  - clo-kafka.yaml

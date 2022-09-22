@@ -7,11 +7,9 @@ commonLabels:
   app.kubernetes.io/name: loki
 resources:
   - ../../../../base/instance/loki
+  - externalsecrets
   - servicemonitors
   - obcs
 
 patchesStrategicMerge:
   - configmaps/observatorium-loki-configmap_patch.yaml
-
-generators:
-  - secrets/secrets-generator.yaml
