@@ -44,6 +44,7 @@ parts:
           - file: content/vault_eso/add_eso_to_cluster.md
           - file: content/vault_eso/restore_vault.md
           - file: content/vault_eso/vault_backup_job.md
+          - file: content/vault_eso/write_to_vault_with_k8s.md
           - file: content/vault_eso/runbook.md
 
       # Cluster Scope
