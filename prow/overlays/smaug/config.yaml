@@ -164,7 +164,7 @@ branch-protection:
 
 deck:
   spyglass:
-    size_limit: 100000000    # 100MB
+    size_limit: 100000000 # 100MB
     # gcs_browser_prefix: https://gcsweb.k8s.io/gcs/
     # testgrid_config: gs://k8s-testgrid/config
     # testgrid_root: https://testgrid.k8s.io/
@@ -295,7 +295,6 @@ tide:
     - repos:
         - AICoE/common
         - AICoE/meteor
-        - AICoE/meteor-operator
       labels:
         - approved
         - lgtm
@@ -316,7 +315,6 @@ tide:
         - do-not-merge/invalid-owners-file
         - do-not-merge/work-in-progress
         - needs-rebase
-
 
   blocker_label: tide/merge-blocker
   squash_label: tide/merge-method-squash
