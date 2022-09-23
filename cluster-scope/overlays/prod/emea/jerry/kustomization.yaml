@@ -1,13 +1,13 @@
 ---
 apiVersion: kustomize.config.k8s.io/v1beta1
 kind: Kustomization
-
 resources:
-  - ../common
-  - ../../../../base/user.openshift.io/groups/cluster-admins
   - ../../../../base/operators.coreos.com/subscriptions/cert-manager
+  - ../../../../base/user.openshift.io/groups/cluster-admins
   - ../../../../bundles/external-secrets-operator
+  - ../common
+  - apiserver
+  - ingresscontrollers
   - secret-mgmt
-
 patchesStrategicMerge:
   - groups/cluster-admins.yaml
