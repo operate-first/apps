@@ -164,7 +164,8 @@ branch-protection:
 
 deck:
   spyglass:
-    size_limit: 100000000 # 100MB
+    size_limit: 100000000
+    # 100MB
     # gcs_browser_prefix: https://gcsweb.k8s.io/gcs/
     # testgrid_config: gs://k8s-testgrid/config
     # testgrid_root: https://testgrid.k8s.io/

@@ -18,7 +18,6 @@ resources:
     - ../../../../base/core/namespaces/thoth-middletier-prod
     - ../../../../base/operators.coreos.com/operatorgroups/opf-kafka
     - ../../../../base/operators.coreos.com/subscriptions/cert-manager
-    - ../../../../base/operators.coreos.com/subscriptions/cluster-logging
     - ../../../../base/operators.coreos.com/subscriptions/strimzi
     - ../../../../base/rbac.authorization.k8s.io/clusterrolebindings/cluster-monitoring-view-balrog
     - ../../../../base/rbac.authorization.k8s.io/clusterrolebindings/cluster-reader-k8s-annotations-exporter
@@ -35,7 +34,6 @@ generators:
     - secret-generator.yaml
 patchesStrategicMerge:
     - groups/cluster-admins.yaml
-    - subscriptions/cluster-logging-operator_patch.yaml
     - clusterautoscaler.yaml
 patches:
     - patch: |-
