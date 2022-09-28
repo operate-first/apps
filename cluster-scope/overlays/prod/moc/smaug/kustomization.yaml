@@ -177,3 +177,4 @@ resources:
 - objectbucketclaims/openshift-image-registry-bucket.yaml
 - secret-mgmt
 - snapshotschedules/schedule.yaml
+- ../../../../base/core/namespaces/kaoto
