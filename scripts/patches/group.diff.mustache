@@ -1,0 +1,13 @@
+diff --git a/cluster-scope/base/user.openshift.io/groups/{{name}}/group.yaml b/cluster-scope/base/user.openshift.io/groups/{{name}}/group.yaml
+new file mode 100644
+--- /dev/null
++++ b/cluster-scope/base/user.openshift.io/groups/{{name}}/group.yaml
+@@ -0,0 +1,{{users.length}}@@
++apiVersion: user.openshift.io/v1
++kind: Group
++metadata:
++    name: {{name}}
++users:
+{{#users}}
++  - {{.}}
+{{/users}}
