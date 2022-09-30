@@ -29,10 +29,6 @@ We manage one cluster within the [IONOS](https://www.ionos.de/) environment.
 
 see [operate-first/ionos-openshift](https://github.com/operate-first/ionos-openshift) for more information.
 
-### AWS
-
-- [Balrog](https://console-openshift-console.apps.balrog.aws.operate-first.cloud/) mostly for [Thoth](https://thoth-station.ninja/) workloads
-
 ### OS-Climate
 
 [OS-Climate][24] (OSC) provides a unified, open Multimodal Data Processing platform used by OS-Climate members to collect, normalize and integrate climate and ESG data from public and private sources.
