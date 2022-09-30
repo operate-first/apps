@@ -5,9 +5,6 @@ commonLabels:
 resources:
 - audio-decoder-decoded-speech.yaml
 - audio-decoder-sentiment-text.yaml
-- balrog-cluster-app-logs.yaml
-- balrog-cluster-audit-logs.yaml
-- balrog-cluster-infra-logs.yaml
 - emea-sa-od-demo-objects.yaml
 - emea-sa-od-demo-images.yaml
 - infra-cluster-app-logs.yaml
