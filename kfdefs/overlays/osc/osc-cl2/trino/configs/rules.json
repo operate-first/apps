@@ -20,7 +20,22 @@
             "allow": "all"
         },
         {
+            "group": "dera_admin",
+            "catalog": "osc_datacommons_dev",
+            "allow": "all"
+        },
+        {
+            "group": "essd_admin",
+            "catalog": "osc_datacommons_dev",
+            "allow": "all"
+        },
+        {
             "group": "pcaf_sovereign_footprint.*",
+            "catalog": "osc_datacommons_dev",
+            "allow": "all"
+        },
+        {
+            "group": "wri_gppd_admin",
             "catalog": "osc_datacommons_dev",
             "allow": "all"
         },
@@ -88,6 +103,24 @@
             "catalog": "riskthinking",
             "schema": "riskthinking_osclimate_big_query",
             "group": "admins",
+            "owner": true
+        },
+        {
+            "catalog": "osc_datacommons_dev",
+            "schema": "wri_gppd",
+            "group": "wri_gppd_admin",
+            "owner": true
+        },
+        {
+            "catalog": "osc_datacommons_dev",
+            "schema": "essd",
+            "group": "essd_admin",
+            "owner": true
+        },
+        {
+            "catalog": "osc_datacommons_dev",
+            "schema": "dera",
+            "group": "dera_admin",
             "owner": true
         },
         {
@@ -174,6 +207,39 @@
             "catalog": "riskthinking",
             "schema": "riskthinking_osclimate_big_query",
             "group": "admins",
+            "privileges": [
+                "SELECT",
+                "INSERT",
+                "DELETE",
+                "OWNERSHIP"
+            ]
+        },
+        {
+            "catalog": "osc_datacommons_dev",
+            "schema": "wri_gppd",
+            "group": "wri_gppd_admin",
+            "privileges": [
+                "SELECT",
+                "INSERT",
+                "DELETE",
+                "OWNERSHIP"
+            ]
+        },
+        {
+            "catalog": "osc_datacommons_dev",
+            "schema": "essd",
+            "group": "essd_admin",
+            "privileges": [
+                "SELECT",
+                "INSERT",
+                "DELETE",
+                "OWNERSHIP"
+            ]
+        },
+        {
+            "catalog": "osc_datacommons_dev",
+            "schema": "dera",
+            "group": "dera_admin",
             "privileges": [
                 "SELECT",
                 "INSERT",
@@ -330,6 +396,27 @@
         {
             "catalog": "riskthinking",
             "schema": "riskthinking_osclimate_big_query",
+            "privileges": [
+                "SELECT"
+            ]
+        },
+        {
+            "catalog": "osc_datacommons_dev",
+            "schema": "wri_gppd",
+            "privileges": [
+                "SELECT"
+            ]
+        },
+        {
+            "catalog": "osc_datacommons_dev",
+            "schema": "essd",
+            "privileges": [
+                "SELECT"
+            ]
+        },
+        {
+            "catalog": "osc_datacommons_dev",
+            "schema": "dera",
             "privileges": [
                 "SELECT"
             ]
