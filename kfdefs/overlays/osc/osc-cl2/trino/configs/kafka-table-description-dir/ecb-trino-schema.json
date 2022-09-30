@@ -1,0 +1,74 @@
+{
+    "tableName": "FX",
+    "schemaName": "ecb-fx",
+    "topicName": "ecb-fx",
+    "key": {
+        "dataFormat": "json",
+        "fields": [
+            {
+                "name": "key",
+                "type": "VARCHAR",
+                "hidden": "false"
+            }
+        ]
+    },
+    "message": {
+        "dataFormat" :"json",
+        "fields" : [
+            {
+                "name": "freq",
+                "mapping": "freq",
+                "type": "VARCHAR"
+            },
+            {
+                "name": "currency",
+                "mapping": "currency",
+                "type": "VARCHAR"
+            },
+            {
+                "name": "currency-denom",
+                "mapping": "currency-denom",
+                "type": "VARCHAR"
+            },
+            {
+                "name": "sender",
+                "mapping": "sender",
+                "type": "VARCHAR"
+            },
+            {
+                "name": "exr-type",
+                "mapping": "exr-type",
+                "type": "VARCHAR"
+            },
+            {
+                "name": "starttime-period",
+                "mapping": "starttime-period",
+                "type": "TIMESTAMP",
+                "dataFormat" :"custom-date-time",
+                "formatHint":"yyyy-mm-dTHH:mm:ss.SSS+HH:mm"
+            },
+            {
+                "name": "end-time-period",
+                "mapping": "end-time-period",
+                "type": "TIMESTAMP",
+                "dataFormat" :"custom-date-time",
+                "formatHint":"yyyy-mm-dTHH:mm:ss.SSS+HH:mm"
+            },
+            {
+                "name": "obs-value",
+                "mapping": "obs-value",
+                "type": "DOUBLE"
+            },
+            {
+                "name": "obs-status",
+                "mapping": "obs-status",
+                "type": "VARCHAR"
+            },
+            {
+                "name": "time-format",
+                "mapping": "time-format",
+                "type": "VARCHAR"
+            }
+        ]
+    }
+}

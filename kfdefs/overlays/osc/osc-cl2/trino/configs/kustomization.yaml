@@ -29,3 +29,4 @@ configMapGenerator:
     files:
       - kafka-table-description-dir/fx.json
       - kafka-table-description-dir/kepler.json
+      - kafka-table-description-dir/ecb-trino-schema.json
