@@ -4,7 +4,6 @@ kind: Kustomization
 namespace: opf-observatorium
 
 resources:
-  - balrog
   - infra
   - smaug
   - clo-kafka.yaml
