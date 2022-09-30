@@ -107,6 +107,12 @@
         },
         {
             "catalog": "osc_datacommons_dev",
+            "schema": "wri_gppd",
+            "group": "wri_gppd_admin",
+            "owner": true
+        },
+        {
+            "catalog": "osc_datacommons_dev",
             "schema": "essd",
             "group": "essd_admin",
             "owner": true
@@ -115,12 +121,6 @@
             "catalog": "osc_datacommons_dev",
             "schema": "dera",
             "group": "dera_admin",
-            "owner": true
-        },
-        {
-            "catalog": "osc_datacommons_dev",
-            "schema": "wri_gppd",
-            "group": "wri_gppd_admin",
             "owner": true
         },
         {
@@ -216,6 +216,17 @@
         },
         {
             "catalog": "osc_datacommons_dev",
+            "schema": "wri_gppd",
+            "group": "wri_gppd_admin",
+            "privileges": [
+                "SELECT",
+                "INSERT",
+                "DELETE",
+                "OWNERSHIP"
+            ]
+        },
+        {
+            "catalog": "osc_datacommons_dev",
             "schema": "essd",
             "group": "essd_admin",
             "privileges": [
@@ -229,17 +240,6 @@
             "catalog": "osc_datacommons_dev",
             "schema": "dera",
             "group": "dera_admin",
-            "privileges": [
-                "SELECT",
-                "INSERT",
-                "DELETE",
-                "OWNERSHIP"
-            ]
-        },
-        {
-            "catalog": "osc_datacommons_dev",
-            "schema": "wri_gppd",
-            "group": "wri_gppd_admin",
             "privileges": [
                 "SELECT",
                 "INSERT",
@@ -402,6 +402,13 @@
         },
         {
             "catalog": "osc_datacommons_dev",
+            "schema": "wri_gppd",
+            "privileges": [
+                "SELECT"
+            ]
+        },
+        {
+            "catalog": "osc_datacommons_dev",
             "schema": "essd",
             "privileges": [
                 "SELECT"
@@ -410,13 +417,6 @@
         {
             "catalog": "osc_datacommons_dev",
             "schema": "dera",
-            "privileges": [
-                "SELECT"
-            ]
-        },
-        {
-            "catalog": "osc_datacommons_dev",
-            "schema": "wri_gppd",
             "privileges": [
                 "SELECT"
             ]

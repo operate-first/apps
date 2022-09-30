@@ -58,22 +58,22 @@ schemas:
       - group: admins
     public: true
 
+  - schema: wri_gppd
+    catalog: osc_datacommons_dev
+    admin:
+      - group: 'wri_gppd_admin'
+    public: true
+
   - schema: essd
     catalog: osc_datacommons_dev
     admin:
       - group: 'essd_admin'
     public: true
-  
+
   - schema: dera
     catalog: osc_datacommons_dev
     admin:
       - group: 'dera_admin'
-    public: true
-
-  - schema: wri_gppd
-    catalog: osc_datacommons_dev
-    admin:
-      - group: 'wri_gppd_admin'
     public: true
 
 tables:
