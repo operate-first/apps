@@ -10,13 +10,6 @@ spec:
       - host: '*'
         operation: All
         resource:
-          name: balrog-prod.cluster-logs.
-          patternType: prefix
-          type: topic
-        type: allow
-      - host: '*'
-        operation: All
-        resource:
           name: infra-prod.cluster-logs.
           patternType: prefix
           type: topic

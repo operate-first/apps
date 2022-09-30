@@ -39,9 +39,6 @@ subjects:
     apiGroup: rbac.authorization.k8s.io
     name: boston-university-redhat
   - kind: ServiceAccount
-    name: remote-write-emea-balrog
-    namespace: opf-observatorium
-  - kind: ServiceAccount
     name: remote-write-moc-infra
     namespace: opf-observatorium
   - kind: ServiceAccount
