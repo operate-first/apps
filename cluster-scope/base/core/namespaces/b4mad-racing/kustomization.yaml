@@ -5,4 +5,5 @@ resources:
 - resourcequota.yaml
 components:
 - ../../../../components/project-admin-rolebindings/b4mad
+- ../../../../components/limitranges/default
 namespace: b4mad-racing
