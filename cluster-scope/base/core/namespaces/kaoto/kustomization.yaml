@@ -6,3 +6,4 @@ resources:
 components:
 - ../../../../components/limitranges/default
 - ../../../../components/resourcequotas/small
+namespace: kaoto
