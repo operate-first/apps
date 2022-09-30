@@ -3,4 +3,3 @@ kind: Kustomization
 resources:
   - acme-operator.yaml
   - k8s-annotations-exporter.yaml
-  - opf-kafka.yaml
