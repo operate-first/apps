@@ -4,5 +4,4 @@ namespace: argocd
 resources:
     - cluster-management
     - operate-first
-    - thoth
 nameSuffix: -balrog
