@@ -8,7 +8,7 @@ local dir  = "cluster-scope/base/core/namespaces/" + namespace + "/";
 
 {
   [dir + "namespace.yaml"]: {
-    apiVersion: "user.openshift.io/v1",
+    apiVersion: "v1",
     kind: "Namespace",
     metadata: {
       name: namespace,

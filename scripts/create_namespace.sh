@@ -32,6 +32,9 @@ done
 cd $APPS_DIR/cluster-scope/base/core/namespaces/${NAMESPACE}/
 kustomize create --resources namespace.yaml
 
+# set namespace field
+kustomize edit set namespace ${NAMESPACE}
+
 # add limits and resourcequota
 cd $APPS_DIR/cluster-scope/base/core/namespaces/${NAMESPACE}/
 kustomize edit add component ../../../../components/limitranges/default
