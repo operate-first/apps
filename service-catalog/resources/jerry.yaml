@@ -1,0 +1,19 @@
+apiVersion: backstage.io/v1alpha1
+kind: Resource
+metadata:
+  name: jerry
+  title: Jerry
+  description: Jerry is a public operate first cluster hosted in the IONOS environment
+  annotations:
+    operate-first.cloud/logo-url: https://upload.wikimedia.org/wikipedia/commons/3/3a/OpenShift-LogoType.svg
+  links:
+    - url: https://console-openshift-console.apps.jerry.ionos.emea.operate-first.cloud
+      title: Jerry cluster OCP console
+      icon: web
+    - url: https://github.com/operate-first/ionos-openshift
+      title: ionos-openshift repository
+      icon: web
+spec:
+  type: cluster
+  lifecycle: production
+  owner: group:operate-first
