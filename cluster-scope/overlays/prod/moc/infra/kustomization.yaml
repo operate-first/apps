@@ -58,6 +58,7 @@ patchesStrategicMerge:
   - subscriptions/odf-operator_patch.yaml
   - subscriptions/web-terminal_patch.yaml
   - groups/cluster-admins.yaml
+  - clusterroles/service-catalog-k8s-plugin.yaml
   - clusterrolebindings/self-provisioners_patch.yaml
   - clusterrolebindings/klusteraddonconfig-editor.yaml
   - consoles/cluster_patch.yaml
