@@ -45,14 +45,14 @@
                 "mapping": "starttime-period",
                 "type": "TIMESTAMP",
                 "dataFormat" :"custom-date-time",
-                "formatHint":"yyyy-mm-dTHH:mm:ss.SSS+HH:mm"
+                "formatHint":"yyyy-MM-dd'T'HH:mm:ss.SSSZZ"
             },
             {
                 "name": "end-time-period",
                 "mapping": "end-time-period",
                 "type": "TIMESTAMP",
                 "dataFormat" :"custom-date-time",
-                "formatHint":"yyyy-mm-dTHH:mm:ss.SSS+HH:mm"
+                "formatHint":"yyyy-MM-dd'T'HH:mm:ss.SSSZZ"
             },
             {
                 "name": "obs-value",
