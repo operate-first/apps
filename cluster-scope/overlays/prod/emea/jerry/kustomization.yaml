@@ -7,6 +7,7 @@ resources:
   - ../../../../bundles/external-secrets-operator
   - ../common
   - apiserver
+  - configmaps/service-catalog-k8s-plugin.yaml
   - ingresscontrollers
   - secret-mgmt
 patchesStrategicMerge:
