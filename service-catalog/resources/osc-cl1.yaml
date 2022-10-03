@@ -1,0 +1,20 @@
+apiVersion: backstage.io/v1alpha1
+kind: Resource
+metadata:
+  name: osc-cl1
+  title: OSC-CL1
+  description: A dedicated cluster for the OS-Climate organization
+  annotations:
+    operate-first.cloud/logo-url: https://upload.wikimedia.org/wikipedia/commons/3/3a/OpenShift-LogoType.svg
+  links:
+    - url: https://console-openshift-console.apps.odh-cl1.apps.os-climate.org/
+      title: OSC-CL1 cluster OCP console
+      icon: web
+    - url: https://github.com/os-climate
+      title: OS-Climate github org
+      icon: web
+
+spec:
+  type: cluster
+  lifecycle: production
+  owner: group:operate-first

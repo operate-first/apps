@@ -1,0 +1,16 @@
+apiVersion: backstage.io/v1alpha1
+kind: Resource
+metadata:
+  name: curator
+  title: Curator
+  description: Curator is a public operate first cluster open to user applications and workloads
+  annotations:
+    operate-first.cloud/logo-url: https://upload.wikimedia.org/wikipedia/commons/3/3a/OpenShift-LogoType.svg
+  links:
+    - url: https://console-openshift-console.apps.curator.massopen.cloud
+      title: Curator cluster OCP console
+      icon: web
+spec:
+  type: cluster
+  lifecycle: production
+  owner: group:operate-first
