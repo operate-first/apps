@@ -95,7 +95,7 @@ vault write identity/group name="vault-admins-${env}" type="external" \
 
 vault write identity/group-alias name="vault-admins-${env}" \
      mount_accessor=$(vault auth list -format=json  | jq -r '."oidc/".accessor') \
-     canonical_id="$(vault read /identity/group/name/vault-osc-admins -format=json | jq -r '.data.alias.canonical_id')"
+     canonical_id="$(vault read /identity/group/name/vault-admins-${env} -format=json | jq -r '.data.alias.canonical_id')"
 ```
 
 This will associate the OCP group named `vault-admins-${env}` with the policy created earlier named `${env}-kv-rw`.

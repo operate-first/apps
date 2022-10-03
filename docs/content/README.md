@@ -103,7 +103,7 @@ curl --insecure -H "Authorization: Bearer sha256~zGN...CyEnmU" "https://api.jerr
 [10]: https://github.com/operate-first/support/issues/new?assignees=first-operator&labels=kind%2Fonboarding%2Carea%2Fbucket&template=ceph_bucket_request.yaml&title=BUCKET%3A+%3Cname%3E
 [11]: https://github.com/operate-first/apps/tree/master/dex
 [12]: https://rook.io/
-[13]: ocs/claiming_object_store.md
+[13]: odf/claiming_object_store.md
 [14]: https://massopen.cloud/
 [15]: https://opendatahub.io/
 [17]: https://argoproj.github.io/argo-cd/

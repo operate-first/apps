@@ -4,6 +4,8 @@
 * Unseal keys and root token for the snapshot
 * Project admin access to the namespace being restored (referred to as `${VAULT_NS}` in this doc)
 * Vault CLI
+* Kustomize CLI
+* OC CLI
 
 ## Steps
 * Retrieve the most recent Vault Snapshot from one of the following locations:

@@ -12,4 +12,7 @@ We use [External Secrets Operator (ESO)][external secrets] to manage our secrets
 
 ESO allows us to store our K8S / OCP secrets in git declaratively without compromising on the security of the platform.
 
+## Pre-requisites for these docs
+
+
 [external secrets]: https://external-secrets.io
