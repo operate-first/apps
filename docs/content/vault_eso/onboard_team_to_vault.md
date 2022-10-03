@@ -27,7 +27,7 @@ export NAMESPACE_3=<ocp-namespace-3> # Optional
 ```
 
 > Note: if more than one namespace will need its secrets stored in vault,
-> add env vars $NAMESPACE_2, $NAMESPACE_3,... accordingly
+> add env vars `${NAMESPACE_2}, ${NAMESPACE_3},...` accordingly
 
 Log in to vault:
 
@@ -48,8 +48,18 @@ Create namespace resources (repeat for all `${NAMESPACE_N}`).
 
 ```bash
 mkdir ${NAMESPACE_1} && cd ${NAMESPACE_1}
-kustomize init
-kustomize edit add resource ../base
+```
+
+```bash
+cat <<EOF >>kustomization.yaml
+apiVersion: kustomize.config.k8s.io/v1beta1
+kind: Kustomization
+namespace: ${NAMESPACE_1}
+resources:
+  - ../base
+patchesStrategicMerge:
+  - opf-vault-store.yaml
+EOF
 ```
 
 Create the opf-vault-store.
@@ -72,8 +82,7 @@ EOF
 Add to parent kustomization:
 
 ```bash
-cd ..
-kustomize edit add resource ${NAMESPACE_1}
+cd .. && kustomize edit add resource ${NAMESPACE_1}
 ```
 
 *Commit your changes and make a PR.*

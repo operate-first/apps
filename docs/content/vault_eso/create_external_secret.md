@@ -4,7 +4,7 @@ Use this doc to create an External Secret in one of the Operate First managed cl
 
 ## Pre-requisite
 
-* Your OCP team was [onboarded to vault][].
+* Your OCP team was [onboarded to vault][onboard-vault].
 * Know the OCP `${NAMESPACE}` where you want to create your k8s secret
 * Kustomize CLI
 * Vault CLI
@@ -37,7 +37,7 @@ vault kv put k8s_secrets/${ENV}/${CLUSTER}/${NAMESPACE}/example-secret passcode=
 
 ## Create External Secret
 
-Refer to [ESO Vault Docs][2] on how to create your secret.
+Create your secret, here is a sample secret you may use:
 
 ```bash
 cat <<EOF >>es.yaml
@@ -57,6 +57,11 @@ spec:
         key: ${ENV}/${CLUSTER}/${NAMESPACE}/example-secret
 EOF
 ```
+This is a very basic secret that will create a K8s Secret with a 1:1 mapping of your key/values in vault to the
+key/values in your target K8s secret. Refer to the [External Secrets Operator][ESO] docs for more example on what you
+can do with the `ExternalSecret` resource.
+
+## Verify
 
 Verify the ES was created
 
@@ -67,10 +72,14 @@ example-secret   opf-vault-store   1h                 SecretSynced   True
 ```
 
 You should see a status of `SecreSynced`, if you don't, something in the set up has probably gone wrong, run
-`oc get externalsecret example-secret -n ${NAMESPACE} -o yaml`
+
+```bash
+oc get externalsecret example-secret -n ${NAMESPACE} -o yaml
+```
 
 Inspect the `status` field and see if anything stands out. If it's unclear, reach out to [support] or the community
 slack #support channel.
 
 [support]: https://github.com/operate-first/support
 [onboard-vault]: onboard_team_to_vault.md
+[ESO]: https://external-secrets.io/v0.6.0-rc1/

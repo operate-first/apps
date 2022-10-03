@@ -31,11 +31,6 @@ parts:
           - file: content/argocd-gitops/update_gpg_key.md
           - file: content/argocd-gitops/argocd_notifications.md
 
-      # ArgoCD
-      - file: content/vault/README.md
-        sections:
-          - file: content/vault/add_cluster_to_eso_and_vault.md
-
       # Vault
       - file: content/vault_eso/README.md
         sections:
@@ -43,7 +38,6 @@ parts:
           - file: content/vault_eso/create_external_secret.md
           - file: content/vault_eso/enable_es_in_namespace.md
           - file: content/vault_eso/enable_cluster_to_eso_and_vault.md
-          - file: content/vault_eso/add_external_secrets_to_ns.md
           - file: content/vault_eso/install_es_operator_in_cluster.md
           - file: content/vault_eso/restore_vault.md
           - file: content/vault_eso/vault_backup_job.md
@@ -126,12 +120,6 @@ parts:
             - file: content/odh/jupyterhub/user_profiles.md
 
           - file: content/odh/seldon/README.md
-
-          - file: content/odh/kafka/README.md
-            sections:
-              - file: content/odh/kafka/add_kafka_topics.md
-              - file: content/odh/kafka/add_kafka_users.md
-              - file: content/odh/kafka/runbook.md
 
           - file: content/odh/superset/README.md
             sections:

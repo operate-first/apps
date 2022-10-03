@@ -165,7 +165,7 @@ these namespaces using ArgoCD Applications that are part of the `thoth` project.
 [2]: https://argoproj.github.io/argo-cd/user-guide/projects/
 [3]: https://github.com/operate-first/apps/tree/master/argocd/overlays/moc-infra/projects
 [4]: https://github.com/operate-first/apps/blob/master/argocd/overlays/moc-infra/projects/global_project.yaml
-[5]: ../cluster-scope/onboarding_to_cluster.md
+[5]: ../cluster-scope/onboarding_project.md
 [6]: https://github.com/operate-first/apps
 [7]: https://argoproj.github.io/argo-cd/operator-manual/declarative-setup/#applications
 [8]: https://github.com/operate-first/apps/tree/master/argocd/overlays/moc-infra/applications/envs

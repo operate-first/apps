@@ -47,14 +47,14 @@ be stored within the path `k8s_secrets/$env/$cluster/`, so the team and service 
 clusters' secret will need access to this path.
 
 Create the following `*.hcl` files. Replace `$env` accordingly.
-```hcl
+```
 # sa_policy.hcl
 path "k8s_secrets/data/$env/*" {
   capabilities = ["read", "list"]
 }
 ```
 
-```hcl
+```
 # user_policy.hcl
 path "k8s_secrets/data/$env/*" {
     capabilities = ["create", "read", "update", "delete", "list", "sudo"]
