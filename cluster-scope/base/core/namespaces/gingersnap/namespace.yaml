@@ -1,0 +1,10 @@
+apiVersion: v1
+kind: Namespace
+metadata:
+  annotations:
+    op1st/docs: https://github.com/gingersnap-cloud
+    op1st/onboarding-issue: https://github.com/operate-first/support/issues/1105
+    op1st/project-owner: gingersnap
+    openshift.io/display-name: gingersnap
+    openshift.io/requester: gingersnap
+  name: gingersnap

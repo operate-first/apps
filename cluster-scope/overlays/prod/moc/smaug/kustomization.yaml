@@ -178,3 +178,4 @@ resources:
 - secret-mgmt
 - snapshotschedules/schedule.yaml
 - ../../../../base/core/namespaces/kaoto
+- ../../../../base/core/namespaces/gingersnap
