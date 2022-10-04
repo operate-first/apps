@@ -40,7 +40,10 @@ resources:
 - ../../../../base/core/namespaces/ds-github-labeler
 - ../../../../base/core/namespaces/ds-ml-workflows-ws
 - ../../../../base/core/namespaces/fedora
+- ../../../../base/core/namespaces/gingersnap
+- ../../../../base/core/namespaces/ipfs
 - ../../../../base/core/namespaces/jet-linite
+- ../../../../base/core/namespaces/kaoto
 - ../../../../base/core/namespaces/koku-metrics-operator
 - ../../../../base/core/namespaces/kubeflow
 - ../../../../base/core/namespaces/manageiq
@@ -98,7 +101,6 @@ resources:
 - ../../../../base/core/namespaces/ttm-as-a-service
 - ../../../../base/core/namespaces/ushift-dev
 - ../../../../base/core/namespaces/varangian-test
-- ../../../../base/core/namespaces/ipfs
 - ../../../../base/imageregistry.operator.openshift.io/configs/cluster
 - ../../../../base/noobaa.io/backingstores
 - ../../../../base/operators.coreos.com/catalogsources/operatorhubio-catalog/
@@ -134,6 +136,7 @@ resources:
 - ../../../../base/rbac.authorization.k8s.io/clusterrolebindings/tekton-dashboard
 - ../../../../base/rbac.authorization.k8s.io/clusterrolebindings/vault-server-binding
 - ../../../../base/rbac.authorization.k8s.io/clusterroles/apirequest-count-read-cr
+- ../../../../base/rbac.authorization.k8s.io/clusterroles/monitors-create-aggregate-to-admin
 - ../../../../base/rbac.authorization.k8s.io/clusterroles/node-labeler
 - ../../../../base/rbac.authorization.k8s.io/clusterroles/oauth-token-access-review
 - ../../../../base/rbac.authorization.k8s.io/clusterroles/tekton-dashboard
@@ -177,5 +180,3 @@ resources:
 - objectbucketclaims/openshift-image-registry-bucket.yaml
 - secret-mgmt
 - snapshotschedules/schedule.yaml
-- ../../../../base/core/namespaces/kaoto
-- ../../../../base/core/namespaces/gingersnap
