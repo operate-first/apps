@@ -94,3 +94,4 @@ resources:
 - ../../../bundles/opf-monitoring
 - ../../../bundles/service-catalog-k8s-plugin
 - ../../../base/user.openshift.io/groups/kaoto
+- ../../../base/user.openshift.io/groups/gingersnap
