@@ -54,7 +54,7 @@ const thebe_selector_output = ".output, .cell_output"
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
     <link rel="next" title="Cluster Management" href="../cluster-scope/README.html" />
-    <link rel="prev" title="Secret creation using vault CLI and k8s auth" href="write_to_vault_with_k8s.html" />
+    <link rel="prev" title="Unsealing OPF Vault instance" href="unsealing_vault.html" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="None">
     
@@ -269,6 +269,11 @@ const thebe_selector_output = ".output, .cell_output"
    <li class="toctree-l2">
     <a class="reference internal" href="write_to_vault_with_k8s.html">
      Secret creation using vault CLI and k8s auth
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="unsealing_vault.html">
+     Unsealing OPF Vault instance
     </a>
    </li>
    <li class="toctree-l2 current active">
@@ -991,6 +996,13 @@ title="Print to PDF"
     <a class="reference internal nav-link" href="#failed-to-look-up-namespace-from-the-token">
      Failed to look up namespace from the token
     </a>
+    <ul class="nav section-nav flex-column">
+     <li class="toc-h3 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#rejoin-a-vault-node-to-the-vault-cluster">
+       Rejoin A Vault node to the Vault cluster
+      </a>
+     </li>
+    </ul>
    </li>
   </ul>
  </li>
@@ -1039,6 +1051,13 @@ title="Print to PDF"
     <a class="reference internal nav-link" href="#failed-to-look-up-namespace-from-the-token">
      Failed to look up namespace from the token
     </a>
+    <ul class="nav section-nav flex-column">
+     <li class="toc-h3 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#rejoin-a-vault-node-to-the-vault-cluster">
+       Rejoin A Vault node to the Vault cluster
+      </a>
+     </li>
+    </ul>
    </li>
   </ul>
  </li>
@@ -1066,7 +1085,11 @@ Code: <span class="m">400</span>. Errors:
 * missing client token
 </pre></div>
 </div>
-<p>In both situations simply run <code class="docutils literal notranslate"><span class="pre">vault</span> <span class="pre">login</span></code> and enter your token.</p>
+<p>In both situations simply run <code class="docutils literal notranslate"><span class="pre">vault</span> <span class="pre">login</span></code> and enter your token. In the case of the Vault Pods, <code class="docutils literal notranslate"><span class="pre">oc</span> <span class="pre">rsh</span></code> in to the pod
+first by running <code class="docutils literal notranslate"><span class="pre">oc</span> <span class="pre">rsh</span> <span class="pre">&lt;vault-pod-name&gt;</span></code>.</p>
+<blockquote>
+<div><p>Note: For the vault pod, use the root-token acquired via bitwarden.</p>
+</div></blockquote>
 <p>In the case of the Vault Pods, you should need to do it only once.
 The token is saved to: <code class="docutils literal notranslate"><span class="pre">/home/vault/.vault-token</span></code>
 Any successive terminal sessions in the pod will use this token.</p>
@@ -1076,7 +1099,9 @@ Any successive terminal sessions in the pod will use this token.</p>
 <p>When adding a secret store, and ensuring all information about the
 auth method is correct, you may encounter the following error
 encountered:</p>
-<div class="highlight-txt notranslate"><div class="highlight"><pre><span></span>&quot;could not get provider client: unable to log in to auth method: unable to log in with Kubernetes auth: Error making API request.
+<div class="highlight-txt notranslate"><div class="highlight"><pre><span></span>&quot;could not get provider client: unable to log in to auth method: unable to log in with Kubernetes auth: Error making
+API request.
+
 URL: PUT https://vault-ui-vault.apps.smaug.na.operate-first.cloud/v1/auth/infra-k8s/login
 </pre></div>
 </div>
@@ -1121,6 +1146,66 @@ the secretstore again and see if it successfully authenticates (by checking the 
 </div>
 <p>One of the causes of this might be the creation of a new <code class="docutils literal notranslate"><span class="pre">client_token</span></code> while the cached <code class="docutils literal notranslate"><span class="pre">client_token</span></code> at <code class="docutils literal notranslate"><span class="pre">$HOME/.vault_token</span></code> has been in invalidated.</p>
 <p>To fix this just remove the old token with: <code class="docutils literal notranslate"><span class="pre">rm</span> <span class="pre">~/.vault_token</span></code>.</p>
+<section id="rejoin-a-vault-node-to-the-vault-cluster">
+<h3>Rejoin A Vault node to the Vault cluster<a class="headerlink" href="#rejoin-a-vault-node-to-the-vault-cluster" title="Permalink to this headline">#</a></h3>
+<p>To confirm all nodes are part of the Vault cluster, run the following on all vault pods in <code class="docutils literal notranslate"><span class="pre">vault</span></code> namespace:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$ oc <span class="nb">exec</span> -ti opf-vault-0 -n vault -- vault operator raft list-peers
+$ oc <span class="nb">exec</span> -ti opf-vault-1 -n vault -- vault operator raft list-peers
+$ oc <span class="nb">exec</span> -ti opf-vault-2 -n vault -- vault operator raft list-peers
+</pre></div>
+</div>
+<p><em>There are 3 possible outputs for each pod:</em></p>
+<p>A. Only one vault node is listed (itself)
+B. There are 2 vault nodes are listed (itself and one more), identify the leader pod
+C. All 3 vault nodes are listed</p>
+<p>Then there are three possible cases:</p>
+<p><em>Case 1: All nodes show output (C)</em>
+Everything is good, you are done.</p>
+<p><em>Case 2: All show output (A)</em>
+If all nodes show (A), then no nodes are part of the cluster, identify one to be the leader and set the following
+environment variable: <code class="docutils literal notranslate"><span class="pre">LEADER=http://&lt;pod-name&gt;.opf-vault-internal:8200</span></code> where <code class="docutils literal notranslate"><span class="pre">&lt;pod-name&gt;</span></code> corresponds to your chosen
+leader, for example: <code class="docutils literal notranslate"><span class="pre">LEADER=http://opf-vault-1.opf-vault-internal:8200</span></code>.</p>
+<p>Join the remaining pod (<code class="docutils literal notranslate"><span class="pre">opf-vault-0</span></code> and <code class="docutils literal notranslate"><span class="pre">opf-vault-2</span></code> in our example) to our chosen leader:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>oc <span class="nb">exec</span> -ti opf-vault-0 -- vault operator raft join http://opf-vault-1.opf-vault-internal:820
+oc <span class="nb">exec</span> -ti opf-vault-2 -- vault operator raft join http://opf-vault-1.opf-vault-internal:820
+</pre></div>
+</div>
+<p>Unseal each of these nodes, instructions <a class="reference external" href="https://www.operate-first.cloud/apps/content/vault_eso/unsealing_vault.html">here</a>.</p>
+<p><em>Case 3: At least one pod showed 2 nodes in the cluster</em>
+Then the third node needs to be rejoined with the other nodes, identify the leader from the other 2 nodes by running:</p>
+<p>Let’s assume <code class="docutils literal notranslate"><span class="pre">opf-vault-0</span></code> and <code class="docutils literal notranslate"><span class="pre">opf-vault-2</span></code> are in the same cluster, and <code class="docutils literal notranslate"><span class="pre">opf-vault-1</span></code> is not (i.e. showing a single
+node output in <code class="docutils literal notranslate"><span class="pre">list-peers</span></code> command).</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>~ $ oc <span class="nb">exec</span> -ti opf-vault-1 -- vault operator raft list-peers
+Node                                    Address                                State       Voter
+----                                    -------                                -----       -----
+09b66090-446e-3974-bcb1-7080dacc07e7    opf-vault-0.opf-vault-internal:8201    follower    <span class="nb">true</span>
+56796c78-adac-b69e-8a62-c431b17c8b9b    opf-vault-2.opf-vault-internal:8201    leader      <span class="nb">true</span>
+</pre></div>
+</div>
+<p>When we do the same for <code class="docutils literal notranslate"><span class="pre">opf-vault-1</span></code> we see:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>~ $ oc <span class="nb">exec</span> -ti opf-vault-1 -- vault operator raft list-peers
+Node                                    Address                                State       Voter
+----                                    -------                                -----       -----
+e58ab8b5-62d7-cc6f-27e0-79656bfb8ab7    opf-vault-1.opf-vault-internal:8201    leader      <span class="nb">true</span>
+</pre></div>
+</div>
+<p>In this example, it’s clear that <code class="docutils literal notranslate"><span class="pre">opf-vault-1</span></code> is not part of the main cluster. And <code class="docutils literal notranslate"><span class="pre">opf-vault-2</span></code> is the leader of the
+main cluster. So we want to rejoin <code class="docutils literal notranslate"><span class="pre">opf-vault-1</span></code> by running:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>oc <span class="nb">exec</span> -ti opf-vault-1 -- vault operator raft join http://opf-vault-2.opf-vault-internal:820
+</pre></div>
+</div>
+<p>Now all 3 nodes should show the following output:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$ oc <span class="nb">exec</span> -ti opf-vault-1 -- vault operator raft list-peers
+Node                                    Address                                State       Voter
+----                                    -------                                -----       -----
+09b66090-446e-3974-bcb1-7080dacc07e7    opf-vault-0.opf-vault-internal:8201    follower    <span class="nb">true</span>
+56796c78-adac-b69e-8a62-c431b17c8b9b    opf-vault-2.opf-vault-internal:8201    leader      <span class="nb">true</span>
+e58ab8b5-62d7-cc6f-27e0-79656bfb8ab7    opf-vault-1.opf-vault-internal:8201    follower    <span class="nb">true</span>
+</pre></div>
+</div>
+<p>Unseal <code class="docutils literal notranslate"><span class="pre">opf-vault1</span></code> by following the instructions <a class="reference external" href="https://www.operate-first.cloud/apps/content/vault_eso/unsealing_vault.html">here</a>.</p>
+<p>We are done.</p>
+</section>
 </section>
 </section>
 
@@ -1151,11 +1236,11 @@ the secretstore again and see if it successfully authenticates (by checking the 
                 
     <!-- Previous / next buttons -->
 <div class='prev-next-area'>
-    <a class='left-prev' id="prev-link" href="write_to_vault_with_k8s.html" title="previous page">
+    <a class='left-prev' id="prev-link" href="unsealing_vault.html" title="previous page">
         <i class="fas fa-angle-left"></i>
         <div class="prev-next-info">
             <p class="prev-next-subtitle">previous</p>
-            <p class="prev-next-title">Secret creation using vault CLI and k8s auth</p>
+            <p class="prev-next-title">Unsealing OPF Vault instance</p>
         </div>
     </a>
     <a class='right-next' id="next-link" href="../cluster-scope/README.html" title="next page">
