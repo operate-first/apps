@@ -10,4 +10,6 @@ spec:
     - ./systems/grafana-public.yaml
     - ./systems/grafana.yaml
     - ./systems/odf-smaug.yaml
+    - ./systems/openshift-pipelines-smaug.yaml
+    - ./systems/peribolos.yaml
     - ./systems/service-catalog.yaml

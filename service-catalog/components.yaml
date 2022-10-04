@@ -9,9 +9,13 @@ spec:
     - ./components/backstage.yaml
     - ./components/dex-smaug.yaml
     - ./components/odf-operator-smaug.yaml
+    - ./components/openshift-pipelines-operator-smaug.yaml
     - ./components/opf-grafana-public-grafana-operator.yaml
     - ./components/opf-grafana-public.yaml
     - ./components/opf-monitoring-grafana-operator.yaml
     - ./components/opf-monitoring-grafana.yaml
+    - ./components/peribolos-controller.yaml
+    - ./components/probot-kubernetes.yaml
+    - ./components/probot-metrics.yaml
     - ./components/service-catalog-crunchy-postgres-operator.yaml
     - ./components/service-catalog-pg-cluster.yaml
