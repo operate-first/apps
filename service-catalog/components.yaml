@@ -17,5 +17,16 @@ spec:
     - ./components/peribolos-controller.yaml
     - ./components/probot-kubernetes.yaml
     - ./components/probot-metrics.yaml
+    - ./components/prow-controller-manager.yaml
+    - ./components/prow-crier.yaml
+    - ./components/prow-deck.yaml
+    - ./components/prow-ghproxy.yaml
+    - ./components/prow-hook.yaml
+    - ./components/prow-horologium.yaml
+    - ./components/prow-needs-rebase.yaml
+    - ./components/prow-plank.yaml
+    - ./components/prow-sinker.yaml
+    - ./components/prow-statusreconciler.yaml
+    - ./components/prow-tide.yaml
     - ./components/service-catalog-crunchy-postgres-operator.yaml
     - ./components/service-catalog-pg-cluster.yaml

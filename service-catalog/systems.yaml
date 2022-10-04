@@ -12,4 +12,5 @@ spec:
     - ./systems/odf-smaug.yaml
     - ./systems/openshift-pipelines-smaug.yaml
     - ./systems/peribolos.yaml
+    - ./systems/prow.yaml
     - ./systems/service-catalog.yaml

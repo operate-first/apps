@@ -1,0 +1,25 @@
+apiVersion: backstage.io/v1alpha1
+kind: Component
+metadata:
+  name: prow-controller-manager
+  title: Controller Manager
+  description: |
+    Manages the job execution and lifecycle for jobs running in k8s. It currently acts as a replacement for Plank. It  is intended to eventually replace other components, such as Sinker and Crier.
+  annotations:
+    operate-first.cloud/logo-url: https://prow.operate-first.cloud/static/logo-light.png
+    argocd/app-name: ci-prow-prod-smaug
+    github.com/project-slug: operate-first/apps
+    backstage.io/kubernetes-label-selector: "app.kubernetes.io/component=prow,app=prow-controller-manager"
+  links:
+    - url: https://pkg.go.dev/k8s.io/test-infra/prow/cmd/prow-controller-manager#section-readme
+      title: Upstream documentation
+      icon: web
+  tags:
+    - golang
+spec:
+  type: service
+  lifecycle: production
+  owner: group:operate-first
+  system: prow
+  dependsOn:
+    - resource:smaug
