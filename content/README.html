@@ -241,17 +241,27 @@ const thebe_selector_output = ".output, .cell_output"
   </label>
   <ul>
    <li class="toctree-l2">
-    <a class="reference internal" href="vault_eso/add_cluster_to_eso_and_vault.html">
+    <a class="reference internal" href="vault_eso/onboard_team_to_vault.html">
+     Onboard an OCP group to vault
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="vault_eso/create_external_secret.html">
+     Create External Secret in Operate First
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="vault_eso/enable_es_in_namespace.html">
+     Enable External Secrets to a namespace
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="vault_eso/enable_cluster_to_eso_and_vault.html">
      Enable Cluster to use External Secrets with Vault
     </a>
    </li>
    <li class="toctree-l2">
-    <a class="reference internal" href="vault_eso/add_external_secrets_to_ns.html">
-     Add External Secrets to a namespace
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="vault_eso/add_eso_to_cluster.html">
+    <a class="reference internal" href="vault_eso/install_es_operator_in_cluster.html">
      Add External Secrets Operator to an OPF cluster
     </a>
    </li>
@@ -305,6 +315,11 @@ const thebe_selector_output = ".output, .cell_output"
    <li class="toctree-l2">
     <a class="reference internal" href="cluster-scope/add_user_to_group.html">
      Adding User to an OCP team
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="cluster-scope/add_user_to_project_admin.html">
+     Giving a user project role access in the smaug cluster
     </a>
    </li>
    <li class="toctree-l2">
@@ -455,6 +470,16 @@ const thebe_selector_output = ".output, .cell_output"
     </a>
    </li>
    <li class="toctree-l2">
+    <a class="reference internal" href="observatorium/loki/add_loki_grafana_datasource.html">
+     Add a Loki Data Source in OperateFirst Grafana
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="observatorium/loki/loki_query_api.html">
+     Loki Query API
+    </a>
+   </li>
+   <li class="toctree-l2">
     <a class="reference internal" href="observatorium/thanos/README.html">
      Thanos Access
     </a>
@@ -564,6 +589,11 @@ const thebe_selector_output = ".output, .cell_output"
       </a>
      </li>
     </ul>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="odh/seldon/README.html">
+     Seldon Operator
+    </a>
    </li>
    <li class="toctree-l2 has-children">
     <a class="reference internal" href="odh/superset/README.html">
@@ -1185,7 +1215,7 @@ To access clusters, select <code class="docutils literal notranslate"><span clas
 <ul class="simple">
 <li><p>We deploy the OpenShift Data Foundation (ODF) operator on the Smaug cluster</p></li>
 <li><p>ODF provides both persistent volumes and S3 compatible object storage via <a class="reference external" href="https://rook.io/">Rook</a> Operator</p></li>
-<li><p>Users can deploy their own S3 buckets via ObjectBucketClaims. Visit <span class="xref myst">this page</span> for more information and request an S3 bucket by filing an issue <a class="reference external" href="https://github.com/operate-first/support/issues/new?assignees=first-operator&amp;labels=kind%2Fonboarding%2Carea%2Fbucket&amp;template=ceph_bucket_request.yaml&amp;title=BUCKET%3A+%3Cname%3E">here</a>.</p></li>
+<li><p>Users can deploy their own S3 buckets via ObjectBucketClaims. Visit <a class="reference internal" href="odf/claiming_object_store.html"><span class="doc std std-doc">this page</span></a> for more information and request an S3 bucket by filing an issue <a class="reference external" href="https://github.com/operate-first/support/issues/new?assignees=first-operator&amp;labels=kind%2Fonboarding%2Carea%2Fbucket&amp;template=ceph_bucket_request.yaml&amp;title=BUCKET%3A+%3Cname%3E">here</a>.</p></li>
 </ul>
 </li>
 <li><p><a class="reference external" href="https://github.com/dexidp/dex">Dex OIDC Provider</a></p>

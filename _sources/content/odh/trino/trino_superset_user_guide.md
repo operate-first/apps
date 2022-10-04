@@ -178,7 +178,7 @@ Another useful feature of Superset is the ability to quickly export dashboards. 
 [2]: https://trino.operate-first.cloud
 [3]: https://superset.operate-first.cloud
 [4]: ../superset/add_superset_users.md
-[5]: ../../ocs/claiming_object_store.md
+[5]: ../../odf/claiming_object_store.md
 [6]: https://trino.io/docs/current/connector/hive.html#supported-file-types
 [7]: https://trino.io/
 [8]: https://cloudbeaver.io/

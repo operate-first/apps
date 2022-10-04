@@ -53,6 +53,8 @@ const thebe_selector_output = ".output, .cell_output"
     <link rel="shortcut icon" href="../../../_static/favicon.png"/>
     <link rel="index" title="Index" href="../../../genindex.html" />
     <link rel="search" title="Search" href="../../../search.html" />
+    <link rel="next" title="Thanos Access" href="../thanos/README.html" />
+    <link rel="prev" title="Add a Loki Data Source in OperateFirst Grafana" href="add_loki_grafana_datasource.html" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="None">
     
@@ -117,7 +119,7 @@ const thebe_selector_output = ".output, .cell_output"
   GitOps
  </span>
 </p>
-<ul class="nav bd-sidenav">
+<ul class="current nav bd-sidenav">
  <li class="toctree-l1 has-children">
   <a class="reference internal" href="../../acm/README.html">
    ACM
@@ -240,17 +242,27 @@ const thebe_selector_output = ".output, .cell_output"
   </label>
   <ul>
    <li class="toctree-l2">
-    <a class="reference internal" href="../../vault_eso/add_cluster_to_eso_and_vault.html">
+    <a class="reference internal" href="../../vault_eso/onboard_team_to_vault.html">
+     Onboard an OCP group to vault
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../vault_eso/create_external_secret.html">
+     Create External Secret in Operate First
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../vault_eso/enable_es_in_namespace.html">
+     Enable External Secrets to a namespace
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../vault_eso/enable_cluster_to_eso_and_vault.html">
      Enable Cluster to use External Secrets with Vault
     </a>
    </li>
    <li class="toctree-l2">
-    <a class="reference internal" href="../../vault_eso/add_external_secrets_to_ns.html">
-     Add External Secrets to a namespace
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="../../vault_eso/add_eso_to_cluster.html">
+    <a class="reference internal" href="../../vault_eso/install_es_operator_in_cluster.html">
      Add External Secrets Operator to an OPF cluster
     </a>
    </li>
@@ -304,6 +316,11 @@ const thebe_selector_output = ".output, .cell_output"
    <li class="toctree-l2">
     <a class="reference internal" href="../../cluster-scope/add_user_to_group.html">
      Adding User to an OCP team
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../cluster-scope/add_user_to_project_admin.html">
+     Giving a user project role access in the smaug cluster
     </a>
    </li>
    <li class="toctree-l2">
@@ -438,19 +455,29 @@ const thebe_selector_output = ".output, .cell_output"
    Prometheus
   </a>
  </li>
- <li class="toctree-l1 has-children">
+ <li class="toctree-l1 current active has-children">
   <a class="reference internal" href="../README.html">
    Observatorium
   </a>
-  <input class="toctree-checkbox" id="toctree-checkbox-11" name="toctree-checkbox-11" type="checkbox"/>
+  <input checked="" class="toctree-checkbox" id="toctree-checkbox-11" name="toctree-checkbox-11" type="checkbox"/>
   <label for="toctree-checkbox-11">
    <i class="fas fa-chevron-down">
    </i>
   </label>
-  <ul>
+  <ul class="current">
    <li class="toctree-l2">
     <a class="reference internal" href="README.html">
      Loki
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="add_loki_grafana_datasource.html">
+     Add a Loki Data Source in OperateFirst Grafana
+    </a>
+   </li>
+   <li class="toctree-l2 current active">
+    <a class="current reference internal" href="#">
+     Loki Query API
     </a>
    </li>
    <li class="toctree-l2">
@@ -563,6 +590,11 @@ const thebe_selector_output = ".output, .cell_output"
       </a>
      </li>
     </ul>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../odh/seldon/README.html">
+     Seldon Operator
+    </a>
    </li>
    <li class="toctree-l2 has-children">
     <a class="reference internal" href="../../odh/superset/README.html">
@@ -1095,6 +1127,20 @@ To see which OrgID values are available look into the configured <a class="refer
                 
     <!-- Previous / next buttons -->
 <div class='prev-next-area'>
+    <a class='left-prev' id="prev-link" href="add_loki_grafana_datasource.html" title="previous page">
+        <i class="fas fa-angle-left"></i>
+        <div class="prev-next-info">
+            <p class="prev-next-subtitle">previous</p>
+            <p class="prev-next-title">Add a Loki Data Source in OperateFirst Grafana</p>
+        </div>
+    </a>
+    <a class='right-next' id="next-link" href="../thanos/README.html" title="next page">
+    <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Thanos Access</p>
+    </div>
+    <i class="fas fa-angle-right"></i>
+    </a>
 </div>
             </footer>
         </div>

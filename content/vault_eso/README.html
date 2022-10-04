@@ -53,7 +53,7 @@ const thebe_selector_output = ".output, .cell_output"
     <link rel="shortcut icon" href="../../_static/favicon.png"/>
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
-    <link rel="next" title="Enable Cluster to use External Secrets with Vault" href="add_cluster_to_eso_and_vault.html" />
+    <link rel="next" title="Onboard an OCP group to vault" href="onboard_team_to_vault.html" />
     <link rel="prev" title="Where and How do I add notifications to my ArgoCD apps?" href="../argocd-gitops/argocd_notifications.html" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="None">
@@ -242,17 +242,27 @@ const thebe_selector_output = ".output, .cell_output"
   </label>
   <ul>
    <li class="toctree-l2">
-    <a class="reference internal" href="add_cluster_to_eso_and_vault.html">
+    <a class="reference internal" href="onboard_team_to_vault.html">
+     Onboard an OCP group to vault
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="create_external_secret.html">
+     Create External Secret in Operate First
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="enable_es_in_namespace.html">
+     Enable External Secrets to a namespace
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="enable_cluster_to_eso_and_vault.html">
      Enable Cluster to use External Secrets with Vault
     </a>
    </li>
    <li class="toctree-l2">
-    <a class="reference internal" href="add_external_secrets_to_ns.html">
-     Add External Secrets to a namespace
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="add_eso_to_cluster.html">
+    <a class="reference internal" href="install_es_operator_in_cluster.html">
      Add External Secrets Operator to an OPF cluster
     </a>
    </li>
@@ -306,6 +316,11 @@ const thebe_selector_output = ".output, .cell_output"
    <li class="toctree-l2">
     <a class="reference internal" href="../cluster-scope/add_user_to_group.html">
      Adding User to an OCP team
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../cluster-scope/add_user_to_project_admin.html">
+     Giving a user project role access in the smaug cluster
     </a>
    </li>
    <li class="toctree-l2">
@@ -456,6 +471,16 @@ const thebe_selector_output = ".output, .cell_output"
     </a>
    </li>
    <li class="toctree-l2">
+    <a class="reference internal" href="../observatorium/loki/add_loki_grafana_datasource.html">
+     Add a Loki Data Source in OperateFirst Grafana
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../observatorium/loki/loki_query_api.html">
+     Loki Query API
+    </a>
+   </li>
+   <li class="toctree-l2">
     <a class="reference internal" href="../observatorium/thanos/README.html">
      Thanos Access
     </a>
@@ -565,6 +590,11 @@ const thebe_selector_output = ".output, .cell_output"
       </a>
      </li>
     </ul>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../odh/seldon/README.html">
+     Seldon Operator
+    </a>
    </li>
    <li class="toctree-l2 has-children">
     <a class="reference internal" href="../odh/superset/README.html">
@@ -974,6 +1004,18 @@ title="Print to PDF"
   <a class="reference internal nav-link" href="#vault-eso">
    Vault &amp; ESO
   </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#how-can-my-team-use-opf-vault-to-manage-our-secrets-via-gitops">
+     How can my team use OPF Vault to manage our secrets via GitOps?
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#how-to-get-started">
+     How to get started?
+    </a>
+   </li>
+  </ul>
  </li>
 </ul>
 
@@ -998,6 +1040,18 @@ title="Print to PDF"
   <a class="reference internal nav-link" href="#vault-eso">
    Vault &amp; ESO
   </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#how-can-my-team-use-opf-vault-to-manage-our-secrets-via-gitops">
+     How can my team use OPF Vault to manage our secrets via GitOps?
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#how-to-get-started">
+     How to get started?
+    </a>
+   </li>
+  </ul>
  </li>
 </ul>
 
@@ -1019,6 +1073,26 @@ instance.</p>
 <p>Vault URL: <a class="reference external" href="https://vault-ui-vault.apps.smaug.na.operate-first.cloud">https://vault-ui-vault.apps.smaug.na.operate-first.cloud</a> - login with OIDC provider method.</p>
 <p>We use <a class="reference external" href="https://external-secrets.io">External Secrets Operator (ESO)</a> to manage our secrets declaratively in git.</p>
 <p>ESO allows us to store our K8S / OCP secrets in git declaratively without compromising on the security of the platform.</p>
+<section id="how-can-my-team-use-opf-vault-to-manage-our-secrets-via-gitops">
+<h3>How can my team use OPF Vault to manage our secrets via GitOps?<a class="headerlink" href="#how-can-my-team-use-opf-vault-to-manage-our-secrets-via-gitops" title="Permalink to this headline">#</a></h3>
+<p>If you or your team has a namespace in the OPF cloud, you can use our [External Secrets Operator][ESO] (ESO) to deploy
+what are called <code class="docutils literal notranslate"><span class="pre">ExternalSecrets</span></code> (ES) which can be then stored in Git. This <code class="docutils literal notranslate"><span class="pre">ExternalSecret</span></code> contains information about
+your <code class="docutils literal notranslate"><span class="pre">K8s</span></code> secret, like where the <code class="docutils literal notranslate"><span class="pre">data</span></code> for your K8s <code class="docutils literal notranslate"><span class="pre">Secret</span></code> resides, what sort of <code class="docutils literal notranslate"><span class="pre">metadata.annotations</span></code> or
+<code class="docutils literal notranslate"><span class="pre">metadata.labels</span></code> it should have. The great thing about ES is that they themselves do not contain any confidential data,
+so you can store these in Git instead of your <code class="docutils literal notranslate"><span class="pre">Secret</span></code>. See <a class="reference external" href="https://github.com/operate-first/apps/tree/master/kfdefs/overlays/moc/smaug/trino/externalsecrets">example</a> here.</p>
+<p>You can learn more about this resource <a class="reference external" href="https://external-secrets.io/v0.6.0-rc1/api/externalsecret/">here</a>.</p>
+<p>Your actual <code class="docutils literal notranslate"><span class="pre">Secret</span></code> data is stored in our Vault instance. When you deploy your <code class="docutils literal notranslate"><span class="pre">ES</span></code>, ESO will fetch your data from the
+path defined in your <code class="docutils literal notranslate"><span class="pre">ES</span></code> and convert that into a K8s secret.</p>
+</section>
+<section id="how-to-get-started">
+<h3>How to get started?<a class="headerlink" href="#how-to-get-started" title="Permalink to this headline">#</a></h3>
+<p>Assuming your team has gone through the formal onboarding process and your team has an OCP <a class="reference external" href="https://github.com/operate-first/apps/tree/master/cluster-scope/base/user.openshift.io/groups">group</a> and <a class="reference external" href="https://github.com/operate-first/apps/tree/master/cluster-scope/base/core/namespaces">namespace</a> then
+you will need to additionally get onboarded by an Operate First Admin. The admins will have to follow the instructions
+<a class="reference internal" href="onboard_team_to_vault.html"><span class="doc std std-doc">here</span></a> to onboard your team. Start by creating an issue <a class="reference external" href="https://github.com/operate-first/support">here</a>, requesting access to
+OPF vault.</p>
+<p>Once onboarded, you can follow the instructions <a class="reference internal" href="create_external_secret.html"><span class="doc std std-doc">here</span></a> to store data in your Vault path,
+then create an <code class="docutils literal notranslate"><span class="pre">External</span> <span class="pre">Secret</span></code> to fetch this data and convert it to your <code class="docutils literal notranslate"><span class="pre">Secret</span></code>.</p>
+</section>
 </section>
 <div class="toctree-wrapper compound">
 </div>
@@ -1058,10 +1132,10 @@ instance.</p>
             <p class="prev-next-title">Where and How do I add notifications to my ArgoCD apps?</p>
         </div>
     </a>
-    <a class='right-next' id="next-link" href="add_cluster_to_eso_and_vault.html" title="next page">
+    <a class='right-next' id="next-link" href="onboard_team_to_vault.html" title="next page">
     <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title">Enable Cluster to use External Secrets with Vault</p>
+        <p class="prev-next-title">Onboard an OCP group to vault</p>
     </div>
     <i class="fas fa-angle-right"></i>
     </a>

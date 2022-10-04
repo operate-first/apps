@@ -2,6 +2,12 @@
 
 A runbook for common issues encountered when operating Vault on Operate First Cloud.
 
+## Pre-requisites
+* Unseal keys and root token for the snapshot
+* Kustomize CLI
+* Vault CLI
+* OC CLI
+
 ## Missing Client token
 
 Error can be encountered when communicating locally via Vault CLI *or* via the Vault Pods. Error looks like the following:

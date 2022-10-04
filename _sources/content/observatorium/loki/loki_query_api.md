@@ -16,7 +16,7 @@ To get the specific permissions needed to query logs directly from the Loki Quer
    and create a PR (Pull Request). You can see an example Pull Request [here][3]
 3. After your PR is reviewed/merged, you should have access to the Thanos Query Console and API
 
-#### Example: Loki Query API
+### Example: Loki Query API
 
 - url: https://loki-frontend-opf-observatorium.apps.smaug.na.operate-first.cloud
 

@@ -6,7 +6,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
 
-    <title>Adding ArgoCD Applications &#8212; GitOps Docs</title>
+    <title>Onboard an OCP group to vault &#8212; GitOps Docs</title>
     
   <!-- Loaded before other Sphinx assets -->
   <link href="../../_static/styles/theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
@@ -53,8 +53,8 @@ const thebe_selector_output = ".output, .cell_output"
     <link rel="shortcut icon" href="../../_static/favicon.png"/>
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
-    <link rel="next" title="Requesting more permissions for an ArgoCD Project (MOC)" href="add_permissions_to_project.html" />
-    <link rel="prev" title="ArgoCD" href="README.html" />
+    <link rel="next" title="Create External Secret in Operate First" href="create_external_secret.html" />
+    <link rel="prev" title="Secret Management" href="README.html" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="None">
     
@@ -164,130 +164,130 @@ const thebe_selector_output = ".output, .cell_output"
    </li>
   </ul>
  </li>
- <li class="toctree-l1 current active has-children">
-  <a class="reference internal" href="README.html">
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../argocd-gitops/README.html">
    ArgoCD
   </a>
-  <input checked="" class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"/>
+  <input class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"/>
   <label for="toctree-checkbox-3">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../argocd-gitops/add_application.html">
+     Adding ArgoCD Applications
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../argocd-gitops/add_permissions_to_project.html">
+     Requesting more permissions for an ArgoCD Project (MOC)
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../argocd-gitops/encrypting_applications.html">
+     How to encrypt apps in this repo
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../argocd-gitops/get_access_to_argocd.html">
+     Get access to ArgoCD
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../argocd-gitops/import_dev_gpg.html">
+     Import Development GPG Key
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../argocd-gitops/onboarding_to_argocd.html">
+     ArgoCD onboarding procedure
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../argocd-gitops/secret_management.html">
+     Secret management for applications
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../argocd-gitops/setup_argocd_dev_environment.html">
+     Deploying a development environment
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../argocd-gitops/update_argocd.html">
+     Steps for Upgrading ArgoCD
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../argocd-gitops/update_gpg_key.html">
+     Update gpg key
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../argocd-gitops/argocd_notifications.html">
+     Where and How do I add notifications to my ArgoCD apps?
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 current active has-children">
+  <a class="reference internal" href="README.html">
+   Secret Management
+  </a>
+  <input checked="" class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" type="checkbox"/>
+  <label for="toctree-checkbox-4">
    <i class="fas fa-chevron-down">
    </i>
   </label>
   <ul class="current">
    <li class="toctree-l2 current active">
     <a class="current reference internal" href="#">
-     Adding ArgoCD Applications
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="add_permissions_to_project.html">
-     Requesting more permissions for an ArgoCD Project (MOC)
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="encrypting_applications.html">
-     How to encrypt apps in this repo
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="get_access_to_argocd.html">
-     Get access to ArgoCD
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="import_dev_gpg.html">
-     Import Development GPG Key
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="onboarding_to_argocd.html">
-     ArgoCD onboarding procedure
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="secret_management.html">
-     Secret management for applications
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="setup_argocd_dev_environment.html">
-     Deploying a development environment
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="update_argocd.html">
-     Steps for Upgrading ArgoCD
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="update_gpg_key.html">
-     Update gpg key
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="argocd_notifications.html">
-     Where and How do I add notifications to my ArgoCD apps?
-    </a>
-   </li>
-  </ul>
- </li>
- <li class="toctree-l1 has-children">
-  <a class="reference internal" href="../vault_eso/README.html">
-   Secret Management
-  </a>
-  <input class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" type="checkbox"/>
-  <label for="toctree-checkbox-4">
-   <i class="fas fa-chevron-down">
-   </i>
-  </label>
-  <ul>
-   <li class="toctree-l2">
-    <a class="reference internal" href="../vault_eso/onboard_team_to_vault.html">
      Onboard an OCP group to vault
     </a>
    </li>
    <li class="toctree-l2">
-    <a class="reference internal" href="../vault_eso/create_external_secret.html">
+    <a class="reference internal" href="create_external_secret.html">
      Create External Secret in Operate First
     </a>
    </li>
    <li class="toctree-l2">
-    <a class="reference internal" href="../vault_eso/enable_es_in_namespace.html">
+    <a class="reference internal" href="enable_es_in_namespace.html">
      Enable External Secrets to a namespace
     </a>
    </li>
    <li class="toctree-l2">
-    <a class="reference internal" href="../vault_eso/enable_cluster_to_eso_and_vault.html">
+    <a class="reference internal" href="enable_cluster_to_eso_and_vault.html">
      Enable Cluster to use External Secrets with Vault
     </a>
    </li>
    <li class="toctree-l2">
-    <a class="reference internal" href="../vault_eso/install_es_operator_in_cluster.html">
+    <a class="reference internal" href="install_es_operator_in_cluster.html">
      Add External Secrets Operator to an OPF cluster
     </a>
    </li>
    <li class="toctree-l2">
-    <a class="reference internal" href="../vault_eso/restore_vault.html">
+    <a class="reference internal" href="restore_vault.html">
      Restoring vault
     </a>
    </li>
    <li class="toctree-l2">
-    <a class="reference internal" href="../vault_eso/vault_backup_job.html">
+    <a class="reference internal" href="vault_backup_job.html">
      Vault Backup Job
     </a>
    </li>
    <li class="toctree-l2">
-    <a class="reference internal" href="../vault_eso/write_to_vault_with_k8s.html">
+    <a class="reference internal" href="write_to_vault_with_k8s.html">
      Secret creation using vault CLI and k8s auth
     </a>
    </li>
    <li class="toctree-l2">
-    <a class="reference internal" href="../vault_eso/unsealing_vault.html">
+    <a class="reference internal" href="unsealing_vault.html">
      Unsealing OPF Vault instance
     </a>
    </li>
    <li class="toctree-l2">
-    <a class="reference internal" href="../vault_eso/runbook.html">
+    <a class="reference internal" href="runbook.html">
      Vault Runbook
     </a>
    </li>
@@ -913,7 +913,7 @@ title="Source repository"
       </li>
       
       <li>
-        <a href="https://github.com/operate-first/apps/issues/new?title=Issue%20on%20page%20%2Fcontent/argocd-gitops/add_application.html&body=Your%20issue%20content%20here."
+        <a href="https://github.com/operate-first/apps/issues/new?title=Issue%20on%20page%20%2Fcontent/vault_eso/onboard_team_to_vault.html&body=Your%20issue%20content%20here."
    class="headerbtn"
    data-toggle="tooltip"
 data-placement="left"
@@ -941,7 +941,7 @@ title="Open an issue"
   <div class="menu-dropdown__content">
     <ul>
       <li>
-        <a href="../../_sources/content/argocd-gitops/add_application.md"
+        <a href="../../_sources/content/vault_eso/onboard_team_to_vault.md"
    class="headerbtn"
    data-toggle="tooltip"
 data-placement="left"
@@ -1004,13 +1004,38 @@ title="Print to PDF"
   <a class="reference internal nav-link" href="#pre-requisites">
    Pre-requisites
   </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#steps">
+   Steps
+  </a>
   <ul class="nav section-nav flex-column">
    <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#add-an-application-to-the-apps-repo-declaratively">
-     Add an Application to the Apps repo (declaratively)
+    <a class="reference internal nav-link" href="#set-up-your-environment">
+     Set up your environment
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#create-secretstore">
+     Create secretstore
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#create-policy">
+     Create policy
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#create-vault-group">
+     Create Vault group
     </a>
    </li>
   </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#verify">
+   Verify
+  </a>
  </li>
 </ul>
 
@@ -1021,7 +1046,7 @@ title="Print to PDF"
         <div class="col pl-md-3 pl-lg-5 content-container">
             <!-- Table of contents that is only displayed when printing the page -->
             <div id="jb-print-docs-body" class="onlyprint">
-                <h1>Adding ArgoCD Applications</h1>
+                <h1>Onboard an OCP group to vault</h1>
                 <!-- Table of contents -->
                 <div id="print-main-content">
                     <div id="jb-print-toc">
@@ -1035,13 +1060,38 @@ title="Print to PDF"
   <a class="reference internal nav-link" href="#pre-requisites">
    Pre-requisites
   </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#steps">
+   Steps
+  </a>
   <ul class="nav section-nav flex-column">
    <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#add-an-application-to-the-apps-repo-declaratively">
-     Add an Application to the Apps repo (declaratively)
+    <a class="reference internal nav-link" href="#set-up-your-environment">
+     Set up your environment
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#create-secretstore">
+     Create secretstore
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#create-policy">
+     Create policy
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#create-vault-group">
+     Create Vault group
     </a>
    </li>
   </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#verify">
+   Verify
+  </a>
  </li>
 </ul>
 
@@ -1053,28 +1103,145 @@ title="Print to PDF"
                 
               <div>
                 
-  <section class="tex2jax_ignore mathjax_ignore" id="adding-argocd-applications">
-<h1>Adding ArgoCD Applications<a class="headerlink" href="#adding-argocd-applications" title="Permalink to this headline">#</a></h1>
-<p>This doc explains how to add ArgoCD Applications declaratively to the <code class="docutils literal notranslate"><span class="pre">apps</span></code> repo.</p>
+  <section class="tex2jax_ignore mathjax_ignore" id="onboard-an-ocp-group-to-vault">
+<h1>Onboard an OCP group to vault<a class="headerlink" href="#onboard-an-ocp-group-to-vault" title="Permalink to this headline">#</a></h1>
 <section id="pre-requisites">
 <h2>Pre-requisites<a class="headerlink" href="#pre-requisites" title="Permalink to this headline">#</a></h2>
 <ul class="simple">
-<li><p>You should have <a class="reference external" href="https://kubectl.docs.kubernetes.io/installation/kustomize/">kustomize</a> installed</p></li>
-<li><p>You should be familiar with <a class="reference external" href="https://kubernetes.io/docs/tasks/manage-kubernetes-objects/kustomization/#bases-and-overlays">kustomize overlays</a></p></li>
-<li><p>You should be familiar with what an <a class="reference external" href="https://argoproj.github.io/argo-cd/operator-manual/declarative-setup/#applications">ArgoCD application</a> is.</p></li>
-<li><p>You or your team should have been on boarded to ArgoCD, and have an ArgoCD project created. If you do not have one please request one for your team by filing this <a class="reference external" href="https://github.com/operate-first/support/issues/new?assignees=first-operator&amp;labels=kind%2Fonboarding%2Carea%2Fargocd&amp;template=onboarding_argocd.yaml&amp;title=PROJECT%3A+%3Cname%3E">issue here.</a></p></li>
-</ul>
-<section id="add-an-application-to-the-apps-repo-declaratively">
-<h3>Add an Application to the Apps repo (declaratively)<a class="headerlink" href="#add-an-application-to-the-apps-repo-declaratively" title="Permalink to this headline">#</a></h3>
-<p>All our <code class="docutils literal notranslate"><span class="pre">clusters</span></code> belong to some <code class="docutils literal notranslate"><span class="pre">environment</span></code>. The list of our <code class="docutils literal notranslate"><span class="pre">environments</span></code> can be found <a class="reference external" href="https://github.com/operate-first/apps/tree/master/argocd/overlays/moc-infra/applications/envs">here</a>. Within each <code class="docutils literal notranslate"><span class="pre">environment</span></code> you will find a list of clusters. For example within <code class="docutils literal notranslate"><span class="pre">moc</span></code> environment, you will find clusters <code class="docutils literal notranslate"><span class="pre">infra</span></code> and <code class="docutils literal notranslate"><span class="pre">smaug</span></code>. Pick one such cluster that you would like to deploy to. Let’s say you would like to deploy to cluster called <code class="docutils literal notranslate"><span class="pre">${CLUSTER_NAME}</span></code> in environment <code class="docutils literal notranslate"><span class="pre">${ENV}</span></code>. Then follow these steps:</p>
-<ul class="simple">
-<li><p>See ArgoCD Docs for how to create an ArgoCD <code class="docutils literal notranslate"><span class="pre">Application</span></code> <a class="reference external" href="https://argoproj.github.io/argo-cd/operator-manual/declarative-setup/#applications">here</a>.</p></li>
-<li><p>Ensure that the <code class="docutils literal notranslate"><span class="pre">spec.destination</span></code> field in your Argocd <code class="docutils literal notranslate"><span class="pre">Applicaiton</span></code> matches the <em>cluster name</em> as it’s stored in ArgoCD. To get this value, you can search the <code class="docutils literal notranslate"><span class="pre">metadata.name</span></code> in the clusters found <a class="reference external" href="https://github.com/operate-first/apps/tree/master/acm/overlays/moc/infra/managedclusters">here</a>. Or look at any of the other manifests in this repo and find the one that corresponds to <code class="docutils literal notranslate"><span class="pre">${CLUSTER_NAME}</span></code>.</p></li>
-<li><p>Ensure that your <code class="docutils literal notranslate"><span class="pre">spec.project</span></code> matches your team’s ArgoCD project.</p></li>
-<li><p>Add your ArgoCD Application to <code class="docutils literal notranslate"><span class="pre">argocd/overlays/moc-infra/applications/envs/${ENV}/${CLUSTER_NAME}/{$PROJECT}</span></code> where <code class="docutils literal notranslate"><span class="pre">{$PROJECT}</span></code> correlates with your team’s project.</p></li>
-<li><p>Add this resource’s file name to the <code class="docutils literal notranslate"><span class="pre">resource</span></code> field list in <code class="docutils literal notranslate"><span class="pre">argocd/overlays/moc-infra/applications/envs/${ENV}/${CLUSTER_NAME}/{$PROJECT}/kustomization.yaml</span></code> .</p></li>
+<li><p>The OCP team should have gone through the standard <a class="reference external" href="https://www.operate-first.cloud/apps/content/cluster-scope/onboarding_project.html">OPF Onboarding process</a></p></li>
+<li><p>Must have vault admin access and token (retrieved via Vault UI)</p></li>
+<li><p>Target cluster where k8s secrets will be deployed must have <a class="reference internal" href="install_es_operator_in_cluster.html"><span class="doc std std-doc">ESO installed</span></a>.</p></li>
+<li><p>Target cluster should also have been <a class="reference internal" href="enable_cluster_to_eso_and_vault.html"><span class="doc std std-doc">integrated with vault</span></a></p></li>
+<li><p>Kustomize CLI</p></li>
+<li><p>Vault CLI</p></li>
 </ul>
 </section>
+<section id="steps">
+<h2>Steps<a class="headerlink" href="#steps" title="Permalink to this headline">#</a></h2>
+<section id="set-up-your-environment">
+<h3>Set up your environment<a class="headerlink" href="#set-up-your-environment" title="Permalink to this headline">#</a></h3>
+<p>Open a terminal, and set up environment by running:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="nb">export</span> <span class="nv">VAULT_ADDR</span><span class="o">=</span><span class="s2">&quot;https://vault-ui-vault.apps.smaug.na.operate-first.cloud&quot;</span>
+<span class="nb">export</span> <span class="nv">ENV</span><span class="o">=</span>&lt;environment-name&gt;  <span class="c1"># Associated env where secrets will need to be created (e.g. moc, osc, emea)</span>
+<span class="nb">export</span> <span class="nv">CLUSTER</span><span class="o">=</span>&lt;cluster-name&gt;  <span class="c1"># Associated ocp cluster where secrets will need to be created (e.g. smaug, infra,..)</span>
+<span class="nb">export</span> <span class="nv">OCP_GROUP</span><span class="o">=</span>&lt;ocp-group-name&gt;
+<span class="nb">export</span> <span class="nv">NAMESPACE_1</span><span class="o">=</span>&lt;ocp-namespace&gt;
+<span class="nb">export</span> <span class="nv">NAMESPACE_2</span><span class="o">=</span>&lt;ocp-namespace-2&gt; <span class="c1"># Optional</span>
+<span class="nb">export</span> <span class="nv">NAMESPACE_3</span><span class="o">=</span>&lt;ocp-namespace-3&gt; <span class="c1"># Optional</span>
+...
+</pre></div>
+</div>
+<blockquote>
+<div><p>Note: if more than one namespace will need its secrets stored in vault,
+add env vars <code class="docutils literal notranslate"><span class="pre">${NAMESPACE_2},</span> <span class="pre">${NAMESPACE_3},...</span></code> accordingly</p>
+</div></blockquote>
+<p>Log in to vault:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>vault login -method<span class="o">=</span>token
+Token <span class="o">(</span>will be hidden<span class="o">)</span>: &lt;YOUR-TOKEN&gt;
+</pre></div>
+</div>
+</section>
+<section id="create-secretstore">
+<h3>Create secretstore<a class="headerlink" href="#create-secretstore" title="Permalink to this headline">#</a></h3>
+<p>Run the following commands:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>git clone https://github.com/operate-first/apps.git
+<span class="nb">cd</span> apps/cluster-scope/overlays/prod/<span class="si">${</span><span class="nv">ENV</span><span class="si">}</span>/<span class="si">${</span><span class="nv">CLUSTER</span><span class="si">}</span>/secret-mgmt
+</pre></div>
+</div>
+<p>Create namespace resources (repeat for all <code class="docutils literal notranslate"><span class="pre">${NAMESPACE_N}</span></code>).</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>mkdir <span class="si">${</span><span class="nv">NAMESPACE_1</span><span class="si">}</span> <span class="o">&amp;&amp;</span> <span class="nb">cd</span> <span class="si">${</span><span class="nv">NAMESPACE_1</span><span class="si">}</span>
+</pre></div>
+</div>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>cat <span class="s">&lt;&lt;EOF &gt;&gt;kustomization.yaml</span>
+<span class="s">apiVersion: kustomize.config.k8s.io/v1beta1</span>
+<span class="s">kind: Kustomization</span>
+<span class="s">namespace: ${NAMESPACE_1}</span>
+<span class="s">resources:</span>
+<span class="s">  - ../base</span>
+<span class="s">patchesStrategicMerge:</span>
+<span class="s">  - opf-vault-store.yaml</span>
+<span class="s">EOF</span>
+</pre></div>
+</div>
+<p>Create the opf-vault-store.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>cat <span class="s">&lt;&lt;EOF &gt;&gt;opf-vault-store.yaml</span>
+<span class="s">apiVersion: external-secrets.io/v1beta1</span>
+<span class="s">kind: SecretStore</span>
+<span class="s">metadata:</span>
+<span class="s">  name: opf-vault-store</span>
+<span class="s">spec:</span>
+<span class="s">  provider:</span>
+<span class="s">    vault:</span>
+<span class="s">      auth:</span>
+<span class="s">        kubernetes:</span>
+<span class="s">          role: ${OCP_GROUP}</span>
+<span class="s">EOF</span>
+</pre></div>
+</div>
+<p>Add to parent kustomization:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="nb">cd</span> .. <span class="o">&amp;&amp;</span> kustomize edit add resource <span class="si">${</span><span class="nv">NAMESPACE_1</span><span class="si">}</span>
+</pre></div>
+</div>
+<p><em>Commit your changes and make a PR.</em></p>
+<blockquote>
+<div><p>Note: The secretstore will not successfully authenticate until the remainder of the doc is completed.</p>
+</div></blockquote>
+</section>
+<section id="create-policy">
+<h3>Create policy<a class="headerlink" href="#create-policy" title="Permalink to this headline">#</a></h3>
+<p>Create the following *.hcl files. Replace $env accordingly.</p>
+<blockquote>
+<div><p>Note:  if you are adding support for multiple namespaces to be able to read secrets from vault
+then update the rules file below as per instructions in the comments</p>
+</div></blockquote>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>cat <span class="s">&lt;&lt;EOF &gt;&gt;user_policy.hcl</span>
+<span class="s">path &quot;k8s_secrets/data/${ENV}/${CLUSTER}/$NAMESPACE_1/*&quot; {</span>
+<span class="s">  capabilities = [&quot;create&quot;, &quot;read&quot;, &quot;update&quot;, &quot;patch&quot;, &quot;list&quot;, &quot;sudo&quot;]</span>
+<span class="s">}</span>
+
+<span class="s">path &quot;k8s_secrets/metadata/${ENV}/${CLUSTER}/$NAMESPACE_1/*&quot; {</span>
+<span class="s">  capabilities = [&quot;create&quot;, &quot;read&quot;, &quot;update&quot;, &quot;patch&quot;, &quot;list&quot;, &quot;sudo&quot;]</span>
+<span class="s">}</span>
+
+<span class="s"># Repeat the 2 rules above for $NAMESPACE_2, $NAMESPACE_3,.. etc.</span>
+
+<span class="s">path &quot;k8s_secrets/*&quot; {</span>
+<span class="s">capabilities = [&quot;list&quot;]</span>
+<span class="s">}</span>
+<span class="s">EOF</span>
+</pre></div>
+</div>
+<p>Run the following:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>vault policy write <span class="si">${</span><span class="nv">OCP_GROUP</span><span class="si">}</span> user_policy.hcl
+</pre></div>
+</div>
+</section>
+<section id="create-vault-group">
+<h3>Create Vault group<a class="headerlink" href="#create-vault-group" title="Permalink to this headline">#</a></h3>
+<p>Create the vault group and associate the Vault oidc login with this ocp group.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>vault write identity/group <span class="nv">name</span><span class="o">=</span><span class="s2">&quot;</span><span class="si">${</span><span class="nv">OCP_GROUP</span><span class="si">}</span><span class="s2">&quot;</span> <span class="nv">type</span><span class="o">=</span><span class="s2">&quot;external&quot;</span> <span class="se">\</span>
+       <span class="nv">policies</span><span class="o">=</span><span class="s2">&quot;</span><span class="si">${</span><span class="nv">OCP_GROUP</span><span class="si">}</span><span class="s2">&quot;</span> <span class="se">\</span>
+       <span class="nv">metadata</span><span class="o">=</span><span class="nv">responsibility</span><span class="o">=</span><span class="s2">&quot;Vault </span><span class="si">${</span><span class="nv">OCP_GROUP</span><span class="si">}</span><span class="s2"> users&quot;</span>
+
+vault write identity/group-alias <span class="nv">name</span><span class="o">=</span><span class="s2">&quot;</span><span class="si">${</span><span class="nv">OCP_GROUP</span><span class="si">}</span><span class="s2">&quot;</span> <span class="se">\</span>
+     <span class="nv">mount_accessor</span><span class="o">=</span><span class="k">$(</span>vault auth list -format<span class="o">=</span>json  <span class="p">|</span> jq -r <span class="s1">&#39;.&quot;oidc/&quot;.accessor&#39;</span><span class="k">)</span> <span class="se">\</span>
+     <span class="nv">canonical_id</span><span class="o">=</span><span class="s2">&quot;</span><span class="k">$(</span>vault <span class="nb">read</span> /identity/group/name/<span class="si">${</span><span class="nv">OCP_GROUP</span><span class="si">}</span> -format<span class="o">=</span>json <span class="p">|</span> jq -r <span class="s1">&#39;.data.id&#39;</span><span class="k">)</span><span class="s2">&quot;</span>
+</pre></div>
+</div>
+</section>
+</section>
+<section id="verify">
+<h2>Verify<a class="headerlink" href="#verify" title="Permalink to this headline">#</a></h2>
+<p>Create a secret in this location:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>vault kv put k8s_secrets/<span class="si">${</span><span class="nv">ENV</span><span class="si">}</span>/<span class="si">${</span><span class="nv">CLUSTER</span><span class="si">}</span>/<span class="si">${</span><span class="nv">NAMESPACE_1</span><span class="si">}</span>/example-secret <span class="nv">passcode</span><span class="o">=</span>my-long-passcode
+</pre></div>
+</div>
+<p>Ask a user from the group <code class="docutils literal notranslate"><span class="pre">${OCP_GROUP}</span></code> if they can login via OIDC authentication method and access:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>https://vault-ui-vault.apps.smaug.na.operate-first.cloud/ui/vault/secrets/k8s_secrets/show/<span class="si">${</span><span class="nv">ENV</span><span class="si">}</span>/<span class="si">${</span><span class="nv">CLUSTER</span><span class="si">}</span>/<span class="si">${</span><span class="nv">NAMESPACE_1</span><span class="si">}</span>/example-secret
+<span class="c1"># Do the same for $NAMESPACE_2, $NAMESPACE_3, etc. if needed</span>
+</pre></div>
+</div>
+<p>The user should now be able to <a class="reference internal" href="create_external_secret.html"><span class="doc std std-doc">create external secrets</span></a></p>
 </section>
 </section>
 
@@ -1091,7 +1258,7 @@ title="Print to PDF"
         },
         kernelOptions: {
             kernelName: "python3",
-            path: "./content/argocd-gitops"
+            path: "./content/vault_eso"
         },
         predefinedOutput: true
     }
@@ -1109,13 +1276,13 @@ title="Print to PDF"
         <i class="fas fa-angle-left"></i>
         <div class="prev-next-info">
             <p class="prev-next-subtitle">previous</p>
-            <p class="prev-next-title">ArgoCD</p>
+            <p class="prev-next-title">Secret Management</p>
         </div>
     </a>
-    <a class='right-next' id="next-link" href="add_permissions_to_project.html" title="next page">
+    <a class='right-next' id="next-link" href="create_external_secret.html" title="next page">
     <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title">Requesting more permissions for an ArgoCD Project (MOC)</p>
+        <p class="prev-next-title">Create External Secret in Operate First</p>
     </div>
     <i class="fas fa-angle-right"></i>
     </a>
