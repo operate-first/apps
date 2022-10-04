@@ -120,7 +120,7 @@ spec:
   tags:
   - from:
       kind: ImageStreamTag
-      name: v20211027-fe152eb205
+      name: v20220812-9414716697
     name: latest
   - from:
       kind: DockerImage
@@ -134,6 +134,10 @@ spec:
       kind: DockerImage
       name: gcr.io/k8s-prow/entrypoint:v20211027-fe152eb205
     name: v20211027-fe152eb205
+  - from:
+      kind: DockerImage
+      name: 'gcr.io/k8s-prow/entrypoint:v20220812-9414716697'
+    name: v20220812-9414716697
 ---
 apiVersion: image.openshift.io/v1
 kind: ImageStream
