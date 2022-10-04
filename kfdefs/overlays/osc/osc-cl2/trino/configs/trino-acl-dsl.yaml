@@ -6,6 +6,9 @@ admin:
 public: false
 
 catalogs:
+  - catalog: system
+    public: true
+
   - catalog: osc_datacommons_dev
     public: true
 
