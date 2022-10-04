@@ -1,0 +1,8 @@
+apiVersion: user.openshift.io/v1
+kind: Group
+metadata:
+  name: {{GROUP}}
+users:
+{% for user in USERS %}
+  - {{ user }}
+{% endfor %}
