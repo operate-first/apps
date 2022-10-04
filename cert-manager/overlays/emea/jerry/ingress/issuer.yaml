@@ -8,7 +8,7 @@ spec:
     email: ops-team@operate-first.cloud
     privateKeySecretRef:
       name: letsencrypt-key
-    server: https://acme-staging-v02.api.letsencrypt.org/directory
+    server: https://acme-v02.api.letsencrypt.org/directory
     solvers:
     - dns01:
         cloudDNS:
