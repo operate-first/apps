@@ -23,14 +23,16 @@ resources:
   - ../../../../base/operators.coreos.com/subscriptions/cluster-logging
   - ../../../../base/operators.coreos.com/subscriptions/kubernetes-nmstate-operator
   - ../../../../base/operators.coreos.com/subscriptions/web-terminal
+  - ../../../../base/rbac.authorization.k8s.io/clusterrolebindings/apirequest-count-reader
   - ../../../../base/rbac.authorization.k8s.io/clusterrolebindings/cluster-reader-k8s-annotations-exporter
   - ../../../../base/rbac.authorization.k8s.io/clusterrolebindings/open-cluster-management:admin:osc-cl1
   - ../../../../base/rbac.authorization.k8s.io/clusterrolebindings/open-cluster-management:managedclusterset:admin:drvbw
   - ../../../../base/rbac.authorization.k8s.io/clusterrolebindings/open-cluster-management:managedclusterset:admin:octo-ushift-dev
   - ../../../../base/rbac.authorization.k8s.io/clusterrolebindings/open-cluster-management:managedclusterset:admin:osc
-  - ../../../../base/rbac.authorization.k8s.io/clusterrolebindings/apirequest-count-reader
+  - ../../../../base/rbac.authorization.k8s.io/clusterrolebindings/service-catalog-k8s-plugin-acm
   - ../../../../base/rbac.authorization.k8s.io/clusterrolebindings/vault
   - ../../../../base/rbac.authorization.k8s.io/clusterroles/apirequest-count-read-cr
+  - ../../../../base/rbac.authorization.k8s.io/clusterroles/service-catalog-k8s-plugin-acm
   - ../../../../base/user.openshift.io/groups/cluster-admins
   - ../../../../bundles/acme-operator
   - ../../../../bundles/external-secrets-operator
@@ -58,7 +60,6 @@ patchesStrategicMerge:
   - subscriptions/odf-operator_patch.yaml
   - subscriptions/web-terminal_patch.yaml
   - groups/cluster-admins.yaml
-  - clusterroles/service-catalog-k8s-plugin.yaml
   - clusterrolebindings/self-provisioners_patch.yaml
   - clusterrolebindings/klusteraddonconfig-editor.yaml
   - consoles/cluster_patch.yaml
