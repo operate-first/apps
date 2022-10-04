@@ -1,5 +1,10 @@
 # Add External Secrets Operator to an OPF cluster
 
+## Pre-requisites:
+
+No pre-requisites, anyone can make this PR, additional ArgoCD access may be required to verify Argocd Apps are
+successfully synced, and resources are applied.
+
 ## Deploy the operator:
 
 Add the [ESO bundle][eso] to the `cluster-scope/overlay/prod/$ENV/$CLUSTER/kustomization.yaml`.

@@ -13,4 +13,4 @@ To do this, navigate to the [Seldon OCP Group][group], and add your GitHub user 
 Commit and make a PR.
 
 [opf-smaug]: https://console-openshift-console.apps.smaug.na.operate-first.cloud/k8s/cluster/projects/opf-seldon
-[group]: ../../../../cluster-scope/base/user.openshift.io/groups/seldon-admin
+[group]: https://github.com/operate-first/apps/blob/master/cluster-scope/base/user.openshift.io/groups/seldon-admin/group.yaml

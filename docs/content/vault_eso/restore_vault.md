@@ -4,10 +4,12 @@
 * Unseal keys and root token for the snapshot
 * Project admin access to the namespace being restored (referred to as `${VAULT_NS}` in this doc)
 * Vault CLI
+* Kustomize CLI
+* OC CLI
 
 ## Steps
 * Retrieve the most recent Vault Snapshot from one of the following locations:
-  * Snapshot Backup S3 bucket on [Smaug Cluster][smaugS3Bucket]. Use [this s3 endpoint][s3endpoint]
+  * Snapshot Backup S3 bucket on [Smaug Cluster][smaugS3Bucket]. Use this s3 endpoint: s3-openshift-storage.apps.smaug.na.operate-first.cloud
   * Snapshot Backup PVC [here][pvc]. You can use [this pod][toolpod] to access the pvc.
 * Login to an OCP cluster
 * Go to https://github.com/operate-first/apps/tree/master/vault/overlays
@@ -26,6 +28,5 @@ So far we've installed a new Vault instance, to restore an instance from our old
 [2]: https://www.vaultproject.io/docs/platform/k8s/helm/openshift#highly-available-raft-mode
 [3]: https://learn.hashicorp.com/tutorials/vault/sop-restore?in=vault/standard-procedures#single-vault-cluster
 [smaugS3Bucket]: https://console-openshift-console.apps.smaug.na.operate-first.cloud/k8s/ns/vault/objectbucket.io~v1alpha1~ObjectBucketClaim/opf-vault-snapshots
-[s3endpoint]: s3-openshift-storage.apps.smaug.na.operate-first.cloud
 [pvc]: https://console-openshift-console.apps.smaug.na.operate-first.cloud/k8s/ns/vault/persistentvolumeclaims/vault-snapshots
 [toolpod]: https://github.com/operate-first/apps/tree/master/vault/overlays/moc/smaug/backup-job/toolkitpod.yaml

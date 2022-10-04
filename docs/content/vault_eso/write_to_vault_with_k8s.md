@@ -1,6 +1,8 @@
 # Secret creation using vault CLI and k8s auth
 
-These are instructions on how you can write to our vault instance via the vault CLI using Kubernetes auth. This might be useful for creating secrets dynamically during a `CronJob` or a `Tekton Task`.
+These are instructions on how you can write to our vault instance via the vault CLI using Kubernetes auth.
+
+This might be useful for creating secrets dynamically during a `CronJob` or a `Tekton Task`.
 
 ## Pre-requisites
 * Install [vault CLI][1] and [jq][4]
@@ -85,7 +87,7 @@ You can now check if the process worked by issuing this command: `vault status`.
 You should now be able to write secrets using the vault cli. To see how to write secrets check the [vault upstream documentation][6].
 
 [1]: https://developer.hashicorp.com/vault/docs/install
-[2]: add_cluster_to_eso_and_vault.md
+[2]: enable_cluster_to_eso_and_vault.md
 [3]: add_external_secrets_to_ns.md#1-enable-namespace-to-fetch-secrets-from-vault
 [4]: https://stedolan.github.io/jq/download/
 [5]: https://vault-ui-vault.apps.smaug.na.operate-first.cloud

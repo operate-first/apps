@@ -35,4 +35,4 @@ for.
 [quay]: https://quay.io/operate-first/
 [om-rel]: https://github.com/open-metadata/OpenMetadata/releases
 [om-conf]: https://github.com/open-metadata/OpenMetadata/blob/main/conf/openmetadata.yaml
-[patch]: ../../../../openmetadata/overlays/osc/osc-cl2/patches/deployments/openmetadata.yaml
+[patch]: https://github.com/operate-first/apps/blob/master/openmetadata/overlays/osc/osc-cl2/patches/deployments/openmetadata.yaml

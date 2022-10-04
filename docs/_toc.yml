@@ -31,17 +31,14 @@ parts:
           - file: content/argocd-gitops/update_gpg_key.md
           - file: content/argocd-gitops/argocd_notifications.md
 
-      # ArgoCD
-      - file: content/vault/README.md
-        sections:
-          - file: content/vault/add_cluster_to_eso_and_vault.md
-
       # Vault
       - file: content/vault_eso/README.md
         sections:
-          - file: content/vault_eso/add_cluster_to_eso_and_vault.md
-          - file: content/vault_eso/add_external_secrets_to_ns.md
-          - file: content/vault_eso/add_eso_to_cluster.md
+          - file: content/vault_eso/onboard_team_to_vault.md
+          - file: content/vault_eso/create_external_secret.md
+          - file: content/vault_eso/enable_es_in_namespace.md
+          - file: content/vault_eso/enable_cluster_to_eso_and_vault.md
+          - file: content/vault_eso/install_es_operator_in_cluster.md
           - file: content/vault_eso/restore_vault.md
           - file: content/vault_eso/vault_backup_job.md
           - file: content/vault_eso/write_to_vault_with_k8s.md
@@ -54,6 +51,7 @@ parts:
           - file: content/cluster-scope/add_resource_quotas.md
           - file: content/cluster-scope/create_ocp_group.md
           - file: content/cluster-scope/add_user_to_group.md
+          - file: content/cluster-scope/add_user_to_project_admin.md
           - file: content/cluster-scope/offboarding_cluster.md
           - file: content/cluster-scope/onboarding_project.md
           - file: content/cluster-scope/quotas.md
@@ -93,6 +91,8 @@ parts:
       - file: content/observatorium/README.md
         sections:
           - file: content/observatorium/loki/README.md
+          - file: content/observatorium/loki/add_loki_grafana_datasource.md
+          - file: content/observatorium/loki/loki_query_api.md
           - file: content/observatorium/thanos/README.md
           - file: content/observatorium/thanos/request_grafana_access.md
           - file: content/observatorium/thanos/request_thanos_access.md
@@ -119,11 +119,7 @@ parts:
             - file: content/odh/jupyterhub/runbook.md
             - file: content/odh/jupyterhub/user_profiles.md
 
-          - file: content/odh/kafka/README.md
-            sections:
-              - file: content/odh/kafka/add_kafka_topics.md
-              - file: content/odh/kafka/add_kafka_users.md
-              - file: content/odh/kafka/runbook.md
+          - file: content/odh/seldon/README.md
 
           - file: content/odh/superset/README.md
             sections:

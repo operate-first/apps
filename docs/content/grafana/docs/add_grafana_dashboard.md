@@ -41,7 +41,7 @@ $ cd grafana/overlays/moc/smaug/dashboards
 $ kustomize edit add resource ${DASHBOARD_FOLDER}
 ```
 
-### Backing Up Your Dashboard:
+## Backing Up Your Dashboard:
 Grafana is redeployed frequently, such as during an automatic operator update or when a new dashboard is added via a pull request. Please make sure to backup any dashboards you have created through the Grafana UI.
 
 To export your dashboard click the share icon ![](img/share-icon.png) at the top dashboard menu. Click the "Export" tab and you can now save a JSON file of your dashboard.
