@@ -48,9 +48,13 @@ resources:
   - nodenetworkconfigurationpolicies/ocp-prod-provisioning-vlan.yaml
   - nodenetworkconfigurationpolicies/vlan-211-nese.yaml
   - nodenetworkconfigurationpolicies/zero-provisioning-vlan.yaml
+  - nodes/os-ctrl-0.moc-infra.massopen.cloud.yaml
+  - nodes/os-ctrl-1.moc-infra.massopen.cloud.yaml
+  - nodes/os-ctrl-2.moc-infra.massopen.cloud.yaml
   - oauth
   - secrets
   - secret-mgmt
+  - storageclasses/ocs-external-storagecluster-ceph-rbd.yaml
 generators:
   - secret-generator.yaml
 
