@@ -61,11 +61,11 @@ spec:
               mountPath: /cache
           resources:
             requests:
-              memory: "64Mi"
-              cpu: "2m"
+              memory: "128Mi"
+              cpu: "10m"
             limits:
-              memory: "64Mi"
-              cpu: "2m"
+              memory: "128Mi"
+              cpu: "10m"
       volumes:
         - name: cache
           persistentVolumeClaim:

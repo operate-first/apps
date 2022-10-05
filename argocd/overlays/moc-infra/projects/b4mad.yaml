@@ -31,3 +31,5 @@ spec:
       kind: GrafanaDataSource
     - group: integreatly.org
       kind: Grafana
+    - group: postgres-operator.crunchydata.com
+      kind: PostgresCluster

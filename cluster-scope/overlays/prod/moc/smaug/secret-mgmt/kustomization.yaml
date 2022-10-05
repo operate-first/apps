@@ -13,6 +13,7 @@ resources:
 - openshift-logging
 - openshift-monitoring
 - openshift-storage
+- opf-ci-prow
 - opf-alertreceiver
 - opf-grafana-public
 - opf-jupyterhub
@@ -28,3 +29,4 @@ resources:
 - stackrox
 - okd-team
 - okd-centos
+- robozome

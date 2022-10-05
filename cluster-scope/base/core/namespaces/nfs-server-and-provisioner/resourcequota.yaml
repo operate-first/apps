@@ -1,0 +1,11 @@
+apiVersion: v1
+kind: ResourceQuota
+metadata:
+  name: nfs-server-and-provisioner-custom
+spec:
+  hard:
+    limits.cpu: '4'
+    limits.memory: 16Gi
+    requests.cpu: '2'
+    requests.memory: 8Gi
+    requests.storage: 700Gi

@@ -1,0 +1,10 @@
+apiVersion: user.openshift.io/v1
+kind: Group
+metadata:
+  name: emporous-devs
+users:
+  - sabre1041
+  - jpower432
+  - afflom
+  - jflowers
+  - d10n

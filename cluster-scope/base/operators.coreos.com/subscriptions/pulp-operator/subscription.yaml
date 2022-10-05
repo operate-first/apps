@@ -4,7 +4,7 @@ kind: Subscription
 metadata:
   name: pulp-operator
 spec:
-  channel: alpha
+  channel: beta
   installPlanApproval: Automatic
   name: pulp-operator
   source: community-operators

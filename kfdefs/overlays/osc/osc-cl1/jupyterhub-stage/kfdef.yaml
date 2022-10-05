@@ -31,13 +31,6 @@ spec:
           name: manifests
           path: jupyterhub/notebook-images
       name: notebook-images
-    - kustomizeConfig:
-        overlays:
-          - authentication
-        repoRef:
-          name: manifests
-          path: odh-dashboard
-      name: odh-dashboard
   repos:
     - name: manifests
       uri: https://github.com/operate-first/odh-manifests/tarball/osc-cl1-byon

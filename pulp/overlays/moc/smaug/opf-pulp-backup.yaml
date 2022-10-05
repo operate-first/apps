@@ -1,7 +1,21 @@
 ---
-apiVersion: pulp.pulpproject.org/v1beta1
+apiVersion: repo-manager.pulpproject.org/v1alpha1
 kind: PulpBackup
 metadata:
   name: opf-pulp-backup
 spec:
   deployment_name: 'pulp'
+  deployment_type: pulp
+  backup_storage_class: ocs-external-storagecluster-ceph-rbd
+  instance_name: pulp
+  admin_password_secret: pulp-admin-password
+  postgres_configuration_secret: pulp-postgres-configuration
+  affinity:
+    nodeAffinity:
+      requiredDuringSchedulingIgnoredDuringExecution:
+        nodeSelectorTerms:
+        - matchExpressions:
+          - key: kubernetes.io/hostname
+            operator: In
+            values:
+            - oct-03-31-compute
