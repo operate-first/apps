@@ -23,8 +23,9 @@ spec:
           protocol: TCP
         resources: {}
         volumeMounts:
-        - mountPath: /export/
-          name: settings.properties
+        - name: inception-settings
+          mountPath: /export/settings.properties
+          subPath: settings.properties
       - name: inception-proxy
         image: quay.io/rdaylf/inception-proxy
         ports:
@@ -32,12 +33,19 @@ spec:
           protocol: TCP
         resources: {}
         volumeMounts:
-        - mountPath: /etc/httpd/conf.d/
-          name: inception-proxy.conf
+        - name: inception-proxy
+          mountPath: /etc/httpd/conf.d/inception-proxy.conf
+          subPath: inception-proxy.conf
       volumes:
-      - name: inception-proxy.conf
-        configMap:
-          name: inception-proxy.conf
-      - name: settings.properties
-        configMap:
-          name: settings.properties
+      - name: inception-proxy
+        secret:
+          secretName: inception-proxy
+          items:
+            - key: inception-proxy.conf
+              path: inception-proxy.conf
+      - name: inception-settings
+        secret:
+          secretName: inception-settings
+          items:
+            - key: settings.properties
+              path: settings.properties
