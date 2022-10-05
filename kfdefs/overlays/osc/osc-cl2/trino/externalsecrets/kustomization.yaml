@@ -5,3 +5,4 @@ resources:
 - shared-secret.yaml
 - trino-oauth.yaml
 - trino-secret-env.yaml
+- trino-secret-files.yaml
