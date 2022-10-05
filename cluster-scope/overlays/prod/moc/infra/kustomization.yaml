@@ -52,6 +52,7 @@ resources:
   - nodes/os-ctrl-1.moc-infra.massopen.cloud.yaml
   - nodes/os-ctrl-2.moc-infra.massopen.cloud.yaml
   - oauth
+  - objectbucketclaims/thanos.yaml
   - secrets
   - secret-mgmt
   - storageclasses/ocs-external-storagecluster-ceph-rbd.yaml

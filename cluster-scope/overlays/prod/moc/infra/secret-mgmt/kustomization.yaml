@@ -4,6 +4,7 @@ resources:
   - acm
   - argocd
   - idp-auth-primary
+  - open-cluster-management-observability
   - openshift-config
   - openshift-ingress
   - openshift-logging
