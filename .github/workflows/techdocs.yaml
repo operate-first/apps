@@ -18,7 +18,19 @@ jobs:
         with:
           filter: 'docs/content/grafana/**'
           docs_path: 'docs/content/grafana'
-          entity_name: 'grafana-public'
+          entity_name: 'opf-monitoring-grafana-operator'
+          entity_kind: 'Component'
+          repository: ${{ github.repository }}
+          token: ${{ secrets.SESHETA_TOKEN }}
+  send-repo-dispatches:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Send dispatch for grafana docs
+        uses: operate-first/service-catalog/.github/actions/docs-dispatch@main
+        with:
+          filter: 'docs/content/grafana/**'
+          docs_path: 'docs/content/grafana'
+          entity_name: 'opf-monitoring-grafana'
           entity_kind: 'Component'
           repository: ${{ github.repository }}
           token: ${{ secrets.SESHETA_TOKEN }}

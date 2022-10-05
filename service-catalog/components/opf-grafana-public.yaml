@@ -10,7 +10,6 @@ metadata:
     github.com/project-slug: operate-first/apps
     backstage.io/kubernetes-label-selector: "app.kubernetes.io/name=grafana-public"
     backstage.io/kubernetes-namespace: opf-grafana-public
-    backstage.io/techdocs-ref: url:https://github.com/operate-first/apps/tree/master/docs/content/grafana
   links:
     - url: https://github.com/operate-first/apps/issues/new
       title: Support path
