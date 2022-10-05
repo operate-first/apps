@@ -17,6 +17,6 @@ patchesStrategicMerge:
   - patches/deployments/airflow-scheduler.yaml
   - patches/deployments/airflow-db-migrations.yaml
 images:
-- name: quay.io/operate-first/airflow
+- name: quay.io/operate-first/om-airflow
   newName: quay.io/os-climate/ingestion
   newTag: 0.12.1.trino.317
