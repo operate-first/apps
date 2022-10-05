@@ -1,0 +1,43 @@
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: inception
+  labels:
+    deployment: inception
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      deployment: inception
+  template:
+    metadata:
+      labels:
+        deployment: inception
+    spec:
+      containers:
+      - name: inception
+        image: quay.io/rdaylf/inception
+        ports:
+        - containerPort: 8080
+          protocol: TCP
+        resources: {}
+        volumeMounts:
+        - mountPath: /export/
+          name: settings.properties
+      - name: inception-proxy
+        image: quay.io/rdaylf/inception-proxy
+        ports:
+        - containerPort: 8081
+          protocol: TCP
+        resources: {}
+        volumeMounts:
+        - mountPath: /etc/httpd/conf.d/
+          name: inception-proxy.conf
+      volumes:
+      - name: inception-proxy.conf
+        configMap:
+          name: inception-proxy.conf
+      - name: settings.properties
+        configMap:
+          name: settings.properties
