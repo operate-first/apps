@@ -18,19 +18,19 @@ spec:
       #restartPolicy: Never
       containers:
       - name: inception
-        image: quay.io/rdaylf/inception
+        image: docker.io/inceptionproject/inception
         ports:
         - containerPort: 8080
           protocol: TCP
         resources: {}
-        volumeMounts:
-        - name: inception-settings
-          mountPath: /export/settings.properties
-          subPath: settings.properties
-      volumes:
-      - name: inception-settings
-        secret:
-          secretName: inception-settings
-          items:
-            - key: settings.properties
-              path: settings.properties
+#        volumeMounts:
+#        - name: inception-settings
+#          mountPath: /export/settings.properties
+#          subPath: settings.properties
+#      volumes:
+#      - name: inception-settings
+#        secret:
+#          secretName: inception-settings
+#          items:
+#            - key: settings.properties
+#              path: settings.properties
