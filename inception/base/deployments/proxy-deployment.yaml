@@ -20,12 +20,12 @@ spec:
       - name: inception-proxy
         image: quay.io/rdaylf/inception-proxy
         ports:
-        - containerPort: 8081
+        - containerPort: 8080
           protocol: TCP
         resources: {}
         volumeMounts:
         - name: inception-proxy
-          mountPath: /etc/httpd/conf.d/inception-proxy.conf
+          mountPath: /etc/apache2/conf-enabled/inception-proxy.conf
           subPath: inception-proxy.conf
       volumes:
       - name: inception-proxy
