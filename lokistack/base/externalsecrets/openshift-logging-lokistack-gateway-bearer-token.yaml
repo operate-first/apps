@@ -1,0 +1,15 @@
+apiVersion: external-secrets.io/v1beta1
+kind: ExternalSecret
+metadata:
+  name: openshift-logging-lokistack-gateway-bearer-token
+  namespace: openshift-logging
+spec:
+  refreshInterval: 15s
+  secretStoreRef:
+    name: nerc-cluster-secrets
+    kind: ClusterSecretStore
+  target:
+    name: lokistack-gateway-bearer-token
+  dataFrom:
+    - extract:
+        key: moc/infra/loki/lokistack-gateway-bearer-token

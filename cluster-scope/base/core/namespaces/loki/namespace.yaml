@@ -1,0 +1,12 @@
+---
+apiVersion: v1
+kind: Namespace
+metadata:
+  annotations:
+    openshift.io/display-name: "Loki operator"
+    openshift.io/requester: operate-first
+    op1st/project-owner: operate-first
+    op1st/onboarding-issue: "https://github.com/operate-first/apps/issues/2493"
+    op1st/docs: "https://www.operate-first.cloud/apps/content/observatorium/loki/README.html?highlight=loki"
+  name: loki
+spec: {}

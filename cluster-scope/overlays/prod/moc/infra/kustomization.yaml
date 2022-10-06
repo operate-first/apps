@@ -16,12 +16,14 @@ resources:
   - ../../../../base/core/namespaces/vault
   - ../../../../base/nmstate.io/nmstates/nmstate
   - ../../../../base/operator.openshift.io/ingresscontrollers/default
+  - ../../../../base/operators.coreos.com/operatorgroups/loki/
   - ../../../../base/operators.coreos.com/operatorgroups/openshift-nmstate
   - ../../../../base/operators.coreos.com/operatorgroups/operator-acm-group
   - ../../../../base/operators.coreos.com/subscriptions/acm-operator-subscription
   - ../../../../base/operators.coreos.com/subscriptions/cert-manager
   - ../../../../base/operators.coreos.com/subscriptions/cluster-logging
   - ../../../../base/operators.coreos.com/subscriptions/kubernetes-nmstate-operator
+  - ../../../../base/operators.coreos.com/subscriptions/loki
   - ../../../../base/operators.coreos.com/subscriptions/web-terminal
   - ../../../../base/rbac.authorization.k8s.io/clusterrolebindings/apirequest-count-reader
   - ../../../../base/rbac.authorization.k8s.io/clusterrolebindings/cluster-reader-k8s-annotations-exporter
@@ -37,6 +39,7 @@ resources:
   - ../../../../bundles/acme-operator
   - ../../../../bundles/external-secrets-operator
   - ../../../../bundles/idp-mgmt-operator
+  - ../../../../bundles/loki
   - ../../../../bundles/odf-external
   - apiserver/api_server_cert.yaml
   - configmaps/service-catalog-k8s-plugin.yaml
