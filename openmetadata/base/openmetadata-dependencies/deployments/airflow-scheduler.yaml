@@ -41,7 +41,7 @@ spec:
       serviceAccountName: airflow
       initContainers:
         - name: check-db
-          image: quay.io/operate-first/om-airflow:0.12.0
+          image: quay.io/operate-first/om-ingestion:0.12.1
           imagePullPolicy: IfNotPresent
           envFrom:
             - secretRef:
@@ -70,7 +70,7 @@ spec:
             - name: logs-data
               mountPath: /opt/airflow/logs
         - name: wait-for-db-migrations
-          image: quay.io/operate-first/om-airflow:0.12.0
+          image: quay.io/operate-first/om-ingestion:0.12.1
           imagePullPolicy: IfNotPresent
           envFrom:
             - secretRef:
@@ -100,7 +100,7 @@ spec:
               mountPath: /opt/airflow/logs
       containers:
         - name: airflow-scheduler
-          image: quay.io/operate-first/om-airflow:0.12.0
+          image: quay.io/operate-first/om-ingestion:0.12.1
           imagePullPolicy: IfNotPresent
           resources: {}
           envFrom:

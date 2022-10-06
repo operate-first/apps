@@ -68,17 +68,13 @@ data:
   ## Airflow Configs (Kubernetes)
   ## ================
   AIRFLOW__KUBERNETES__NAMESPACE: "openmetadata"
-  AIRFLOW__KUBERNETES__WORKER_CONTAINER_REPOSITORY: "quay.io/operate-first/om-airflow"
-  AIRFLOW__KUBERNETES__WORKER_CONTAINER_TAG: "0.12.0"
+  AIRFLOW__KUBERNETES__WORKER_CONTAINER_REPOSITORY: "quay.io/os-climate/ingestion"
+  AIRFLOW__KUBERNETES__WORKER_CONTAINER_TAG: "0.12.1.trino.317"
   AIRFLOW__KUBERNETES__POD_TEMPLATE_FILE: "/opt/airflow/pod_templates/pod_template.yaml"
   ## ================
   ## User Configs
   ## ================
   "AIRFLOW__API__AUTH_BACKENDS": "airflow.api.auth.backend.basic_auth"
-  "AIRFLOW__LINEAGE__AIRFLOW_SERVICE_NAME": "airflow_helm"
-  "AIRFLOW__LINEAGE__AUTH_PROVIDER_TYPE": "no-auth"
-  "AIRFLOW__LINEAGE__BACKEND": "airflow_provider_openmetadata.lineage.openmetadata.OpenMetadataLineageBackend"
-  "AIRFLOW__LINEAGE__OPENMETADATA_API_ENDPOINT": "http://openmetadata.openmetadata.svc.cluster.local:8585/api"
   "AIRFLOW__OPENMETADATA_AIRFLOW_APIS__DAG_GENERATED_CONFIGS": "/opt/airflow/dags"
   "AIRFLOW__OPENMETADATA_SECRETS_MANAGER__AWS_ACCESS_KEY": ""
   "AIRFLOW__OPENMETADATA_SECRETS_MANAGER__AWS_ACCESS_KEY_ID": ""
