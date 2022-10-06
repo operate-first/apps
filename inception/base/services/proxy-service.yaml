@@ -5,7 +5,7 @@ metadata:
   name: inception-proxy
 spec:
   ports:
-    - name: http
+    - name: proxy
       port: 8080
       protocol: TCP
       targetPort: 8080

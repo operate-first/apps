@@ -5,7 +5,7 @@ metadata:
   name: inception
 spec:
   ports:
-    - name: http
+    - name: inception
       port: 8080
       protocol: TCP
       targetPort: 8080
