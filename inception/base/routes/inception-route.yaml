@@ -7,7 +7,7 @@ spec:
     termination: edge
     insecureEdgeTerminationPolicy: Redirect
   port:
-    targetPort: 8081
+    targetPort: 8080
   to:
     kind: Service
     name: inception-proxy

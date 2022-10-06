@@ -6,7 +6,7 @@ resources:
 - routes
 - services
 # Implement this in overlay
-- configmaps
+#- configmaps
 commonLabels:
   app.kubernetes.io/name: inception
   app.kubernetes.io/component: inception-app
