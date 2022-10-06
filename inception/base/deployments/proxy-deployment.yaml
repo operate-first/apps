@@ -2,18 +2,18 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: inception
+  name: inception-proxy
   labels:
-    deployment: inception
+    deployment: inception-proxy
 spec:
   replicas: 1
   selector:
     matchLabels:
-      deployment: inception
+      deployment: inception-proxy
   template:
     metadata:
       labels:
-        deployment: inception
+        deployment: inception-proxy
     spec:
       #restartPolicy: Never
       containers:
