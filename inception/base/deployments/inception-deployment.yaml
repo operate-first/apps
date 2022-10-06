@@ -25,7 +25,7 @@ spec:
         resources: {}
         volumeMounts:
         - name: inception-settings
-          mountPath: /srv/inception/settings.properties
+          mountPath: /export/settings.properties
           subPath: settings.properties
         - name: export
           mountPath: /export
