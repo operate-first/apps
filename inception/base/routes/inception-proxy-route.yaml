@@ -1,7 +1,7 @@
 apiVersion: route.openshift.io/v1
 kind: Route
 metadata:
-  name: inception
+  name: inception-proxy
 spec:
   tls:
     termination: edge
@@ -10,4 +10,4 @@ spec:
     targetPort: 8080
   to:
     kind: Service
-    name: inception
+    name: inception-proxy
