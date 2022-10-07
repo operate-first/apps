@@ -21,3 +21,21 @@ spec:
   namespaceResourceWhitelist:
     - group: ""
       kind: Node
+    - group: kafka.strimzi.io
+      kind: Kafka
+    - group: kafka.strimzi.io
+      kind: KafkaBridge
+    - group: kafka.strimzi.io
+      kind: KafkaConnect
+    - group: kafka.strimzi.io
+      kind: KafkaConnectS2I
+    - group: kafka.strimzi.io
+      kind: KafkaConnector
+    - group: kafka.strimzi.io
+      kind: KafkaMirrorMaker
+    - group: kafka.strimzi.io
+      kind: KafkaMirrorMaker2
+    - group: kafka.strimzi.io
+      kind: KafkaRebalance
+    - group: kafka.strimzi.io
+      kind: KafkaTopic
