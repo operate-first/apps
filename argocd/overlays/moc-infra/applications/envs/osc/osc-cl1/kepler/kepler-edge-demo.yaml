@@ -1,0 +1,20 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: kepler-edge-demo
+  namespace: argocd
+spec:
+  project: kepler
+  source:
+    path: deploy/overlays/osc/osc-cl1
+    repoURL: https://github.com/operate-first/kepler-edge-demo.git
+    targetRevision: HEAD
+  destination:
+    name: osc-cl1
+    namespace: kepler-edge
+  syncPolicy:
+    automated:
+      prune: true
+      selfHeal: true
+    syncOptions:
+      - Validate=false

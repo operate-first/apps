@@ -33,3 +33,4 @@ g, osc-admins, role:standard-user
 g, chris-project, role:standard-user
 g, copilot-ops, role:standard-user
 g, backstage, role:readonly
+g, kepler-admins, role:standard-user
