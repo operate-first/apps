@@ -3,4 +3,7 @@ kind: Group
 metadata:
     name: kepler-admins
 users:
-    - ""
+    - rootfs
+    - husky-parul
+    - caldeirav
+    - sallyom
