@@ -4,8 +4,8 @@ metadata:
   name: kepler-edge-custom
 spec:
   hard:
-    limits.cpu: '12'
-    limits.memory: 32Gi
-    requests.cpu: '8'
-    requests.memory: 16Gi
-    requests.storage: 40Gi
+    limits.cpu: '16'
+    limits.memory: 50Gi
+    requests.cpu: '12'
+    requests.memory: 30Gi
+    requests.storage: 60Gi
