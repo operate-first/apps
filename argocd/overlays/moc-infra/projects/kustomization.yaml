@@ -20,3 +20,4 @@ resources:
   - chris.yaml
   - otel-dev.yaml
   - copilot-ops.yaml
+  - kepler.yaml
