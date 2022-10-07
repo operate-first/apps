@@ -104,10 +104,9 @@ branch-protection:
           required_status_checks:
             contexts:
               - aicoe-ci/prow/pre-commit
-          exclude:
-            - "^revert-"
-            - "^kebechet-"
-            - "^dependabot/"
+          include:
+            - "^master"
+            - "^main"
     thoth-station:
       protect: true
       allow_force_pushes: false
