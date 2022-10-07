@@ -47,6 +47,33 @@ in_repo_config:
     "thoth-station": ["api.smaug.na.operate-first.cloud:6443"]
     "redhat-et/homomorphic-learning": ["api.smaug.na.operate-first.cloud:6443"]
 
+branch_cleaner:
+  preserved_branches:
+    AICoE:
+      - main
+      - master
+    aicoe-aiops:
+      - main
+      - master
+    b4mad:
+      - main
+      - master
+    open-services-group:
+      - main
+      - master
+    operate-first:
+      - main
+      - master
+    os-climate:
+      - main
+      - master
+    redhat-et:
+      - main
+      - master
+    thoth-station:
+      - main
+      - master
+
 branch-protection:
   allow_disabled_policies: true
   orgs:
