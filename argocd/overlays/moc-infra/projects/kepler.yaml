@@ -14,8 +14,8 @@ spec:
     - name: project-admin
       description: Read/Write access to this project only
       policies:
-        - p, proj:kepler:project-admin, applications, *, kepler/kepler-osc, allow
-        - p, proj:kepler:project-admin, applications, *, kepler/kepler-edge-osc, allow
+        - p, proj:kepler:project-admin, applications, *, os-climate/kepler-osc, allow
+        - p, proj:kepler:project-admin, applications, *, kepler/kepler-edge-demo-osc, allow
       groups:
         - kepler-admins
   namespaceResourceWhitelist:
