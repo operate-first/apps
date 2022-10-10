@@ -181,3 +181,4 @@ resources:
 - secret-mgmt
 - snapshotschedules/schedule.yaml
 - ../../../../base/core/namespaces/highlander
+- ../../../../base/core/namespaces/ai4cloudops
