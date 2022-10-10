@@ -96,3 +96,4 @@ resources:
 - ../../../bundles/service-catalog-k8s-plugin
 - ../../../base/user.openshift.io/groups/kaoto
 - ../../../base/user.openshift.io/groups/gingersnap
+- ../../../base/user.openshift.io/groups/highlander
