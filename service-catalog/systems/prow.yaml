@@ -20,6 +20,9 @@ metadata:
     - url: https://github.com/operate-first/apps/tree/master/prow
       title: Configuration
       icon: web
+    - url: https://raw.githubusercontent.com/kubernetes/test-infra/master/prow/docs/pr-interactions-sequence.svg?sanitize=true
+      title: PR interaction sequence
+      icon: web
 spec:
   owner: group:operate-first
   domain: sre

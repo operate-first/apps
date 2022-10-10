@@ -3,7 +3,7 @@ kind: Component
 metadata:
   name: prow-needs-rebase
   title: Needs-rebase
-  description:
+  description: Add needs-rebase label to PRs if necessary
   annotations:
     operate-first.cloud/logo-url: https://prow.operate-first.cloud/static/logo-light.png
     argocd/app-name: ci-prow-prod-smaug
