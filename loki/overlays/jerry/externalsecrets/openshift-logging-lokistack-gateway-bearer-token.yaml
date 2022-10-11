@@ -1,0 +1,10 @@
+apiVersion: external-secrets.io/v1beta1
+kind: ExternalSecret
+metadata:
+  name: openshift-logging-lokistack-gateway-bearer-token
+  namespace: openshift-operators-redhat
+spec:
+  dataFrom:
+    - extract:
+        # Command to extract the JSON pull secret: oc extract secret/pull-secret -n openshift-config --to=-
+        key: emea/jerry/openshift-operators-redhat/lokistack-gateway-bearer-token

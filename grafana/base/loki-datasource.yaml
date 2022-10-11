@@ -1,0 +1,38 @@
+apiVersion: integreatly.org/v1alpha1
+kind: GrafanaDataSource
+metadata:
+  name: loki-datasource
+  namespace: grafana
+spec:
+  name: loki
+  datasources:
+    - name: application-logging
+      type: loki
+      url: >-
+        https://lokistack-querier-http.openshift-operators-redhat.svc.cluster.local:3100
+      withCredentials: true
+      jsonData:
+        tlsSkipVerify: true
+        httpHeaderName1: X-Scope-OrgID
+      secureJsonData:
+        httpHeaderValue1: application
+    - name: infrastructure-logging
+      type: loki
+      url: >-
+        https://lokistack-querier-http.openshift-operators-redhat.svc.cluster.local:3100
+      withCredentials: true
+      jsonData:
+        tlsSkipVerify: true
+        httpHeaderName1: X-Scope-OrgID
+      secureJsonData:
+        httpHeaderValue1: infrastructure
+    - name: audit-logging
+      type: loki
+      url: >-
+        https://lokistack-querier-http.openshift-operators-redhat.svc.cluster.local:3100
+      withCredentials: true
+      jsonData:
+        tlsSkipVerify: true
+        httpHeaderName1: X-Scope-OrgID
+      secureJsonData:
+        httpHeaderValue1: audit

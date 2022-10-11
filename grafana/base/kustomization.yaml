@@ -6,4 +6,5 @@ resources:
   - grafana.yaml
   - grafana-datasource-serviceaccount.yaml
   - grafana-route.yaml
+  - loki-datasource.yaml
   - servicemonitor.yaml

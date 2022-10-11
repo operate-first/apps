@@ -1,0 +1,9 @@
+apiVersion: external-secrets.io/v1beta1
+kind: ExternalSecret
+metadata:
+  name: loki-thanos-object-storage
+  namespace: openshift-operators-redhat
+spec:
+  dataFrom:
+    - extract:
+        key: emea/jerry/openshift-operators-redhat/thanos-object-storage

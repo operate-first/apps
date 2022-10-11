@@ -1,0 +1,12 @@
+apiVersion: rbac.authorization.k8s.io/v1
+kind: ClusterRoleBinding
+metadata:
+  name: lokistack-gateway-auth-delegator
+roleRef:
+  kind: ClusterRole
+  apiGroup: rbac.authorization.k8s.io
+  name: system:auth-delegator
+subjects:
+  - kind: ServiceAccount
+    name: lokistack-gateway
+    namespace: openshift-operators-redhat

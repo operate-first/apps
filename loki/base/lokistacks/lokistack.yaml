@@ -1,0 +1,37 @@
+apiVersion: loki.grafana.com/v1beta1
+kind: LokiStack
+metadata:
+  name: lokistack
+  namespace: openshift-operators-redhat
+spec:
+  limits:
+    global:
+      ingestion:
+        ingestionBurstSize: 10
+        ingestionRate: 10
+  managementState: Managed
+  storage:
+    secret:
+      name: thanos-object-storage
+      type: s3
+    tls:
+      caName: lokistack-ca-bundle-custom
+  template:
+    compactor:
+      replicas: 1
+    distributor:
+      replicas: 1
+    gateway:
+      replicas: 1
+    indexGateway:
+      replicas: 1
+    ingester:
+      replicas: 1
+    querier:
+      replicas: 1
+    queryFrontend:
+      replicas: 1
+  tenants:
+    mode: openshift-logging
+  size: 1x.extra-small
+  storageClassName: ocs-external-storagecluster-ceph-rbd

@@ -1,0 +1,12 @@
+---
+apiVersion: kustomize.config.k8s.io/v1beta1
+kind: Kustomization
+namespace: opf-monitoring
+generatorOptions:
+  disableNameSuffixHash: true
+configMapGenerator:
+  - name: grafana-config-overrides
+    literals:
+      - GF_AUTH_GENERIC_OAUTH_ROLE_ATTRIBUTE_STRICT=true
+resources:
+  - ../../../base

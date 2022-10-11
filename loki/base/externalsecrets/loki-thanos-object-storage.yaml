@@ -1,0 +1,15 @@
+apiVersion: external-secrets.io/v1beta1
+kind: ExternalSecret
+metadata:
+  name: loki-thanos-object-storage
+  namespace: openshift-operators-redhat
+spec:
+  refreshInterval: 15s
+  secretStoreRef:
+    name: opf-vault-store
+    kind: SecretStore
+  target:
+    name: thanos-object-storage
+  dataFrom:
+    - extract:
+        key: $ENV/$CLUSTER/$NAMESPACE/loki-thanos-object-storage

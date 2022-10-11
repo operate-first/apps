@@ -1,0 +1,11 @@
+apiVersion: kustomize.config.k8s.io/v1beta1
+kind: Kustomization
+resources:
+  # - objectbucketclaims
+  - externalsecrets
+  - configmaps
+  - lokistacks
+commonLabels:
+  app.kubernetes.io/name: loki
+  app.kubernetes.io/component: lokistack
+  app.kubernetes.io/part-of: cluster-logging

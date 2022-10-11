@@ -4,7 +4,9 @@ kind: Kustomization
 resources:
   - ../../../../base/operators.coreos.com/subscriptions/cert-manager
   - ../../../../base/user.openshift.io/groups/cluster-admins
+  - ../../../../bundles/loki-operator
   - ../../../../bundles/external-secrets-operator
+  - ../../../../../loki/overlays/jerry
   - ../common
   - apiserver
   - configmaps/service-catalog-k8s-plugin.yaml
