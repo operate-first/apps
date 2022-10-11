@@ -1,0 +1,18 @@
+---
+apiVersion: kfdef.apps.kubeflow.org/v1
+kind: KfDef
+metadata:
+  annotations:
+    kfctl.kubeflow.io/force-delete: "false"
+  name: cnbi
+spec:
+  applications:
+    - kustomizeConfig:
+        repoRef:
+          name: manifests
+          path: config
+      name: cnbi-operator
+  repos:
+    - name: manifests
+      uri: https://github.com/thoth-station/meteor-operator/tarball/main
+  version: v1.1.0
