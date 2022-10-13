@@ -31,6 +31,7 @@ configMapGenerator:
       - kafka-table-description-dir/fx.json
       - kafka-table-description-dir/kepler.json
       - kafka-table-description-dir/ecb-trino-schema.json
+      - kafka-table-description-dir/co2signal-trino-schema.json
   - name: trino-config-monitoring
     files:
       - monitoring-config.yaml
