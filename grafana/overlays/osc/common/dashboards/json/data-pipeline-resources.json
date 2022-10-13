@@ -1,0 +1,2334 @@
+{
+  "annotations": {
+    "list": [
+      {
+        "builtIn": 1,
+        "datasource": {
+          "type": "grafana",
+          "uid": "-- Grafana --"
+        },
+        "enable": true,
+        "hide": true,
+        "iconColor": "rgba(0, 211, 255, 1)",
+        "name": "Annotations & Alerts",
+        "target": {
+          "limit": 100,
+          "matchAny": false,
+          "tags": [],
+          "type": "dashboard"
+        },
+        "type": "dashboard"
+      }
+    ]
+  },
+  "editable": true,
+  "fiscalYearStartMonth": 0,
+  "graphTooltip": 0,
+  "id": 4,
+  "links": [],
+  "liveNow": false,
+  "panels": [
+    {
+      "collapsed": true,
+      "gridPos": {
+        "h": 1,
+        "w": 24,
+        "x": 0,
+        "y": 0
+      },
+      "id": 11,
+      "panels": [
+        {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "P64AA24F3884B5DA2"
+          },
+          "fieldConfig": {
+            "defaults": {
+              "color": {
+                "mode": "palette-classic"
+              },
+              "custom": {
+                "axisCenteredZero": false,
+                "axisColorMode": "text",
+                "axisLabel": "",
+                "axisPlacement": "auto",
+                "barAlignment": 0,
+                "drawStyle": "line",
+                "fillOpacity": 0,
+                "gradientMode": "none",
+                "hideFrom": {
+                  "legend": false,
+                  "tooltip": false,
+                  "viz": false
+                },
+                "lineInterpolation": "linear",
+                "lineWidth": 1,
+                "pointSize": 5,
+                "scaleDistribution": {
+                  "type": "linear"
+                },
+                "showPoints": "auto",
+                "spanNulls": false,
+                "stacking": {
+                  "group": "A",
+                  "mode": "none"
+                },
+                "thresholdsStyle": {
+                  "mode": "off"
+                }
+              },
+              "mappings": [],
+              "thresholds": {
+                "mode": "absolute",
+                "steps": [
+                  {
+                    "color": "green"
+                  },
+                  {
+                    "color": "red",
+                    "value": 80
+                  }
+                ]
+              },
+              "unit": "bytes"
+            },
+            "overrides": []
+          },
+          "gridPos": {
+            "h": 8,
+            "w": 12,
+            "x": 0,
+            "y": 1
+          },
+          "id": 18,
+          "options": {
+            "legend": {
+              "calcs": [],
+              "displayMode": "list",
+              "placement": "bottom",
+              "showLegend": true
+            },
+            "tooltip": {
+              "mode": "single",
+              "sort": "none"
+            }
+          },
+          "targets": [
+            {
+              "datasource": {
+                "type": "prometheus",
+                "uid": "P64AA24F3884B5DA2"
+              },
+              "editorMode": "code",
+              "exemplar": false,
+              "expr": "container_memory_working_set_bytes{pod=~'airflow-web-.*',namespace='openmetadata',container='',}\n* on (pod)\nkube_pod_status_phase{namespace='openmetadata', phase='Running'}",
+              "instant": false,
+              "legendFormat": "Usage {{ pod }}",
+              "range": true,
+              "refId": "A"
+            },
+            {
+              "datasource": {
+                "type": "prometheus",
+                "uid": "P64AA24F3884B5DA2"
+              },
+              "editorMode": "code",
+              "expr": "kube_pod_resource_limit{resource='memory',pod=~'airflow-web-.*',namespace='openmetadata'}\n* on (pod)\nkube_pod_status_phase{namespace='openmetadata', phase='Running'}",
+              "hide": false,
+              "legendFormat": "Limits {{ pod }}",
+              "range": true,
+              "refId": "B"
+            },
+            {
+              "datasource": {
+                "type": "prometheus",
+                "uid": "P64AA24F3884B5DA2"
+              },
+              "editorMode": "code",
+              "expr": "kube_pod_resource_request{resource='memory',pod=~'airflow-web-.*',namespace='openmetadata'}\n* on (pod)\nkube_pod_status_phase{namespace='openmetadata', phase='Running'}",
+              "hide": false,
+              "legendFormat": "Requests {{pod}}",
+              "range": true,
+              "refId": "C"
+            }
+          ],
+          "title": "Airflow Web Memory Usage",
+          "type": "timeseries"
+        },
+        {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "P64AA24F3884B5DA2"
+          },
+          "fieldConfig": {
+            "defaults": {
+              "color": {
+                "mode": "palette-classic"
+              },
+              "custom": {
+                "axisCenteredZero": false,
+                "axisColorMode": "text",
+                "axisLabel": "",
+                "axisPlacement": "auto",
+                "barAlignment": 0,
+                "drawStyle": "line",
+                "fillOpacity": 0,
+                "gradientMode": "none",
+                "hideFrom": {
+                  "legend": false,
+                  "tooltip": false,
+                  "viz": false
+                },
+                "lineInterpolation": "linear",
+                "lineWidth": 1,
+                "pointSize": 5,
+                "scaleDistribution": {
+                  "type": "linear"
+                },
+                "showPoints": "auto",
+                "spanNulls": false,
+                "stacking": {
+                  "group": "A",
+                  "mode": "none"
+                },
+                "thresholdsStyle": {
+                  "mode": "off"
+                }
+              },
+              "mappings": [],
+              "thresholds": {
+                "mode": "absolute",
+                "steps": [
+                  {
+                    "color": "green"
+                  },
+                  {
+                    "color": "red",
+                    "value": 80
+                  }
+                ]
+              },
+              "unit": "none"
+            },
+            "overrides": []
+          },
+          "gridPos": {
+            "h": 8,
+            "w": 12,
+            "x": 12,
+            "y": 1
+          },
+          "id": 9,
+          "options": {
+            "legend": {
+              "calcs": [],
+              "displayMode": "list",
+              "placement": "bottom",
+              "showLegend": true
+            },
+            "tooltip": {
+              "mode": "single",
+              "sort": "none"
+            }
+          },
+          "targets": [
+            {
+              "datasource": {
+                "type": "prometheus",
+                "uid": "P64AA24F3884B5DA2"
+              },
+              "editorMode": "code",
+              "exemplar": false,
+              "expr": "pod:container_cpu_usage:sum{pod=~'airflow-web-.*',namespace='openmetadata',container='',}\n* on (pod)\nkube_pod_status_phase{namespace='openmetadata', phase='Running'}",
+              "instant": false,
+              "legendFormat": "Usage {{ pod }}",
+              "range": true,
+              "refId": "A"
+            },
+            {
+              "datasource": {
+                "type": "prometheus",
+                "uid": "P64AA24F3884B5DA2"
+              },
+              "editorMode": "code",
+              "expr": "kube_pod_resource_limit{resource='cpu',pod=~'airflow-web-.*',namespace='openmetadata'}\n* on (pod)\nkube_pod_status_phase{namespace='openmetadata', phase='Running'}",
+              "hide": false,
+              "legendFormat": "Limits {{ pod }}",
+              "range": true,
+              "refId": "B"
+            },
+            {
+              "datasource": {
+                "type": "prometheus",
+                "uid": "P64AA24F3884B5DA2"
+              },
+              "editorMode": "code",
+              "expr": "kube_pod_resource_request{resource='cpu',pod=~'airflow-web-.*',namespace='openmetadata'}\n* on (pod)\nkube_pod_status_phase{namespace='openmetadata', phase='Running'}",
+              "hide": false,
+              "legendFormat": "Requests {{pod}}",
+              "range": true,
+              "refId": "C"
+            }
+          ],
+          "title": "Airflow Web CPU Usage",
+          "type": "timeseries"
+        },
+        {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "P64AA24F3884B5DA2"
+          },
+          "fieldConfig": {
+            "defaults": {
+              "color": {
+                "mode": "palette-classic"
+              },
+              "custom": {
+                "axisCenteredZero": false,
+                "axisColorMode": "text",
+                "axisLabel": "",
+                "axisPlacement": "auto",
+                "barAlignment": 0,
+                "drawStyle": "line",
+                "fillOpacity": 0,
+                "gradientMode": "none",
+                "hideFrom": {
+                  "legend": false,
+                  "tooltip": false,
+                  "viz": false
+                },
+                "lineInterpolation": "linear",
+                "lineWidth": 1,
+                "pointSize": 5,
+                "scaleDistribution": {
+                  "type": "linear"
+                },
+                "showPoints": "auto",
+                "spanNulls": false,
+                "stacking": {
+                  "group": "A",
+                  "mode": "none"
+                },
+                "thresholdsStyle": {
+                  "mode": "off"
+                }
+              },
+              "mappings": [],
+              "thresholds": {
+                "mode": "absolute",
+                "steps": [
+                  {
+                    "color": "green"
+                  },
+                  {
+                    "color": "red",
+                    "value": 80
+                  }
+                ]
+              },
+              "unit": "bytes"
+            },
+            "overrides": []
+          },
+          "gridPos": {
+            "h": 8,
+            "w": 12,
+            "x": 0,
+            "y": 9
+          },
+          "id": 16,
+          "options": {
+            "legend": {
+              "calcs": [],
+              "displayMode": "list",
+              "placement": "bottom",
+              "showLegend": true
+            },
+            "tooltip": {
+              "mode": "single",
+              "sort": "none"
+            }
+          },
+          "targets": [
+            {
+              "datasource": {
+                "type": "prometheus",
+                "uid": "P64AA24F3884B5DA2"
+              },
+              "editorMode": "code",
+              "exemplar": false,
+              "expr": "container_memory_working_set_bytes{pod=~'airflow-sync-users-.*',namespace='openmetadata',container='',}\n* on (pod)\nkube_pod_status_phase{namespace='openmetadata', phase='Running'}",
+              "instant": false,
+              "legendFormat": "Usage {{ pod }}",
+              "range": true,
+              "refId": "A"
+            },
+            {
+              "datasource": {
+                "type": "prometheus",
+                "uid": "P64AA24F3884B5DA2"
+              },
+              "editorMode": "code",
+              "expr": "kube_pod_resource_limit{resource='memory',pod=~'airflow-sync-users-.*',namespace='openmetadata'}\n* on (pod)\nkube_pod_status_phase{namespace='openmetadata', phase='Running'}",
+              "hide": false,
+              "legendFormat": "Limits {{ pod }}",
+              "range": true,
+              "refId": "B"
+            },
+            {
+              "datasource": {
+                "type": "prometheus",
+                "uid": "P64AA24F3884B5DA2"
+              },
+              "editorMode": "code",
+              "expr": "kube_pod_resource_request{resource='memory',pod=~'airflow-sync-users-.*',namespace='openmetadata'}\n* on (pod)\nkube_pod_status_phase{namespace='openmetadata', phase='Running'}",
+              "hide": false,
+              "legendFormat": "Requests {{pod}}",
+              "range": true,
+              "refId": "C"
+            }
+          ],
+          "title": "Airflow Sync Users Memory Usage",
+          "type": "timeseries"
+        },
+        {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "P64AA24F3884B5DA2"
+          },
+          "fieldConfig": {
+            "defaults": {
+              "color": {
+                "mode": "palette-classic"
+              },
+              "custom": {
+                "axisCenteredZero": false,
+                "axisColorMode": "text",
+                "axisLabel": "",
+                "axisPlacement": "auto",
+                "barAlignment": 0,
+                "drawStyle": "line",
+                "fillOpacity": 0,
+                "gradientMode": "none",
+                "hideFrom": {
+                  "legend": false,
+                  "tooltip": false,
+                  "viz": false
+                },
+                "lineInterpolation": "linear",
+                "lineWidth": 1,
+                "pointSize": 5,
+                "scaleDistribution": {
+                  "type": "linear"
+                },
+                "showPoints": "auto",
+                "spanNulls": false,
+                "stacking": {
+                  "group": "A",
+                  "mode": "none"
+                },
+                "thresholdsStyle": {
+                  "mode": "off"
+                }
+              },
+              "mappings": [],
+              "thresholds": {
+                "mode": "absolute",
+                "steps": [
+                  {
+                    "color": "green"
+                  },
+                  {
+                    "color": "red",
+                    "value": 80
+                  }
+                ]
+              },
+              "unit": "none"
+            },
+            "overrides": []
+          },
+          "gridPos": {
+            "h": 8,
+            "w": 12,
+            "x": 12,
+            "y": 9
+          },
+          "id": 19,
+          "options": {
+            "legend": {
+              "calcs": [],
+              "displayMode": "list",
+              "placement": "bottom",
+              "showLegend": true
+            },
+            "tooltip": {
+              "mode": "single",
+              "sort": "none"
+            }
+          },
+          "targets": [
+            {
+              "datasource": {
+                "type": "prometheus",
+                "uid": "P64AA24F3884B5DA2"
+              },
+              "editorMode": "code",
+              "exemplar": false,
+              "expr": "pod:container_cpu_usage:sum{pod=~'airflow-sync-users-.*',namespace='openmetadata',container='',}\n* on (pod)\nkube_pod_status_phase{namespace='openmetadata', phase='Running'}",
+              "instant": false,
+              "legendFormat": "Usage {{ pod }}",
+              "range": true,
+              "refId": "A"
+            },
+            {
+              "datasource": {
+                "type": "prometheus",
+                "uid": "P64AA24F3884B5DA2"
+              },
+              "editorMode": "code",
+              "expr": "kube_pod_resource_limit{resource='cpu',pod=~'airflow-sync-users-.*',namespace='openmetadata'}\n* on (pod)\nkube_pod_status_phase{namespace='openmetadata', phase='Running'}",
+              "hide": false,
+              "legendFormat": "Limits {{ pod }}",
+              "range": true,
+              "refId": "B"
+            },
+            {
+              "datasource": {
+                "type": "prometheus",
+                "uid": "P64AA24F3884B5DA2"
+              },
+              "editorMode": "code",
+              "expr": "kube_pod_resource_request{resource='cpu',pod=~'airflow-sync-users-.*',namespace='openmetadata'}\n* on (pod)\nkube_pod_status_phase{namespace='openmetadata', phase='Running'}",
+              "hide": false,
+              "legendFormat": "Requests {{pod}}",
+              "range": true,
+              "refId": "C"
+            }
+          ],
+          "title": "Airflow Sync Users CPU Usage",
+          "type": "timeseries"
+        },
+        {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "P64AA24F3884B5DA2"
+          },
+          "fieldConfig": {
+            "defaults": {
+              "color": {
+                "mode": "palette-classic"
+              },
+              "custom": {
+                "axisCenteredZero": false,
+                "axisColorMode": "text",
+                "axisLabel": "",
+                "axisPlacement": "auto",
+                "barAlignment": 0,
+                "drawStyle": "line",
+                "fillOpacity": 0,
+                "gradientMode": "none",
+                "hideFrom": {
+                  "legend": false,
+                  "tooltip": false,
+                  "viz": false
+                },
+                "lineInterpolation": "linear",
+                "lineWidth": 1,
+                "pointSize": 5,
+                "scaleDistribution": {
+                  "type": "linear"
+                },
+                "showPoints": "auto",
+                "spanNulls": false,
+                "stacking": {
+                  "group": "A",
+                  "mode": "none"
+                },
+                "thresholdsStyle": {
+                  "mode": "off"
+                }
+              },
+              "mappings": [],
+              "thresholds": {
+                "mode": "absolute",
+                "steps": [
+                  {
+                    "color": "green"
+                  },
+                  {
+                    "color": "red",
+                    "value": 80
+                  }
+                ]
+              },
+              "unit": "bytes"
+            },
+            "overrides": []
+          },
+          "gridPos": {
+            "h": 8,
+            "w": 12,
+            "x": 0,
+            "y": 17
+          },
+          "id": 14,
+          "options": {
+            "legend": {
+              "calcs": [],
+              "displayMode": "list",
+              "placement": "bottom",
+              "showLegend": true
+            },
+            "tooltip": {
+              "mode": "single",
+              "sort": "none"
+            }
+          },
+          "targets": [
+            {
+              "datasource": {
+                "type": "prometheus",
+                "uid": "P64AA24F3884B5DA2"
+              },
+              "editorMode": "code",
+              "exemplar": false,
+              "expr": "container_memory_working_set_bytes{pod=~'airflow-scheduler-.*',namespace='openmetadata',container='',}\n* on (pod)\nkube_pod_status_phase{namespace='openmetadata', phase='Running'}\n",
+              "instant": false,
+              "legendFormat": "Usage {{ pod }}",
+              "range": true,
+              "refId": "A"
+            },
+            {
+              "datasource": {
+                "type": "prometheus",
+                "uid": "P64AA24F3884B5DA2"
+              },
+              "editorMode": "code",
+              "expr": "kube_pod_resource_limit{resource='memory',pod=~'airflow-scheduler-.*',namespace='openmetadata'}\n* on (pod)\nkube_pod_status_phase{namespace='openmetadata', phase='Running'}",
+              "hide": false,
+              "legendFormat": "Limits {{ pod }}",
+              "range": true,
+              "refId": "B"
+            },
+            {
+              "datasource": {
+                "type": "prometheus",
+                "uid": "P64AA24F3884B5DA2"
+              },
+              "editorMode": "code",
+              "expr": "kube_pod_resource_request{resource='memory',pod=~'airflow-scheduler-.*',namespace='openmetadata'}\n* on (pod)\nkube_pod_status_phase{namespace='openmetadata', phase='Running'}\n",
+              "hide": false,
+              "legendFormat": "Requests {{pod}}",
+              "range": true,
+              "refId": "C"
+            }
+          ],
+          "title": "Airflow Scheduler Memory Usage",
+          "type": "timeseries"
+        },
+        {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "P64AA24F3884B5DA2"
+          },
+          "fieldConfig": {
+            "defaults": {
+              "color": {
+                "mode": "palette-classic"
+              },
+              "custom": {
+                "axisCenteredZero": false,
+                "axisColorMode": "text",
+                "axisLabel": "",
+                "axisPlacement": "auto",
+                "barAlignment": 0,
+                "drawStyle": "line",
+                "fillOpacity": 0,
+                "gradientMode": "none",
+                "hideFrom": {
+                  "legend": false,
+                  "tooltip": false,
+                  "viz": false
+                },
+                "lineInterpolation": "linear",
+                "lineWidth": 1,
+                "pointSize": 5,
+                "scaleDistribution": {
+                  "type": "linear"
+                },
+                "showPoints": "auto",
+                "spanNulls": false,
+                "stacking": {
+                  "group": "A",
+                  "mode": "none"
+                },
+                "thresholdsStyle": {
+                  "mode": "off"
+                }
+              },
+              "mappings": [],
+              "thresholds": {
+                "mode": "absolute",
+                "steps": [
+                  {
+                    "color": "green"
+                  },
+                  {
+                    "color": "red",
+                    "value": 80
+                  }
+                ]
+              },
+              "unit": "none"
+            },
+            "overrides": []
+          },
+          "gridPos": {
+            "h": 8,
+            "w": 12,
+            "x": 12,
+            "y": 17
+          },
+          "id": 17,
+          "options": {
+            "legend": {
+              "calcs": [],
+              "displayMode": "list",
+              "placement": "bottom",
+              "showLegend": true
+            },
+            "tooltip": {
+              "mode": "single",
+              "sort": "none"
+            }
+          },
+          "targets": [
+            {
+              "datasource": {
+                "type": "prometheus",
+                "uid": "P64AA24F3884B5DA2"
+              },
+              "editorMode": "code",
+              "exemplar": false,
+              "expr": "pod:container_cpu_usage:sum{pod=~'airflow-scheduler-.*',namespace='openmetadata',container='',}\n* on (pod)\nkube_pod_status_phase{namespace='openmetadata', phase='Running'}",
+              "instant": false,
+              "legendFormat": "Usage {{ pod }}",
+              "range": true,
+              "refId": "A"
+            },
+            {
+              "datasource": {
+                "type": "prometheus",
+                "uid": "P64AA24F3884B5DA2"
+              },
+              "editorMode": "code",
+              "expr": "kube_pod_resource_limit{resource='cpu',pod=~'airflow-scheduler-.*',namespace='openmetadata'}\n* on (pod)\nkube_pod_status_phase{namespace='openmetadata', phase='Running'}",
+              "hide": false,
+              "legendFormat": "Limits {{ pod }}",
+              "range": true,
+              "refId": "B"
+            },
+            {
+              "datasource": {
+                "type": "prometheus",
+                "uid": "P64AA24F3884B5DA2"
+              },
+              "editorMode": "code",
+              "expr": "kube_pod_resource_request{resource='cpu',pod=~'airflow-scheduler-.*',namespace='openmetadata'}\n* on (pod)\nkube_pod_status_phase{namespace='openmetadata', phase='Running'}",
+              "hide": false,
+              "legendFormat": "Requests {{pod}}",
+              "range": true,
+              "refId": "C"
+            }
+          ],
+          "title": "Airflow Scheduler CPU Usage",
+          "type": "timeseries"
+        },
+        {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "P64AA24F3884B5DA2"
+          },
+          "fieldConfig": {
+            "defaults": {
+              "color": {
+                "mode": "palette-classic"
+              },
+              "custom": {
+                "axisCenteredZero": false,
+                "axisColorMode": "text",
+                "axisLabel": "",
+                "axisPlacement": "auto",
+                "barAlignment": 0,
+                "drawStyle": "line",
+                "fillOpacity": 0,
+                "gradientMode": "none",
+                "hideFrom": {
+                  "legend": false,
+                  "tooltip": false,
+                  "viz": false
+                },
+                "lineInterpolation": "linear",
+                "lineWidth": 1,
+                "pointSize": 5,
+                "scaleDistribution": {
+                  "type": "linear"
+                },
+                "showPoints": "auto",
+                "spanNulls": false,
+                "stacking": {
+                  "group": "A",
+                  "mode": "none"
+                },
+                "thresholdsStyle": {
+                  "mode": "off"
+                }
+              },
+              "mappings": [],
+              "thresholds": {
+                "mode": "absolute",
+                "steps": [
+                  {
+                    "color": "green"
+                  },
+                  {
+                    "color": "red",
+                    "value": 80
+                  }
+                ]
+              },
+              "unit": "bytes"
+            },
+            "overrides": []
+          },
+          "gridPos": {
+            "h": 8,
+            "w": 12,
+            "x": 0,
+            "y": 25
+          },
+          "id": 12,
+          "options": {
+            "legend": {
+              "calcs": [],
+              "displayMode": "list",
+              "placement": "bottom",
+              "showLegend": true
+            },
+            "tooltip": {
+              "mode": "single",
+              "sort": "none"
+            }
+          },
+          "targets": [
+            {
+              "datasource": {
+                "type": "prometheus",
+                "uid": "P64AA24F3884B5DA2"
+              },
+              "editorMode": "code",
+              "exemplar": false,
+              "expr": "container_memory_working_set_bytes{pod=~'airflow-db-.*',namespace='openmetadata',container='',}\n* on (pod)\nkube_pod_status_phase{namespace='openmetadata', phase='Running'}",
+              "instant": false,
+              "legendFormat": "Usage {{ pod }}",
+              "range": true,
+              "refId": "A"
+            },
+            {
+              "datasource": {
+                "type": "prometheus",
+                "uid": "P64AA24F3884B5DA2"
+              },
+              "editorMode": "code",
+              "expr": "kube_pod_resource_limit{resource='memory',pod=~'airflow-db-.*',namespace='openmetadata'}\n* on (pod)\nkube_pod_status_phase{namespace='openmetadata', phase='Running'}",
+              "hide": false,
+              "legendFormat": "Limits {{ pod }}",
+              "range": true,
+              "refId": "B"
+            },
+            {
+              "datasource": {
+                "type": "prometheus",
+                "uid": "P64AA24F3884B5DA2"
+              },
+              "editorMode": "code",
+              "expr": "kube_pod_resource_request{resource='memory',pod=~'airflow-db-.*',namespace='openmetadata'}\n* on (pod)\nkube_pod_status_phase{namespace='openmetadata', phase='Running'}",
+              "hide": false,
+              "legendFormat": "Requests {{pod}}",
+              "range": true,
+              "refId": "C"
+            }
+          ],
+          "title": "Airflow DB Memory Usage",
+          "type": "timeseries"
+        },
+        {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "P64AA24F3884B5DA2"
+          },
+          "fieldConfig": {
+            "defaults": {
+              "color": {
+                "mode": "palette-classic"
+              },
+              "custom": {
+                "axisCenteredZero": false,
+                "axisColorMode": "text",
+                "axisLabel": "",
+                "axisPlacement": "auto",
+                "barAlignment": 0,
+                "drawStyle": "line",
+                "fillOpacity": 0,
+                "gradientMode": "none",
+                "hideFrom": {
+                  "legend": false,
+                  "tooltip": false,
+                  "viz": false
+                },
+                "lineInterpolation": "linear",
+                "lineWidth": 1,
+                "pointSize": 5,
+                "scaleDistribution": {
+                  "type": "linear"
+                },
+                "showPoints": "auto",
+                "spanNulls": false,
+                "stacking": {
+                  "group": "A",
+                  "mode": "none"
+                },
+                "thresholdsStyle": {
+                  "mode": "off"
+                }
+              },
+              "mappings": [],
+              "thresholds": {
+                "mode": "absolute",
+                "steps": [
+                  {
+                    "color": "green"
+                  },
+                  {
+                    "color": "red",
+                    "value": 80
+                  }
+                ]
+              },
+              "unit": "none"
+            },
+            "overrides": []
+          },
+          "gridPos": {
+            "h": 8,
+            "w": 12,
+            "x": 12,
+            "y": 25
+          },
+          "id": 15,
+          "options": {
+            "legend": {
+              "calcs": [],
+              "displayMode": "list",
+              "placement": "bottom",
+              "showLegend": true
+            },
+            "tooltip": {
+              "mode": "single",
+              "sort": "none"
+            }
+          },
+          "targets": [
+            {
+              "datasource": {
+                "type": "prometheus",
+                "uid": "P64AA24F3884B5DA2"
+              },
+              "editorMode": "code",
+              "exemplar": false,
+              "expr": "pod:container_cpu_usage:sum{pod=~'airflow-db-.*',namespace='openmetadata',container='',}\n* on (pod)\nkube_pod_status_phase{namespace='openmetadata', phase='Running'}",
+              "instant": false,
+              "legendFormat": "Usage {{ pod }}",
+              "range": true,
+              "refId": "A"
+            },
+            {
+              "datasource": {
+                "type": "prometheus",
+                "uid": "P64AA24F3884B5DA2"
+              },
+              "editorMode": "code",
+              "expr": "kube_pod_resource_limit{resource='cpu',pod=~'airflow-db-.*',namespace='openmetadata'}\n* on (pod)\nkube_pod_status_phase{namespace='openmetadata', phase='Running'}",
+              "hide": false,
+              "legendFormat": "Limits {{ pod }}",
+              "range": true,
+              "refId": "B"
+            },
+            {
+              "datasource": {
+                "type": "prometheus",
+                "uid": "P64AA24F3884B5DA2"
+              },
+              "editorMode": "code",
+              "expr": "kube_pod_resource_request{resource='cpu',pod=~'airflow-db-.*',namespace='openmetadata'}\n* on (pod)\nkube_pod_status_phase{namespace='openmetadata', phase='Running'}",
+              "hide": false,
+              "legendFormat": "Requests {{pod}}",
+              "range": true,
+              "refId": "C"
+            }
+          ],
+          "title": "Airflow DB CPU Usage",
+          "type": "timeseries"
+        }
+      ],
+      "title": "AirFlow",
+      "type": "row"
+    },
+    {
+      "collapsed": true,
+      "gridPos": {
+        "h": 1,
+        "w": 24,
+        "x": 0,
+        "y": 1
+      },
+      "id": 8,
+      "panels": [
+        {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "P64AA24F3884B5DA2"
+          },
+          "fieldConfig": {
+            "defaults": {
+              "color": {
+                "mode": "palette-classic"
+              },
+              "custom": {
+                "axisCenteredZero": false,
+                "axisColorMode": "text",
+                "axisLabel": "",
+                "axisPlacement": "auto",
+                "barAlignment": 0,
+                "drawStyle": "line",
+                "fillOpacity": 0,
+                "gradientMode": "none",
+                "hideFrom": {
+                  "legend": false,
+                  "tooltip": false,
+                  "viz": false
+                },
+                "lineInterpolation": "linear",
+                "lineWidth": 1,
+                "pointSize": 5,
+                "scaleDistribution": {
+                  "type": "linear"
+                },
+                "showPoints": "auto",
+                "spanNulls": false,
+                "stacking": {
+                  "group": "A",
+                  "mode": "none"
+                },
+                "thresholdsStyle": {
+                  "mode": "off"
+                }
+              },
+              "mappings": [],
+              "thresholds": {
+                "mode": "absolute",
+                "steps": [
+                  {
+                    "color": "green"
+                  },
+                  {
+                    "color": "red",
+                    "value": 80
+                  }
+                ]
+              },
+              "unit": "bytes"
+            },
+            "overrides": []
+          },
+          "gridPos": {
+            "h": 8,
+            "w": 12,
+            "x": 0,
+            "y": 2
+          },
+          "id": 6,
+          "options": {
+            "legend": {
+              "calcs": [],
+              "displayMode": "list",
+              "placement": "bottom",
+              "showLegend": true
+            },
+            "tooltip": {
+              "mode": "single",
+              "sort": "none"
+            }
+          },
+          "targets": [
+            {
+              "datasource": {
+                "type": "prometheus",
+                "uid": "P64AA24F3884B5DA2"
+              },
+              "editorMode": "code",
+              "exemplar": false,
+              "expr": "sum(\n    container_memory_working_set_bytes{pod=~'openmetadata-.*',namespace='openmetadata',container='',}\n    * on (pod) \n    kube_pod_status_phase{namespace='openmetadata', phase='Running'}\n    ) \n\nBY (pod, namespace)",
+              "instant": false,
+              "legendFormat": "Usage {{ pod }}",
+              "range": true,
+              "refId": "A"
+            },
+            {
+              "datasource": {
+                "type": "prometheus",
+                "uid": "P64AA24F3884B5DA2"
+              },
+              "editorMode": "code",
+              "expr": "kube_pod_resource_limit{resource='memory',pod=~'openmetadata-.*',namespace='openmetadata'} \n* on (pod) \nkube_pod_status_phase{namespace='openmetadata', phase='Running'}",
+              "hide": false,
+              "legendFormat": "Limits {{ pod }}",
+              "range": true,
+              "refId": "B"
+            },
+            {
+              "datasource": {
+                "type": "prometheus",
+                "uid": "P64AA24F3884B5DA2"
+              },
+              "editorMode": "code",
+              "expr": "avg(\n    kube_pod_resource_request{resource='memory',pod=~'openmetadata-.*',namespace='openmetadata'} \n    * on (pod) \n    kube_pod_status_phase{namespace='openmetadata', phase='Running'}\n    )",
+              "hide": false,
+              "legendFormat": "Requests {{pod}}",
+              "range": true,
+              "refId": "C"
+            }
+          ],
+          "title": "OM Memory Usage",
+          "type": "timeseries"
+        },
+        {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "P64AA24F3884B5DA2"
+          },
+          "fieldConfig": {
+            "defaults": {
+              "color": {
+                "mode": "palette-classic"
+              },
+              "custom": {
+                "axisCenteredZero": false,
+                "axisColorMode": "text",
+                "axisLabel": "",
+                "axisPlacement": "auto",
+                "barAlignment": 0,
+                "drawStyle": "line",
+                "fillOpacity": 0,
+                "gradientMode": "none",
+                "hideFrom": {
+                  "legend": false,
+                  "tooltip": false,
+                  "viz": false
+                },
+                "lineInterpolation": "linear",
+                "lineWidth": 1,
+                "pointSize": 5,
+                "scaleDistribution": {
+                  "type": "linear"
+                },
+                "showPoints": "auto",
+                "spanNulls": false,
+                "stacking": {
+                  "group": "A",
+                  "mode": "none"
+                },
+                "thresholdsStyle": {
+                  "mode": "off"
+                }
+              },
+              "mappings": [],
+              "thresholds": {
+                "mode": "absolute",
+                "steps": [
+                  {
+                    "color": "green"
+                  },
+                  {
+                    "color": "red",
+                    "value": 80
+                  }
+                ]
+              },
+              "unit": "none"
+            },
+            "overrides": []
+          },
+          "gridPos": {
+            "h": 8,
+            "w": 12,
+            "x": 12,
+            "y": 2
+          },
+          "id": 13,
+          "options": {
+            "legend": {
+              "calcs": [],
+              "displayMode": "list",
+              "placement": "bottom",
+              "showLegend": true
+            },
+            "tooltip": {
+              "mode": "single",
+              "sort": "none"
+            }
+          },
+          "targets": [
+            {
+              "datasource": {
+                "type": "prometheus",
+                "uid": "P64AA24F3884B5DA2"
+              },
+              "editorMode": "code",
+              "exemplar": false,
+              "expr": "pod:container_cpu_usage:sum{pod=~'openmetadata-.*',namespace='openmetadata',container='',}\n* on (pod) \nkube_pod_status_phase{namespace='openmetadata', phase='Running'}\n",
+              "instant": false,
+              "legendFormat": "Usage {{ pod }}",
+              "range": true,
+              "refId": "A"
+            },
+            {
+              "datasource": {
+                "type": "prometheus",
+                "uid": "P64AA24F3884B5DA2"
+              },
+              "editorMode": "code",
+              "expr": "kube_pod_resource_limit{resource='cpu',pod=~'openmetadata-.*',namespace='openmetadata'} \n* on (pod) \nkube_pod_status_phase{namespace='openmetadata', phase='Running'}",
+              "hide": false,
+              "legendFormat": "Limits {{ pod }}",
+              "range": true,
+              "refId": "B"
+            },
+            {
+              "datasource": {
+                "type": "prometheus",
+                "uid": "P64AA24F3884B5DA2"
+              },
+              "editorMode": "code",
+              "expr": "kube_pod_resource_request{resource='cpu',pod=~'openmetadata-.*',namespace='openmetadata'} \n* on (pod) \nkube_pod_status_phase{namespace='openmetadata', phase='Running'}\n",
+              "hide": false,
+              "legendFormat": "Requests {{pod}}",
+              "range": true,
+              "refId": "C"
+            }
+          ],
+          "title": "OM CPU Usage",
+          "type": "timeseries"
+        }
+      ],
+      "title": "Open Metadata",
+      "type": "row"
+    },
+    {
+      "collapsed": false,
+      "gridPos": {
+        "h": 1,
+        "w": 24,
+        "x": 0,
+        "y": 2
+      },
+      "id": 4,
+      "panels": [],
+      "title": "Trino",
+      "type": "row"
+    },
+    {
+      "datasource": {
+        "type": "prometheus",
+        "uid": "P64AA24F3884B5DA2"
+      },
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "palette-classic"
+          },
+          "custom": {
+            "axisCenteredZero": false,
+            "axisColorMode": "text",
+            "axisLabel": "",
+            "axisPlacement": "auto",
+            "barAlignment": 0,
+            "drawStyle": "line",
+            "fillOpacity": 0,
+            "gradientMode": "none",
+            "hideFrom": {
+              "legend": false,
+              "tooltip": false,
+              "viz": false
+            },
+            "lineInterpolation": "linear",
+            "lineWidth": 1,
+            "pointSize": 5,
+            "scaleDistribution": {
+              "type": "linear"
+            },
+            "showPoints": "auto",
+            "spanNulls": false,
+            "stacking": {
+              "group": "A",
+              "mode": "none"
+            },
+            "thresholdsStyle": {
+              "mode": "off"
+            }
+          },
+          "mappings": [],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": null
+              },
+              {
+                "color": "red",
+                "value": 80
+              }
+            ]
+          },
+          "unit": "bytes"
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 8,
+        "w": 12,
+        "x": 0,
+        "y": 3
+      },
+      "id": 2,
+      "options": {
+        "legend": {
+          "calcs": [],
+          "displayMode": "list",
+          "placement": "bottom",
+          "showLegend": true
+        },
+        "tooltip": {
+          "mode": "single",
+          "sort": "none"
+        }
+      },
+      "targets": [
+        {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "P64AA24F3884B5DA2"
+          },
+          "editorMode": "code",
+          "expr": "container_memory_working_set_bytes{pod=~'trino-coordinator-.*',namespace='odh-trino',container='',}\n* on (pod) \nkube_pod_status_phase{namespace='odh-trino', phase='Running'}",
+          "hide": false,
+          "legendFormat": "Usage {{ pod }}",
+          "range": true,
+          "refId": "A"
+        },
+        {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "P64AA24F3884B5DA2"
+          },
+          "editorMode": "code",
+          "exemplar": false,
+          "expr": "sum(\n    container_memory_working_set_bytes{pod=~'trino-worker-.*',namespace='odh-trino',container='',}\n    * on (pod) \n    kube_pod_status_phase{namespace='odh-trino', phase='Running'}\n    ) \n\nBY (pod, namespace)",
+          "instant": false,
+          "legendFormat": "Usage {{ pod }}",
+          "range": true,
+          "refId": "B"
+        },
+        {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "P64AA24F3884B5DA2"
+          },
+          "editorMode": "code",
+          "expr": "avg(\n    \n    kube_pod_resource_limit{resource='memory',pod=~'trino-worker-.*',namespace='odh-trino'} \n    * on (pod) \n    kube_pod_status_phase{namespace='odh-trino', phase='Running'}\n    \n    ) ",
+          "hide": false,
+          "legendFormat": "Limits {{ pod }}",
+          "range": true,
+          "refId": "C"
+        },
+        {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "P64AA24F3884B5DA2"
+          },
+          "editorMode": "code",
+          "expr": "avg(\n    kube_pod_resource_request{resource='memory',pod=~'trino-worker-.*',namespace='odh-trino'} \n    * on (pod) \n    kube_pod_status_phase{namespace='odh-trino', phase='Running'}\n    )",
+          "hide": false,
+          "legendFormat": "Requests {{pod}}",
+          "range": true,
+          "refId": "D"
+        }
+      ],
+      "title": "Trino Memory Usage",
+      "type": "timeseries"
+    },
+    {
+      "datasource": {
+        "type": "prometheus",
+        "uid": "P64AA24F3884B5DA2"
+      },
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "palette-classic"
+          },
+          "custom": {
+            "axisCenteredZero": false,
+            "axisColorMode": "text",
+            "axisLabel": "",
+            "axisPlacement": "auto",
+            "barAlignment": 0,
+            "drawStyle": "line",
+            "fillOpacity": 0,
+            "gradientMode": "none",
+            "hideFrom": {
+              "legend": false,
+              "tooltip": false,
+              "viz": false
+            },
+            "lineInterpolation": "linear",
+            "lineWidth": 1,
+            "pointSize": 5,
+            "scaleDistribution": {
+              "type": "linear"
+            },
+            "showPoints": "auto",
+            "spanNulls": false,
+            "stacking": {
+              "group": "A",
+              "mode": "none"
+            },
+            "thresholdsStyle": {
+              "mode": "off"
+            }
+          },
+          "mappings": [],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": null
+              },
+              {
+                "color": "red",
+                "value": 80
+              }
+            ]
+          },
+          "unit": "none"
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 8,
+        "w": 12,
+        "x": 12,
+        "y": 3
+      },
+      "id": 5,
+      "options": {
+        "legend": {
+          "calcs": [],
+          "displayMode": "list",
+          "placement": "bottom",
+          "showLegend": true
+        },
+        "tooltip": {
+          "mode": "single",
+          "sort": "none"
+        }
+      },
+      "targets": [
+        {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "P64AA24F3884B5DA2"
+          },
+          "editorMode": "code",
+          "expr": "pod:container_cpu_usage:sum{pod=~'trino-coordinator-.*',namespace='odh-trino',container='',}\n* on (pod) \nkube_pod_status_phase{namespace='odh-trino', phase='Running'}",
+          "hide": false,
+          "legendFormat": "Usage {{ pod }}",
+          "range": true,
+          "refId": "A"
+        },
+        {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "P64AA24F3884B5DA2"
+          },
+          "editorMode": "code",
+          "exemplar": false,
+          "expr": "sum(\n    pod:container_cpu_usage:sum{pod=~'trino-worker-.*',namespace='odh-trino',container='',}\n    * on (pod) \n    kube_pod_status_phase{namespace='odh-trino', phase='Running'}\n    )\n\nBY (pod, namespace)",
+          "instant": false,
+          "legendFormat": "Usage {{ pod }}",
+          "range": true,
+          "refId": "B"
+        },
+        {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "P64AA24F3884B5DA2"
+          },
+          "editorMode": "code",
+          "expr": "avg(\n    \n    kube_pod_resource_limit{resource='cpu',pod=~'trino-worker-.*',namespace='odh-trino'} \n    * on (pod) \n    kube_pod_status_phase{namespace='odh-trino', phase='Running'}\n    \n    ) ",
+          "hide": false,
+          "legendFormat": "Limits {{ pod }}",
+          "range": true,
+          "refId": "C"
+        },
+        {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "P64AA24F3884B5DA2"
+          },
+          "editorMode": "code",
+          "expr": "avg(\n    kube_pod_resource_request{resource='cpu',pod=~'trino-worker-.*',namespace='odh-trino'} \n    * on (pod) \n    kube_pod_status_phase{namespace='odh-trino', phase='Running'}\n    )",
+          "hide": false,
+          "legendFormat": "Requests {{pod}}",
+          "range": true,
+          "refId": "D"
+        }
+      ],
+      "title": "Trino CPU Usage",
+      "type": "timeseries"
+    },
+    {
+      "datasource": {
+        "type": "prometheus",
+        "uid": "P64AA24F3884B5DA2"
+      },
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "palette-classic"
+          },
+          "custom": {
+            "axisCenteredZero": false,
+            "axisColorMode": "text",
+            "axisLabel": "",
+            "axisPlacement": "auto",
+            "barAlignment": 0,
+            "drawStyle": "line",
+            "fillOpacity": 0,
+            "gradientMode": "none",
+            "hideFrom": {
+              "legend": false,
+              "tooltip": false,
+              "viz": false
+            },
+            "lineInterpolation": "linear",
+            "lineWidth": 1,
+            "pointSize": 5,
+            "scaleDistribution": {
+              "type": "linear"
+            },
+            "showPoints": "auto",
+            "spanNulls": false,
+            "stacking": {
+              "group": "A",
+              "mode": "none"
+            },
+            "thresholdsStyle": {
+              "mode": "off"
+            }
+          },
+          "mappings": [],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": null
+              },
+              {
+                "color": "red",
+                "value": 80
+              }
+            ]
+          },
+          "unit": "bytes"
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 8,
+        "w": 12,
+        "x": 0,
+        "y": 11
+      },
+      "id": 24,
+      "options": {
+        "legend": {
+          "calcs": [],
+          "displayMode": "list",
+          "placement": "bottom",
+          "showLegend": true
+        },
+        "tooltip": {
+          "mode": "single",
+          "sort": "none"
+        }
+      },
+      "targets": [
+        {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "P64AA24F3884B5DA2"
+          },
+          "editorMode": "code",
+          "exemplar": false,
+          "expr": "container_memory_working_set_bytes{pod=~'trino-db-.*',namespace='odh-trino',container='',}\n* on (pod)\nkube_pod_status_phase{namespace='odh-trino', phase='Running'}\n",
+          "instant": false,
+          "legendFormat": "Usage {{ pod }}",
+          "range": true,
+          "refId": "A"
+        },
+        {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "P64AA24F3884B5DA2"
+          },
+          "editorMode": "code",
+          "expr": "kube_pod_resource_limit{resource='memory',pod=~'trino-db-.*',namespace='odh-trino'}\n* on (pod)\nkube_pod_status_phase{namespace='odh-trino', phase='Running'}",
+          "hide": false,
+          "legendFormat": "Limits {{ pod }}",
+          "range": true,
+          "refId": "B"
+        },
+        {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "P64AA24F3884B5DA2"
+          },
+          "editorMode": "code",
+          "expr": "kube_pod_resource_request{resource='memory',pod=~'trino-db-.*',namespace='odh-trino'}\n* on (pod)\nkube_pod_status_phase{namespace='odh-trino', phase='Running'}",
+          "hide": false,
+          "legendFormat": "Requests {{pod}}",
+          "range": true,
+          "refId": "C"
+        }
+      ],
+      "title": "Trino DB",
+      "type": "timeseries"
+    },
+    {
+      "datasource": {
+        "type": "prometheus",
+        "uid": "P64AA24F3884B5DA2"
+      },
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "palette-classic"
+          },
+          "custom": {
+            "axisCenteredZero": false,
+            "axisColorMode": "text",
+            "axisLabel": "",
+            "axisPlacement": "auto",
+            "barAlignment": 0,
+            "drawStyle": "line",
+            "fillOpacity": 0,
+            "gradientMode": "none",
+            "hideFrom": {
+              "legend": false,
+              "tooltip": false,
+              "viz": false
+            },
+            "lineInterpolation": "linear",
+            "lineWidth": 1,
+            "pointSize": 5,
+            "scaleDistribution": {
+              "type": "linear"
+            },
+            "showPoints": "auto",
+            "spanNulls": false,
+            "stacking": {
+              "group": "A",
+              "mode": "none"
+            },
+            "thresholdsStyle": {
+              "mode": "off"
+            }
+          },
+          "mappings": [],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": null
+              },
+              {
+                "color": "red",
+                "value": 80
+              }
+            ]
+          },
+          "unit": "none"
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 8,
+        "w": 12,
+        "x": 12,
+        "y": 11
+      },
+      "id": 21,
+      "options": {
+        "legend": {
+          "calcs": [],
+          "displayMode": "list",
+          "placement": "bottom",
+          "showLegend": true
+        },
+        "tooltip": {
+          "mode": "single",
+          "sort": "none"
+        }
+      },
+      "targets": [
+        {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "P64AA24F3884B5DA2"
+          },
+          "editorMode": "code",
+          "exemplar": false,
+          "expr": "pod:container_cpu_usage:sum{pod=~'trino-db-.*',namespace='odh-trino',container='',}\n* on (pod)\nkube_pod_status_phase{namespace='odh-trino', phase='Running'}",
+          "instant": false,
+          "legendFormat": "Usage {{ pod }}",
+          "range": true,
+          "refId": "A"
+        },
+        {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "P64AA24F3884B5DA2"
+          },
+          "editorMode": "code",
+          "expr": "kube_pod_resource_limit{resource='cpu',pod=~'trino-db-.*',namespace='odh-trino'}\n* on (pod)\nkube_pod_status_phase{namespace='odh-trino', phase='Running'}",
+          "hide": false,
+          "legendFormat": "Limits {{ pod }}",
+          "range": true,
+          "refId": "B"
+        },
+        {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "P64AA24F3884B5DA2"
+          },
+          "editorMode": "code",
+          "expr": "kube_pod_resource_request{resource='cpu',pod=~'trino-db-.*',namespace='odh-trino'}\n* on (pod)\nkube_pod_status_phase{namespace='odh-trino', phase='Running'}",
+          "hide": false,
+          "legendFormat": "Requests {{pod}}",
+          "range": true,
+          "refId": "C"
+        }
+      ],
+      "title": "Trino DB CPU Usage",
+      "type": "timeseries"
+    },
+    {
+      "datasource": {
+        "type": "prometheus",
+        "uid": "P64AA24F3884B5DA2"
+      },
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "palette-classic"
+          },
+          "custom": {
+            "axisCenteredZero": false,
+            "axisColorMode": "text",
+            "axisLabel": "",
+            "axisPlacement": "auto",
+            "barAlignment": 0,
+            "drawStyle": "line",
+            "fillOpacity": 0,
+            "gradientMode": "none",
+            "hideFrom": {
+              "legend": false,
+              "tooltip": false,
+              "viz": false
+            },
+            "lineInterpolation": "linear",
+            "lineWidth": 1,
+            "pointSize": 5,
+            "scaleDistribution": {
+              "type": "linear"
+            },
+            "showPoints": "auto",
+            "spanNulls": false,
+            "stacking": {
+              "group": "A",
+              "mode": "none"
+            },
+            "thresholdsStyle": {
+              "mode": "off"
+            }
+          },
+          "mappings": [],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": null
+              },
+              {
+                "color": "red",
+                "value": 80
+              }
+            ]
+          },
+          "unit": "bytes"
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 8,
+        "w": 12,
+        "x": 0,
+        "y": 19
+      },
+      "id": 20,
+      "options": {
+        "legend": {
+          "calcs": [],
+          "displayMode": "list",
+          "placement": "bottom",
+          "showLegend": true
+        },
+        "tooltip": {
+          "mode": "single",
+          "sort": "none"
+        }
+      },
+      "targets": [
+        {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "P64AA24F3884B5DA2"
+          },
+          "editorMode": "code",
+          "exemplar": false,
+          "expr": "container_memory_working_set_bytes{pod=~'hive-metastore-osc-datacommons-dev-0',namespace='odh-trino',container='',}\n* on (pod)\nkube_pod_status_phase{namespace='odh-trino', phase='Running'}\n",
+          "instant": false,
+          "legendFormat": "Usage {{ pod }}",
+          "range": true,
+          "refId": "A"
+        },
+        {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "P64AA24F3884B5DA2"
+          },
+          "editorMode": "code",
+          "expr": "kube_pod_resource_limit{resource='memory',pod=~'hive-metastore-osc-datacommons-dev-0',namespace='odh-trino'}\n* on (pod)\nkube_pod_status_phase{namespace='odh-trino', phase='Running'}\n",
+          "hide": false,
+          "legendFormat": "Limits {{ pod }}",
+          "range": true,
+          "refId": "B"
+        },
+        {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "P64AA24F3884B5DA2"
+          },
+          "editorMode": "code",
+          "expr": "kube_pod_resource_request{resource='memory',pod=~'hive-metastore-osc-datacommons-dev-0',namespace='odh-trino'}\n* on (pod)\nkube_pod_status_phase{namespace='odh-trino', phase='Running'}\n",
+          "hide": false,
+          "legendFormat": "Requests {{pod}}",
+          "range": true,
+          "refId": "C"
+        }
+      ],
+      "title": "Hive Metastore osc-datacommons-dev-0 Memory Usage",
+      "type": "timeseries"
+    },
+    {
+      "datasource": {
+        "type": "prometheus",
+        "uid": "P64AA24F3884B5DA2"
+      },
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "palette-classic"
+          },
+          "custom": {
+            "axisCenteredZero": false,
+            "axisColorMode": "text",
+            "axisLabel": "",
+            "axisPlacement": "auto",
+            "barAlignment": 0,
+            "drawStyle": "line",
+            "fillOpacity": 0,
+            "gradientMode": "none",
+            "hideFrom": {
+              "legend": false,
+              "tooltip": false,
+              "viz": false
+            },
+            "lineInterpolation": "linear",
+            "lineWidth": 1,
+            "pointSize": 5,
+            "scaleDistribution": {
+              "type": "linear"
+            },
+            "showPoints": "auto",
+            "spanNulls": false,
+            "stacking": {
+              "group": "A",
+              "mode": "none"
+            },
+            "thresholdsStyle": {
+              "mode": "off"
+            }
+          },
+          "mappings": [],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": null
+              },
+              {
+                "color": "red",
+                "value": 80
+              }
+            ]
+          },
+          "unit": "none"
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 8,
+        "w": 12,
+        "x": 12,
+        "y": 19
+      },
+      "id": 25,
+      "options": {
+        "legend": {
+          "calcs": [],
+          "displayMode": "list",
+          "placement": "bottom",
+          "showLegend": true
+        },
+        "tooltip": {
+          "mode": "single",
+          "sort": "none"
+        }
+      },
+      "targets": [
+        {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "P64AA24F3884B5DA2"
+          },
+          "editorMode": "code",
+          "exemplar": false,
+          "expr": "pod:container_cpu_usage:sum{pod=~'hive-metastore-osc-datacommons-dev-0',namespace='odh-trino',container='',}\n* on (pod)\nkube_pod_status_phase{namespace='odh-trino', phase='Running'}",
+          "instant": false,
+          "legendFormat": "Usage {{ pod }}",
+          "range": true,
+          "refId": "A"
+        },
+        {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "P64AA24F3884B5DA2"
+          },
+          "editorMode": "code",
+          "expr": "kube_pod_resource_limit{resource='cpu',pod=~'hive-metastore-osc-datacommons-dev-0',namespace='odh-trino'}\n* on (pod)\nkube_pod_status_phase{namespace='odh-trino', phase='Running'}",
+          "hide": false,
+          "legendFormat": "Limits {{ pod }}",
+          "range": true,
+          "refId": "B"
+        },
+        {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "P64AA24F3884B5DA2"
+          },
+          "editorMode": "code",
+          "expr": "kube_pod_resource_request{resource='cpu',pod=~'hive-metastore-osc-datacommons-dev-0',namespace='odh-trino'}\n* on (pod)\nkube_pod_status_phase{namespace='odh-trino', phase='Running'}",
+          "hide": false,
+          "legendFormat": "Requests {{pod}}",
+          "range": true,
+          "refId": "C"
+        }
+      ],
+      "title": "Hive Metastore osc-datacommons-dev-0 CPU Usage",
+      "type": "timeseries"
+    },
+    {
+      "datasource": {
+        "type": "prometheus",
+        "uid": "P64AA24F3884B5DA2"
+      },
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "palette-classic"
+          },
+          "custom": {
+            "axisCenteredZero": false,
+            "axisColorMode": "text",
+            "axisLabel": "",
+            "axisPlacement": "auto",
+            "barAlignment": 0,
+            "drawStyle": "line",
+            "fillOpacity": 0,
+            "gradientMode": "none",
+            "hideFrom": {
+              "legend": false,
+              "tooltip": false,
+              "viz": false
+            },
+            "lineInterpolation": "linear",
+            "lineWidth": 1,
+            "pointSize": 5,
+            "scaleDistribution": {
+              "type": "linear"
+            },
+            "showPoints": "auto",
+            "spanNulls": false,
+            "stacking": {
+              "group": "A",
+              "mode": "none"
+            },
+            "thresholdsStyle": {
+              "mode": "off"
+            }
+          },
+          "mappings": [],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green"
+              },
+              {
+                "color": "red",
+                "value": 80
+              }
+            ]
+          },
+          "unit": "bytes"
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 8,
+        "w": 12,
+        "x": 0,
+        "y": 27
+      },
+      "id": 22,
+      "options": {
+        "legend": {
+          "calcs": [],
+          "displayMode": "list",
+          "placement": "bottom",
+          "showLegend": true
+        },
+        "tooltip": {
+          "mode": "single",
+          "sort": "none"
+        }
+      },
+      "targets": [
+        {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "P64AA24F3884B5DA2"
+          },
+          "editorMode": "code",
+          "exemplar": false,
+          "expr": "container_memory_working_set_bytes{pod=~'hive-metastore-osc-datacommons-hive-ingest-0',namespace='odh-trino',container='',}\n* on (pod)\nkube_pod_status_phase{namespace='odh-trino', phase='Running'}",
+          "instant": false,
+          "legendFormat": "Usage {{ pod }}",
+          "range": true,
+          "refId": "A"
+        },
+        {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "P64AA24F3884B5DA2"
+          },
+          "editorMode": "code",
+          "expr": "kube_pod_resource_limit{resource='memory',pod=~'hive-metastore-osc-datacommons-hive-ingest-0',namespace='odh-trino'}\n* on (pod)\nkube_pod_status_phase{namespace='odh-trino', phase='Running'}",
+          "hide": false,
+          "legendFormat": "Limits {{ pod }}",
+          "range": true,
+          "refId": "B"
+        },
+        {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "P64AA24F3884B5DA2"
+          },
+          "editorMode": "code",
+          "expr": "kube_pod_resource_request{resource='memory',pod=~'hive-metastore-osc-datacommons-hive-ingest-0',namespace='odh-trino'}\n* on (pod)\nkube_pod_status_phase{namespace='odh-trino', phase='Running'}",
+          "hide": false,
+          "legendFormat": "Requests {{pod}}",
+          "range": true,
+          "refId": "C"
+        }
+      ],
+      "title": "Hive Metastore osc-datacommons-hive-ingest-0 Memory Usage",
+      "type": "timeseries"
+    },
+    {
+      "datasource": {
+        "type": "prometheus",
+        "uid": "P64AA24F3884B5DA2"
+      },
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "palette-classic"
+          },
+          "custom": {
+            "axisCenteredZero": false,
+            "axisColorMode": "text",
+            "axisLabel": "",
+            "axisPlacement": "auto",
+            "barAlignment": 0,
+            "drawStyle": "line",
+            "fillOpacity": 0,
+            "gradientMode": "none",
+            "hideFrom": {
+              "legend": false,
+              "tooltip": false,
+              "viz": false
+            },
+            "lineInterpolation": "linear",
+            "lineWidth": 1,
+            "pointSize": 5,
+            "scaleDistribution": {
+              "type": "linear"
+            },
+            "showPoints": "auto",
+            "spanNulls": false,
+            "stacking": {
+              "group": "A",
+              "mode": "none"
+            },
+            "thresholdsStyle": {
+              "mode": "off"
+            }
+          },
+          "mappings": [],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green"
+              },
+              {
+                "color": "red",
+                "value": 80
+              }
+            ]
+          },
+          "unit": "none"
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 8,
+        "w": 12,
+        "x": 12,
+        "y": 27
+      },
+      "id": 23,
+      "options": {
+        "legend": {
+          "calcs": [],
+          "displayMode": "list",
+          "placement": "bottom",
+          "showLegend": true
+        },
+        "tooltip": {
+          "mode": "single",
+          "sort": "none"
+        }
+      },
+      "targets": [
+        {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "P64AA24F3884B5DA2"
+          },
+          "editorMode": "code",
+          "exemplar": false,
+          "expr": "pod:container_cpu_usage:sum{pod=~'hive-metastore-osc-datacommons-hive-ingest-0',namespace='odh-trino',container='',}\n* on (pod)\nkube_pod_status_phase{namespace='odh-trino', phase='Running'}",
+          "instant": false,
+          "legendFormat": "Usage {{ pod }}",
+          "range": true,
+          "refId": "A"
+        },
+        {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "P64AA24F3884B5DA2"
+          },
+          "editorMode": "code",
+          "expr": "kube_pod_resource_limit{resource='cpu',pod=~'hive-metastore-osc-datacommons-hive-ingest-0',namespace='odh-trino'}\n* on (pod)\nkube_pod_status_phase{namespace='odh-trino', phase='Running'}",
+          "hide": false,
+          "legendFormat": "Limits {{ pod }}",
+          "range": true,
+          "refId": "B"
+        },
+        {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "P64AA24F3884B5DA2"
+          },
+          "editorMode": "code",
+          "expr": "kube_pod_resource_request{resource='cpu',pod=~'hive-metastore-osc-datacommons-hive-ingest-0',namespace='odh-trino'}\n* on (pod)\nkube_pod_status_phase{namespace='odh-trino', phase='Running'}",
+          "hide": false,
+          "legendFormat": "Requests {{pod}}",
+          "range": true,
+          "refId": "C"
+        }
+      ],
+      "title": "Hive Metastore hive-metastore-osc-datacommons-hive-ingest-0 CPU Usage",
+      "type": "timeseries"
+    },
+    {
+      "datasource": {
+        "type": "prometheus",
+        "uid": "P64AA24F3884B5DA2"
+      },
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "palette-classic"
+          },
+          "custom": {
+            "axisCenteredZero": false,
+            "axisColorMode": "text",
+            "axisLabel": "",
+            "axisPlacement": "auto",
+            "barAlignment": 0,
+            "drawStyle": "line",
+            "fillOpacity": 0,
+            "gradientMode": "none",
+            "hideFrom": {
+              "legend": false,
+              "tooltip": false,
+              "viz": false
+            },
+            "lineInterpolation": "linear",
+            "lineWidth": 1,
+            "pointSize": 5,
+            "scaleDistribution": {
+              "type": "linear"
+            },
+            "showPoints": "auto",
+            "spanNulls": false,
+            "stacking": {
+              "group": "A",
+              "mode": "none"
+            },
+            "thresholdsStyle": {
+              "mode": "off"
+            }
+          },
+          "mappings": [],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green"
+              },
+              {
+                "color": "red",
+                "value": 80
+              }
+            ]
+          }
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 7,
+        "w": 12,
+        "x": 0,
+        "y": 35
+      },
+      "id": 27,
+      "options": {
+        "legend": {
+          "calcs": [],
+          "displayMode": "list",
+          "placement": "bottom",
+          "showLegend": true
+        },
+        "tooltip": {
+          "mode": "single",
+          "sort": "none"
+        }
+      },
+      "targets": [
+        {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "P64AA24F3884B5DA2"
+          },
+          "editorMode": "code",
+          "expr": "sum(container_threads{namespace=\"odh-trino\", pod=~'trino-coordinator-.*', container=\"trino-coordinator\"})",
+          "legendFormat": "{{name}}",
+          "range": true,
+          "refId": "A"
+        }
+      ],
+      "title": "Coordinator Threads",
+      "type": "timeseries"
+    }
+  ],
+  "schemaVersion": 37,
+  "style": "dark",
+  "tags": [],
+  "templating": {
+    "list": []
+  },
+  "time": {
+    "from": "now-3h",
+    "to": "now"
+  },
+  "timepicker": {},
+  "timezone": "",
+  "title": "Data Pipeline Resource Consumption Copy",
+  "uid": "eC_1bFS4z",
+  "version": 1,
+  "weekStart": ""
+}
