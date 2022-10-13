@@ -26,6 +26,8 @@ spec:
       client_secret: "${GRAFANA_CLIENT_SECRET}"
       role_attribute_path: >-
         contains(groups[*], 'cluster-admins') && 'Admin' ||
+        contains(groups[*], 'odh-admin') && 'Editor' ||
         contains(groups[*], 'kepler-admins') && 'Editor' ||
+        contains(groups[*], 'odh-users') && 'Viewer' ||
         'Deny'
       role_attribute_strict: true
