@@ -15,4 +15,3 @@ spec:
   nodeSelector:
     matchLabels:
       node-role.kubernetes.io/osc-platform: ''
-
