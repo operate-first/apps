@@ -4,3 +4,4 @@ kind: Kustomization
 resources:
   - machineset-compute-notebook.yaml
   - machineset-notebook-gpu-p.yaml
+  - machineset-worker.yaml
