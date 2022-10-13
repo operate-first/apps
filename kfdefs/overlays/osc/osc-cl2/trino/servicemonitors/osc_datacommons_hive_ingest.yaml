@@ -1,0 +1,15 @@
+apiVersion: monitoring.coreos.com/v1
+kind: ServiceMonitor
+metadata:
+  name: hive-metastore-osc-datacommons-hive-ingest
+  labels:
+    trino-catalog: hive-metastore-osc-datacommons-hive-ingest
+spec:
+  endpoints:
+    - interval: 3s
+      port: metrics
+      scheme: http
+  jobLabel: app.kubernetes.io/name
+  selector:
+    matchLabels:
+      trino-catalog: hive-metastore-osc-datacommons-hive-ingest

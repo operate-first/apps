@@ -1,0 +1,11 @@
+apiVersion: integreatly.org/v1alpha1
+kind: GrafanaDashboard
+metadata:
+  labels:
+    app: grafana
+  name: data-pipeline-resources
+spec:
+  customFolderName: General
+  configMapRef:
+    name: data-pipeline-resources
+    key: data-pipeline-resources.json
