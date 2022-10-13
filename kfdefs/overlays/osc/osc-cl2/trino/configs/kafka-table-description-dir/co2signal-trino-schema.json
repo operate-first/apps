@@ -6,7 +6,7 @@
         "dataFormat": "json",
         "fields": [
             {
-                "name": "country_code",
+                "name": "key",
                 "type": "VARCHAR",
                 "hidden": "false"
             }
@@ -15,6 +15,11 @@
     "message": {
         "dataFormat" :"json",
         "fields" : [
+            {
+                "name": "country_code",
+                "type": "VARCHAR",
+                "hidden": "false"
+            },
             {
                 "name": "country_name",
                 "mapping": "country_name",
