@@ -1,7 +1,7 @@
 {
     "tableName": "FX",
     "schemaName": "ecb-fx",
-    "topicName": "ECB-FX",
+    "topicName": "ecb-fx",
     "key": {
         "dataFormat": "json",
         "fields": [
