@@ -5,7 +5,7 @@ metadata:
     app: grafana
   name: data-pipeline-resources
 spec:
-  customFolderName: General
+  customFolderName: OSC
   configMapRef:
     name: data-pipeline-resources
     key: data-pipeline-resources.json
