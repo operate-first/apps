@@ -10,6 +10,7 @@ configMapGenerator:
       - catalogs/osc_datacommons_dev.properties
       - catalogs/osc_datacommons_hive_ingest.properties
       - catalogs/kafka_fx.properties
+      - catalogs/kafka_osclimate.properties
       - catalogs/riskthinking.properties
       - catalogs/uwm_prometheus.properties
   - name: trino-configfiles
