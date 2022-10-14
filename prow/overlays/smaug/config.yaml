@@ -243,29 +243,7 @@ tide:
         - aicoe-aiops
         - b4mad
         - open-services-group
-        - thoth-station
       excludedRepos:
-        - thoth-station/dgraph-thoth-config
-        - thoth-station/workload-operator
-        - thoth-station/tensorflow
-        - thoth-station/contra-env-infra
-        - thoth-station/ansible-role-core-imagestreams
-        - thoth-station/ansible-role-core-templates
-        - thoth-station/ansible-role-core-cronjob
-        - thoth-station/ansible-role-metrics-exporter
-        - thoth-station/ansible-role-cronjob
-        - thoth-station/ansible-role-argo-workflows
-        - thoth-station/ansible-role-postgresql
-        - thoth-station/ansible-role-kebechet
-        - thoth-station/ansible-role-postgresql-metrics-exporter
-        - thoth-station/statusfy
-        - thoth-station/statusfy-ops
-        - thoth-station/website-tooling
-        - thoth-station/cuda
-        - thoth-station/stub-api
-        - thoth-station/nvidia-usage-dashboard
-        - thoth-station/pipelines-catalog
-        - thoth-station/bz1816214-example
         - b4mad/sirius
         - b4mad/airdata
         - b4mad/auddress
@@ -280,6 +258,7 @@ tide:
     - orgs:
         - operate-first
         - os-climate
+        - thoth-station
       labels:
         - approved
         - lgtm
