@@ -10,8 +10,7 @@ configMapGenerator:
       - GF_AUTH_GENERIC_OAUTH_ROLE_ATTRIBUTE_STRICT=true
 resources:
   - ../../../base
-  - ../common/dashboards
-  - ../common/datasources
+  - ../common
   - blackbox-exporter
   - externalsecrets
   - landingpage-dashboard-configmap.yaml

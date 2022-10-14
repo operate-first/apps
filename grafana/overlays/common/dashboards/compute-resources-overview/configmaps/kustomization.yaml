@@ -1,0 +1,12 @@
+---
+apiVersion: kustomize.config.k8s.io/v1beta1
+kind: Kustomization
+generatorOptions:
+  disableNameSuffixHash: true
+configMapGenerator:
+  - name: compute-resources-overview
+    files:
+      - files/cluster-cpu-overview.json
+      - files/cluster-memory-overview.json
+      - files/cluster-pod-overview.json
+      - files/cluster-storage-overview.json
