@@ -22,7 +22,6 @@
   "editable": true,
   "gnetId": null,
   "graphTooltip": 0,
-  "id": 9,
   "iteration": 1633725248773,
   "links": [],
   "panels": [
@@ -329,12 +328,11 @@
     ]
   },
   "time": {
-    "from": "now-6h",
+    "from": "now-1h",
     "to": "now"
   },
   "timepicker": {},
   "timezone": "",
   "title": "Cluster Pod Overview",
   "uid": "XSZaThD7z",
-  "version": 19
 }
