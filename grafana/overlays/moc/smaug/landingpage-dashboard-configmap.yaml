@@ -28,8 +28,8 @@ data:
       "editable": false,
       "fiscalYearStartMonth": 0,
       "graphTooltip": 0,
-      "id": 38,
-      "iteration": 1647465896978,
+      "id": 47,
+      "iteration": 1665773975927,
       "links": [],
       "liveNow": false,
       "panels": [
@@ -102,346 +102,6 @@ data:
           "type": "row"
         },
         {
-          "description": "Cores currently in use on each cluster (Controller nodes). This does not take into account ResourceQuotas, rather -- it takes into account cores available for the scheduler to reserve for pods.",
-          "fieldConfig": {
-            "defaults": {
-              "color": {
-                "mode": "thresholds"
-              },
-              "mappings": [],
-              "min": 0,
-              "thresholds": {
-                "mode": "percentage",
-                "steps": [
-                  {
-                    "color": "dark-green",
-                    "value": null
-                  },
-                  {
-                    "color": "green",
-                    "value": 10
-                  },
-                  {
-                    "color": "#EAB839",
-                    "value": 20
-                  },
-                  {
-                    "color": "red",
-                    "value": 30
-                  }
-                ]
-              }
-            },
-            "overrides": [
-              {
-                "matcher": {
-                  "id": "byName",
-                  "options": "moc/infra"
-                },
-                "properties": [
-                  {
-                    "id": "max",
-                    "value": 96
-                  }
-                ]
-              },
-              {
-                "matcher": {
-                  "id": "byName",
-                  "options": "moc/smaug"
-                },
-                "properties": [
-                  {
-                    "id": "max",
-                    "value": 144
-                  }
-                ]
-              },
-              {
-                "matcher": {
-                  "id": "byName",
-                  "options": "emea/balrog"
-                },
-                "properties": [
-                  {
-                    "id": "max",
-                    "value": 24
-                  }
-                ]
-              }
-            ]
-          },
-          "gridPos": {
-            "h": 6,
-            "w": 8,
-            "x": 0,
-            "y": 13
-          },
-          "id": 68,
-          "maxPerRow": 2,
-          "options": {
-            "displayMode": "gradient",
-            "orientation": "horizontal",
-            "reduceOptions": {
-              "calcs": [
-                "mean"
-              ],
-              "fields": "",
-              "values": false
-            },
-            "showUnfilled": true,
-            "text": {}
-          },
-          "pluginVersion": "8.4.3",
-          "repeat": "cluster",
-          "repeatDirection": "v",
-          "targets": [
-            {
-              "exemplar": true,
-              "expr": "sum(kube_pod_resource_request{resource=\"cpu\"} * on (node) group_left kube_node_role{role=\"master\"}) by (cluster)",
-              "hide": false,
-              "instant": false,
-              "interval": "",
-              "legendFormat": "{{ cluster }}",
-              "refId": "A"
-            }
-          ],
-          "title": "Actual Cores In Use (Controller Nodes)",
-          "transformations": [],
-          "type": "bargauge"
-        },
-        {
-          "datasource": {
-            "type": "prometheus",
-            "uid": "PF655ECC8F2410459"
-          },
-          "description": "Cores currently not in use on both the Controller and Worker nodes. This does not take into account ResourceQuotas, rather -- it takes into account cores available for the scheduler to reserve for pods.",
-          "fieldConfig": {
-            "defaults": {
-              "color": {
-                "fixedColor": "orange",
-                "mode": "palette-classic"
-              },
-              "custom": {
-                "hideFrom": {
-                  "legend": false,
-                  "tooltip": false,
-                  "viz": false
-                }
-              },
-              "mappings": [],
-              "min": 0
-            },
-            "overrides": [
-              {
-                "matcher": {
-                  "id": "byName",
-                  "options": "moc-infra Free Cores"
-                },
-                "properties": [
-                  {
-                    "id": "max",
-                    "value": 96
-                  }
-                ]
-              },
-              {
-                "matcher": {
-                  "id": "byName",
-                  "options": "moc-smaug Free Cores"
-                },
-                "properties": [
-                  {
-                    "id": "max",
-                    "value": 144
-                  }
-                ]
-              },
-              {
-                "matcher": {
-                  "id": "byName",
-                  "options": "balrog Free Cores"
-                },
-                "properties": [
-                  {
-                    "id": "max",
-                    "value": 24
-                  }
-                ]
-              }
-            ]
-          },
-          "gridPos": {
-            "h": 6,
-            "w": 8,
-            "x": 8,
-            "y": 13
-          },
-          "id": 99,
-          "options": {
-            "displayLabels": [],
-            "legend": {
-              "displayMode": "table",
-              "placement": "right",
-              "values": [
-                "value",
-                "percent"
-              ]
-            },
-            "pieType": "pie",
-            "reduceOptions": {
-              "calcs": [
-                "first"
-              ],
-              "fields": "",
-              "values": false
-            },
-            "tooltip": {
-              "mode": "single",
-              "sort": "none"
-            }
-          },
-          "pluginVersion": "8.1.1",
-          "targets": [
-            {
-              "datasource": {
-                "type": "prometheus",
-                "uid": "PF655ECC8F2410459"
-              },
-              "exemplar": true,
-              "expr": "sum(cluster:capacity_cpu_cores:sum{label_node_role_kubernetes_io=\"master\"}) - (sum(kube_pod_resource_request{resource=\"cpu\"} * on (node) group_left kube_node_role{role=\"master\"})) ",
-              "hide": false,
-              "instant": false,
-              "interval": "",
-              "legendFormat": "Controller Free Cores",
-              "refId": "A"
-            },
-            {
-              "exemplar": true,
-              "expr": "sum(cluster:capacity_cpu_cores:sum{label_node_role_kubernetes_io!~\".+\"}) - (sum(kube_pod_resource_request{resource=\"cpu\"} * on (node) group_left kube_node_role{role=\"worker\"}))",
-              "hide": false,
-              "instant": false,
-              "interval": "",
-              "legendFormat": "Worker Free Nodes",
-              "refId": "B"
-            },
-            {
-              "exemplar": true,
-              "expr": "sum(cluster:capacity_cpu_cores:sum{label_node_role_kubernetes_io=\"master\"}) ",
-              "hide": false,
-              "interval": "",
-              "legendFormat": "Total ControllerCores",
-              "refId": "C"
-            },
-            {
-              "exemplar": true,
-              "expr": "sum(cluster:capacity_cpu_cores:sum{label_node_role_kubernetes_io!~\".+\"})",
-              "hide": false,
-              "interval": "",
-              "legendFormat": "Total Worker Cores",
-              "refId": "D"
-            }
-          ],
-          "title": "emea-balrog Actual Free Cores",
-          "transformations": [],
-          "type": "piechart"
-        },
-        {
-          "description": "Cores currently in use on each cluster (Worker nodes). This does not take into account ResourceQuotas, rather -- it takes into account cores available for the scheduler to reserve for pods.",
-          "fieldConfig": {
-            "defaults": {
-              "color": {
-                "mode": "thresholds"
-              },
-              "mappings": [],
-              "min": 0,
-              "thresholds": {
-                "mode": "percentage",
-                "steps": [
-                  {
-                    "color": "dark-green",
-                    "value": null
-                  },
-                  {
-                    "color": "green",
-                    "value": 10
-                  },
-                  {
-                    "color": "#EAB839",
-                    "value": 20
-                  },
-                  {
-                    "color": "red",
-                    "value": 30
-                  }
-                ]
-              }
-            },
-            "overrides": [
-              {
-                "matcher": {
-                  "id": "byName",
-                  "options": "emea/balrog"
-                },
-                "properties": [
-                  {
-                    "id": "max",
-                    "value": 80
-                  }
-                ]
-              },
-              {
-                "matcher": {
-                  "id": "byName",
-                  "options": "moc/smaug"
-                },
-                "properties": [
-                  {
-                    "id": "max",
-                    "value": 936
-                  }
-                ]
-              }
-            ]
-          },
-          "gridPos": {
-            "h": 6,
-            "w": 8,
-            "x": 0,
-            "y": 19
-          },
-          "id": 70,
-          "maxPerRow": 2,
-          "options": {
-            "displayMode": "gradient",
-            "orientation": "horizontal",
-            "reduceOptions": {
-              "calcs": [
-                "lastNotNull"
-              ],
-              "fields": "",
-              "values": false
-            },
-            "showUnfilled": true,
-            "text": {}
-          },
-          "pluginVersion": "8.4.3",
-          "repeat": "cluster",
-          "repeatDirection": "v",
-          "targets": [
-            {
-              "exemplar": true,
-              "expr": "sum(kube_pod_resource_request{resource=\"cpu\"} * on (node) group_left kube_node_role{role=\"worker\"}) by (cluster)",
-              "interval": "",
-              "legendFormat": "{{ cluster }}",
-              "refId": "A"
-            }
-          ],
-          "title": "Actual Cores In Use (Worker Nodes)",
-          "transformations": [],
-          "type": "bargauge"
-        },
-        {
           "datasource": {
             "type": "prometheus",
             "uid": "P1AA2F697D591C2E9"
@@ -487,26 +147,14 @@ data:
                     "value": 144
                   }
                 ]
-              },
-              {
-                "matcher": {
-                  "id": "byName",
-                  "options": "balrog Free Cores"
-                },
-                "properties": [
-                  {
-                    "id": "max",
-                    "value": 24
-                  }
-                ]
               }
             ]
           },
           "gridPos": {
             "h": 6,
-            "w": 8,
-            "x": 8,
-            "y": 19
+            "w": 12,
+            "x": 0,
+            "y": 13
           },
           "id": 98,
           "options": {
@@ -635,26 +283,14 @@ data:
                     "value": 144
                   }
                 ]
-              },
-              {
-                "matcher": {
-                  "id": "byName",
-                  "options": "balrog Free Cores"
-                },
-                "properties": [
-                  {
-                    "id": "max",
-                    "value": 24
-                  }
-                ]
               }
             ]
           },
           "gridPos": {
             "h": 6,
-            "w": 8,
-            "x": 16,
-            "y": 19
+            "w": 12,
+            "x": 12,
+            "y": 13
           },
           "id": 93,
           "options": {
@@ -738,20 +374,11 @@ data:
           "type": "piechart"
         },
         {
-          "collapsed": false,
-          "gridPos": {
-            "h": 1,
-            "w": 24,
-            "x": 0,
-            "y": 25
+          "datasource": {
+            "type": "prometheus",
+            "uid": "PDD709D2516BFAE8A"
           },
-          "id": 38,
-          "panels": [],
-          "title": "Cluster Memory Overview",
-          "type": "row"
-        },
-        {
-          "description": "Memory currently in use on each cluster (Controller nodes). This does not take into account ResourceQuotas, rather -- it takes into account memory available for the scheduler to reserve for pods.",
+          "description": "Cores currently in use on each cluster (Controller nodes). This does not take into account ResourceQuotas, rather -- it takes into account cores available for the scheduler to reserve for pods.",
           "fieldConfig": {
             "defaults": {
               "color": {
@@ -779,22 +406,9 @@ data:
                     "value": 30
                   }
                 ]
-              },
-              "unit": "decbytes"
+              }
             },
             "overrides": [
-              {
-                "matcher": {
-                  "id": "byName",
-                  "options": "emea/balrog"
-                },
-                "properties": [
-                  {
-                    "id": "max",
-                    "value": 99000000000
-                  }
-                ]
-              },
               {
                 "matcher": {
                   "id": "byName",
@@ -803,7 +417,7 @@ data:
                 "properties": [
                   {
                     "id": "max",
-                    "value": 540999999999.99994
+                    "value": 96
                   }
                 ]
               },
@@ -815,7 +429,7 @@ data:
                 "properties": [
                   {
                     "id": "max",
-                    "value": 1210000000000
+                    "value": 144
                   }
                 ]
               }
@@ -823,18 +437,18 @@ data:
           },
           "gridPos": {
             "h": 6,
-            "w": 8,
+            "w": 12,
             "x": 0,
-            "y": 26
+            "y": 19
           },
-          "id": 95,
-          "maxPerRow": 8,
+          "id": 68,
+          "maxPerRow": 2,
           "options": {
             "displayMode": "gradient",
             "orientation": "horizontal",
             "reduceOptions": {
               "calcs": [
-                "lastNotNull"
+                "mean"
               ],
               "fields": "",
               "values": false
@@ -847,125 +461,27 @@ data:
           "repeatDirection": "v",
           "targets": [
             {
+              "datasource": {
+                "type": "prometheus",
+                "uid": "PDD709D2516BFAE8A"
+              },
               "exemplar": true,
-              "expr": "sum(kube_pod_resource_request{resource=\"memory\"} * on (node) group_left kube_node_role{role=\"master\"}) by (cluster)",
+              "expr": "sum(kube_pod_resource_request{resource=\"cpu\"} * on (node) group_left kube_node_role{role=\"master\"}) by (cluster)",
               "interval": "",
               "legendFormat": "{{ cluster }}",
               "refId": "A"
             }
           ],
-          "title": "Actual Combined Used Memory (Controller Nodes)",
+          "title": "Actual Cores In Use (Controller Nodes)",
           "transformations": [],
           "type": "bargauge"
         },
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "PF655ECC8F2410459"
+            "uid": "PDD709D2516BFAE8A"
           },
-          "fieldConfig": {
-            "defaults": {
-              "color": {
-                "mode": "palette-classic"
-              },
-              "custom": {
-                "hideFrom": {
-                  "legend": false,
-                  "tooltip": false,
-                  "viz": false
-                }
-              },
-              "decimals": 0,
-              "mappings": [],
-              "unit": "decbytes"
-            },
-            "overrides": []
-          },
-          "gridPos": {
-            "h": 6,
-            "w": 8,
-            "x": 8,
-            "y": 26
-          },
-          "id": 78,
-          "links": [],
-          "options": {
-            "displayLabels": [],
-            "legend": {
-              "calcs": [],
-              "displayMode": "table",
-              "placement": "right",
-              "values": [
-                "value"
-              ]
-            },
-            "pieType": "pie",
-            "reduceOptions": {
-              "calcs": [
-                "lastNotNull"
-              ],
-              "fields": "",
-              "values": false
-            },
-            "tooltip": {
-              "mode": "single",
-              "sort": "none"
-            }
-          },
-          "targets": [
-            {
-              "datasource": {
-                "type": "prometheus",
-                "uid": "PF655ECC8F2410459"
-              },
-              "exemplar": true,
-              "expr": "sum(cluster:capacity_memory_bytes:sum{label_node_role_kubernetes_io=\"master\"}) - (sum(kube_pod_resource_request{resource=\"memory\"} * on (node) group_left kube_node_role{role=\"master\"}))",
-              "interval": "",
-              "legendFormat": "Controller Free Memory",
-              "refId": "A"
-            },
-            {
-              "datasource": {
-                "type": "prometheus",
-                "uid": "PF655ECC8F2410459"
-              },
-              "exemplar": true,
-              "expr": "sum(cluster:capacity_memory_bytes:sum{label_node_role_kubernetes_io!~\"master\"}) - (sum(kube_pod_resource_request{resource=\"memory\"} * on (node) group_left kube_node_role{role=\"worker\"}))",
-              "hide": false,
-              "interval": "",
-              "legendFormat": "Worker Free Memory",
-              "refId": "C"
-            },
-            {
-              "datasource": {
-                "type": "prometheus",
-                "uid": "PF655ECC8F2410459"
-              },
-              "exemplar": true,
-              "expr": "cluster:capacity_memory_bytes:sum{label_node_role_kubernetes_io=\"master\"}",
-              "hide": false,
-              "interval": "",
-              "legendFormat": "Controller Total Memory",
-              "refId": "B"
-            },
-            {
-              "datasource": {
-                "type": "prometheus",
-                "uid": "PF655ECC8F2410459"
-              },
-              "exemplar": true,
-              "expr": "cluster:capacity_memory_bytes:sum{label_node_role_kubernetes_io!~\".+\"}",
-              "hide": false,
-              "interval": "",
-              "legendFormat": "Worker Total Memory",
-              "refId": "D"
-            }
-          ],
-          "title": "emea-balrog Memory Overview",
-          "type": "piechart"
-        },
-        {
-          "description": "Memory currently in use on each cluster (Worker nodes). This does not take into account ResourceQuotas, rather -- it takes into account memory available for the scheduler to reserve for pods.",
+          "description": "Cores currently in use on each cluster (Worker nodes). This does not take into account ResourceQuotas, rather -- it takes into account cores available for the scheduler to reserve for pods.",
           "fieldConfig": {
             "defaults": {
               "color": {
@@ -989,38 +505,13 @@ data:
                     "value": 20
                   },
                   {
-                    "color": "semi-dark-red",
+                    "color": "red",
                     "value": 30
                   }
                 ]
-              },
-              "unit": "decbytes"
+              }
             },
             "overrides": [
-              {
-                "matcher": {
-                  "id": "byName",
-                  "options": "emea/balrog"
-                },
-                "properties": [
-                  {
-                    "id": "max",
-                    "value": 164000000000
-                  }
-                ]
-              },
-              {
-                "matcher": {
-                  "id": "byName",
-                  "options": "emea/balrog"
-                },
-                "properties": [
-                  {
-                    "id": "max",
-                    "value": 164000000000
-                  }
-                ]
-              },
               {
                 "matcher": {
                   "id": "byName",
@@ -1029,7 +520,7 @@ data:
                 "properties": [
                   {
                     "id": "max",
-                    "value": 5930000000000
+                    "value": 936
                   }
                 ]
               }
@@ -1037,12 +528,12 @@ data:
           },
           "gridPos": {
             "h": 6,
-            "w": 8,
-            "x": 0,
-            "y": 32
+            "w": 12,
+            "x": 12,
+            "y": 19
           },
-          "id": 96,
-          "maxPerRow": 8,
+          "id": 70,
+          "maxPerRow": 2,
           "options": {
             "displayMode": "gradient",
             "orientation": "horizontal",
@@ -1061,24 +552,33 @@ data:
           "repeatDirection": "v",
           "targets": [
             {
+              "datasource": {
+                "type": "prometheus",
+                "uid": "PDD709D2516BFAE8A"
+              },
               "exemplar": true,
-              "expr": "sum(kube_pod_resource_request{resource=\"memory\"} * on (node) group_left kube_node_role{role=\"worker\"}) by (cluster)",
+              "expr": "sum(kube_pod_resource_request{resource=\"cpu\"} * on (node) group_left kube_node_role{role=\"worker\"}) by (cluster)",
               "interval": "",
               "legendFormat": "{{ cluster }}",
               "refId": "A"
-            },
-            {
-              "exemplar": true,
-              "expr": "sum(cluster:capacity_memory_bytes:sum{label_node_role_kubernetes_io!~\".+\"}) by (cluster)",
-              "hide": true,
-              "interval": "",
-              "legendFormat": "{{ cluster }}",
-              "refId": "B"
             }
           ],
-          "title": "Actual Combined Used Memory (Worker Nodes)",
+          "title": "Actual Cores In Use (Worker Nodes)",
           "transformations": [],
           "type": "bargauge"
+        },
+        {
+          "collapsed": false,
+          "gridPos": {
+            "h": 1,
+            "w": 24,
+            "x": 0,
+            "y": 25
+          },
+          "id": 38,
+          "panels": [],
+          "title": "Cluster Memory Overview",
+          "type": "row"
         },
         {
           "datasource": {
@@ -1105,9 +605,9 @@ data:
           },
           "gridPos": {
             "h": 6,
-            "w": 8,
-            "x": 8,
-            "y": 32
+            "w": 12,
+            "x": 0,
+            "y": 26
           },
           "id": 101,
           "links": [],
@@ -1211,9 +711,9 @@ data:
           },
           "gridPos": {
             "h": 6,
-            "w": 8,
-            "x": 16,
-            "y": 32
+            "w": 12,
+            "x": 12,
+            "y": 26
           },
           "id": 102,
           "links": [],
@@ -1293,6 +793,214 @@ data:
           "type": "piechart"
         },
         {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "PDD709D2516BFAE8A"
+          },
+          "description": "Memory currently in use on each cluster (Controller nodes). This does not take into account ResourceQuotas, rather -- it takes into account memory available for the scheduler to reserve for pods.",
+          "fieldConfig": {
+            "defaults": {
+              "color": {
+                "mode": "thresholds"
+              },
+              "mappings": [],
+              "min": 0,
+              "thresholds": {
+                "mode": "percentage",
+                "steps": [
+                  {
+                    "color": "dark-green",
+                    "value": null
+                  },
+                  {
+                    "color": "green",
+                    "value": 10
+                  },
+                  {
+                    "color": "#EAB839",
+                    "value": 20
+                  },
+                  {
+                    "color": "red",
+                    "value": 30
+                  }
+                ]
+              },
+              "unit": "decbytes"
+            },
+            "overrides": [
+              {
+                "matcher": {
+                  "id": "byName",
+                  "options": "moc/infra"
+                },
+                "properties": [
+                  {
+                    "id": "max",
+                    "value": 540999999999.99994
+                  }
+                ]
+              },
+              {
+                "matcher": {
+                  "id": "byName",
+                  "options": "moc/smaug"
+                },
+                "properties": [
+                  {
+                    "id": "max",
+                    "value": 1210000000000
+                  }
+                ]
+              }
+            ]
+          },
+          "gridPos": {
+            "h": 6,
+            "w": 12,
+            "x": 0,
+            "y": 32
+          },
+          "id": 95,
+          "maxPerRow": 8,
+          "options": {
+            "displayMode": "gradient",
+            "orientation": "horizontal",
+            "reduceOptions": {
+              "calcs": [
+                "lastNotNull"
+              ],
+              "fields": "",
+              "values": false
+            },
+            "showUnfilled": true,
+            "text": {}
+          },
+          "pluginVersion": "8.4.3",
+          "repeat": "cluster",
+          "repeatDirection": "v",
+          "targets": [
+            {
+              "datasource": {
+                "type": "prometheus",
+                "uid": "PDD709D2516BFAE8A"
+              },
+              "exemplar": true,
+              "expr": "sum(kube_pod_resource_request{resource=\"memory\"} * on (node) group_left kube_node_role{role=\"master\"}) by (cluster)",
+              "interval": "",
+              "legendFormat": "{{ cluster }}",
+              "refId": "A"
+            }
+          ],
+          "title": "Actual Combined Used Memory (Controller Nodes)",
+          "transformations": [],
+          "type": "bargauge"
+        },
+        {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "PDD709D2516BFAE8A"
+          },
+          "description": "Memory currently in use on each cluster (Worker nodes). This does not take into account ResourceQuotas, rather -- it takes into account memory available for the scheduler to reserve for pods.",
+          "fieldConfig": {
+            "defaults": {
+              "color": {
+                "mode": "thresholds"
+              },
+              "mappings": [],
+              "min": 0,
+              "thresholds": {
+                "mode": "percentage",
+                "steps": [
+                  {
+                    "color": "dark-green",
+                    "value": null
+                  },
+                  {
+                    "color": "green",
+                    "value": 10
+                  },
+                  {
+                    "color": "#EAB839",
+                    "value": 20
+                  },
+                  {
+                    "color": "semi-dark-red",
+                    "value": 30
+                  }
+                ]
+              },
+              "unit": "decbytes"
+            },
+            "overrides": [
+              {
+                "matcher": {
+                  "id": "byName",
+                  "options": "moc/smaug"
+                },
+                "properties": [
+                  {
+                    "id": "max",
+                    "value": 5930000000000
+                  }
+                ]
+              }
+            ]
+          },
+          "gridPos": {
+            "h": 6,
+            "w": 12,
+            "x": 12,
+            "y": 32
+          },
+          "id": 96,
+          "maxPerRow": 8,
+          "options": {
+            "displayMode": "gradient",
+            "orientation": "horizontal",
+            "reduceOptions": {
+              "calcs": [
+                "lastNotNull"
+              ],
+              "fields": "",
+              "values": false
+            },
+            "showUnfilled": true,
+            "text": {}
+          },
+          "pluginVersion": "8.4.3",
+          "repeat": "cluster",
+          "repeatDirection": "v",
+          "targets": [
+            {
+              "datasource": {
+                "type": "prometheus",
+                "uid": "PDD709D2516BFAE8A"
+              },
+              "exemplar": true,
+              "expr": "sum(kube_pod_resource_request{resource=\"memory\"} * on (node) group_left kube_node_role{role=\"worker\"}) by (cluster)",
+              "interval": "",
+              "legendFormat": "{{ cluster }}",
+              "refId": "A"
+            },
+            {
+              "datasource": {
+                "type": "prometheus",
+                "uid": "PDD709D2516BFAE8A"
+              },
+              "exemplar": true,
+              "expr": "sum(cluster:capacity_memory_bytes:sum{label_node_role_kubernetes_io!~\".+\"}) by (cluster)",
+              "hide": true,
+              "interval": "",
+              "legendFormat": "{{ cluster }}",
+              "refId": "B"
+            }
+          ],
+          "title": "Actual Combined Used Memory (Worker Nodes)",
+          "transformations": [],
+          "type": "bargauge"
+        },
+        {
           "collapsed": false,
           "gridPos": {
             "h": 1,
@@ -1330,82 +1038,9 @@ data:
             "overrides": []
           },
           "gridPos": {
-            "h": 8,
-            "w": 6,
+            "h": 6,
+            "w": 12,
             "x": 0,
-            "y": 39
-          },
-          "id": 2,
-          "links": [],
-          "options": {
-            "legend": {
-              "calcs": [],
-              "displayMode": "table",
-              "placement": "right",
-              "values": [
-                "value",
-                "percent"
-              ]
-            },
-            "pieType": "pie",
-            "reduceOptions": {
-              "calcs": [
-                "lastNotNull"
-              ],
-              "fields": "",
-              "values": false
-            },
-            "tooltip": {
-              "mode": "single",
-              "sort": "none"
-            }
-          },
-          "pluginVersion": "7.1.1",
-          "targets": [
-            {
-              "datasource": {
-                "type": "prometheus",
-                "uid": "PF655ECC8F2410459"
-              },
-              "exemplar": true,
-              "expr": "sum(kube_pod_status_phase == 1) by (phase)",
-              "instant": true,
-              "interval": "",
-              "legendFormat": "{{phase}}",
-              "refId": "A"
-            }
-          ],
-          "title": "Pods Aggregated by Phase (emea-balrog)",
-          "type": "piechart"
-        },
-        {
-          "datasource": {
-            "type": "datasource",
-            "uid": "-- Mixed --"
-          },
-          "description": "",
-          "fieldConfig": {
-            "defaults": {
-              "color": {
-                "mode": "palette-classic"
-              },
-              "custom": {
-                "hideFrom": {
-                  "legend": false,
-                  "tooltip": false,
-                  "viz": false
-                }
-              },
-              "decimals": 0,
-              "mappings": [],
-              "unit": "short"
-            },
-            "overrides": []
-          },
-          "gridPos": {
-            "h": 8,
-            "w": 6,
-            "x": 12,
             "y": 39
           },
           "id": 86,
@@ -1476,9 +1111,9 @@ data:
             "overrides": []
           },
           "gridPos": {
-            "h": 8,
-            "w": 6,
-            "x": 18,
+            "h": 6,
+            "w": 12,
+            "x": 12,
             "y": 39
           },
           "id": 87,
@@ -1530,7 +1165,7 @@ data:
             "h": 1,
             "w": 24,
             "x": 0,
-            "y": 47
+            "y": 45
           },
           "id": 56,
           "panels": [],
@@ -1565,79 +1200,7 @@ data:
             "h": 6,
             "w": 12,
             "x": 0,
-            "y": 48
-          },
-          "id": 58,
-          "links": [],
-          "options": {
-            "legend": {
-              "calcs": [],
-              "displayMode": "table",
-              "placement": "right",
-              "values": [
-                "value",
-                "percent"
-              ]
-            },
-            "pieType": "pie",
-            "reduceOptions": {
-              "calcs": [
-                "lastNotNull"
-              ],
-              "fields": "",
-              "values": false
-            },
-            "tooltip": {
-              "mode": "single",
-              "sort": "none"
-            }
-          },
-          "targets": [
-            {
-              "datasource": {
-                "type": "prometheus",
-                "uid": "PF655ECC8F2410459"
-              },
-              "exemplar": true,
-              "expr": "sum(kube_persistentvolumeclaim_resource_requests_storage_bytes) by (namespace)",
-              "instant": true,
-              "interval": "",
-              "legendFormat": "{{namespace}}",
-              "refId": "A"
-            }
-          ],
-          "title": "PVC's by Namespace (emea-balrog)",
-          "type": "piechart"
-        },
-        {
-          "datasource": {
-            "type": "datasource",
-            "uid": "-- Mixed --"
-          },
-          "description": "This graph shows the sum of PVC storage requested by namespace.",
-          "fieldConfig": {
-            "defaults": {
-              "color": {
-                "mode": "palette-classic"
-              },
-              "custom": {
-                "hideFrom": {
-                  "legend": false,
-                  "tooltip": false,
-                  "viz": false
-                }
-              },
-              "decimals": 0,
-              "mappings": [],
-              "unit": "decbytes"
-            },
-            "overrides": []
-          },
-          "gridPos": {
-            "h": 6,
-            "w": 12,
-            "x": 0,
-            "y": 54
+            "y": 46
           },
           "id": 89,
           "links": [],
@@ -1709,7 +1272,7 @@ data:
             "h": 6,
             "w": 12,
             "x": 12,
-            "y": 54
+            "y": 46
           },
           "id": 90,
           "links": [],
@@ -1762,9 +1325,9 @@ data:
         "list": [
           {
             "current": {
-              "selected": false,
-              "text": "thanos-frontend",
-              "value": "thanos-frontend"
+              "selected": true,
+              "text": "moc-smaug",
+              "value": "moc-smaug"
             },
             "hide": 0,
             "includeAll": false,
