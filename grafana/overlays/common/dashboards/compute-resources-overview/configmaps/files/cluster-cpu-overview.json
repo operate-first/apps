@@ -24,7 +24,6 @@
   "editable": true,
   "fiscalYearStartMonth": 0,
   "graphTooltip": 0,
-  "id": 6,
   "links": [],
   "liveNow": false,
   "panels": [
@@ -1218,8 +1217,7 @@
             "mode": "absolute",
             "steps": [
               {
-                "color": "green",
-                "value": null
+                "color": "green"
               },
               {
                 "color": "red",
@@ -1311,8 +1309,7 @@
             "mode": "absolute",
             "steps": [
               {
-                "color": "green",
-                "value": null
+                "color": "green"
               },
               {
                 "color": "red",
@@ -1373,26 +1370,38 @@
     },
     {
       "datasource": {
+        "type": "prometheus",
         "uid": "$datasource"
       },
-      "description": "Approximate CPU requests on each node by summing CPU requests on all PENDING and RUNNING pods.",
+      "description": "Approximate Memory Limits on each node by summing Memory limits on all PENDING and RUNNING pods.",
       "fieldConfig": {
         "defaults": {
           "color": {
-            "mode": "thresholds"
+            "mode": "palette-classic"
           },
           "custom": {
-            "align": "auto",
-            "displayMode": "auto",
-            "inspect": false
+            "axisCenteredZero": false,
+            "axisColorMode": "text",
+            "axisLabel": "",
+            "axisPlacement": "auto",
+            "fillOpacity": 80,
+            "gradientMode": "none",
+            "hideFrom": {
+              "legend": false,
+              "tooltip": false,
+              "viz": false
+            },
+            "lineWidth": 1,
+            "scaleDistribution": {
+              "type": "linear"
+            }
           },
           "mappings": [],
           "thresholds": {
             "mode": "absolute",
             "steps": [
               {
-                "color": "green",
-                "value": null
+                "color": "green"
               },
               {
                 "color": "red",
@@ -1409,77 +1418,82 @@
         "x": 0,
         "y": 32
       },
-      "id": 14,
+      "id": 39,
+      "links": [],
       "options": {
-        "footer": {
-          "fields": "",
-          "reducer": [
-            "sum"
+        "barRadius": 0,
+        "barWidth": 0.97,
+        "groupWidth": 0.7,
+        "legend": {
+          "calcs": [
+            "lastNotNull"
           ],
-          "show": false
+          "displayMode": "table",
+          "placement": "right",
+          "showLegend": true
         },
-        "frameIndex": 3,
-        "showHeader": true,
-        "sortBy": [
-          {
-            "desc": true,
-            "displayName": "Value"
-          }
-        ]
+        "orientation": "auto",
+        "showValue": "auto",
+        "stacking": "none",
+        "tooltip": {
+          "mode": "single",
+          "sort": "none"
+        },
+        "xTickLabelRotation": 0,
+        "xTickLabelSpacing": 0
       },
-      "pluginVersion": "9.1.1",
+      "pluginVersion": "7.1.1",
       "targets": [
         {
           "datasource": {
             "uid": "$datasource"
           },
+          "editorMode": "code",
           "exemplar": true,
-          "expr": "sort(sum(sum(kube_pod_container_resource_requests{cluster=\"$cluster\", resource=\"cpu\"}) by (namespace, pod, node) * on (pod, namespace) group_left() (sum(kube_pod_status_phase{cluster=\"$cluster\", phase=~\"Pending|Running\"}) by (pod, namespace) == 1)) by (node))",
-          "format": "table",
+          "expr": "topk(20, sort(sum(sum(kube_pod_container_resource_requests{cluster=\"$cluster\", resource=\"cpu\", node!=\"\"}) by (namespace, pod, node) * on (pod, namespace) group_left() (sum(kube_pod_status_phase{cluster=\"$cluster\", phase=~\"Pending|Running\"}) by (pod, namespace) == 1)) by (node)))",
           "instant": true,
           "interval": "",
-          "legendFormat": "{{node}}",
+          "legendFormat": "{{namespace}}",
           "refId": "A"
         }
       ],
-      "title": "Total CPU Requests",
-      "transformations": [
-        {
-          "id": "filterFieldsByName",
-          "options": {
-            "include": {
-              "names": [
-                "node",
-                "Value"
-              ]
-            }
-          }
-        }
-      ],
-      "type": "table"
+      "title": "Total CPU Requests By Node",
+      "type": "barchart"
     },
     {
       "datasource": {
+        "type": "prometheus",
         "uid": "$datasource"
       },
       "description": "Approximate CPU Limits on each node by summing CPU limits on all PENDING and RUNNING pods.",
       "fieldConfig": {
         "defaults": {
           "color": {
-            "mode": "thresholds"
+            "mode": "palette-classic"
           },
           "custom": {
-            "align": "auto",
-            "displayMode": "auto",
-            "inspect": false
+            "axisCenteredZero": false,
+            "axisColorMode": "text",
+            "axisLabel": "",
+            "axisPlacement": "auto",
+            "fillOpacity": 80,
+            "gradientMode": "none",
+            "hideFrom": {
+              "legend": false,
+              "tooltip": false,
+              "viz": false
+            },
+            "lineWidth": 1,
+            "scaleDistribution": {
+              "type": "linear"
+            }
           },
           "mappings": [],
           "thresholds": {
             "mode": "absolute",
             "steps": [
               {
-                "color": "green",
-                "value": null
+                "color": "green"
               },
               {
                 "color": "red",
@@ -1496,54 +1510,47 @@
         "x": 12,
         "y": 32
       },
-      "id": 33,
+      "id": 40,
+      "links": [],
       "options": {
-        "footer": {
-          "fields": "",
-          "reducer": [
-            "sum"
+        "barRadius": 0,
+        "barWidth": 0.97,
+        "groupWidth": 0.7,
+        "legend": {
+          "calcs": [
+            "lastNotNull"
           ],
-          "show": false
+          "displayMode": "table",
+          "placement": "right",
+          "showLegend": true
         },
-        "frameIndex": 3,
-        "showHeader": true,
-        "sortBy": [
-          {
-            "desc": true,
-            "displayName": "Value"
-          }
-        ]
+        "orientation": "auto",
+        "showValue": "auto",
+        "stacking": "none",
+        "tooltip": {
+          "mode": "single",
+          "sort": "none"
+        },
+        "xTickLabelRotation": 0,
+        "xTickLabelSpacing": 0
       },
-      "pluginVersion": "9.1.1",
+      "pluginVersion": "7.1.1",
       "targets": [
         {
           "datasource": {
             "uid": "$datasource"
           },
+          "editorMode": "code",
           "exemplar": true,
-          "expr": "sort(sum(sum(kube_pod_container_resource_limits{cluster=\"$cluster\", resource=\"cpu\"}) by (namespace, pod, node) * on (pod, namespace) group_left() (sum(kube_pod_status_phase{cluster=\"$cluster\", phase=~\"Pending|Running\"}) by (pod, namespace) == 1)) by (node))",
-          "format": "table",
+          "expr": "topk(20, sort(sum(sum(kube_pod_container_resource_limits{cluster=\"$cluster\", resource=\"cpu\", node!=\"\"}) by (namespace, pod, node) * on (pod, namespace) group_left() (sum(kube_pod_status_phase{cluster=\"$cluster\", phase=~\"Pending|Running\"}) by (pod, namespace) == 1)) by (node)))",
           "instant": true,
           "interval": "",
-          "legendFormat": "{{node}}",
+          "legendFormat": "{{namespace}}",
           "refId": "A"
         }
       ],
-      "title": "Total CPU Limits",
-      "transformations": [
-        {
-          "id": "filterFieldsByName",
-          "options": {
-            "include": {
-              "names": [
-                "node",
-                "Value"
-              ]
-            }
-          }
-        }
-      ],
-      "type": "table"
+      "title": "Total CPU Limits by Node",
+      "type": "barchart"
     },
     {
       "collapsed": true,
@@ -1845,9 +1852,7 @@
     "list": [
       {
         "current": {
-          "selected": false,
-          "text": "OSC-Openshift-Monitoring",
-          "value": "OSC-Openshift-Monitoring"
+          "selected": false
         },
         "hide": 0,
         "includeAll": false,
@@ -1863,9 +1868,7 @@
       },
       {
         "current": {
-          "selected": false,
-          "text": "osc/osc-cl2",
-          "value": "osc/osc-cl2"
+          "selected": false
         },
         "datasource": {
           "uid": "${datasource}"
@@ -1889,13 +1892,12 @@
     ]
   },
   "time": {
-    "from": "now-12h",
+    "from": "now-1h",
     "to": "now"
   },
   "timepicker": {},
   "timezone": "",
   "title": "Cluster CPU overview",
   "uid": "nA4fwtvnzzdf3e",
-  "version": 7,
   "weekStart": ""
 }

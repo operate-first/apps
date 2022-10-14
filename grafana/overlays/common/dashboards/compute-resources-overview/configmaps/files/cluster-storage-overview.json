@@ -22,7 +22,6 @@
   "editable": true,
   "fiscalYearStartMonth": 0,
   "graphTooltip": 0,
-  "id": 40,
   "iteration": 1649686222292,
   "links": [],
   "liveNow": false,
@@ -768,6 +767,5 @@
   "timezone": "",
   "title": "Cluster Storage Overview",
   "uid": "-78BTNY7k",
-  "version": 0,
   "weekStart": ""
 }
