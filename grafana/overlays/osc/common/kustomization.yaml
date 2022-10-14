@@ -4,6 +4,7 @@ generatorOptions:
   disableNameSuffixHash: true
 resources:
   - ../../../base
+  - ../../common
   - dashboards
   - datasources
 patchesStrategicMerge:

@@ -4,8 +4,7 @@ kind: Kustomization
 namespace: opf-grafana-public
 resources:
   - ../../../base
-  - ../common/dashboards
-  - ../common/datasources
+  - ../common
   - externalsecrets
 patchesStrategicMerge:
   - ./grafana-public.yaml
