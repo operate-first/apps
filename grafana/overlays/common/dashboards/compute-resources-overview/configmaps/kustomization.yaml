@@ -10,3 +10,4 @@ configMapGenerator:
       - files/cluster-memory-overview.json
       - files/cluster-pod-overview.json
       - files/cluster-storage-overview.json
+      - files/cluster-node-resource-consumption.json
