@@ -1,0 +1,11 @@
+apiVersion: integreatly.org/v1alpha1
+kind: GrafanaDashboard
+metadata:
+  labels:
+    app: grafana
+  name: cluster-node-resource-consumption
+spec:
+  customFolderName: Cluster Management
+  configMapRef:
+    name: cluster-node-resource-consumption
+    key: cluster-node-resource-consumption.json
