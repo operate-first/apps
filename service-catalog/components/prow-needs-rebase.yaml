@@ -3,7 +3,6 @@ kind: Component
 metadata:
   name: prow-needs-rebase
   title: Needs-rebase
-  description:
   annotations:
     operate-first.cloud/logo-url: https://prow.operate-first.cloud/static/logo-light.png
     argocd/app-name: ci-prow-prod-smaug
