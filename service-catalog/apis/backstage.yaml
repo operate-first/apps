@@ -24,7 +24,7 @@ spec:
       - name: Cluster Status
         description: API for the cluster status plugin
     paths:
-      /clusterStatus/status:
+      /cluster-status/status:
         get:
           tags:
             - Cluster Status
@@ -37,7 +37,7 @@ spec:
                 application/json:
                   schema:
                     $ref: '#/components/schemas/clusters'
-      /clusterStatus/status/{name}:
+      /cluster-status/status/{name}:
         get:
           tags:
             - Cluster Status
