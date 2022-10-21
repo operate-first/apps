@@ -80,6 +80,8 @@ spec:
       kind: CephObjectStore
     - group: ceph.rook.io
       kind: CephObjectStoreUser
+    - group: external-secrets.io
+      kind: ExternalSecret
     - group: extensions
       kind: Ingress
     - group: hco.kubevirt.io
