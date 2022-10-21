@@ -100,11 +100,11 @@ Create the following *.hcl files. Replace $env accordingly.
 
 cat <<EOF >>user_policy.hcl
 path "k8s_secrets/data/${ENV}/${CLUSTER}/$NAMESPACE_1/*" {
-  capabilities = ["create", "read", "update", "patch", "list", "sudo"]
+  capabilities = ["create", "read", "update", "patch", "delete", "list", "sudo"]
 }
 
 path "k8s_secrets/metadata/${ENV}/${CLUSTER}/$NAMESPACE_1/*" {
-  capabilities = ["create", "read", "update", "patch", "list", "sudo"]
+  capabilities = ["create", "read", "update", "patch", "delete", "list", "sudo"]
 }
 
 # Repeat the 2 rules above for $NAMESPACE_2, $NAMESPACE_3,.. etc.
