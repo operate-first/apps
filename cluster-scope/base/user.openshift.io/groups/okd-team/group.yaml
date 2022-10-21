@@ -4,6 +4,7 @@ metadata:
   name: okd-team
 users:
   - aleskandro
+  - cgwalters
   - cheesesashimi
   - dmueller2001
   - lmzuccarelli
