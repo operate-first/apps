@@ -1196,11 +1196,11 @@ then update the rules file below as per instructions in the comments</p>
 </div></blockquote>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>cat <span class="s">&lt;&lt;EOF &gt;&gt;user_policy.hcl</span>
 <span class="s">path &quot;k8s_secrets/data/${ENV}/${CLUSTER}/$NAMESPACE_1/*&quot; {</span>
-<span class="s">  capabilities = [&quot;create&quot;, &quot;read&quot;, &quot;update&quot;, &quot;patch&quot;, &quot;list&quot;, &quot;sudo&quot;]</span>
+<span class="s">  capabilities = [&quot;create&quot;, &quot;read&quot;, &quot;update&quot;, &quot;patch&quot;, &quot;delete&quot;, &quot;list&quot;, &quot;sudo&quot;]</span>
 <span class="s">}</span>
 
 <span class="s">path &quot;k8s_secrets/metadata/${ENV}/${CLUSTER}/$NAMESPACE_1/*&quot; {</span>
-<span class="s">  capabilities = [&quot;create&quot;, &quot;read&quot;, &quot;update&quot;, &quot;patch&quot;, &quot;list&quot;, &quot;sudo&quot;]</span>
+<span class="s">  capabilities = [&quot;create&quot;, &quot;read&quot;, &quot;update&quot;, &quot;patch&quot;, &quot;delete&quot;, &quot;list&quot;, &quot;sudo&quot;]</span>
 <span class="s">}</span>
 
 <span class="s"># Repeat the 2 rules above for $NAMESPACE_2, $NAMESPACE_3,.. etc.</span>
