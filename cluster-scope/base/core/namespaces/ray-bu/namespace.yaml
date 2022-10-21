@@ -1,0 +1,10 @@
+apiVersion: v1
+kind: Namespace
+metadata:
+  annotations:
+    op1st/docs: https://github.com/operate-first/support/issues/1108
+    op1st/onboarding-issue: https://github.com/operate-first/support/issues/1108
+    op1st/project-owner: ray-bu
+    openshift.io/display-name: ray-bu
+    openshift.io/requester: ray-bu
+  name: ray-bu
