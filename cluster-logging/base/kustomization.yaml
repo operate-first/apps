@@ -8,3 +8,4 @@ resources:
   - clusterlogging.yaml
   - rolebindings
   - roles
+  - ../../cluster-scope/base/operators.coreos.com/operatorgroups/cluster-logging

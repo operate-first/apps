@@ -1,0 +1,40 @@
+apiVersion: integreatly.org/v1alpha1
+kind: GrafanaDataSource
+metadata:
+  name: jerry-cluster-logs
+spec:
+  datasources:
+    - access: proxy
+      editable: false
+      jsonData:
+        httpHeaderName1: X-Scope-OrgID
+      name: jerry-app-logs
+      secureJsonData:
+        httpHeaderValue1: cluster-app-logs
+      type: loki
+      url: >-
+        https://lokistack-openshift-operators-redhat.apps.jerry.ionos.emea.operate-first.cloud/api/logs/v1/application
+      version: 1
+    - access: proxy
+      editable: false
+      jsonData:
+        httpHeaderName1: X-Scope-OrgID
+      name: jerry-infra-logs
+      secureJsonData:
+        httpHeaderValue1: cluster-infra-logs
+      type: loki
+      url: >-
+        https://lokistack-openshift-operators-redhat.apps.jerry.ionos.emea.operate-first.cloud/api/logs/v1/infrastructure
+      version: 1
+    - access: proxy
+      editable: false
+      jsonData:
+        httpHeaderName1: X-Scope-OrgID
+      name: jerry-audit-logs
+      secureJsonData:
+        httpHeaderValue1: cluster-audit-logs
+      type: loki
+      url: >-
+        https://lokistack-openshift-operators-redhat.apps.jerry.ionos.emea.operate-first.cloud/api/logs/v1/audit
+      version: 1
+  name: cluster-logs

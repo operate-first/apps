@@ -1,11 +1,16 @@
----
-apiVersion: "logging.openshift.io/v1"
-kind: "ClusterLogging"
+apiVersion: logging.openshift.io/v1
+kind: ClusterLogging
 metadata:
-  name: "instance"
+  name: instance
+  namespace: openshift-logging
+  labels:
+    app.kubernetes.io/component: logging
+    app.kubernetes.io/instance: logging-infra
+    app.kubernetes.io/name: logging
+    app.kubernetes.io/part-of: cluster-logging
 spec:
-  managementState: "Managed"
   collection:
     logs:
-      type: "fluentd"
       fluentd: {}
+      type: fluentd
+  managementState: Managed

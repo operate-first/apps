@@ -1,0 +1,73 @@
+apiVersion: logging.openshift.io/v1
+kind: ClusterLogForwarder
+metadata:
+  name: instance
+  namespace: openshift-logging
+  labels:
+    app.kubernetes.io/component: logging
+    app.kubernetes.io/instance: logging-infra
+    app.kubernetes.io/name: logging
+    app.kubernetes.io/part-of: cluster-logging
+spec:
+  outputs:
+    - loki:
+        labelKeys:
+          - log_type
+          - level
+          - service
+          - kubernetes.namespace_name
+          - kubernetes.pod_name
+          - kubernetes.host
+          - kubernetes.labels
+      name: loki-app
+      secret:
+        name: lokistack-gateway-bearer-token
+      type: loki
+      url: >-
+        https://lokistack-openshift-operators-redhat.apps.jerry.ionos.emea.operate-first.cloud/api/logs/v1/application
+    - loki:
+        labelKeys:
+          - log_type
+          - level
+          - service
+          - kubernetes.namespace_name
+          - kubernetes.pod_name
+          - kubernetes.host
+          - kubernetes.labels
+      name: loki-infra
+      secret:
+        name: lokistack-gateway-bearer-token
+      type: loki
+      url: >-
+        https://lokistack-openshift-operators-redhat.apps.jerry.ionos.emea.operate-first.cloud/api/logs/v1/infrastructure
+    - loki:
+        labelKeys:
+          - log_type
+          - level
+          - service
+          - kubernetes.namespace_name
+          - kubernetes.pod_name
+          - kubernetes.host
+          - kubernetes.labels
+      name: loki-audit
+      secret:
+        name: lokistack-gateway-bearer-token
+      type: loki
+      url: >-
+        https://lokistack-openshift-operators-redhat.apps.jerry.ionos.emea.operate-first.cloud/api/logs/v1/audit
+  pipelines:
+    - inputRefs:
+        - application
+      name: send-app-logs
+      outputRefs:
+        - loki-app
+    - inputRefs:
+        - infrastructure
+      name: send-infra-logs
+      outputRefs:
+        - loki-infra
+    - inputRefs:
+        - audit
+      name: send-audit-logs
+      outputRefs:
+        - loki-audit
