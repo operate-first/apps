@@ -1,8 +1,0 @@
----
-apiVersion: v1
-kind: Namespace
-metadata:
-  annotations:
-    openshift.io/display-name: "OS-C Climate: JupyterHub"
-  name: odh-jupyterhub
-spec: {}

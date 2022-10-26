@@ -1,9 +1,0 @@
-apiVersion: user.openshift.io/v1
-kind: Group
-metadata:
-  name: vault-admins-osc
-users:
-  - redmikhail
-  - erikerlandson
-  - rynofinn
-  - MightyNerdEric

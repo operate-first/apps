@@ -1,9 +1,0 @@
-apiVersion: v1
-kind: Namespace
-metadata:
-    name: chi-rhug
-    annotations:
-        openshift.io/requester: chi-rhug
-        op1st/project-owner: chi-rhug
-        op1st/onboarding-issue: https://github.com/operate-first/support/issues/279
-        op1st/docs: "https://github.com/AICoE/elyra-aidevsecops-tutorial"

@@ -1,9 +1,0 @@
----
-apiVersion: v1
-kind: Namespace
-metadata:
-  annotations:
-    openshift.io/display-name: "Sigstore Project"
-    openshift.io/requester: sigstore
-  name: sigstore-deploy
-spec: {}

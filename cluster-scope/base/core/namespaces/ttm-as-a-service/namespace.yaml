@@ -1,8 +1,0 @@
-apiVersion: v1
-kind: Namespace
-metadata:
-    name: ttm-as-a-service
-    annotations:
-        openshift.io/display-name: Time to Merge Service
-        openshift.io/requester: ttm-as-a-service
-        op1st/project-owner: ttm-as-a-service

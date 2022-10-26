@@ -1,7 +1,0 @@
-apiVersion: kustomize.config.k8s.io/v1beta1
-kind: Kustomization
-
-resources:
-- ../../base/rbac.authorization.k8s.io/clusterrolebindings/klusterletaddonconfig-editor
-- ../../base/rbac.authorization.k8s.io/clusterroles/klusterletaddonconfig-editor
-- ../../base/user.openshift.io/groups/klusterletaddonconfig-editors

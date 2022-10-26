@@ -1,6 +1,0 @@
-apiVersion: v1
-kind: Namespace
-metadata:
-    name: prometheus-ai-project
-    annotations:
-        openshift.io/requester: prometheus-ai

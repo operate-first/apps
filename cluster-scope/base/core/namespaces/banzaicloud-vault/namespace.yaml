@@ -1,6 +1,0 @@
-apiVersion: v1
-kind: Namespace
-metadata:
-    name: banzaicloud-vault
-    annotations:
-        openshift.io/display-name: banzaicloud-vault

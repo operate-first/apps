@@ -1,7 +1,0 @@
-apiVersion: v1
-kind: Namespace
-metadata:
-    name: neu-cs6620
-    annotations:
-        openshift.io/requester: neu-students
-        openshift.io/display-name: "North Eastern Students: CS6620 Playground"

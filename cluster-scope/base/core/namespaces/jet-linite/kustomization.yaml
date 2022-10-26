@@ -1,9 +1,0 @@
-kind: Kustomization
-apiVersion: kustomize.config.k8s.io/v1beta1
-namespace: jet-linite
-resources:
-- namespace.yaml
-components:
-- ../../../../components/limitranges/default
-- ../../../../components/project-admin-rolebindings/jetsons
-- ../../../../components/resourcequotas/x-small

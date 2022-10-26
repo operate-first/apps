@@ -1,9 +1,0 @@
-apiVersion: user.openshift.io/v1
-kind: Group
-metadata:
-  name: pulp
-users:
-  - mikedep333
-  - fao89
-  - chambridge
-  - gerrod3

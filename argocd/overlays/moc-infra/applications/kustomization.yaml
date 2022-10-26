@@ -1,7 +1,0 @@
-apiVersion: kustomize.config.k8s.io/v1beta1
-kind: Kustomization
-resources:
-  # Note that we don't include `env` here because
-  # the Applications deployed from `app-of-apps` dir
-  # will auto deploy the applications in `env`
-  - app-of-apps

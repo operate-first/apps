@@ -1,1 +1,0 @@
-# OpenShift Data Foundation

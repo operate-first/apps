@@ -1,7 +1,0 @@
-apiVersion: v1
-kind: Namespace
-metadata:
-    name: pixel-secrets
-    annotations:
-        openshift.io/display-name: HashiCorp Vault instance to be an endpoint for ArgoCD Vault Plugin
-        openshift.io/requester: team-pixel

@@ -1,9 +1,0 @@
----
-apiVersion: v1
-kind: Namespace
-metadata:
-  annotations:
-    openshift.io/display-name: "Operate First: ODH Datacatalog"
-    openshift.io/requester: operate-first
-  name: opf-datacatalog
-spec: {}

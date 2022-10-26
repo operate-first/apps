@@ -1,8 +1,0 @@
----
-apiVersion: kustomize.config.k8s.io/v1beta1
-kind: Kustomization
-namespace: odh-trino
-resources:
-  - OSC_DataCommons_Dev
-  - OSC_DataCommons_Prod
-  - OSC_DataCommons_Iceberg_Dev

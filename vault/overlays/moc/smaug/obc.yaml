@@ -1,8 +1,0 @@
-apiVersion: objectbucket.io/v1alpha1
-kind: ObjectBucketClaim
-metadata:
-  name: opf-vault-snapshots
-spec:
-  bucketName: opf-vault-snapshots
-  objectBucketName: obc-vault-opf-vault-snapshots
-  storageClassName: openshift-storage.noobaa.io

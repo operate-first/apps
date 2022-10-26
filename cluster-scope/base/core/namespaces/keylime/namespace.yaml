@@ -1,9 +1,0 @@
----
-apiVersion: v1
-kind: Namespace
-metadata:
-  annotations:
-    openshift.io/display-name: Keylime
-    openshift.io/description: "Keylime registrar and verifier"
-    openshift.io/requester: octo-training-model  # Created in the context of the summit demo
-  name: keylime

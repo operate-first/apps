@@ -1,9 +1,0 @@
----
-apiVersion: v1
-kind: Namespace
-metadata:
-  annotations:
-    openshift.io/display-name: "Running small demo-envs and maybe a vault-instance for external secrets"
-    openshift.io/requester: team-pixel
-  name: pixel-vault
-spec: {}

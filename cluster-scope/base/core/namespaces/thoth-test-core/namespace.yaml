@@ -1,9 +1,0 @@
----
-apiVersion: v1
-kind: Namespace
-metadata:
-  annotations:
-    openshift.io/display-name: "Thoth-Station: Test Namespace"
-    openshift.io/requester: aicoe-thoth-devops
-  name: thoth-test-core
-spec: {}

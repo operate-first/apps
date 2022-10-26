@@ -1,7 +1,0 @@
-apiVersion: kustomize.config.k8s.io/v1beta1
-components:
-- ../../../../components/project-admin-rolebindings/kafka-admins
-kind: Kustomization
-namespace: markets-svc-dev
-resources:
-- namespace.yaml

@@ -1,8 +1,0 @@
-apiVersion: backstage.io/v1alpha1
-kind: Domain
-metadata:
-  name: platform
-  title: Platform
-  description: Platform domain contains all necessary components to enable infrastructure to users
-spec:
-  owner: group:operate-first

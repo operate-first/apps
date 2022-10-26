@@ -1,6 +1,0 @@
-apiVersion: v1
-kind: Namespace
-metadata:
-    name: copilot-ops
-    annotations:
-        openshift.io/requester: copilot-ops

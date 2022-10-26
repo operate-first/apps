@@ -1,7 +1,0 @@
-kind: Kustomization
-apiVersion: kustomize.config.k8s.io/v1beta1
-namespace: openshift-operators
-components:
-    - ../../../../components/project-admin-rolebindings/openshift-operators-admin
-    - ../../../../components/project-edit-rolebindings/ocp-pipelines-sre
-    - ../../../../components/project-view-rolebindings/openshift-operators-view

@@ -1,8 +1,0 @@
-apiVersion: external-secrets.io/v1beta1
-kind: ExternalSecret
-metadata:
-  name: dex-clients
-spec:
-  dataFrom:
-    - extract:
-        key: osc/osc-cl1/dex/dex-clients

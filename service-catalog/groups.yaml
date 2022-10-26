@@ -1,8 +1,0 @@
-apiVersion: backstage.io/v1alpha1
-kind: Location
-metadata:
-  name: groups
-  description: A collection of all operate-first groups
-spec:
-  targets:
-    - ./groups/operate-first.yaml

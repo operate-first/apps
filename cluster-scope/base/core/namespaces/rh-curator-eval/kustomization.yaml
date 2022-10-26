@@ -1,9 +1,0 @@
-kind: Kustomization
-apiVersion: kustomize.config.k8s.io/v1beta1
-namespace: rh-curator-eval
-resources:
-    - namespace.yaml
-components:
-    - ../../../../components/limitranges/default
-    - ../../../../components/project-admin-rolebindings/rh-curator-eval
-    - ../../../../components/resourcequotas/x-small

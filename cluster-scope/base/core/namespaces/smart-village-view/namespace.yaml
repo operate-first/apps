@@ -1,6 +1,0 @@
-apiVersion: v1
-kind: Namespace
-metadata:
-    name: smart-village-view
-    annotations:
-        openshift.io/requester: boston-university-redhat

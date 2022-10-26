@@ -1,9 +1,0 @@
----
-apiVersion: operators.coreos.com/v1alpha1
-kind: CatalogSource
-metadata:
-  name: rapidast-catalog
-  namespace: rapidast
-spec:
-  sourceType: grpc
-  image: quay.io/redhatproductsecurity/rapidast-operator-catalog:v0.0.1

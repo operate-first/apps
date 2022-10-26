@@ -1,9 +1,0 @@
-apiVersion: kustomize.config.k8s.io/v1beta1
-components:
-    - ../../../../components/project-admin-rolebindings/esi-project
-    - ../../../../components/resourcequotas/x-small
-    - ../../../../components/limitranges/default
-kind: Kustomization
-namespace: esi-operate-first-project
-resources:
-    - namespace.yaml

@@ -1,9 +1,0 @@
-apiVersion: user.openshift.io/v1
-kind: Group
-metadata:
-  name: eldritch-team13
-users:
-  - EldritchJS
-  - eldritchjs
-  - wtheisen
-  - wjs3

@@ -1,9 +1,0 @@
----
-apiVersion: v1
-kind: Namespace
-metadata:
-  annotations:
-    openshift.io/display-name: "Data processing of HDF and NetCDF files involving Solr and Cassandra"
-    openshift.io/requester: sdap-mslsp
-  name: sdap
-spec: {}

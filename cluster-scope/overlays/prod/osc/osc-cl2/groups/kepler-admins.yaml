@@ -1,9 +1,0 @@
-apiVersion: user.openshift.io/v1
-kind: Group
-metadata:
-  name: kepler-admins
-users:
-  - rootfs
-  - husky-parul
-  - caldeirav
-  - sallyom

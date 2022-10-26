@@ -1,9 +1,0 @@
-apiVersion: kustomize.config.k8s.io/v1beta1
-components:
-    - ../../../../components/limitranges/default
-    - ../../../../components/resourcequotas/large
-    - ../../../../components/project-admin-rolebindings/okd-team
-kind: Kustomization
-namespace: kvm-device-plugin
-resources:
-    - namespace.yaml

@@ -1,9 +1,0 @@
-apiVersion: kustomize.config.k8s.io/v1beta1
-kind: Kustomization
-commonAnnotations:
-  helm.sh/chart: prometheus-kafka-adapter-0.1.0
-resources:
-- deployment.yaml
-- external-secret.yaml
-- service.yaml
-- serviceaccount.yaml

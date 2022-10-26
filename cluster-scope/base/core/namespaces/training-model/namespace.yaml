@@ -1,6 +1,0 @@
-apiVersion: v1
-kind: Namespace
-metadata:
-    name: training-model
-    annotations:
-        openshift.io/requester: octo-training-model

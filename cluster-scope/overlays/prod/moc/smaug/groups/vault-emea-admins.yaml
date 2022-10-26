@@ -1,6 +1,0 @@
-apiVersion: user.openshift.io/v1
-kind: Group
-metadata:
-  name: vault-admins-emea
-users:
-  - rbo

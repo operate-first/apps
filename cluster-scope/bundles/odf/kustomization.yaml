@@ -1,7 +1,0 @@
-apiVersion: kustomize.config.k8s.io/v1beta1
-kind: Kustomization
-resources:
-- ../../base/core/namespaces/openshift-storage
-- ../../base/operators.coreos.com/operatorgroups/openshift-storage
-- ../../base/operators.coreos.com/subscriptions/odf-operator
-- ../../base/ocs.openshift.io/ocsinitializations/ocsinit

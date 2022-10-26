@@ -1,9 +1,0 @@
-kind: Kustomization
-apiVersion: kustomize.config.k8s.io/v1beta1
-namespace: api-designer
-resources:
-    - namespace.yaml
-    - resourcequota.yaml
-components:
-    - ../../../../components/project-admin-rolebindings/apicurio
-    - ../../../../components/limitranges/default

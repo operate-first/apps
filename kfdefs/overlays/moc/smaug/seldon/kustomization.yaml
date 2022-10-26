@@ -1,9 +1,0 @@
----
-apiVersion: kustomize.config.k8s.io/v1beta1
-kind: Kustomization
-namespace: opf-seldon
-resources:
-  - kfdef.yaml
-  - seldon-servicemonitor.yaml
-  - seldon-podmonitor.yaml
-  - alerts.yaml

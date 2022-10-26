@@ -1,7 +1,0 @@
-apiVersion: v1
-kind: Namespace
-metadata:
-    name: ddas-proj
-    annotations:
-        openshift.io/display-name: Disinformation Detection at Scale Project Namespace
-        openshift.io/requester: eldritch-team13

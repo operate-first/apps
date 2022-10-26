@@ -1,4 +1,0 @@
-operate-first/hitchhikers-guide:
-  - source: docs/content/notebooks/
-    dest: pages/
-    deleteOrphaned: true

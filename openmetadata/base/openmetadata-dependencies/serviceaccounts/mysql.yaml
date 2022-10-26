@@ -1,8 +1,0 @@
-apiVersion: v1
-kind: ServiceAccount
-metadata:
-  name: mysql
-  labels:
-    app.kubernetes.io/name: mysql
-secrets:
-  - name: mysql
