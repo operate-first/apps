@@ -99,3 +99,4 @@ resources:
 - ../../../base/user.openshift.io/groups/highlander
 - ../../../base/user.openshift.io/groups/ai4cloudops
 - ../../../base/user.openshift.io/groups/ray-bu
+- ../../../base/user.openshift.io/groups/wildfly
