@@ -3,6 +3,7 @@ kind: Group
 metadata:
   name: octo-et-platform
 users:
+  - RobotSail
   - sallyom
   - djach7
   - cooktheryan
