@@ -7,6 +7,3 @@ namespace: openshift-logging
 resources:
   - ../../../base
   - clusterlogforwarders
-
-generators:
-  - ./secret-generator.yaml
