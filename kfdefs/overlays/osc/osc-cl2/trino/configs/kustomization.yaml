@@ -13,6 +13,7 @@ configMapGenerator:
       - catalogs/kafka_osclimate.properties
       - catalogs/riskthinking.properties
       - catalogs/uwm_prometheus.properties
+      - catalogs/oef_openclimate.properties
   - name: trino-configfiles
     files:
       - config-coordinator.properties
