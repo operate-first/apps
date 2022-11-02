@@ -15,22 +15,21 @@ spec:
       labels:
         deployment: inception-proxy
     spec:
-      #restartPolicy: Never
       containers:
-      - name: inception-proxy
-        image: quay.io/rdaylf/inception-proxy
-        ports:
-        - containerPort: 8080
-          protocol: TCP
-        resources: {}
-        volumeMounts:
         - name: inception-proxy
-          mountPath: /etc/apache2/conf-enabled/inception-proxy.conf
-          subPath: inception-proxy.conf
+          image: quay.io/rdaylf/inception-proxy
+          ports:
+            - containerPort: 8080
+              protocol: TCP
+          resources: {}
+          volumeMounts:
+            - name: inception-proxy
+              mountPath: /etc/apache2/conf-enabled/inception-proxy.conf
+              subPath: inception-proxy.conf
       volumes:
-      - name: inception-proxy
-        secret:
-          secretName: inception-proxy
-          items:
-            - key: inception-proxy.conf
-              path: inception-proxy.conf
+        - name: inception-proxy
+          secret:
+            secretName: inception-proxy
+            items:
+              - key: inception-proxy.conf
+                path: inception-proxy.conf

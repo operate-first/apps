@@ -15,26 +15,25 @@ spec:
       labels:
         deployment: inception-app
     spec:
-      #restartPolicy: Never
       containers:
-      - name: inception
-        image: quay.io/rdaylf/inception
-        ports:
-        - containerPort: 8080
-          protocol: TCP
-        resources: {}
-        volumeMounts:
-        - name: inception-settings
-          mountPath: /export/settings.properties
-          subPath: settings.properties
-        - name: export
-          mountPath: /export
+        - name: inception
+          image: quay.io/rdaylf/inception
+          ports:
+            - containerPort: 8080
+              protocol: TCP
+          resources: {}
+          volumeMounts:
+            - name: inception-settings
+              mountPath: /export/settings.properties
+              subPath: settings.properties
+            - name: export
+              mountPath: /export
       volumes:
-      - name: inception-settings
-        secret:
-          secretName: inception-settings
-          items:
-            - key: settings.properties
-              path: settings.properties
-      - name: export
-        emptyDir: {}
+        - name: inception-settings
+          secret:
+            secretName: inception-settings
+            items:
+              - key: settings.properties
+                path: settings.properties
+        - name: export
+          emptyDir: {}
