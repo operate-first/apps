@@ -1,5 +1,7 @@
 # NFS Server and Provisioner deployment on OpenShift - aka RWX for all
 
+> This is copied and adapted from https://github.com/odh-highlander/nfs-server-and-provisioner/tree/7179cfaf02aa72b6291d6f084123313003141e69
+
 For ODH Highlander's shared library to be accessible by all Pods, it has to reside on an RWX volume. RWX stands for Read Write (X)Many, meaning that multiple pods can mount this volume simultaneously.
 
 If you don't have access to an RWX-capable storage class such as the one provided by CephFS trough Rook or OpenShift Data Foundation, you can follow this recipe to deploy an NFS server as well as a provisioner that will give you access to this type of volume.

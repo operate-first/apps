@@ -3,7 +3,7 @@ apiVersion: v1
 metadata:
   name: export-pv-claim
 spec:
-  storageClassName: gp2
+  storageClassName: ocs-external-storagecluster-ceph-rbd
   accessModes:
     - ReadWriteOnce
   resources:

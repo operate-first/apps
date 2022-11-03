@@ -50,6 +50,7 @@ resources:
 - ../../../../base/core/namespaces/kubeflow
 - ../../../../base/core/namespaces/manageiq
 - ../../../../base/core/namespaces/neu-cs6620
+- ../../../../base/core/namespaces/nfs-server-and-provisioner
 - ../../../../base/core/namespaces/octo-et-security-demo-next
 - ../../../../base/core/namespaces/od-demo
 - ../../../../base/core/namespaces/okd-centos

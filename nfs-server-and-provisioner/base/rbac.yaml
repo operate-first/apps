@@ -30,8 +30,8 @@ metadata:
 subjects:
   - kind: ServiceAccount
     name: nfs-provisioner
-     # replace with namespace where provisioner is deployed
-    namespace: nfs-provisioner
+    # replace with namespace where provisioner is deployed
+    # namespace: nfs-provisioner
 roleRef:
   kind: ClusterRole
   name: nfs-provisioner-runner
@@ -58,7 +58,7 @@ subjects:
   - kind: ServiceAccount
     name: nfs-provisioner
     # replace with namespace where provisioner is deployed
-    namespace: nfs-provisioner
+    # namespace: nfs-provisioner
 roleRef:
   kind: Role
   name: leader-locking-nfs-provisioner
