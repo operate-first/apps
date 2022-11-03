@@ -1,0 +1,13 @@
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: inception-proxy
+spec:
+  ports:
+    - name: proxy
+      port: 8080
+      protocol: TCP
+      targetPort: 8080
+  selector:
+    deployment: inception-proxy
