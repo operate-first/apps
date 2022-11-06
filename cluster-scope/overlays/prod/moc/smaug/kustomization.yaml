@@ -86,6 +86,7 @@ resources:
 - ../../../../base/core/namespaces/ray-bu
 - ../../../../base/core/namespaces/report-system
 - ../../../../base/core/namespaces/rh-curator-eval
+- ../../../../base/core/namespaces/robozome
 - ../../../../base/core/namespaces/service-catalog
 - ../../../../base/core/namespaces/smart-village-view
 - ../../../../base/core/namespaces/stackrox
