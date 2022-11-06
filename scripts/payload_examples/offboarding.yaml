@@ -1,0 +1,13 @@
+cluster:
+  - Smaug
+environment:
+  - moc
+team-name: my-team
+project-name: my-project
+project-owner: my-team-member
+project-description: My projects description
+project-docs-link: https://github.com/my-project
+users: member-one, member-two
+quota:
+  - small # either small, medium, large
+custom-quota: "" # not yet supported, will do nothing
