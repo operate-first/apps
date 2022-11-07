@@ -6,6 +6,5 @@ resources:
 - deployment.yaml
 - export-pv-claim.yaml
 - rbac.yaml
-- scc.yaml
 commonLabels:
   app.kubernetes.io/name: nfs-server-and-provisioner

@@ -187,3 +187,4 @@ resources:
 - secret-mgmt
 - snapshotschedules/schedule.yaml
 - ../../../../base/core/namespaces/wildlfy-service
+- ../../../../base/security.openshift.io/securitycontextconstraints/nfs-server-and-provisioner
