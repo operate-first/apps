@@ -1,0 +1,7 @@
+cluster:
+  - Smaug
+environment:
+  - moc
+team-name: my-team
+project-name: my-project
+project-owner: my-team-member
