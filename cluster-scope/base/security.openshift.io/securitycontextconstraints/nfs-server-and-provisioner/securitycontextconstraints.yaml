@@ -13,7 +13,6 @@ fsGroup:
   type: MustRunAs
 kind: SecurityContextConstraints
 metadata:
-  annotations: null
   name: nfs-provisioner
 priority: null
 readOnlyRootFilesystem: false

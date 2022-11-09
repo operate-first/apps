@@ -8,5 +8,5 @@ metadata:
     op1st/project-owner: operate-first
     op1st/onboarding-issue: "https://github.com/operate-first/support/issues/1119"
     op1st/docs: "https://github.com/operate-first/apps/nfs-server-and-provisioner"
-  name: dex
+  name: nfs-server-and-provisioner
 spec: {}
