@@ -4,3 +4,10 @@ namespace: robozome
 resources:
   - ../../../base
   - externalsecret.yaml
+images:
+- name: quay.io/operate-first/opf-toolbox
+  newName: quay.io/operate-first/opf-toolbox
+  newTag: v0.12.0
+- name: robozome
+  newName: quay.io/operate-first/robozome
+  newTag: v0.1.0
