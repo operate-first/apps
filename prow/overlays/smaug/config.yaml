@@ -335,7 +335,6 @@ tide:
         repos:
           sefkhet-abwy:
             required-contexts:
-              - aicoe-ci/pre-commit-check
               - aicoe-ci/build-check
       thoth-station:
         repos:
