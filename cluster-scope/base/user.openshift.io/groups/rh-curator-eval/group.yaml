@@ -2,5 +2,4 @@ apiVersion: user.openshift.io/v1
 kind: Group
 metadata:
     name: rh-curator-eval
-users:
-    - tzumainn
+users: []

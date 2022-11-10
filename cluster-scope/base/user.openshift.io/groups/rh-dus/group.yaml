@@ -2,8 +2,4 @@ apiVersion: user.openshift.io/v1
 kind: Group
 metadata:
     name: rh-dus
-users:
-    - koep
-    - joschro
-    - danielfroehlich
-    - DanielFroehlich
+users: []

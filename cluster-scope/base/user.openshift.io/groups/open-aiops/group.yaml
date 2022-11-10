@@ -2,9 +2,4 @@ apiVersion: user.openshift.io/v1
 kind: Group
 metadata:
   name: open-aiops
-users:
-  - davidohana
-  - ronensc
-  # FIXME: account missing
-  - drbwa
-  - eranra
+users: []

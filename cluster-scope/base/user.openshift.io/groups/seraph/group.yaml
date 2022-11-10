@@ -2,9 +2,4 @@ apiVersion: user.openshift.io/v1
 kind: Group
 metadata:
     name: seraph
-users:
-    - mimotej
-    - tumido
-    - schwesig
-    - samokepecky
-    - SamoKopecky
+users: []

@@ -2,8 +2,4 @@ apiVersion: user.openshift.io/v1
 kind: Group
 metadata:
   name: octo-otel-dev
-users:
-  - sallyom
-  - mubariskhan96
-  - screeley44
-  - husky-parul
+users: []

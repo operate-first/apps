@@ -2,9 +2,4 @@ apiVersion: user.openshift.io/v1
 kind: Group
 metadata:
   name: ai-services
-users:
-  - anishasthana
-  - gmfrasca
-  - rimolive
-  - jooho
-  - Jooho
+users: []

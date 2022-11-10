@@ -2,4 +2,4 @@ apiVersion: user.openshift.io/v1
 kind: Group
 metadata:
     name: stackrox-admin
-users: [traytorous]
+users: []

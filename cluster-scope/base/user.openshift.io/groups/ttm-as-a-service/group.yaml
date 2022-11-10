@@ -2,8 +2,4 @@ apiVersion: user.openshift.io/v1
 kind: Group
 metadata:
   name: ttm-as-a-service
-users:
-  - Gkrumbach07
-  - harshad16
-  - goern
-  - KPostOffice
+users: []

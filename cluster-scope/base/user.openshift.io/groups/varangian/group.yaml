@@ -2,8 +2,4 @@ apiVersion: user.openshift.io/v1
 kind: Group
 metadata:
   name: varangian
-users:
-  - kpostoffice
-  - KPostOffice
-  - saurabhpujar
-  - sahilsuneja1
+users: []

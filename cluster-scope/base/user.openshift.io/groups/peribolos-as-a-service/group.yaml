@@ -2,7 +2,4 @@ apiVersion: user.openshift.io/v1
 kind: Group
 metadata:
   name: peribolos-as-a-service
-users:
-  - tumido
-  - harshad16
-  - durandom
+users: []

@@ -2,10 +2,4 @@ apiVersion: user.openshift.io/v1
 kind: Group
 metadata:
     name: chris-project
-users:
-    - veniceofcode
-    - mairin
-    - ejsa13
-    - bretmullinix
-    - jennydaman
-    - rudolphpienaar
+users: []

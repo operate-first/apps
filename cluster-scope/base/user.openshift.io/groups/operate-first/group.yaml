@@ -2,23 +2,4 @@ apiVersion: user.openshift.io/v1
 kind: Group
 metadata:
   name: operate-first
-users:
-  - 4n4nd
-  - accorvin
-  - anishasthana
-  - codificat
-  - durandom
-  - goern
-  - harshad16
-  - hemajv
-  - humairak
-  - HumairAK
-  - ipolonsk
-  - martinpovolny
-  - maulikjs
-  - mimotej
-  - pacospace
-  - SamoKopecky
-  - schwesig
-  - tumido
-  - vpavlin
+users: []

@@ -2,15 +2,4 @@ apiVersion: user.openshift.io/v1
 kind: Group
 metadata:
   name: superset-user
-users:
-  - aakankshaduggal
-  - antter
-  - chauhankaranraj
-  - codificat
-  - gagansk
-  - leihchen
-  - oindrillac
-  - schwesig
-  - shreyanand
-  - Shreyanand
-  - skanthed
+users: []
