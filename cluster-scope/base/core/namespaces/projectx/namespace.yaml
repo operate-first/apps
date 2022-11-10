@@ -1,0 +1,10 @@
+apiVersion: v1
+kind: Namespace
+metadata:
+  annotations:
+    op1st/docs: https://teamx.com
+    op1st/onboarding-issue: https://github.com/operate-first/support/issues/1139
+    op1st/project-owner: milan
+    openshift.io/display-name: projectX
+    openshift.io/requester: milan
+  name: projectx
