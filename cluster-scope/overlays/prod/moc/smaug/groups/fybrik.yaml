@@ -1,0 +1,16 @@
+apiVersion: user.openshift.io/v1
+kind: Group
+metadata:
+  name: fybrik
+users:
+  - eletonia
+  - shlomitk1
+  - simanadler
+  - roee88
+  - revit13
+  - ronenkat
+  - roytman
+  - michaelfactor
+  - flora177
+  - tomersolomon1
+  - Mohammad-nassar10

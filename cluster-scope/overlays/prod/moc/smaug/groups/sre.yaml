@@ -1,0 +1,31 @@
+apiVersion: user.openshift.io/v1
+kind: Group
+metadata:
+  name: sre
+users:
+  - 4n4nd
+  - daniesh
+  - DanNiESh
+  - dystewart
+  - durandom
+  - fridex
+  - gregory-pereira
+  - Gregory-Pereira
+  - harshad16
+  - humairak
+  - HumairAK
+  - margarethaley
+  - mimotej
+  - schwesig
+  - tumido
+  - bryanmontalvan
+  - suppathak
+  - SamoKopecky
+  - mubariskhan96
+  - carlosgimeno
+  - carlosGimeno
+  - rbo
+  - tzumainn
+  - jacobarcarola
+  - ravitejamanepalli
+  - cooktheryan

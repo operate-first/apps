@@ -1,0 +1,26 @@
+apiVersion: user.openshift.io/v1
+kind: Group
+metadata:
+  name: argocd-readonly
+users:
+  - aleskandro
+  - bdlink
+  - binnes
+  - cgwalters
+  - cheesesashimi
+  - dmueller2001
+  - GeoEducator
+  - Gkrumbach07
+  - gkrumbach07
+  - JaimeMagiera
+  - larsks
+  - lmzuccarelli
+  - LorbusChris
+  - margarethaley
+  - naved001
+  - ravitejamanepalli
+  - rbo
+  - sandrobonazzola
+  - sherine-k
+  - travier
+  - vrutkovs

@@ -1,0 +1,15 @@
+apiVersion: user.openshift.io/v1
+kind: Group
+metadata:
+  name: thoth-devops
+users:
+  - goern
+  - harshad16
+  - codificat
+  - kpostoffice
+  - KPostOffice
+  - gregory-pereira
+  - Gregory-Pereira
+  - mayacostantini
+  - mayaCostantini
+  - VannTen

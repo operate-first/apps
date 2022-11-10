@@ -1,0 +1,11 @@
+apiVersion: user.openshift.io/v1
+kind: Group
+metadata:
+  name: osc-admins
+users:
+  - redmikhail
+  - erikerlandson
+  - humairak
+  - HumairAK
+  - rynofinn
+  - MightyNerdEric

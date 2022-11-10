@@ -1,0 +1,15 @@
+apiVersion: user.openshift.io/v1
+kind: Group
+metadata:
+    name: prometheus-ai
+users:
+    - moradnir
+    - ofir-shechtman
+    - Ofir-Shechtman
+    - guyelf
+    - benlugasi
+    - adiy10
+    - AdiY10
+    - raz-mon
+    - sirandreww
+    - teresafarah

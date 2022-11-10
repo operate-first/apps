@@ -1,0 +1,11 @@
+apiVersion: user.openshift.io/v1
+kind: Group
+metadata:
+  name: neu-students
+users:
+  - apoorvam
+  - thegreymanshow
+  - TheGreymanShow
+  - laxmisravyarudraraju
+  - slntpts
+  - sindhuvahinis

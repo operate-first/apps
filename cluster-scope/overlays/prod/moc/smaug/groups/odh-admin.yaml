@@ -1,0 +1,16 @@
+apiVersion: user.openshift.io/v1
+kind: Group
+metadata:
+  name: odh-admin
+users:
+  - accorvin
+  - anishasthana
+  - codificat
+  - crobby
+  - hemajv
+  - humairak
+  - HumairAK
+  - lavlas
+  - LaVLaS
+  - rimolive
+  - tumido

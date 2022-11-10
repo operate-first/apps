@@ -1,0 +1,15 @@
+apiVersion: user.openshift.io/v1
+kind: Group
+metadata:
+  name: okd-team
+users:
+  - aleskandro
+  - cgwalters
+  - cheesesashimi
+  - dmueller2001
+  - lmzuccarelli
+  - LorbusChris
+  - sandrobonazzola
+  - sherine-k
+  - travier
+  - vrutkovs

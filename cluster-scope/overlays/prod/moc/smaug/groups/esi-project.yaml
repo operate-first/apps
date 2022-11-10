@@ -1,0 +1,12 @@
+apiVersion: user.openshift.io/v1
+kind: Group
+metadata:
+  name: esi-project
+users:
+  - betaredex
+  - larsks
+  - ljmcgann
+  - naved001
+  - danniesh
+  - DanNiESh
+  - tzumainn

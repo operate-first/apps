@@ -1,0 +1,12 @@
+apiVersion: user.openshift.io/v1
+kind: Group
+metadata:
+  name: sostrades
+users:
+  - sostrades-dpeltre
+  - sostrades-cedricq-garrido
+  - sostrades-radouanbouadel
+  - sostrades-mariemorere
+  - sostrades-matthieu-meaux
+  - sostrades-pjbarjhoux
+  - sostrades-tchevalier
