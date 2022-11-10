@@ -1,0 +1,24 @@
+apiVersion: user.openshift.io/v1
+kind: Group
+metadata:
+    name: aiops-tools-workshop-attendees
+users:
+    - MichaelClifford
+    - drillachat
+    - ewall
+    - globeful
+    - hemajv
+    - hms20112015
+    - jlgooley
+    - jramirez857
+    - knobunc
+    - mariashev
+    - mofreeman
+    - oindrilla-chat
+    - pillai-ashwin
+    - schwesig
+    - skattoju
+    - tntmancer
+    - yashoza19
+    - yosef
+  
