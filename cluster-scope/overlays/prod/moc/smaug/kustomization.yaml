@@ -144,6 +144,7 @@ resources:
 - ../../../../base/rbac.authorization.k8s.io/clusterroles/node-labeler
 - ../../../../base/rbac.authorization.k8s.io/clusterroles/oauth-token-access-review
 - ../../../../base/rbac.authorization.k8s.io/clusterroles/tekton-dashboard
+- ../../../../base/security.openshift.io/securitycontextconstraints/apicurio-debug-scc
 - ../../../../base/storage.k8s.io/storageclasses/ocs-external-storagecluster-ceph-rbd
 - ../../../../base/user.openshift.io/groups/cluster-admins
 - ../../../../bundles/acme-operator
