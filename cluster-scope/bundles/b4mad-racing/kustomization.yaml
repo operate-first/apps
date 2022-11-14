@@ -5,3 +5,4 @@ resources:
   - ../../base/core/namespaces/b4mad-racing
   - ../../base/operators.coreos.com/operatorgroups/b4mad-racing
   - ../../base/operators.coreos.com/subscriptions/grafana-operator
+  - ../../base/operators.coreos.com/subscriptions/crunchy-postgres
