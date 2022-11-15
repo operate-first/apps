@@ -8,6 +8,7 @@ spec:
     kind: SecretStore
   target:
     name: cookie
+  refreshInterval: "1h"
   dataFrom:
     - extract:
         key: moc/smaug/opf-ci-prow/cookie
