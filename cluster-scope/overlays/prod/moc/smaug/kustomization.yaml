@@ -50,6 +50,7 @@ resources:
 - ../../../../base/core/namespaces/kubeflow
 - ../../../../base/core/namespaces/manageiq
 - ../../../../base/core/namespaces/neu-cs6620
+- ../../../../base/core/namespaces/nfs-server-and-provisioner
 - ../../../../base/core/namespaces/octo-et-security-demo-next
 - ../../../../base/core/namespaces/od-demo
 - ../../../../base/core/namespaces/okd-centos
@@ -135,6 +136,7 @@ resources:
 - ../../../../base/rbac.authorization.k8s.io/clusterrolebindings/cluster-reader-k8s-annotations-exporter
 - ../../../../base/rbac.authorization.k8s.io/clusterrolebindings/jupyterhub-cluster
 - ../../../../base/rbac.authorization.k8s.io/clusterrolebindings/node-labeler
+- ../../../../base/rbac.authorization.k8s.io/clusterrolebindings/nfs-provisioner-runner
 - ../../../../base/rbac.authorization.k8s.io/clusterrolebindings/oauth-token-access-review-opf-observatorium
 - ../../../../base/rbac.authorization.k8s.io/clusterrolebindings/scc-privileged-opf-ci-pipelines-aicoe-ci
 - ../../../../base/rbac.authorization.k8s.io/clusterrolebindings/tekton-dashboard
@@ -142,10 +144,12 @@ resources:
 - ../../../../base/rbac.authorization.k8s.io/clusterroles/apirequest-count-read-cr
 - ../../../../base/rbac.authorization.k8s.io/clusterroles/monitors-create-aggregate-to-admin
 - ../../../../base/rbac.authorization.k8s.io/clusterroles/node-labeler
+- ../../../../base/rbac.authorization.k8s.io/clusterroles/nfs-provisioner-runner
 - ../../../../base/rbac.authorization.k8s.io/clusterroles/oauth-token-access-review
 - ../../../../base/rbac.authorization.k8s.io/clusterroles/tekton-dashboard
 - ../../../../base/security.openshift.io/securitycontextconstraints/apicurio-debug-scc
 - ../../../../base/storage.k8s.io/storageclasses/ocs-external-storagecluster-ceph-rbd
+- ../../../../base/storage.k8s.io/storageclasses/nfs-provisioner
 - ../../../../base/user.openshift.io/groups/cluster-admins
 - ../../../../bundles/acme-operator
 - ../../../../bundles/b4mad-racing
@@ -186,3 +190,4 @@ resources:
 - secret-mgmt
 - snapshotschedules/schedule.yaml
 - ../../../../base/core/namespaces/wildlfy-service
+- ../../../../base/security.openshift.io/securitycontextconstraints/nfs-server-and-provisioner
