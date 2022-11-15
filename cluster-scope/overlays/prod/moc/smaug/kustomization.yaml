@@ -1,193 +1,194 @@
 apiVersion: kustomize.config.k8s.io/v1beta1
 kind: Kustomization
 patchesStrategicMerge:
-- backingstores/noobaa-default-backing-store_patch.yaml
-- groups/cluster-admins.yaml
-- imageregistry.operator.openshift.io/configs/cluster/config_patch.yaml
-- storageclasses/ocs-external-storagecluster-ceph-rbd.yaml
-- subscriptions/cluster-logging-operator_patch.yaml
-- subscriptions/nfd_patch.yaml
-- subscriptions/vpa_patch.yaml
-- subscriptions/kubevirt-hyperconverged_patch.yaml
+  - backingstores/noobaa-default-backing-store_patch.yaml
+  - groups/cluster-admins.yaml
+  - imageregistry.operator.openshift.io/configs/cluster/config_patch.yaml
+  - storageclasses/ocs-external-storagecluster-ceph-rbd.yaml
+  - subscriptions/cluster-logging-operator_patch.yaml
+  - subscriptions/nfd_patch.yaml
+  - subscriptions/vpa_patch.yaml
+  - subscriptions/kubevirt-hyperconverged_patch.yaml
 resources:
-- ../../../../base/apiextensions.k8s.io/customresourcedefinitions/curatorconfig.curatoroperator.io
-- ../../../../base/apiextensions.k8s.io/customresourcedefinitions/extensions.dashboard.tekton.dev
-- ../../../../base/apiextensions.k8s.io/customresourcedefinitions/fetchdata.curator.operatefirst.io
-- ../../../../base/apiextensions.k8s.io/customresourcedefinitions/prowjobs.prow.k8s.io
-- ../../../../base/apiextensions.k8s.io/customresourcedefinitions/reportapis.curator.operatefirst.io
-- ../../../../base/apiextensions.k8s.io/customresourcedefinitions/reports.batch.curator.openshift.io
-- ../../../../base/apiextensions.k8s.io/customresourcedefinitions/reports.curator.operatefirst.io
-- ../../../../base/core/namespaces/ai4cloudops
-- ../../../../base/core/namespaces/ai-services-thanos-grpc
-- ../../../../base/core/namespaces/aicoe-meteor
-- ../../../../base/core/namespaces/aiops-tools-workshop
-- ../../../../base/core/namespaces/api-designer
-- ../../../../base/core/namespaces/apicurio-apicurio-registry
-- ../../../../base/core/namespaces/b4mad-minecraft
-- ../../../../base/core/namespaces/boatrockers
-- ../../../../base/core/namespaces/bu-cs-book-dev
-- ../../../../base/core/namespaces/bu-scsaol
-- ../../../../base/core/namespaces/chrisproject
-- ../../../../base/core/namespaces/chrisproject-dev
-- ../../../../base/core/namespaces/chrisproject-staging
-- ../../../../base/core/namespaces/copilot-ops
-- ../../../../base/core/namespaces/curator-operator
-- ../../../../base/core/namespaces/ddas-proj
-- ../../../../base/core/namespaces/debezium-ui
-- ../../../../base/core/namespaces/demolab
-- ../../../../base/core/namespaces/demolab-dev
-- ../../../../base/core/namespaces/demolab-staging
-- ../../../../base/core/namespaces/dex
-- ../../../../base/core/namespaces/ds-github-labeler
-- ../../../../base/core/namespaces/ds-ml-workflows-ws
-- ../../../../base/core/namespaces/fedora
-- ../../../../base/core/namespaces/gingersnap
-- ../../../../base/core/namespaces/highlander
-- ../../../../base/core/namespaces/ipfs
-- ../../../../base/core/namespaces/jet-linite
-- ../../../../base/core/namespaces/kaoto
-- ../../../../base/core/namespaces/koku-metrics-operator
-- ../../../../base/core/namespaces/kubeflow
-- ../../../../base/core/namespaces/manageiq
-- ../../../../base/core/namespaces/neu-cs6620
-- ../../../../base/core/namespaces/nfs-server-and-provisioner
-- ../../../../base/core/namespaces/octo-et-security-demo-next
-- ../../../../base/core/namespaces/od-demo
-- ../../../../base/core/namespaces/okd-centos
-- ../../../../base/core/namespaces/okd-team
-- ../../../../base/core/namespaces/okd-wg
-- ../../../../base/core/namespaces/openshift-cnv
-- ../../../../base/core/namespaces/openshift-logging
-- ../../../../base/core/namespaces/openshift-operators
-- ../../../../base/core/namespaces/openshift-tuning
-- ../../../../base/core/namespaces/openshift-vertical-pod-autoscaler
-- ../../../../base/core/namespaces/opf-alertreceiver
-- ../../../../base/core/namespaces/opf-argo
-- ../../../../base/core/namespaces/opf-ci-pipelines
-- ../../../../base/core/namespaces/opf-ci-prow
-- ../../../../base/core/namespaces/opf-ci-test-pods
-- ../../../../base/core/namespaces/opf-dashboard
-- ../../../../base/core/namespaces/opf-google-spark-operator
-- ../../../../base/core/namespaces/opf-jupyterhub
-- ../../../../base/core/namespaces/opf-jupyterhub-stage
-- ../../../../base/core/namespaces/opf-kafka
-- ../../../../base/core/namespaces/opf-observatorium
-- ../../../../base/core/namespaces/opf-pulp
-- ../../../../base/core/namespaces/opf-seldon
-- ../../../../base/core/namespaces/opf-slack-first
-- ../../../../base/core/namespaces/opf-superset
-- ../../../../base/core/namespaces/opf-triage-party
-- ../../../../base/core/namespaces/opf-trino
-- ../../../../base/core/namespaces/opf-trino-stage
-- ../../../../base/core/namespaces/otel-dev
-- ../../../../base/core/namespaces/peribolos-as-a-service
-- ../../../../base/core/namespaces/prometheus-ai-project
-- ../../../../base/core/namespaces/prometheus-anomaly-detector
-- ../../../../base/core/namespaces/rapidast
-- ../../../../base/core/namespaces/ray-bu
-- ../../../../base/core/namespaces/report-system
-- ../../../../base/core/namespaces/rh-curator-eval
-- ../../../../base/core/namespaces/robozome
-- ../../../../base/core/namespaces/service-catalog
-- ../../../../base/core/namespaces/smart-village-view
-- ../../../../base/core/namespaces/stackrox
-- ../../../../base/core/namespaces/tekton-pipelines
-- ../../../../base/core/namespaces/thoth-amun-api-prod
-- ../../../../base/core/namespaces/thoth-amun-inspection-prod
-- ../../../../base/core/namespaces/thoth-backend-prod
-- ../../../../base/core/namespaces/thoth-bots-prod
-- ../../../../base/core/namespaces/thoth-deployment-examples
-- ../../../../base/core/namespaces/thoth-frontend-prod
-- ../../../../base/core/namespaces/thoth-graph-prod
-- ../../../../base/core/namespaces/thoth-infra-prod
-- ../../../../base/core/namespaces/thoth-middletier-prod
-- ../../../../base/core/namespaces/training-model
-- ../../../../base/core/namespaces/tremor-demo
-- ../../../../base/core/namespaces/ttm-as-a-service
-- ../../../../base/core/namespaces/ushift-dev
-- ../../../../base/core/namespaces/varangian-test
-- ../../../../base/imageregistry.operator.openshift.io/configs/cluster
-- ../../../../base/noobaa.io/backingstores
-- ../../../../base/operators.coreos.com/catalogsources/operatorhubio-catalog/
-- ../../../../base/operators.coreos.com/catalogsources/rapidast
-- ../../../../base/operators.coreos.com/operatorgroups/cluster-logging
-- ../../../../base/operators.coreos.com/operatorgroups/koku-metrics-operator
-- ../../../../base/operators.coreos.com/operatorgroups/openshift-cnv-rn5jf
-- ../../../../base/operators.coreos.com/operatorgroups/openshift-vertical-pod-autoscaler
-- ../../../../base/operators.coreos.com/operatorgroups/opf-monitoring
-- ../../../../base/operators.coreos.com/operatorgroups/opf-pulp
-- ../../../../base/operators.coreos.com/operatorgroups/rapidast
-- ../../../../base/operators.coreos.com/subscriptions/camel-k
-- ../../../../base/operators.coreos.com/subscriptions/cert-manager
-- ../../../../base/operators.coreos.com/subscriptions/cluster-logging
-- ../../../../base/operators.coreos.com/subscriptions/grafana-operator
-- ../../../../base/operators.coreos.com/subscriptions/koku-metrics-operator
-- ../../../../base/operators.coreos.com/subscriptions/kubevirt-hyperconverged
-- ../../../../base/operators.coreos.com/subscriptions/minio-operator
-- ../../../../base/operators.coreos.com/subscriptions/ovms-operator
-- ../../../../base/operators.coreos.com/subscriptions/pulp-operator
-- ../../../../base/operators.coreos.com/subscriptions/rapidast
-- ../../../../base/operators.coreos.com/subscriptions/snapscheduler
-- ../../../../base/operators.coreos.com/subscriptions/strimzi
-- ../../../../base/operators.coreos.com/subscriptions/vertical-pod-autoscaler
-- ../../../../base/rbac.authorization.k8s.io/clusterrolebindings/apirequest-count-reader
-- ../../../../base/rbac.authorization.k8s.io/clusterrolebindings/cluster-interceptor-opf-ci-pipelines
-- ../../../../base/rbac.authorization.k8s.io/clusterrolebindings/cluster-monitoring-view
-- ../../../../base/rbac.authorization.k8s.io/clusterrolebindings/cluster-reader-k8s-annotations-exporter
-- ../../../../base/rbac.authorization.k8s.io/clusterrolebindings/jupyterhub-cluster
-- ../../../../base/rbac.authorization.k8s.io/clusterrolebindings/node-labeler
-- ../../../../base/rbac.authorization.k8s.io/clusterrolebindings/nfs-provisioner-runner
-- ../../../../base/rbac.authorization.k8s.io/clusterrolebindings/oauth-token-access-review-opf-observatorium
-- ../../../../base/rbac.authorization.k8s.io/clusterrolebindings/scc-privileged-opf-ci-pipelines-aicoe-ci
-- ../../../../base/rbac.authorization.k8s.io/clusterrolebindings/tekton-dashboard
-- ../../../../base/rbac.authorization.k8s.io/clusterrolebindings/vault-server-binding
-- ../../../../base/rbac.authorization.k8s.io/clusterroles/apirequest-count-read-cr
-- ../../../../base/rbac.authorization.k8s.io/clusterroles/monitors-create-aggregate-to-admin
-- ../../../../base/rbac.authorization.k8s.io/clusterroles/node-labeler
-- ../../../../base/rbac.authorization.k8s.io/clusterroles/nfs-provisioner-runner
-- ../../../../base/rbac.authorization.k8s.io/clusterroles/oauth-token-access-review
-- ../../../../base/rbac.authorization.k8s.io/clusterroles/tekton-dashboard
-- ../../../../base/security.openshift.io/securitycontextconstraints/apicurio-debug-scc
-- ../../../../base/storage.k8s.io/storageclasses/ocs-external-storagecluster-ceph-rbd
-- ../../../../base/storage.k8s.io/storageclasses/nfs-provisioner
-- ../../../../base/user.openshift.io/groups/cluster-admins
-- ../../../../bundles/acme-operator
-- ../../../../bundles/b4mad-racing
-- ../../../../bundles/banzaicloud-vault
-- ../../../../bundles/curator
-- ../../../../bundles/external-secrets-operator
-- ../../../../bundles/fybrik
-- ../../../../bundles/jaeger-operator
-- ../../../../bundles/kfp-tekton
-- ../../../../bundles/kvm-device-plugin
-- ../../../../bundles/meteor-operator
-- ../../../../bundles/nfd
-- ../../../../bundles/openshift-pipelines
-- ../../../../bundles/opentelemetry-collector-operator
-- ../../../../bundles/opf-grafana-public
-- ../../../../bundles/opf-vault
-- ../../../../bundles/reloader
-- ../../../../bundles/seraph
-- ../../../../bundles/service-catalog
-- ../../../../bundles/tekton-chains
-- ../../../../bundles/volsync
-- ../common
-- apiserver/api_server_cert.yaml
-- backingstores/noobaa-pool-01.yaml
-- bucketclasses/noobaa-default-bucket-class.yaml
-- clusterversion.yaml
-- configmaps
-- configmaps/service-catalog-k8s-plugin.yaml
-- externalsecrets
-- groups
-- ingresscontrollers/default.yaml
-- nodenetworkconfigurationpolicies/vlan-210-nfs.yaml
-- nodenetworkconfigurationpolicies/vlan-211-nese.yaml
-- nodes/oct-03-00-compute.yaml
-- nodes/oct-03-01-compute.yaml
-- nodes/oct-03-03-compute.yaml
-- objectbucketclaims/openshift-image-registry-bucket.yaml
-- secret-mgmt
-- snapshotschedules/schedule.yaml
-- ../../../../base/core/namespaces/wildlfy-service
-- ../../../../base/security.openshift.io/securitycontextconstraints/nfs-server-and-provisioner
+  - ../../../../base/apiextensions.k8s.io/customresourcedefinitions/curatorconfig.curatoroperator.io
+  - ../../../../base/apiextensions.k8s.io/customresourcedefinitions/extensions.dashboard.tekton.dev
+  - ../../../../base/apiextensions.k8s.io/customresourcedefinitions/fetchdata.curator.operatefirst.io
+  - ../../../../base/apiextensions.k8s.io/customresourcedefinitions/prowjobs.prow.k8s.io
+  - ../../../../base/apiextensions.k8s.io/customresourcedefinitions/reportapis.curator.operatefirst.io
+  - ../../../../base/apiextensions.k8s.io/customresourcedefinitions/reports.batch.curator.openshift.io
+  - ../../../../base/apiextensions.k8s.io/customresourcedefinitions/reports.curator.operatefirst.io
+  - ../../../../base/core/namespaces/ai-services-thanos-grpc
+  - ../../../../base/core/namespaces/ai4cloudops
+  - ../../../../base/core/namespaces/aicoe-meteor
+  - ../../../../base/core/namespaces/aiops-tools-workshop
+  - ../../../../base/core/namespaces/apex
+  - ../../../../base/core/namespaces/api-designer
+  - ../../../../base/core/namespaces/apicurio-apicurio-registry
+  - ../../../../base/core/namespaces/b4mad-minecraft
+  - ../../../../base/core/namespaces/boatrockers
+  - ../../../../base/core/namespaces/bu-cs-book-dev
+  - ../../../../base/core/namespaces/bu-scsaol
+  - ../../../../base/core/namespaces/chrisproject
+  - ../../../../base/core/namespaces/chrisproject-dev
+  - ../../../../base/core/namespaces/chrisproject-staging
+  - ../../../../base/core/namespaces/copilot-ops
+  - ../../../../base/core/namespaces/curator-operator
+  - ../../../../base/core/namespaces/ddas-proj
+  - ../../../../base/core/namespaces/debezium-ui
+  - ../../../../base/core/namespaces/demolab
+  - ../../../../base/core/namespaces/demolab-dev
+  - ../../../../base/core/namespaces/demolab-staging
+  - ../../../../base/core/namespaces/dex
+  - ../../../../base/core/namespaces/ds-github-labeler
+  - ../../../../base/core/namespaces/ds-ml-workflows-ws
+  - ../../../../base/core/namespaces/fedora
+  - ../../../../base/core/namespaces/gingersnap
+  - ../../../../base/core/namespaces/highlander
+  - ../../../../base/core/namespaces/ipfs
+  - ../../../../base/core/namespaces/jet-linite
+  - ../../../../base/core/namespaces/kaoto
+  - ../../../../base/core/namespaces/koku-metrics-operator
+  - ../../../../base/core/namespaces/kubeflow
+  - ../../../../base/core/namespaces/manageiq
+  - ../../../../base/core/namespaces/neu-cs6620
+  - ../../../../base/core/namespaces/nfs-server-and-provisioner
+  - ../../../../base/core/namespaces/octo-et-security-demo-next
+  - ../../../../base/core/namespaces/od-demo
+  - ../../../../base/core/namespaces/okd-centos
+  - ../../../../base/core/namespaces/okd-team
+  - ../../../../base/core/namespaces/okd-wg
+  - ../../../../base/core/namespaces/openshift-cnv
+  - ../../../../base/core/namespaces/openshift-logging
+  - ../../../../base/core/namespaces/openshift-operators
+  - ../../../../base/core/namespaces/openshift-tuning
+  - ../../../../base/core/namespaces/openshift-vertical-pod-autoscaler
+  - ../../../../base/core/namespaces/opf-alertreceiver
+  - ../../../../base/core/namespaces/opf-argo
+  - ../../../../base/core/namespaces/opf-ci-pipelines
+  - ../../../../base/core/namespaces/opf-ci-prow
+  - ../../../../base/core/namespaces/opf-ci-test-pods
+  - ../../../../base/core/namespaces/opf-dashboard
+  - ../../../../base/core/namespaces/opf-google-spark-operator
+  - ../../../../base/core/namespaces/opf-jupyterhub
+  - ../../../../base/core/namespaces/opf-jupyterhub-stage
+  - ../../../../base/core/namespaces/opf-kafka
+  - ../../../../base/core/namespaces/opf-observatorium
+  - ../../../../base/core/namespaces/opf-pulp
+  - ../../../../base/core/namespaces/opf-seldon
+  - ../../../../base/core/namespaces/opf-slack-first
+  - ../../../../base/core/namespaces/opf-superset
+  - ../../../../base/core/namespaces/opf-triage-party
+  - ../../../../base/core/namespaces/opf-trino
+  - ../../../../base/core/namespaces/opf-trino-stage
+  - ../../../../base/core/namespaces/otel-dev
+  - ../../../../base/core/namespaces/peribolos-as-a-service
+  - ../../../../base/core/namespaces/prometheus-ai-project
+  - ../../../../base/core/namespaces/prometheus-anomaly-detector
+  - ../../../../base/core/namespaces/rapidast
+  - ../../../../base/core/namespaces/ray-bu
+  - ../../../../base/core/namespaces/report-system
+  - ../../../../base/core/namespaces/rh-curator-eval
+  - ../../../../base/core/namespaces/robozome
+  - ../../../../base/core/namespaces/service-catalog
+  - ../../../../base/core/namespaces/smart-village-view
+  - ../../../../base/core/namespaces/stackrox
+  - ../../../../base/core/namespaces/tekton-pipelines
+  - ../../../../base/core/namespaces/thoth-amun-api-prod
+  - ../../../../base/core/namespaces/thoth-amun-inspection-prod
+  - ../../../../base/core/namespaces/thoth-backend-prod
+  - ../../../../base/core/namespaces/thoth-bots-prod
+  - ../../../../base/core/namespaces/thoth-deployment-examples
+  - ../../../../base/core/namespaces/thoth-frontend-prod
+  - ../../../../base/core/namespaces/thoth-graph-prod
+  - ../../../../base/core/namespaces/thoth-infra-prod
+  - ../../../../base/core/namespaces/thoth-middletier-prod
+  - ../../../../base/core/namespaces/training-model
+  - ../../../../base/core/namespaces/tremor-demo
+  - ../../../../base/core/namespaces/ttm-as-a-service
+  - ../../../../base/core/namespaces/ushift-dev
+  - ../../../../base/core/namespaces/varangian-test
+  - ../../../../base/core/namespaces/wildlfy-service
+  - ../../../../base/imageregistry.operator.openshift.io/configs/cluster
+  - ../../../../base/noobaa.io/backingstores
+  - ../../../../base/operators.coreos.com/catalogsources/operatorhubio-catalog/
+  - ../../../../base/operators.coreos.com/catalogsources/rapidast
+  - ../../../../base/operators.coreos.com/operatorgroups/cluster-logging
+  - ../../../../base/operators.coreos.com/operatorgroups/koku-metrics-operator
+  - ../../../../base/operators.coreos.com/operatorgroups/openshift-cnv-rn5jf
+  - ../../../../base/operators.coreos.com/operatorgroups/openshift-vertical-pod-autoscaler
+  - ../../../../base/operators.coreos.com/operatorgroups/opf-monitoring
+  - ../../../../base/operators.coreos.com/operatorgroups/opf-pulp
+  - ../../../../base/operators.coreos.com/operatorgroups/rapidast
+  - ../../../../base/operators.coreos.com/subscriptions/camel-k
+  - ../../../../base/operators.coreos.com/subscriptions/cert-manager
+  - ../../../../base/operators.coreos.com/subscriptions/cluster-logging
+  - ../../../../base/operators.coreos.com/subscriptions/grafana-operator
+  - ../../../../base/operators.coreos.com/subscriptions/koku-metrics-operator
+  - ../../../../base/operators.coreos.com/subscriptions/kubevirt-hyperconverged
+  - ../../../../base/operators.coreos.com/subscriptions/minio-operator
+  - ../../../../base/operators.coreos.com/subscriptions/ovms-operator
+  - ../../../../base/operators.coreos.com/subscriptions/pulp-operator
+  - ../../../../base/operators.coreos.com/subscriptions/rapidast
+  - ../../../../base/operators.coreos.com/subscriptions/snapscheduler
+  - ../../../../base/operators.coreos.com/subscriptions/strimzi
+  - ../../../../base/operators.coreos.com/subscriptions/vertical-pod-autoscaler
+  - ../../../../base/rbac.authorization.k8s.io/clusterrolebindings/apirequest-count-reader
+  - ../../../../base/rbac.authorization.k8s.io/clusterrolebindings/cluster-interceptor-opf-ci-pipelines
+  - ../../../../base/rbac.authorization.k8s.io/clusterrolebindings/cluster-monitoring-view
+  - ../../../../base/rbac.authorization.k8s.io/clusterrolebindings/cluster-reader-k8s-annotations-exporter
+  - ../../../../base/rbac.authorization.k8s.io/clusterrolebindings/jupyterhub-cluster
+  - ../../../../base/rbac.authorization.k8s.io/clusterrolebindings/nfs-provisioner-runner
+  - ../../../../base/rbac.authorization.k8s.io/clusterrolebindings/node-labeler
+  - ../../../../base/rbac.authorization.k8s.io/clusterrolebindings/oauth-token-access-review-opf-observatorium
+  - ../../../../base/rbac.authorization.k8s.io/clusterrolebindings/scc-privileged-opf-ci-pipelines-aicoe-ci
+  - ../../../../base/rbac.authorization.k8s.io/clusterrolebindings/tekton-dashboard
+  - ../../../../base/rbac.authorization.k8s.io/clusterrolebindings/vault-server-binding
+  - ../../../../base/rbac.authorization.k8s.io/clusterroles/apirequest-count-read-cr
+  - ../../../../base/rbac.authorization.k8s.io/clusterroles/monitors-create-aggregate-to-admin
+  - ../../../../base/rbac.authorization.k8s.io/clusterroles/nfs-provisioner-runner
+  - ../../../../base/rbac.authorization.k8s.io/clusterroles/node-labeler
+  - ../../../../base/rbac.authorization.k8s.io/clusterroles/oauth-token-access-review
+  - ../../../../base/rbac.authorization.k8s.io/clusterroles/tekton-dashboard
+  - ../../../../base/security.openshift.io/securitycontextconstraints/apicurio-debug-scc
+  - ../../../../base/security.openshift.io/securitycontextconstraints/nfs-server-and-provisioner
+  - ../../../../base/storage.k8s.io/storageclasses/nfs-provisioner
+  - ../../../../base/storage.k8s.io/storageclasses/ocs-external-storagecluster-ceph-rbd
+  - ../../../../base/user.openshift.io/groups/cluster-admins
+  - ../../../../bundles/acme-operator
+  - ../../../../bundles/b4mad-racing
+  - ../../../../bundles/banzaicloud-vault
+  - ../../../../bundles/curator
+  - ../../../../bundles/external-secrets-operator
+  - ../../../../bundles/fybrik
+  - ../../../../bundles/jaeger-operator
+  - ../../../../bundles/kfp-tekton
+  - ../../../../bundles/kvm-device-plugin
+  - ../../../../bundles/meteor-operator
+  - ../../../../bundles/nfd
+  - ../../../../bundles/openshift-pipelines
+  - ../../../../bundles/opentelemetry-collector-operator
+  - ../../../../bundles/opf-grafana-public
+  - ../../../../bundles/opf-vault
+  - ../../../../bundles/reloader
+  - ../../../../bundles/seraph
+  - ../../../../bundles/service-catalog
+  - ../../../../bundles/tekton-chains
+  - ../../../../bundles/volsync
+  - ../common
+  - apiserver/api_server_cert.yaml
+  - backingstores/noobaa-pool-01.yaml
+  - bucketclasses/noobaa-default-bucket-class.yaml
+  - clusterversion.yaml
+  - configmaps
+  - configmaps/service-catalog-k8s-plugin.yaml
+  - externalsecrets
+  - groups
+  - ingresscontrollers/default.yaml
+  - nodenetworkconfigurationpolicies/vlan-210-nfs.yaml
+  - nodenetworkconfigurationpolicies/vlan-211-nese.yaml
+  - nodes/oct-03-00-compute.yaml
+  - nodes/oct-03-01-compute.yaml
+  - nodes/oct-03-03-compute.yaml
+  - objectbucketclaims/openshift-image-registry-bucket.yaml
+  - secret-mgmt
+  - snapshotschedules/schedule.yaml
