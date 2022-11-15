@@ -1,5 +1,5 @@
 ---
-apiVersion: pulp.pulpproject.org/v1beta1
+apiVersion: repo-manager.pulpproject.org/v1alpha1
 kind: Pulp
 metadata:
   name: pulp
