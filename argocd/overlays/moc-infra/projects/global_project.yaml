@@ -164,11 +164,11 @@ spec:
       kind: PackageManifest
     - group: policy
       kind: PodDisruptionBudget
-    - group: pulp.pulpproject.org
+    - group: repo-manager.pulpproject.org
       kind: Pulp
-    - group: pulp.pulpproject.org
+    - group: repo-manager.pulpproject.org
       kind: PulpBackup
-    - group: pulp.pulpproject.org
+    - group: repo-manager.pulpproject.org
       kind: PulpRestore
     - group: quota.openshift.io
       kind: AppliedClusterResourceQuota
