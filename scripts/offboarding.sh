@@ -10,7 +10,6 @@ REPO=${WORKING_DIR}/apps
 
 # Unpack Config file, we will need these environment variables for the remainder of the steps
 PROJECT=$(yq e .project-name ${CONFIG})
-ENVIRONMENT=moc
 CLUSTER=$(yq e '.cluster[0] | downcase' ${CONFIG})
 NAMESPACE=$(yq e '.project-name | downcase' ${CONFIG})
 GROUP=$(yq e '.team-name' ${CONFIG})
@@ -33,7 +32,7 @@ cd ${REPO}/cluster-scope/overlays/prod/common
 kustomize edit remove resource ../../../base/user.openshift.io/groups/${GROUP}
 yq -i '.resources |= sort' kustomization.yaml
 
-cd ${REPO}/cluster-scope/overlays/prod/${ENVIRONMENT}/${CLUSTER}
+cd ${REPO}/cluster-scope/overlays/prod/${CLUSTER}
 kustomize edit remove resource ../../../../base/core/namespaces/${NAMESPACE}
 yq -i '.resources |= sort' kustomization.yaml
 

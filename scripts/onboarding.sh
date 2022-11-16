@@ -11,7 +11,6 @@ REPO=${WORKING_DIR}/apps
 
 # Unpack Config file, we will need these environment variables for the remainder of the steps
 PROJECT=$(yq e .project-name ${CONFIG})
-ENVIRONMENT=$(yq e '.environment[0] | downcase' ${CONFIG})
 CLUSTER=$(yq e '.cluster[0] | downcase' ${CONFIG})
 NAMESPACE=$(yq e '.project-name | downcase' ${CONFIG})
 REQUESTER=$(yq e '.project-owner' ${CONFIG})
@@ -70,7 +69,7 @@ kustomize edit add resource ../../../../components/project-admin-rolebindings/${
 # We now need to include these resources onto the target cluster for which this team needs to be onboarded.
 # We do this by adding these newly created resources to the target cluster's overlay directory.
 
-cd ${REPO}/cluster-scope/overlays/prod/${ENVIRONMENT}/${CLUSTER}
+cd ${REPO}/cluster-scope/overlays/prod/${CLUSTER}
 kustomize edit add resource ../../../../base/core/namespaces/${NAMESPACE}
 
 # We keep the resources list in kustomization.yaml sorted for human readability
