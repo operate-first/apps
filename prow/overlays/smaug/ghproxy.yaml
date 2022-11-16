@@ -64,8 +64,8 @@ spec:
               memory: "128Mi"
               cpu: "10m"
             limits:
-              memory: "256Mi"
-              cpu: "50m"
+              memory: "128Mi"
+              cpu: "10m"
       volumes:
         - name: cache
           persistentVolumeClaim:
