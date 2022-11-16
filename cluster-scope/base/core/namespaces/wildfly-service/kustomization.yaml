@@ -3,7 +3,7 @@ kind: Kustomization
 resources:
 - namespace.yaml
 - ../../../../components/project-admin-rolebindings/wildfly
-namespace: wildlfy-service
+namespace: wildfly-service
 components:
 - ../../../../components/limitranges/default
 - ../../../../components/resourcequotas/small
