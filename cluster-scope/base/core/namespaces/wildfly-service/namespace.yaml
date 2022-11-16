@@ -7,4 +7,4 @@ metadata:
     op1st/project-owner: wildfly
     openshift.io/display-name: wildfly-service
     openshift.io/requester: wildfly
-  name: wildlfy-service
+  name: wildfly-service
