@@ -38,7 +38,7 @@ spec:
       name: notebook-images
     - kustomizeConfig:
         overlays:
-          - authentication
+          - odhdashboardconfig
         repoRef:
           name: manifests
           path: odh-dashboard
