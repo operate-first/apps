@@ -28,6 +28,7 @@ resources:
   - ../../../../base/core/namespaces/boatrockers
   - ../../../../base/core/namespaces/bu-cs-book-dev
   - ../../../../base/core/namespaces/bu-scsaol
+  - ../../../../base/core/namespaces/caas
   - ../../../../base/core/namespaces/chrisproject
   - ../../../../base/core/namespaces/chrisproject-dev
   - ../../../../base/core/namespaces/chrisproject-staging

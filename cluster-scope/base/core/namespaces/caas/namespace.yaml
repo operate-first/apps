@@ -1,0 +1,10 @@
+apiVersion: v1
+kind: Namespace
+metadata:
+  annotations:
+    op1st/docs: https://github.com/stolostron/cluster-templates-operator
+    op1st/onboarding-issue: https://github.com/operate-first/support/issues/1146
+    op1st/project-owner: jelkosz
+    openshift.io/display-name: caas
+    openshift.io/requester: jelkosz
+  name: caas
