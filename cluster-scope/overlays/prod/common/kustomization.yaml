@@ -23,6 +23,7 @@ resources:
   - ../../../base/user.openshift.io/groups/ccx
   - ../../../base/user.openshift.io/groups/chi-rhug
   - ../../../base/user.openshift.io/groups/chris-project
+  - ../../../base/user.openshift.io/groups/cluster-as-a-service
   - ../../../base/user.openshift.io/groups/cnv-testing
   - ../../../base/user.openshift.io/groups/codait-advo
   - ../../../base/user.openshift.io/groups/copilot-ops
