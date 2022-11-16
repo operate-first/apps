@@ -157,6 +157,11 @@ triggers:
   - operate-first/apps
   trusted_apps:
   - robozome-op1st
+- repos:
+  - operate-first
+  trusted_apps:
+  - renovate
+  - dependabot
 
 repo_milestone:
   "":
