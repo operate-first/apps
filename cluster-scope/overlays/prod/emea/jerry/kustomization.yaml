@@ -9,7 +9,7 @@ resources:
 - configmaps/service-catalog-k8s-plugin.yaml
 - ingresscontrollers
 - secret-mgmt
-- ../../../../base/core/persistentvolumeclaims/image-registry-storage
-- ../../../../base/imageregistry.operator.openshift.io/configs/cluster
+- persistentvolumeclaims/image-registry-storage
+- imageregistry.operator.openshift.io/configs/cluster
 patchesStrategicMerge:
 - groups/cluster-admins.yaml
