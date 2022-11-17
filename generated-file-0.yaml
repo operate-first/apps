@@ -1,0 +1,12 @@
+
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: aws
+  namespace: aws-stage
+data:
+  credentials: |
+    [tumido]
+    aws_access_key_id = AKIAIHPEVJDYIYKFGJAA
+    aws_secret_access_key = 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
+    
