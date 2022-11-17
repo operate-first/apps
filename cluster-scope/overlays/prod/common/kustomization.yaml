@@ -34,6 +34,7 @@ resources:
   - ../../../base/user.openshift.io/groups/drvbw
   - ../../../base/user.openshift.io/groups/eldritch-team13
   - ../../../base/user.openshift.io/groups/emea-sa
+  - ../../../base/user.openshift.io/groups/emporous-devs
   - ../../../base/user.openshift.io/groups/enterprise-neurosystem
   - ../../../base/user.openshift.io/groups/esi-project
   - ../../../base/user.openshift.io/groups/fde
