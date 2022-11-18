@@ -30,5 +30,6 @@ volumes:
 - configMap
 - downwardAPI
 - emptyDir
+- hostPath
 - persistentVolumeClaim
 - secret
