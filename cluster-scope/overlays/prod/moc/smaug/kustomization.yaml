@@ -124,6 +124,7 @@ resources:
   - ../../../../base/operators.coreos.com/subscriptions/camel-k
   - ../../../../base/operators.coreos.com/subscriptions/cert-manager
   - ../../../../base/operators.coreos.com/subscriptions/cluster-logging
+  - ../../../../base/operators.coreos.com/subscriptions/crunchy-postgres
   - ../../../../base/operators.coreos.com/subscriptions/grafana-operator
   - ../../../../base/operators.coreos.com/subscriptions/koku-metrics-operator
   - ../../../../base/operators.coreos.com/subscriptions/kubevirt-hyperconverged
@@ -173,7 +174,6 @@ resources:
   - ../../../../bundles/opf-vault
   - ../../../../bundles/reloader
   - ../../../../bundles/seraph
-  - ../../../../bundles/service-catalog
   - ../../../../bundles/tekton-chains
   - ../../../../bundles/volsync
   - ../common
