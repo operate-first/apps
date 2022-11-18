@@ -114,6 +114,7 @@ resources:
   - ../../../../base/noobaa.io/backingstores
   - ../../../../base/operators.coreos.com/catalogsources/operatorhubio-catalog/
   - ../../../../base/operators.coreos.com/catalogsources/rapidast
+  - ../../../../base/operators.coreos.com/operatorgroups/apex
   - ../../../../base/operators.coreos.com/operatorgroups/cluster-logging
   - ../../../../base/operators.coreos.com/operatorgroups/koku-metrics-operator
   - ../../../../base/operators.coreos.com/operatorgroups/openshift-cnv-rn5jf
@@ -121,6 +122,7 @@ resources:
   - ../../../../base/operators.coreos.com/operatorgroups/opf-monitoring
   - ../../../../base/operators.coreos.com/operatorgroups/opf-pulp
   - ../../../../base/operators.coreos.com/operatorgroups/rapidast
+  - ../../../../base/operators.coreos.com/subscriptions/apex-rhsso-operator
   - ../../../../base/operators.coreos.com/subscriptions/camel-k
   - ../../../../base/operators.coreos.com/subscriptions/cert-manager
   - ../../../../base/operators.coreos.com/subscriptions/cluster-logging
