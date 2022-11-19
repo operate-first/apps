@@ -10,7 +10,7 @@ spec:
   source:
     path: manifests
     repoURL: https://github.com/b4mad/minecraft.git
-    targetRevision: main
+    targetRevision: master
   syncPolicy:
     syncOptions:
       - Validate=false
