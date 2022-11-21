@@ -1,13 +1,12 @@
 ---
 apiVersion: rbac.authorization.k8s.io/v1
-kind: RoleBinding
+kind: ClusterRoleBinding
 metadata:
-  name: namespace-admin-ray
+  name: kuberay-operator
 roleRef:
   apiGroup: rbac.authorization.k8s.io
   kind: ClusterRole
-  name: admin
+  name: kuberay-operator
 subjects:
-  - apiGroup: rbac.authorization.k8s.io
-    kind: Group
-    name: ray
+- kind: ServiceAccount
+  name: kuberay-operator
