@@ -10,3 +10,12 @@ spec:
   instance_name: pulp
   admin_password_secret: pulp-admin-password
   postgres_configuration_secret: pulp-postgres-configuration
+  affinity:
+    nodeAffinity:
+      requiredDuringSchedulingIgnoredDuringExecution:
+        nodeSelectorTerms:
+        - matchExpressions:
+          - key: kubernetes.io/hostname
+            operator: In
+            values:
+            - oct-03-31-compute
