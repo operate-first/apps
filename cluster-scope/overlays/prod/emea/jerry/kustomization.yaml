@@ -4,6 +4,7 @@ resources:
 - ../../../../base/operators.coreos.com/subscriptions/cert-manager
 - ../../../../base/user.openshift.io/groups/cluster-admins
 - ../../../../bundles/external-secrets-operator
+- ../../../../bundles/openshift-pipelines
 - ../common
 - apiserver
 - configmaps/service-catalog-k8s-plugin.yaml
