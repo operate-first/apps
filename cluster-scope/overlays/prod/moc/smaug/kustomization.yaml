@@ -26,6 +26,7 @@ resources:
   - ../../../../base/core/namespaces/apicurio-apicurio-registry
   - ../../../../base/core/namespaces/b4mad-minecraft
   - ../../../../base/core/namespaces/boatrockers
+  - ../../../../base/core/namespaces/bragi
   - ../../../../base/core/namespaces/bu-cs-book-dev
   - ../../../../base/core/namespaces/bu-scsaol
   - ../../../../base/core/namespaces/caas
