@@ -1,0 +1,10 @@
+apiVersion: v1
+kind: Namespace
+metadata:
+  annotations:
+    op1st/docs: https://operate-first.cloud/bragi/
+    op1st/onboarding-issue: https://github.com/operate-first/support/issues/1151
+    op1st/project-owner: goern
+    openshift.io/display-name: bragi
+    openshift.io/requester: goern
+  name: bragi
