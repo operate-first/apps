@@ -11,7 +11,7 @@ spec:
   failedBuildsHistoryLimit: 2
   source:
     git:
-      ref: master
+      ref: main
       uri: https://github.com/cgwalters/kvm-device-plugin
     type: Git
     dockerfile: |
