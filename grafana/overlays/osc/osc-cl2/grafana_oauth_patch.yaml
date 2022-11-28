@@ -11,5 +11,4 @@ spec:
       auth_url: https://dex-dex.apps.odh-cl2.apps.os-climate.org/auth
       token_url: https://dex-dex.apps.odh-cl2.apps.os-climate.org/token
       role_attribute_path: >-
-        contains(groups[*], 'sostrades') && 'Admin' ||
         contains(groups[*], 'sostrades') && 'Editor' ||
