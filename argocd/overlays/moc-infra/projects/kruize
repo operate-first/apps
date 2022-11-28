@@ -1,0 +1,27 @@
+apiVersion: argoproj.io/v1alpha1
+kind: AppProject
+metadata:
+  name: kruize
+  labels:
+    project-template: global
+spec:
+  destinations:
+    - namespace: 'openshift-tuning-*'
+      name: 'hpo'
+  sourceRepos:
+    - '*'
+  roles:
+    - name: project-admin
+      description: Read/Write access to this project only
+      policies:
+        - p, proj:kruize:project-admin, applications, get, kruize/*, allow
+        - p, proj:kruize:project-admin, applications, create, kruize/*, allow
+        - p, proj:kruize:project-admin, applications, update, kruize/*, allow
+        - p, proj:kruize:project-admin, applications, delete, kruize/*, allow
+        - p, proj:kruize:project-admin, applications, sync, kruize/*, allow
+        - p, proj:kruize:project-admin, applications, override,kruize/*, allow
+        - p, proj:kruize:project-admin, applications, action/*, kruize/*, allow
+      groups:
+        - kruize
+        - operate-first
+  
