@@ -7,4 +7,7 @@ metadata:
     op1st/project-owner: russellb
     openshift.io/display-name: apex
     openshift.io/requester: russellb
+    operator.tekton.dev/prune.resources: "taskrun, pipelinerun"
+    operator.tekton.dev/prune.strategy: keep-since
+    operator.tekton.dev/prune.keep-since: 180
   name: apex
