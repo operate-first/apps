@@ -15,8 +15,8 @@ spec:
     syncOptions:
     - Validate=false
     automated:
-      selfHeal: true
-      prune: true
+      selfHeal: false
+      prune: false
   ignoreDifferences:
     - group: apps.openshift.io
       kind: DeploymentConfig
