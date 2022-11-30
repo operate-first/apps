@@ -14,6 +14,11 @@ spec:
       name: cnbi-operator
     - kustomizeConfig:
         repoRef:
+          name: meteor
+          path: pipelines
+      name: cnbi-pipelines
+    - kustomizeConfig:
+        repoRef:
           name: manifests
           path: odh-common
       name: odh-common
