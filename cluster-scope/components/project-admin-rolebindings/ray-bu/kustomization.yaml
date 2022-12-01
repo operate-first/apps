@@ -1,14 +1,4 @@
-----
-apiVersion: kustomize.config.k8s.io/v1alpha1
-kind: Component
-
+apiVersion: kustomize.config.k8s.io/v1beta1
+kind: Kustomization
 resources:
-- role.yaml
-- role_binding.yaml
-- leader_election_role.yaml
-- leader_election_role_binding.yaml
-- service_account.yaml
-
-commonLabels:
-  app.kubernetes.io/name: kuberay
-  app.kubernetes.io/component: kuberay-operator
+- rbac.yaml
