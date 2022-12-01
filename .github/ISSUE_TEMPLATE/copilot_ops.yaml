@@ -1,0 +1,14 @@
+name: Kubernetes Resource Generation
+description: Request some Kubernetes resources to be automatically generated for you.
+title: "[Resource Request]: "
+body:
+  - type: input
+    id: botInput
+    validations:
+      required: true
+    attributes:
+      label: Resource Prompt
+      description: |
+        Describe what you would like to be generated. An AI will generate resources
+        based on this input.
+      placeholder: A 50Gi PVC named 'mp4 files'

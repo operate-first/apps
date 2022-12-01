@@ -14,6 +14,7 @@ resources:
   - ../../../../base/core/namespaces/openshift-nmstate
   - ../../../../base/core/namespaces/opf-alertreceiver
   - ../../../../base/core/namespaces/vault
+  - ../../../../base/core/serviceaccounts/service-catalog-prometheus-plugin
   - ../../../../base/nmstate.io/nmstates/nmstate
   - ../../../../base/operator.openshift.io/ingresscontrollers/default
   - ../../../../base/operators.coreos.com/operatorgroups/openshift-nmstate
@@ -30,6 +31,7 @@ resources:
   - ../../../../base/rbac.authorization.k8s.io/clusterrolebindings/open-cluster-management:managedclusterset:admin:octo-ushift-dev
   - ../../../../base/rbac.authorization.k8s.io/clusterrolebindings/open-cluster-management:managedclusterset:admin:osc
   - ../../../../base/rbac.authorization.k8s.io/clusterrolebindings/service-catalog-k8s-plugin-acm
+  - ../../../../base/rbac.authorization.k8s.io/clusterrolebindings/service-catalog-prometheus-plugin
   - ../../../../base/rbac.authorization.k8s.io/clusterrolebindings/vault
   - ../../../../base/rbac.authorization.k8s.io/clusterroles/apirequest-count-read-cr
   - ../../../../base/rbac.authorization.k8s.io/clusterroles/service-catalog-k8s-plugin-acm

@@ -23,6 +23,7 @@ resources:
   - prod-aicoe-ci.yaml
   - pulp.yaml
   - reloader.yaml
+  - robozome.yaml
   - service-catalog.yaml
   - slack-first.yaml
   - tekton-chains.yaml

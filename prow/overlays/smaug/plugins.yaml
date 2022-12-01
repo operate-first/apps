@@ -152,6 +152,17 @@ approve:
     ignore_review_state: false
     lgtm_acts_as_approve: false
 
+triggers:
+- repos:
+  - operate-first/apps
+  trusted_apps:
+  - robozome-op1st
+- repos:
+  - operate-first
+  trusted_apps:
+  - renovate
+  - dependabot
+
 repo_milestone:
   "":
     maintainers_id: 4924960

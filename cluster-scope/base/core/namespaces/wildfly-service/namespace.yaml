@@ -1,0 +1,10 @@
+apiVersion: v1
+kind: Namespace
+metadata:
+  annotations:
+    op1st/docs: https://www.wildfly.org/
+    op1st/onboarding-issue: https://github.com/operate-first/support/issues/1102
+    op1st/project-owner: wildfly
+    openshift.io/display-name: wildfly-service
+    openshift.io/requester: wildfly
+  name: wildfly-service

@@ -3,7 +3,7 @@ kind: Subscription
 metadata:
   name: camel-k
 spec:
-  channel: stable-1.7
+  channel: stable
   installPlanApproval: Automatic
   name: camel-k
   source: community-operators
