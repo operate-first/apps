@@ -28,6 +28,7 @@ spec:
         contains(groups[*], 'cluster-admins') && 'Admin' ||
         contains(groups[*], 'odh-admin') && 'Editor' ||
         contains(groups[*], 'kepler-admins') && 'Editor' ||
+        contains(groups[*], 'sostrades') && 'Editor' ||
         contains(groups[*], 'odh-users') && 'Viewer' ||
         'Deny'
       role_attribute_strict: true
