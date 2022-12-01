@@ -8,7 +8,7 @@ spec:
   tags:
   - from:
       kind: ImageStreamTag
-      name: v20211027-fe152eb205
+      name: v20221201-5f3a3ac62d
     name: latest
   - from:
       kind: DockerImage
@@ -22,6 +22,10 @@ spec:
       kind: DockerImage
       name: gcr.io/k8s-prow/clonerefs:v20211027-fe152eb205
     name: v20211027-fe152eb205
+  - from:
+      kind: DockerImage
+      name: gcr.io/k8s-prow/clonerefs:v20221201-5f3a3ac62d
+    name: v20221201-5f3a3ac62d
 ---
 apiVersion: image.openshift.io/v1
 kind: ImageStream
@@ -33,7 +37,7 @@ spec:
   tags:
   - from:
       kind: ImageStreamTag
-      name: v20220812-9414716697
+      name: v20221201-5f3a3ac62d
     name: latest
   - from:
       kind: DockerImage
@@ -51,6 +55,10 @@ spec:
       kind: DockerImage
       name: gcr.io/k8s-prow/commenter:v20220812-9414716697
     name: v20220812-9414716697
+  - from:
+      kind: DockerImage
+      name: gcr.io/k8s-prow/commenter:v20221201-5f3a3ac62d
+    name: v20221201-5f3a3ac62d
 ---
 apiVersion: image.openshift.io/v1
 kind: ImageStream
@@ -62,7 +70,7 @@ spec:
   tags:
   - from:
       kind: ImageStreamTag
-      name: v20220812-9414716697
+      name: v20221201-5f3a3ac62d
     name: latest
   - from:
       kind: DockerImage
@@ -80,6 +88,10 @@ spec:
       kind: DockerImage
       name: gcr.io/k8s-prow/crier:v20220812-9414716697
     name: v20220812-9414716697
+  - from:
+      kind: DockerImage
+      name: gcr.io/k8s-prow/crier:v20221201-5f3a3ac62d
+    name: v20221201-5f3a3ac62d
 ---
 apiVersion: image.openshift.io/v1
 kind: ImageStream
@@ -91,7 +103,7 @@ spec:
   tags:
   - from:
       kind: ImageStreamTag
-      name: v20220812-9414716697
+      name: v20221201-5f3a3ac62d
     name: latest
   - from:
       kind: DockerImage
@@ -109,6 +121,10 @@ spec:
       kind: DockerImage
       name: gcr.io/k8s-prow/deck:v20220812-9414716697
     name: v20220812-9414716697
+  - from:
+      kind: DockerImage
+      name: gcr.io/k8s-prow/deck:v20221201-5f3a3ac62d
+    name: v20221201-5f3a3ac62d
 ---
 apiVersion: image.openshift.io/v1
 kind: ImageStream
@@ -120,7 +136,7 @@ spec:
   tags:
   - from:
       kind: ImageStreamTag
-      name: v20220812-9414716697
+      name: v20221201-5f3a3ac62d
     name: latest
   - from:
       kind: DockerImage
@@ -136,8 +152,12 @@ spec:
     name: v20211027-fe152eb205
   - from:
       kind: DockerImage
-      name: 'gcr.io/k8s-prow/entrypoint:v20220812-9414716697'
+      name: gcr.io/k8s-prow/entrypoint:v20220812-9414716697
     name: v20220812-9414716697
+  - from:
+      kind: DockerImage
+      name: gcr.io/k8s-prow/entrypoint:v20221201-5f3a3ac62d
+    name: v20221201-5f3a3ac62d
 ---
 apiVersion: image.openshift.io/v1
 kind: ImageStream
@@ -149,7 +169,7 @@ spec:
   tags:
   - from:
       kind: ImageStreamTag
-      name: v20220812-9414716697
+      name: v20221201-5f3a3ac62d
     name: latest
   - from:
       kind: DockerImage
@@ -167,6 +187,10 @@ spec:
       kind: DockerImage
       name: gcr.io/k8s-prow/hook:v20220812-9414716697
     name: v20220812-9414716697
+  - from:
+      kind: DockerImage
+      name: gcr.io/k8s-prow/hook:v20221201-5f3a3ac62d
+    name: v20221201-5f3a3ac62d
 ---
 apiVersion: image.openshift.io/v1
 kind: ImageStream
@@ -178,7 +202,7 @@ spec:
   tags:
   - from:
       kind: ImageStreamTag
-      name: v20220812-9414716697
+      name: v20221201-5f3a3ac62d
     name: latest
   - from:
       kind: DockerImage
@@ -196,6 +220,10 @@ spec:
       kind: DockerImage
       name: gcr.io/k8s-prow/horologium:v20220812-9414716697
     name: v20220812-9414716697
+  - from:
+      kind: DockerImage
+      name: gcr.io/k8s-prow/horologium:v20221201-5f3a3ac62d
+    name: v20221201-5f3a3ac62d
 ---
 apiVersion: image.openshift.io/v1
 kind: ImageStream
@@ -207,7 +235,7 @@ spec:
   tags:
   - from:
       kind: ImageStreamTag
-      name: v20211027-fe152eb205
+      name: v20221201-5f3a3ac62d
     name: latest
   - from:
       kind: DockerImage
@@ -221,6 +249,10 @@ spec:
       kind: DockerImage
       name: gcr.io/k8s-prow/initupload:v20211027-fe152eb205
     name: v20211027-fe152eb205
+  - from:
+      kind: DockerImage
+      name: gcr.io/k8s-prow/initupload:v20221201-5f3a3ac62d
+    name: v20221201-5f3a3ac62d
 ---
 apiVersion: image.openshift.io/v1
 kind: ImageStream
@@ -232,7 +264,7 @@ spec:
   tags:
   - from:
       kind: ImageStreamTag
-      name: v20220812-9414716697
+      name: v20221201-5f3a3ac62d
     importPolicy: {}
     name: latest
     referencePolicy:
@@ -253,6 +285,10 @@ spec:
       kind: DockerImage
       name: gcr.io/k8s-prow/label_sync:v20220812-9414716697
     name: v20220812-9414716697
+  - from:
+      kind: DockerImage
+      name: gcr.io/k8s-prow/label_sync:v20221201-5f3a3ac62d
+    name: v20221201-5f3a3ac62d
 ---
 apiVersion: image.openshift.io/v1
 kind: ImageStream
@@ -264,7 +300,7 @@ spec:
   tags:
   - from:
       kind: ImageStreamTag
-      name: v20220812-9414716697
+      name: v20221201-5f3a3ac62d
     name: latest
   - from:
       kind: DockerImage
@@ -282,6 +318,10 @@ spec:
       kind: DockerImage
       name: gcr.io/k8s-prow/needs-rebase:v20220812-9414716697
     name: v20220812-9414716697
+  - from:
+      kind: DockerImage
+      name: gcr.io/k8s-prow/needs-rebase:v20221201-5f3a3ac62d
+    name: v20221201-5f3a3ac62d
 ---
 apiVersion: image.openshift.io/v1
 kind: ImageStream
@@ -293,7 +333,7 @@ spec:
   tags:
   - from:
       kind: ImageStreamTag
-      name: v20220812-9414716697
+      name: v20221201-5f3a3ac62d
     name: latest
   - from:
       kind: DockerImage
@@ -311,6 +351,10 @@ spec:
       kind: DockerImage
       name: gcr.io/k8s-prow/pipeline:v20220812-9414716697
     name: v20220812-9414716697
+  - from:
+      kind: DockerImage
+      name: gcr.io/k8s-prow/pipeline:v20221201-5f3a3ac62d
+    name: v20221201-5f3a3ac62d
 ---
 apiVersion: image.openshift.io/v1
 kind: ImageStream
@@ -322,7 +366,7 @@ spec:
   tags:
   - from:
       kind: ImageStreamTag
-      name: v20220812-9414716697
+      name: v20221201-5f3a3ac62d
     name: latest
   - from:
       kind: DockerImage
@@ -340,6 +384,10 @@ spec:
       kind: DockerImage
       name: gcr.io/k8s-prow/prow-controller-manager:v20220812-9414716697
     name: v20220812-9414716697
+  - from:
+      kind: DockerImage
+      name: gcr.io/k8s-prow/prow-controller-manager:v20221201-5f3a3ac62d
+    name: v20221201-5f3a3ac62d
 ---
 apiVersion: image.openshift.io/v1
 kind: ImageStream
@@ -351,7 +399,7 @@ spec:
   tags:
   - from:
       kind: ImageStreamTag
-      name: v20211027-fe152eb205
+      name: v20221201-5f3a3ac62d
     name: latest
   - from:
       kind: DockerImage
@@ -365,6 +413,10 @@ spec:
       kind: DockerImage
       name: gcr.io/k8s-prow/sidecar:v20211027-fe152eb205
     name: v20211027-fe152eb205
+  - from:
+      kind: DockerImage
+      name: gcr.io/k8s-prow/sidecar:v20221201-5f3a3ac62d
+    name: v20221201-5f3a3ac62d
 ---
 apiVersion: image.openshift.io/v1
 kind: ImageStream
@@ -376,7 +428,7 @@ spec:
   tags:
   - from:
       kind: ImageStreamTag
-      name: v20220812-9414716697
+      name: v20221201-5f3a3ac62d
     name: latest
   - from:
       kind: DockerImage
@@ -394,6 +446,10 @@ spec:
       kind: DockerImage
       name: gcr.io/k8s-prow/sinker:v20220812-9414716697
     name: v20220812-9414716697
+  - from:
+      kind: DockerImage
+      name: gcr.io/k8s-prow/sinker:v20221201-5f3a3ac62d
+    name: v20221201-5f3a3ac62d
 ---
 apiVersion: image.openshift.io/v1
 kind: ImageStream
@@ -405,7 +461,7 @@ spec:
   tags:
   - from:
       kind: ImageStreamTag
-      name: v20220812-9414716697
+      name: v20221201-5f3a3ac62d
     name: latest
   - from:
       kind: DockerImage
@@ -423,6 +479,10 @@ spec:
       kind: DockerImage
       name: gcr.io/k8s-prow/status-reconciler:v20220812-9414716697
     name: v20220812-9414716697
+  - from:
+      kind: DockerImage
+      name: gcr.io/k8s-prow/status-reconciler:v20221201-5f3a3ac62d
+    name: v20221201-5f3a3ac62d
 ---
 apiVersion: image.openshift.io/v1
 kind: ImageStream
@@ -434,7 +494,7 @@ spec:
   tags:
   - from:
       kind: ImageStreamTag
-      name: v20220812-9414716697
+      name: v20221201-5f3a3ac62d
     name: latest
   - from:
       kind: DockerImage
@@ -452,3 +512,7 @@ spec:
       kind: DockerImage
       name: gcr.io/k8s-prow/tide:v20220812-9414716697
     name: v20220812-9414716697
+  - from:
+      kind: DockerImage
+      name: gcr.io/k8s-prow/tide:v20221201-5f3a3ac62d
+    name: v20221201-5f3a3ac62d
