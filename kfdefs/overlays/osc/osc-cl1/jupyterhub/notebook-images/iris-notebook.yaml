@@ -1,0 +1,26 @@
+---
+kind: ImageStream
+apiVersion: image.openshift.io/v1
+metadata:
+  name: iris-notebook
+  labels:
+    opendatahub.io/notebook-image: "true"
+  annotations:
+    opendatahub.io/notebook-image-url:
+      # This will be moved to os-climate once it has been validated
+      "https://github.com/MightyNerdEric/iris-notebook"
+    opendatahub.io/notebook-image-name:
+      "Iris"
+    opendatahub.io/notebook-image-desc:
+      "Jupyter notebooks for Iris"
+spec:
+  lookupPolicy:
+    local: true
+  tags:
+    - name: "latest"
+      from:
+        kind: DockerImage
+        # This will be moved to os-climate once it has been validated
+        name: quay.io/eball_lf/iris-notebook:latest
+      importPolicy:
+        scheduled: true
