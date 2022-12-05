@@ -1,0 +1,33 @@
+apiVersion: backstage.io/v1alpha1
+kind: Component
+metadata:
+  name: service-catalog-pulp-operator
+  title: Pulp Operator
+  description: Pulp is a platform for managing repositories of software packages and making them available to a large number of consumers
+  annotations:
+    operate-first.cloud/logo-url: https://docs.pulpproject.org/pulpcore/en/pulpproject.org_images/pulp_logo_big.png
+    backstage.io/kubernetes-label-selector: "control-plane=controller-manager,app.kubernetes.io/name=pulp-operator,olm.owner.namespace=opf-pulp"
+    argocd/app-name: pulp-smaug
+    github.com/project-slug: operate-first/apps
+  links:
+    - url: https://github.com/pulp/pulp-operator/issues/new
+      title: Support path
+      icon: user
+    - url: https://docs.pulpproject.org
+      title: Pulpcore documentation
+      icon: web
+    - url: https://pulp.operate-first.cloud/pulp/api/v3/
+      title: Instance of Pulp
+      icon: web
+    - url: https://github.com/operate-first/apps/tree/master/pulp/overlays/moc/smaug
+      title: Manifests
+      icon: web
+spec:
+  type: operator
+  lifecycle: production
+  owner: group:pulp
+  system: pulp
+  dependsOn:
+    - resource:smaug
+  providesApis:
+    - pulp

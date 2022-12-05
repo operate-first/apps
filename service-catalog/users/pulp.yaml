@@ -1,0 +1,12 @@
+apiVersion: backstage.io/v1alpha1
+kind: User
+metadata:
+  name: pulp
+  title: Pulp
+  description: Arbitrary Pulp user representing the community
+spec:
+  profile:
+    email: pulp-list@redhat.com
+    displayName: Pulp
+    picture: https://avatars.githubusercontent.com/u/2103606?s=200&v=4
+  memberOf: [pulp]

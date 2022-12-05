@@ -28,5 +28,7 @@ spec:
     - ./components/prow-sinker.yaml
     - ./components/prow-statusreconciler.yaml
     - ./components/prow-tide.yaml
+    - ./components/pulp.yaml
+    - ./components/pulp-operator.yaml
     - ./components/service-catalog-crunchy-postgres-operator.yaml
     - ./components/service-catalog-pg-cluster.yaml
