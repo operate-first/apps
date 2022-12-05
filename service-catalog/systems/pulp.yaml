@@ -1,0 +1,16 @@
+apiVersion: backstage.io/v1alpha1
+kind: System
+metadata:
+  name: pulp
+  title: Pulp
+  description: Pulp is a platform for managing repositories of software packages and making them available to a large number of consumers
+  annotations:
+    operate-first.cloud/featured: "true"
+    operate-first.cloud/logo-url: https://docs.pulpproject.org/pulpcore/en/pulpproject.org_images/pulp_logo_big.png
+  links:
+    - url: https://pulp.operate-first.cloud/pulp/api/v3/
+      title: Pulp instance
+      icon: web
+spec:
+  owner: group:pulp
+  domain: community

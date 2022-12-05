@@ -1,0 +1,12 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: pulp
+  description: The pulp api of our operate first instance
+spec:
+  type: openapi
+  lifecycle: production
+  owner: group:pulp
+  system: pulp
+  definition:
+    $text: https://docs.pulpproject.org/pulpcore/api.json
