@@ -8,7 +8,7 @@ spec:
     namespace: apicurio-apicurio-registry
   project: apicurio
   source:
-    path: manifests/registry/prod
+    path: manifests/registry/deployment/operate-first
     repoURL: https://github.com/Apicurio/apicurio-operate-first
     targetRevision: HEAD
   syncPolicy:
