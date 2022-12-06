@@ -20,7 +20,6 @@ resources:
   - ../../../../base/operators.coreos.com/operatorgroups/openshift-nmstate
   - ../../../../base/operators.coreos.com/operatorgroups/operator-acm-group
   - ../../../../base/operators.coreos.com/subscriptions/acm-operator-subscription
-  - ../../../../base/operators.coreos.com/subscriptions/cert-manager
   - ../../../../base/operators.coreos.com/subscriptions/cluster-logging
   - ../../../../base/operators.coreos.com/subscriptions/kubernetes-nmstate-operator
   - ../../../../base/operators.coreos.com/subscriptions/web-terminal
@@ -37,6 +36,7 @@ resources:
   - ../../../../base/rbac.authorization.k8s.io/clusterroles/service-catalog-k8s-plugin-acm
   - ../../../../base/user.openshift.io/groups/cluster-admins
   - ../../../../bundles/acme-operator
+  - ../../../../bundles/cert-manager
   - ../../../../bundles/external-secrets-operator
   - ../../../../bundles/idp-mgmt-operator
   - ../../../../bundles/odf-external
