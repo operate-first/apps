@@ -6,4 +6,5 @@ components:
 - ../../../../components/project-admin-rolebindings/kruize
 - ../../../../components/limitranges/default
 - ../../../../components/resourcequotas/small
+- ../../../../components/project-view-public
 namespace: openshift-tuning
