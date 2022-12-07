@@ -23,4 +23,4 @@ spec:
         - p, proj:kruize:project-admin, applications, action/*, kruize/*, allow
       groups:
         - kruize
-        - operate-first  
+        - operate-first
