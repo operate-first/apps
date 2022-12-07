@@ -21,3 +21,4 @@ resources:
   - otel-dev.yaml
   - copilot-ops.yaml
   - kepler.yaml
+  - kruize.yaml
