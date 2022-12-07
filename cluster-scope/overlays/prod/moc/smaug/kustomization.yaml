@@ -125,7 +125,6 @@ resources:
   - ../../../../base/operators.coreos.com/operatorgroups/rapidast
   - ../../../../base/operators.coreos.com/subscriptions/apex-rhsso-operator
   - ../../../../base/operators.coreos.com/subscriptions/camel-k
-  - ../../../../base/operators.coreos.com/subscriptions/cert-manager
   - ../../../../base/operators.coreos.com/subscriptions/cluster-logging
   - ../../../../base/operators.coreos.com/subscriptions/crunchy-postgres
   - ../../../../base/operators.coreos.com/subscriptions/grafana-operator
@@ -163,6 +162,7 @@ resources:
   - ../../../../bundles/acme-operator
   - ../../../../bundles/b4mad-racing
   - ../../../../bundles/banzaicloud-vault
+  - ../../../../bundles/cert-manager
   - ../../../../bundles/curator
   - ../../../../bundles/external-secrets-operator
   - ../../../../bundles/fybrik
