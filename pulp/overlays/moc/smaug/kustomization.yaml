@@ -3,5 +3,7 @@ kind: Kustomization
 resources:
   - ../../../base
   - opf-pulp-backup.yaml
+  - certificate.yaml
+  - issuer.yaml
 patchesStrategicMerge:
   - opf-pulp.yaml
