@@ -80,6 +80,10 @@ spec:
       kind: CephObjectStore
     - group: ceph.rook.io
       kind: CephObjectStoreUser
+    - group: cert-manager.io
+      kind: Certificate
+    - group: cert-manager.io
+      kind: Issuer
     - group: external-secrets.io
       kind: ExternalSecret
     - group: extensions
