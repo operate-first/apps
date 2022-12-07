@@ -63,8 +63,7 @@ spec:
       - /tmp
     allowed_import_paths:
       - /tmp
-  route_annotations:
-    kubernetes.io/tls-acme: "true"
+  route_tls_secret: pulp-letsencrypt
   route_tls_termination_mechanism: Edge
   route_host: pulp.operate-first.cloud
   storage_type: File
