@@ -6,7 +6,7 @@ spec:
   acme:
     email: ops-team@operate-first.cloud
     privateKeySecretRef:
-      name: letsencrypt-key
+      name: pulp-letsencrypt
     server: 'https://acme-v02.api.letsencrypt.org/directory'
     solvers:
       - http01:
