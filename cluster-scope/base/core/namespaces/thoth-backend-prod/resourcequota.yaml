@@ -4,9 +4,9 @@ metadata:
   name: thoth-backend-prod-custom
 spec:
   hard:
-    limits.cpu: '24'
-    limits.memory: 48Gi
-    requests.cpu: '24'
-    requests.memory: 48Gi
+    limits.cpu: "32"
+    limits.memory: 64Gi
+    requests.cpu: "24"
+    requests.memory: 64Gi
     requests.storage: 30Gi
     count/objectbucketclaims.objectbucket.io: 1
