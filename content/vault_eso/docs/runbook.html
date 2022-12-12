@@ -1,0 +1,1157 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+    <title>Vault Runbook &#8212; GitOps Docs</title>
+    
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../../../_static/styles/theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
+<link href="../../../_static/styles/pydata-sphinx-theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
+
+    
+  <link rel="stylesheet"
+    href="../../../_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../../../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../../../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css" />
+    <link rel="stylesheet" href="../../../_static/styles/sphinx-book-theme.css?digest=5115cc725059bd94278eecd172e13a965bf8f5a9" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/design-style.b7bb847fb20b106c3d81b95245e65545.min.css" />
+    
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../../../_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf">
+
+    <script data-url_root="../../../" id="documentation_options" src="../../../_static/documentation_options.js"></script>
+    <script src="../../../_static/jquery.js"></script>
+    <script src="../../../_static/underscore.js"></script>
+    <script src="../../../_static/doctools.js"></script>
+    <script src="../../../_static/clipboard.min.js"></script>
+    <script src="../../../_static/copybutton.js"></script>
+    <script src="../../../_static/scripts/sphinx-book-theme.js?digest=9c920249402e914e316237a7dbc6769907cce411"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../../../_static/togglebutton.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="../../../_static/design-tabs.js"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
+    <script async="async" src="../../../_static/sphinx-thebe.js"></script>
+    <link rel="shortcut icon" href="../../../_static/favicon.png"/>
+    <link rel="index" title="Index" href="../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../search.html" />
+    <link rel="next" title="Cluster Management" href="../../cluster-scope/docs/README.html" />
+    <link rel="prev" title="Unsealing OPF Vault instance" href="unsealing_vault.html" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="None">
+    
+
+    <!-- Google Analytics -->
+    
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="60">
+<!-- Checkboxes to toggle the left sidebar -->
+<input type="checkbox" class="sidebar-toggle" name="__navigation" id="__navigation" aria-label="Toggle navigation sidebar">
+<label class="overlay overlay-navbar" for="__navigation">
+    <div class="visually-hidden">Toggle navigation sidebar</div>
+</label>
+<!-- Checkboxes to toggle the in-page toc -->
+<input type="checkbox" class="sidebar-toggle" name="__page-toc" id="__page-toc" aria-label="Toggle in-page Table of Contents">
+<label class="overlay overlay-pagetoc" for="__page-toc">
+    <div class="visually-hidden">Toggle in-page Table of Contents</div>
+</label>
+<!-- Headers at the top -->
+<div class="announcement header-item noprint"></div>
+<div class="header header-item noprint"></div>
+
+    
+    <div class="container-fluid" id="banner"></div>
+
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<!-- Sidebar -->
+<div class="bd-sidebar noprint" id="site-navigation">
+    <div class="bd-sidebar__content">
+        <div class="bd-sidebar__top"><div class="navbar-brand-box">
+    <a class="navbar-brand text-wrap" href="../../../index.html">
+      
+        <!-- `logo` is deprecated in Sphinx 4.0, so remove this when we stop supporting 3 -->
+        
+      
+      
+      <img src="../../../_static/icon.png" class="logo" alt="logo">
+      
+      
+      <h1 class="site-logo" id="site-title">GitOps Docs</h1>
+      
+    </a>
+</div><form class="bd-search d-flex align-items-center" action="../../../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="../../README.html">
+                    GitOps Documentation
+                </a>
+            </li>
+        </ul>
+        <p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  GitOps
+ </span>
+</p>
+<ul class="current nav bd-sidenav">
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../../argocd-gitops/docs/README.html">
+   ArgoCD
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/>
+  <label for="toctree-checkbox-1">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../argocd-gitops/docs/add_application.html">
+     Adding ArgoCD Applications
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../argocd-gitops/docs/add_permissions_to_project.html">
+     Requesting more permissions for an ArgoCD Project (MOC)
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../argocd-gitops/docs/get_access_to_argocd.html">
+     Get access to ArgoCD
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../argocd-gitops/docs/onboarding_to_argocd.html">
+     ArgoCD onboarding procedure
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../argocd-gitops/docs/secret_management.html">
+     Secret management for applications
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../argocd-gitops/docs/setup_argocd_dev_environment.html">
+     Deploying a development environment
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../argocd-gitops/docs/update_argocd.html">
+     Steps for Upgrading ArgoCD
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../argocd-gitops/docs/argocd_notifications.html">
+     Where and How do I add notifications to my ArgoCD apps?
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 current active has-children">
+  <a class="reference internal" href="README.html">
+   Secret Management
+  </a>
+  <input checked="" class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/>
+  <label for="toctree-checkbox-2">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul class="current">
+   <li class="toctree-l2">
+    <a class="reference internal" href="onboard_team_to_vault.html">
+     Onboard an OCP group to vault
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="create_external_secret.html">
+     Create External Secret in Operate First
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="enable_es_in_namespace.html">
+     Enable External Secrets to a namespace
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="enable_cluster_to_eso_and_vault.html">
+     Enable Cluster to use External Secrets with Vault
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="install_es_operator_in_cluster.html">
+     Add External Secrets Operator to an OPF cluster
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="restore_vault.html">
+     Restoring vault
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="vault_backup_job.html">
+     Vault Backup Job
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="write_to_vault_with_k8s.html">
+     Secret creation using vault CLI and k8s auth
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="unsealing_vault.html">
+     Unsealing OPF Vault instance
+    </a>
+   </li>
+   <li class="toctree-l2 current active">
+    <a class="current reference internal" href="#">
+     Vault Runbook
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../../cluster-scope/docs/README.html">
+   Cluster Management
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"/>
+  <label for="toctree-checkbox-3">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../cluster-scope/docs/create_ocp_group.html">
+     Adding an OCP group to Operate First Cloud
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../cluster-scope/docs/add_user_to_group.html">
+     Adding User to an OCP team
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../cluster-scope/docs/add_user_to_project_admin.html">
+     Giving a user project role access in the smaug cluster
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../cluster-scope/docs/offboarding_cluster.html">
+     Remove a Cluster from Operate First
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../cluster-scope/docs/onboarding_project.html">
+     Onboard Project
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../../development/docs/README.html">
+   Development
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" type="checkbox"/>
+  <label for="toctree-checkbox-4">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../development/docs/crc-disk-size.html">
+     Increasing CRC disk space
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../development/docs/setup_quicklab.html">
+     Quicklab
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../../kafka/docs/README.html">
+   Kafka
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-5" name="toctree-checkbox-5" type="checkbox"/>
+  <label for="toctree-checkbox-5">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../kafka/docs/add_kafka_topics.html">
+     Add Kafka Topics
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../kafka/docs/add_kafka_users.html">
+     Add Kafka Users
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../kafka/docs/runbook.html">
+     Kafka Runbook
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../../kubeval/docs/README.html">
+   Kubeval validation
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-6" name="toctree-checkbox-6" type="checkbox"/>
+  <label for="toctree-checkbox-6">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../kubeval/docs/updating_schema_store.html">
+     Updating schemas in schema store
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../../grafana/docs/README.html">
+   Grafana
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-7" name="toctree-checkbox-7" type="checkbox"/>
+  <label for="toctree-checkbox-7">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../grafana/docs/add_grafana_dashboard.html">
+     Add a Grafana dashboard to OperateFirst Grafana
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../grafana/docs/map_groups_to_roles.html">
+     Adding permissions in Grafana
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../prometheus/docs/README.html">
+   Prometheus
+  </a>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../../observatorium/docs/README.html">
+   Observatorium
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-8" name="toctree-checkbox-8" type="checkbox"/>
+  <label for="toctree-checkbox-8">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../observatorium/docs/loki/README.html">
+     Loki
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../observatorium/docs/loki/add_loki_grafana_datasource.html">
+     Add a Loki Data Source in OperateFirst Grafana
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../observatorium/docs/loki/loki_query_api.html">
+     Loki Query API
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../observatorium/docs/thanos/README.html">
+     Thanos Access
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../observatorium/docs/thanos/request_grafana_access.html">
+     Grafana
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../observatorium/docs/thanos/request_thanos_access.html">
+     Thanos Query API
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../observatorium/docs/thanos/thanos_programmatic_access.html">
+     Thanos Programmatic Access
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../observatorium/docs/vector/README.html">
+     Vector on Operate First
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../../odf/docs/README.html">
+   OpenShift Data Foundation
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-9" name="toctree-checkbox-9" type="checkbox"/>
+  <label for="toctree-checkbox-9">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../odf/docs/buckets-external-access.html">
+     Accessing buckets from outside the cluster
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../odf/docs/claiming_object_store.html">
+     Claiming S3-compatible object store buckets
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../odf/docs/runbook.html">
+     OpenShift Data Foundation (ODF) Runbook
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../../odh/docs/README.html">
+   Open Data Hub (ODH)
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-10" name="toctree-checkbox-10" type="checkbox"/>
+  <label for="toctree-checkbox-10">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2 has-children">
+    <a class="reference internal" href="../../odh/docs/jupyterhub/README.html">
+     JupyterHub
+    </a>
+    <input class="toctree-checkbox" id="toctree-checkbox-11" name="toctree-checkbox-11" type="checkbox"/>
+    <label for="toctree-checkbox-11">
+     <i class="fas fa-chevron-down">
+     </i>
+    </label>
+    <ul>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../../odh/docs/jupyterhub/access_jupyterhub.html">
+       Access JupyterHub
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../../odh/docs/jupyterhub/add_imagestream_to_jh.html">
+       Provision a new ImageStream
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../../odh/docs/jupyterhub/analyze_storage.html">
+       Analyze Storage for a Notebook
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../../odh/docs/jupyterhub/increase_pvc_size_jh.html">
+       Increase PVC size for JupyterHub
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../../odh/docs/jupyterhub/reinstall_kernel.html">
+       How to restart a Notebook Kernel
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../../odh/docs/jupyterhub/runbook.html">
+       JupyterHub Runbook
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../../odh/docs/jupyterhub/user_profiles.html">
+       Managing user profiles
+      </a>
+     </li>
+    </ul>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../odh/docs/adding_kfdefs.html">
+     Add a new Kfdef
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../../openmetadata/docs/README.html">
+   OpenMetaData
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-12" name="toctree-checkbox-12" type="checkbox"/>
+  <label for="toctree-checkbox-12">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul class="simple">
+  </ul>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../../reloader/docs/README.html">
+   Reloader
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-13" name="toctree-checkbox-13" type="checkbox"/>
+  <label for="toctree-checkbox-13">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../reloader/docs/monitoring-secrets-configmaps.html">
+     Monitoring secrets and configMaps for changes with Reloader
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../../uwm/docs/README.html">
+   User WorkLoad Monitoring
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-14" name="toctree-checkbox-14" type="checkbox"/>
+  <label for="toctree-checkbox-14">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../uwm/docs/overview.html">
+     Overview
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../../volsync/docs/README.html">
+   Volsync
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-15" name="toctree-checkbox-15" type="checkbox"/>
+  <label for="toctree-checkbox-15">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../volsync/docs/using-volsync.html">
+     Using Volsync to back up persistent volumes
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../../opentelemetry-collector/docs/README.html">
+   OpenTelemetry Collector
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-16" name="toctree-checkbox-16" type="checkbox"/>
+  <label for="toctree-checkbox-16">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../opentelemetry-collector/docs/using-opentelemetry-collector.html">
+     Collecting OpenTelemetry data
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../../jaeger/docs/README.html">
+   Jaeger
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-17" name="toctree-checkbox-17" type="checkbox"/>
+  <label for="toctree-checkbox-17">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../jaeger/docs/using-distributed-tracing-jaeger.html">
+     Jaeger for visualizing traces
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../../notebooks/README.html">
+   Notebooks
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-18" name="toctree-checkbox-18" type="checkbox"/>
+  <label for="toctree-checkbox-18">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../notebooks/increase_pvc_size.html">
+     Increase size of a PVC in JupyterHub
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../notebooks/onboarding_new_cluster.html">
+     How to add a new cluster to Operate First
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../notebooks/onboarding_project.html">
+     How to onboard a new project to a cluster on Operate First Cloud
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../../templates/README.html">
+   Templates
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-19" name="toctree-checkbox-19" type="checkbox"/>
+  <label for="toctree-checkbox-19">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../templates/runbook.html">
+     &lt;Application/Service Name&gt; Runbook
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../../CONTRIBUTING.html">
+   Contributing to GitOps Docs
+  </a>
+ </li>
+</ul>
+
+    </div>
+</nav></div>
+        <div class="bd-sidebar__bottom">
+             <!-- To handle the deprecated key -->
+            
+            <div class="navbar_extra_footer">
+            Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+            </div>
+            
+        </div>
+    </div>
+    <div id="rtd-footer-container"></div>
+</div>
+
+
+          
+
+
+          
+<!-- A tiny helper pixel to detect if we've scrolled -->
+<div class="sbt-scroll-pixel-helper"></div>
+<!-- Main content -->
+<div class="col py-0 content-container">
+    
+    <div class="header-article row sticky-top noprint">
+        
+
+
+
+<div class="col py-1 d-flex header-article-main">
+    <div class="header-article__left">
+        
+        <label for="__navigation"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="right"
+title="Toggle navigation"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-bars"></i>
+  </span>
+
+</label>
+
+        
+    </div>
+    <div class="header-article__right">
+<button onclick="toggleFullScreen()"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="bottom"
+title="Fullscreen mode"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+<div class="menu-dropdown menu-dropdown-repository-buttons">
+  <button class="headerbtn menu-dropdown__trigger"
+      aria-label="Source repositories">
+      <i class="fab fa-github"></i>
+  </button>
+  <div class="menu-dropdown__content">
+    <ul>
+      <li>
+        <a href="https://github.com/operate-first/apps"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Source repository"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="headerbtn__text-container">repository</span>
+</a>
+
+      </li>
+      
+      <li>
+        <a href="https://github.com/operate-first/apps/issues/new?title=Issue%20on%20page%20%2Fcontent/vault_eso/docs/runbook.html&body=Your%20issue%20content%20here."
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Open an issue"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="headerbtn__text-container">open issue</span>
+</a>
+
+      </li>
+      
+    </ul>
+  </div>
+</div>
+
+<div class="menu-dropdown menu-dropdown-download-buttons">
+  <button class="headerbtn menu-dropdown__trigger"
+      aria-label="Download this page">
+      <i class="fas fa-download"></i>
+  </button>
+  <div class="menu-dropdown__content">
+    <ul>
+      <li>
+        <a href="../../../_sources/content/vault_eso/docs/runbook.md"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Download source file"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="headerbtn__text-container">.md</span>
+</a>
+
+      </li>
+      
+      <li>
+        
+<button onclick="printPdf(this)"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="left"
+title="Print to PDF"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="headerbtn__text-container">.pdf</span>
+</button>
+
+      </li>
+      
+    </ul>
+  </div>
+</div>
+<label for="__page-toc"
+  class="headerbtn headerbtn-page-toc"
+  
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-list"></i>
+  </span>
+
+</label>
+
+    </div>
+</div>
+
+<!-- Table of contents -->
+<div class="col-md-3 bd-toc show noprint">
+    <div class="tocsection onthispage pt-5 pb-3">
+        <i class="fas fa-list"></i> Contents
+    </div>
+    <nav id="bd-toc-nav" aria-label="Page">
+        <ul class="visible nav section-nav flex-column">
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#">
+   Vault Runbook
+  </a>
+  <ul class="visible nav section-nav flex-column">
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#pre-requisites">
+     Pre-requisites
+    </a>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#missing-client-token">
+     Missing Client token
+    </a>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#service-account-unauthorized">
+     Service account unauthorized
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#could-not-get-provider-client-unable-to-log-in-to-auth-method">
+   Could not get provider client: unable to log in to auth method
+  </a>
+  <ul class="visible nav section-nav flex-column">
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#failed-to-look-up-namespace-from-the-token">
+     Failed to look up namespace from the token
+    </a>
+    <ul class="nav section-nav flex-column">
+     <li class="toc-h3 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#rejoin-a-vault-node-to-the-vault-cluster">
+       Rejoin A Vault node to the Vault cluster
+      </a>
+     </li>
+    </ul>
+   </li>
+  </ul>
+ </li>
+</ul>
+
+    </nav>
+</div>
+    </div>
+    <div class="article row">
+        <div class="col pl-md-3 pl-lg-5 content-container">
+            <!-- Table of contents that is only displayed when printing the page -->
+            <div id="jb-print-docs-body" class="onlyprint">
+                <h1>Vault Runbook</h1>
+                <!-- Table of contents -->
+                <div id="print-main-content">
+                    <div id="jb-print-toc">
+                        
+                        <div>
+                            <h2> Contents </h2>
+                        </div>
+                        <nav aria-label="Page">
+                            <ul class="visible nav section-nav flex-column">
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#">
+   Vault Runbook
+  </a>
+  <ul class="visible nav section-nav flex-column">
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#pre-requisites">
+     Pre-requisites
+    </a>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#missing-client-token">
+     Missing Client token
+    </a>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#service-account-unauthorized">
+     Service account unauthorized
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#could-not-get-provider-client-unable-to-log-in-to-auth-method">
+   Could not get provider client: unable to log in to auth method
+  </a>
+  <ul class="visible nav section-nav flex-column">
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#failed-to-look-up-namespace-from-the-token">
+     Failed to look up namespace from the token
+    </a>
+    <ul class="nav section-nav flex-column">
+     <li class="toc-h3 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#rejoin-a-vault-node-to-the-vault-cluster">
+       Rejoin A Vault node to the Vault cluster
+      </a>
+     </li>
+    </ul>
+   </li>
+  </ul>
+ </li>
+</ul>
+
+                        </nav>
+                    </div>
+                </div>
+            </div>
+            <main id="main-content" role="main">
+                
+              <div>
+                
+  <section class="tex2jax_ignore mathjax_ignore" id="vault-runbook">
+<h1>Vault Runbook<a class="headerlink" href="#vault-runbook" title="Permalink to this headline">#</a></h1>
+<p>A runbook for common issues encountered when operating Vault on Operate First Cloud.</p>
+<section id="pre-requisites">
+<h2>Pre-requisites<a class="headerlink" href="#pre-requisites" title="Permalink to this headline">#</a></h2>
+<ul class="simple">
+<li><p>Unseal keys and root token for the snapshot</p></li>
+<li><p>Kustomize CLI</p></li>
+<li><p>Vault CLI</p></li>
+<li><p>OC CLI</p></li>
+</ul>
+</section>
+<section id="missing-client-token">
+<h2>Missing Client token<a class="headerlink" href="#missing-client-token" title="Permalink to this headline">#</a></h2>
+<p>Error can be encountered when communicating locally via Vault CLI <em>or</em> via the Vault Pods. Error looks like the following:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>Error making API request.
+
+URL: GET http://127.0.0.1:8200/....
+Code: <span class="m">400</span>. Errors:
+
+* missing client token
+</pre></div>
+</div>
+<p>In both situations simply run <code class="docutils literal notranslate"><span class="pre">vault</span> <span class="pre">login</span></code> and enter your token. In the case of the Vault Pods, <code class="docutils literal notranslate"><span class="pre">oc</span> <span class="pre">rsh</span></code> in to the pod
+first by running <code class="docutils literal notranslate"><span class="pre">oc</span> <span class="pre">rsh</span> <span class="pre">&lt;vault-pod-name&gt;</span></code>.</p>
+<blockquote>
+<div><p>Note: For the vault pod, use the root-token acquired via bitwarden.</p>
+</div></blockquote>
+<p>In the case of the Vault Pods, you should need to do it only once.
+The token is saved to: <code class="docutils literal notranslate"><span class="pre">/home/vault/.vault-token</span></code>
+Any successive terminal sessions in the pod will use this token.</p>
+</section>
+<section id="service-account-unauthorized">
+<h2>Service account unauthorized<a class="headerlink" href="#service-account-unauthorized" title="Permalink to this headline">#</a></h2>
+<p>When adding a secret store, and ensuring all information about the
+auth method is correct, you may encounter the following error
+encountered:</p>
+<div class="highlight-txt notranslate"><div class="highlight"><pre><span></span>&quot;could not get provider client: unable to log in to auth method: unable to log in with Kubernetes auth: Error making
+API request.
+
+URL: PUT https://vault-ui-vault.apps.smaug.na.operate-first.cloud/v1/auth/infra-k8s/login
+</pre></div>
+</div>
+<p>One of the causes of this could be the JWT token used to configure
+this cluster’s auth method has expired.</p>
+<p>To resolve this:</p>
+<ol class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">oc</span> <span class="pre">login</span></code> to the cluster where ESO is deployed.</p></li>
+<li><p>run <code class="docutils literal notranslate"><span class="pre">oc</span> <span class="pre">sa</span> <span class="pre">get-token</span> <span class="pre">eso-vault-auth</span> <span class="pre">-n</span> <span class="pre">external-secrets-operator</span></code></p></li>
+<li><p>Copy the token</p></li>
+<li><p>Navigate to this cluster’s auth method’s configuration, under kubernetes configuration enter this token for
+“Token Reviewer JWT” in json format this field is <code class="docutils literal notranslate"><span class="pre">token_reviewer_jwt</span></code>.</p></li>
+<li><p>Try creating the secret store again.</p></li>
+</ol>
+</section>
+</section>
+<section class="tex2jax_ignore mathjax_ignore" id="could-not-get-provider-client-unable-to-log-in-to-auth-method">
+<h1>Could not get provider client: unable to log in to auth method<a class="headerlink" href="#could-not-get-provider-client-unable-to-log-in-to-auth-method" title="Permalink to this headline">#</a></h1>
+<p>This error may be seen in the ESO logs when looking to setup a secretstore that fails to authenticate against vault.</p>
+<p>One reason this may happen is the serviceaccount <a class="reference external" href="https://www.vaultproject.io/api-docs/auth/kubernetes#parameters">JWT</a> for the target cluster (where the ESO in question resides)
+that is used to access the <code class="docutils literal notranslate"><span class="pre">TokenReview</span></code> API to validate other JWT may have been rotated.</p>
+<p>There is no clear way to confirm this, but you can run the following command when logged in to the cluster where this
+ESO is deployed. Log in to vault via cli, and run:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>vault write auth/${cluster}-k8s/config \
+token_reviewer_jwt=$(oc sa get-token eso-vault-auth -n external-secrets-operator) \
+kubernetes_host=$(oc whoami --show-server)
+</pre></div>
+</div>
+<p>This will update the <code class="docutils literal notranslate"><span class="pre">token_reviewer_jwt</span></code> with the new ESO SA that vault can use to validate other JWTs. Try creating
+the secretstore again and see if it successfully authenticates (by checking the <code class="docutils literal notranslate"><span class="pre">.status</span></code> field).</p>
+<section id="failed-to-look-up-namespace-from-the-token">
+<h2>Failed to look up namespace from the token<a class="headerlink" href="#failed-to-look-up-namespace-from-the-token" title="Permalink to this headline">#</a></h2>
+<p>When creating a <code class="docutils literal notranslate"><span class="pre">client_token</span></code> via k8s JWT service account token you might get this error message:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Error</span> <span class="n">writing</span> <span class="n">data</span> <span class="n">to</span> <span class="n">auth</span><span class="o">/</span><span class="n">smaug</span><span class="o">-</span><span class="n">k8s</span><span class="o">/</span><span class="n">login</span><span class="p">:</span> <span class="n">Error</span> <span class="n">making</span> <span class="n">API</span> <span class="n">request</span><span class="o">.</span>
+
+<span class="n">URL</span><span class="p">:</span> <span class="n">PUT</span> <span class="n">https</span><span class="p">:</span><span class="o">//</span><span class="n">vault</span><span class="o">-</span><span class="n">ui</span><span class="o">-</span><span class="n">vault</span><span class="o">.</span><span class="n">apps</span><span class="o">.</span><span class="n">smaug</span><span class="o">.</span><span class="n">na</span><span class="o">.</span><span class="n">operate</span><span class="o">-</span><span class="n">first</span><span class="o">.</span><span class="n">cloud</span><span class="o">/</span><span class="n">v1</span><span class="o">/</span><span class="n">auth</span><span class="o">/</span><span class="n">smaug</span><span class="o">-</span><span class="n">k8s</span><span class="o">/</span><span class="n">login</span>
+<span class="n">Code</span><span class="p">:</span> <span class="mf">500.</span> <span class="n">Errors</span><span class="p">:</span>
+
+<span class="o">*</span> <span class="n">error</span> <span class="n">performing</span> <span class="n">token</span> <span class="n">check</span><span class="p">:</span> <span class="n">failed</span> <span class="n">to</span> <span class="n">look</span> <span class="n">up</span> <span class="n">namespace</span> <span class="kn">from</span> <span class="nn">the</span> <span class="n">token</span><span class="p">:</span> <span class="n">no</span> <span class="n">namespace</span>
+
+</pre></div>
+</div>
+<p>One of the causes of this might be the creation of a new <code class="docutils literal notranslate"><span class="pre">client_token</span></code> while the cached <code class="docutils literal notranslate"><span class="pre">client_token</span></code> at <code class="docutils literal notranslate"><span class="pre">$HOME/.vault_token</span></code> has been in invalidated.</p>
+<p>To fix this just remove the old token with: <code class="docutils literal notranslate"><span class="pre">rm</span> <span class="pre">~/.vault_token</span></code>.</p>
+<section id="rejoin-a-vault-node-to-the-vault-cluster">
+<h3>Rejoin A Vault node to the Vault cluster<a class="headerlink" href="#rejoin-a-vault-node-to-the-vault-cluster" title="Permalink to this headline">#</a></h3>
+<p>To confirm all nodes are part of the Vault cluster, run the following on all vault pods in <code class="docutils literal notranslate"><span class="pre">vault</span></code> namespace:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$ oc <span class="nb">exec</span> -ti opf-vault-0 -n vault -- vault operator raft list-peers
+$ oc <span class="nb">exec</span> -ti opf-vault-1 -n vault -- vault operator raft list-peers
+$ oc <span class="nb">exec</span> -ti opf-vault-2 -n vault -- vault operator raft list-peers
+</pre></div>
+</div>
+<p><em>There are 3 possible outputs for each pod:</em></p>
+<p>A. Only one vault node is listed (itself)
+B. There are 2 vault nodes are listed (itself and one more), identify the leader pod
+C. All 3 vault nodes are listed</p>
+<p>Then there are three possible cases:</p>
+<p><em>Case 1: All nodes show output (C)</em>
+Everything is good, you are done.</p>
+<p><em>Case 2: All show output (A)</em>
+If all nodes show (A), then no nodes are part of the cluster, identify one to be the leader and set the following
+environment variable: <code class="docutils literal notranslate"><span class="pre">LEADER=http://&lt;pod-name&gt;.opf-vault-internal:8200</span></code> where <code class="docutils literal notranslate"><span class="pre">&lt;pod-name&gt;</span></code> corresponds to your chosen
+leader, for example: <code class="docutils literal notranslate"><span class="pre">LEADER=http://opf-vault-1.opf-vault-internal:8200</span></code>.</p>
+<p>Join the remaining pod (<code class="docutils literal notranslate"><span class="pre">opf-vault-0</span></code> and <code class="docutils literal notranslate"><span class="pre">opf-vault-2</span></code> in our example) to our chosen leader:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>oc <span class="nb">exec</span> -ti opf-vault-0 -- vault operator raft join http://opf-vault-1.opf-vault-internal:820
+oc <span class="nb">exec</span> -ti opf-vault-2 -- vault operator raft join http://opf-vault-1.opf-vault-internal:820
+</pre></div>
+</div>
+<p>Unseal each of these nodes, instructions <a class="reference external" href="https://www.operate-first.cloud/apps/content/vault_eso/unsealing_vault.html">here</a>.</p>
+<p><em>Case 3: At least one pod showed 2 nodes in the cluster</em>
+Then the third node needs to be rejoined with the other nodes, identify the leader from the other 2 nodes by running:</p>
+<p>Let’s assume <code class="docutils literal notranslate"><span class="pre">opf-vault-0</span></code> and <code class="docutils literal notranslate"><span class="pre">opf-vault-2</span></code> are in the same cluster, and <code class="docutils literal notranslate"><span class="pre">opf-vault-1</span></code> is not (i.e. showing a single
+node output in <code class="docutils literal notranslate"><span class="pre">list-peers</span></code> command).</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>~ $ oc <span class="nb">exec</span> -ti opf-vault-1 -- vault operator raft list-peers
+Node                                    Address                                State       Voter
+----                                    -------                                -----       -----
+09b66090-446e-3974-bcb1-7080dacc07e7    opf-vault-0.opf-vault-internal:8201    follower    <span class="nb">true</span>
+56796c78-adac-b69e-8a62-c431b17c8b9b    opf-vault-2.opf-vault-internal:8201    leader      <span class="nb">true</span>
+</pre></div>
+</div>
+<p>When we do the same for <code class="docutils literal notranslate"><span class="pre">opf-vault-1</span></code> we see:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>~ $ oc <span class="nb">exec</span> -ti opf-vault-1 -- vault operator raft list-peers
+Node                                    Address                                State       Voter
+----                                    -------                                -----       -----
+e58ab8b5-62d7-cc6f-27e0-79656bfb8ab7    opf-vault-1.opf-vault-internal:8201    leader      <span class="nb">true</span>
+</pre></div>
+</div>
+<p>In this example, it’s clear that <code class="docutils literal notranslate"><span class="pre">opf-vault-1</span></code> is not part of the main cluster. And <code class="docutils literal notranslate"><span class="pre">opf-vault-2</span></code> is the leader of the
+main cluster. So we want to rejoin <code class="docutils literal notranslate"><span class="pre">opf-vault-1</span></code> by running:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>oc <span class="nb">exec</span> -ti opf-vault-1 -- vault operator raft join http://opf-vault-2.opf-vault-internal:820
+</pre></div>
+</div>
+<p>Now all 3 nodes should show the following output:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$ oc <span class="nb">exec</span> -ti opf-vault-1 -- vault operator raft list-peers
+Node                                    Address                                State       Voter
+----                                    -------                                -----       -----
+09b66090-446e-3974-bcb1-7080dacc07e7    opf-vault-0.opf-vault-internal:8201    follower    <span class="nb">true</span>
+56796c78-adac-b69e-8a62-c431b17c8b9b    opf-vault-2.opf-vault-internal:8201    leader      <span class="nb">true</span>
+e58ab8b5-62d7-cc6f-27e0-79656bfb8ab7    opf-vault-1.opf-vault-internal:8201    follower    <span class="nb">true</span>
+</pre></div>
+</div>
+<p>Unseal <code class="docutils literal notranslate"><span class="pre">opf-vault1</span></code> by following the instructions <a class="reference external" href="https://www.operate-first.cloud/apps/content/vault_eso/unsealing_vault.html">here</a>.</p>
+<p>We are done.</p>
+</section>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python3",
+            path: "./content/vault_eso/docs"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+              </div>
+              
+            </main>
+            <footer class="footer-article noprint">
+                
+    <!-- Previous / next buttons -->
+<div class='prev-next-area'>
+    <a class='left-prev' id="prev-link" href="unsealing_vault.html" title="previous page">
+        <i class="fas fa-angle-left"></i>
+        <div class="prev-next-info">
+            <p class="prev-next-subtitle">previous</p>
+            <p class="prev-next-title">Unsealing OPF Vault instance</p>
+        </div>
+    </a>
+    <a class='right-next' id="next-link" href="../../cluster-scope/docs/README.html" title="next page">
+    <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Cluster Management</p>
+    </div>
+    <i class="fas fa-angle-right"></i>
+    </a>
+</div>
+            </footer>
+        </div>
+    </div>
+    <div class="footer-content row">
+        <footer class="col footer"><p>
+  
+    By Operate First Authors<br/>
+  
+      &copy; Copyright 2022.<br/>
+</p>
+        </footer>
+    </div>
+    
+</div>
+
+
+      </div>
+    </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../../../_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf"></script>
+
+
+  </body>
+</html>

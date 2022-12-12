@@ -1,0 +1,1071 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+    <title>Where and How do I add notifications to my ArgoCD apps? &#8212; GitOps Docs</title>
+    
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../../../_static/styles/theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
+<link href="../../../_static/styles/pydata-sphinx-theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
+
+    
+  <link rel="stylesheet"
+    href="../../../_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../../../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../../../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css" />
+    <link rel="stylesheet" href="../../../_static/styles/sphinx-book-theme.css?digest=5115cc725059bd94278eecd172e13a965bf8f5a9" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/design-style.b7bb847fb20b106c3d81b95245e65545.min.css" />
+    
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../../../_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf">
+
+    <script data-url_root="../../../" id="documentation_options" src="../../../_static/documentation_options.js"></script>
+    <script src="../../../_static/jquery.js"></script>
+    <script src="../../../_static/underscore.js"></script>
+    <script src="../../../_static/doctools.js"></script>
+    <script src="../../../_static/clipboard.min.js"></script>
+    <script src="../../../_static/copybutton.js"></script>
+    <script src="../../../_static/scripts/sphinx-book-theme.js?digest=9c920249402e914e316237a7dbc6769907cce411"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../../../_static/togglebutton.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="../../../_static/design-tabs.js"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
+    <script async="async" src="../../../_static/sphinx-thebe.js"></script>
+    <link rel="shortcut icon" href="../../../_static/favicon.png"/>
+    <link rel="index" title="Index" href="../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../search.html" />
+    <link rel="next" title="Secret Management" href="../../vault_eso/docs/README.html" />
+    <link rel="prev" title="Steps for Upgrading ArgoCD" href="update_argocd.html" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="None">
+    
+
+    <!-- Google Analytics -->
+    
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="60">
+<!-- Checkboxes to toggle the left sidebar -->
+<input type="checkbox" class="sidebar-toggle" name="__navigation" id="__navigation" aria-label="Toggle navigation sidebar">
+<label class="overlay overlay-navbar" for="__navigation">
+    <div class="visually-hidden">Toggle navigation sidebar</div>
+</label>
+<!-- Checkboxes to toggle the in-page toc -->
+<input type="checkbox" class="sidebar-toggle" name="__page-toc" id="__page-toc" aria-label="Toggle in-page Table of Contents">
+<label class="overlay overlay-pagetoc" for="__page-toc">
+    <div class="visually-hidden">Toggle in-page Table of Contents</div>
+</label>
+<!-- Headers at the top -->
+<div class="announcement header-item noprint"></div>
+<div class="header header-item noprint"></div>
+
+    
+    <div class="container-fluid" id="banner"></div>
+
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<!-- Sidebar -->
+<div class="bd-sidebar noprint" id="site-navigation">
+    <div class="bd-sidebar__content">
+        <div class="bd-sidebar__top"><div class="navbar-brand-box">
+    <a class="navbar-brand text-wrap" href="../../../index.html">
+      
+        <!-- `logo` is deprecated in Sphinx 4.0, so remove this when we stop supporting 3 -->
+        
+      
+      
+      <img src="../../../_static/icon.png" class="logo" alt="logo">
+      
+      
+      <h1 class="site-logo" id="site-title">GitOps Docs</h1>
+      
+    </a>
+</div><form class="bd-search d-flex align-items-center" action="../../../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="../../README.html">
+                    GitOps Documentation
+                </a>
+            </li>
+        </ul>
+        <p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  GitOps
+ </span>
+</p>
+<ul class="current nav bd-sidenav">
+ <li class="toctree-l1 current active has-children">
+  <a class="reference internal" href="README.html">
+   ArgoCD
+  </a>
+  <input checked="" class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/>
+  <label for="toctree-checkbox-1">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul class="current">
+   <li class="toctree-l2">
+    <a class="reference internal" href="add_application.html">
+     Adding ArgoCD Applications
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="add_permissions_to_project.html">
+     Requesting more permissions for an ArgoCD Project (MOC)
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="get_access_to_argocd.html">
+     Get access to ArgoCD
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="onboarding_to_argocd.html">
+     ArgoCD onboarding procedure
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="secret_management.html">
+     Secret management for applications
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="setup_argocd_dev_environment.html">
+     Deploying a development environment
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="update_argocd.html">
+     Steps for Upgrading ArgoCD
+    </a>
+   </li>
+   <li class="toctree-l2 current active">
+    <a class="current reference internal" href="#">
+     Where and How do I add notifications to my ArgoCD apps?
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../../vault_eso/docs/README.html">
+   Secret Management
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/>
+  <label for="toctree-checkbox-2">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../vault_eso/docs/onboard_team_to_vault.html">
+     Onboard an OCP group to vault
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../vault_eso/docs/create_external_secret.html">
+     Create External Secret in Operate First
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../vault_eso/docs/enable_es_in_namespace.html">
+     Enable External Secrets to a namespace
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../vault_eso/docs/enable_cluster_to_eso_and_vault.html">
+     Enable Cluster to use External Secrets with Vault
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../vault_eso/docs/install_es_operator_in_cluster.html">
+     Add External Secrets Operator to an OPF cluster
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../vault_eso/docs/restore_vault.html">
+     Restoring vault
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../vault_eso/docs/vault_backup_job.html">
+     Vault Backup Job
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../vault_eso/docs/write_to_vault_with_k8s.html">
+     Secret creation using vault CLI and k8s auth
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../vault_eso/docs/unsealing_vault.html">
+     Unsealing OPF Vault instance
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../vault_eso/docs/runbook.html">
+     Vault Runbook
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../../cluster-scope/docs/README.html">
+   Cluster Management
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"/>
+  <label for="toctree-checkbox-3">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../cluster-scope/docs/create_ocp_group.html">
+     Adding an OCP group to Operate First Cloud
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../cluster-scope/docs/add_user_to_group.html">
+     Adding User to an OCP team
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../cluster-scope/docs/add_user_to_project_admin.html">
+     Giving a user project role access in the smaug cluster
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../cluster-scope/docs/offboarding_cluster.html">
+     Remove a Cluster from Operate First
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../cluster-scope/docs/onboarding_project.html">
+     Onboard Project
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../../development/docs/README.html">
+   Development
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" type="checkbox"/>
+  <label for="toctree-checkbox-4">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../development/docs/crc-disk-size.html">
+     Increasing CRC disk space
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../development/docs/setup_quicklab.html">
+     Quicklab
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../../kafka/docs/README.html">
+   Kafka
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-5" name="toctree-checkbox-5" type="checkbox"/>
+  <label for="toctree-checkbox-5">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../kafka/docs/add_kafka_topics.html">
+     Add Kafka Topics
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../kafka/docs/add_kafka_users.html">
+     Add Kafka Users
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../kafka/docs/runbook.html">
+     Kafka Runbook
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../../kubeval/docs/README.html">
+   Kubeval validation
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-6" name="toctree-checkbox-6" type="checkbox"/>
+  <label for="toctree-checkbox-6">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../kubeval/docs/updating_schema_store.html">
+     Updating schemas in schema store
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../../grafana/docs/README.html">
+   Grafana
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-7" name="toctree-checkbox-7" type="checkbox"/>
+  <label for="toctree-checkbox-7">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../grafana/docs/add_grafana_dashboard.html">
+     Add a Grafana dashboard to OperateFirst Grafana
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../grafana/docs/map_groups_to_roles.html">
+     Adding permissions in Grafana
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../prometheus/docs/README.html">
+   Prometheus
+  </a>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../../observatorium/docs/README.html">
+   Observatorium
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-8" name="toctree-checkbox-8" type="checkbox"/>
+  <label for="toctree-checkbox-8">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../observatorium/docs/loki/README.html">
+     Loki
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../observatorium/docs/loki/add_loki_grafana_datasource.html">
+     Add a Loki Data Source in OperateFirst Grafana
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../observatorium/docs/loki/loki_query_api.html">
+     Loki Query API
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../observatorium/docs/thanos/README.html">
+     Thanos Access
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../observatorium/docs/thanos/request_grafana_access.html">
+     Grafana
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../observatorium/docs/thanos/request_thanos_access.html">
+     Thanos Query API
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../observatorium/docs/thanos/thanos_programmatic_access.html">
+     Thanos Programmatic Access
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../observatorium/docs/vector/README.html">
+     Vector on Operate First
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../../odf/docs/README.html">
+   OpenShift Data Foundation
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-9" name="toctree-checkbox-9" type="checkbox"/>
+  <label for="toctree-checkbox-9">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../odf/docs/buckets-external-access.html">
+     Accessing buckets from outside the cluster
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../odf/docs/claiming_object_store.html">
+     Claiming S3-compatible object store buckets
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../odf/docs/runbook.html">
+     OpenShift Data Foundation (ODF) Runbook
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../../odh/docs/README.html">
+   Open Data Hub (ODH)
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-10" name="toctree-checkbox-10" type="checkbox"/>
+  <label for="toctree-checkbox-10">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2 has-children">
+    <a class="reference internal" href="../../odh/docs/jupyterhub/README.html">
+     JupyterHub
+    </a>
+    <input class="toctree-checkbox" id="toctree-checkbox-11" name="toctree-checkbox-11" type="checkbox"/>
+    <label for="toctree-checkbox-11">
+     <i class="fas fa-chevron-down">
+     </i>
+    </label>
+    <ul>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../../odh/docs/jupyterhub/access_jupyterhub.html">
+       Access JupyterHub
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../../odh/docs/jupyterhub/add_imagestream_to_jh.html">
+       Provision a new ImageStream
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../../odh/docs/jupyterhub/analyze_storage.html">
+       Analyze Storage for a Notebook
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../../odh/docs/jupyterhub/increase_pvc_size_jh.html">
+       Increase PVC size for JupyterHub
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../../odh/docs/jupyterhub/reinstall_kernel.html">
+       How to restart a Notebook Kernel
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../../odh/docs/jupyterhub/runbook.html">
+       JupyterHub Runbook
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../../odh/docs/jupyterhub/user_profiles.html">
+       Managing user profiles
+      </a>
+     </li>
+    </ul>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../odh/docs/adding_kfdefs.html">
+     Add a new Kfdef
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../../openmetadata/docs/README.html">
+   OpenMetaData
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-12" name="toctree-checkbox-12" type="checkbox"/>
+  <label for="toctree-checkbox-12">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul class="simple">
+  </ul>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../../reloader/docs/README.html">
+   Reloader
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-13" name="toctree-checkbox-13" type="checkbox"/>
+  <label for="toctree-checkbox-13">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../reloader/docs/monitoring-secrets-configmaps.html">
+     Monitoring secrets and configMaps for changes with Reloader
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../../uwm/docs/README.html">
+   User WorkLoad Monitoring
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-14" name="toctree-checkbox-14" type="checkbox"/>
+  <label for="toctree-checkbox-14">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../uwm/docs/overview.html">
+     Overview
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../../volsync/docs/README.html">
+   Volsync
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-15" name="toctree-checkbox-15" type="checkbox"/>
+  <label for="toctree-checkbox-15">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../volsync/docs/using-volsync.html">
+     Using Volsync to back up persistent volumes
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../../opentelemetry-collector/docs/README.html">
+   OpenTelemetry Collector
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-16" name="toctree-checkbox-16" type="checkbox"/>
+  <label for="toctree-checkbox-16">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../opentelemetry-collector/docs/using-opentelemetry-collector.html">
+     Collecting OpenTelemetry data
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../../jaeger/docs/README.html">
+   Jaeger
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-17" name="toctree-checkbox-17" type="checkbox"/>
+  <label for="toctree-checkbox-17">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../jaeger/docs/using-distributed-tracing-jaeger.html">
+     Jaeger for visualizing traces
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../../notebooks/README.html">
+   Notebooks
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-18" name="toctree-checkbox-18" type="checkbox"/>
+  <label for="toctree-checkbox-18">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../notebooks/increase_pvc_size.html">
+     Increase size of a PVC in JupyterHub
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../notebooks/onboarding_new_cluster.html">
+     How to add a new cluster to Operate First
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../notebooks/onboarding_project.html">
+     How to onboard a new project to a cluster on Operate First Cloud
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../../templates/README.html">
+   Templates
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-19" name="toctree-checkbox-19" type="checkbox"/>
+  <label for="toctree-checkbox-19">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../templates/runbook.html">
+     &lt;Application/Service Name&gt; Runbook
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../../CONTRIBUTING.html">
+   Contributing to GitOps Docs
+  </a>
+ </li>
+</ul>
+
+    </div>
+</nav></div>
+        <div class="bd-sidebar__bottom">
+             <!-- To handle the deprecated key -->
+            
+            <div class="navbar_extra_footer">
+            Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+            </div>
+            
+        </div>
+    </div>
+    <div id="rtd-footer-container"></div>
+</div>
+
+
+          
+
+
+          
+<!-- A tiny helper pixel to detect if we've scrolled -->
+<div class="sbt-scroll-pixel-helper"></div>
+<!-- Main content -->
+<div class="col py-0 content-container">
+    
+    <div class="header-article row sticky-top noprint">
+        
+
+
+
+<div class="col py-1 d-flex header-article-main">
+    <div class="header-article__left">
+        
+        <label for="__navigation"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="right"
+title="Toggle navigation"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-bars"></i>
+  </span>
+
+</label>
+
+        
+    </div>
+    <div class="header-article__right">
+<button onclick="toggleFullScreen()"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="bottom"
+title="Fullscreen mode"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+<div class="menu-dropdown menu-dropdown-repository-buttons">
+  <button class="headerbtn menu-dropdown__trigger"
+      aria-label="Source repositories">
+      <i class="fab fa-github"></i>
+  </button>
+  <div class="menu-dropdown__content">
+    <ul>
+      <li>
+        <a href="https://github.com/operate-first/apps"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Source repository"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="headerbtn__text-container">repository</span>
+</a>
+
+      </li>
+      
+      <li>
+        <a href="https://github.com/operate-first/apps/issues/new?title=Issue%20on%20page%20%2Fcontent/argocd-gitops/docs/argocd_notifications.html&body=Your%20issue%20content%20here."
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Open an issue"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="headerbtn__text-container">open issue</span>
+</a>
+
+      </li>
+      
+    </ul>
+  </div>
+</div>
+
+<div class="menu-dropdown menu-dropdown-download-buttons">
+  <button class="headerbtn menu-dropdown__trigger"
+      aria-label="Download this page">
+      <i class="fas fa-download"></i>
+  </button>
+  <div class="menu-dropdown__content">
+    <ul>
+      <li>
+        <a href="../../../_sources/content/argocd-gitops/docs/argocd_notifications.md"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Download source file"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="headerbtn__text-container">.md</span>
+</a>
+
+      </li>
+      
+      <li>
+        
+<button onclick="printPdf(this)"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="left"
+title="Print to PDF"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="headerbtn__text-container">.pdf</span>
+</button>
+
+      </li>
+      
+    </ul>
+  </div>
+</div>
+<label for="__page-toc"
+  class="headerbtn headerbtn-page-toc"
+  
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-list"></i>
+  </span>
+
+</label>
+
+    </div>
+</div>
+
+<!-- Table of contents -->
+<div class="col-md-3 bd-toc show noprint">
+    <div class="tocsection onthispage pt-5 pb-3">
+        <i class="fas fa-list"></i> Contents
+    </div>
+    <nav id="bd-toc-nav" aria-label="Page">
+        <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#id1">
+   Where and How do I add notifications to my ArgoCD apps?
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#references">
+   References
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#application-annotations">
+     Application Annotations
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#triggers">
+     Triggers
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#templates">
+     Templates
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#notification-services-integrations">
+     Notification services / integrations
+    </a>
+   </li>
+  </ul>
+ </li>
+</ul>
+
+    </nav>
+</div>
+    </div>
+    <div class="article row">
+        <div class="col pl-md-3 pl-lg-5 content-container">
+            <!-- Table of contents that is only displayed when printing the page -->
+            <div id="jb-print-docs-body" class="onlyprint">
+                <h1>Where and How do I add notifications to my ArgoCD apps?</h1>
+                <!-- Table of contents -->
+                <div id="print-main-content">
+                    <div id="jb-print-toc">
+                        
+                        <div>
+                            <h2> Contents </h2>
+                        </div>
+                        <nav aria-label="Page">
+                            <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#id1">
+   Where and How do I add notifications to my ArgoCD apps?
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#references">
+   References
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#application-annotations">
+     Application Annotations
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#triggers">
+     Triggers
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#templates">
+     Templates
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#notification-services-integrations">
+     Notification services / integrations
+    </a>
+   </li>
+  </ul>
+ </li>
+</ul>
+
+                        </nav>
+                    </div>
+                </div>
+            </div>
+            <main id="main-content" role="main">
+                
+              <div>
+                
+  <section class="tex2jax_ignore mathjax_ignore" id="where-and-how-do-i-add-notifications-to-my-argocd-apps">
+<h1>Where and How do I add notifications to my ArgoCD apps?<a class="headerlink" href="#where-and-how-do-i-add-notifications-to-my-argocd-apps" title="Permalink to this headline">#</a></h1>
+<p>Docs: <a class="reference external" href="https://argocd-notifications.readthedocs.io/en/latest/">https://argocd-notifications.readthedocs.io/en/latest/</a></p>
+<p>Currently we deploy ArgoCD-Notifications alongside argocd (same namespace).</p>
+<section id="id1">
+<h2>Where and How do I add notifications to my ArgoCD apps?<a class="headerlink" href="#id1" title="Permalink to this headline">#</a></h2>
+<p>There are either 2 or 3 main things (depending on the specific notification service(s) used in question) needed if to connect a notification service to argocd notifications.</p>
+<ol class="simple">
+<li><p>Application annotations:</p></li>
+</ol>
+<ul class="simple">
+<li><p>Annotations can be added manually in a application manifest, or use the <code class="docutils literal notranslate"><span class="pre">oc</span> <span class="pre">patch</span></code>  command:</p></li>
+</ul>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>oc patch app &lt;app_name&gt; -n &lt;namespace -p <span class="s1">&#39;{&quot;metadata&quot;: {&quot;annotations&quot;: {&quot;notifications.argoproj.io/subscribe.on-sync-succeeded.github&quot;:&quot;&quot;}}}&#39;</span> --type merge
+</pre></div>
+</div>
+<ul class="simple">
+<li><p>NOTE: This example has no value, which is actually correct for the github service. It doesn’t need any information there because it identifies the application by <code class="docutils literal notranslate"><span class="pre">appId</span></code>, <code class="docutils literal notranslate"><span class="pre">installationId</span></code>, and <code class="docutils literal notranslate"><span class="pre">privateKey</span></code>. However this varies per service type. For instance the slack integration uses the name of the channel to send to as its value. Also note that in that example <code class="docutils literal notranslate"><span class="pre">on-sync-succeed</span></code> is the trigger name, and <code class="docutils literal notranslate"><span class="pre">github</span></code> refers to the service type.</p></li>
+<li><p>Operate-first’s Application manifests for apps deployed via argo under <a class="reference external" href="https://github.com/operate-first/apps/tree/master/argocd/overlays/moc-infra/applications/envs">this directory</a> per environment.</p></li>
+</ul>
+<ol class="simple">
+<li><p>A Configmap with the proper components</p>
+<ul class="contains-task-list simple">
+<li class="task-list-item"><p><input class="task-list-item-checkbox" disabled="disabled" type="checkbox"> trigger</p></li>
+<li class="task-list-item"><p><input class="task-list-item-checkbox" disabled="disabled" type="checkbox"> template</p></li>
+<li class="task-list-item"><p><input class="task-list-item-checkbox" disabled="disabled" type="checkbox"> service (defines the serivce credentials and configuarations so that Argocd-Notifications can use them when executing a template with content specific to a notifcation service)</p></li>
+</ul>
+</li>
+</ol>
+<ul class="simple">
+<li><p>These components are all defined in <a class="reference external" href="https://github.com/operate-first/apps/blob/master/argocd-notifications/base/configmap.yaml">this configmap</a>, although a different configmap could be defined for each notification service and merged into a single configmap using volumes/volumeMounts. Argocd-Notifications by default looks for the configmap named <code class="docutils literal notranslate"><span class="pre">argocd-notifications-cm</span></code>, and the same is true for secrets <code class="docutils literal notranslate"><span class="pre">argocd-notifications-secret</span></code>.</p></li>
+</ul>
+<ol class="simple">
+<li><p>An application specific to the notification service desired.</p></li>
+</ol>
+<ul class="simple">
+<li><p>Examples of this would be both github and slack. They require the creation of app that they host. This is what gives the tokens or private information that is specificed in the service.</p></li>
+<li><p>Note: if you are doing something that requires an application, make certain that you have enabled the permisions to accoplish what you are aiming for in that application. See <a class="reference external" href="https://docs.github.com/en/rest/reference/permissions-required-for-github-apps">Github’s Application Permissions Docs</a> for an example.</p></li>
+</ul>
+</section>
+<section id="references">
+<h2>References<a class="headerlink" href="#references" title="Permalink to this headline">#</a></h2>
+<p>This is reference material related to ArgoCD-Notifications. It goes more into depth about components. <a class="reference external" href="https://github.com/operate-first/apps/blob/master/docs/content/argocd-gitops/argocd-notifications.md#Triggers">Triggers</a> and <a class="reference external" href="https://github.com/operate-first/apps/blob/master/docs/content/argocd-gitops/argocd-notifcations.md#Templates">Templates</a> are both resources speicifc to ArgoCD-Notifications, while <a class="reference external" href="https://github.com/operate-first/apps/blob/master/docs/content/argocd-gitops/argocd-notifications.md#Application-Annotations">Application Annotations</a> covers how this ArgoCD resource (Application manifests) are utilized in ArgoCD-Notifications.</p>
+<section id="application-annotations">
+<h3>Application Annotations<a class="headerlink" href="#application-annotations" title="Permalink to this headline">#</a></h3>
+<p>Argocd notifcations utilizes annotations on the application manifest managed by argocd, to know which applications use which trigger and service to subscribe to. The triggers themselves are what call specific templates based on their conditions.</p>
+<ul class="simple">
+<li><p>Example:</p></li>
+</ul>
+<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="w">    </span><span class="nt">apiVersion</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">argoproj.io/v1alpha1</span><span class="w"></span>
+<span class="w">    </span><span class="nt">kind</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Application</span><span class="w"></span>
+<span class="w">    </span><span class="nt">metadata</span><span class="p">:</span><span class="w"></span>
+<span class="w">      </span><span class="nt">annotations</span><span class="p">:</span><span class="w"></span>
+<span class="w">        </span><span class="nt">notifications.argoproj.io/subscribe.on-sync-succeeded.slack</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;argocd-notifications&quot;</span><span class="w"></span>
+<span class="w">        </span><span class="nt">notifications.argoproj.io/subscribe.on-sync-failed.googlechat</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;opf-argocd-notifications&quot;</span><span class="w"></span>
+<span class="w">        </span><span class="nt">notifications.argoproj.io/subscribe.&lt;trigger_name&gt;.&lt;service&gt;</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">&lt;value_if_any_required&gt;</span><span class="w"></span>
+<span class="w">      </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">cluster-resources-smaug</span><span class="w"></span>
+<span class="w">      </span><span class="nt">namespace</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">argocd</span><span class="w"></span>
+</pre></div>
+</div>
+<p>As this is in initial deployment stages for this application manifests are modified manually rather than patching them from this dir. For an example, see <a class="reference external" href="https://github.com/operate-first/apps/blob/master/argocd/overlays/moc-infra/applications/envs/moc/smaug/cluster-management/cluster-resources.yaml">cluster resources</a>.</p>
+</section>
+<section id="triggers">
+<h3>Triggers<a class="headerlink" href="#triggers" title="Permalink to this headline">#</a></h3>
+<p>Triggers require two key values, a <code class="docutils literal notranslate"><span class="pre">when</span></code> condition, which states what data from argocd will start the trigger, and a <code class="docutils literal notranslate"><span class="pre">send</span></code> value which contains an array of template names to call when that trigger fires. Other fields can be added like <code class="docutils literal notranslate"><span class="pre">description</span></code>, or <code class="docutils literal notranslate"><span class="pre">oncePer</span></code>, which tells argocd to only fire the trigger one time per value for the parameter passed in. This is utilized currently in the <a class="reference external" href="https://github.com/operate-first/apps/blob/master/argocd-notifications/base/configmap.yaml#L32">slack configmap</a> to only allow one success of sync-start per run of a Commit SHA. Because the run trigger will hit before any of the others, it fires the sync run template, and the stacks all the other sync-status notifications (such as failed, degraded, etc.) as replies. Triggers are implemented in such a way that they are notification-service agnostic, because they only listen for conditions in argocd and then call templates when those conditions resolve true.</p>
+<p>More documentation to come, for now see <a class="reference external" href="https://argocd-notifications.readthedocs.io/en/stable/triggers/">the docs</a>.</p>
+</section>
+<section id="templates">
+<h3>Templates<a class="headerlink" href="#templates" title="Permalink to this headline">#</a></h3>
+<p>Templates are what will generate the notification content itself, and works using the html/template golang package. Templates can be referenced by multiple triggers. Additionally one template can work for multiple services, provided everything else is also set up properly. It does this by using its <code class="docutils literal notranslate"><span class="pre">&lt;template_name&gt;.message</span></code> property, which will work with almost all mediums of communication (not sure about webhooks). All the other top level properties in a template are notification-service specific and will only render in that given service type (github, slack, googlechat, etc.). All of Operate-First’s trigger templates and trigger names can be found <a class="reference external" href="https://github.com/operate-first/apps/blob/master/argocd-notifications/base/configmap.yaml">here</a>, and are named the same ones as the argocd-notifications catalog. They are not protected values, triggers and templates can be named anything. Additionally other values can be passed into the templates through the <code class="docutils literal notranslate"><span class="pre">data.context</span></code> value of the <a class="reference external" href="https://github.com/operate-first/apps/blob/master/argocd-notifications/base/configmap.yaml">configMap</a>, which does not come from argocd. This is useful for specifying different environments, where one can patch the overlay with argocd-server route.</p>
+<p>More documentation and examples to come, for now see <a class="reference external" href="https://argocd-notifications.readthedocs.io/en/stable/templates/">the docs</a>.</p>
+</section>
+<section id="notification-services-integrations">
+<h3>Notification services / integrations<a class="headerlink" href="#notification-services-integrations" title="Permalink to this headline">#</a></h3>
+<p><a class="reference external" href="https://argocd-notifications.readthedocs.io/en/stable/services/overview/">The Docs</a> are the best resource on this topic. Refer to them.</p>
+</section>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python3",
+            path: "./content/argocd-gitops/docs"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+              </div>
+              
+            </main>
+            <footer class="footer-article noprint">
+                
+    <!-- Previous / next buttons -->
+<div class='prev-next-area'>
+    <a class='left-prev' id="prev-link" href="update_argocd.html" title="previous page">
+        <i class="fas fa-angle-left"></i>
+        <div class="prev-next-info">
+            <p class="prev-next-subtitle">previous</p>
+            <p class="prev-next-title">Steps for Upgrading ArgoCD</p>
+        </div>
+    </a>
+    <a class='right-next' id="next-link" href="../../vault_eso/docs/README.html" title="next page">
+    <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Secret Management</p>
+    </div>
+    <i class="fas fa-angle-right"></i>
+    </a>
+</div>
+            </footer>
+        </div>
+    </div>
+    <div class="footer-content row">
+        <footer class="col footer"><p>
+  
+    By Operate First Authors<br/>
+  
+      &copy; Copyright 2022.<br/>
+</p>
+        </footer>
+    </div>
+    
+</div>
+
+
+      </div>
+    </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../../../_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf"></script>
+
+
+  </body>
+</html>
