@@ -1,0 +1,32 @@
+site_name: OpenDataHub documentation
+
+nav:
+  - Home: README.md
+  - JupyterHub:
+    - Access: jupyterhub/access_jupyterhub.md
+    - Provision a new ImageStream: jupyterhub/add_imagestream_to_jh.md
+    - Analyze Storage: jupyterhub/analyze_storage.md
+    - Increase Storage size: jupyterhub/increase_pvc_size_jh.md
+    - How to restart a Notebook Kernel: jupyterhub/reinstall_kernel.md
+    - Managing user profiles: jupyterhub/user_profiles.md
+    - Runbook: jupyterhub/runbook.md
+
+  - Seldon: seldon/README.md
+
+  - SuperSet:
+    - Access: superset/add_superset_users.md
+    - Add Trino DB: superset/add_trino_db.md
+    - Map OCP Group to Superset Role: superset/map_groups_to_roles.md
+    - Runbook: superset/runbook.md
+
+  - Trino:
+    - Public S3 Bucket Access: trino/access_public_bucket.md
+    - Add additional Object Storage: trino/add_more_buckets.md
+    - Add additional PostgreSQL catalogs: trino/add_more_postgress_catalogs.md
+    - "How To Guide: Ceph -> Trino -> Superset": trino/trino_superset_user_guide.md
+
+  - Adding KfDefs: adding_kfdefs.md
+
+plugins:
+  - techdocs-core
+  - search

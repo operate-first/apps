@@ -1,0 +1,8 @@
+site_name: User Workload Monitoring documentation
+
+nav:
+  - Home: overview.md
+
+plugins:
+  - techdocs-core
+  - search

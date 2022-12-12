@@ -1,0 +1,9 @@
+site_name: Kubeval documentation
+
+nav:
+  - Home: README.md
+  - Updating schema store: updating_schema_store.md
+
+plugins:
+  - techdocs-core
+  - search

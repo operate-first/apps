@@ -1,0 +1,9 @@
+site_name: Reloader documentation
+
+nav:
+  - Home: README.md
+  - Watching Secrets and ConfigMaps for changes: monitoring-secrets-configmaps.md
+
+plugins:
+  - techdocs-core
+  - search

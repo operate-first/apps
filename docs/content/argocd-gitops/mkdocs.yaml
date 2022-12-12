@@ -1,0 +1,16 @@
+site_name: ArgoCD documentation
+
+nav:
+  - Home: README.md
+  - Get Access: content/argocd-gitops/get_access_to_argocd.md
+  - Team Onboarding: content/argocd-gitops/onboarding_to_argocd.md
+  - Adding Applications: content/argocd-gitops/add_application.md
+  - Requesting more permissions: content/argocd-gitops/add_permissions_to_project.md
+  - Secret management: content/argocd-gitops/secret_management.md
+  - Dev environment: content/argocd-gitops/setup_argocd_dev_environment.md
+  - Updating ArgoCD: content/argocd-gitops/update_argocd.md
+  - Notifications: content/argocd-gitops/argocd_notifications.md
+
+plugins:
+  - techdocs-core
+  - search
