@@ -2,7 +2,6 @@
 
 Instructions on how to add an OCP group to Operate First Cloud.
 
-## Add groups manually
 1. Set your GitHub username, your choice of OCP group, and your workingdir:
 ```bash
 OCP_GROUP=<enter-your-group-here>
@@ -56,9 +55,3 @@ EOF
 ```
 
 8. Commit and push your changes. Submit a PR to the upstream repository.
-
-## Use the OPF CLI
-
-1. Clone/Fork/Navigate to working directory as shown above
-2. Follow instructions here: https://github.com/operate-first/opfcli#create-group
-3. Commit and push your changes. Submit a PR to the upstream repository.

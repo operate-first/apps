@@ -7,76 +7,68 @@ parts:
       # ACM
       - file: content/acm/README.md
         sections:
-          - file: content/acm/adding_managed_cluster_to_argocd.md
-          - file: content/acm/adding_managed_cluster_to_identitatem.md
-          - file: content/acm/manage_your_teams_ocp_clusters_via_acm.md
+          - file: content/acm/docs/adding_managed_cluster_to_argocd.md
+          - file: content/acm/docs/adding_managed_cluster_to_identitatem.md
+          - file: content/acm/docs/manage_your_teams_ocp_clusters_via_acm.md
 
       # ACME
       - file: content/acme/README.md
         sections:
-          - file: content/acme/issuing_certificates.md
+          - file: content/acme/docs/issuing_certificates.md
 
       # ArgoCD
-      - file: content/argocd-gitops/README.md
+      - file: content/argocd-gitops/docs/README.md
         sections:
-          - file: content/argocd-gitops/add_application.md
-          - file: content/argocd-gitops/add_permissions_to_project.md
-          - file: content/argocd-gitops/encrypting_applications.md
-          - file: content/argocd-gitops/get_access_to_argocd.md
-          - file: content/argocd-gitops/import_dev_gpg.md
-          - file: content/argocd-gitops/onboarding_to_argocd.md
-          - file: content/argocd-gitops/secret_management.md
-          - file: content/argocd-gitops/setup_argocd_dev_environment.md
-          - file: content/argocd-gitops/update_argocd.md
-          - file: content/argocd-gitops/update_gpg_key.md
-          - file: content/argocd-gitops/argocd_notifications.md
+          - file: content/argocd-gitops/docs/add_application.md
+          - file: content/argocd-gitops/docs/add_permissions_to_project.md
+          - file: content/argocd-gitops/docs/get_access_to_argocd.md
+          - file: content/argocd-gitops/docs/onboarding_to_argocd.md
+          - file: content/argocd-gitops/docs/secret_management.md
+          - file: content/argocd-gitops/docs/setup_argocd_dev_environment.md
+          - file: content/argocd-gitops/docs/update_argocd.md
+          - file: content/argocd-gitops/docs/argocd_notifications.md
 
       # Vault
-      - file: content/vault_eso/README.md
+      - file: content/vault_eso/docs/README.md
         sections:
-          - file: content/vault_eso/onboard_team_to_vault.md
-          - file: content/vault_eso/create_external_secret.md
-          - file: content/vault_eso/enable_es_in_namespace.md
-          - file: content/vault_eso/enable_cluster_to_eso_and_vault.md
-          - file: content/vault_eso/install_es_operator_in_cluster.md
-          - file: content/vault_eso/restore_vault.md
-          - file: content/vault_eso/vault_backup_job.md
-          - file: content/vault_eso/write_to_vault_with_k8s.md
-          - file: content/vault_eso/unsealing_vault.md
-          - file: content/vault_eso/runbook.md
+          - file: content/vault_eso/docs/onboard_team_to_vault.md
+          - file: content/vault_eso/docs/create_external_secret.md
+          - file: content/vault_eso/docs/enable_es_in_namespace.md
+          - file: content/vault_eso/docs/enable_cluster_to_eso_and_vault.md
+          - file: content/vault_eso/docs/install_es_operator_in_cluster.md
+          - file: content/vault_eso/docs/restore_vault.md
+          - file: content/vault_eso/docs/vault_backup_job.md
+          - file: content/vault_eso/docs/write_to_vault_with_k8s.md
+          - file: content/vault_eso/docs/unsealing_vault.md
+          - file: content/vault_eso/docs/runbook.md
 
       # Cluster Scope
-      - file: content/cluster-scope/README.md
+      - file: content/cluster-scope/docs/README.md
         sections:
-          - file: content/cluster-scope/add_resource_quotas.md
-          - file: content/cluster-scope/create_ocp_group.md
-          - file: content/cluster-scope/add_user_to_group.md
-          - file: content/cluster-scope/add_user_to_project_admin.md
-          - file: content/cluster-scope/offboarding_cluster.md
-          - file: content/cluster-scope/onboarding_project.md
-          - file: content/cluster-scope/quotas.md
-          - file: content/cluster-scope/runbooks/runbook.md
-            sections:
-              - file: content/cluster-scope/runbooks/emea/runbook.md
-              - file: content/cluster-scope/runbooks/moc/runbook.md
+          - file: content/cluster-scope/docs/add_resource_quotas.md
+          - file: content/cluster-scope/docs/create_ocp_group.md
+          - file: content/cluster-scope/docs/add_user_to_group.md
+          - file: content/cluster-scope/docs/add_user_to_project_admin.md
+          - file: content/cluster-scope/docs/offboarding_cluster.md
+          - file: content/cluster-scope/docs/onboarding_project.md
 
       # Development
-      - file: content/development/README.md
+      - file: content/development/docs/README.md
         sections:
-          - file: content/development/crc-disk-size.md
-          - file: content/development/setup_quicklab.md
+          - file: content/development/docs/crc-disk-size.md
+          - file: content/development/docs/setup_quicklab.md
 
       # Kafka
-      - file: content/kafka/README.md
+      - file: content/kafka/docs/README.md
         sections:
-          - file: content/kafka/add_kafka_topics.md
-          - file: content/kafka/add_kafka_users.md
-          - file: content/kafka/runbook.md
+          - file: content/kafka/docs/add_kafka_topics.md
+          - file: content/kafka/docs/add_kafka_users.md
+          - file: content/kafka/docs/runbook.md
 
       # Kubeval
-      - file: content/kubeval/README.md
+      - file: content/kubeval/docs/README.md
         sections:
-          - file: content/kubeval/updating_schema_store.md
+          - file: content/kubeval/docs/updating_schema_store.md
 
       # Grafana
       - file: content/grafana/docs/README.md
@@ -85,88 +77,88 @@ parts:
           - file: content/grafana/docs/map_groups_to_roles.md
 
       # Prometheus / Alerting
-      - file: content/prometheus/README.md
+      - file: content/prometheus/docs/README.md
 
       # Observatorium
-      - file: content/observatorium/README.md
+      - file: content/observatorium/docs/README.md
         sections:
-          - file: content/observatorium/loki/README.md
-          - file: content/observatorium/loki/add_loki_grafana_datasource.md
-          - file: content/observatorium/loki/loki_query_api.md
-          - file: content/observatorium/thanos/README.md
-          - file: content/observatorium/thanos/request_grafana_access.md
-          - file: content/observatorium/thanos/request_thanos_access.md
-          - file: content/observatorium/thanos/thanos_programmatic_access.md
-          - file: content/observatorium/vector/README.md
+          - file: content/observatorium/docs/loki/README.md
+          - file: content/observatorium/docs/loki/add_loki_grafana_datasource.md
+          - file: content/observatorium/docs/loki/loki_query_api.md
+          - file: content/observatorium/docs/thanos/README.md
+          - file: content/observatorium/docs/thanos/request_grafana_access.md
+          - file: content/observatorium/docs/thanos/request_thanos_access.md
+          - file: content/observatorium/docs/thanos/thanos_programmatic_access.md
+          - file: content/observatorium/docs/vector/README.md
 
       #  Openshift Data Foundation
-      - file: content/odf/README.md
+      - file: content/odf/docs/README.md
         sections:
-          - file: content/odf/buckets-external-access.md
-          - file: content/odf/claiming_object_store.md
-          - file: content/odf/runbook.md
+          - file: content/odf/docs/buckets-external-access.md
+          - file: content/odf/docs/claiming_object_store.md
+          - file: content/odf/docs/runbook.md
 
       # ODH
-      - file: content/odh/README.md
+      - file: content/odh/docs/README.md
         sections:
-          - file: content/odh/jupyterhub/README.md
+          - file: content/odh/docs/jupyterhub/README.md
             sections:
-            - file: content/odh/jupyterhub/access_jupyterhub.md
-            - file: content/odh/jupyterhub/add_imagestream_to_jh.md
-            - file: content/odh/jupyterhub/analyze_storage.md
-            - file: content/odh/jupyterhub/increase_pvc_size_jh.md
-            - file: content/odh/jupyterhub/reinstall_kernel.md
-            - file: content/odh/jupyterhub/runbook.md
-            - file: content/odh/jupyterhub/user_profiles.md
+            - file: content/odh/docs/jupyterhub/access_jupyterhub.md
+            - file: content/odh/docs/jupyterhub/add_imagestream_to_jh.md
+            - file: content/odh/docs/jupyterhub/analyze_storage.md
+            - file: content/odh/docs/jupyterhub/increase_pvc_size_jh.md
+            - file: content/odh/docs/jupyterhub/reinstall_kernel.md
+            - file: content/odh/docs/jupyterhub/runbook.md
+            - file: content/odh/docs/jupyterhub/user_profiles.md
 
-          - file: content/odh/seldon/README.md
+          - file: content/odh/seldon/docs/README.md
 
-          - file: content/odh/superset/README.md
+          - file: content/odh/superset/docs/README.md
             sections:
-            - file: content/odh/superset/add_superset_users.md
-            - file: content/odh/superset/add_trino_db.md
-            - file: content/odh/superset/map_groups_to_roles.md
-            - file: content/odh/superset/runbook.md
+            - file: content/odh/superset/docs/add_superset_users.md
+            - file: content/odh/superset/docs/add_trino_db.md
+            - file: content/odh/superset/docs/map_groups_to_roles.md
+            - file: content/odh/superset/docs/runbook.md
 
-          - file: content/odh/trino/README.md
+          - file: content/odh/trino/docs/README.md
             sections:
-            - file: content/odh/trino/access_public_bucket.md
-            - file: content/odh/trino/add_more_buckets.md
-            - file: content/odh/trino/add_more_postgress_catalogs.md
-            - file: content/odh/trino/trino_superset_user_guide.md
+            - file: content/odh/trino/docs/access_public_bucket.md
+            - file: content/odh/trino/docs/add_more_buckets.md
+            - file: content/odh/trino/docs/add_more_postgress_catalogs.md
+            - file: content/odh/trino/docs/trino_superset_user_guide.md
 
-          - file: content/odh/adding_kfdefs.md
+          - file: content/odh/docs/adding_kfdefs.md
 
       # OpenMetaData
-      - file: content/openmetadata/README.md
+      - file: content/openmetadata/docs/README.md
         sections:
-          - file: content/openmetadata/operator_manual/deployment.md
-          - file: content/openmetadata/operator_manual/updating_om.md
+          - file: content/openmetadata/docs/operator_manual/deployment.md
+          - file: content/openmetadata/docs/operator_manual/updating_om.md
 
       # Reloader
-      - file: content/reloader/README.md
+      - file: content/reloader/docs/README.md
         sections:
-          - file: content/reloader/monitoring-secrets-configmaps.md
+          - file: content/reloader/docs/monitoring-secrets-configmaps.md
 
       # UWM
-      - file: content/uwm/README.md
+      - file: content/uwm/docs/README.md
         sections:
-          - file: content/uwm/overview.md
+          - file: content/uwm/docs/overview.md
 
       # Volsync
-      - file: content/volsync/README.md
+      - file: content/volsync/docs/README.md
         sections:
-          - file: content/volsync/using-volsync.md
+          - file: content/volsync/docs/using-volsync.md
 
       # Distributed Tracing Data Collection
-      - file: content/opentelemetry-collector/README.md
+      - file: content/opentelemetry-collector/docs/README.md
         sections:
-          - file: content/opentelemetry-collector/using-opentelemetry-collector.md
+          - file: content/opentelemetry-collector/docs/using-opentelemetry-collector.md
 
       # Distributed Tracing Platform
-      - file: content/jaeger/README.md
+      - file: content/jaeger/docs/README.md
         sections:
-          - file: content/jaeger/using-distributed-tracing-jaeger.md
+          - file: content/jaeger/docs/using-distributed-tracing-jaeger.md
 
       # Notebooks
       - file: content/notebooks/README.md

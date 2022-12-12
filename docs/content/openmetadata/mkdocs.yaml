@@ -1,0 +1,10 @@
+site_name: OpenMetaData documentation
+
+nav:
+  - Home: README.md
+  - Deployment on Operate First: operator_manual/deployment.md
+  - Updating OpenMetaData: operator_manual/updating_om.md
+
+plugins:
+  - techdocs-core
+  - search

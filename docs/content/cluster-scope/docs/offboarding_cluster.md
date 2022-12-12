@@ -100,19 +100,6 @@ If this was the only cluster, then also remove the `ManagedClusterSet` and any a
 - `acm/overlays/moc/infra/managedclustersetbindings`
 - `acm/overlays/moc/infra/managedclustersets`
 
-## Remove from Keycloak
-
-If this cluster was configured with Keycloak remove it by running the following:
-
-```
-$ cd ${WORKDIR}/keycloak/overlays/moc/infra/
-$ rm clients/${CLUSTER}.enc.yaml
-$ CLUSTER=$CLUSTER yq -i e 'del(.files[] | select(. == "clients/" + env(CLUSTER) + ".enc.yaml") )' secret-generator.yaml
-```
-
-That should be it, once done commit your changes and submit a PR. The ACM changes can be verified by checking the ArgoCD
-app called `ACM-Infra` in the [ACM console][].
-
 [apps repo]: https://github.com/operate-first/apps
 [Operate First ArgoCD]: https://argocd.operate-first.cloud/applications
 [yq]: https://mikefarah.gitbook.io/yq/

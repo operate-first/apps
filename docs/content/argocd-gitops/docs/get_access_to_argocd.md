@@ -6,7 +6,7 @@ access to an `ArgoCD Project`. You can find which groups have access by checking
 If your OCP `Group` is not listed here then please follow [these instructions][argocd_onboarding] to get your team
 onboarded.
 
-If your team is already onboarded to ArgoCD (and thuse listed in `dex.config`) but you are not in it, then please follow
+If your team is already onboarded to ArgoCD (and thus listed in `dex.config`) but you are not in it, then please follow
 [these instructions][group_add] to get added to your team.
 
 

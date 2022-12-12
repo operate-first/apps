@@ -1,0 +1,9 @@
+site_name: Jaeger documentation
+
+nav:
+  - Home: README.md
+  - Jaeger for visualizing traces: using-distributed-tracing-jaeger.md
+
+plugins:
+  - techdocs-core
+  - search
