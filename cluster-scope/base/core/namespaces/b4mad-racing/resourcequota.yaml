@@ -8,5 +8,5 @@ spec:
     limits.memory: 128Gi
     requests.cpu: 16
     requests.memory: 64Gi
-    requests.storage: 80Gi
+    requests.storage: 2048Gi
     count/objectbucketclaims.objectbucket.io: 1
