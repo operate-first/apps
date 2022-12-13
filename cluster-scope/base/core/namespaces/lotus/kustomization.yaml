@@ -3,6 +3,7 @@ kind: Kustomization
 resources:
 - namespace.yaml
 - ../../../../components/project-admin-rolebindings/lotus
+- resourcequota.yaml
 namespace: lotus
 components:
 - ../../../../components/limitranges/default
