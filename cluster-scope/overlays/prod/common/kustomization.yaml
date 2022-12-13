@@ -50,6 +50,7 @@ resources:
   - ../../../base/user.openshift.io/groups/kruize
   - ../../../base/user.openshift.io/groups/lab-cicd
   - ../../../base/user.openshift.io/groups/logs-insights
+  - ../../../base/user.openshift.io/groups/lotus
   - ../../../base/user.openshift.io/groups/manageiq
   - ../../../base/user.openshift.io/groups/multinode-demo
   - ../../../base/user.openshift.io/groups/mwperf
