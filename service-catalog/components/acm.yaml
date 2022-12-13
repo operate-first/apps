@@ -1,0 +1,32 @@
+apiVersion: backstage.io/v1alpha1
+kind: Component
+metadata:
+  name: acm
+  title: Advanced Cluster Management
+  description: Red Hat Advanced Cluster Management for Kubernetes provides end-to-end management visibility and control to manage your Kubernetes environment.
+  annotations:
+    operate-first.cloud/logo-url: https://avatars.githubusercontent.com/u/60207193?s=200&v=4
+    argocd/app-name: acm-infra
+    github.com/project-slug: operate-first/apps
+    backstage.io/kubernetes-label-selector: installer.name=multiclusterhub
+    backstage.io/kubernetes-namespace: acm
+  links:
+    - url: https://multicloud-console.apps.moc-infra.massopen.cloud/
+      title: Advanced Cluster Management
+      icon: web
+    - url: https://access.redhat.com/documentation/en-us/red_hat_advanced_cluster_management_for_kubernetes
+      title: Documentation
+      icon: web
+    - url: https://github.com/stolostron/
+      title: "Midstream: Stolostron"
+      icon: web
+    - url: https://open-cluster-management.io/
+      title: "Upstream: Open Cluster Management"
+      icon: web
+spec:
+  type: operator
+  lifecycle: production
+  owner: group:operate-first
+  system: acm
+  dependsOn:
+    - resource:infra

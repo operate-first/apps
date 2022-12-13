@@ -1,0 +1,28 @@
+apiVersion: backstage.io/v1alpha1
+kind: Component
+metadata:
+  name: vault
+  title: Hashicorp Vault
+  description: Vault secures, stores, and tightly controls access to tokens, passwords, certificates, API keys, and other secrets in modern computing.
+  annotations:
+    operate-first.cloud/logo-url: https://raw.githubusercontent.com/hashicorp/vault/main/ui/public/favicon.png
+    argocd/app-name: opf-vault-smaug
+    github.com/project-slug: operate-first/apps
+    backstage.io/kubernetes-label-selector: app.kubernetes.io/name=vault
+    backstage.io/kubernetes-namespace: vault
+  links:
+    - url: https://vault-ui-vault.apps.smaug.na.operate-first.cloud/ui/vault/auth?with=oidc%2F
+      title: Vault instance
+      icon: web
+    - url: https://developer.hashicorp.com/vault/docs
+      title: Upstream documentation
+      icon: web
+spec:
+  type: service
+  lifecycle: production
+  owner: group:operate-first
+  system: secret-management
+  providesApis:
+    - vault
+  dependsOn:
+    - resource:smaug

@@ -9,6 +9,7 @@ metadata:
     backstage.io/kubernetes-label-selector: "app.kubernetes.io/part-of=pulp"
     argocd/app-name: pulp-smaug
     github.com/project-slug: operate-first/apps
+    backstage.io/kubernetes-namespace: opf-pulp
   links:
     - url: https://github.com/pulp/pulp-operator/issues/new
       title: Support path
@@ -30,5 +31,6 @@ spec:
   dependsOn:
     - component:pulp-operator
     - resource:smaug
+    - resource:eso-smaug
   providesApis:
     - pulp

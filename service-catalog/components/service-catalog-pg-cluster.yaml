@@ -7,6 +7,7 @@ metadata:
   annotations:
     operate-first.cloud/logo-url: https://raw.githubusercontent.com/CrunchyData/postgres-operator/master/docs/static/crunchy_logo.png
     backstage.io/kubernetes-label-selector: "postgres-operator.crunchydata.com/cluster=service-catalog"
+    backstage.io/kubernetes-namespace: service-catalog
     argocd/app-name: service-catalog-smaug
     github.com/project-slug: operate-first/apps
   links:

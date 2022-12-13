@@ -1,0 +1,17 @@
+apiVersion: backstage.io/v1alpha1
+kind: System
+metadata:
+  name: reloader
+  title: Reloader
+  description: A Kubernetes controller to watch changes in ConfigMap and Secrets and do rolling upgrades on Pods.
+  annotations:
+    operate-first.cloud/featured: "true"
+    operate-first.cloud/logo-url: https://raw.githubusercontent.com/stakater/Reloader/master/assets/web/reloader-round-100px.png
+    backstage.io/techdocs-ref: url:https://github.com/operate-first/apps/tree/master/docs/content/reloader
+  links:
+    - url: https://github.com/stakater/Reloader
+      title: Upstream docs
+      icon: web
+spec:
+  owner: group:operate-first
+  domain: sre

@@ -8,6 +8,8 @@ metadata:
     operate-first.cloud/logo-url: https://cncf-branding.netlify.app/img/projects/argo/icon/color/argo-icon-color.png
     argocd/app-name: opf-app-of-apps-smaug
     github.com/project-slug: operate-first/apps
+    backstage.io/kubernetes-label-selector: app.kubernetes.io/instance=argocd-infra
+    backstage.io/kubernetes-namespace: argocd
   links:
     - url: https://www.operate-first.cloud/apps/content/argocd-gitops/README.html
       title: Support path
@@ -24,3 +26,4 @@ spec:
     - argocd
   dependsOn:
     - resource:infra
+    - component:acm

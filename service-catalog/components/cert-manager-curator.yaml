@@ -1,0 +1,24 @@
+apiVersion: backstage.io/v1alpha1
+kind: Component
+metadata:
+  name: cert-manager-curator
+  title: Cert Manager (curator)
+  description: Adds certificates and their issuers as resources in Kubernetes clusters. Simplifies obtaining and renewing of certificates.
+  annotations:
+    operate-first.cloud/logo-url: https://raw.githubusercontent.com/cert-manager/cert-manager/master/logo/logo-small.png
+    argocd/app-name: cert-manager-curator
+    github.com/project-slug: operate-first/apps
+    backstage.io/kubernetes-label-selector: "app.kubernetes.io/instance=cert-manager"
+    backstage.io/kubernetes-namespace: openshift-operators
+  links:
+    - url: https://cert-manager.io/docs/
+      title: Cert Manager
+      icon: web
+spec:
+  type: operator
+  lifecycle: production
+  owner: group:operate-first
+  system: certificate-management
+  dependsOn:
+    - resource:curator
+    - component:eso-curator

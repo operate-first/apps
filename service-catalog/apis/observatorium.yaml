@@ -1,0 +1,11 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: observatorium
+spec:
+  type: openapi
+  lifecycle: production
+  owner: group:operate-first
+  system: acm
+  definition:
+    $text: https://raw.githubusercontent.com/observatorium/api/main/client/spec.yaml

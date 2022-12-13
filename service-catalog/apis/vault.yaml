@@ -1,0 +1,12 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: vault
+  description: Vault API definition
+spec:
+  type: openapi
+  lifecycle: production
+  owner: group:operate-first
+  system: secret-management
+  definition:
+    $text: https://gist.githubusercontent.com/psliwka/a696bccd01a0e93560d64d46f10304ac/raw/258240f84ea94d0a0a56c101d1dc8618eaf29d00/api.json

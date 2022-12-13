@@ -1,7 +1,7 @@
 apiVersion: backstage.io/v1alpha1
 kind: Resource
 metadata:
-  name: odf-external-cluster-smaug
+  name: odf-external-cluster-infra
   title: ODF Ceph cluster (infra)
   description: External storage cluster provided via OpenShift Data Foundation
   annotations:
@@ -13,4 +13,5 @@ spec:
   system: odf
   dependsOn:
     - resource:nese-ceph
-    - component:odf-operator-smaug
+    - component:odf-operator-infra
+    - component:fake-metrics-exporter-infra

@@ -1,0 +1,18 @@
+apiVersion: backstage.io/v1alpha1
+kind: Component
+metadata:
+  name: fake-metrics-exporter-infra
+  title: Fake Metrics Exporter for ODF (infra)
+  description: Red Hat OpenShift Data Foundation in external mode requires metrics to be exposed. We don't have any metrics endpoint for NESE. We fake it.
+  annotations:
+    argocd/app-name: odf-fake-metrics-exporter-infra
+    github.com/project-slug: operate-first/apps
+    backstage.io/kubernetes-label-selector: app.kubernetes.io/name=fake-metrics-server
+    backstage.io/kubernetes-namespace: openshift-storage
+spec:
+  type: operator
+  lifecycle: production
+  owner: group:operate-first
+  system: odf
+  dependsOn:
+    - resource:infra

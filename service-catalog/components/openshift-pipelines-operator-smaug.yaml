@@ -8,6 +8,8 @@ metadata:
     operate-first.cloud/logo-url: https://upload.wikimedia.org/wikipedia/commons/d/d8/Red_Hat_logo.svg
     argocd/app-name: cluster-resources-smaug
     github.com/project-slug: operate-first/apps
+    backstage.io/kubernetes-label-selector: app.kubernetes.io/part-of=tekton-pipelines
+    backstage.io/kubernetes-namespace: openshift-pipelines
   links:
     - url: https://docs.openshift.com/container-platform/4.11/cicd/pipelines/understanding-openshift-pipelines.html
       icon: web
@@ -19,6 +21,6 @@ spec:
   type: operator
   lifecycle: production
   owner: group:operate-first
-  system: openshift-pipelines-smaug
+  system: openshift-pipelines
   dependsOn:
     - resource:smaug

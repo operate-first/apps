@@ -1,0 +1,23 @@
+apiVersion: backstage.io/v1alpha1
+kind: System
+metadata:
+  name: certificate-management
+  title: Certificate Management
+  description: Certificate management infrastructure for Operate First Community Cloud
+  annotations:
+    operate-first.cloud/featured: "true"
+    operate-first.cloud/logo-url: https://raw.githubusercontent.com/cert-manager/cert-manager/master/logo/logo-small.png
+    backstage.io/techdocs-ref: url:https://github.com/operate-first/apps/tree/master/docs/content/acme
+  links:
+    - url: https://letsencrypt.org/docs/rate-limits/
+      title: Let's Encrypt rate limits
+      icon: web
+    - url: https://github.com/tnozicka/openshift-acme/
+      title: ACME controller
+      icon: web
+    - url: https://cert-manager.io/docs/
+      title: Cert Manager
+      icon: web
+spec:
+  owner: group:operate-first
+  domain: platform
