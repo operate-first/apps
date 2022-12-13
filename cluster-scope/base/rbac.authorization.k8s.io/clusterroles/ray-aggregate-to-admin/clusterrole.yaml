@@ -7,9 +7,11 @@ metadata:
     rbac.authorization.k8s.io/aggregate-to-admin: "true"
 rules:
   - apiGroups:
-      - cluster.ray.io
+      - ray.io
     resources:
       - rayclusters
+      - rayjobs
+      - rayservices
     verbs:
       - create
       - delete
