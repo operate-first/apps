@@ -52,6 +52,7 @@ resources:
   - ../../../../base/core/namespaces/kaoto
   - ../../../../base/core/namespaces/koku-metrics-operator
   - ../../../../base/core/namespaces/kubeflow
+  - ../../../../base/core/namespaces/lotus
   - ../../../../base/core/namespaces/manageiq
   - ../../../../base/core/namespaces/neu-cs6620
   - ../../../../base/core/namespaces/nfs-server-and-provisioner
