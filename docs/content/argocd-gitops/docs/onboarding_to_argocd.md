@@ -103,10 +103,9 @@ additional resources here if they are not covered by the global project.
 Ensure that the ArgoCD project is included in the `kustomization.yaml` [here][11].
 
 ## Enable OpenShift auth to ArgoCD Console
-By default, all users should be able to see the [ArgoCD console][12]. To be able to make changes to applications
+The [ArgoCD console][12] is available for read only public access. To be able to make changes to applications
 belonging to the team's ArgoCD Project (via the cli or ui), the team will need to be able to log into the console with
-appropriate access. This is accomplished by adding the team's OpenShift group mentioned in the beginning under the dex
-config [here][13]. You can find your OpenShift group within this list [here][19].
+appropriate access. By adding your group to the `AppProject` you have the approriate permissions. You can find your OpenShift group within this list [here][19].
 
 ## Additional Notes:
 
