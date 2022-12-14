@@ -856,11 +856,6 @@ title="Print to PDF"
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#give-team-read-access-to-non-app-argocd-resources">
-   Give team read access to non-app ArgoCD resources
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#additional-notes">
    Additional Notes:
   </a>
@@ -919,11 +914,6 @@ title="Print to PDF"
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#enable-openshift-auth-to-argocd-console">
    Enable OpenShift auth to ArgoCD Console
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#give-team-read-access-to-non-app-argocd-resources">
-   Give team read access to non-app ArgoCD resources
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
@@ -1057,14 +1047,6 @@ full list).</p></li>
 belonging to the team’s ArgoCD Project (via the cli or ui), the team will need to be able to log into the console with
 appropriate access. This is accomplished by adding the team’s OpenShift group mentioned in the beginning under the dex
 config <a class="reference external" href="https://github.com/operate-first/apps/blob/master/argocd/overlays/moc-infra/configs/argo_cm/dex.config#L11">here</a>. You can find your OpenShift group within this list <a class="reference external" href="https://github.com/operate-first/apps/tree/master/cluster-scope/base/user.openshift.io/groups">here</a>.</p>
-</section>
-<section id="give-team-read-access-to-non-app-argocd-resources">
-<h2>Give team read access to non-app ArgoCD resources<a class="headerlink" href="#give-team-read-access-to-non-app-argocd-resources" title="Permalink to this headline">#</a></h2>
-<p>Append this <a class="reference external" href="https://github.com/operate-first/apps/blob/master/argocd/overlays/moc-infra/configs/argo_rbac_cm/policy.csv">list</a> and give the team the <code class="docutils literal notranslate"><span class="pre">standard-user</span></code> role. The group will correspond to the team’s OCP group.
-For example if onboarding the team <code class="docutils literal notranslate"><span class="pre">someteam</span></code> you would append the following to this file:</p>
-<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="l l-Scalar l-Scalar-Plain">g, someteam, role:standard-user</span><span class="w"></span>
-</pre></div>
-</div>
 </section>
 <section id="additional-notes">
 <h2>Additional Notes:<a class="headerlink" href="#additional-notes" title="Permalink to this headline">#</a></h2>
