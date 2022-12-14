@@ -15,7 +15,6 @@ resources:
   - ../../../base/user.openshift.io/groups/apex
   - ../../../base/user.openshift.io/groups/apicurio
   - ../../../base/user.openshift.io/groups/argocd-admins
-  - ../../../base/user.openshift.io/groups/argocd-readonly
   - ../../../base/user.openshift.io/groups/b4mad
   - ../../../base/user.openshift.io/groups/boatroackers
   - ../../../base/user.openshift.io/groups/boston-university-redhat
