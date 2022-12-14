@@ -108,15 +108,6 @@ belonging to the team's ArgoCD Project (via the cli or ui), the team will need t
 appropriate access. This is accomplished by adding the team's OpenShift group mentioned in the beginning under the dex
 config [here][13]. You can find your OpenShift group within this list [here][19].
 
-## Give team read access to non-app ArgoCD resources
-
-Append this [list][14] and give the team the `standard-user` role. The group will correspond to the team's OCP group.
-For example if onboarding the team `someteam` you would append the following to this file:
-
-```yaml
-g, someteam, role:standard-user
-```
-
 ## Additional Notes:
 
 ### Namespace Prefix

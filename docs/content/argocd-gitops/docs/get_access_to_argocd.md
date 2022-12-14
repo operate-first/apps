@@ -12,8 +12,6 @@ If your team is already onboarded to ArgoCD (and thus listed in `dex.config`) bu
 
 ## Get Admin Access
 
-If you need admin level read access, add your GitHub handle to [this group](https://github.com/operate-first/apps/blob/master/cluster-scope/base/user.openshift.io/groups/argocd-readonly/group.yaml)
-
 If you need admin level read/write access, add your GitHub handle to [this group](https://github.com/operate-first/apps/blob/master/cluster-scope/base/user.openshift.io/groups/argocd-admins/group.yaml)
 
 NOTE: All github handles **MUST** be added in lower case to either of these files, or else it will cause issues.
