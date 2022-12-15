@@ -220,3 +220,5 @@ spec:
       kind: OVirtProvider
     - group: v2v.kubevirt.io
       kind: V2VVmware
+    - group: postgres-operator.crunchydata.com
+      kind: PostgresCluster
