@@ -7,9 +7,9 @@ metadata:
 spec:
   destinations:
     - namespace: apex
-      name: smaug
+      server: "https://api.smaug.na.operate-first.cloud:6443"
   sourceRepos:
-    - '*'
+    - "*"
   roles:
     - name: project-admin
       description: Read/Write access to this project only
