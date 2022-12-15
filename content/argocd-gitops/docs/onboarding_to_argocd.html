@@ -1043,10 +1043,9 @@ full list).</p></li>
 </section>
 <section id="enable-openshift-auth-to-argocd-console">
 <h2>Enable OpenShift auth to ArgoCD Console<a class="headerlink" href="#enable-openshift-auth-to-argocd-console" title="Permalink to this headline">#</a></h2>
-<p>By default, all users should be able to see the <a class="reference external" href="https://argocd.operate-first.cloud">ArgoCD console</a>. To be able to make changes to applications
+<p>The <a class="reference external" href="https://argocd.operate-first.cloud">ArgoCD console</a> is available for read only public access. To be able to make changes to applications
 belonging to the team’s ArgoCD Project (via the cli or ui), the team will need to be able to log into the console with
-appropriate access. This is accomplished by adding the team’s OpenShift group mentioned in the beginning under the dex
-config <a class="reference external" href="https://github.com/operate-first/apps/blob/master/argocd/overlays/moc-infra/configs/argo_cm/dex.config#L11">here</a>. You can find your OpenShift group within this list <a class="reference external" href="https://github.com/operate-first/apps/tree/master/cluster-scope/base/user.openshift.io/groups">here</a>.</p>
+appropriate access. By adding your group to the <code class="docutils literal notranslate"><span class="pre">AppProject</span></code> you have the approriate permissions. You can find your OpenShift group within this list <a class="reference external" href="https://github.com/operate-first/apps/tree/master/cluster-scope/base/user.openshift.io/groups">here</a>.</p>
 </section>
 <section id="additional-notes">
 <h2>Additional Notes:<a class="headerlink" href="#additional-notes" title="Permalink to this headline">#</a></h2>
