@@ -1,2 +1,10 @@
 # Give Openshift group (argocd-admins) the argocd admin role with unrestricted argocd access
 g, argocd-admins, role:admin
+
+# Allow Apex users to administer the Apex Project
+p, role:apex-admins, applications, get, apex/*, allow
+p, role:apex-admins, applications, sync, apex/*, allow
+p, role:apex-admins, logs, get, apex/*, allow
+p, role:apex-admins, exec, create, apex/*, allow
+p, role:apex-admins, projects, get, apex, allow
+g, apex, role:apex-admins
