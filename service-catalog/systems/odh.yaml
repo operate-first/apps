@@ -1,0 +1,17 @@
+apiVersion: backstage.io/v1alpha1
+kind: System
+metadata:
+  name: odh
+  title: Open Data Hub
+  description: Open Data Hub is a blueprint for building an AI as a service platform on OCP.
+  annotations:
+    operate-first.cloud/featured: "true"
+    operate-first.cloud/logo-url: https://avatars.githubusercontent.com/u/57720972?s=200&v=4
+    backstage.io/techdocs-ref: url:https://github.com/operate-first/apps/tree/master/docs/content/odh
+  links:
+    - url: https://opendatahub.io/
+      title: Open Data Hub
+      icon: web
+spec:
+  owner: group:operate-first
+  domain: community

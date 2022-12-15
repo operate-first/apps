@@ -8,6 +8,9 @@ metadata:
     operate-first.cloud/featured: "true"
     operate-first.cloud/logo-url: https://docs.pulpproject.org/pulpcore/en/pulpproject.org_images/pulp_logo_big.png
   links:
+    - url: https://docs.pulpproject.org
+      title: Pulpcore documentation
+      icon: web
     - url: https://pulp.operate-first.cloud/pulp/api/v3/
       title: Pulp instance
       icon: web

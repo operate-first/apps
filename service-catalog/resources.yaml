@@ -6,6 +6,8 @@ metadata:
 spec:
   targets:
     - ./resources/nese-ceph.yaml
+    - ./resources/obc-open-cluster-management-observability-thanos.yaml
+    - ./resources/odf-external-cluster-infra.yaml
     - ./resources/odf-external-cluster-smaug.yaml
     - ./resources/service-catalog-bucket-cla-b58cf604-019a-467c-8cae-50e3a47c12b1.yaml
     - ./resources/service-catalog-pg-cluster.yaml

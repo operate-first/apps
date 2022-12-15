@@ -7,6 +7,7 @@ metadata:
   annotations:
     operate-first.cloud/featured: "true"
     operate-first.cloud/logo-url: https://raw.githubusercontent.com/grafana/grafana/main/public/img/grafana_icon.svg
+    backstage.io/techdocs-ref: url:https://github.com/operate-first/apps/tree/master/docs/content/grafana
   links:
     - url: https://grafana.operate-first.cloud/
       title: Grafana (public) instance

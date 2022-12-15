@@ -3,10 +3,11 @@ kind: System
 metadata:
   name: service-catalog
   title: Service Catalog
-  description: Service catalog for the operate-first community cloud
+  description: Service catalog for the Operate First Community Cloud
   annotations:
     operate-first.cloud/featured: "true"
     operate-first.cloud/logo-url: https://backstage.io/logo_assets/svg/Icon_Black.svg
+    backstage.io/techdocs-ref: url:https://github.com/operate-first/service-catalog/tree/main/docs
   links:
     - url: https://service-catalog.operate-first.cloud/
       title: Backstage instance
@@ -14,5 +15,3 @@ metadata:
 spec:
   owner: group:operate-first
   domain: sre
-  dependsOn:
-    - resource:smaug

@@ -9,6 +9,7 @@ metadata:
     argocd/app-name: ci-prow-prod-smaug
     github.com/project-slug: operate-first/apps
     backstage.io/kubernetes-label-selector: "app.kubernetes.io/component=prow,app=ghproxy"
+    backstage.io/kubernetes-namespace: opf-ci-prow
   links:
     - url: https://github.com/kubernetes/test-infra/tree/master/ghproxy
       title: Upstream documentation

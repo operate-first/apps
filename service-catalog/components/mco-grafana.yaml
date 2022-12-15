@@ -1,0 +1,26 @@
+apiVersion: backstage.io/v1alpha1
+kind: Component
+metadata:
+  name: mco-grafana
+  title: Grafana for MultiCluster Observability
+  description: MultiCluster Observability plugin to Red Hat Advanced Cluster Management for Kubernetes.
+  annotations:
+    operate-first.cloud/logo-url: https://raw.githubusercontent.com/grafana/grafana/main/public/img/grafana_icon.svg
+    argocd/app-name: cluster-resources-infra
+    github.com/project-slug: operate-first/apps
+    backstage.io/kubernetes-label-selector: app=multicluster-observability-grafana
+    backstage.io/kubernetes-namespace: open-cluster-management-observability
+  links:
+    - url: https://multicloud-console.apps.moc-infra.massopen.cloud/grafana/dashboards
+      title: MCO Grafana
+      icon: web
+spec:
+  type: service
+  lifecycle: production
+  owner: group:operate-first
+  system: acm
+  providesApis:
+    - mco-grafana
+  dependsOn:
+    - resource:infra
+    - component:moc-observatorium-operator

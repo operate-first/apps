@@ -8,20 +8,53 @@ on:
       - "**/docs/**"
       - "mkdocs.yaml"
       - "mkdocs.yml"
+      - ".github/workflows/techdocs.yaml"
 
 jobs:
   send-repo-dispatches:
     strategy:
       matrix:
         include:
-          - filter: 'docs/content/grafana/**'
-            docs_path: 'docs/content/grafana'
-            entity_name: 'opf-monitoring-grafana'
+          - filter: 'docs/content/acm/**'
+            docs_path: 'docs/content/acm'
+            entity_name: 'acm'
+            entity_kind: 'System'
+          - filter: 'docs/content/observatorium/**'
+            docs_path: 'docs/content/observatorium'
+            entity_name: 'mco'
             entity_kind: 'Component'
           - filter: 'docs/content/grafana/**'
             docs_path: 'docs/content/grafana'
             entity_name: 'opf-monitoring-grafana-operator'
             entity_kind: 'Component'
+          - filter: 'docs/content/cluster-scope/**'
+            docs_path: 'docs/content/cluster-scope'
+            entity_name: 'platform'
+            entity_kind: 'Domain'
+          - filter: 'docs/content/acme/**'
+            docs_path: 'docs/content/acme'
+            entity_name: 'certificate-management'
+            entity_kind: 'System'
+          - filter: 'docs/content/grafana/**'
+            docs_path: 'docs/content/grafana'
+            entity_name: 'opf-monitoring-grafana'
+            entity_kind: 'Component'
+          - filter: 'docs/content/odf/**'
+            docs_path: 'docs/content/odf'
+            entity_name: 'odf'
+            entity_kind: 'System'
+          - filter: 'docs/content/odh/**'
+            docs_path: 'docs/content/odh'
+            entity_name: 'odh'
+            entity_kind: 'System'
+          - filter: 'docs/content/reloader/**'
+            docs_path: 'docs/content/reloader'
+            entity_name: 'reloader'
+            entity_kind: 'System'
+          - filter: 'docs/content/vault_eso/**'
+            docs_path: 'docs/content/vault_eso'
+            entity_name: 'secret-management'
+            entity_kind: 'System'
     runs-on: ubuntu-latest
     steps:
       - name: Send dispatch for grafana docs

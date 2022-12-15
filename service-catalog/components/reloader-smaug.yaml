@@ -1,0 +1,23 @@
+apiVersion: backstage.io/v1alpha1
+kind: Component
+metadata:
+  name: reloader-smaug
+  title: Reloader (smaug)
+  description: A Kubernetes controller to watch changes in ConfigMap and Secrets and do rolling upgrades on Pods.
+  annotations:
+    operate-first.cloud/logo-url: https://raw.githubusercontent.com/stakater/Reloader/master/assets/web/reloader-round-100px.png
+    argocd/app-name: reloader-smaug
+    github.com/project-slug: operate-first/apps
+    backstage.io/kubernetes-label-selector: app=reloader-reloader
+    backstage.io/kubernetes-namespace: reloader
+  links:
+    - url: https://github.com/stakater/Reloader
+      title: Upstream docs
+      icon: web
+spec:
+  type: operator
+  lifecycle: production
+  owner: group:operate-first
+  system: reloader
+  dependsOn:
+    - resource:smaug

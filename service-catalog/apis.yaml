@@ -11,4 +11,7 @@ spec:
     - ./apis/github-webhooks-consumer.yaml
     - ./apis/grafana-public.yaml
     - ./apis/grafana.yaml
+    - ./apis/mco-grafana.yaml
+    - ./apis/observatorium.yaml
     - ./apis/pulp.yaml
+    - ./apis/vault.yaml

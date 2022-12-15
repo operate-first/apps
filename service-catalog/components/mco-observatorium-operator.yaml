@@ -1,0 +1,23 @@
+apiVersion: backstage.io/v1alpha1
+kind: Component
+metadata:
+  name: mco-observatorium-operator
+  title: Observatorium for MultiCluster Observability
+  description: MultiCluster Observability plugin to Red Hat Advanced Cluster Management for Kubernetes.
+  annotations:
+    operate-first.cloud/logo-url: https://observatorium.io/logo.svg
+    argocd/app-name: cluster-resources-infra
+    github.com/project-slug: operate-first/apps
+    backstage.io/kubernetes-label-selector: app.kubernetes.io/name=observatorium-operator
+    backstage.io/kubernetes-namespace: open-cluster-management-observability
+  links:
+    - url: https://observatorium.io/
+      title: Upstream documentation
+      icon: web
+spec:
+  type: operator
+  lifecycle: production
+  owner: group:operate-first
+  system: acm
+  dependsOn:
+    - resource:infra

@@ -2,7 +2,10 @@ apiVersion: backstage.io/v1alpha1
 kind: Domain
 metadata:
   name: platform
-  title: Platform
+  title: Operate First Community Cloud
   description: Platform domain contains all necessary components to enable infrastructure to users
+  annotations:
+    backstage.io/techdocs-ref: url:https://github.com/operate-first/apps/tree/master/docs/content/cluster-scope
+    backstage.io/adr-location: https://github.com/operate-first/blueprint/tree/main/adr
 spec:
   owner: group:operate-first

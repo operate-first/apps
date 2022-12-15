@@ -5,13 +5,18 @@ metadata:
   description: A collection of all operate-first systems
 spec:
   targets:
+    - ./systems/acm.yaml
     - ./systems/argocd.yaml
+    - ./systems/certificate-management.yaml
     - ./systems/dex.yaml
     - ./systems/grafana-public.yaml
     - ./systems/grafana.yaml
-    - ./systems/odf-smaug.yaml
-    - ./systems/openshift-pipelines-smaug.yaml
+    - ./systems/odf.yaml
+    - ./systems/odh.yaml
+    - ./systems/openshift-pipelines.yaml
     - ./systems/peribolos.yaml
     - ./systems/prow.yaml
     - ./systems/pulp.yaml
+    - ./systems/reloader.yaml
+    - ./systems/secret-management.yaml
     - ./systems/service-catalog.yaml
