@@ -101,6 +101,7 @@ resources:
   - ../../../../base/core/namespaces/thoth-amun-inspection-prod
   - ../../../../base/core/namespaces/thoth-backend-prod
   - ../../../../base/core/namespaces/thoth-bots-prod
+  - ../../../../base/core/namespaces/thoth-cre-integration
   - ../../../../base/core/namespaces/thoth-deployment-examples
   - ../../../../base/core/namespaces/thoth-frontend-prod
   - ../../../../base/core/namespaces/thoth-graph-prod
