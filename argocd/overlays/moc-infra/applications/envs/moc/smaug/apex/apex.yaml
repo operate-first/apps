@@ -7,7 +7,7 @@ spec:
     name: smaug
     namespace: apex
   source:
-    path: deploy/apex/overlays/operate-first
+    path: deploy/apex/overlays/prod
     repoURL: 'https://github.com/redhat-et/apex'
     targetRevision: HEAD
   project: apex
