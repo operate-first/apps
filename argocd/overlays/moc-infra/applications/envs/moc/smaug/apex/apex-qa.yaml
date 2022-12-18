@@ -1,0 +1,18 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: apex-qa
+spec:
+  destination:
+    name: smaug
+    namespace: apex-qa
+  source:
+    path: deploy/apex/overlays/qa
+    repoURL: "https://github.com/redhat-et/apex"
+    targetRevision: HEAD
+  project: apex
+  syncPolicy:
+    syncOptions:
+      - Replace=true
+    automated:
+      prune: true
