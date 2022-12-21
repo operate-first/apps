@@ -1,0 +1,64 @@
+apiVersion: machine.openshift.io/v1beta1
+kind: MachineSet
+metadata:
+  name: odh-cl1-lbbst-worker-us-east-1c
+  namespace: openshift-machine-api
+  labels:
+    machine.openshift.io/cluster-api-cluster: odh-cl1-lbbst
+spec:
+  replicas: 8
+  selector:
+    matchLabels:
+      machine.openshift.io/cluster-api-cluster: odh-cl1-lbbst
+      machine.openshift.io/cluster-api-machineset: odh-cl1-lbbst-worker-us-east-1c
+  template:
+    metadata:
+      labels:
+        machine.openshift.io/cluster-api-cluster: odh-cl1-lbbst
+        machine.openshift.io/cluster-api-machine-role: worker
+        machine.openshift.io/cluster-api-machine-type: worker
+        machine.openshift.io/cluster-api-machineset: odh-cl1-lbbst-worker-us-east-1c
+    spec:
+      metadata:
+        labels:
+          node-role.kubernetes.io/osc-platform: ''
+      providerSpec:
+        value:
+          userDataSecret:
+            name: worker-user-data
+          placement:
+            availabilityZone: us-east-1c
+            region: us-east-1
+          credentialsSecret:
+            name: aws-cloud-credentials
+          instanceType: m5.2xlarge
+          metadata:
+            creationTimestamp: null
+          blockDevices:
+            - ebs:
+                encrypted: true
+                iops: 0
+                kmsKey:
+                  arn: ''
+                volumeSize: 120
+                volumeType: gp2
+          securityGroups:
+            - filters:
+                - name: 'tag:Name'
+                  values:
+                    - odh-cl1-lbbst-worker-sg
+          kind: AWSMachineProviderConfig
+          tags:
+            - name: kubernetes.io/cluster/odh-cl1-lbbst
+              value: owned
+          deviceIndex: 0
+          ami:
+            id: ami-03d1c2cba04df838c
+          subnet:
+            filters:
+              - name: 'tag:Name'
+                values:
+                  - odh-cl1-lbbst-private-us-east-1c
+          apiVersion: awsproviderconfig.openshift.io/v1beta1
+          iamInstanceProfile:
+            id: odh-cl1-lbbst-worker-profile
