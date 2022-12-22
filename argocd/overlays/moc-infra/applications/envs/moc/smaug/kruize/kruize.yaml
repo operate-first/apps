@@ -1,0 +1,21 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: hpo
+spec:
+  destination:
+    name: smaug
+    namespace: openshift-tuning
+  project: kruize
+  source:
+    path: manifests
+    repoURL: https://github.com/kruize/hpo.git
+    targetRevision: HEAD
+  syncPolicy:
+    syncOptions:
+    - Validate=false
+  ignoreDifferences:
+    - group: apps.openshift.io
+      kind: DeploymentConfig
+      jsonPointers:
+        - /spec/template/spec/containers/0/image
