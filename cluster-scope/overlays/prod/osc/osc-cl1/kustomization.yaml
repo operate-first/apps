@@ -72,5 +72,8 @@ resources:
 - configmaps/service-catalog-k8s-plugin.yaml
 - externalsecrets
 - ingresscontroller
+- machinesets
+- nodefeaturediscovery
 - machineconfigs/kepler
+- nvidia-gpu
 - secret-mgmt
