@@ -3,7 +3,7 @@ kind: Kustomization
 resources:
 - namespace.yaml
 - ../../../../components/project-admin-rolebindings/apex
-namespace: apex
+namespace: apex-qa
 components:
 - ../../../../components/limitranges/default
 - ../../../../components/resourcequotas/large

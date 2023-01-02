@@ -22,6 +22,8 @@ resources:
   - ../../../../base/core/namespaces/aicoe-meteor
   - ../../../../base/core/namespaces/aiops-tools-workshop
   - ../../../../base/core/namespaces/apex
+  - ../../../../base/core/namespaces/apex-monitoring
+  - ../../../../base/core/namespaces/apex-qa
   - ../../../../base/core/namespaces/api-designer
   - ../../../../base/core/namespaces/apicurio-apicurio-registry
   - ../../../../base/core/namespaces/b4mad-minecraft
