@@ -220,5 +220,11 @@ spec:
       kind: OVirtProvider
     - group: v2v.kubevirt.io
       kind: V2VVmware
+    - group: integreatly.org
+      kind: GrafanaDashboard
+    - group: integreatly.org
+      kind: GrafanaDataSource
+    - group: integreatly.org
+      kind: Grafana
     - group: postgres-operator.crunchydata.com
       kind: PostgresCluster
