@@ -96,6 +96,7 @@ resources:
   - ../../../../base/core/namespaces/rh-curator-eval
   - ../../../../base/core/namespaces/robozome
   - ../../../../base/core/namespaces/service-catalog
+  - ../../../../base/core/namespaces/sigstore-aas
   - ../../../../base/core/namespaces/smart-village-view
   - ../../../../base/core/namespaces/stackrox
   - ../../../../base/core/namespaces/tekton-pipelines
