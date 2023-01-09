@@ -19,7 +19,7 @@ spec:
             - "/usr/local/bin/dex"
             - "serve"
             - "/etc/dex/cfg/config.yaml"
-          image: quay.io/dexidp/dex:v2.28.1
+          image: ghcr.io/dexidp/dex:v2.35.1
           imagePullPolicy: Always
           name: dex
           ports:

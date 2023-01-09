@@ -1,0 +1,19 @@
+site_name: Secret Management documentation
+
+nav:
+  - Home: README.md
+  - Onboard Users: onboard_team_to_vault.md
+  - Enable External Secrets to a namespace: enable_es_in_namespace.md
+  - Create External Secret: create_external_secret.md
+  - Onboard a Cluster:
+    - Vault Configuration: enable_cluster_to_eso_and_vault.md
+    - Cluster Configuration: install_es_operator_in_cluster.md
+  - Restoring Vault: restore_vault.md
+  - Vault Backup: vault_backup_job.md
+  - Secret creation using Vault CLI and k8s auth: write_to_vault_with_k8s.md
+  - Unsealing Vault: unsealing_vault.md
+  - Runbook: runbook.md
+
+plugins:
+  - techdocs-core
+  - search

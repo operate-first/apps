@@ -1,0 +1,6 @@
+kind: Node
+apiVersion: v1
+metadata:
+  name: os-ctrl-2.moc-infra.massopen.cloud
+  labels:
+    cluster.ocs.openshift.io/openshift-storage: ''

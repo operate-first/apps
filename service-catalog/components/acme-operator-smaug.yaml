@@ -1,0 +1,23 @@
+apiVersion: backstage.io/v1alpha1
+kind: Component
+metadata:
+  name: acme-operator-smaug
+  title: ACME Controller (smaug)
+  description: openshift-acme is ACME Controller for OpenShift and Kubernetes clusters.
+  annotations:
+    operate-first.cloud/logo-url: https://raw.githubusercontent.com/external-secrets/external-secrets/main/assets/eso-logo-large.png
+    argocd/app-name: acme-operator-smaug
+    github.com/project-slug: operate-first/apps
+    backstage.io/kubernetes-label-selector: app.kubernetes.io/instance=acme-operator-smaug
+    backstage.io/kubernetes-namespace: acme-operator
+  links:
+    - url: https://github.com/tnozicka/openshift-acme/
+      title: ACME controller
+      icon: web
+spec:
+  type: operator
+  lifecycle: production
+  owner: group:operate-first
+  system: certificate-management
+  dependsOn:
+    - resource:smaug

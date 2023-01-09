@@ -9,7 +9,7 @@ metadata:
     argocd/app-name: service-catalog-smaug
     github.com/project-slug: operate-first/service-catalog
     backstage.io/kubernetes-label-selector: "app.kubernetes.io/name=service-catalog"
-    backstage.io/techdocs-ref: url:https://github.com/operate-first/service-catalog/tree/main/docs
+    backstage.io/kubernetes-namespace: service-catalog
   links:
     - url: https://github.com/operate-first/service-catalog/issues/new
       title: GitHub Issues

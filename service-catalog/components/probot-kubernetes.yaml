@@ -1,0 +1,23 @@
+apiVersion: backstage.io/v1alpha1
+kind: Component
+metadata:
+  name: probot-kubernetes
+  title: "Probot extension: Kubernetes"
+  description: Extension for Probot providing Kubernetes connector
+  annotations:
+    operate-first.cloud/logo-url: https://github.com/operate-first/probot-extensions/raw/main/static/robot.svg
+    github.com/project-slug: operate-first/probot-extensions
+  links:
+    - url: https://github.com/operate-first/probot-extensions/issues/new
+      title: GitHub Issues
+      icon: user
+    - url: https://www.npmjs.com/package/@operate-first/probot-kubernetes
+      title: Package on NPM
+      icon: web
+  tags:
+    - typescript
+    - npm-package
+spec:
+  type: library
+  lifecycle: production
+  owner: group:operate-first

@@ -1,0 +1,8 @@
+apiVersion: objectbucket.io/v1alpha1
+kind: ObjectBucketClaim
+metadata:
+  name: thanos
+  namespace: open-cluster-management-observability
+spec:
+  generateBucketName: thanos
+  storageClassName: openshift-storage.noobaa.io

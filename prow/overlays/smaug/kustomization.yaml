@@ -2,9 +2,9 @@ apiVersion: kustomize.config.k8s.io/v1beta1
 kind: Kustomization
 resources:
   - ../../base
+  - externalsecrets
   - ghproxy.yaml
   - integration-test-configmap.yaml
-  - route-ghproxy-metrics.yaml
   - routes.yaml
   # - s3-storage.yaml
   - service-monitor.yaml
@@ -20,5 +20,3 @@ configMapGenerator:
       - plugins.yaml
 generatorOptions:
   disableNameSuffixHash: true
-generators:
-  - secret-generator.yaml

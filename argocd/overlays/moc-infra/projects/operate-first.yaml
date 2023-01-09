@@ -33,12 +33,8 @@ spec:
       kind: ClusterLogging
     - group: core.observatorium.io
       kind: Observatorium
-    - group: integreatly.org
-      kind: GrafanaDashboard
-    - group: integreatly.org
-      kind: GrafanaDataSource
-    - group: integreatly.org
-      kind: Grafana
+    - group: external-secrets.io
+      kind: ExternalSecret
     - group: kafka.strimzi.io
       kind: Kafka
     - group: kafka.strimzi.io
@@ -75,5 +71,3 @@ spec:
       kind: ThanosRuler
     - group: logging.openshift.io
       kind: ClusterLogForwarder
-    - group: postgres-operator.crunchydata.com
-      kind: PostgresCluster

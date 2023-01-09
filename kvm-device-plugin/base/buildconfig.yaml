@@ -11,11 +11,11 @@ spec:
   failedBuildsHistoryLimit: 2
   source:
     git:
-      ref: master
+      ref: main
       uri: https://github.com/cgwalters/kvm-device-plugin
     type: Git
     dockerfile: |
-      FROM image-registry.openshift-image-registry.svc:5000/okd-centos/centos:okd-golang-builder AS builder
+      FROM image-registry.openshift-image-registry.svc:5000/okd-centos/centos:okd-builder AS builder
       WORKDIR /go/src/github.com/cgwalters/kvm-device-plugin
       COPY . .
       RUN make
@@ -33,6 +33,6 @@ spec:
   - imageChange:
       from:
         kind: ImageStreamTag
-        name: "centos:okd-golang-builder"
+        name: "centos:okd-builder"
         namespace: okd-centos
     type: ImageChange

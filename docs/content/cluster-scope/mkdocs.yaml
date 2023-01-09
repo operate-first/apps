@@ -1,0 +1,17 @@
+site_name: Cluster resources documentation
+
+nav:
+  - Home: README.md
+  - Onboard Project: onboarding_project.md
+
+  # TODO: Consolidate following 3 guides into one:
+  - Onboard Additional Users: add_user_to_project_admin.md
+  - Manual User Group Creation: create_ocp_group.md
+  - Add Users to Groups: add_user_to_group.md
+
+  - Remove a Cluster from Operate First: offboarding_cluster.md
+  - Resource Quotas: quotas.md
+
+plugins:
+  - techdocs-core
+  - search

@@ -8,5 +8,6 @@ resources:
   - hive-metastores
   - kfdef.yaml
   - secure-route.yaml
+  - servicemonitors
 generatorOptions:
   disableNameSuffixHash: true

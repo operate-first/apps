@@ -1,0 +1,10 @@
+apiVersion: v1
+kind: Namespace
+metadata:
+  annotations:
+    op1st/docs: https://www.sigstore.dev/
+    op1st/onboarding-issue: https://github.com/operate-first/support/issues/1186
+    op1st/project-owner: cooktheryan
+    openshift.io/display-name: sigstore-aas
+    openshift.io/requester: cooktheryan
+  name: sigstore-aas

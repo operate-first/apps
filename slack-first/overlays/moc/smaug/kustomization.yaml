@@ -4,12 +4,10 @@ kind: Kustomization
 
 resources:
   - ../../../base
+  - externalsecret.yaml
 
 configMapGenerator:
   - behavior: merge
     name: slack-first
     files:
       - config.yaml
-
-generators:
-  - secret-generator.yaml

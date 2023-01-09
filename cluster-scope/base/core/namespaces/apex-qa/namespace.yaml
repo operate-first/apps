@@ -1,0 +1,10 @@
+apiVersion: v1
+kind: Namespace
+metadata:
+  annotations:
+    op1st/docs: https://github.com/redhat-et/apex
+    op1st/onboarding-issue: https://github.com/operate-first/support/issues/1143
+    op1st/project-owner: russellb
+    openshift.io/display-name: apex-qa
+    openshift.io/requester: russellb
+  name: apex-qa

@@ -1,0 +1,7 @@
+apiVersion: user.openshift.io/v1
+kind: Group
+metadata:
+  name: cluster-as-a-service
+users:
+  - jelkosz
+  - rawagner

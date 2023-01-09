@@ -1,0 +1,8 @@
+site_name: VolSync documentation
+
+nav:
+  - Home: using-volsync.md
+
+plugins:
+  - techdocs-core
+  - search

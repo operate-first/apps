@@ -1,0 +1,14 @@
+apiVersion: external-secrets.io/v1beta1
+kind: ExternalSecret
+metadata:
+  name: github-token
+spec:
+  secretStoreRef:
+    name: opf-vault-store
+    kind: SecretStore
+  refreshInterval: "1h"
+  target:
+    name: github-token
+  dataFrom:
+    - extract:
+        key: moc/smaug/opf-ci-prow/github-token

@@ -4,7 +4,8 @@ generatorOptions:
   disableNameSuffixHash: true
 resources:
   - ../../../base
+  - ../../common
   - dashboards
+  - datasources
 patchesStrategicMerge:
-  - datasources/grafanadatasource.yaml
   - grafana_oauth_patch.yaml

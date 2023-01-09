@@ -1,0 +1,17 @@
+site_name: Monitoring and Observatorium documentation
+
+nav:
+  - Home: README.md
+  - Thanos:
+    - Home: thanos/README.md
+    - Accessing Grafana: thanos/request_grafana_access.md
+    - Accessing Thanos: thanos/request_thanos_access.md
+  - Vector: vector/README.md
+  - Loki:
+    - Home: loki/README.md
+    - Adding Grafana Datasource: loki/add_loki_grafana_datasource.md
+    - Loki Query API: loki/loki_query_api.md
+
+plugins:
+  - techdocs-core
+  - search

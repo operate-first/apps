@@ -1,0 +1,10 @@
+apiVersion: v1
+kind: Namespace
+metadata:
+  annotations:
+    op1st/docs: https://github.com/operate-first/ai-for-cloud-ops
+    op1st/onboarding-issue: https://github.com/operate-first/support/issues/1112
+    op1st/project-owner: ai4cloudops
+    openshift.io/display-name: ai4cloudops
+    openshift.io/requester: ai4cloudops
+  name: ai4cloudops

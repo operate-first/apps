@@ -24,10 +24,3 @@ spec:
       groups:
         - b4mad
         - operate-first
-  namespaceResourceWhitelist:
-    - group: integreatly.org
-      kind: GrafanaDashboard
-    - group: integreatly.org
-      kind: GrafanaDataSource
-    - group: integreatly.org
-      kind: Grafana

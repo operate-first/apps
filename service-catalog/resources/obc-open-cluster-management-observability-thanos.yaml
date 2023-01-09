@@ -1,0 +1,12 @@
+apiVersion: backstage.io/v1alpha1
+kind: Resource
+metadata:
+  name: obc-open-cluster-management-observability-thanos
+  description: S3 bucket for MultiCluster Observability
+spec:
+  type: s3-bucket
+  system: acm
+  lifecycle: production
+  owner: group:operate-first
+  dependsOn:
+    - resource:odf-external-cluster-infra

@@ -1,4 +1,0 @@
-admin.enabled=true
-kustomize.buildOptions=--enable-alpha-plugins
-url=ARGOCD_ROUTE
-users.anonymous.enabled=true

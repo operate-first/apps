@@ -1,0 +1,11 @@
+site_name: ACM documentation
+
+nav:
+  - Home: README.md
+  - Onboard a cluster: manage_your_teams_ocp_clusters_via_acm.md
+  - Adding Managed Cluster to ArgoCD: adding_managed_cluster_to_argocd.md
+  - Adding Managed Cluster to Identatem: adding_managed_cluster_to_identitatem.md
+
+plugins:
+  - techdocs-core
+  - search

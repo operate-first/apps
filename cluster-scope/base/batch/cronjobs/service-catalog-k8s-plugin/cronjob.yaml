@@ -25,7 +25,7 @@ spec:
             - |
               echo "Authenticating with vault using SA JWT token ..."
               VAULT_AUTH_TOKEN=$(cat /var/run/secrets/kubernetes.io/serviceaccount/token)
-              VAULT_CLIENT_TOKEN=$(vault write auth/$CLUSTER-k8s/login role=$ENV-ops-rw jwt="$VAULT_AUTH_TOKEN" -format=json | yq e '.auth.client_token' -)
+              VAULT_CLIENT_TOKEN=$(vault write auth/$CLUSTER-k8s/login role=service-catalog jwt="$VAULT_AUTH_TOKEN" -format=json | yq e '.auth.client_token' -)
               export VAULT_TOKEN=$(vault login -token-only $VAULT_CLIENT_TOKEN)
 
               echo "Pushing k8s plugin SA token to vault ..."

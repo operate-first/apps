@@ -88,6 +88,9 @@ resources:
 - nodefeaturediscovery
 - operators.coreos.com/operatorgroups/nvidia-gpu-operator
 - operators.coreos.com/subscriptions/nvidia-gpu-operator
-- machineconfigs/kepler
+- machineconfiguration.openshift.io/machineconfigs/kepler
+- machineconfiguration.openshift.io/machineconfigs/trino
+- machineconfiguration.openshift.io/containerruntimeconfigs/trino
+- machineconfiguration.openshift.io/machineconfigpools
 - nvidia-gpu
 - secret-mgmt

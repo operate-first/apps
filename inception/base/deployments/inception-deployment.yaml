@@ -1,0 +1,39 @@
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: inception
+  labels:
+    deployment: inception-app
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      deployment: inception-app
+  template:
+    metadata:
+      labels:
+        deployment: inception-app
+    spec:
+      containers:
+        - name: inception
+          image: quay.io/rdaylf/inception
+          ports:
+            - containerPort: 8080
+              protocol: TCP
+          resources: {}
+          volumeMounts:
+            - name: inception-settings
+              mountPath: /export/settings.properties
+              subPath: settings.properties
+            - name: export
+              mountPath: /export
+      volumes:
+        - name: inception-settings
+          secret:
+            secretName: inception-settings
+            items:
+              - key: settings.properties
+                path: settings.properties
+        - name: export
+          emptyDir: {}

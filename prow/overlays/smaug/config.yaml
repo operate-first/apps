@@ -35,6 +35,7 @@ in_repo_config:
     operate-first: true
     os-climate: true
     thoth-station: true
+    redhat-et/homomorphic-learning: true
 
   allowed_clusters:
     "AICoE": ["api.smaug.na.operate-first.cloud:6443"]
@@ -44,6 +45,34 @@ in_repo_config:
     "open-services-group": ["api.smaug.na.operate-first.cloud:6443"]
     "os-climate": ["api.smaug.na.operate-first.cloud:6443"]
     "thoth-station": ["api.smaug.na.operate-first.cloud:6443"]
+    "redhat-et/homomorphic-learning": ["api.smaug.na.operate-first.cloud:6443"]
+
+branch_cleaner:
+  preserved_branches:
+    AICoE:
+      - main
+      - master
+    aicoe-aiops:
+      - main
+      - master
+    b4mad:
+      - main
+      - master
+    open-services-group:
+      - main
+      - master
+    operate-first:
+      - main
+      - master
+    os-climate:
+      - main
+      - master
+    redhat-et:
+      - main
+      - master
+    thoth-station:
+      - main
+      - master
 
 branch-protection:
   allow_disabled_policies: true
@@ -75,10 +104,9 @@ branch-protection:
           required_status_checks:
             contexts:
               - aicoe-ci/prow/pre-commit
-          exclude:
-            - "^revert-"
-            - "^kebechet-"
-            - "^dependabot/"
+          include:
+            - "^master"
+            - "^main"
     thoth-station:
       protect: true
       allow_force_pushes: false
@@ -162,7 +190,8 @@ branch-protection:
 
 deck:
   spyglass:
-    size_limit: 100000000    # 100MB
+    size_limit: 100000000
+    # 100MB
     # gcs_browser_prefix: https://gcsweb.k8s.io/gcs/
     # testgrid_config: gs://k8s-testgrid/config
     # testgrid_root: https://testgrid.k8s.io/
@@ -189,8 +218,8 @@ deck:
           name: podinfo
         required_files:
           - ^podinfo\.json$
-  # additional_allowed_buckets:
-  #   - prow
+  additional_allowed_buckets:
+    - prow
   tide_update_period: 1s
 
 tide:
@@ -207,35 +236,14 @@ tide:
     operate-first: squash
     os-climate: merge
     thoth-station: merge
+    redhat-et/homomorphic-learning: merge
 
   queries:
     - orgs:
         - aicoe-aiops
         - b4mad
         - open-services-group
-        - thoth-station
       excludedRepos:
-        - thoth-station/dgraph-thoth-config
-        - thoth-station/workload-operator
-        - thoth-station/tensorflow
-        - thoth-station/contra-env-infra
-        - thoth-station/ansible-role-core-imagestreams
-        - thoth-station/ansible-role-core-templates
-        - thoth-station/ansible-role-core-cronjob
-        - thoth-station/ansible-role-metrics-exporter
-        - thoth-station/ansible-role-cronjob
-        - thoth-station/ansible-role-argo-workflows
-        - thoth-station/ansible-role-postgresql
-        - thoth-station/ansible-role-kebechet
-        - thoth-station/ansible-role-postgresql-metrics-exporter
-        - thoth-station/statusfy
-        - thoth-station/statusfy-ops
-        - thoth-station/website-tooling
-        - thoth-station/cuda
-        - thoth-station/stub-api
-        - thoth-station/nvidia-usage-dashboard
-        - thoth-station/pipelines-catalog
-        - thoth-station/bz1816214-example
         - b4mad/sirius
         - b4mad/airdata
         - b4mad/auddress
@@ -250,6 +258,7 @@ tide:
     - orgs:
         - operate-first
         - os-climate
+        - thoth-station
       labels:
         - approved
         - lgtm
@@ -292,7 +301,17 @@ tide:
     - repos:
         - AICoE/common
         - AICoE/meteor
-        - AICoE/meteor-operator
+      labels:
+        - approved
+        - lgtm
+      missingLabels:
+        - do-not-merge
+        - do-not-merge/hold
+        - do-not-merge/invalid-owners-file
+        - do-not-merge/work-in-progress
+        - needs-rebase
+    - repos:
+        - redhat-et/homomorphic-learning
       labels:
         - approved
         - lgtm
@@ -316,7 +335,6 @@ tide:
         repos:
           sefkhet-abwy:
             required-contexts:
-              - aicoe-ci/pre-commit-check
               - aicoe-ci/build-check
       thoth-station:
         repos:

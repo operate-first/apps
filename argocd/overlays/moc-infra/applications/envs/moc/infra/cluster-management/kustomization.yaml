@@ -9,6 +9,5 @@ resources:
   - cert-manager.yaml
   - cluster-resources.yaml
   - external-secrets.yaml
-  - keycloak.yaml
   - kubevirt-hyperconverged.yaml
   - odf-fake-metrics-exporter.yaml

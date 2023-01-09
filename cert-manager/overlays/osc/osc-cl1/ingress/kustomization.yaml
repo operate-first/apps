@@ -4,4 +4,4 @@ namespace: openshift-ingress
 resources:
   - certificate.yaml
   - issuer.yaml
-  - ../secrets
+  - externalsecrets

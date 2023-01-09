@@ -1,0 +1,18 @@
+apiVersion: external-secrets.io/v1beta1
+kind: ExternalSecret
+metadata:
+  name: argocd-dex-server-oauth-token
+spec:
+  secretStoreRef:
+    name: opf-vault-store
+    kind: SecretStore
+  target:
+    name: argocd-dex-server-oauth-token
+    template:
+      engineVersion: v2
+      metadata:
+        annotations:
+          kubernetes.io/service-account.name: argocd-dex-server
+  dataFrom:
+    - extract:
+        key: moc/infra/argocd/argocd-dex-server-oauth-token

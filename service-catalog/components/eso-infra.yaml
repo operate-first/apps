@@ -1,0 +1,26 @@
+apiVersion: backstage.io/v1alpha1
+kind: Component
+metadata:
+  name: external-secrets-infra
+  title: External secrets (infra)
+  description: External Secrets Operator synchronizes secrets from external APIs into Kubernetes
+  annotations:
+    operate-first.cloud/logo-url: https://raw.githubusercontent.com/external-secrets/external-secrets/main/assets/eso-logo-large.png
+    argocd/app-name: external-secrets-infra
+    github.com/project-slug: operate-first/apps
+    backstage.io/kubernetes-label-selector: app.kubernetes.io/name
+    backstage.io/kubernetes-namespace: external-secrets-operator
+  links:
+    - url: https://external-secrets.io/
+      title: ESO documentation
+      icon: web
+spec:
+  type: operator
+  lifecycle: production
+  owner: group:operate-first
+  system: secret-management
+  consumesApis:
+    - vault
+  dependsOn:
+    - resource:infra
+    - component:vault

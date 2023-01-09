@@ -3,3 +3,4 @@ kind: Kustomization
 resources:
   - my-topic.yaml
   - kepler-metrics.yaml
+  - ecb-fx.yaml

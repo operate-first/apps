@@ -1,0 +1,12 @@
+apiVersion: v1
+kind: ResourceQuota
+metadata:
+  name: smart-village-view-custom
+spec:
+  hard:
+    limits.cpu: '16'
+    limits.memory: 16Gi
+    requests.cpu: '16'
+    requests.memory: 16Gi
+    requests.storage: 80Gi
+    count/objectbucketclaims.objectbucket.io: 1

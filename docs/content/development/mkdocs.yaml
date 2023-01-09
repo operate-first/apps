@@ -1,0 +1,10 @@
+site_name: Development Environment documentation
+
+nav:
+  - Home: README.md
+  - CodeReady Containers: crc-disk-size.md
+  - QuickLab: setup_quicklab.md
+
+plugins:
+  - techdocs-core
+  - search

@@ -1,0 +1,10 @@
+apiVersion: kustomize.config.k8s.io/v1beta1
+kind: Kustomization
+resources:
+- cookie.yaml
+- github-oauth-config.yaml
+- github-token.yaml
+- hmac-token.yaml
+- oauth-token.yaml
+- s3-credentials.yaml
+- ssh-secret.yaml

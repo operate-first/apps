@@ -4,11 +4,11 @@ metadata:
   name: thoth-middletier-prod-custom
 spec:
   hard:
-    count/pods: '625'
-    count/workflows.argoproj.io: 1.5k
-    limits.cpu: '16'
+    count/pods: "1000"
+    count/workflows.argoproj.io: 3k
+    limits.cpu: "48"
     limits.memory: 48Gi
-    requests.cpu: '16'
+    requests.cpu: "48"
     requests.memory: 32Gi
     requests.storage: 64Gi
     count/objectbucketclaims.objectbucket.io: 1

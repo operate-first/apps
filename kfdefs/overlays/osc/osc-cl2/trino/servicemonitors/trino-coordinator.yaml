@@ -1,0 +1,15 @@
+apiVersion: monitoring.coreos.com/v1
+kind: ServiceMonitor
+metadata:
+  labels:
+    role: trino-coordinator
+  name: trino-coordinator
+spec:
+  endpoints:
+    - interval: 3s
+      port: metrics
+      scheme: http
+  jobLabel: app.kubernetes.io/name
+  selector:
+    matchLabels:
+      role: trino-coordinator

@@ -1,0 +1,10 @@
+apiVersion: machineconfiguration.openshift.io/v1
+kind: ContainerRuntimeConfig
+metadata:
+  name: 60-set-container-pid-limit
+spec:
+  containerRuntimeConfig:
+    pidsLimit: 4096
+  machineConfigPoolSelector:
+    matchLabels:
+      custom-crio: high-pid-limit

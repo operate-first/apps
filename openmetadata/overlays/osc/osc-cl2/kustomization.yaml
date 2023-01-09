@@ -5,5 +5,19 @@ resources:
 - ../../../base/openmetadata-dependencies
 - ../../../base/openmetadata
 - externalsecrets
+- configmaps
+
 patchesStrategicMerge:
   - patches/deployments/openmetadata.yaml
+  - patches/deployments/mysql.yaml
+  - patches/deployments/elasticsearch.yaml
+  - patches/deployments/airlfow-triggerer.yaml
+  - patches/deployments/airflow-web.yaml
+  - patches/deployments/airflow-sync-users.yaml
+  - patches/deployments/airflow-scheduler.yaml
+  - patches/deployments/airflow-db-migrations.yaml
+
+images:
+  - name: quay.io/operate-first/om-ingestion
+    newName: quay.io/os-climate/ingestion
+    newTag: 0.12.1.trino.317

@@ -15,9 +15,13 @@ spec:
         app.kubernetes.io/name: openmetadata
     spec:
       serviceAccountName: openmetadata
+      securityContext: {}
+      initContainers: []
+      volumes: []
       containers:
         - name: openmetadata
-          image: "quay.io/operate-first/om-server:0.12.0"
+          securityContext: {}
+          image: "quay.io/operate-first/om-server:0.12.1"
           imagePullPolicy: Always
           ports:
             - name: http
@@ -52,21 +56,27 @@ spec:
             - name: SERVER_ADMIN_PORT
               value: "8586"
             - name: AUTHENTICATION_PROVIDER
-              value: "no-auth"
+              value: "basic"
             - name: AUTHENTICATION_PUBLIC_KEYS
-              value: "[]"
+              value: "[http://openmetadata:8585/api/v1/config/jwks]"
             - name: AUTHENTICATION_AUTHORITY
-              value: ""
+              value: "https://accounts.google.com"
             - name: AUTHENTICATION_CLIENT_ID
               value: ""
             - name: AUTHENTICATION_CALLBACK_URL
               value: ""
             - name: AUTHENTICATION_JWT_PRINCIPAL_CLAIMS
               value: "[email,preferred_username,sub]"
+            - name: AUTHENTICATION_ENABLE_SELF_SIGNUP
+              value: "true"
+            - name: OM_MAX_FAILED_LOGIN_ATTEMPTS
+              value: "3"
+            - name: OM_LOGIN_ACCESS_BLOCKTIME
+              value: "600"
             - name: AUTHORIZER_CLASS_NAME
-              value: "org.openmetadata.catalog.security.NoopAuthorizer"
+              value: "org.openmetadata.service.security.DefaultAuthorizer"
             - name: AUTHORIZER_REQUEST_FILTER
-              value: "org.openmetadata.catalog.security.NoopFilter"
+              value: "org.openmetadata.service.security.JwtFilter"
             - name: AUTHORIZER_ADMIN_PRINCIPALS
               value: "[admin]"
             - name: AUTHORIZER_INGESTION_PRINCIPALS
@@ -77,6 +87,19 @@ spec:
               value: "false"
             - name: AUTHORIZER_ENABLE_SECURE_SOCKET
               value: "false"
+            - name: AUTHORIZER_ALLOWED_REGISTRATION_DOMAIN
+              value: "[all]"
+            - name: RSA_PUBLIC_KEY_FILE_PATH
+              value: "./conf/public_key.der"
+            - name: RSA_PRIVATE_KEY_FILE_PATH
+              value: "./conf/private_key.der"
+            - name: JWT_ISSUER
+              value: "open-metadata.org"
+            # We add these via a secret
+            # - name: JWT_KEY_ID
+            #  value: ""
+            # - name: FERNET_KEY
+            #  value: ""
             - name: ELASTICSEARCH_HOST
               value: "elasticsearch"
             - name: ELASTICSEARCH_PORT
@@ -110,6 +133,10 @@ spec:
                 secretKeyRef:
                   name: airflow-secrets
                   key: openmetadata-airflow-password
+            - name: AIRFLOW_VERIFY_SSL
+              value: "no-ssl"
+            - name: AIRFLOW_SSL_CERT_PATH
+              value: "/no/path"
             - name: SERVER_HOST_API_URL
               value: "http://openmetadata.default.svc.cluster.local:8585/api"
             - name: AIRFLOW_AUTH_PROVIDER

@@ -1,0 +1,9 @@
+site_name: ACME documentation
+
+nav:
+  - Home: README.md
+  - Issuing certificates: issuing_certificates.md
+
+plugins:
+  - techdocs-core
+  - search

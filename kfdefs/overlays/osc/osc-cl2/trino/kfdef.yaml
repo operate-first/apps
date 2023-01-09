@@ -20,9 +20,9 @@ spec:
           - name: s3_credentials_secret
             value: odh-datacatalog-bucket
           - name: trino_memory_request
-            value: 8Gi
-          - name: trino_memory_limit
             value: 10Gi
+          - name: trino_memory_limit
+            value: 12Gi
           - name: trino_cpu_request
             value: '2'
           - name: trino_cpu_limit

@@ -1,0 +1,8 @@
+site_name: Prometheus documentation
+
+nav:
+  - Home: README.md
+
+plugins:
+  - techdocs-core
+  - search

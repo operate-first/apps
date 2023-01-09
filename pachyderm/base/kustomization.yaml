@@ -3,4 +3,3 @@ kind: Kustomization
 namespace: pachyderm
 resources:
 - pachyderm.yaml
-- secret.yaml

@@ -3,7 +3,7 @@ kind: BuildConfig
 apiVersion: build.openshift.io/v1
 metadata:
   namespace: okd-centos
-  name: okd-golang-builder
+  name: okd-builder
 spec:
   successfulBuildsHistoryLimit: 1
   failedBuildsHistoryLimit: 2
@@ -18,12 +18,12 @@ spec:
         kind: ImageStreamTag
         name: "centos:stream9"
         namespace: okd-centos
-      dockerfilePath: okd-golang-builder.Dockerfile
+      dockerfilePath: okd-builder.Dockerfile
     type: Docker
   output:
     to:
       kind: ImageStreamTag
-      name: centos:okd-golang-builder
+      name: centos:okd-builder
       namespace: okd-centos
   triggers:
   - type: ConfigChange

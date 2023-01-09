@@ -2,7 +2,6 @@ apiVersion: cert-manager.io/v1
 kind: Issuer
 metadata:
   name: api-letsencrypt
-  namespace: openshift-config
 spec:
   acme:
     email: ops-team@operate-first.cloud

@@ -1,0 +1,10 @@
+apiVersion: v1
+kind: Namespace
+metadata:
+  annotations:
+    op1st/docs: https://lotus.filecoin.io/
+    op1st/onboarding-issue: https://github.com/operate-first/support/issues/1182
+    op1st/project-owner: coryschwartz
+    openshift.io/display-name: lotus
+    openshift.io/requester: coryschwartz
+  name: lotus

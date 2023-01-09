@@ -3,6 +3,7 @@ kind: Kustomization
 namespace: argocd
 nameSuffix: -smaug
 resources:
+- apex
 - apicurio
 - b4mad
 - chris
@@ -14,3 +15,4 @@ resources:
 - thoth
 - workshops
 - octo-otel-dev
+- copilot-ops

@@ -1,0 +1,12 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: github-webhooks-consumer
+  title: Consumer of GitHub Webhooks
+  description: API provided by any server consuming GitHub webhooks
+spec:
+  type: openapi
+  lifecycle: production
+  owner: group:operate-first
+  definition:
+    $text: https://github.com/octokit/webhooks/blob/openapi/payload-schemas/openapi-schema.yml

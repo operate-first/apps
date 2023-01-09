@@ -3,9 +3,7 @@ kind: Kustomization
 
 resources:
   - ../../base
-
-generators:
-  - secret-generator.yaml
+  - argocd-notifications-secret.yaml
 
 patches:
   - target:

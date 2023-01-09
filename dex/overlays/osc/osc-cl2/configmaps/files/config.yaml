@@ -53,6 +53,12 @@ staticClients:
       - http://grafana-opf-monitoring.apps.odh-cl2.apps.os-climate.org/login/generic_oauth
     secretEnv: GRAFANA_SECRET
 
+  - id: openmetadata-airflow
+    name: openmetadata-airflow
+    redirectURIs:
+      - http://airflow-openmetadata.apps.odh-cl2.apps.os-climate.org/oauth-authorized/dex
+    secretEnv: OPENMETADATA_AIRFLOW_SECRET
+
 expiry:
   idTokens: "168h"
 

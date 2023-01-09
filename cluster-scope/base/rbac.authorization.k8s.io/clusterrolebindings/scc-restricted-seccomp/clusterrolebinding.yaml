@@ -1,0 +1,18 @@
+apiVersion: rbac.authorization.k8s.io/v1
+kind: ClusterRoleBinding
+metadata:
+  name: scc-restricted-seccomp
+roleRef:
+  apiGroup: rbac.authorization.k8s.io
+  kind: ClusterRole
+  name: system:openshift:scc:restricted-seccomp
+subjects:
+  - kind: ServiceAccount
+    name: cert-manager
+    namespace: openshift-operators
+  - kind: ServiceAccount
+    name: cert-manager-cainjector
+    namespace: openshift-operators
+  - kind: ServiceAccount
+    name: cert-manager-webhook
+    namespace: openshift-operators

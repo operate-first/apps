@@ -2,7 +2,6 @@
 apiVersion: kustomize.config.k8s.io/v1beta1
 kind: Kustomization
 resources:
-  - remote-write-emea-balrog.yaml
   - remote-write-moc-infra.yaml
   - remote-write-moc-smaug.yaml
   - thanos-query-frontend-oauth-proxy.yaml

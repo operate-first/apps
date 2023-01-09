@@ -2,12 +2,14 @@ apiVersion: backstage.io/v1alpha1
 kind: Component
 metadata:
   name: odf-operator-smaug
-  title: OpenShift Data Foundation operator
+  title: OpenShift Data Foundation operator (smaug)
   description: Red Hat OpenShift Data Foundation is software-defined storage for containers. Engineered as the data and storage services platform for Red Hat OpenShift, Red Hat OpenShift Data Foundation helps teams develop and deploy applications quickly and efficiently across clouds.
   annotations:
     operate-first.cloud/logo-url: https://upload.wikimedia.org/wikipedia/commons/d/d8/Red_Hat_logo.svg
-    argocd/app-name: odf-smaug
+    argocd/app-name: cluster-resources-smaug
     github.com/project-slug: operate-first/apps
+    backstage.io/kubernetes-label-selector: olm.owner.namespace=openshift-storage
+    backstage.io/kubernetes-namespace: openshift-storage
   links:
     - url: https://www.redhat.com/en/technologies/cloud-computing/openshift-data-foundation
       icon: web
@@ -16,6 +18,6 @@ spec:
   type: operator
   lifecycle: production
   owner: group:operate-first
-  system: odf-smaug
+  system: odf
   dependsOn:
     - resource:smaug

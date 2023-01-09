@@ -9,6 +9,7 @@ rules:
   - pods
   - services
   - configmaps
+  - limitranges
   verbs:
   - get
   - watch
@@ -24,6 +25,7 @@ rules:
 - apiGroups:
   - apps
   resources:
+  - daemonsets
   - deployments
   - replicasets
   - statefulsets

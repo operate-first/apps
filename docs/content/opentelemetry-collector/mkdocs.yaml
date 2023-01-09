@@ -1,0 +1,9 @@
+site_name: OpenTelemetry documentation
+
+nav:
+  - Home: README.md
+  - Using OpenTelemetry collector: using-opentelemetry-collector.md
+
+plugins:
+  - techdocs-core
+  - search

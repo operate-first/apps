@@ -1,0 +1,11 @@
+site_name: OpenShift Data Foundation documentation
+
+nav:
+  - Home: README.md
+  - Claiming object store buckets: claiming_object_store.md
+  - Accessing buckets from outside the cluster: buckets-external-access.md
+  - Runbook: runbook.md
+
+plugins:
+  - techdocs-core
+  - search

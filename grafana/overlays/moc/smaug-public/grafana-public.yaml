@@ -7,6 +7,9 @@ spec:
   deployment:
     labels:
       app.kubernetes.io/name: grafana-public
+    envFrom:
+      - secretRef:
+          name: grafana-secret-config
   baseImage: quay.io/operate-first/grafana:8.4.3
   config:
     security:

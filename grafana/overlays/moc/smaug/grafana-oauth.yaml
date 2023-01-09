@@ -12,6 +12,8 @@ spec:
     envFrom:
       - secretRef:
           name: oauth-client-secret
+      - secretRef:
+          name: grafana-secret-config
       - configMapRef:
           name: grafana-config-overrides
   configMaps:

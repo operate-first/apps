@@ -1,0 +1,15 @@
+apiVersion: user.openshift.io/v1
+kind: Group
+metadata:
+  name: gingersnap
+users:
+- ryanemerson
+- pminz
+- tristantarrant
+- karesti
+- wburns
+- fax4ever
+- rigazilla
+- jabolina
+- pruivo
+- dpanshug

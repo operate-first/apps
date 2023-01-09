@@ -1,0 +1,11 @@
+site_name: Kafka documentation
+
+nav:
+  - Home: README.md
+  - Add topics: add_kafka_topics.md
+  - Add users: add_kafka_users.md
+  - Runbook: runbook.md
+
+plugins:
+  - techdocs-core
+  - search

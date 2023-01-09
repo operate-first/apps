@@ -4,3 +4,4 @@ metadata:
   name: osc-cl1
   labels:
     cluster.open-cluster-management.io/clusterset: osc
+    observability: disabled

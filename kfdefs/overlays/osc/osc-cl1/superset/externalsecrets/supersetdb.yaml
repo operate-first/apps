@@ -7,7 +7,7 @@ spec:
     name: opf-vault-store
     kind: SecretStore
   target:
-    name: supersetdb
+    name: superset-db-custom
   dataFrom:
     - extract:
         key: osc/osc-cl1/odh-superset/supersetdb

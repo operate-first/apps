@@ -4,9 +4,9 @@ metadata:
   name: thoth-frontend-prod-custom
 spec:
   hard:
-    limits.cpu: '8'
+    limits.cpu: "12"
     limits.memory: 12Gi
-    requests.cpu: '8'
+    requests.cpu: "12"
     requests.memory: 12Gi
     requests.storage: 40Gi
     count/objectbucketclaims.objectbucket.io: 1

@@ -1,0 +1,28 @@
+apiVersion: argoproj.io/v1alpha1
+kind: AppProject
+metadata:
+  name: apex
+  labels:
+    project-template: global
+spec:
+  destinations:
+    - namespace: apex
+      server: "https://api.smaug.na.operate-first.cloud:6443"
+    - namespace: apex-*
+      server: "https://api.smaug.na.operate-first.cloud:6443"
+  sourceRepos:
+    - "*"
+  roles:
+    - name: project-admin
+      description: Read/Write access to this project only
+      policies:
+        - p, proj:apex:project-admin, applications, get, apex/*, allow
+        - p, proj:apex:project-admin, applications, create, apex/*, allow
+        - p, proj:apex:project-admin, applications, update, apex/*, allow
+        - p, proj:apex:project-admin, applications, delete, apex/*, allow
+        - p, proj:apex:project-admin, applications, sync, apex/*, allow
+        - p, proj:apex:project-admin, applications, override, apex/*, allow
+        - p, proj:apex:project-admin, applications, action/*, apex/*, allow
+      groups:
+        - apex
+        - operate-first

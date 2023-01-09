@@ -3,6 +3,7 @@ kind: Kustomization
 resources:
   - ../../../base
   - pcache.yaml
+  - externalsecret.yaml
 patchesStrategicMerge:
   - deployment.yaml
   - route.yaml
@@ -12,5 +13,3 @@ configMapGenerator:
       - config.yaml
 generatorOptions:
   disableNameSuffixHash: true
-generators:
-  - secret-generator.yaml

@@ -4,9 +4,9 @@ metadata:
   name: thoth-amun-inspection-prod-custom
 spec:
   hard:
-    requests.cpu: '16'
+    requests.cpu: "24"
     requests.memory: 32Gi
-    limits.cpu: '16'
-    limits.memory: 32Gi
+    limits.cpu: "32"
+    limits.memory: 48Gi
     requests.storage: 40Gi
     count/objectbucketclaims.objectbucket.io: 1

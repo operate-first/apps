@@ -8,6 +8,8 @@ metadata:
     operate-first.cloud/logo-url: https://cncf-branding.netlify.app/img/projects/dex/icon/color/dex-icon-color.png
     argocd/app-name: dex-smaug
     github.com/project-slug: operate-first/apps
+    backstage.io/kubernetes-label-selector: app.kubernetes.io/instance=dex-smaug
+    backstage.io/kubernetes-namespace: dex
   links:
     - url: https://github.com/dexidp/dex
       title: Github repository

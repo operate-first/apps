@@ -1,0 +1,10 @@
+apiVersion: v1
+kind: ResourceQuota
+metadata:
+  name: ai4cloudops-custom
+spec:
+  hard:
+    limits.cpu: '40'
+    limits.memory: 32Gi
+    requests.cpu: '40'
+    requests.memory: 32Gi

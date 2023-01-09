@@ -3,6 +3,7 @@ kind: Kustomization
 resources:
 - airflow-mysql-secrets.yaml
 - airflow-secrets.yaml
+- dex-provider-cfg.yaml
 - mysql.yaml
 - mysql-init-scripts.yaml
 - mysql-secrets.yaml

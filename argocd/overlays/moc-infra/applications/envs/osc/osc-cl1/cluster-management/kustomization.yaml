@@ -14,3 +14,11 @@ resources:
   - kfdefs.yaml
   - odh-operator.yaml
   - training-operator.yaml
+patches:
+  - patch: |
+      - op: replace
+        path: /spec/project
+        value: os-climate
+    target:
+      group: argoproj.io
+      kind: Application
