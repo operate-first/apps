@@ -1,0 +1,28 @@
+apiVersion: argoproj.io/v1alpha1sostrades
+kind: AppProject
+metadata:
+  name: sostrades
+  labels:
+    project-template: global
+spec:
+  destinations:
+    - namespace: 'sostrades'
+      server: 'https://api.odh-cl1.apps.os-climate.org:6443'
+    - namespace: 'sostrades'
+      server: 'https://api.odh-cl2.apps.os-climate.org:6443'
+  sourceRepos:
+    - '*'
+  roles:
+    - name: project-admin
+      description: Read/Write access to this project only
+      policies:
+        - p, proj:sostrades:project-admin, applications, get, sostrades/*, allow
+        - p, proj:sostrades:project-admin, applications, create, sostrades/*, allow
+        - p, proj:sostrades:project-admin, applications, update, sostrades/*, allow
+        - p, proj:sostrades:project-admin, applications, delete, sostrades/*, allow
+        - p, proj:sostrades:project-admin, applications, sync, sostrades/*, allow
+        - p, proj:sostrades:project-admin, applications, override, sostrades/*, allow
+        - p, proj:sostrades:project-admin, applications, action/*, sostrades/*, allow
+      groups:
+        - sostrades
+        - osc-admins
