@@ -24,7 +24,7 @@ spec:
       - name: Cluster Status
         description: API for the cluster status plugin
     paths:
-      /rhacm/status:
+      /ocm/status:
         get:
           tags:
             - Cluster Status
@@ -37,7 +37,7 @@ spec:
                 application/json:
                   schema:
                     $ref: '#/components/schemas/clusters'
-      /rhacm/status/{name}:
+      /ocm/status/{name}:
         get:
           tags:
             - Cluster Status
@@ -93,11 +93,13 @@ spec:
               type: string
               example: RegionOne
             status:
-              $ref: '#/components/schemas/Status'
+              $ref: '#/components/schemas/status'
             availableResources:
               $ref: '#/components/schemas/availableResources'
             allocatableResources:
               $ref: '#/components/schemas/allocatableResources'
+            update:
+              $ref: '#/components/schemas/update'
         availableResources:
           type: object
           properties:
@@ -124,7 +126,7 @@ spec:
             numberOfPods:
               type: number
               example: 7750
-        Status:
+        status:
           type: object
           properties:
             available:
@@ -133,5 +135,17 @@ spec:
             reason:
               type: string
               example: Cluster is up
+        update:
+          type: object
+          properties:
+            available:
+              type: boolean
+              example: true
+            version:
+              type: number
+              example: 4.9.53
+            url:
+              type: string
+              example: https://access.redhat.com/errata/RHBA-2022:8714
           xml:
             name: category
