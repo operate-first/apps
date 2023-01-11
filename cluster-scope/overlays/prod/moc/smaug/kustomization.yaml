@@ -3,7 +3,6 @@ kind: Kustomization
 patchesStrategicMerge:
   - backingstores/noobaa-default-backing-store_patch.yaml
   - groups/cluster-admins.yaml
-  - imageregistry.operator.openshift.io/configs/cluster/config_patch.yaml
   - storageclasses/ocs-external-storagecluster-ceph-rbd.yaml
   - subscriptions/cluster-logging-operator_patch.yaml
   - subscriptions/nfd_patch.yaml
@@ -115,6 +114,7 @@ resources:
   - ../../../../base/core/namespaces/ushift-dev
   - ../../../../base/core/namespaces/varangian-test
   - ../../../../base/core/namespaces/wildfly-service
+  - ../../../../base/core/persistentvolumeclaims/image-registry-storage
   - ../../../../base/imageregistry.operator.openshift.io/configs/cluster
   - ../../../../base/noobaa.io/backingstores
   - ../../../../base/operators.coreos.com/catalogsources/operatorhubio-catalog/
@@ -199,6 +199,5 @@ resources:
   - nodes/oct-03-00-compute.yaml
   - nodes/oct-03-01-compute.yaml
   - nodes/oct-03-03-compute.yaml
-  - objectbucketclaims/openshift-image-registry-bucket.yaml
   - secret-mgmt
   - snapshotschedules/schedule.yaml
