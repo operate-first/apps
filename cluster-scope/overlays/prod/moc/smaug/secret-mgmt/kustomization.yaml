@@ -9,7 +9,6 @@ resources:
 - dex
 - kubeflow
 - openshift-config
-- openshift-image-registry
 - openshift-ingress
 - openshift-logging
 - openshift-monitoring
