@@ -6,7 +6,7 @@ plank:
   default_decoration_configs:
     "*":
       gcs_configuration:
-        bucket: s3://prow/prow-logs
+        bucket: s3://prow-c2ac1283-86c7-4ab4-babc-a07c8c4f1f79/prow-logs
         path_strategy: explicit
       s3_credentials_secret: s3-credentials
       ssh_key_secrets:
@@ -189,6 +189,7 @@ branch-protection:
               required_approving_review_count: 1
 
 deck:
+  skip_storage_path_validation: false
   spyglass:
     size_limit: 100000000
     # 100MB
