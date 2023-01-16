@@ -7,7 +7,7 @@ spec:
   project: sostrades
   source:
     path: sostrades/deploy/overlays/osc/osc-cl2
-    repoURL: https://github.com/sostrades-radouanbouadel/ArgocdOF.git
+    repoURL: https://github.com/SoSTrades/infrastructure.git
     targetRevision: HEAD
   destination:
     name: osc-cl2
