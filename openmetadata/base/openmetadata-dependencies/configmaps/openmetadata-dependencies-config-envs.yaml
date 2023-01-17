@@ -69,7 +69,7 @@ data:
   ## ================
   AIRFLOW__KUBERNETES__NAMESPACE: "openmetadata"
   AIRFLOW__KUBERNETES__WORKER_CONTAINER_REPOSITORY: "quay.io/os-climate/ingestion"
-  AIRFLOW__KUBERNETES__WORKER_CONTAINER_TAG: "0.12.1.trino.317"
+  AIRFLOW__KUBERNETES__WORKER_CONTAINER_TAG: "0.13.1.trino.320"
   AIRFLOW__KUBERNETES__POD_TEMPLATE_FILE: "/opt/airflow/pod_templates/pod_template.yaml"
   ## ================
   ## User Configs
