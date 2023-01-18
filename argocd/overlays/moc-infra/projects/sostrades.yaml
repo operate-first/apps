@@ -1,4 +1,4 @@
-apiVersion: argoproj.io/v1alpha1sostrades
+apiVersion: argoproj.io/v1alpha1
 kind: AppProject
 metadata:
   name: sostrades
@@ -6,7 +6,7 @@ metadata:
     project-template: global
 spec:
   destinations:
-    - namespace: 'sostrades'
+    - namespace: 'sostrades-namespace'
       server: 'https://api.odh-cl1.apps.os-climate.org:6443'
     - namespace: 'sostrades'
       server: 'https://api.odh-cl2.apps.os-climate.org:6443'
