@@ -6,7 +6,7 @@ metadata:
     project-template: global
 spec:
   destinations:
-    - namespace: 'openshift-tuning-*'
+    - namespace: 'openshift-tuning'
       name: 'smaug'
   sourceRepos:
     - '*'
