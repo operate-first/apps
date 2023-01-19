@@ -88,7 +88,7 @@ fi
 # Add rbac to the namespace being onboarded.
 
 cd ${NAMESPACE_PATH}
-kustomize edit add resource ../../../../components/project-admin-rolebindings/${GROUP}
+kustomize edit add component ../../../../components/project-admin-rolebindings/${GROUP}
 
 # Up until now we have created resources in the base directory
 # We now need to include these resources onto the target cluster for which this team needs to be onboarded.
