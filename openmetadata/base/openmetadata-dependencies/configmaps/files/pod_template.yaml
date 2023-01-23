@@ -25,7 +25,7 @@ spec:
     []
   containers:
     - name: base
-      image: quay.io/os-climate/ingestion:0.12.1.trino.317
+      image: quay.io/os-climate/ingestion:0.13.1.trino.320
       imagePullPolicy: IfNotPresent
       envFrom:
         - secretRef:

@@ -21,7 +21,7 @@ spec:
       containers:
         - name: openmetadata
           securityContext: {}
-          image: "quay.io/operate-first/om-server:0.12.1"
+          image: "quay.io/operate-first/om-server:0.13.1"
           imagePullPolicy: Always
           ports:
             - name: http

@@ -26,21 +26,21 @@ spec:
       # Decode it onto an emptydir volume which is read by OM.
       initContainers:
         - name: openmetadata-init
-          image: "quay.io/operate-first/om-server:0.12.1"
+          image: "quay.io/operate-first/om-server:0.13.1"
           volumeMounts:
-            - mountPath: /openmetadata-0.12.1/jwt
+            - mountPath: /openmetadata-0.13.1/jwt
               name: rsakeys
             - mountPath: /tmp/rsakeys
               name: openmetadata-auth
-          command: ["/bin/sh", "-c", "base64 -d /tmp/rsakeys/private_key.der > /openmetadata-0.12.1/jwt/private_key.der && base64 -d /tmp/rsakeys/public_key.der > /openmetadata-0.12.1/jwt/public_key.der"]
+          command: ["/bin/sh", "-c", "base64 -d /tmp/rsakeys/private_key.der > /openmetadata-0.13.1/jwt/private_key.der && base64 -d /tmp/rsakeys/public_key.der > /openmetadata-0.13.1/jwt/public_key.der"]
       containers:
         - name: openmetadata
           volumeMounts:
-            - mountPath: /openmetadata-0.12.1/logs
+            - mountPath: /openmetadata-0.13.1/logs
               name: logs
-            - mountPath: /openmetadata-0.12.1/jwt
+            - mountPath: /openmetadata-0.13.1/jwt
               name: rsakeys
-            - mountPath: /openmetadata-0.12.1/conf/
+            - mountPath: /openmetadata-0.13.1/conf/
               name: openmetadata-config
           envFrom:
             - secretRef:
@@ -84,9 +84,9 @@ spec:
             - name: SERVER_HOST_API_URL
               value: "http://openmetadata.openmetadata.svc.cluster.local:8585/api"
             - name: RSA_PUBLIC_KEY_FILE_PATH
-              value: /openmetadata-0.12.1/jwt/public_key.der
+              value: /openmetadata-0.13.1/jwt/public_key.der
             - name: RSA_PRIVATE_KEY_FILE_PATH
-              value: /openmetadata-0.12.1/jwt/private_key.der
+              value: /openmetadata-0.13.1/jwt/private_key.der
             - name: DB_USER_PASSWORD
               valueFrom:
                 secretKeyRef:

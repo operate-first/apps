@@ -20,4 +20,4 @@ patchesStrategicMerge:
 images:
   - name: quay.io/operate-first/om-ingestion
     newName: quay.io/os-climate/ingestion
-    newTag: 0.12.1.trino.317
+    newTag: 0.13.1.trino.320
