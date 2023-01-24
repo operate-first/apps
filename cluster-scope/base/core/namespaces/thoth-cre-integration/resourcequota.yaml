@@ -1,0 +1,12 @@
+kind: ResourceQuota
+apiVersion: v1
+metadata:
+  name: thoth-cre-integration
+spec:
+  hard:
+    requests.cpu: "16"
+    requests.memory: 64Gi
+    limits.cpu: "16"
+    limits.memory: 64Gi
+    requests.storage: 32Gi
+    count/objectbucketclaims.objectbucket.io: 1
