@@ -43,6 +43,7 @@ resources:
   - ../../../base/user.openshift.io/groups/grafana-editor
   - ../../../base/user.openshift.io/groups/grafana-viewer
   - ../../../base/user.openshift.io/groups/highlander
+  - ../../../base/user.openshift.io/groups/janus-idp
   - ../../../base/user.openshift.io/groups/jetsons
   - ../../../base/user.openshift.io/groups/kaoto
   - ../../../base/user.openshift.io/groups/kepler-admins
