@@ -1,0 +1,10 @@
+apiVersion: v1
+kind: Namespace
+metadata:
+  annotations:
+    op1st/docs: https://github.com/janus-idp
+    op1st/onboarding-issue: https://github.com/operate-first/support/issues/1224
+    op1st/project-owner: tumido
+    openshift.io/display-name: janus-idp
+    openshift.io/requester: tumido
+  name: janus-idp
