@@ -81,7 +81,7 @@ else
   mkdir ${RBAC_PATH}
   jsonnet --ext-str GROUP --ext-code USERS scripts/jsonnet/rbac.jsonnet | yq -P > ${RBAC_PATH}/rbac.yaml
   cd ${RBAC_PATH}
-  kustomize init ${RBAC_PATH}
+  echo -e "apiVersion: kustomize.config.k8s.io/v1alpha1\nkind: Component" > ./kustomization.yaml
   kustomize edit add resource rbac.yaml
 fi
 
