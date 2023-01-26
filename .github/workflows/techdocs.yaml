@@ -21,7 +21,7 @@ jobs:
             entity_kind: 'System'
           - filter: 'docs/content/observatorium/**'
             docs_path: 'docs/content/observatorium'
-            entity_name: 'mco'
+            entity_name: 'mco-observatorium'
             entity_kind: 'Component'
           - filter: 'docs/content/grafana/**'
             docs_path: 'docs/content/grafana'
