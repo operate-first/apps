@@ -1,0 +1,10 @@
+apiVersion: user.openshift.io/v1
+kind: Group
+metadata:
+  name: kogito
+users:
+  - krisv
+  - ederign
+  - paulovmr
+  - caponetto
+  - ricardozanini
