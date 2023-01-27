@@ -47,6 +47,7 @@ resources:
   - ../../../base/user.openshift.io/groups/jetsons
   - ../../../base/user.openshift.io/groups/kaoto
   - ../../../base/user.openshift.io/groups/kepler-admins
+  - ../../../base/user.openshift.io/groups/kogito
   - ../../../base/user.openshift.io/groups/kruize
   - ../../../base/user.openshift.io/groups/lab-cicd
   - ../../../base/user.openshift.io/groups/logs-insights
