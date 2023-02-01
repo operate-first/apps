@@ -77,7 +77,7 @@ data:
   "AIRFLOW__API__AUTH_BACKENDS": "airflow.api.auth.backend.basic_auth"
   "AIRFLOW__LINEAGE__AIRFLOW_SERVICE_NAME": "airflow_helm"
   "AIRFLOW__LINEAGE__AUTH_PROVIDER_TYPE": "no-auth"
-  "AIRFLOW__LINEAGE__BACKEND": "airflow_provider_openmetadata.lineage.openmetadata.OpenMetadataLineageBackend"
+  "AIRFLOW__LINEAGE__BACKEND": "airflow_provider_openmetadata.lineage.backend.OpenMetadataLineageBackend"
   "AIRFLOW__LINEAGE__OPENMETADATA_API_ENDPOINT": "http://openmetadata.$YOUR_NAMESPACE.svc.cluster.local:8585/api"
   "AIRFLOW__OPENMETADATA_AIRFLOW_APIS__DAG_GENERATED_CONFIGS": "/opt/airflow/dags"
   "AIRFLOW__OPENMETADATA_SECRETS_MANAGER__AWS_ACCESS_KEY": ""
