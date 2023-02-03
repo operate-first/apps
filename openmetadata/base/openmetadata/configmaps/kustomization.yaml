@@ -8,3 +8,6 @@ configMapGenerator:
       - files/openmetadata.yaml
       - files/openmetadata-env.sh
     name: openmetadata-configuration
+  - files:
+      - files/check_db_migrations.sh
+    name: db-migrations-cm-hook
