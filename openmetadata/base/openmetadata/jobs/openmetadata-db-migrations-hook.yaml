@@ -1,0 +1,138 @@
+kind: Job
+apiVersion: batch/v1
+metadata:
+  name: openmetadata-db-migrations-hook
+  namespace: openmetadata
+  labels:
+    app.kubernetes.io/instance: openmetadata
+    app.kubernetes.io/name: openmetadata
+    app.kubernetes.io/version: 0.13.1
+spec:
+  parallelism: 1
+  completions: 1
+  backoffLimit: 6
+  template:
+    metadata:
+      creationTimestamp: null
+      labels:
+        app.kubernetes.io/instance: openmetadata
+        app.kubernetes.io/name: openmetadata
+        app.kubernetes.io/version: 0.13.1
+    spec:
+      volumes:
+        - name: migration-script
+          configMap:
+            name: db-migrations-cm-hook
+            defaultMode: 511
+      containers:
+        - resources: {}
+          readinessProbe:
+            exec:
+              command:
+                - cat
+                - /tmp/healthy
+            initialDelaySeconds: 10
+            timeoutSeconds: 1
+            periodSeconds: 10
+            successThreshold: 1
+            failureThreshold: 5
+          terminationMessagePath: /dev/termination-log
+          name: openmetadata-db-migrations-hook
+          command:
+            - /bin/bash
+          livenessProbe:
+            exec:
+              command:
+                - cat
+                - /tmp/healthy
+            initialDelaySeconds: 10
+            timeoutSeconds: 1
+            periodSeconds: 10
+            successThreshold: 1
+            failureThreshold: 5
+          env:
+            - name: OPENMETADATA_CLUSTER_NAME
+              value: openmetadata
+            - name: LOG_LEVEL
+              value: INFO
+            - name: SERVER_HOST
+              value: openmetadata
+            - name: SERVER_PORT
+              value: '8585'
+            - name: SERVER_ADMIN_PORT
+              value: '8586'
+            - name: AUTHENTICATION_PROVIDER
+              value: basic
+            - name: AUTHENTICATION_PUBLIC_KEYS
+              value: '["http://openmetadata:8585/api/v1/config/jwks"]'
+            - name: AUTHENTICATION_AUTHORITY
+              value: 'https://accounts.google.com'
+            - name: AUTHENTICATION_CLIENT_ID
+            - name: AUTHENTICATION_CALLBACK_URL
+            - name: AUTHENTICATION_JWT_PRINCIPAL_CLAIMS
+              value: '["email","preferred_username","sub"]'
+            - name: AUTHENTICATION_ENABLE_SELF_SIGNUP
+              value: 'true'
+            - name: OM_MAX_FAILED_LOGIN_ATTEMPTS
+              value: '3'
+            - name: OM_LOGIN_ACCESS_BLOCKTIME
+              value: '600'
+            - name: AUTHORIZER_CLASS_NAME
+              value: org.openmetadata.service.security.DefaultAuthorizer
+            - name: AUTHORIZER_REQUEST_FILTER
+              value: org.openmetadata.service.security.JwtFilter
+            - name: AUTHORIZER_ADMIN_PRINCIPALS
+              value: '["admin"]'
+            - name: AUTHORIZER_PRINCIPAL_DOMAIN
+              value: open-metadata.org
+            - name: AUTHORIZER_ENFORCE_PRINCIPAL_DOMAIN
+              value: 'false'
+            - name: AUTHORIZER_ENABLE_SECURE_SOCKET
+              value: 'false'
+            - name: AUTHORIZER_ALLOWED_REGISTRATION_DOMAIN
+              value: '["all"]'
+            - name: RSA_PUBLIC_KEY_FILE_PATH
+              value: ./conf/public_key.der
+            - name: RSA_PRIVATE_KEY_FILE_PATH
+              value: ./conf/private_key.der
+            - name: JWT_ISSUER
+              value: open-metadata.org
+            - name: JWT_KEY_ID
+              value: Gb389a-9f76-gdjs-a92j-0242bk94356
+            - name: FERNET_KEY
+            - name: ELASTICSEARCH_HOST
+              value: elasticsearch
+            - name: ELASTICSEARCH_PORT
+              value: '9200'
+            - name: ELASTICSEARCH_SCHEME
+              value: http
+            - name: DB_HOST
+              value: mysql
+            - name: DB_PORT
+              value: '3306'
+            - name: DB_USER
+              value: openmetadata_user
+            - name: DB_USER_PASSWORD
+              valueFrom:
+                secretKeyRef:
+                  name: mysql-secrets
+                  key: OPENMETADATA_DB_PASSWORD
+            - name: OM_DATABASE
+              value: openmetadata_db
+            - name: DB_DRIVER_CLASS
+              value: com.mysql.cj.jdbc.Driver
+            - name: DB_SCHEME
+              value: mysql
+            - name: DB_USE_SSL
+              value: 'false'
+          imagePullPolicy: Always
+          volumeMounts:
+            - name: migration-script
+              mountPath: /db-migrations
+          terminationMessagePolicy: File
+          image: 'quay.io/operate-first/om-server:0.13.1'
+          args:
+            - '-c'
+            - ./db-migrations/check_db_migrations.sh
+      restartPolicy: Never
+      terminationGracePeriodSeconds: 30
