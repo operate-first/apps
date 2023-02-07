@@ -6,6 +6,7 @@ metadata:
 spec:
   logging: 2
   replicas: 1
+  rolloutStrategy: Recreate
   managementState: Managed
   storage:
     pvc:
