@@ -1,0 +1,7 @@
+kind: Kustomization
+apiVersion: kustomize.config.k8s.io/v1beta1
+namespace: aicos-osc-demo
+resources:
+    - namespace.yaml
+components:
+    - ../../../../components/project-admin-rolebindings/aicos-osc-demo
