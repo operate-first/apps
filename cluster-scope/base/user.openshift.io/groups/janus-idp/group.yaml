@@ -1,4 +1,4 @@
-\apiVersion: user.openshift.io/v1
+apiVersion: user.openshift.io/v1
 kind: Group
 metadata:
   name: janus-idp
