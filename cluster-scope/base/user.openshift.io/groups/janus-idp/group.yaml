@@ -1,4 +1,4 @@
-apiVersion: user.openshift.io/v1
+\apiVersion: user.openshift.io/v1
 kind: Group
 metadata:
   name: janus-idp
@@ -6,3 +6,5 @@ users:
   - tumido
   - PatAKnight
   - schultzp2020
+  - christophe-f
+  - serenamarie125
