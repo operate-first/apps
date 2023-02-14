@@ -1,0 +1,26 @@
+apiVersion: argoproj.io/v1alpha1
+kind: AppProject
+metadata:
+  name: janus-idp
+  labels:
+    project-template: global
+spec:
+  destinations:
+    - namespace: 'janus-idp'
+      server: 'https://api.smaug.na.operate-first.cloud:6443'
+  sourceRepos:
+    - '*'
+  roles:
+    - name: project-admin
+      description: Read/Write access to this project only
+      policies:
+        - p, proj:janus-idp:project-admin, applications, get, janus-idp/*, allow
+        - p, proj:janus-idp:project-admin, applications, create, janus-idp/*, allow
+        - p, proj:janus-idp:project-admin, applications, update, janus-idp/*, allow
+        - p, proj:janus-idp:project-admin, applications, delete, janus-idp/*, allow
+        - p, proj:janus-idp:project-admin, applications, sync, janus-idp/*, allow
+        - p, proj:janus-idp:project-admin, applications, override, janus-idp/*, allow
+        - p, proj:janus-idp:project-admin, applications, action/*, janus-idp/*, allow
+      groups:
+        - janus-idp
+        - operate-first

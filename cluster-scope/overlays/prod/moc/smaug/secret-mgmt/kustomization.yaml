@@ -7,6 +7,7 @@ resources:
 - apicurio-apicurio-registry
 - copilot-ops
 - dex
+- janus-idp
 - kubeflow
 - openshift-config
 - openshift-ingress
