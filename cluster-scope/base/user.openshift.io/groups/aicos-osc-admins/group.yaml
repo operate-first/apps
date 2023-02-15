@@ -1,0 +1,12 @@
+apiVersion: user.openshift.io/v1
+kind: Group
+metadata:
+    name: aicos-osc-admins
+users:
+    - Shreyanand
+    - heshiming
+    - suppathak
+    - erikerlandson
+    - MichaelTiemannOSC
+    - idemir-ids
+    - DaBeIDS

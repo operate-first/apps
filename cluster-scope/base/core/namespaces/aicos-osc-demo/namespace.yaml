@@ -1,0 +1,7 @@
+apiVersion: v1
+kind: Namespace
+metadata:
+  annotations:
+    openshift.io/display-name: "OS Climate: aicos-osc-demo"
+    openshift.io/requester: os-climate
+  name: aicos-osc-demo
