@@ -1,0 +1,13 @@
+# See the OWNERS docs at https://go.k8s.io/owners
+
+approvers:
+  - durandom
+  - goern
+  - schwesig
+  - tumido
+
+reviewers:
+  - durandom
+  - goern
+  - schwesig
+  - tumido

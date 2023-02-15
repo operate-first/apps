@@ -1,0 +1,8 @@
+na.operate-first.cloud. 21600 IN NS ns-cloud-b1.googledomains.com.
+na.operate-first.cloud. 21600 IN NS ns-cloud-b2.googledomains.com.
+na.operate-first.cloud. 21600 IN NS ns-cloud-b3.googledomains.com.
+na.operate-first.cloud. 21600 IN NS ns-cloud-b4.googledomains.com.
+na.operate-first.cloud. 21600 IN SOA ns-cloud-b1.googledomains.com. cloud-dns-hostmaster.google.com. 1 21600 3600 259200 300
+api.smaug.na.operate-first.cloud. 300 IN A 128.52.60.31
+*.apps.smaug.na.operate-first.cloud. 300 IN A 128.52.60.32
+lb.smaug.na.operate-first.cloud. 300 IN A 128.52.60.32
