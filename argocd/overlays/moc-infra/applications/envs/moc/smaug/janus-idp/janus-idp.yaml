@@ -1,0 +1,17 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: janus-idp
+spec:
+  destination:
+    name: smaug
+    namespace: janus-idp
+  source:
+    path: manifests/base
+    repoURL: 'https://github.com/janus-idp/backstage-showcase'
+    targetRevision: HEAD
+  project: janus-idp
+  syncPolicy:
+    automated:
+      prune: true
+      selfHeal: true
