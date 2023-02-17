@@ -83,6 +83,12 @@
         },
         {
             "catalog": "osc_datacommons_dev",
+            "schema": "rmi",
+            "user": "MichaelTiemannOSC",
+            "owner": true
+        },
+        {
+            "catalog": "osc_datacommons_dev",
             "schema": "aicoe_osc_demo_results",
             "group": "aicoe_osc_demo",
             "owner": true
@@ -163,6 +169,17 @@
             "catalog": "osc_datacommons_dev",
             "schema": "pcaf_sovereign_footprint",
             "group": "pcaf_sovereign_footprint.*",
+            "privileges": [
+                "SELECT",
+                "INSERT",
+                "DELETE",
+                "OWNERSHIP"
+            ]
+        },
+        {
+            "catalog": "osc_datacommons_dev",
+            "schema": "rmi",
+            "user": "MichaelTiemannOSC",
             "privileges": [
                 "SELECT",
                 "INSERT",
@@ -370,6 +387,13 @@
         {
             "catalog": "osc_datacommons_dev",
             "schema": "pcaf_sovereign_footprint",
+            "privileges": [
+                "SELECT"
+            ]
+        },
+        {
+            "catalog": "osc_datacommons_dev",
+            "schema": "rmi",
             "privileges": [
                 "SELECT"
             ]
