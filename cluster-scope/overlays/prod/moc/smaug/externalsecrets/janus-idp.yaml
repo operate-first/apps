@@ -1,0 +1,15 @@
+apiVersion: external-secrets.io/v1beta1
+kind: ExternalSecret
+metadata:
+  name: janus-idp-cluster-tokens
+  namespace: janus-idp
+spec:
+  secretStoreRef:
+    name: opf-vault-store
+    kind: SecretStore
+  refreshInterval: "1h"
+  target:
+    name: janus-idp-cluster-tokens
+  dataFrom:
+    - extract:
+        key: moc/smaug/service-catalog/k8s-plugin-tokens
