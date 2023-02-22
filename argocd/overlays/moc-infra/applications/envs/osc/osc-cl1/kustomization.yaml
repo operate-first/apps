@@ -4,4 +4,3 @@ namespace: argocd
 nameSuffix: -osc
 resources:
 - cluster-management
-- kepler
