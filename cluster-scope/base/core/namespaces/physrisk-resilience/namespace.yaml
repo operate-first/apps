@@ -1,0 +1,10 @@
+apiVersion: v1
+kind: Namespace
+metadata:
+  annotations:
+    op1st/docs: https://github.com/os-climate/physrisk-ui
+    op1st/onboarding-issue: https://github.com/operate-first/support/issues/1231
+    op1st/project-owner: joemoorhouse
+    openshift.io/display-name: physrisk-resilience
+    openshift.io/requester: joemoorhouse
+  name: physrisk-resilience
