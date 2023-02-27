@@ -5,6 +5,3 @@ resources:
   - machineset-compute-notebook.yaml
   - machineset-notebook-gpu-g.yaml
   - machineset-worker.yaml
-  - machineset-kepler-edge-m4.yaml
-  - machineset-kepler-edge-m5.yaml
-  - machineset-kepler-edge-m6.yaml

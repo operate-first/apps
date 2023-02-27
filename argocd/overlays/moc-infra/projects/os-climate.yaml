@@ -30,6 +30,5 @@ spec:
       description: Read/Write access to kepler apps
       policies:
         - p, proj:os-climate:project-admin, applications, *, os-climate/kepler, allow
-        - p, proj:os-climate:project-admin, applications, *, os-climate/kepler-edge, allow
       groups:
         - kepler-admins
