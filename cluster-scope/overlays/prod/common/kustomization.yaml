@@ -71,6 +71,7 @@ resources:
   - ../../../base/user.openshift.io/groups/osc
   - ../../../base/user.openshift.io/groups/osc-admins
   - ../../../base/user.openshift.io/groups/peribolos-as-a-service
+  - ../../../base/user.openshift.io/groups/physrisk
   - ../../../base/user.openshift.io/groups/prometheus-ai
   - ../../../base/user.openshift.io/groups/prometheus-anomaly-detector
   - ../../../base/user.openshift.io/groups/psse-research
