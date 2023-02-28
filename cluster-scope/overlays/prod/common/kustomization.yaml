@@ -86,7 +86,6 @@ resources:
   - ../../../base/user.openshift.io/groups/scsaol
   - ../../../base/user.openshift.io/groups/sdap-mslsp
   - ../../../base/user.openshift.io/groups/seldon-admin
-  - ../../../base/user.openshift.io/groups/seraph
   - ../../../base/user.openshift.io/groups/sigstore
   - ../../../base/user.openshift.io/groups/sigstore-aas
   - ../../../base/user.openshift.io/groups/sostrades
