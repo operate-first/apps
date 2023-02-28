@@ -12,6 +12,5 @@ resources:
 - okd-team
 - operate-first
 - thoth
-- octo-otel-dev
 - copilot-ops
 - kruize

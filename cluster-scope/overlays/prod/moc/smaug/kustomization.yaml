@@ -59,7 +59,6 @@ resources:
   - ../../../../base/core/namespaces/manageiq
   - ../../../../base/core/namespaces/neu-cs6620
   - ../../../../base/core/namespaces/nfs-server-and-provisioner
-  - ../../../../base/core/namespaces/octo-et-security-demo-next
   - ../../../../base/core/namespaces/od-demo
   - ../../../../base/core/namespaces/okd-centos
   - ../../../../base/core/namespaces/okd-team
@@ -87,7 +86,6 @@ resources:
   - ../../../../base/core/namespaces/opf-triage-party
   - ../../../../base/core/namespaces/opf-trino
   - ../../../../base/core/namespaces/opf-trino-stage
-  - ../../../../base/core/namespaces/otel-dev
   - ../../../../base/core/namespaces/peribolos-as-a-service
   - ../../../../base/core/namespaces/prometheus-ai-project
   - ../../../../base/core/namespaces/rapidast

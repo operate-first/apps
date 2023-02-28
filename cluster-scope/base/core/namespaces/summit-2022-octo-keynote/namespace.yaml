@@ -1,9 +1,0 @@
----
-apiVersion: v1
-kind: Namespace
-metadata:
-  labels:
-    cosigned.sigstore.dev/include: "true"
-  annotations:
-    openshift.io/display-name: "Summit-octo-keynote: Demo namespace"
-  name: summit-2022-octo-keynote
