@@ -85,7 +85,6 @@ resources:
   - ../../../base/user.openshift.io/groups/sigstore-aas
   - ../../../base/user.openshift.io/groups/sostrades
   - ../../../base/user.openshift.io/groups/sre
-  - ../../../base/user.openshift.io/groups/stackrox-admin
   - ../../../base/user.openshift.io/groups/superset-admins
   - ../../../base/user.openshift.io/groups/superset-user
   - ../../../base/user.openshift.io/groups/team-pixel
