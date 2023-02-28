@@ -38,7 +38,6 @@ resources:
   - ../../../base/user.openshift.io/groups/esi-project
   - ../../../base/user.openshift.io/groups/fde
   - ../../../base/user.openshift.io/groups/fedora
-  - ../../../base/user.openshift.io/groups/fybrik
   - ../../../base/user.openshift.io/groups/gingersnap
   - ../../../base/user.openshift.io/groups/grafana-editor
   - ../../../base/user.openshift.io/groups/grafana-viewer

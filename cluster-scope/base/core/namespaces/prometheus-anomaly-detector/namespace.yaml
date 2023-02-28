@@ -1,7 +1,0 @@
-apiVersion: v1
-kind: Namespace
-metadata:
-    name: prometheus-anomaly-detector
-    annotations:
-        openshift.io/display-name: A demo deployment of https://github.com/AICoE/prometheus-anomaly-detector
-        openshift.io/requester: prometheus-anomaly-detector

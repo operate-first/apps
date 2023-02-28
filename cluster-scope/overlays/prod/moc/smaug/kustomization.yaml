@@ -28,7 +28,6 @@ resources:
   - ../../../../base/core/namespaces/api-designer
   - ../../../../base/core/namespaces/apicurio-apicurio-registry
   - ../../../../base/core/namespaces/b4mad-minecraft
-  - ../../../../base/core/namespaces/boatrockers
   - ../../../../base/core/namespaces/bragi
   - ../../../../base/core/namespaces/bu-cs-book-dev
   - ../../../../base/core/namespaces/bu-scsaol
@@ -92,7 +91,6 @@ resources:
   - ../../../../base/core/namespaces/otel-dev
   - ../../../../base/core/namespaces/peribolos-as-a-service
   - ../../../../base/core/namespaces/prometheus-ai-project
-  - ../../../../base/core/namespaces/prometheus-anomaly-detector
   - ../../../../base/core/namespaces/rapidast
   - ../../../../base/core/namespaces/ray-bu
   - ../../../../base/core/namespaces/report-system
@@ -101,7 +99,6 @@ resources:
   - ../../../../base/core/namespaces/service-catalog
   - ../../../../base/core/namespaces/sigstore-aas
   - ../../../../base/core/namespaces/smart-village-view
-  - ../../../../base/core/namespaces/stackrox
   - ../../../../base/core/namespaces/tekton-pipelines
   - ../../../../base/core/namespaces/thoth-amun-api-prod
   - ../../../../base/core/namespaces/thoth-amun-inspection-prod
@@ -113,11 +110,7 @@ resources:
   - ../../../../base/core/namespaces/thoth-graph-prod
   - ../../../../base/core/namespaces/thoth-infra-prod
   - ../../../../base/core/namespaces/thoth-middletier-prod
-  - ../../../../base/core/namespaces/training-model
   - ../../../../base/core/namespaces/tremor-demo
-  - ../../../../base/core/namespaces/ttm-as-a-service
-  - ../../../../base/core/namespaces/ushift-dev
-  - ../../../../base/core/namespaces/varangian-test
   - ../../../../base/core/namespaces/wildfly-service
   - ../../../../base/core/persistentvolumeclaims/image-registry-storage
   - ../../../../base/imageregistry.operator.openshift.io/configs/cluster
@@ -174,7 +167,6 @@ resources:
   - ../../../../bundles/cert-manager
   - ../../../../bundles/curator
   - ../../../../bundles/external-secrets-operator
-  - ../../../../bundles/fybrik
   - ../../../../bundles/jaeger-operator
   - ../../../../bundles/kfp-tekton
   - ../../../../bundles/kvm-device-plugin

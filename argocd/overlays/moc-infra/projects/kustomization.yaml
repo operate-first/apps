@@ -8,7 +8,6 @@ resources:
   - cluster-management.yaml
   - copilot-ops.yaml
   - data-science.yaml
-  - fybrik.yaml
   - global_project.yaml
   - janus-idp.yaml
   - kruize.yaml
