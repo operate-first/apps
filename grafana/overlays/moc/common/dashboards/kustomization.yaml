@@ -7,7 +7,6 @@ resources:
   - cluster-management
   - operate-first
   - prometheus
-  - prometheus-anomaly-detector
   - pulp
   - thanos
   - thoth-station

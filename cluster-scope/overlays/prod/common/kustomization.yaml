@@ -66,7 +66,6 @@ resources:
   - ../../../base/user.openshift.io/groups/peribolos-as-a-service
   - ../../../base/user.openshift.io/groups/physrisk
   - ../../../base/user.openshift.io/groups/prometheus-ai
-  - ../../../base/user.openshift.io/groups/prometheus-anomaly-detector
   - ../../../base/user.openshift.io/groups/psse-research
   - ../../../base/user.openshift.io/groups/pulp
   - ../../../base/user.openshift.io/groups/quarkus
