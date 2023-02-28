@@ -1,7 +1,0 @@
-apiVersion: v1
-kind: Namespace
-metadata:
-    name: chrisproject-staging
-    annotations:
-        openshift.io/display-name: chrisproject-staging
-        openshift.io/requester: chris-project

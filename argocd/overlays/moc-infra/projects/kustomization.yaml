@@ -4,7 +4,6 @@ resources:
   - apex.yaml
   - apicurio-registry.yaml
   - b4mad.yaml
-  - chris.yaml
   - cluster-management.yaml
   - copilot-ops.yaml
   - data-science.yaml
@@ -22,4 +21,3 @@ resources:
   - sostrades.yaml
   - thoth.yaml
   - tremor-demo.yaml
-  - workshops.yaml
