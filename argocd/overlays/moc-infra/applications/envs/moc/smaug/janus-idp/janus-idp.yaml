@@ -11,7 +11,3 @@ spec:
     repoURL: 'https://github.com/janus-idp/backstage-showcase'
     targetRevision: HEAD
   project: janus-idp
-  syncPolicy:
-    automated:
-      prune: true
-      selfHeal: true
