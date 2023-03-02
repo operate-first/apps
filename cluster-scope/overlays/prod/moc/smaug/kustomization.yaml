@@ -28,17 +28,12 @@ resources:
   - ../../../../base/core/namespaces/api-designer
   - ../../../../base/core/namespaces/apicurio-apicurio-registry
   - ../../../../base/core/namespaces/b4mad-minecraft
-  - ../../../../base/core/namespaces/boatrockers
   - ../../../../base/core/namespaces/bragi
   - ../../../../base/core/namespaces/bu-cs-book-dev
   - ../../../../base/core/namespaces/bu-scsaol
   - ../../../../base/core/namespaces/caas
-  - ../../../../base/core/namespaces/chrisproject
-  - ../../../../base/core/namespaces/chrisproject-dev
-  - ../../../../base/core/namespaces/chrisproject-staging
   - ../../../../base/core/namespaces/copilot-ops
   - ../../../../base/core/namespaces/curator-operator
-  - ../../../../base/core/namespaces/ddas-proj
   - ../../../../base/core/namespaces/debezium-ui
   - ../../../../base/core/namespaces/demolab
   - ../../../../base/core/namespaces/demolab-dev
@@ -50,7 +45,6 @@ resources:
   - ../../../../base/core/namespaces/fedora
   - ../../../../base/core/namespaces/gingersnap
   - ../../../../base/core/namespaces/highlander
-  - ../../../../base/core/namespaces/ipfs
   - ../../../../base/core/namespaces/janus-idp
   - ../../../../base/core/namespaces/jet-linite
   - ../../../../base/core/namespaces/kaoto
@@ -61,7 +55,6 @@ resources:
   - ../../../../base/core/namespaces/manageiq
   - ../../../../base/core/namespaces/neu-cs6620
   - ../../../../base/core/namespaces/nfs-server-and-provisioner
-  - ../../../../base/core/namespaces/octo-et-security-demo-next
   - ../../../../base/core/namespaces/od-demo
   - ../../../../base/core/namespaces/okd-centos
   - ../../../../base/core/namespaces/okd-team
@@ -89,10 +82,8 @@ resources:
   - ../../../../base/core/namespaces/opf-triage-party
   - ../../../../base/core/namespaces/opf-trino
   - ../../../../base/core/namespaces/opf-trino-stage
-  - ../../../../base/core/namespaces/otel-dev
   - ../../../../base/core/namespaces/peribolos-as-a-service
   - ../../../../base/core/namespaces/prometheus-ai-project
-  - ../../../../base/core/namespaces/prometheus-anomaly-detector
   - ../../../../base/core/namespaces/rapidast
   - ../../../../base/core/namespaces/ray-bu
   - ../../../../base/core/namespaces/report-system
@@ -101,7 +92,6 @@ resources:
   - ../../../../base/core/namespaces/service-catalog
   - ../../../../base/core/namespaces/sigstore-aas
   - ../../../../base/core/namespaces/smart-village-view
-  - ../../../../base/core/namespaces/stackrox
   - ../../../../base/core/namespaces/tekton-pipelines
   - ../../../../base/core/namespaces/thoth-amun-api-prod
   - ../../../../base/core/namespaces/thoth-amun-inspection-prod
@@ -113,11 +103,7 @@ resources:
   - ../../../../base/core/namespaces/thoth-graph-prod
   - ../../../../base/core/namespaces/thoth-infra-prod
   - ../../../../base/core/namespaces/thoth-middletier-prod
-  - ../../../../base/core/namespaces/training-model
   - ../../../../base/core/namespaces/tremor-demo
-  - ../../../../base/core/namespaces/ttm-as-a-service
-  - ../../../../base/core/namespaces/ushift-dev
-  - ../../../../base/core/namespaces/varangian-test
   - ../../../../base/core/namespaces/wildfly-service
   - ../../../../base/core/persistentvolumeclaims/image-registry-storage
   - ../../../../base/imageregistry.operator.openshift.io/configs/cluster
@@ -156,7 +142,6 @@ resources:
   - ../../../../base/rbac.authorization.k8s.io/clusterrolebindings/oauth-token-access-review-opf-observatorium
   - ../../../../base/rbac.authorization.k8s.io/clusterrolebindings/scc-privileged-opf-ci-pipelines-aicoe-ci
   - ../../../../base/rbac.authorization.k8s.io/clusterrolebindings/tekton-dashboard
-  - ../../../../base/rbac.authorization.k8s.io/clusterrolebindings/vault-server-binding
   - ../../../../base/rbac.authorization.k8s.io/clusterroles/apirequest-count-read-cr
   - ../../../../base/rbac.authorization.k8s.io/clusterroles/monitors-create-aggregate-to-admin
   - ../../../../base/rbac.authorization.k8s.io/clusterroles/nfs-provisioner-runner
@@ -174,7 +159,6 @@ resources:
   - ../../../../bundles/cert-manager
   - ../../../../bundles/curator
   - ../../../../bundles/external-secrets-operator
-  - ../../../../bundles/fybrik
   - ../../../../bundles/jaeger-operator
   - ../../../../bundles/kfp-tekton
   - ../../../../bundles/kvm-device-plugin
@@ -186,7 +170,6 @@ resources:
   - ../../../../bundles/opf-vault
   - ../../../../bundles/ray-operator
   - ../../../../bundles/reloader
-  - ../../../../bundles/seraph
   - ../../../../bundles/tekton-chains
   - ../../../../bundles/volsync
   - ../common

@@ -4,5 +4,4 @@ namespace: argocd
 nameSuffix: -osc-cl2
 resources:
 - cluster-management
-- fybrik
 - sostrades

@@ -27,7 +27,6 @@ resources:
 - opf-trino-stage
 - service-catalog
 - service-catalog-k8s-plugin
-- stackrox
 - okd-team
 - okd-centos
 - robozome

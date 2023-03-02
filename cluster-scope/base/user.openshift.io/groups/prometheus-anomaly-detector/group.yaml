@@ -1,8 +1,0 @@
-apiVersion: user.openshift.io/v1
-kind: Group
-metadata:
-  name: prometheus-anomaly-detector
-users:
-  - 4n4nd
-  - hemajv
-  - nb-qbits

@@ -1,7 +1,0 @@
-apiVersion: v1
-kind: Namespace
-metadata:
-    name: varangian-test
-    annotations:
-        openshift.io/display-name: Varangian Alpha Testing
-        openshift.io/requester: varangian
