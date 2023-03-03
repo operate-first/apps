@@ -8,6 +8,7 @@ spec:
   destinations:
     - namespace: 'openshift-tuning'
       name: 'smaug'
+      server: 'https://api.smaug.na.operate-first.cloud:6443'
   sourceRepos:
     - '*'
   roles:
