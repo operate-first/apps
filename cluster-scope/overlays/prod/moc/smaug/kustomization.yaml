@@ -105,6 +105,7 @@ resources:
   - ../../../../base/core/namespaces/thoth-infra-prod
   - ../../../../base/core/namespaces/thoth-middletier-prod
   - ../../../../base/core/namespaces/tremor-demo
+  - ../../../../base/core/namespaces/web-terminal-service-catalog
   - ../../../../base/core/namespaces/wildfly-service
   - ../../../../base/core/persistentvolumeclaims/image-registry-storage
   - ../../../../base/imageregistry.operator.openshift.io/configs/cluster

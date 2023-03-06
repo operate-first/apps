@@ -1,0 +1,7 @@
+apiVersion: v1
+kind: Namespace
+metadata:
+    name: web-terminal-service-catalog
+    annotations:
+        openshift.io/display-name: Web Terminal Service Catalog
+        openshift.io/requester: service-catalog
