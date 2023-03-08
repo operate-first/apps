@@ -13,6 +13,7 @@ resources:
   - k8s-annotations-exporter.yaml
   - kfdefs.yaml
   - odh-operator.yaml
+  - openmetadata.yaml
   - training-operator.yaml
 patches:
   - patch: |
