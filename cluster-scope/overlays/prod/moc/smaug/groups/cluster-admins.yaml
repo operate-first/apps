@@ -1,18 +1,19 @@
 apiVersion: user.openshift.io/v1
 kind: Group
 metadata:
-    name: cluster-admins
+  name: cluster-admins
 users:
-    - 4n4nd
-    - dystewart
-    - durandom
-    - gregory-pereira
-    - Gregory-Pereira
-    - humairak
-    - HumairAK
-    - harshad16
-    - larsks
-    - tumido
-    - guymguym
-    - oritwas
-    - cooktheryan
+  - 4n4nd
+  - cooktheryan
+  - durandom
+  - dystewart
+  - goern
+  - gregory-pereira
+  - Gregory-Pereira
+  - guymguym
+  - harshad16
+  - humairak
+  - HumairAK
+  - larsks
+  - oritwas
+  - tumido
