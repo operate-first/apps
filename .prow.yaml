@@ -24,6 +24,8 @@ presubmits:
     skip_if_only_changed: "^docs/|\\.md$|^(OWNERS|LICENSE)$|^\\."
     skip_report: false
     context: aicoe-ci/prow/kubeval-validation
+    decoration_config:
+      timeout: 60m
     spec:
       containers:
         - image: quay.io/operate-first/opf-toolbox:latest
