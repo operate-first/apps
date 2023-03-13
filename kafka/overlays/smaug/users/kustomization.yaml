@@ -9,3 +9,4 @@ resources:
 - thoth.yaml
 - emea-sa-od-demo.yaml
 - ddas.yaml
+- smartvillage.yaml
