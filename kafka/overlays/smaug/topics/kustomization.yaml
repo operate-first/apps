@@ -32,3 +32,5 @@ resources:
 - thoth-unrevsolved-package.yaml
 - thoth-update-provides-source-distro.yaml
 - ddas-commands.yaml
+- smartvillage-sumo-run-report.yaml
+- smartvillage-sumo-run.yaml
