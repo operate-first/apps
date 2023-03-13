@@ -33,7 +33,7 @@ presubmits:
             - "test-kubeval-validation"
           resources:
             requests:
-              memory: "512Mi"
+              memory: "1Gi"
               cpu: "1500m"
             limits:
               memory: "2Gi"
