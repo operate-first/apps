@@ -1,0 +1,20 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: thanos-ruler-custom-rules
+  namespace: open-cluster-management-observability
+data:
+  custom_rules.yaml: |
+    groups:
+      - name: machineStateAlerts
+        rules:
+        - alert: MachineWithoutValidNode
+          annotations:
+            summary: Machine {{ $labels.name }} on {{ $labels.cluster }} has no valid node.
+            description: "The machine {{ $labels.name }} on {{ $labels.cluster }} has no valid node."
+            runbook_url: "https://github.com/openshift/machine-api-operator/blob/master/docs/user/Alerts.md"
+          expr: sum (mapi_machine_created_timestamp_seconds unless on(node) kube_node_info) > 0
+          for: 10m
+          labels:
+            severity: critical
+            managed_cluster_id: "{{ $labels.clusterID }}"
