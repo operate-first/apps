@@ -14,3 +14,12 @@ resources:
 - imageregistry.operator.openshift.io/configs/cluster
 patchesStrategicMerge:
 - groups/cluster-admins.yaml
+
+patches:
+- target:
+    kind: Subscription
+    name: openshift-pipelines-operator-rh
+  patch: |-
+    - op: replace
+      path: /spec/channel
+      value: pipelines-1.8
