@@ -42,6 +42,7 @@ resources:
   - ../../../../bundles/odf-external
   - apiserver/api_server_cert.yaml
   - configmaps/service-catalog-k8s-plugin.yaml
+  - configmaps/thanos-ruler-custom-rules.yaml
   - configmaps/observability-metrics-custom-allowlist.yaml
   - clusterversion.yaml
   - externalsecrets
