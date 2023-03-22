@@ -3,7 +3,6 @@ kind: Kustomization
 namespace: argocd
 nameSuffix: -smaug
 resources:
-- apex
 - apicurio
 - b4mad
 - cluster-management

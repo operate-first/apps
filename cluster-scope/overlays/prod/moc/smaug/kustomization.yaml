@@ -23,9 +23,6 @@ resources:
   - ../../../../base/core/namespaces/ai4cloudops
   - ../../../../base/core/namespaces/aicoe-meteor
   - ../../../../base/core/namespaces/aiops-tools-workshop
-  - ../../../../base/core/namespaces/apex
-  - ../../../../base/core/namespaces/apex-monitoring
-  - ../../../../base/core/namespaces/apex-qa
   - ../../../../base/core/namespaces/api-designer
   - ../../../../base/core/namespaces/apicurio-apicurio-registry
   - ../../../../base/core/namespaces/b4mad-minecraft
@@ -112,7 +109,6 @@ resources:
   - ../../../../base/noobaa.io/backingstores
   - ../../../../base/operators.coreos.com/catalogsources/operatorhubio-catalog/
   - ../../../../base/operators.coreos.com/catalogsources/rapidast
-  - ../../../../base/operators.coreos.com/operatorgroups/apex
   - ../../../../base/operators.coreos.com/operatorgroups/cluster-logging
   - ../../../../base/operators.coreos.com/operatorgroups/koku-metrics-operator
   - ../../../../base/operators.coreos.com/operatorgroups/openshift-cnv-rn5jf
@@ -120,7 +116,6 @@ resources:
   - ../../../../base/operators.coreos.com/operatorgroups/opf-monitoring
   - ../../../../base/operators.coreos.com/operatorgroups/opf-pulp
   - ../../../../base/operators.coreos.com/operatorgroups/rapidast
-  - ../../../../base/operators.coreos.com/subscriptions/apex-rhsso-operator
   - ../../../../base/operators.coreos.com/subscriptions/camel-k
   - ../../../../base/operators.coreos.com/subscriptions/cluster-logging
   - ../../../../base/operators.coreos.com/subscriptions/crunchy-postgres
