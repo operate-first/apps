@@ -145,11 +145,6 @@ parts:
         sections:
           - file: content/uwm/docs/overview.md
 
-      # Volsync
-      - file: content/volsync/docs/README.md
-        sections:
-          - file: content/volsync/docs/using-volsync.md
-
       # Distributed Tracing Data Collection
       - file: content/opentelemetry-collector/docs/README.md
         sections:
