@@ -174,7 +174,6 @@ resources:
   - ../../../../bundles/ray-operator
   - ../../../../bundles/reloader
   - ../../../../bundles/tekton-chains
-  - ../../../../bundles/volsync
   - ../common
   - apiserver/api_server_cert.yaml
   - backingstores/noobaa-pool-01.yaml
