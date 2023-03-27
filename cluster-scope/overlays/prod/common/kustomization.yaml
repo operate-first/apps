@@ -12,7 +12,6 @@ resources:
   - ../../../base/user.openshift.io/groups/ai-services
   - ../../../base/user.openshift.io/groups/ai4cloudops
   - ../../../base/user.openshift.io/groups/aiops-tools-workshop-admins
-  - ../../../base/user.openshift.io/groups/apex
   - ../../../base/user.openshift.io/groups/apicurio
   - ../../../base/user.openshift.io/groups/argocd-admins
   - ../../../base/user.openshift.io/groups/b4mad
