@@ -56,7 +56,7 @@ staticClients:
   - id: openmetadata-airflow
     name: openmetadata-airflow
     redirectURIs:
-      - http://airflow-openmetadata.apps.odh-cl2.apps.os-climate.org/oauth-authorized/dex
+      - http://airflow-openmetadata.apps.odh-cl1.apps.os-climate.org/oauth-authorized/dex
     secretEnv: OPENMETADATA_AIRFLOW_SECRET
 
 expiry:
