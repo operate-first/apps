@@ -1,20 +1,10 @@
 apiVersion: kustomize.config.k8s.io/v1beta1
 kind: Kustomization
 resources:
-  - acme-operator.yaml
-  - cloudbeaver.yaml
   - cluster-resources.yaml
   - das.yaml
-  - dex.yaml
-  - dex-secondary.yaml
-  - external-secrets.yaml
-  - kepler.yaml
-  - grafana.yaml
-  - k8s-annotations-exporter.yaml
   - kfdefs.yaml
-  - odh-operator.yaml
   - openmetadata.yaml
-  - training-operator.yaml
 patches:
   - patch: |
       - op: replace
