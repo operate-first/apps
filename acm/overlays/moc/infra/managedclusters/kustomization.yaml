@@ -4,7 +4,5 @@ resources:
 - curator.yaml
 - ocp-prod.yaml
 - ocp-staging.yaml
-- osc-cl1.yaml
-- osc-cl2.yaml
 - smaug.yaml
 - jerry.yaml
