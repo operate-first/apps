@@ -12,9 +12,9 @@ spec:
   destination:
     namespace: thoth-infra-prod
     name: smaug
-  syncPolicy:
-    automated:
-      selfHeal: true
-      prune: true
-    syncOptions:
-      - Validate=false
+  # syncPolicy:
+  #   automated:
+  #     selfHeal: true
+  #     prune: true
+  #   syncOptions:
+  #     - Validate=false

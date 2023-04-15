@@ -12,7 +12,7 @@ spec:
     path: manifests/overlays/moc
     repoURL: https://github.com/AICoE/aicoe-ci.git
     targetRevision: master
-  syncPolicy:
-    automated: {}
-    syncOptions:
-    - Validate=false
+  # syncPolicy:
+  #   automated: {}
+  #   syncOptions:
+  #   - Validate=false

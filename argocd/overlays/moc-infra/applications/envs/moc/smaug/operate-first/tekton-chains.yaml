@@ -12,9 +12,9 @@ spec:
   destination:
     name: smaug
     namespace: tekton-chains
-  syncPolicy:
-    automated:
-      prune: true
-      selfHeal: true
-    syncOptions:
-      - Validate=false
+  # syncPolicy:
+  #   automated:
+  #     prune: true
+  #     selfHeal: true
+  #   syncOptions:
+  #     - Validate=false

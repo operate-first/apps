@@ -11,7 +11,7 @@ spec:
     path: argocd/overlays/moc-infra/applications/envs/moc/curator
     repoURL: https://github.com/operate-first/apps.git
     targetRevision: HEAD
-  syncPolicy:
-    syncOptions:
-    - Validate=false
-    - ApplyOutOfSyncOnly=true
+  # syncPolicy:
+  #   syncOptions:
+  #   - Validate=false
+  #   - ApplyOutOfSyncOnly=true

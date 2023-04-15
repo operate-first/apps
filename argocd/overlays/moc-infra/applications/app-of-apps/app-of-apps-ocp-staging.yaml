@@ -11,8 +11,8 @@ spec:
     path: app-of-apps/envs/ocp-staging
     repoURL: https://github.com/CCI-MOC/moc-apps.git
     targetRevision: HEAD
-  syncPolicy:
-    automated: {}
-    syncOptions:
-    - Validate=false
-    - ApplyOutOfSyncOnly=true
+  # syncPolicy:
+  #   automated: {}
+  #   syncOptions:
+  #   - Validate=false
+  #   - ApplyOutOfSyncOnly=true

@@ -11,9 +11,9 @@ spec:
     path: app-of-apps/envs/ocp-prod
     repoURL: https://github.com/CCI-MOC/moc-apps.git
     targetRevision: HEAD
-  syncPolicy:
-    automated: {}
-    syncOptions:
-    - Validate=false
-    - ApplyOutOfSyncOnly=true
-    - Prune=true
+  # syncPolicy:
+  #   automated: {}
+  #   syncOptions:
+  #   - Validate=false
+  #   - ApplyOutOfSyncOnly=true
+  #   - Prune=true
