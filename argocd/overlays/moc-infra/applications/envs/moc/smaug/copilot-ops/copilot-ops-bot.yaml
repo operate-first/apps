@@ -13,11 +13,11 @@ spec:
     path: manifests/overlays/prod
     targetRevision: HEAD
   # watch for changes in tracked files
-  syncPolicy:
-    automated:
-      # delete resources once they are no longer referenced
-      prune: true
-      selfHeal: true
-    # ignore validation
-    syncOptions:
-      - Validate=false
+  # syncPolicy:
+  #   automated:
+  #     # delete resources once they are no longer referenced
+  #     prune: true
+  #     selfHeal: true
+  #   # ignore validation
+  #   syncOptions:
+  #     - Validate=false

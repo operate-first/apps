@@ -12,12 +12,12 @@ spec:
   destination:
     name: smaug
     namespace: thoth-amun-inspection-prod
-  syncPolicy:
-    automated:
-      selfHeal: true
-      prune: true
-    syncOptions:
-      - Validate=false
+  # syncPolicy:
+  #   automated:
+  #     selfHeal: true
+  #     prune: true
+  #   syncOptions:
+  #     - Validate=false
   ignoreDifferences:
     - group: apps
       kind: Deployment

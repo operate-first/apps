@@ -12,9 +12,9 @@ spec:
     path: manifests/overlays/prod
     repoURL: https://github.com/operate-first/peribolos-as-a-service.git
     targetRevision: main
-  syncPolicy:
-    automated:
-      prune: true
-      selfHeal: true
-    syncOptions:
-      - Validate=false
+  # syncPolicy:
+  #   automated:
+  #     prune: true
+  #     selfHeal: true
+  #   syncOptions:
+  #     - Validate=false

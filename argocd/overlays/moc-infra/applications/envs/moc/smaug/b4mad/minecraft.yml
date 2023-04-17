@@ -11,6 +11,6 @@ spec:
     path: manifests
     repoURL: https://github.com/b4mad/minecraft.git
     targetRevision: master
-  syncPolicy:
-    syncOptions:
-      - Validate=false
+  # syncPolicy:
+  #   syncOptions:
+  #     - Validate=false

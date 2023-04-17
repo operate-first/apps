@@ -11,9 +11,9 @@ spec:
   destination:
     name: smaug
     namespace: service-catalog
-  syncPolicy:
-    automated:
-      prune: true
-      selfHeal: true
-    syncOptions:
-    - Validate=false
+  # syncPolicy:
+  #   automated:
+  #     prune: true
+  #     selfHeal: true
+  #   syncOptions:
+  #   - Validate=false

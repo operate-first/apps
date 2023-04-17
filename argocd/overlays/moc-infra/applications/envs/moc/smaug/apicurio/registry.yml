@@ -11,9 +11,9 @@ spec:
     path: manifests/registry/deployment/operate-first
     repoURL: https://github.com/Apicurio/apicurio-operate-first
     targetRevision: HEAD
-  syncPolicy:
-    syncOptions:
-    - Validate=false
+  # syncPolicy:
+  #   syncOptions:
+  #   - Validate=false
   ignoreDifferences:
     - group: apps.openshift.io
       kind: DeploymentConfig

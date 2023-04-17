@@ -12,9 +12,9 @@ spec:
     path: grafana/overlays/moc/smaug
     repoURL: https://github.com/operate-first/apps.git
     targetRevision: HEAD
-  syncPolicy:
-    automated:
-      prune: true
-      selfHeal: true
-    syncOptions:
-    - Validate=false
+  # syncPolicy:
+  #   automated:
+  #     prune: true
+  #     selfHeal: true
+  #   syncOptions:
+  #   - Validate=false

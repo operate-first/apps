@@ -13,6 +13,6 @@ spec:
     targetRevision: HEAD
     directory:
       recurse: true
-  syncPolicy:
-    syncOptions:
-      - Validate=false
+  # syncPolicy:
+  #   syncOptions:
+  #     - Validate=false

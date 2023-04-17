@@ -12,12 +12,12 @@ spec:
   destination:
     name: smaug
     namespace: thoth-frontend-prod
-  syncPolicy:
-    automated:
-      selfHeal: true
-      prune: true
-    syncOptions:
-      - Validate=false
+  # syncPolicy:
+  #   automated:
+  #     selfHeal: true
+  #     prune: true
+  #   syncOptions:
+  #     - Validate=false
   ignoreDifferences:
     - group: batch
       kind: CronJob

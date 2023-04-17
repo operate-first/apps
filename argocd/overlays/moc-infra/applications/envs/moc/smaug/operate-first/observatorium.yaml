@@ -12,6 +12,6 @@ spec:
     path: observatorium/overlays/moc/smaug
     repoURL: https://github.com/operate-first/apps.git
     targetRevision: HEAD
-  syncPolicy:
-    syncOptions:
-    - Validate=false
+  # syncPolicy:
+  #   syncOptions:
+  #   - Validate=false

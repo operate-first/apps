@@ -11,9 +11,9 @@ spec:
     path: manifests
     repoURL: https://github.com/kruize/hpo.git
     targetRevision: HEAD
-  syncPolicy:
-    syncOptions:
-    - Validate=false
+  # syncPolicy:
+  #   syncOptions:
+  #   - Validate=false
   ignoreDifferences:
     - group: apps.openshift.io
       kind: DeploymentConfig
