@@ -3,3 +3,4 @@ kind: Kustomization
 resources:
   - okd-centos.yaml
   - kvm-device-plugin.yaml
+  - okd-tekton-release-pipeline.yaml
