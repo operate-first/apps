@@ -1,0 +1,278 @@
+apiVersion: image.openshift.io/v1
+kind: ImageStream
+metadata:
+  name: clonerefs
+spec:
+  lookupPolicy:
+    local: true
+  tags:
+  - from:
+      kind: ImageStreamTag
+      name: v20230426-d32ca9cc84
+    name: latest
+  - from:
+      kind: DockerImage
+      name: gcr.io/k8s-prow/clonerefs:v20221201-5f3a3ac62d
+    name: v20221201-5f3a3ac62d
+  - from:
+      kind: DockerImage
+      name: gcr.io/k8s-prow/clonerefs:v20230426-d32ca9cc84
+    name: v20230426-d32ca9cc84
+---
+apiVersion: image.openshift.io/v1
+kind: ImageStream
+metadata:
+  name: commenter
+spec:
+  lookupPolicy:
+    local: true
+  tags:
+  - from:
+      kind: ImageStreamTag
+      name: v20230426-d32ca9cc84
+    name: latest
+  - from:
+      kind: DockerImage
+      name: gcr.io/k8s-prow/commenter:v20230426-d32ca9cc84
+    name: v20230426-d32ca9cc84
+---
+apiVersion: image.openshift.io/v1
+kind: ImageStream
+metadata:
+  name: crier
+spec:
+  lookupPolicy:
+    local: true
+  tags:
+  - from:
+      kind: ImageStreamTag
+      name: v20230426-d32ca9cc84
+    name: latest
+  - from:
+      kind: DockerImage
+      name: gcr.io/k8s-prow/crier:v20230426-d32ca9cc84
+    name: v20230426-d32ca9cc84
+---
+apiVersion: image.openshift.io/v1
+kind: ImageStream
+metadata:
+  name: deck
+spec:
+  lookupPolicy:
+    local: true
+  tags:
+  - from:
+      kind: ImageStreamTag
+      name: v20230426-d32ca9cc84
+    name: latest
+  - from:
+      kind: DockerImage
+      name: gcr.io/k8s-prow/deck:v20230426-d32ca9cc84
+    name: v20230426-d32ca9cc84
+---
+apiVersion: image.openshift.io/v1
+kind: ImageStream
+metadata:
+  name: entrypoint
+spec:
+  lookupPolicy:
+    local: true
+  tags:
+  - from:
+      kind: ImageStreamTag
+      name: v20230426-d32ca9cc84
+    name: latest
+  - from:
+      kind: DockerImage
+      name: gcr.io/k8s-prow/entrypoint:v20230426-d32ca9cc84
+    name: v20230426-d32ca9cc84
+---
+apiVersion: image.openshift.io/v1
+kind: ImageStream
+metadata:
+  name: hook
+spec:
+  lookupPolicy:
+    local: true
+  tags:
+  - from:
+      kind: ImageStreamTag
+      name: v20230426-d32ca9cc84
+    name: latest
+  - from:
+      kind: DockerImage
+      name: gcr.io/k8s-prow/hook:v20230426-d32ca9cc84
+    name: v20230426-d32ca9cc84
+---
+apiVersion: image.openshift.io/v1
+kind: ImageStream
+metadata:
+  name: horologium
+spec:
+  lookupPolicy:
+    local: true
+  tags:
+  - from:
+      kind: ImageStreamTag
+      name: v20230426-d32ca9cc84
+    name: latest
+  - from:
+      kind: DockerImage
+      name: gcr.io/k8s-prow/horologium:v20230426-d32ca9cc84
+    name: v20230426-d32ca9cc84
+---
+apiVersion: image.openshift.io/v1
+kind: ImageStream
+metadata:
+  name: initupload
+spec:
+  lookupPolicy:
+    local: true
+  tags:
+  - from:
+      kind: ImageStreamTag
+      name: v20230426-d32ca9cc84
+    name: latest
+  - from:
+      kind: DockerImage
+      name: gcr.io/k8s-prow/initupload:v20230426-d32ca9cc84
+    name: v20230426-d32ca9cc84
+---
+apiVersion: image.openshift.io/v1
+kind: ImageStream
+metadata:
+  name: label_sync
+spec:
+  lookupPolicy:
+    local: true
+  tags:
+  - from:
+      kind: ImageStreamTag
+      name: v20230426-d32ca9cc84
+    importPolicy: {}
+    name: latest
+    referencePolicy:
+      type: Source
+  - from:
+      kind: DockerImage
+      name: gcr.io/k8s-prow/label_sync:v20230426-d32ca9cc84
+    name: v20230426-d32ca9cc84
+---
+apiVersion: image.openshift.io/v1
+kind: ImageStream
+metadata:
+  name: needs-rebase
+spec:
+  lookupPolicy:
+    local: true
+  tags:
+  - from:
+      kind: ImageStreamTag
+      name: v20230426-d32ca9cc84
+    name: latest
+  - from:
+      kind: DockerImage
+      name: gcr.io/k8s-prow/needs-rebase:v20230426-d32ca9cc84
+    name: v20230426-d32ca9cc84
+---
+apiVersion: image.openshift.io/v1
+kind: ImageStream
+metadata:
+  name: pipeline
+spec:
+  lookupPolicy:
+    local: true
+  tags:
+  - from:
+      kind: ImageStreamTag
+      name: v20230426-d32ca9cc84
+    name: latest
+  - from:
+      kind: DockerImage
+      name: gcr.io/k8s-prow/pipeline:v20230426-d32ca9cc84
+    name: v20230426-d32ca9cc84
+---
+apiVersion: image.openshift.io/v1
+kind: ImageStream
+metadata:
+  name: prow-controller-manager
+spec:
+  lookupPolicy:
+    local: true
+  tags:
+  - from:
+      kind: ImageStreamTag
+      name: v20230426-d32ca9cc84
+    name: latest
+  - from:
+      kind: DockerImage
+      name: gcr.io/k8s-prow/prow-controller-manager:v20230426-d32ca9cc84
+    name: v20230426-d32ca9cc84
+---
+apiVersion: image.openshift.io/v1
+kind: ImageStream
+metadata:
+  name: sidecar
+spec:
+  lookupPolicy:
+    local: true
+  tags:
+  - from:
+      kind: ImageStreamTag
+      name: v20230426-d32ca9cc84
+    name: latest
+  - from:
+      kind: DockerImage
+      name: gcr.io/k8s-prow/sidecar:v20230426-d32ca9cc84
+    name: v20230426-d32ca9cc84
+---
+apiVersion: image.openshift.io/v1
+kind: ImageStream
+metadata:
+  name: sinker
+spec:
+  lookupPolicy:
+    local: true
+  tags:
+  - from:
+      kind: ImageStreamTag
+      name: v20230426-d32ca9cc84
+    name: latest
+  - from:
+      kind: DockerImage
+      name: gcr.io/k8s-prow/sinker:v20230426-d32ca9cc84
+    name: v20230426-d32ca9cc84
+---
+apiVersion: image.openshift.io/v1
+kind: ImageStream
+metadata:
+  name: status-reconciler
+spec:
+  lookupPolicy:
+    local: true
+  tags:
+  - from:
+      kind: ImageStreamTag
+      name: v20230426-d32ca9cc84
+    name: latest
+  - from:
+      kind: DockerImage
+      name: gcr.io/k8s-prow/status-reconciler:v20230426-d32ca9cc84
+    name: v20230426-d32ca9cc84
+---
+apiVersion: image.openshift.io/v1
+kind: ImageStream
+metadata:
+  name: tide
+spec:
+  lookupPolicy:
+    local: true
+  tags:
+  - from:
+      kind: ImageStreamTag
+      name: v20230426-d32ca9cc84
+    name: latest
+  - from:
+      kind: DockerImage
+      name: gcr.io/k8s-prow/tide:v20230426-d32ca9cc84
+    name: v20230426-d32ca9cc84
