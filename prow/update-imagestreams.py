@@ -57,11 +57,11 @@ def add_tag(imagestream: dict, tag_name: str) -> None:
 
 
 stream = None
-with open("overlays/smaug/imagestreamtags.yaml") as ist:
+with open("overlays/nostromo/imagestreamtags.yaml") as ist:
     stream = load_all(ist.read(), Loader=Loader)
 
 updated_imagestream_tags = []
-current_tag = sys.argv[1] if len(sys.argv) > 1 else "v20220812-9414716697"
+current_tag = sys.argv[1] if len(sys.argv) > 1 else "v20230426-d32ca9cc84"
 for data in stream:
     logging.info(f"updating ImageStream '{data['metadata']['name']}'")
     add_tag(data, current_tag)
@@ -69,5 +69,5 @@ for data in stream:
 
     updated_imagestream_tags.append(data)
 
-with open("overlays/smaug/imagestreamtags.yaml", "w") as ist:
+with open("overlays/nostromo/imagestreamtags.yaml", "w") as ist:
     ist.write(dump_all(updated_imagestream_tags, Dumper=Dumper, sort_keys=True))
