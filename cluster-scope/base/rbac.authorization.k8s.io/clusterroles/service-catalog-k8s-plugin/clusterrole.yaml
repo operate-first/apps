@@ -58,3 +58,11 @@ rules:
   - get
   - watch
   - list
+- apiGroups:
+  - tekton.dev
+  resources:
+  - pipelineruns
+  - taskruns
+  verbs:
+  - get
+  - list
