@@ -11,6 +11,8 @@ spec:
       backoffLimit: 2
       template:
         metadata:
+          annotations:
+            alpha.image.policy.openshift.io/resolve-names: "*"
           name: branchprotector
         spec:
           containers:
