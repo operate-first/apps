@@ -7,6 +7,8 @@ spec:
   backoffLimit: 2
   template:
     metadata:
+      annotations:
+        alpha.image.policy.openshift.io/resolve-names: "*"
       labels:
         name: label-sync
     spec:
