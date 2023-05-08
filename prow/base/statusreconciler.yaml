@@ -31,6 +31,8 @@ subjects:
 apiVersion: apps/v1
 kind: Deployment
 metadata:
+  annotations:
+    alpha.image.policy.openshift.io/resolve-names: "*"
   name: statusreconciler
   labels:
     app: statusreconciler
