@@ -75,8 +75,6 @@ subjects:
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  annotations:
-    alpha.image.policy.openshift.io/resolve-names: "*"
   name: sinker
   labels:
     app: sinker
@@ -96,7 +94,7 @@ spec:
           args:
             - --config-path=/etc/config/config.yaml
             - --dry-run=false
-          image: sinker:latest
+          image: gcr.io/k8s-prow/sinker@sha256:86758572220cd686bfa1714b306dfca28814f33b9406228ffce60a4e2a7fac02
           ports:
             - name: metrics
               containerPort: 9090

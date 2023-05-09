@@ -31,8 +31,6 @@ subjects:
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  annotations:
-    alpha.image.policy.openshift.io/resolve-names: "*"
   name: statusreconciler
   labels:
     app: statusreconciler
@@ -50,7 +48,7 @@ spec:
       terminationGracePeriodSeconds: 180
       containers:
         - name: statusreconciler
-          image: status-reconciler:latest
+          image: gcr.io/k8s-prow/status-reconciler@sha256:ca0ea86388e1efb12025dd2d3e5abc62196401e44ef1a6ba4f662a4c3745a289
           args:
             - --dry-run=false
             - --continue-on-error=true

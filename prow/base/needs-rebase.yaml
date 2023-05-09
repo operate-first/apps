@@ -2,8 +2,6 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  annotations:
-    alpha.image.policy.openshift.io/resolve-names: "*"
   name: needs-rebase
   labels:
     app: needs-rebase
@@ -20,7 +18,7 @@ spec:
       terminationGracePeriodSeconds: 180
       containers:
         - name: needs-rebase
-          image: needs-rebase:latest
+          image: gcr.io/k8s-prow/needs-rebase@sha256:0b75302ed2bdded64fcb8043d14316ff135389bd5b835ad1932a9b7eb28b5f14
           args:
             - --dry-run=false
             - --github-endpoint=http://ghproxy

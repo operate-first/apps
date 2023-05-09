@@ -76,8 +76,6 @@ subjects:
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  annotations:
-    alpha.image.policy.openshift.io/resolve-names: "*"
   name: prow-controller-manager
   labels:
     app: prow-controller-manager
@@ -101,7 +99,7 @@ spec:
             - --github-endpoint=http://ghproxy
             - --github-endpoint=https://api.github.com
             - --enable-controller=plank
-          image: prow-controller-manager:latest
+          image: gcr.io/k8s-prow/prow-controller-manager@sha256:136bd27045a26708613c2932f6d6ca0743364cde143f87b399f8884f20a8c833
           ports:
             - name: metrics
               containerPort: 9090
