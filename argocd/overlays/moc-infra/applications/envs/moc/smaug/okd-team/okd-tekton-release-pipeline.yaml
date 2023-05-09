@@ -1,0 +1,13 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: okd-tekton-release-pipeline
+spec:
+  destination:
+    name: smaug
+    namespace: okd-team
+  project: okd-team
+  source:
+    path: base
+    repoURL: https://github.com/okd-project/okd-release-pipeline.git
+    targetRevision: HEAD
