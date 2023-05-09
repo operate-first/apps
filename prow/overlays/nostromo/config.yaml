@@ -6,9 +6,9 @@ plank:
   default_decoration_configs:
     "*":
       gcs_configuration:
-        bucket: s3://op1st-prow/prow-logs
+        bucket: s3://op1st-emea-b4mad-prow/prow-logs
         path_strategy: explicit
-      s3_credentials_secret: aws-s3
+      s3_credentials_secret: s3-credentials
       ssh_key_secrets:
         - ssh-secret
       utility_images:
