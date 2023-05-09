@@ -9,14 +9,3 @@ resources:
 patchesStrategicMerge:
   - imagestreamtags.yaml
   - unsuspend_branchprotector.yaml
-
-configMapGenerator:
-  - name: config
-    files:
-      - config.yaml
-  - name: plugins
-    files:
-      - plugins.yaml
-
-generatorOptions:
-  disableNameSuffixHash: true
