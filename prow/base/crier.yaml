@@ -69,13 +69,13 @@ spec:
         - name: crier
           image: crier
           args:
-            - --blob-storage-workers=10
             - --config-path=/etc/config/config.yaml
             - --github-token-path=/etc/github/oauth
             - --s3-credentials-file=/etc/s3-credentials/service-account.json
             - --github-endpoint=http://ghproxy
             - --github-endpoint=https://api.github.com
             - --github-workers=10
+            - --blob-storage-workers=10
             - --kubernetes-blob-storage-workers=10
           ports:
             - name: metrics

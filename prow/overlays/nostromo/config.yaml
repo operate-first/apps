@@ -8,7 +8,7 @@ plank:
       gcs_configuration:
         bucket: s3://op1st-prow/prow-logs
         path_strategy: explicit
-      s3_credentials_secret: s3-credentials
+      s3_credentials_secret: aws-s3
       ssh_key_secrets:
         - ssh-secret
       utility_images:
