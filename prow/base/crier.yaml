@@ -48,8 +48,6 @@ subjects:
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  annotations:
-    alpha.image.policy.openshift.io/resolve-names: "*"
   name: crier
   labels:
     app: crier
@@ -67,7 +65,7 @@ spec:
       terminationGracePeriodSeconds: 30
       containers:
         - name: crier
-          image: crier
+          image: gcr.io/k8s-prow/crier@sha256:9a12977f334025204ffb2e7fb6b655a2c011a3a533c3c22ae45ffeb136b043e2
           args:
             - --config-path=/etc/config/config.yaml
             - --github-token-path=/etc/github/oauth
