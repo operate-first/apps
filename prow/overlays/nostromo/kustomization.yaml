@@ -4,9 +4,6 @@ kind: Kustomization
 resources:
   - https://raw.githubusercontent.com/operate-first/apps/master/cluster-scope/base/apiextensions.k8s.io/customresourcedefinitions/prowjobs.prow.k8s.io/customresourcedefinition.yaml
   - ../../base
-  - ghproxy.yaml
-  - routes.yaml
-  - service-monitor.yaml
   - secrets.yaml
 
 patchesStrategicMerge:
