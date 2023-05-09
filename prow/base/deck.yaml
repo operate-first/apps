@@ -39,8 +39,6 @@ subjects:
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  annotations:
-    alpha.image.policy.openshift.io/resolve-names: "*"
   name: deck
   labels:
     app: deck
@@ -63,7 +61,7 @@ spec:
       terminationGracePeriodSeconds: 30
       containers:
         - name: deck
-          image: deck:latest
+          image: gcr.io/k8s-prow/deck@sha256:03136d4412c86defb348c41a25ec735568719e88b2b0b3a47b0bda98e0120665
           args:
             - --config-path=/etc/config/config.yaml
             - --plugin-config=/etc/plugins/plugins.yaml

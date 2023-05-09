@@ -42,8 +42,6 @@ subjects:
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  annotations:
-    alpha.image.policy.openshift.io/resolve-names: "*"
   name: hook
   labels:
     app: hook
@@ -61,7 +59,7 @@ spec:
       terminationGracePeriodSeconds: 180
       containers:
         - name: hook
-          image: hook:latest
+          image: gcr.io/k8s-prow/hook@sha256:b58d726d3fc0e5b6a4270d9f196e975cb8f4429d03148382a98540ac104f3c5a
           args:
             - --dry-run=false
             - --config-path=/etc/config/config.yaml

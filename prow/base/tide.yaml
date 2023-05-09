@@ -34,8 +34,6 @@ subjects:
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  annotations:
-    alpha.image.policy.openshift.io/resolve-names: "*"
   name: tide
   labels:
     app: tide
@@ -54,7 +52,7 @@ spec:
       serviceAccountName: "tide"
       containers:
         - name: tide
-          image: tide:latest
+          image: gcr.io/k8s-prow/tide@sha256:23a1eaadde01766f79a7ab5551b743dde06cbd831c5d1a67581018d0758acdb6
           args:
             - --dry-run=false
             - --config-path=/etc/config/config.yaml

@@ -33,8 +33,6 @@ subjects:
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  annotations:
-    alpha.image.policy.openshift.io/resolve-names: "*"
   name: horologium
   labels:
     app: horologium
@@ -54,7 +52,7 @@ spec:
       terminationGracePeriodSeconds: 30
       containers:
         - name: horologium
-          image: horologium:latest
+          image: gcr.io/k8s-prow/horologium@sha256:6508a6b0e58624e9c300c0c500f34ca10f724b0d487546d16aa64b9b5c5d325d
           args:
             - --dry-run=false
             - --config-path=/etc/config/config.yaml

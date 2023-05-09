@@ -31,8 +31,6 @@ spec:
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  annotations:
-    alpha.image.policy.openshift.io/resolve-names: "*"
   name: ghproxy
   labels:
     app: ghproxy
@@ -48,7 +46,7 @@ spec:
     spec:
       containers:
         - name: ghproxy
-          image: ghproxy:latest
+          image: image-registry.openshift-image-registry.svc:5000/op1st-prow/ghproxy@sha256:672998054a38cf0275400cd2d49b86a884fe7b58976e3ff62cbf54ca5ac9d644
           args:
             - --cache-dir=/cache
             - --cache-sizeGB=9
