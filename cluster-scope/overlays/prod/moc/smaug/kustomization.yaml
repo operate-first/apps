@@ -25,7 +25,6 @@ resources:
   - ../../../../base/core/namespaces/aiops-tools-workshop
   - ../../../../base/core/namespaces/api-designer
   - ../../../../base/core/namespaces/apicurio-apicurio-registry
-  - ../../../../base/core/namespaces/b4mad-minecraft
   - ../../../../base/core/namespaces/bragi
   - ../../../../base/core/namespaces/bu-cs-book-dev
   - ../../../../base/core/namespaces/bu-scsaol
@@ -151,7 +150,6 @@ resources:
   - ../../../../base/storage.k8s.io/storageclasses/ocs-external-storagecluster-ceph-rbd
   - ../../../../base/user.openshift.io/groups/cluster-admins
   - ../../../../bundles/acme-operator
-  - ../../../../bundles/b4mad-racing
   - ../../../../bundles/banzaicloud-vault
   - ../../../../bundles/cert-manager
   - ../../../../bundles/curator

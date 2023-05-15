@@ -30,7 +30,6 @@ in_repo_config:
   enabled:
     aicoe-aiops: true
     AICoE: true
-    b4mad: true
     open-services-group: true
     operate-first: true
     os-climate: true
@@ -40,7 +39,6 @@ in_repo_config:
   allowed_clusters:
     "AICoE": ["api.smaug.na.operate-first.cloud:6443"]
     "aicoe-aiops": ["api.smaug.na.operate-first.cloud:6443"]
-    "b4mad": ["api.smaug.na.operate-first.cloud:6443"]
     "operate-first": ["api.smaug.na.operate-first.cloud:6443"]
     "open-services-group": ["api.smaug.na.operate-first.cloud:6443"]
     "os-climate": ["api.smaug.na.operate-first.cloud:6443"]
@@ -53,9 +51,6 @@ branch_cleaner:
       - main
       - master
     aicoe-aiops:
-      - main
-      - master
-    b4mad:
       - main
       - master
     open-services-group:
@@ -96,17 +91,6 @@ branch-protection:
       repos:
         okr:
           protect: false
-    b4mad:
-      repos:
-        minecraft:
-          protect: true
-          allow_force_pushes: false
-          required_status_checks:
-            contexts:
-              - aicoe-ci/prow/pre-commit
-          include:
-            - "^master"
-            - "^main"
     thoth-station:
       protect: true
       allow_force_pushes: false
@@ -232,7 +216,6 @@ tide:
   merge_method:
     aicoe-aiops: merge
     AICoE: squash
-    b4mad: squash
     open-services-group: merge
     operate-first: squash
     os-climate: merge
@@ -242,12 +225,7 @@ tide:
   queries:
     - orgs:
         - aicoe-aiops
-        - b4mad
         - open-services-group
-      excludedRepos:
-        - b4mad/sirius
-        - b4mad/airdata
-        - b4mad/auddress
       labels:
         - approved
       missingLabels:
@@ -499,7 +477,6 @@ periodics:
         - name: token
           secret:
             secretName: oauth-token
-
 
   - name: periodic-close-needs-input
     interval: 3h

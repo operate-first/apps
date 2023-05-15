@@ -1,9 +1,0 @@
-apiVersion: user.openshift.io/v1
-kind: Group
-metadata:
-  name: b4mad
-users:
-  - goern
-  - durandom
-  - ppatierno
-  - Alex-exe-dev

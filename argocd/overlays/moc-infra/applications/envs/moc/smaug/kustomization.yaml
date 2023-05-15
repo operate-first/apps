@@ -3,13 +3,12 @@ kind: Kustomization
 namespace: argocd
 nameSuffix: -smaug
 resources:
-- apicurio
-- b4mad
-- cluster-management
-- data-science
-- janus-idp
-- okd-team
-- operate-first
-- thoth
-- copilot-ops
-- kruize
+  - apicurio
+  - cluster-management
+  - data-science
+  - janus-idp
+  - okd-team
+  - operate-first
+  - thoth
+  - copilot-ops
+  - kruize
