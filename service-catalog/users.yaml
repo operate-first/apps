@@ -6,4 +6,3 @@ metadata:
 spec:
   targets:
     - ./users/operate-first.yaml
-    - ./users/pulp.yaml

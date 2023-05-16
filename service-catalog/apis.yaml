@@ -13,5 +13,4 @@ spec:
     - ./apis/grafana.yaml
     - ./apis/mco-grafana.yaml
     - ./apis/observatorium.yaml
-    - ./apis/pulp.yaml
     - ./apis/vault.yaml
