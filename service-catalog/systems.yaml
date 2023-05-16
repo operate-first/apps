@@ -16,7 +16,6 @@ spec:
     - ./systems/openshift-pipelines.yaml
     - ./systems/peribolos.yaml
     - ./systems/prow.yaml
-    - ./systems/pulp.yaml
     - ./systems/reloader.yaml
     - ./systems/secret-management.yaml
     - ./systems/service-catalog.yaml

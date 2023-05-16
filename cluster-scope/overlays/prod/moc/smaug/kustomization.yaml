@@ -72,7 +72,6 @@ resources:
   - ../../../../base/core/namespaces/opf-jupyterhub-stage
   - ../../../../base/core/namespaces/opf-kafka
   - ../../../../base/core/namespaces/opf-observatorium
-  - ../../../../base/core/namespaces/opf-pulp
   - ../../../../base/core/namespaces/opf-seldon
   - ../../../../base/core/namespaces/opf-slack-first
   - ../../../../base/core/namespaces/opf-superset
@@ -113,7 +112,6 @@ resources:
   - ../../../../base/operators.coreos.com/operatorgroups/openshift-cnv-rn5jf
   - ../../../../base/operators.coreos.com/operatorgroups/openshift-vertical-pod-autoscaler
   - ../../../../base/operators.coreos.com/operatorgroups/opf-monitoring
-  - ../../../../base/operators.coreos.com/operatorgroups/opf-pulp
   - ../../../../base/operators.coreos.com/operatorgroups/rapidast
   - ../../../../base/operators.coreos.com/subscriptions/camel-k
   - ../../../../base/operators.coreos.com/subscriptions/cluster-logging
@@ -123,7 +121,6 @@ resources:
   - ../../../../base/operators.coreos.com/subscriptions/kubevirt-hyperconverged
   - ../../../../base/operators.coreos.com/subscriptions/minio-operator
   - ../../../../base/operators.coreos.com/subscriptions/ovms-operator
-  - ../../../../base/operators.coreos.com/subscriptions/pulp-operator
   - ../../../../base/operators.coreos.com/subscriptions/rapidast
   - ../../../../base/operators.coreos.com/subscriptions/snapscheduler
   - ../../../../base/operators.coreos.com/subscriptions/strimzi

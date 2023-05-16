@@ -7,7 +7,6 @@ resources:
   - cluster-management
   - operate-first
   - prometheus
-  - pulp
   - thanos
   - thoth-station
   - kubeflow

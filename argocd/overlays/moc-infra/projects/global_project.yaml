@@ -4,31 +4,31 @@ metadata:
   name: global-project
 spec:
   sourceRepos:
-    - 'https://github.com/operate-first/*'
+    - "https://github.com/operate-first/*"
   namespaceResourceWhitelist:
-    - group: ''
+    - group: ""
       kind: Binding
-    - group: ''
+    - group: ""
       kind: ConfigMap
-    - group: ''
+    - group: ""
       kind: Endpoints
-    - group: ''
+    - group: ""
       kind: Event
-    - group: ''
+    - group: ""
       kind: LimitRange
-    - group: ''
+    - group: ""
       kind: PersistentVolumeClaim
-    - group: ''
+    - group: ""
       kind: Pod
-    - group: ''
+    - group: ""
       kind: ReplicationController
-    - group: ''
+    - group: ""
       kind: ResourceQuota
-    - group: ''
+    - group: ""
       kind: Secret
-    - group: ''
+    - group: ""
       kind: ServiceAccount
-    - group: ''
+    - group: ""
       kind: Service
     - group: apps
       kind: ControllerRevision
@@ -168,12 +168,6 @@ spec:
       kind: PackageManifest
     - group: policy
       kind: PodDisruptionBudget
-    - group: repo-manager.pulpproject.org
-      kind: Pulp
-    - group: repo-manager.pulpproject.org
-      kind: PulpBackup
-    - group: repo-manager.pulpproject.org
-      kind: PulpRestore
     - group: quota.openshift.io
       kind: AppliedClusterResourceQuota
     - group: rbac.authorization.k8s.io
