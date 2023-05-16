@@ -11,7 +11,6 @@ resources:
   - ../../../base/user.openshift.io/groups/adoptium
   - ../../../base/user.openshift.io/groups/ai-services
   - ../../../base/user.openshift.io/groups/ai4cloudops
-  - ../../../base/user.openshift.io/groups/aiops-tools-workshop-admins
   - ../../../base/user.openshift.io/groups/apicurio
   - ../../../base/user.openshift.io/groups/argocd-admins
   - ../../../base/user.openshift.io/groups/boatroackers
@@ -90,6 +89,5 @@ resources:
   - ../../../base/user.openshift.io/groups/uky-redhat
   - ../../../base/user.openshift.io/groups/varangian
   - ../../../base/user.openshift.io/groups/wildfly
-  - ../../../base/user.openshift.io/groups/workshops
   - ../../../bundles/opf-monitoring
   - ../../../bundles/service-catalog-k8s-plugin

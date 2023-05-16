@@ -1,7 +1,0 @@
-apiVersion: v1
-kind: Secret
-metadata:
-    name: minio
-stringData:
-    accesskey: "1234"
-    secretkey: "1234567890"
