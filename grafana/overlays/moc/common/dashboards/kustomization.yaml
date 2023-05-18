@@ -11,4 +11,3 @@ resources:
   - thoth-station
   - kubeflow
   - odh
-  - b4mad

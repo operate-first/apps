@@ -13,7 +13,6 @@ resources:
   - ../../../base/user.openshift.io/groups/ai4cloudops
   - ../../../base/user.openshift.io/groups/apicurio
   - ../../../base/user.openshift.io/groups/argocd-admins
-  - ../../../base/user.openshift.io/groups/b4mad
   - ../../../base/user.openshift.io/groups/boatroackers
   - ../../../base/user.openshift.io/groups/boston-university-redhat
   - ../../../base/user.openshift.io/groups/bu-cs-book-dev

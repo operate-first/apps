@@ -76,11 +76,6 @@ require_matching_label:
       Please see the [group list](https://github.com/thoth-station/core/blob/master/community/sig-list.md) for a listing of the SIGs, and working groups available.
 
 external_plugins:
-  b4mad:
-    - name: needs-rebase
-      events:
-        - issue_comment
-        - pull_request
   thoth-station:
     - name: needs-rebase
       events:
@@ -119,7 +114,6 @@ external_plugins:
 
 welcome:
   - repos:
-      - b4mad
       - AICoE
       - aicoe-aiops
       - open-services-group
@@ -131,7 +125,6 @@ lgtm:
   - repos:
       - AICoE
       - aicoe-aiops
-      - b4mad
       - open-services-group
       - operate-first
       - os-climate
@@ -142,7 +135,6 @@ approve:
   - repos:
       - AICoE
       - aicoe-aiops
-      - b4mad
       - open-services-group
       - operate-first
       - os-climate
@@ -153,15 +145,15 @@ approve:
     lgtm_acts_as_approve: false
 
 triggers:
-- repos:
-  - operate-first/apps
-  trusted_apps:
-  - robozome-op1st
-- repos:
-  - operate-first
-  trusted_apps:
-  - renovate
-  - dependabot
+  - repos:
+      - operate-first/apps
+    trusted_apps:
+      - robozome-op1st
+  - repos:
+      - operate-first
+    trusted_apps:
+      - renovate
+      - dependabot
 
 repo_milestone:
   "":
@@ -214,22 +206,6 @@ project_manager:
               state: open
 
 plugins:
-  b4mad:
-    plugins:
-      - approve
-      - assign
-      - blockade
-      - blunderbuss
-      - help
-      - hold
-      - label
-      - lgtm
-      - lifecycle
-      - shrug
-      - size
-      - trigger
-      - verify-owners
-      - wip
   open-services-group:
     plugins:
       - approve

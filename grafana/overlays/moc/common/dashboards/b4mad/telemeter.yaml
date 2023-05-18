@@ -1,7 +1,0 @@
-apiVersion: integreatly.org/v1alpha1
-kind: GrafanaDashboard
-metadata:
-  name: b4mad-telemeter
-spec:
-  customFolderName: B4mad
-  url: https://raw.githubusercontent.com/b4mad/racing/main/dashboards/operate-first/telegraf-internal.json
